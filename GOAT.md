@@ -9,7 +9,7 @@ To make the mathematical description as simple as possible, a vector as well as 
 
 The library is divided into two parts: 
 
-This part includes the raytracer and the description of the scene with the objects and light sources. 
+
 
 
 
