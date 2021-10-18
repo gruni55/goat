@@ -1,0 +1,243 @@
+\hypertarget{class_ellipsoid}{}\doxysection{Ellipsoid Class Reference}
+\label{class_ellipsoid}\index{Ellipsoid@{Ellipsoid}}
+
+
+This class represents an ellipsoid, defined by its half axis a, b and c according to the formula\+: $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$.  
+
+
+
+
+{\ttfamily \#include $<$ellipsoid.\+h$>$}
+
+Inheritance diagram for Ellipsoid\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_ellipsoid}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ellipsoid_a40e12d308ae2aab44372f3c23209aac3}\label{class_ellipsoid_a40e12d308ae2aab44372f3c23209aac3}} 
+{\bfseries Ellipsoid} (const \mbox{\hyperlink{class_object_shape}{Object\+Shape}} \&)
+\item 
+\mbox{\Hypertarget{class_ellipsoid_abf666dcb058de68e6499926a3bb6b9c7}\label{class_ellipsoid_abf666dcb058de68e6499926a3bb6b9c7}} 
+\mbox{\hyperlink{class_ellipsoid_abf666dcb058de68e6499926a3bb6b9c7}{Ellipsoid}} (const \mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} \&E)
+\begin{DoxyCompactList}\small\item\em Copy Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_ellipsoid_a7465b23b3f94094736db83e27a5ef7f3}{Ellipsoid}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_object_shape_a6f30fe47f526f28a3f5b83ce92ae422c}{P}}, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}{r}}, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_object_shape_a2317c3e62a0028ceb7074c026599b4d2}{n}}, double \mbox{\hyperlink{class_object_shape_a5e968899de0583c41f6bad1a23be391b}{r0}}=1.\+0, const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_object_shape_a165f404eca226d65dbc6da810e5b7d04}{alpha}}=\mbox{\hyperlink{matrix_8h_a69a60d4c2f5edb6d0faeb760343d2762}{C\+U\+N\+I\+TY}}, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&Ex=ex, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&Ey=ey, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&Ez=ez)
+\begin{DoxyCompactList}\small\item\em Main constructor for class \mbox{\hyperlink{class_ellipsoid}{Ellipsoid}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_acd4d3b70d219b3bf4a6c567c8dc33a71}\label{class_ellipsoid_acd4d3b70d219b3bf4a6c567c8dc33a71}} 
+void \mbox{\hyperlink{class_ellipsoid_acd4d3b70d219b3bf4a6c567c8dc33a71}{scale}} (double \mbox{\hyperlink{class_object_shape_af720db107d7a5b4fda9e177963aa5b43}{sf}})
+\begin{DoxyCompactList}\small\item\em Set the scaling factor (the half axis will be multiplied by this factor) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ellipsoid_a61b8b80846a443afcf8f155a2f6822c1}{next}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&Ps, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&K, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&pout)
+\begin{DoxyCompactList}\small\item\em Calculates the next intersection point with a ray, which is represented by a reference point and the direction vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_ae3ed8fcbb94402cfbbe79513dde2e71d}\label{class_ellipsoid_ae3ed8fcbb94402cfbbe79513dde2e71d}} 
+\mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} \& {\bfseries operator=} (\mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} \&f)
+\item 
+\mbox{\Hypertarget{class_ellipsoid_a0df1625eafd66e1ba2066659f83320d0}\label{class_ellipsoid_a0df1625eafd66e1ba2066659f83320d0}} 
+\mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} \& {\bfseries operator=} (\mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} f)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a524a0538b7437820df17114e6f0dc1d5}{norm}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em calculates the surface normal of the ellipsoid at a certain point (p must be on the surface) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_ellipsoid_adef671a60fc4c49b6f85597e4fcd76f5}{is\+Inside}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Checks if a certain position is inside the object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_acadb6da3509532f07ced7d85338caa76}\label{class_ellipsoid_acadb6da3509532f07ced7d85338caa76}} 
+double \mbox{\hyperlink{class_ellipsoid_acadb6da3509532f07ced7d85338caa76}{volume}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the volume of the ellipsoid. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_ad50b50471a244b901134cfeead823203}\label{class_ellipsoid_ad50b50471a244b901134cfeead823203}} 
+void \mbox{\hyperlink{class_ellipsoid_ad50b50471a244b901134cfeead823203}{init\+Quad}} ()
+\begin{DoxyCompactList}\small\item\em Sets the circumscribing cuboid (for use in inelastic calculations) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a06f42a5ec5cb7b68e17e4956b676f18e}\label{class_ellipsoid_a06f42a5ec5cb7b68e17e4956b676f18e}} 
+void \mbox{\hyperlink{class_ellipsoid_a06f42a5ec5cb7b68e17e4956b676f18e}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em Writes information about the ellipsoid in a binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a875d06a11eeda82f4d35a5947a73a547}\label{class_ellipsoid_a875d06a11eeda82f4d35a5947a73a547}} 
+void \mbox{\hyperlink{class_ellipsoid_a875d06a11eeda82f4d35a5947a73a547}{bin\+Read}} (std\+::ifstream \&os)
+\begin{DoxyCompactList}\small\item\em Reads informatopn about an ellipsoid from a binary file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a25236a6f5e18238bed69c8861fa0a927}\label{class_ellipsoid_a25236a6f5e18238bed69c8861fa0a927}} 
+double \mbox{\hyperlink{class_ellipsoid_a25236a6f5e18238bed69c8861fa0a927}{a}} ()
+\begin{DoxyCompactList}\small\item\em Returns the length of the first half axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a6e305eafeed03161494ba56aeac78db8}\label{class_ellipsoid_a6e305eafeed03161494ba56aeac78db8}} 
+double \mbox{\hyperlink{class_ellipsoid_a6e305eafeed03161494ba56aeac78db8}{b}} ()
+\begin{DoxyCompactList}\small\item\em Returns the length of the second half axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a0e6464d7ab52f90d524469e2b0b4a9a8}\label{class_ellipsoid_a0e6464d7ab52f90d524469e2b0b4a9a8}} 
+double \mbox{\hyperlink{class_ellipsoid_a0e6464d7ab52f90d524469e2b0b4a9a8}{c}} ()
+\begin{DoxyCompactList}\small\item\em Returns the length of the third half axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a008c05b74ce2754fe4481b9db106c2b1}\label{class_ellipsoid_a008c05b74ce2754fe4481b9db106c2b1}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a008c05b74ce2754fe4481b9db106c2b1}{getr}} ()
+\begin{DoxyCompactList}\small\item\em Returns a vector, where its components are the lengths of the three half axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a90182af698a1be41f5869136ef6f14c6}\label{class_ellipsoid_a90182af698a1be41f5869136ef6f14c6}} 
+void \mbox{\hyperlink{class_ellipsoid_a90182af698a1be41f5869136ef6f14c6}{setP}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}{r}})
+\begin{DoxyCompactList}\small\item\em Set the position of the ellipsoid (center) to r. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a91c0bd4838222afa36aa1c1927ab6b3d}\label{class_ellipsoid_a91c0bd4838222afa36aa1c1927ab6b3d}} 
+void \mbox{\hyperlink{class_ellipsoid_a91c0bd4838222afa36aa1c1927ab6b3d}{setP}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Sets the position of the ellipsoid(center) to a vector, represented by its components x,y and z. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a97e5b251db036ab7f10f9a8ee75a9af2}\label{class_ellipsoid_a97e5b251db036ab7f10f9a8ee75a9af2}} 
+void \mbox{\hyperlink{class_ellipsoid_a97e5b251db036ab7f10f9a8ee75a9af2}{setr}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}{r}})
+\begin{DoxyCompactList}\small\item\em Sets the lengths of the three half axis, represented by the components of r. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_ac09426a974024f3dd3c17582b9f1f2a7}\label{class_ellipsoid_ac09426a974024f3dd3c17582b9f1f2a7}} 
+void \mbox{\hyperlink{class_ellipsoid_ac09426a974024f3dd3c17582b9f1f2a7}{setr}} (double \mbox{\hyperlink{class_ellipsoid_a25236a6f5e18238bed69c8861fa0a927}{a}}, double \mbox{\hyperlink{class_ellipsoid_a6e305eafeed03161494ba56aeac78db8}{b}}, double \mbox{\hyperlink{class_ellipsoid_a0e6464d7ab52f90d524469e2b0b4a9a8}{c}})
+\begin{DoxyCompactList}\small\item\em Sets the lengths of the three half axis, represented by a, b and c. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_ellipsoid_af5475c05823d207b1e1bd040e44f7999}{seta}} (double \mbox{\hyperlink{class_ellipsoid_a25236a6f5e18238bed69c8861fa0a927}{a}}, bool V\+Const=false)
+\item 
+void \mbox{\hyperlink{class_ellipsoid_ae0081457353c243702be3432543dc067}{setb}} (double \mbox{\hyperlink{class_ellipsoid_a6e305eafeed03161494ba56aeac78db8}{b}}, bool V\+Const=false)
+\item 
+void \mbox{\hyperlink{class_ellipsoid_a916cf36208ca652d5d58d92511ed5287}{setc}} (double \mbox{\hyperlink{class_ellipsoid_a0e6464d7ab52f90d524469e2b0b4a9a8}{c}}, bool V\+Const=false)
+\item 
+\mbox{\Hypertarget{class_ellipsoid_a2af8367cec590b57d128de205cb49b9e}\label{class_ellipsoid_a2af8367cec590b57d128de205cb49b9e}} 
+void \mbox{\hyperlink{class_ellipsoid_a2af8367cec590b57d128de205cb49b9e}{setr0}} (double \mbox{\hyperlink{class_object_shape_a5e968899de0583c41f6bad1a23be391b}{r0}})
+\begin{DoxyCompactList}\small\item\em defines the radius of the calculation sphere \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_aa200d862b61dfccc49123bc4da32f82a}\label{class_ellipsoid_aa200d862b61dfccc49123bc4da32f82a}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_aa200d862b61dfccc49123bc4da32f82a}{calc\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the center of mass, which is in the case of an ellipsoid simply its center, P. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a3ce14a0c75440e2310a0547decd7159c}\label{class_ellipsoid_a3ce14a0c75440e2310a0547decd7159c}} 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a3ce14a0c75440e2310a0547decd7159c}{compute\+Inertia}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the inertia matrix of the ellipsoid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}\label{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a0529fddcdbb9aa68207530768800b3f8}{r}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_vector}{Vector}}, where its components represent the lengths of the corresponding half axis. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_ae4b8dcbb062563b6c19bf7556980b688}\label{class_ellipsoid_ae4b8dcbb062563b6c19bf7556980b688}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_ae4b8dcbb062563b6c19bf7556980b688}{r\+\_\+2}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_vector}{Vector}}, where its components represent the square of lengths of the corresponding half axis (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ellipsoid_a901aa585959f5f19cf8d5d5f59700e6f}\label{class_ellipsoid_a901aa585959f5f19cf8d5d5f59700e6f}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ellipsoid_a901aa585959f5f19cf8d5d5f59700e6f}{P2}}
+\begin{DoxyCompactList}\small\item\em Square of the position vector P\+: P2=(P\mbox{[}0\mbox{]}$^\wedge$2,P\mbox{[}1\mbox{]}$^\wedge$2,P\mbox{[}2\mbox{]}$^\wedge$2) (for internal use only) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ellipsoid_aa2e883a4ade6c232a305daa7da26eae2}\label{class_ellipsoid_aa2e883a4ade6c232a305daa7da26eae2}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{class_ellipsoid}{Ellipsoid}} E)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents an ellipsoid, defined by its half axis a, b and c according to the formula\+: $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ellipsoid_a7465b23b3f94094736db83e27a5ef7f3}\label{class_ellipsoid_a7465b23b3f94094736db83e27a5ef7f3}} 
+\index{Ellipsoid@{Ellipsoid}!Ellipsoid@{Ellipsoid}}
+\index{Ellipsoid@{Ellipsoid}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{Ellipsoid()}{Ellipsoid()}}
+{\footnotesize\ttfamily Ellipsoid\+::\+Ellipsoid (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{P,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r,  }\item[{std\+::complex$<$ double $>$}]{n,  }\item[{double}]{r0 = {\ttfamily 1.0},  }\item[{const \mbox{\hyperlink{class_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha = {\ttfamily \mbox{\hyperlink{matrix_8h_a69a60d4c2f5edb6d0faeb760343d2762}{C\+U\+N\+I\+TY}}},  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{Ex = {\ttfamily ex},  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{Ey = {\ttfamily ey},  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{Ez = {\ttfamily ez} }\end{DoxyParamCaption})}
+
+
+
+Main constructor for class \mbox{\hyperlink{class_ellipsoid}{Ellipsoid}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Position of the ellipsoid (center of the ellipsoid) \\
+\hline
+{\em r} & The components of this vector represents the length of the half axis along the x-\/, y-\/ and z-\/axis \\
+\hline
+{\em n} & (Complex) refractive index \\
+\hline
+{\em r0} & Radius of the calculation sphere (optional, needed by \mbox{\hyperlink{class_ellipsoid_a61b8b80846a443afcf8f155a2f6822c1}{next()}}). If the \mbox{\hyperlink{class_scene}{Scene}} class is used, the radius of the \mbox{\hyperlink{class_scene}{Scene}} class will be used for the calculation \\
+\hline
+{\em alpha} & Polarisability (for inelastic calculations only) Directions of the local coordinate system \\
+\hline
+{\em Ex} & \\
+\hline
+{\em Ey} & \\
+\hline
+{\em Ez} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ellipsoid_adef671a60fc4c49b6f85597e4fcd76f5}\label{class_ellipsoid_adef671a60fc4c49b6f85597e4fcd76f5}} 
+\index{Ellipsoid@{Ellipsoid}!isInside@{isInside}}
+\index{isInside@{isInside}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{isInside()}{isInside()}}
+{\footnotesize\ttfamily bool Ellipsoid\+::is\+Inside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Checks if a certain position is inside the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Position to check \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if the position is inside otherwise false. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_object_shape_a575691910a14f0d19ac887eaf60467f1}{Object\+Shape}}.
+
+\mbox{\Hypertarget{class_ellipsoid_a61b8b80846a443afcf8f155a2f6822c1}\label{class_ellipsoid_a61b8b80846a443afcf8f155a2f6822c1}} 
+\index{Ellipsoid@{Ellipsoid}!next@{next}}
+\index{next@{next}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily bool Ellipsoid\+::next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{Ps,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{K,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{pout }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Calculates the next intersection point with a ray, which is represented by a reference point and the direction vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ps} & Reference point of the ray \\
+\hline
+{\em K} & Direction of the ray \\
+\hline
+{\em pout} & Intersection point (zero if not found) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true, if an intersection point was found, otherwise false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_object_shape_a9222f0aa8f70cb4f8ee3412727889fad}{Object\+Shape}}.
+
+\mbox{\Hypertarget{class_ellipsoid_a524a0538b7437820df17114e6f0dc1d5}\label{class_ellipsoid_a524a0538b7437820df17114e6f0dc1d5}} 
+\index{Ellipsoid@{Ellipsoid}!norm@{norm}}
+\index{norm@{norm}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ Ellipsoid\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+calculates the surface normal of the ellipsoid at a certain point (p must be on the surface) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & \mbox{\hyperlink{struct_point}{Point}} at which the normal will be calculated \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+surface normal 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_object_shape_aeb191bae08862d48c2ffa307966d73fb}{Object\+Shape}}.
+
+\mbox{\Hypertarget{class_ellipsoid_af5475c05823d207b1e1bd040e44f7999}\label{class_ellipsoid_af5475c05823d207b1e1bd040e44f7999}} 
+\index{Ellipsoid@{Ellipsoid}!seta@{seta}}
+\index{seta@{seta}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{seta()}{seta()}}
+{\footnotesize\ttfamily void Ellipsoid\+::seta (\begin{DoxyParamCaption}\item[{double}]{a,  }\item[{bool}]{V\+Const = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Changes the length of the first half axis. If V\+Const is set true, the lengths of the other half axis are changed by the factor $\sqrt{\frac{a_{old}}{a_{new}}}$, otherwise the other half axis remain the same \mbox{\Hypertarget{class_ellipsoid_ae0081457353c243702be3432543dc067}\label{class_ellipsoid_ae0081457353c243702be3432543dc067}} 
+\index{Ellipsoid@{Ellipsoid}!setb@{setb}}
+\index{setb@{setb}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{setb()}{setb()}}
+{\footnotesize\ttfamily void Ellipsoid\+::setb (\begin{DoxyParamCaption}\item[{double}]{b,  }\item[{bool}]{V\+Const = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Changes the length of the second half axis. If V\+Const is set true, the lengths of the other half axis are changed by the factor $\sqrt{\frac{b_{old}}{b_{new}}}$ to keep the volume constant, otherwise the other half axis remain the same \mbox{\Hypertarget{class_ellipsoid_a916cf36208ca652d5d58d92511ed5287}\label{class_ellipsoid_a916cf36208ca652d5d58d92511ed5287}} 
+\index{Ellipsoid@{Ellipsoid}!setc@{setc}}
+\index{setc@{setc}!Ellipsoid@{Ellipsoid}}
+\doxysubsubsection{\texorpdfstring{setc()}{setc()}}
+{\footnotesize\ttfamily void Ellipsoid\+::setc (\begin{DoxyParamCaption}\item[{double}]{c,  }\item[{bool}]{V\+Const = {\ttfamily false} }\end{DoxyParamCaption})}
+
+Changes the length of the third half axis. If V\+Const is set true, the lengths of the other half axis are changed by the factor $\sqrt{\frac{c_{old}}{c_{new}}}$ to keep the volume constant, otherwise the other half axis remain the same 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/ellipsoid.\+h\end{DoxyCompactItemize}

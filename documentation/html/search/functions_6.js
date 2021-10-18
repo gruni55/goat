@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['getanzrays_404',['getAnzRays',['../class_light_src.html#a43f6db4d375565f96098692893cfd135',1,'LightSrc']]],
+  ['getcurrentindex_405',['getCurrentIndex',['../classsurface.html#a7dd12f6579063ad9f33d38e009676ec3',1,'surface']]],
+  ['getdensity_406',['getDensity',['../class_light_src.html#a0e223a03616f34c4d0d3d8b0a1b25aa6',1,'LightSrc']]],
+  ['gete_407',['getE',['../class_i_ray.html#ad10c3a4350dde2126e5b8294d414cdab',1,'IRay::getE()'],['../class_ray_base.html#a44a663fc3f9c1297a97e0d5ae26ba3b8',1,'RayBase::getE()'],['../classtubed_ray.html#a6a6aefab1cf42b4f5890fe03b311ab41',1,'tubedRay::getE()']]],
+  ['getfname_408',['getFName',['../classsurface.html#ad40b70bcb7e20543752f01467e8f230a',1,'surface']]],
+  ['getfocuspos_409',['getFocuspos',['../class_light_src_gauss.html#a20f345927ec15277ad0760e25db77863',1,'LightSrcGauss']]],
+  ['getk_410',['getk',['../class_i_ray.html#a696a1f2ff53ef8c4102633d376eb3c0d',1,'IRay::getk()'],['../class_light_src.html#a494781e0815ede96495322996c3f646f',1,'LightSrc::getk()'],['../class_ray_base.html#a89b8cca970b88ca33d0234a14851d180',1,'RayBase::getk()'],['../classtubed_ray.html#afe8894ce48d29ae01ce2e99130cdc7ad',1,'tubedRay::getk()']]],
+  ['getksystem_411',['getKSystem',['../vector_8h.html#a692a1996d44a95f383edf9d176deabea',1,'vector.h']]],
+  ['getminmax_412',['getMinMax',['../classsurface.html#a552f65cce1c7ead6020099a47512ce76',1,'surface']]],
+  ['getn_413',['getn',['../class_object_shape.html#ac66c5a0714094b00f0b8bfdadbb54f65',1,'ObjectShape']]],
+  ['getna_414',['getNA',['../class_light_src_gauss.html#a77a1466f77d12aa3e007e523f3bd7bf5',1,'LightSrcGauss']]],
+  ['getninel_415',['getninel',['../class_object_shape.html#ae47440ac74e7e009ef2f69b0c14a190c',1,'ObjectShape']]],
+  ['getnorm_416',['getnorm',['../classtriangle.html#a552dcb8a1461e4dc63bc35ddfb54fa19',1,'triangle']]],
+  ['getnumobjs_417',['getNumObjs',['../class_light_src.html#a83892918e1e6a6ef8e52223351cd8b93',1,'LightSrc']]],
+  ['getobject_418',['getObject',['../class_i_ray.html#afa3cfc177a12e1d29fbfd7d76e17f44f',1,'IRay::getObject()'],['../class_light_src.html#a542941c92730d447d83740f50c602d6a',1,'LightSrc::getObject()']]],
+  ['getp_419',['getP',['../class_i_ray.html#ad4291b0b127f5f4ac4cd5d3780b2b394',1,'IRay::getP()'],['../class_ray_base.html#a3efdf049ac109d7d3843a87118da0037',1,'RayBase::getP()'],['../classtubed_ray.html#a0d4424db8e620daff2e8c8fd0c3de511',1,'tubedRay::getP()']]],
+  ['getpos_420',['getPos',['../class_light_src.html#ae06d3ca197bbe4ebfeac507716657a87',1,'LightSrc']]],
+  ['getr_421',['getr',['../class_ellipsoid.html#a008c05b74ce2754fe4481b9db106c2b1',1,'Ellipsoid']]],
+  ['getrefract_422',['getRefract',['../class_i_ray.html#a78f3bf705f2ce5a2022ed278ce87e628',1,'IRay::getRefract()'],['../classtubed_ray.html#a7b03b353aa0594548bcef7b7dbdb4b51',1,'tubedRay::getRefract()']]],
+  ['getshowoutgoingrays_423',['getShowOutgoingRays',['../class_raytrace___path.html#ae58aff33d58a760a4bdbcf412d9fedd6',1,'Raytrace_Path']]],
+  ['getsize_424',['getSize',['../class_box.html#a06899ec9560e98863258f5b90b7c8d73',1,'Box']]],
+  ['gettriangle_425',['getTriangle',['../classsurface.html#a6c1fcce3810c6680ffa62a348cb0d82c',1,'surface']]]
+];

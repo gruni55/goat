@@ -1,0 +1,80 @@
+\hypertarget{class_ray_base}{}\doxysection{Ray\+Base Class Reference}
+\label{class_ray_base}\index{RayBase@{RayBase}}
+
+
+{\ttfamily \#include $<$raybase.\+h$>$}
+
+Inheritance diagram for Ray\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_ray_base}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ray_base_a74fb0d6b2376836543cc153bd7f3d8e0}\label{class_ray_base_a74fb0d6b2376836543cc153bd7f3d8e0}} 
+virtual bool {\bfseries next} ()=0
+\item 
+\mbox{\Hypertarget{class_ray_base_a89b8cca970b88ca33d0234a14851d180}\label{class_ray_base_a89b8cca970b88ca33d0234a14851d180}} 
+virtual \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ray_base_a89b8cca970b88ca33d0234a14851d180}{getk}} ()=0
+\begin{DoxyCompactList}\small\item\em gives back direction \mbox{\hyperlink{class_vector}{Vector}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a44a663fc3f9c1297a97e0d5ae26ba3b8}\label{class_ray_base_a44a663fc3f9c1297a97e0d5ae26ba3b8}} 
+virtual \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_ray_base_a44a663fc3f9c1297a97e0d5ae26ba3b8}{getE}} ()=0
+\begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a3efdf049ac109d7d3843a87118da0037}\label{class_ray_base_a3efdf049ac109d7d3843a87118da0037}} 
+virtual \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_ray_base_a3efdf049ac109d7d3843a87118da0037}{getP}} ()=0
+\begin{DoxyCompactList}\small\item\em gives back position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a444e20471947a7cca1a95e1fc82e8a9e}\label{class_ray_base_a444e20471947a7cca1a95e1fc82e8a9e}} 
+virtual bool \mbox{\hyperlink{class_ray_base_a444e20471947a7cca1a95e1fc82e8a9e}{is\+In\+Object}} ()=0
+\begin{DoxyCompactList}\small\item\em true if ray is in an object otherwise false \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a08b966d52b559d7e80027152b3e5c46b}\label{class_ray_base_a08b966d52b559d7e80027152b3e5c46b}} 
+virtual int \mbox{\hyperlink{class_ray_base_a08b966d52b559d7e80027152b3e5c46b}{object\+Index}} ()=0
+\begin{DoxyCompactList}\small\item\em index of the current object or -\/1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_adcc2559a447806dd764db1b7f4d4fad3}\label{class_ray_base_adcc2559a447806dd764db1b7f4d4fad3}} 
+virtual void \mbox{\hyperlink{class_ray_base_adcc2559a447806dd764db1b7f4d4fad3}{reflect\+Ray}} (\mbox{\hyperlink{class_ray_base}{Ray\+Base}} $\ast$\&\mbox{\hyperlink{class_ray_base_ac2be3973a469802af13a50b23b6f1237}{tray}}, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ n, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)=0
+\begin{DoxyCompactList}\small\item\em reflects ray \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ray_base_ac2be3973a469802af13a50b23b6f1237}\label{class_ray_base_ac2be3973a469802af13a50b23b6f1237}} 
+\mbox{\hyperlink{class_ray_base}{Ray\+Base}} $\ast$ \mbox{\hyperlink{class_ray_base_ac2be3973a469802af13a50b23b6f1237}{tray}}
+\begin{DoxyCompactList}\small\item\em transmitted ray (used by the raytracer, for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a2aaf98cee8308ecd33ed5478d672c4f5}\label{class_ray_base_a2aaf98cee8308ecd33ed5478d672c4f5}} 
+bool \mbox{\hyperlink{class_ray_base_a2aaf98cee8308ecd33ed5478d672c4f5}{in\+Object}}
+\begin{DoxyCompactList}\small\item\em is in an object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a251a10522027ae6c3a432ee8ca5a842f}\label{class_ray_base_a251a10522027ae6c3a432ee8ca5a842f}} 
+\mbox{\hyperlink{class_object_shape}{Object\+Shape}} $\ast$$\ast$ \mbox{\hyperlink{class_ray_base_a251a10522027ae6c3a432ee8ca5a842f}{Obj}}
+\begin{DoxyCompactList}\small\item\em list of all objects \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a47eed21dc568d7c78461a979b4944775}\label{class_ray_base_a47eed21dc568d7c78461a979b4944775}} 
+int \mbox{\hyperlink{class_ray_base_a47eed21dc568d7c78461a979b4944775}{num\+Obj}}
+\begin{DoxyCompactList}\small\item\em number of objects \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a93a77c1d9f35b929f8528feda404abeb}\label{class_ray_base_a93a77c1d9f35b929f8528feda404abeb}} 
+int \mbox{\hyperlink{class_ray_base_a93a77c1d9f35b929f8528feda404abeb}{obj\+Index}}
+\begin{DoxyCompactList}\small\item\em index of the current object \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a0e6c04e90d96be455cd2ae5a9cf43be9}\label{class_ray_base_a0e6c04e90d96be455cd2ae5a9cf43be9}} 
+std\+::complex$<$ double $>$ {\bfseries n}
+\item 
+\mbox{\Hypertarget{class_ray_base_a83a852579a6b8f2e5e6f067001cdbb9d}\label{class_ray_base_a83a852579a6b8f2e5e6f067001cdbb9d}} 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_ray_base_a83a852579a6b8f2e5e6f067001cdbb9d}{n0}}
+\begin{DoxyCompactList}\small\item\em current refractive index and refractive index of the host material \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a452923470162d5499657d0673d2860e5}\label{class_ray_base_a452923470162d5499657d0673d2860e5}} 
+double \mbox{\hyperlink{class_ray_base_a452923470162d5499657d0673d2860e5}{k0}}
+\begin{DoxyCompactList}\small\item\em wave number \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a1a9a8f567320f71fc91de2d5cf5ed047}\label{class_ray_base_a1a9a8f567320f71fc91de2d5cf5ed047}} 
+double {\bfseries r0}
+\item 
+\mbox{\Hypertarget{class_ray_base_a005f5242340f1d953b65aeb4162f887f}\label{class_ray_base_a005f5242340f1d953b65aeb4162f887f}} 
+double \mbox{\hyperlink{class_ray_base_a005f5242340f1d953b65aeb4162f887f}{rc}}
+\begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_ray_base_a6acb463c529e42ffa0c20595ef5e5b7b}\label{class_ray_base_a6acb463c529e42ffa0c20595ef5e5b7b}} 
+int \mbox{\hyperlink{class_ray_base_a6acb463c529e42ffa0c20595ef5e5b7b}{iR}}
+\begin{DoxyCompactList}\small\item\em number of reflections already done \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract base class for all rays used for the raytracing process. This is the parent class, from which all ray classes are derived. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/raybase.\+h\end{DoxyCompactItemize}

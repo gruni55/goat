@@ -1,0 +1,141 @@
+\hypertarget{class_detector}{}\doxysection{Detector Class Reference}
+\label{class_detector}\index{Detector@{Detector}}
+
+
+{\ttfamily \#include $<$detector.\+h$>$}
+
+Inheritance diagram for Detector\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_detector}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_detector_a48486474ed9fafbd555663fc25e9d555}\label{class_detector_a48486474ed9fafbd555663fc25e9d555}} 
+\mbox{\hyperlink{class_detector_a48486474ed9fafbd555663fc25e9d555}{Detector}} (int n1, int n2)
+\begin{DoxyCompactList}\small\item\em Constructor which is called by the size of the array (n1 x n2) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a188a60f22f9c4c4633d6b8e028e8a579}\label{class_detector_a188a60f22f9c4c4633d6b8e028e8a579}} 
+\mbox{\hyperlink{class_detector_a188a60f22f9c4c4633d6b8e028e8a579}{Detector}} (const \mbox{\hyperlink{class_detector}{Detector}} \&Det)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a6f588bb0e7fb5eeb401a4b706ac37f11}\label{class_detector_a6f588bb0e7fb5eeb401a4b706ac37f11}} 
+\mbox{\hyperlink{class_detector}{Detector}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_detector}{Detector}} \&\mbox{\hyperlink{class_detector_aa192514da33d9b338a1d387bca214c59}{D}})
+\item 
+\mbox{\Hypertarget{class_detector_a8d7a4cd8a4b2a898d24d347ef9acf466}\label{class_detector_a8d7a4cd8a4b2a898d24d347ef9acf466}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& \mbox{\hyperlink{class_detector_a8d7a4cd8a4b2a898d24d347ef9acf466}{operator()}} (int i1, int i2)
+\begin{DoxyCompactList}\small\item\em bracket operator which gives the content inside the array determined by the indices i1 and i2 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a6c8db1e540eb5198e0e0773fb68fc0a2}\label{class_detector_a6c8db1e540eb5198e0e0773fb68fc0a2}} 
+void \mbox{\hyperlink{class_detector_a6c8db1e540eb5198e0e0773fb68fc0a2}{clear}} ()
+\begin{DoxyCompactList}\small\item\em clear \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_detector_a070ca810135d7e668b49f2d2af9e38ad}{cross}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ k, int \&i1, int \&i2, double \&l)=0
+\item 
+\mbox{\Hypertarget{class_detector_ad21921ac3f90297a85c427dc5e342184}\label{class_detector_ad21921ac3f90297a85c427dc5e342184}} 
+int \mbox{\hyperlink{class_detector_ad21921ac3f90297a85c427dc5e342184}{N1}} ()
+\begin{DoxyCompactList}\small\item\em returns the dimension of the array in the first direction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_aa9674befa2c88f133949e26e3ffea3f5}\label{class_detector_aa9674befa2c88f133949e26e3ffea3f5}} 
+int \mbox{\hyperlink{class_detector_aa9674befa2c88f133949e26e3ffea3f5}{N2}} ()
+\begin{DoxyCompactList}\small\item\em returns the dimension of the array in the second direction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_ac65ffbe3caaaf152b61d7ba77ce8b746}\label{class_detector_ac65ffbe3caaaf152b61d7ba77ce8b746}} 
+int \mbox{\hyperlink{class_detector_ac65ffbe3caaaf152b61d7ba77ce8b746}{Type}} ()
+\begin{DoxyCompactList}\small\item\em returns kind of detector \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a6388153fc5a10e77c48fa0567137f00a}\label{class_detector_a6388153fc5a10e77c48fa0567137f00a}} 
+void \mbox{\hyperlink{class_detector_a6388153fc5a10e77c48fa0567137f00a}{saveabs}} (char $\ast$fn)
+\begin{DoxyCompactList}\small\item\em stores the content (absolute value of the electric field) of the detector array in the file determined by its filename fn \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_af052337dffe901fa3ff196ad80cf6b55}\label{class_detector_af052337dffe901fa3ff196ad80cf6b55}} 
+void \mbox{\hyperlink{class_detector_af052337dffe901fa3ff196ad80cf6b55}{save\+Phase}} (char $\ast$fn, int coord)
+\begin{DoxyCompactList}\small\item\em stores the content (phase of one component of the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a2e299642cc30b32962cbb0e59ad7f541}\label{class_detector_a2e299642cc30b32962cbb0e59ad7f541}} 
+void \mbox{\hyperlink{class_detector_a2e299642cc30b32962cbb0e59ad7f541}{savereal}} (char $\ast$fn, int coord)
+\begin{DoxyCompactList}\small\item\em stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_detector_a065eb836afa6f2f88ab91c038818db92}\label{class_detector_a065eb836afa6f2f88ab91c038818db92}} 
+void \mbox{\hyperlink{class_detector_a065eb836afa6f2f88ab91c038818db92}{saveimag}} (char $\ast$fn, int coord)
+\begin{DoxyCompactList}\small\item\em stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_detector_aa192514da33d9b338a1d387bca214c59}\label{class_detector_aa192514da33d9b338a1d387bca214c59}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$ \mbox{\hyperlink{class_detector_aa192514da33d9b338a1d387bca214c59}{D}}
+\begin{DoxyCompactList}\small\item\em Here, the data will be stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_detector_a84d0d1c6cb60a8a6fcf00206e7cbdb3b}\label{class_detector_a84d0d1c6cb60a8a6fcf00206e7cbdb3b}} 
+void \mbox{\hyperlink{class_detector_a84d0d1c6cb60a8a6fcf00206e7cbdb3b}{init}} (int n1, int n2)
+\begin{DoxyCompactList}\small\item\em initialise array (for internal use only) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_detector_a7493d82391c504398742f1f2048fc0ec}\label{class_detector_a7493d82391c504398742f1f2048fc0ec}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries e1}
+\item 
+\mbox{\Hypertarget{class_detector_a75b8199ffd1eaea4b15743496da22616}\label{class_detector_a75b8199ffd1eaea4b15743496da22616}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries e2}
+\item 
+\mbox{\Hypertarget{class_detector_af83c1833dc23f696a16a9c9f2c4c04cf}\label{class_detector_af83c1833dc23f696a16a9c9f2c4c04cf}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries P}
+\item 
+\mbox{\Hypertarget{class_detector_ad16d625b89a545bf6426d4eaaffa80df}\label{class_detector_ad16d625b89a545bf6426d4eaaffa80df}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries n}
+\item 
+\mbox{\Hypertarget{class_detector_a7d4daa450806eaa16be8fdd3d57fd0db}\label{class_detector_a7d4daa450806eaa16be8fdd3d57fd0db}} 
+double {\bfseries d1}
+\item 
+\mbox{\Hypertarget{class_detector_aab6413faca1d2f6ea83b7ef32d96fa5a}\label{class_detector_aab6413faca1d2f6ea83b7ef32d96fa5a}} 
+double {\bfseries d2}
+\item 
+\mbox{\Hypertarget{class_detector_a09c0ddf865fb0ad9563dd79132d77cc6}\label{class_detector_a09c0ddf865fb0ad9563dd79132d77cc6}} 
+int {\bfseries n1}
+\item 
+\mbox{\Hypertarget{class_detector_acf80291694962f2c111e1e138be3dd3f}\label{class_detector_acf80291694962f2c111e1e138be3dd3f}} 
+int {\bfseries n2}
+\item 
+\mbox{\Hypertarget{class_detector_aebe09996d04da74f7fa0cccd67b161ee}\label{class_detector_aebe09996d04da74f7fa0cccd67b161ee}} 
+int {\bfseries type}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_detector_a799d027d06874612496853551123015e}\label{class_detector_a799d027d06874612496853551123015e}} 
+class {\bfseries Detector\+Plane}
+\item 
+\mbox{\Hypertarget{class_detector_ab6a2ed5de0971fb211338f9e73c436e5}\label{class_detector_ab6a2ed5de0971fb211338f9e73c436e5}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{class_detector}{Detector}} \&\mbox{\hyperlink{class_detector_aa192514da33d9b338a1d387bca214c59}{D}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The abstract \mbox{\hyperlink{class_detector}{Detector}} class provides an interface to a detector to store the information about the electric field into any kind of an array. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_detector_a070ca810135d7e668b49f2d2af9e38ad}\label{class_detector_a070ca810135d7e668b49f2d2af9e38ad}} 
+\index{Detector@{Detector}!cross@{cross}}
+\index{cross@{cross}!Detector@{Detector}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily virtual bool Detector\+::cross (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{P,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{k,  }\item[{int \&}]{i1,  }\item[{int \&}]{i2,  }\item[{double \&}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+The virtual function checks if the ray hits the detector. \begin{DoxyReturn}{Returns}
+true, if ray hits the detector otherwise false 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em P} & current position of the ray \\
+\hline
+\mbox{\texttt{ in}}  & {\em k} & direction of the ray \\
+\hline
+\mbox{\texttt{ out}}  & {\em i1} & first index of the hit point within the detector array \\
+\hline
+\mbox{\texttt{ out}}  & {\em i2} & second index of the hit point within the detector array \\
+\hline
+\mbox{\texttt{ out}}  & {\em d} & distance between ray and detector (along the ray) \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_detector_plane_ad47e388e1d86252ec1e375f4c3a84896}{Detector\+Plane}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/detector.\+h\end{DoxyCompactItemize}

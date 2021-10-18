@@ -1,0 +1,115 @@
+\hypertarget{class_plane}{}\doxysection{Plane Class Reference}
+\label{class_plane}\index{Plane@{Plane}}
+
+
+This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors.  
+
+
+
+
+{\ttfamily \#include $<$plane.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_plane_a57c023261b0b858ae145e45916a12b0e}{Plane}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e2)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_plane_ac92bf943e2ff58310c08017c1259947f}{intersect\+Sphere}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ O, double r)
+\begin{DoxyCompactList}\small\item\em find intersection point with a sphere \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_plane_ad458e8aa5aabf3a681f91a0d186cdacf}\label{class_plane_ad458e8aa5aabf3a681f91a0d186cdacf}} 
+void \mbox{\hyperlink{class_plane_ad458e8aa5aabf3a681f91a0d186cdacf}{norm}} ()
+\begin{DoxyCompactList}\small\item\em normal of the plane \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_plane_a3486a2302eb2a03f270fb443af26c9eb}\label{class_plane_a3486a2302eb2a03f270fb443af26c9eb}} 
+void {\bfseries Normalenform} ()
+\item 
+\mbox{\Hypertarget{class_plane_a7e5e8c36fba2e2af89d746172d2007f1}\label{class_plane_a7e5e8c36fba2e2af89d746172d2007f1}} 
+double \mbox{\hyperlink{class_plane_a7e5e8c36fba2e2af89d746172d2007f1}{distance}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ R)
+\begin{DoxyCompactList}\small\item\em distance between the point R and the plane \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_plane_a50f8c762f366f9ce29671a89cef0aaea}\label{class_plane_a50f8c762f366f9ce29671a89cef0aaea}} 
+void {\bfseries to\+String} (char $\ast$S)
+\item 
+\mbox{\Hypertarget{class_plane_a87476d6754ad7bde558580aaced50cc9}\label{class_plane_a87476d6754ad7bde558580aaced50cc9}} 
+void \mbox{\hyperlink{class_plane_a87476d6754ad7bde558580aaced50cc9}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes plane into the binary file stream os \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_plane_a7cf6c4ff7a9ef7f127db9c864ec50f2f}\label{class_plane_a7cf6c4ff7a9ef7f127db9c864ec50f2f}} 
+void \mbox{\hyperlink{class_plane_a7cf6c4ff7a9ef7f127db9c864ec50f2f}{bin\+Read}} (std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em reads plane from binary file stream is \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_plane_a827793a8ec6bb689d4745edc941ea725}\label{class_plane_a827793a8ec6bb689d4745edc941ea725}} 
+void {\bfseries rotate} (double dr, double dtheta, double dphi)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plane_a6db7a493ceba9024533b062654601919}\label{class_plane_a6db7a493ceba9024533b062654601919}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries P}
+\item 
+\mbox{\Hypertarget{class_plane_a0998d5463bd0d6b203600207d60874be}\label{class_plane_a0998d5463bd0d6b203600207d60874be}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries e1}
+\item 
+\mbox{\Hypertarget{class_plane_af7768a11a1320c402247e885199eb74c}\label{class_plane_af7768a11a1320c402247e885199eb74c}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries e2}
+\item 
+\mbox{\Hypertarget{class_plane_a883c31ada919ad7e76415ada50410144}\label{class_plane_a883c31ada919ad7e76415ada50410144}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries n}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_plane_a2c28f4de36a28933898f2cc87d2b9fab}\label{class_plane_a2c28f4de36a28933898f2cc87d2b9fab}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{class_plane}{Plane}} E)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. 
+
+\begin{DoxyAuthor}{Author}
+Thomas Weigel 
+\end{DoxyAuthor}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_plane_a57c023261b0b858ae145e45916a12b0e}\label{class_plane_a57c023261b0b858ae145e45916a12b0e}} 
+\index{Plane@{Plane}!Plane@{Plane}}
+\index{Plane@{Plane}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{Plane()}{Plane()}}
+{\footnotesize\ttfamily Plane\+::\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{P,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e2 }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Position (center) of the plane \\
+\hline
+{\em e1} & first direction vector \\
+\hline
+{\em e2} & second direction vector \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_plane_ac92bf943e2ff58310c08017c1259947f}\label{class_plane_ac92bf943e2ff58310c08017c1259947f}} 
+\index{Plane@{Plane}!intersectSphere@{intersectSphere}}
+\index{intersectSphere@{intersectSphere}!Plane@{Plane}}
+\doxysubsubsection{\texorpdfstring{intersectSphere()}{intersectSphere()}}
+{\footnotesize\ttfamily void Plane\+::intersect\+Sphere (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{O,  }\item[{double}]{r }\end{DoxyParamCaption})}
+
+
+
+find intersection point with a sphere 
+
+
+\begin{DoxyParams}{Parameters}
+{\em O} & center of the sphere \\
+\hline
+{\em r} & radius of the sphere \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/plane.\+h\end{DoxyCompactItemize}

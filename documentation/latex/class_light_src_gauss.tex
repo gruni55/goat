@@ -1,0 +1,187 @@
+\hypertarget{class_light_src_gauss}{}\doxysection{Light\+Src\+Gauss Class Reference}
+\label{class_light_src_gauss}\index{LightSrcGauss@{LightSrcGauss}}
+
+
+This class describes a focused gaussian beam.  
+
+
+
+
+{\ttfamily \#include $<$lightsrc.\+h$>$}
+
+Inheritance diagram for Light\+Src\+Gauss\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_light_src_gauss}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a6d5b50cc38fc8e41273dbe95dc829351}\label{class_light_src_gauss_a6d5b50cc38fc8e41273dbe95dc829351}} 
+void \mbox{\hyperlink{class_light_src_gauss_a6d5b50cc38fc8e41273dbe95dc829351}{bin\+Write\+Item}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_add98ceae535660f630401d1dc7f98c38}\label{class_light_src_gauss_add98ceae535660f630401d1dc7f98c38}} 
+void \mbox{\hyperlink{class_light_src_gauss_add98ceae535660f630401d1dc7f98c38}{bin\+Read\+Item}} (std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_light_src_gauss_a8f60ce38d3aa4271f28cd90a406dc634}{next}} (\mbox{\hyperlink{class_ray_base}{Ray\+Base}} $\ast$ray)
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a18f36b987e81e76104af024be490fd95}\label{class_light_src_gauss_a18f36b987e81e76104af024be490fd95}} 
+int {\bfseries next} (\mbox{\hyperlink{class_ray__pow}{Ray\+\_\+pow}} \&S)
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a5a574cc409b5a9a8d91e5c138b632b07}\label{class_light_src_gauss_a5a574cc409b5a9a8d91e5c138b632b07}} 
+int {\bfseries next} (\mbox{\hyperlink{class_i_ray}{I\+Ray}} \&S)
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a7e17775cbae8063dceb9b71e08858e65}\label{class_light_src_gauss_a7e17775cbae8063dceb9b71e08858e65}} 
+int {\bfseries next} (\mbox{\hyperlink{classtubed_ray}{tubed\+Ray}} \&S)
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a8cce8e69d95a168fcbe1ff3872452515}\label{class_light_src_gauss_a8cce8e69d95a168fcbe1ff3872452515}} 
+{\bfseries Light\+Src\+Gauss} (const \mbox{\hyperlink{class_light_src_gauss}{Light\+Src\+Gauss}} \&)
+\item 
+\mbox{\hyperlink{class_light_src_gauss_af7fc2aeac6d41277403b72e663eacacc}{Light\+Src\+Gauss}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_ac39f69a2ab65803389b13932f61fec46}{Pos}}, int \mbox{\hyperlink{class_light_src_a3dbc1d1dbc9741f31fb6b91444dbede5}{N}}, double \mbox{\hyperlink{class_light_src_a4dacf6e8a6cdc356a42e112430408618}{wvl}}, double \mbox{\hyperlink{class_light_src_gauss_ae0caa1d85216714240728fab410c0a5c}{w0}}, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_gauss_a1405d66f5fccf1601e16f490a11f4b50}{focuspos}}, double \mbox{\hyperlink{class_light_src_a13a76bff715aa48dcdfd0b516b7caa67}{D}}=1.\+0, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_light_src_aa69283bdabfe02cbed2937f5f92010b4}{Pol}}=\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$(0.\+0, 1.\+0, 0.\+0), int \mbox{\hyperlink{class_light_src_acb626042fc76dc9ba8b05893a342b0d0}{raytype}}=L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+I\+R\+AY, double \mbox{\hyperlink{class_light_src_aca01db60c331aba7f23b149841579f1e}{r0}}=1.\+0)
+\begin{DoxyCompactList}\small\item\em Main constructor for gaussian beam light source The direction of the beam is given by the starting point and the focus position. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_abfb67a86e0a1b1a17ebf82331c798330}\label{class_light_src_gauss_abfb67a86e0a1b1a17ebf82331c798330}} 
+void \mbox{\hyperlink{class_light_src_gauss_abfb67a86e0a1b1a17ebf82331c798330}{set\+W0}} (double \mbox{\hyperlink{class_light_src_gauss_ae0caa1d85216714240728fab410c0a5c}{w0}})
+\begin{DoxyCompactList}\small\item\em sets the beam\textquotesingle{}s waist \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a20f345927ec15277ad0760e25db77863}\label{class_light_src_gauss_a20f345927ec15277ad0760e25db77863}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_gauss_a20f345927ec15277ad0760e25db77863}{get\+Focuspos}} ()
+\begin{DoxyCompactList}\small\item\em returns the position of the focus \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a9640e0e3c50432eb401767fbe1ef861f}\label{class_light_src_gauss_a9640e0e3c50432eb401767fbe1ef861f}} 
+void \mbox{\hyperlink{class_light_src_gauss_a9640e0e3c50432eb401767fbe1ef861f}{set\+Focuspos}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ fp)
+\begin{DoxyCompactList}\small\item\em sets the focus position to fp \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_af9b41694222ef22b3b0e3ac3f8521683}\label{class_light_src_gauss_af9b41694222ef22b3b0e3ac3f8521683}} 
+void \mbox{\hyperlink{class_light_src_gauss_af9b41694222ef22b3b0e3ac3f8521683}{set\+Pos}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ pos)
+\begin{DoxyCompactList}\small\item\em sets the position of the light source to pos \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a800ce3ed449f1e9f1782085b4247be77}\label{class_light_src_gauss_a800ce3ed449f1e9f1782085b4247be77}} 
+void \mbox{\hyperlink{class_light_src_gauss_a800ce3ed449f1e9f1782085b4247be77}{set\+NA}} (double na)
+\begin{DoxyCompactList}\small\item\em sets the numerical aperture NA and recalculates the width D, the focal beam waist w0 and the Rayleigh-\/length z0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_ab94ca0caf25e019a52747426f0b966f2}\label{class_light_src_gauss_ab94ca0caf25e019a52747426f0b966f2}} 
+void \mbox{\hyperlink{class_light_src_gauss_ab94ca0caf25e019a52747426f0b966f2}{set\+Wvl}} (double \mbox{\hyperlink{class_light_src_a4dacf6e8a6cdc356a42e112430408618}{wvl}})
+\begin{DoxyCompactList}\small\item\em sets the vacuum wavelength \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_ab95e6d83bffb70dfc1bb632f5099ac99}\label{class_light_src_gauss_ab95e6d83bffb70dfc1bb632f5099ac99}} 
+void \mbox{\hyperlink{class_light_src_gauss_ab95e6d83bffb70dfc1bb632f5099ac99}{setk}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_gauss_a3596a5a0eec70e652f574ccabc59e094}{k}})
+\begin{DoxyCompactList}\small\item\em sets the main direction of light source \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a9deba930749d64adfe1cd9315d6c7286}\label{class_light_src_gauss_a9deba930749d64adfe1cd9315d6c7286}} 
+double \mbox{\hyperlink{class_light_src_gauss_a9deba930749d64adfe1cd9315d6c7286}{calcz0}} ()
+\begin{DoxyCompactList}\small\item\em recalculates Rayleigh-\/length z0 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a7d6338036f1ce628634cc2769ec8acc9}\label{class_light_src_gauss_a7d6338036f1ce628634cc2769ec8acc9}} 
+void {\bfseries reset} ()
+\item 
+double \mbox{\hyperlink{class_light_src_gauss_ae7e5ee40e4fff3960855904257e54eb8}{calcw}} (double z)
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_ac37fba8ccbbe5dc66f307f81d2a2a221}\label{class_light_src_gauss_ac37fba8ccbbe5dc66f307f81d2a2a221}} 
+void {\bfseries calc\+Normfak} ()
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a77a1466f77d12aa3e007e523f3bd7bf5}\label{class_light_src_gauss_a77a1466f77d12aa3e007e523f3bd7bf5}} 
+double \mbox{\hyperlink{class_light_src_gauss_a77a1466f77d12aa3e007e523f3bd7bf5}{get\+NA}} ()
+\begin{DoxyCompactList}\small\item\em returns numerical aperture \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_ae0caa1d85216714240728fab410c0a5c}\label{class_light_src_gauss_ae0caa1d85216714240728fab410c0a5c}} 
+double \mbox{\hyperlink{class_light_src_gauss_ae0caa1d85216714240728fab410c0a5c}{w0}}
+\begin{DoxyCompactList}\small\item\em Waist diameter (fictitious !), only used for the correct calculation of the electric field distribution within the starting area. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_af104065f36a4a1e100dd461284ad6337}\label{class_light_src_gauss_af104065f36a4a1e100dd461284ad6337}} 
+double \mbox{\hyperlink{class_light_src_gauss_af104065f36a4a1e100dd461284ad6337}{f}}
+\begin{DoxyCompactList}\small\item\em distance between light source area and the focal point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a6268e5e53533df12b717baa6ea21fdc4}\label{class_light_src_gauss_a6268e5e53533df12b717baa6ea21fdc4}} 
+std\+::complex$<$ double $>$ {\bfseries Normfak}
+\item 
+\mbox{\Hypertarget{class_light_src_gauss_a1405d66f5fccf1601e16f490a11f4b50}\label{class_light_src_gauss_a1405d66f5fccf1601e16f490a11f4b50}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_gauss_a1405d66f5fccf1601e16f490a11f4b50}{focuspos}}
+\begin{DoxyCompactList}\small\item\em focal position ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a6dab2e5a26268dad460da0d7c2a48772}\label{class_light_src_gauss_a6dab2e5a26268dad460da0d7c2a48772}} 
+double \mbox{\hyperlink{class_light_src_gauss_a6dab2e5a26268dad460da0d7c2a48772}{z0}}
+\begin{DoxyCompactList}\small\item\em Rayleigh length (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a3596a5a0eec70e652f574ccabc59e094}\label{class_light_src_gauss_a3596a5a0eec70e652f574ccabc59e094}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_light_src_gauss_a3596a5a0eec70e652f574ccabc59e094}{k}}
+\begin{DoxyCompactList}\small\item\em direction of the gaussian beam \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a0de7b516cb8a89aac55cd9480ad1cccc}\label{class_light_src_gauss_a0de7b516cb8a89aac55cd9480ad1cccc}} 
+double \mbox{\hyperlink{class_light_src_gauss_a0de7b516cb8a89aac55cd9480ad1cccc}{w}}
+\begin{DoxyCompactList}\small\item\em radius of the beam (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_light_src_gauss_a9e89502644c0f441e0235899ce969698}\label{class_light_src_gauss_a9e89502644c0f441e0235899ce969698}} 
+double \mbox{\hyperlink{class_light_src_gauss_a9e89502644c0f441e0235899ce969698}{NA}}
+\begin{DoxyCompactList}\small\item\em numerical aperture (normalized by the intermediate refractive index) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class describes a focused gaussian beam. 
+
+Class which describes a (focused) gaussian light source. The main direction is given by the source position and the focal position. The electric field is calculated by ~\newline
+ $\vec E(r,z)=\vec E_0 \frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}$ The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics the rays follow straight lines inside the medium. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_light_src_gauss_af7fc2aeac6d41277403b72e663eacacc}\label{class_light_src_gauss_af7fc2aeac6d41277403b72e663eacacc}} 
+\index{LightSrcGauss@{LightSrcGauss}!LightSrcGauss@{LightSrcGauss}}
+\index{LightSrcGauss@{LightSrcGauss}!LightSrcGauss@{LightSrcGauss}}
+\doxysubsubsection{\texorpdfstring{LightSrcGauss()}{LightSrcGauss()}}
+{\footnotesize\ttfamily Light\+Src\+Gauss\+::\+Light\+Src\+Gauss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{Pos,  }\item[{int}]{N,  }\item[{double}]{wvl,  }\item[{double}]{w0,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{focuspos,  }\item[{double}]{D = {\ttfamily 1.0},  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol = {\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$~std\+:\+:complex$<$~double~$>$~$>$(0.0,~1.0,~0.0)},  }\item[{int}]{raytype = {\ttfamily LIGHTSRC\+\_\+RAYTYPE\+\_\+IRAY},  }\item[{double}]{r0 = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+
+
+Main constructor for gaussian beam light source The direction of the beam is given by the starting point and the focus position. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Pos} & Starting position of the beam (center) \\
+\hline
+{\em N} & number of rays (per direction) \\
+\hline
+{\em wvl} & wavelength \\
+\hline
+{\em w0} & waist radius (virtual, only needed to calculate the electric field distribution correctly) \\
+\hline
+{\em focuspos} & Position of the focus \\
+\hline
+{\em D} & Size of starting area (side length) \\
+\hline
+{\em Pol} & Polarisation (on the starting area, at the axis of the beam) \\
+\hline
+{\em raytype} & (type of ray used for the calculation) \\
+\hline
+{\em r0} & Radius of the calculation sphere \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_light_src_gauss_ae7e5ee40e4fff3960855904257e54eb8}\label{class_light_src_gauss_ae7e5ee40e4fff3960855904257e54eb8}} 
+\index{LightSrcGauss@{LightSrcGauss}!calcw@{calcw}}
+\index{calcw@{calcw}!LightSrcGauss@{LightSrcGauss}}
+\doxysubsubsection{\texorpdfstring{calcw()}{calcw()}}
+{\footnotesize\ttfamily double Light\+Src\+Gauss\+::calcw (\begin{DoxyParamCaption}\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em z} & calculates the beam waist of the light beam at the distance z from the focal point, returns the value and sets the corrsponding local variable w (needed for \mbox{\hyperlink{class_light_src_gauss_a8f60ce38d3aa4271f28cd90a406dc634}{next()}}, only for internal use) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_light_src_gauss_a8f60ce38d3aa4271f28cd90a406dc634}\label{class_light_src_gauss_a8f60ce38d3aa4271f28cd90a406dc634}} 
+\index{LightSrcGauss@{LightSrcGauss}!next@{next}}
+\index{next@{next}!LightSrcGauss@{LightSrcGauss}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily int Light\+Src\+Gauss\+::next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ray_base}{Ray\+Base}} $\ast$}]{ray }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+These functions return the next ray of the light source for further calculations 
+\begin{DoxyParams}{Parameters}
+{\em ray} & next ray \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+N\+O\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY,if} & ray is not the last ray, L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+I\+S\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY, if the ray is the last ray or L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+E\+R\+R\+OR if an error occured \\
+\hline
+\end{DoxyRetVals}
+
+
+Implements \mbox{\hyperlink{class_light_src_afb0fcc52e75d6dbc80ba151285894767}{Light\+Src}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/lightsrc.\+h\end{DoxyCompactItemize}

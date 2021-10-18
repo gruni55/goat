@@ -1,0 +1,101 @@
+\hypertarget{class_octree}{}\doxysection{Octree$<$ T $>$ Class Template Reference}
+\label{class_octree}\index{Octree$<$ T $>$@{Octree$<$ T $>$}}
+
+
+This template class is used for internal purposes and represents an octree.  
+
+
+
+
+{\ttfamily \#include $<$octree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_octree_aba4a5a0fcaf08bc93a2a82771b755971}\label{class_octree_aba4a5a0fcaf08bc93a2a82771b755971}} 
+{\bfseries Octree} (const \mbox{\hyperlink{class_octree}{Octree}} \&O)
+\item 
+\mbox{\Hypertarget{class_octree_acc9969aa99e807840b766c59f9117f1e}\label{class_octree_acc9969aa99e807840b766c59f9117f1e}} 
+void \mbox{\hyperlink{class_octree_acc9969aa99e807840b766c59f9117f1e}{del\+Elements}} ()
+\begin{DoxyCompactList}\small\item\em Deletes all elements. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_abc4876fdcb9c935b670178ad44268e4d}\label{class_octree_abc4876fdcb9c935b670178ad44268e4d}} 
+void \mbox{\hyperlink{class_octree_abc4876fdcb9c935b670178ad44268e4d}{trim\+Octree}} ()
+\begin{DoxyCompactList}\small\item\em Trims the tree, i.\+e. removing all empty childs. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_a0977de78de88bc5461c454103b9f0321}\label{class_octree_a0977de78de88bc5461c454103b9f0321}} 
+void {\bfseries trim\+Octree} (int rek)
+\item 
+\mbox{\Hypertarget{class_octree_a40e74669131dcb3ab5c226589fe02d98}\label{class_octree_a40e74669131dcb3ab5c226589fe02d98}} 
+void \mbox{\hyperlink{class_octree_a40e74669131dcb3ab5c226589fe02d98}{create\+Tree}} (int max\+Recursions=1, int rek=0)
+\begin{DoxyCompactList}\small\item\em Prepare the tree with recursion depth max\+Recursions. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_a764ee85575fde74b8af263efcf960052}\label{class_octree_a764ee85575fde74b8af263efcf960052}} 
+void \mbox{\hyperlink{class_octree_a764ee85575fde74b8af263efcf960052}{create\+Childs}} ()
+\begin{DoxyCompactList}\small\item\em Creates the childs of the \mbox{\hyperlink{class_octree}{Octree}} and calculates the bounding boxes. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_a28468285df431caf3b932222e6d1db8f}\label{class_octree_a28468285df431caf3b932222e6d1db8f}} 
+void \mbox{\hyperlink{class_octree_a28468285df431caf3b932222e6d1db8f}{del\+Child}} (int i)
+\begin{DoxyCompactList}\small\item\em Delete the i-\/th child of the \mbox{\hyperlink{class_octree}{Octree}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_a6c57f2321f010bb6b9be9a56d1461e4a}\label{class_octree_a6c57f2321f010bb6b9be9a56d1461e4a}} 
+void \mbox{\hyperlink{class_octree_a6c57f2321f010bb6b9be9a56d1461e4a}{del\+All\+Childs}} ()
+\begin{DoxyCompactList}\small\item\em Delete all children of the \mbox{\hyperlink{class_octree}{Octree}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_octree_ae8898acd37f3e4635a5e4b01f8beb774}{set\+Bounding\+Box}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ MP, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ d)
+\begin{DoxyCompactList}\small\item\em Set the bounding box of the \mbox{\hyperlink{class_octree}{Octree}} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_octree_a54395e7a200784fb493e136896f25901}\label{class_octree_a54395e7a200784fb493e136896f25901}} 
+bool \mbox{\hyperlink{class_octree_a54395e7a200784fb493e136896f25901}{is\+Leaf}}
+\begin{DoxyCompactList}\small\item\em Sign wether the \mbox{\hyperlink{class_octree}{Octree}} is a leaf or not. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_octree_a4949eb7755f5888926fd1ba39e9f54ee}\label{class_octree_a4949eb7755f5888926fd1ba39e9f54ee}} 
+\mbox{\hyperlink{class_octree}{Octree}}$<$ T $>$ $\ast$ {\bfseries parent}
+\item 
+\mbox{\Hypertarget{class_octree_af68799b0073b8ae845b03fee0fbe62a2}\label{class_octree_af68799b0073b8ae845b03fee0fbe62a2}} 
+\mbox{\hyperlink{class_octree}{Octree}}$<$ T $>$ $\ast$$\ast$ {\bfseries child}
+\item 
+\mbox{\Hypertarget{class_octree_ae67c7a8721aa2da1f08c5bc6185eda5f}\label{class_octree_ae67c7a8721aa2da1f08c5bc6185eda5f}} 
+T $\ast$ {\bfseries Element}
+\item 
+\mbox{\Hypertarget{class_octree_af571bad6cd50bd569299071c895c6208}\label{class_octree_af571bad6cd50bd569299071c895c6208}} 
+int {\bfseries n\+Elements}
+\item 
+\mbox{\Hypertarget{class_octree_a2aedb20d760bad2066cb1bb7657cf3a8}\label{class_octree_a2aedb20d760bad2066cb1bb7657cf3a8}} 
+int {\bfseries n\+Childs}
+\item 
+\mbox{\Hypertarget{class_octree_a6a2b559cec6f80225439185abfdf41de}\label{class_octree_a6a2b559cec6f80225439185abfdf41de}} 
+int {\bfseries M\+A\+X\+\_\+\+R\+E\+C\+U\+R\+S\+I\+O\+NS}
+\item 
+\mbox{\Hypertarget{class_octree_af74fbb90201513284da676db85af3f67}\label{class_octree_af74fbb90201513284da676db85af3f67}} 
+\mbox{\hyperlink{class_box}{Box}} {\bfseries B\+Box}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Octree$<$ T $>$}
+
+This template class is used for internal purposes and represents an octree. 
+
+This class is mainly used together with the surface class. When searching the intersection point of a ray with a surface described by a large number of triangles, one has to test the ray against all triangles. This is often very time consuming. Therefore we used an octree algorithm. In this case the object is circumscribed by a box. In a first step, the intersection between the ray and this box is tested. If the ray hits this bounding box, the box is subdivided into 8 sub-\/boxes (therefore the name octree). The next task is to find the sub-\/box with the nearest intersection point. Then, this box is one again subdivided in another 8 boxes. This procedure is repeated several times (according to the number M\+A\+X\+\_\+\+R\+E\+C\+U\+R\+S\+I\+O\+NS). Then, only the triangles on the last sub-\/box are tested against the ray. Depending on the total number of triangles on the surface, this procedure can safe a lot of time. The \mbox{\hyperlink{class_octree}{Octree}} class is used to store the triangles in a tree-\/like structure, so the triangles within one box can be easily found. Since this class is a template, in principal it can be used for different purposes. The \mbox{\hyperlink{class_octree}{Octree}} structure is recursive. That means each \mbox{\hyperlink{class_octree}{Octree}} is a part of the whole tree. It contains up to 8 children (it can have less then 8, if some of the boxes are empty) and one parent \mbox{\hyperlink{class_octree}{Octree}}. The last \mbox{\hyperlink{class_octree}{Octree}}, i.\+e. an \mbox{\hyperlink{class_octree}{Octree}} with no children, is called a leaf. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_octree_ae8898acd37f3e4635a5e4b01f8beb774}\label{class_octree_ae8898acd37f3e4635a5e4b01f8beb774}} 
+\index{Octree$<$ T $>$@{Octree$<$ T $>$}!setBoundingBox@{setBoundingBox}}
+\index{setBoundingBox@{setBoundingBox}!Octree$<$ T $>$@{Octree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setBoundingBox()}{setBoundingBox()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_octree}{Octree}}$<$ T $>$\+::set\+Bounding\+Box (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{MP,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{d }\end{DoxyParamCaption})}
+
+
+
+Set the bounding box of the \mbox{\hyperlink{class_octree}{Octree}} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em MP} & Center of the bounding box \\
+\hline
+{\em d} & \mbox{\hyperlink{class_vector}{Vector}}, where each component is the corresponding side length \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/octree.\+h\end{DoxyCompactItemize}

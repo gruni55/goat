@@ -1,0 +1,254 @@
+\hypertarget{class_i_ray}{}\doxysection{I\+Ray Class Reference}
+\label{class_i_ray}\index{IRay@{IRay}}
+
+
+This class represents a single ray.  
+
+
+
+
+{\ttfamily \#include $<$iray.\+h$>$}
+
+Inheritance diagram for I\+Ray\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_i_ray}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_ray_a220c6a552803e9cda227576e0aa7c027}{I\+Ray}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&K, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_ray_base_a83a852579a6b8f2e5e6f067001cdbb9d}{n0}}, double r0, double \mbox{\hyperlink{class_ray_base_a452923470162d5499657d0673d2860e5}{k0}}, const int \mbox{\hyperlink{class_ray_base_a47eed21dc568d7c78461a979b4944775}{num\+Obj}}=0, \mbox{\hyperlink{class_object_shape}{Object\+Shape}} $\ast$$\ast$obj=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Contructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a728aae31ef69af4b2e9ca0283b1d6713}\label{class_i_ray_a728aae31ef69af4b2e9ca0283b1d6713}} 
+{\bfseries I\+Ray} (const \mbox{\hyperlink{class_i_ray}{I\+Ray}} \&r)
+\item 
+\mbox{\Hypertarget{class_i_ray_a6fb38ec1e56e72e158e80d5ab3753b3e}\label{class_i_ray_a6fb38ec1e56e72e158e80d5ab3753b3e}} 
+bool {\bfseries next} ()
+\item 
+\mbox{\Hypertarget{class_i_ray_ad10c3a4350dde2126e5b8294d414cdab}\label{class_i_ray_ad10c3a4350dde2126e5b8294d414cdab}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_ad10c3a4350dde2126e5b8294d414cdab}{getE}} ()
+\begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_i_ray}{I\+Ray}} \mbox{\hyperlink{class_i_ray_a40b2e710215fafb5fbbb21e5b74bb2e2}{reflect}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ n, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This function reflects ray on the surface. Here, the ray is reflected and the transmitted ray is created. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_i_ray_a47c9458b3b681255030c15cc07255ce2}{refract}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ N, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This function refracts the ray on the surface. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a996e4c92d06ab1d14c3985ec6d56bdd5}\label{class_i_ray_a996e4c92d06ab1d14c3985ec6d56bdd5}} 
+void \mbox{\hyperlink{class_i_ray_a996e4c92d06ab1d14c3985ec6d56bdd5}{set\+Refract}} (std\+::complex$<$ double $>$ n)
+\begin{DoxyCompactList}\small\item\em Sets the current refractive index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a78f3bf705f2ce5a2022ed278ce87e628}\label{class_i_ray_a78f3bf705f2ce5a2022ed278ce87e628}} 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_i_ray_a78f3bf705f2ce5a2022ed278ce87e628}{get\+Refract}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current refractive index. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_ac900d83a655b2248b88ccf045f353759}\label{class_i_ray_ac900d83a655b2248b88ccf045f353759}} 
+void \mbox{\hyperlink{class_i_ray_ac900d83a655b2248b88ccf045f353759}{setk}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&K)
+\begin{DoxyCompactList}\small\item\em Sets the direction of the ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_ae5d653f4c424260b75a1d671e91d06a1}\label{class_i_ray_ae5d653f4c424260b75a1d671e91d06a1}} 
+void \mbox{\hyperlink{class_i_ray_ae5d653f4c424260b75a1d671e91d06a1}{setP}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Current position of the ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_aa3e09cd524e521aad11d6fce7703f294}\label{class_i_ray_aa3e09cd524e521aad11d6fce7703f294}} 
+void \mbox{\hyperlink{class_i_ray_aa3e09cd524e521aad11d6fce7703f294}{setiR}} (int i)
+\begin{DoxyCompactList}\small\item\em Sets the current reflexion counter (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a696a1f2ff53ef8c4102633d376eb3c0d}\label{class_i_ray_a696a1f2ff53ef8c4102633d376eb3c0d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_a696a1f2ff53ef8c4102633d376eb3c0d}{getk}} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction of the ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_ad4291b0b127f5f4ac4cd5d3780b2b394}\label{class_i_ray_ad4291b0b127f5f4ac4cd5d3780b2b394}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_ad4291b0b127f5f4ac4cd5d3780b2b394}{getP}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current position of the ray. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_ab7079399163305242eec259e296374ad}\label{class_i_ray_ab7079399163305242eec259e296374ad}} 
+int \mbox{\hyperlink{class_i_ray_ab7079399163305242eec259e296374ad}{object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Returns the index of the last hidden object (or -\/1 if no object was hidden) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a02c7fbd4be564b67cc626d0f85b39a78}\label{class_i_ray_a02c7fbd4be564b67cc626d0f85b39a78}} 
+void \mbox{\hyperlink{class_i_ray_a02c7fbd4be564b67cc626d0f85b39a78}{reflect\+Ray}} (\mbox{\hyperlink{class_ray_base}{Ray\+Base}} $\ast$\&\mbox{\hyperlink{class_ray_base_ac2be3973a469802af13a50b23b6f1237}{tray}}, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ n, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em Reflects ray on the surface /param tray Transmitted (=refracted) ray /param n Surface normal /param n1 Refractive index (incident side) /param n2 Refractive index (transmitted side) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_afa3cfc177a12e1d29fbfd7d76e17f44f}\label{class_i_ray_afa3cfc177a12e1d29fbfd7d76e17f44f}} 
+\mbox{\hyperlink{class_object_shape}{Object\+Shape}} $\ast$ \mbox{\hyperlink{class_i_ray_afa3cfc177a12e1d29fbfd7d76e17f44f}{get\+Object}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the i-\/th object (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a231cf09689db8ee32a74240c5388ecc1}\label{class_i_ray_a231cf09689db8ee32a74240c5388ecc1}} 
+bool \mbox{\hyperlink{class_i_ray_a231cf09689db8ee32a74240c5388ecc1}{is\+In\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if ray is inside an object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_i_ray_a964280f5a8ce661a6e3edc2caad247ec}{check\+Object\+Intersection}} (int \&Index, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&Pmin)
+\item 
+\mbox{\Hypertarget{class_i_ray_a1cb785e753dd4ef7e6d3d1177b6851bb}\label{class_i_ray_a1cb785e753dd4ef7e6d3d1177b6851bb}} 
+int \mbox{\hyperlink{class_i_ray_a1cb785e753dd4ef7e6d3d1177b6851bb}{current\+Object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em returns the index of the hidden object or -\/1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a94955068d1954b24dd2948cc7c71f8c2}\label{class_i_ray_a94955068d1954b24dd2948cc7c71f8c2}} 
+int \mbox{\hyperlink{class_i_ray_a94955068d1954b24dd2948cc7c71f8c2}{reflections}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of reflections the beam has already passed through. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_aac72cfe43fa31e24a49bf839eca98cae}\label{class_i_ray_aac72cfe43fa31e24a49bf839eca98cae}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_aac72cfe43fa31e24a49bf839eca98cae}{Pol1}} ()
+\begin{DoxyCompactList}\small\item\em direction of the first polarisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a7d87dcefd124e0845a11bb9cadd42939}\label{class_i_ray_a7d87dcefd124e0845a11bb9cadd42939}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_a7d87dcefd124e0845a11bb9cadd42939}{Pol2}} ()
+\begin{DoxyCompactList}\small\item\em direction of the second polarisation \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a1229e6d6b05381bc5f3acfd66a1d38ba}\label{class_i_ray_a1229e6d6b05381bc5f3acfd66a1d38ba}} 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_a1229e6d6b05381bc5f3acfd66a1d38ba}{Fresnel\+\_\+reflect}} (double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em returns Fresnel matrix for the reflection calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a0aaca1a114e958c68e788eeccf503faf}\label{class_i_ray_a0aaca1a114e958c68e788eeccf503faf}} 
+\mbox{\hyperlink{class_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_a0aaca1a114e958c68e788eeccf503faf}{Fresnel\+\_\+trans}} (double alpha, std\+::complex$<$ double $>$ beta, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em returns Fresnel matrix for the transmission calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_ad2c72bd4d6485589e8e2bce200c0cff5}\label{class_i_ray_ad2c72bd4d6485589e8e2bce200c0cff5}} 
+void \mbox{\hyperlink{class_i_ray_ad2c72bd4d6485589e8e2bce200c0cff5}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const int num\+Of\+Rays=1)
+\begin{DoxyCompactList}\small\item\em initialises the electric field with help of the \mbox{\hyperlink{class_plane}{Plane}} Eb and the polarisation Pol, num\+Of\+Rays can be omitted. (Here, only one polarisation is given, the other is skipped) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_aee5add906c29433c23ffa5b39db21ce4}\label{class_i_ray_aee5add906c29433c23ffa5b39db21ce4}} 
+void \mbox{\hyperlink{class_i_ray_aee5add906c29433c23ffa5b39db21ce4}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolS, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolP, const int Anz\+Rays)
+\begin{DoxyCompactList}\small\item\em initialises the electric field vectors with help of polarisation vectors PolS and PolP, num\+Of\+Rays can be omitted \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a86a8943ef2bd27b9266aca231a643ce3}\label{class_i_ray_a86a8943ef2bd27b9266aca231a643ce3}} 
+void {\bfseries init\+Electric\+Field} (const \mbox{\hyperlink{class_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&\mbox{\hyperlink{class_i_ray_aac72cfe43fa31e24a49bf839eca98cae}{Pol1}}, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&\mbox{\hyperlink{class_i_ray_a7d87dcefd124e0845a11bb9cadd42939}{Pol2}}, const int Anz\+Rays)
+\item 
+void \mbox{\hyperlink{class_i_ray_aa95542e31b0b321e0769a74ef78b31c3}{init\+Electric\+Field\+Gauss}} (double sigma2, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ focuspos, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ Pol)
+\item 
+\mbox{\Hypertarget{class_i_ray_a2332d43b72e9d1fa58e2995000f949dc}\label{class_i_ray_a2332d43b72e9d1fa58e2995000f949dc}} 
+void \mbox{\hyperlink{class_i_ray_a2332d43b72e9d1fa58e2995000f949dc}{init\+Electric\+Field\+Gauss}} (const \mbox{\hyperlink{class_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolS, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolP, \mbox{\hyperlink{struct_gauss}{Gauss}} g)
+\begin{DoxyCompactList}\small\item\em Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vectors PolS and PolP. The parameters for the gaussian beam are stored in g. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_aa2b9f421e4be6b7324824aa9b8d3bc92}\label{class_i_ray_aa2b9f421e4be6b7324824aa9b8d3bc92}} 
+void \mbox{\hyperlink{class_i_ray_aa2b9f421e4be6b7324824aa9b8d3bc92}{init\+Electric\+Field\+Gauss}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, \mbox{\hyperlink{struct_gauss}{Gauss}} g)
+\begin{DoxyCompactList}\small\item\em Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vector Pol (second polarisation is not used, E2 is set to E1). The parameters for the gaussian beam are stored in g. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a7af66d48d94c03bd6d1dfdd6589a3308}\label{class_i_ray_a7af66d48d94c03bd6d1dfdd6589a3308}} 
+double {\bfseries cross} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P10, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P11, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P20, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P21)
+\item 
+\mbox{\Hypertarget{class_i_ray_a646a73778a60ce6be349bb912a041fa4}\label{class_i_ray_a646a73778a60ce6be349bb912a041fa4}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_a646a73778a60ce6be349bb912a041fa4}{cross\+Plane}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ Pe, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ n)
+\begin{DoxyCompactList}\small\item\em calculates the intersection point between the ray and a plane, which is defined by the vector P and the normal n \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_a65cf471c698757b48aa4683d614e1859}{intersect\+Rect}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_ab04d5d0aaa45adb1486d4f33d7306370}{P}}, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ e1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ e2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_ray_ab04d5d0aaa45adb1486d4f33d7306370}\label{class_i_ray_ab04d5d0aaa45adb1486d4f33d7306370}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_ab04d5d0aaa45adb1486d4f33d7306370}{P}}
+\begin{DoxyCompactList}\small\item\em current position \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a75a8efea79e7888408555c2fd1797563}\label{class_i_ray_a75a8efea79e7888408555c2fd1797563}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{class_i_ray_a75a8efea79e7888408555c2fd1797563}{k}}
+\begin{DoxyCompactList}\small\item\em current direction \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_i_ray_a479cae42096d9eb6cd8f7227bc2b2444}\label{class_i_ray_a479cae42096d9eb6cd8f7227bc2b2444}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries E1}
+\item 
+\mbox{\Hypertarget{class_i_ray_a1dc4eafdff5fd7b8dc50442a332ea5f3}\label{class_i_ray_a1dc4eafdff5fd7b8dc50442a332ea5f3}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_i_ray_a1dc4eafdff5fd7b8dc50442a332ea5f3}{E2}}
+\begin{DoxyCompactList}\small\item\em electric fields \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_ray_ae1f4c328efb8f3838215512e3792f745}\label{class_i_ray_ae1f4c328efb8f3838215512e3792f745}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries OK}
+\item 
+\mbox{\Hypertarget{class_i_ray_a92901070e0cb793cdfd8e08a5363de90}\label{class_i_ray_a92901070e0cb793cdfd8e08a5363de90}} 
+double {\bfseries K\+O\+RR}
+\item 
+\mbox{\Hypertarget{class_i_ray_a78c3349bd282de77261e9c2fdccb21d6}\label{class_i_ray_a78c3349bd282de77261e9c2fdccb21d6}} 
+bool {\bfseries is\+Valid}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_ray_ae7a1b65f6231e7c32da9dc0f7645cf39}\label{class_i_ray_ae7a1b65f6231e7c32da9dc0f7645cf39}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \mbox{\hyperlink{class_i_ray}{I\+Ray}} S)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a single ray. 
+
+This ray is intended to calculate with a single ray with two different polarisations. This class should not be used directly. It is intended for use together with classes derived by \mbox{\hyperlink{class_light_src}{Light\+Src}} (like \mbox{\hyperlink{class_light_src_plane}{Light\+Src\+Plane}} or \mbox{\hyperlink{class_light_src_gauss}{Light\+Src\+Gauss}}) 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_ray_a220c6a552803e9cda227576e0aa7c027}\label{class_i_ray_a220c6a552803e9cda227576e0aa7c027}} 
+\index{IRay@{IRay}!IRay@{IRay}}
+\index{IRay@{IRay}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{IRay()}{IRay()}}
+{\footnotesize\ttfamily I\+Ray\+::\+I\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{p,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{K,  }\item[{std\+::complex$<$ double $>$}]{n0,  }\item[{double}]{r0,  }\item[{double}]{k0,  }\item[{const int}]{num\+Obj = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_object_shape}{Object\+Shape}} $\ast$$\ast$}]{obj = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Contructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Position of the ray \\
+\hline
+{\em Pol} & Polarisation (in the moment not used) \\
+\hline
+{\em K} & direction of the ray \\
+\hline
+{\em n0} & refractive index \\
+\hline
+{\em r0} & radius of the calculation sphere \\
+\hline
+{\em k0} & wavenumber (=2$\ast$pi/wavelength in vacuum) \\
+\hline
+{\em num\+Obj} & number of objects \\
+\hline
+{\em obj} & list of the objects \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_ray_a964280f5a8ce661a6e3edc2caad247ec}\label{class_i_ray_a964280f5a8ce661a6e3edc2caad247ec}} 
+\index{IRay@{IRay}!checkObjectIntersection@{checkObjectIntersection}}
+\index{checkObjectIntersection@{checkObjectIntersection}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{checkObjectIntersection()}{checkObjectIntersection()}}
+{\footnotesize\ttfamily bool I\+Ray\+::check\+Object\+Intersection (\begin{DoxyParamCaption}\item[{int \&}]{Index,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{Pmin }\end{DoxyParamCaption})}
+
+Checks wether there is an intersection between the ray and an object or not. In case of an intersection the function returns true and Index is set to the index of the object within the object list and Pmin gives the (nearest) intersection point \mbox{\Hypertarget{class_i_ray_aa95542e31b0b321e0769a74ef78b31c3}\label{class_i_ray_aa95542e31b0b321e0769a74ef78b31c3}} 
+\index{IRay@{IRay}!initElectricFieldGauss@{initElectricFieldGauss}}
+\index{initElectricFieldGauss@{initElectricFieldGauss}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricFieldGauss()}{initElectricFieldGauss()}}
+{\footnotesize\ttfamily void I\+Ray\+::init\+Electric\+Field\+Gauss (\begin{DoxyParamCaption}\item[{double}]{sigma2,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{focuspos,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol }\end{DoxyParamCaption})}
+
+Initialises the ray for a gaussian beam according to
+
+$ \vec E=\vec{Pol} \cdot e^{-ik_0h} \cdot e^{-(r^2-h^2)/\sigma_2} $ where $ r=(\vec{F}-\vec{P})\cdot\vec{k},~h=r-|\vec{F}-\vec{P}| $ ( $\vec{F}$\+: focal point)
+
+E1 and E2 are set to the same value ! \mbox{\Hypertarget{class_i_ray_a65cf471c698757b48aa4683d614e1859}\label{class_i_ray_a65cf471c698757b48aa4683d614e1859}} 
+\index{IRay@{IRay}!intersectRect@{intersectRect}}
+\index{intersectRect@{intersectRect}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{intersectRect()}{intersectRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ I\+Ray\+::intersect\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{P,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{e1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{e2 }\end{DoxyParamCaption})}
+
+Calculates the intersection point between the ray and a rectangle defined by the edge point P and the vectors e1 and e2. If there is no intersection point, a NaN valued vector is returned. \mbox{\Hypertarget{class_i_ray_a40b2e710215fafb5fbbb21e5b74bb2e2}\label{class_i_ray_a40b2e710215fafb5fbbb21e5b74bb2e2}} 
+\index{IRay@{IRay}!reflect@{reflect}}
+\index{reflect@{reflect}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{reflect()}{reflect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_ray}{I\+Ray}} I\+Ray\+::reflect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+This function reflects ray on the surface. Here, the ray is reflected and the transmitted ray is created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Surface normal \\
+\hline
+{\em n1} & Refractive index (incident side) \\
+\hline
+{\em n2} & Refractive index (transmitted side) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transmitted ray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_i_ray_a47c9458b3b681255030c15cc07255ce2}\label{class_i_ray_a47c9458b3b681255030c15cc07255ce2}} 
+\index{IRay@{IRay}!refract@{refract}}
+\index{refract@{refract}!IRay@{IRay}}
+\doxysubsubsection{\texorpdfstring{refract()}{refract()}}
+{\footnotesize\ttfamily void I\+Ray\+::refract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{N,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+This function refracts the ray on the surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Surface normal \\
+\hline
+{\em n1} & Refractive index (incident side) \\
+\hline
+{\em n2} & Refractive index (transmitted side) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/raytracing/iray.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,589 @@
+\hypertarget{vector_8h}{}\doxysection{C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/maths/vector.h File Reference}
+\label{vector_8h}\index{C:/Users/Thomas/source/repos/raytracing/goat\_release/maths/vector.h@{C:/Users/Thomas/source/repos/raytracing/goat\_release/maths/vector.h}}
+
+
+This file contains the \mbox{\hyperlink{class_vector}{Vector}} template class and some useful functions around this class.  
+
+
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_vector}{Vector$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Template class for threedimensional vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_aa39e54ccef74a255384ae21989f11022}\label{vector_8h_aa39e54ccef74a255384ae21989f11022}} 
+\#define {\bfseries ex}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (1.\+0,0.\+0,0.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_a56d8a5099eb4328d3a094331b89bc621}\label{vector_8h_a56d8a5099eb4328d3a094331b89bc621}} 
+\#define {\bfseries ey}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,1.\+0,0.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}\label{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}} 
+\#define {\bfseries ez}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,0.\+0,1.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}\label{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}} 
+\#define {\bfseries dzero}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,0.\+0,0.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_a7cf126dbeb6f30c606e3b42fea65cfef}\label{vector_8h_a7cf126dbeb6f30c606e3b42fea65cfef}} 
+\#define {\bfseries one}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$  (1.\+0,1.\+0,1.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_a67b72833e47467ff90e7065cae471794}\label{vector_8h_a67b72833e47467ff90e7065cae471794}} 
+\#define {\bfseries czero}~\mbox{\hyperlink{class_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$ (0.\+0,0.\+0,0.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}\label{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}} 
+\#define {\bfseries cone}~\mbox{\hyperlink{class_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$  (1.\+0,1.\+0,1.\+0)
+\item 
+\mbox{\Hypertarget{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}\label{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}} 
+\#define {\bfseries complex\+\_\+I}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_a9f335851c5d018e390c9c8a429585e3c}\label{vector_8h_a9f335851c5d018e390c9c8a429585e3c}} 
+double {\bfseries arctan} (double y, double x)
+\item 
+\mbox{\Hypertarget{vector_8h_a49d59cd206aabdbaa8c157722767f4ba}\label{vector_8h_a49d59cd206aabdbaa8c157722767f4ba}} 
+std\+::complex$<$ double $>$ {\bfseries tan} (std\+::complex$<$ double $>$ z)
+\item 
+\mbox{\Hypertarget{vector_8h_a707bd7cd99c49872ccaf9f6dd640aa35}\label{vector_8h_a707bd7cd99c49872ccaf9f6dd640aa35}} 
+std\+::complex$<$ double $>$ {\bfseries operator+} (std\+::complex$<$ double $>$ x, int y)
+\item 
+\mbox{\Hypertarget{vector_8h_af08b20d989559eb177dfc0a7d46601d0}\label{vector_8h_af08b20d989559eb177dfc0a7d46601d0}} 
+std\+::complex$<$ double $>$ {\bfseries operator+} (int y, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_a7a619e21258d061a6717108fb4762e2c}\label{vector_8h_a7a619e21258d061a6717108fb4762e2c}} 
+std\+::complex$<$ double $>$ {\bfseries operator-\/} (std\+::complex$<$ double $>$ x, int y)
+\item 
+\mbox{\Hypertarget{vector_8h_ab388d7d5a0a3082a98ec14ac3f54c30e}\label{vector_8h_ab388d7d5a0a3082a98ec14ac3f54c30e}} 
+std\+::complex$<$ double $>$ {\bfseries operator-\/} (int y, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_a9a5425e9840574b21773a05ce0670e8b}\label{vector_8h_a9a5425e9840574b21773a05ce0670e8b}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, int y)
+\item 
+\mbox{\Hypertarget{vector_8h_a9766ef69384d4365d8c1a75a7d5ef0b2}\label{vector_8h_a9766ef69384d4365d8c1a75a7d5ef0b2}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (int y, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_a7f11d989a87fdb61b26e7e857e3dad8f}\label{vector_8h_a7f11d989a87fdb61b26e7e857e3dad8f}} 
+std\+::complex$<$ double $>$ {\bfseries operator/} (std\+::complex$<$ double $>$ x, int y)
+\item 
+\mbox{\Hypertarget{vector_8h_a9aca44bb8f309135d19aad0d9c8632c1}\label{vector_8h_a9aca44bb8f309135d19aad0d9c8632c1}} 
+std\+::complex$<$ double $>$ {\bfseries operator/} (int y, std\+::complex$<$ double $>$ x)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}{cart2sphere}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&x)
+\begin{DoxyCompactList}\small\item\em Transformation from cartesian coordinates to spherical coordinates. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}{sphere2cart}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&P)
+\begin{DoxyCompactList}\small\item\em Transforms vector from spherical coordinates into cartesian coordinates. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a8da2aa92b08b7de40ece1a5ad6fc7d43}\label{vector_8h_a8da2aa92b08b7de40ece1a5ad6fc7d43}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_ae04a4172d2083d12f414da96ead0cbf8}\label{vector_8h_ae04a4172d2083d12f414da96ead0cbf8}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a2700eea3f75e1556289e106fd76da164}\label{vector_8h_a2700eea3f75e1556289e106fd76da164}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_af21f7ec205d25fdbf6e36f116de60f0e}\label{vector_8h_af21f7ec205d25fdbf6e36f116de60f0e}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a9a3c909e283a28dec3bf4ee0d52e0ae2}\label{vector_8h_a9a3c909e283a28dec3bf4ee0d52e0ae2}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a6d628a29111b095617e536834300533b}\label{vector_8h_a6d628a29111b095617e536834300533b}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a81495ea36fe398670dfb10aabcc9d19c}\label{vector_8h_a81495ea36fe398670dfb10aabcc9d19c}} 
+void {\bfseries errmsg} (char $\ast$S)
+\item 
+double \mbox{\hyperlink{vector_8h_ac858532f407521fdfb1f58b37301f1a7}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Fehlermeldung ausgeben. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a5a223d427ab41ff47f53999accca16e6}\label{vector_8h_a5a223d427ab41ff47f53999accca16e6}} 
+double \mbox{\hyperlink{vector_8h_a5a223d427ab41ff47f53999accca16e6}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the absolute value of a complex vector \$f(abs(\textbackslash{}vec\{r\})=\textbackslash{}sqrt\{\textbackslash{}vec\{r\} \textbackslash{}cdot \textbackslash{}vec\{r\}$\ast$\$f\}) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_af7c92fa01293f3254e54b5b586b94576}\label{vector_8h_af7c92fa01293f3254e54b5b586b94576}} 
+double \mbox{\hyperlink{vector_8h_af7c92fa01293f3254e54b5b586b94576}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the absolute value of an integer vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a3fc21473fe844db8d617f7878831a006}\label{vector_8h_a3fc21473fe844db8d617f7878831a006}} 
+double \mbox{\hyperlink{vector_8h_a3fc21473fe844db8d617f7878831a006}{abs2}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the squared absolute value of double vector. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}\label{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}} 
+double \mbox{\hyperlink{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}{abs2}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the squared absolute value of double vector \$f(abs2(\textbackslash{}vec\{r\})=\textbackslash{}vec\{r\} \textbackslash{}cdot \textbackslash{}vec\{r\}$\ast$\$f) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_aad2af1db69a10be291dd8450fd1bc638}\label{vector_8h_aad2af1db69a10be291dd8450fd1bc638}} 
+double \mbox{\hyperlink{vector_8h_aad2af1db69a10be291dd8450fd1bc638}{abs2}} (std\+::complex$<$ double $>$ x)
+\begin{DoxyCompactList}\small\item\em Absolute value of the complex number x \$f(abs(x)=x \textbackslash{}cdot x$\ast$\$f) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_ac1674032d96a03865abb95935683c5d3}\label{vector_8h_ac1674032d96a03865abb95935683c5d3}} 
+double \mbox{\hyperlink{vector_8h_ac1674032d96a03865abb95935683c5d3}{abs2}} (double x)
+\begin{DoxyCompactList}\small\item\em Squared absolute value of x. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_ac35d273a6252c06cb692f43e508c4158}\label{vector_8h_ac35d273a6252c06cb692f43e508c4158}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{vector_8h_ac35d273a6252c06cb692f43e508c4158}{conj}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Conjugate complex of the vector r. \end{DoxyCompactList}\item 
+double $\ast$ \mbox{\hyperlink{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}{conv2double}} (int numV, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$r)
+\begin{DoxyCompactList}\small\item\em This function returns an array with all components of the Vector-\/array r. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a7cfccf4ed2e06acc705661cad3952215}\label{vector_8h_a7cfccf4ed2e06acc705661cad3952215}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a7cfccf4ed2e06acc705661cad3952215}{floor}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em rounding up, Component-\/by-\/component \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}\label{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \mbox{\hyperlink{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}{ifloor}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em rounding up, component-\/by-\/component rounding \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}{ceil}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \mbox{\hyperlink{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}{iceil}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+double \mbox{\hyperlink{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}{sign}} (double x)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$ \mbox{\hyperlink{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}{conv2vector}} (int num, double $\ast$r)
+\begin{DoxyCompactList}\small\item\em This function converts a list of doubles into a list of complex vectors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_aaa64dfc349f8e65a0a22ae87a0fa5f9f}\label{vector_8h_aaa64dfc349f8e65a0a22ae87a0fa5f9f}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries grad2d} (double($\ast$f(\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$)), \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ x, double dx)
+\item 
+\mbox{\Hypertarget{vector_8h_ac3792fa1eb237f0b757ebb68e55e06f6}\label{vector_8h_ac3792fa1eb237f0b757ebb68e55e06f6}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries convd2c} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_ad228f27ecb7edc69da9340cc45162678}\label{vector_8h_ad228f27ecb7edc69da9340cc45162678}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad228f27ecb7edc69da9340cc45162678}{real}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ r)
+\begin{DoxyCompactList}\small\item\em returns a vector with the real parts of the components of the complex vector r \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a165a28c2c2814218fcf669d411a4e7de}\label{vector_8h_a165a28c2c2814218fcf669d411a4e7de}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a165a28c2c2814218fcf669d411a4e7de}{imag}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ r)
+\begin{DoxyCompactList}\small\item\em returns a vector with the imaginary parts of the components of the complex vector r \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_a8b0686376d40d1b7410216a8e6a6e7ac}\label{vector_8h_a8b0686376d40d1b7410216a8e6a6e7ac}} 
+double {\bfseries s\+Dreieck} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$)
+\item 
+\mbox{\Hypertarget{vector_8h_a57b8df37562890589d211bd7e6315403}\label{vector_8h_a57b8df37562890589d211bd7e6315403}} 
+double {\bfseries s\+Viereck} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$)
+\item 
+\mbox{\Hypertarget{vector_8h_a3725a34dd30d012af712a2da9fa7c173}\label{vector_8h_a3725a34dd30d012af712a2da9fa7c173}} 
+void {\bfseries rotate} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, double phi)
+\item 
+\mbox{\Hypertarget{vector_8h_a7eebde889dfddab0af5085ae3da340ed}\label{vector_8h_a7eebde889dfddab0af5085ae3da340ed}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries rotate} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, double dtheta, double dphi)
+\item 
+\mbox{\Hypertarget{vector_8h_acad6ec2b49343895220cb7909ec129d2}\label{vector_8h_acad6ec2b49343895220cb7909ec129d2}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries vdc} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a854eb4d1855c3433f2376305311acfae}\label{vector_8h_a854eb4d1855c3433f2376305311acfae}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries make\+Real} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a93a6f5573d810d6afecd23809569a8a1}{cart2sphere}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Converts a vector, described by its cartesian components, into a vector in spherical coordinates ( $(r, \vartheta, \varphi) $) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad827cddff518c2fe68792742227db9b1}{sphere2cart}} (double r, double theta, double phi)
+\begin{DoxyCompactList}\small\item\em Converts a vector, described by its spherical components ( $(r, \vartheta, \varphi) $), into a vector in cartesian coordinates. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vector_8h_a692a1996d44a95f383edf9d176deabea}{get\+K\+System}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&n, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e1, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e2, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e3)
+\begin{DoxyCompactList}\small\item\em Calculates the three direction vectors of a coordinate system formed by the surface normal n and the propagation vector k. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_af0d80745eef284cff792f0b78825ff9f}\label{vector_8h_af0d80745eef284cff792f0b78825ff9f}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries arg} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a68dadb74d9f500ed47898e6ef8f4d92d}\label{vector_8h_a68dadb74d9f500ed47898e6ef8f4d92d}} 
+std\+::complex$<$ double $>$ {\bfseries asin} (std\+::complex$<$ double $>$ z)
+\item 
+\mbox{\Hypertarget{vector_8h_adb51165282e0742ca1c480f7d9c5f32f}\label{vector_8h_adb51165282e0742ca1c480f7d9c5f32f}} 
+std\+::complex$<$ double $>$ {\bfseries ihoch} (int l)
+\item 
+\mbox{\Hypertarget{vector_8h_afa9c4d7b0bf1d4a0f074a9146e983441}\label{vector_8h_afa9c4d7b0bf1d4a0f074a9146e983441}} 
+void {\bfseries sphereunitv} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&er, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&etheta, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&ephi)
+\item 
+\mbox{\Hypertarget{vector_8h_ac7017bb45eb17902a401e3ce25337448}\label{vector_8h_ac7017bb45eb17902a401e3ce25337448}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emax} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P1, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P2)
+\item 
+\mbox{\Hypertarget{vector_8h_a61ace4554d5c1fd39ad2154b3c8e1625}\label{vector_8h_a61ace4554d5c1fd39ad2154b3c8e1625}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries er} (double theta, double phi)
+\item 
+\mbox{\Hypertarget{vector_8h_a82d11ebf265aaf8c09f80802cf58b99e}\label{vector_8h_a82d11ebf265aaf8c09f80802cf58b99e}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries etheta} (double theta, double phi)
+\item 
+\mbox{\Hypertarget{vector_8h_ad6683f2eb5cec010f745b8c24ed26b65}\label{vector_8h_ad6683f2eb5cec010f745b8c24ed26b65}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries ephi} (double theta, double phi)
+\item 
+\mbox{\Hypertarget{vector_8h_ab02d4803efd46120938bfdf152a2fa7d}\label{vector_8h_ab02d4803efd46120938bfdf152a2fa7d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries convd2c} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_aaf96b894b1042201bb510fd11f1376c0}\label{vector_8h_aaf96b894b1042201bb510fd11f1376c0}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries norm} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a961b99a0939328d68921c6c094357f75}\label{vector_8h_a961b99a0939328d68921c6c094357f75}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries norm} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+char $\ast$ \mbox{\hyperlink{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}{to\+String}} (char $\ast$S, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P)
+\begin{DoxyCompactList}\small\item\em Converts a double vector into a string. \end{DoxyCompactList}\item 
+char $\ast$ \mbox{\hyperlink{vector_8h_a815257966809f76ea36823ff775d1453}{to\+String}} (char $\ast$S, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ P)
+\begin{DoxyCompactList}\small\item\em Converts a complex vector into a string. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_aaf6d430c60a643f5ca751ecb7847ab72}\label{vector_8h_aaf6d430c60a643f5ca751ecb7847ab72}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries nanV} (const char $\ast$tagp)
+\item 
+\mbox{\Hypertarget{vector_8h_ace4d530549057caf05439de82395a75f}\label{vector_8h_ace4d530549057caf05439de82395a75f}} 
+bool \mbox{\hyperlink{vector_8h_ace4d530549057caf05439de82395a75f}{isnan}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ v)
+\begin{DoxyCompactList}\small\item\em returns true if one of the components of v is NaN \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{vector_8h_afd917af2765b797a5e9084339179c0ea}\label{vector_8h_afd917af2765b797a5e9084339179c0ea}} 
+bool \mbox{\hyperlink{vector_8h_afd917af2765b797a5e9084339179c0ea}{isnan}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ v)
+\begin{DoxyCompactList}\small\item\em returns true if one of the components of v is NaN \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ Standard operators for vectors}\par
+{\em Standard operators for vectors with mixed types }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_ae6e6119c02cebe41b0e225d68a8def80}\label{vector_8h_ae6e6119c02cebe41b0e225d68a8def80}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a55a3cc6013040d08cd188bee97258bce}\label{vector_8h_a55a3cc6013040d08cd188bee97258bce}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a6123903ecea6ace3ae557afa28396bea}\label{vector_8h_a6123903ecea6ace3ae557afa28396bea}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a803b0ae37262e1bb98ebb8d873d1914a}\label{vector_8h_a803b0ae37262e1bb98ebb8d873d1914a}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_aa971a2239f6701fd1515df496d479c4d}\label{vector_8h_aa971a2239f6701fd1515df496d479c4d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a777d5b3cf21271155d6953a90cd74100}\label{vector_8h_a777d5b3cf21271155d6953a90cd74100}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_ad2df1b1ca40339a670bfc33e7b4390b3}\label{vector_8h_ad2df1b1ca40339a670bfc33e7b4390b3}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_abe5f619b8561487f1ef91fa9521c4c05}\label{vector_8h_abe5f619b8561487f1ef91fa9521c4c05}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a7fdaab005e961c8db801160c96375dec}\label{vector_8h_a7fdaab005e961c8db801160c96375dec}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_ad649726737b4d0bc5d1b95ec8ef7b228}\label{vector_8h_ad649726737b4d0bc5d1b95ec8ef7b228}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a7d6e5846e789c47b4c18310fa7bc00ed}\label{vector_8h_a7d6e5846e789c47b4c18310fa7bc00ed}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a8111997fc899bab04e682f30350f0d55}\label{vector_8h_a8111997fc899bab04e682f30350f0d55}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a7dd8d582f6232b0b8616d568852de57d}\label{vector_8h_a7dd8d582f6232b0b8616d568852de57d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (int x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_aa5456f82d9a4e33a13ef9513aef20507}\label{vector_8h_aa5456f82d9a4e33a13ef9513aef20507}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, int x)
+\item 
+\mbox{\Hypertarget{vector_8h_a24141c1664cdb3bb645f94ab1495b5e7}\label{vector_8h_a24141c1664cdb3bb645f94ab1495b5e7}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (double x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a0aa3a9938f01386683d9c1814bffefcb}\label{vector_8h_a0aa3a9938f01386683d9c1814bffefcb}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, double x)
+\item 
+\mbox{\Hypertarget{vector_8h_adbc0b990f9c84c780935307c84ba44b8}\label{vector_8h_adbc0b990f9c84c780935307c84ba44b8}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_acec3508de45489ba7973c3ca4891dca2}\label{vector_8h_acec3508de45489ba7973c3ca4891dca2}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_a5b689bebd76693387a610fe9f62d07f3}\label{vector_8h_a5b689bebd76693387a610fe9f62d07f3}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+\item 
+\mbox{\Hypertarget{vector_8h_a7c26bf7a31e7fe42d7cae22255e41fe1}\label{vector_8h_a7c26bf7a31e7fe42d7cae22255e41fe1}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_a84cb9aabc77da4b61dc54c8407a6627b}\label{vector_8h_a84cb9aabc77da4b61dc54c8407a6627b}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_afe3ee31d859cba822ef3efd2893c5cfe}\label{vector_8h_afe3ee31d859cba822ef3efd2893c5cfe}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, int x)
+\item 
+\mbox{\Hypertarget{vector_8h_a757ff420c82b94a093862949686beb8d}\label{vector_8h_a757ff420c82b94a093862949686beb8d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r, double x)
+\item 
+\mbox{\Hypertarget{vector_8h_aee3cff28110e58838cad44a7de0394dd}\label{vector_8h_aee3cff28110e58838cad44a7de0394dd}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r, int x)
+\item 
+\mbox{\Hypertarget{vector_8h_aa023e3c921c045a1141a1c134a284079}\label{vector_8h_aa023e3c921c045a1141a1c134a284079}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, double x)
+\item 
+\mbox{\Hypertarget{vector_8h_a0648a2da16f0795174cef09ae3ffd3ad}\label{vector_8h_a0648a2da16f0795174cef09ae3ffd3ad}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
+\item 
+\mbox{\Hypertarget{vector_8h_ad56597f7c437f39347a8d59a43106975}\label{vector_8h_ad56597f7c437f39347a8d59a43106975}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a062c9ab9cd29a71452fcc064eb7ffb4d}\label{vector_8h_a062c9ab9cd29a71452fcc064eb7ffb4d}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a6284e1df1a4398fee4ab662efa1902f3}\label{vector_8h_a6284e1df1a4398fee4ab662efa1902f3}} 
+double {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_aa72468924fd71b79fd888edb06ce27f1}\label{vector_8h_aa72468924fd71b79fd888edb06ce27f1}} 
+double {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a843162512c9945b1360696d5052ddfe9}\label{vector_8h_a843162512c9945b1360696d5052ddfe9}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a8f4e3f0b87d1f6ab349b8a1f1840dc0c}\label{vector_8h_a8f4e3f0b87d1f6ab349b8a1f1840dc0c}} 
+std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_aa154732ac988f715963514907a14d2a6}\label{vector_8h_aa154732ac988f715963514907a14d2a6}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_ae0814ec24eba83e1ad96091e0169465d}\label{vector_8h_ae0814ec24eba83e1ad96091e0169465d}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_aafe487403ebb9bb8177de3a48847ec85}\label{vector_8h_aafe487403ebb9bb8177de3a48847ec85}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a483eac1134a616eda4b7e57bc964b850}\label{vector_8h_a483eac1134a616eda4b7e57bc964b850}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a1c01ba8e28916b7d1a7832c75edde42a}\label{vector_8h_a1c01ba8e28916b7d1a7832c75edde42a}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+\item 
+\mbox{\Hypertarget{vector_8h_a09a6ac862d6d739334da3007895101c5}\label{vector_8h_a09a6ac862d6d739334da3007895101c5}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ element-\/wise multiplication}\par
+{\em Element-\/wise multiplication of two vectors with different types }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_ab0b2e871f3c4118f4724eff15d1e7173}\label{vector_8h_ab0b2e871f3c4118f4724eff15d1e7173}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emult} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+\item 
+\mbox{\Hypertarget{vector_8h_a055330c0ddfac4fd57726327db2dbb7a}\label{vector_8h_a055330c0ddfac4fd57726327db2dbb7a}} 
+\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emult} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+\end{DoxyCompactItemize}
+\end{Indent}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{vector_8h_ab03128f28254e912f824640e69fc85ad}\label{vector_8h_ab03128f28254e912f824640e69fc85ad}} 
+const std\+::complex$<$ double $>$ \mbox{\hyperlink{vector_8h_ab03128f28254e912f824640e69fc85ad}{I}} =std\+::complex$<$double$>$ (0.\+0,1.\+0)
+\begin{DoxyCompactList}\small\item\em imaginary unit \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the \mbox{\hyperlink{class_vector}{Vector}} template class and some useful functions around this class. 
+
+\begin{DoxyAuthor}{Author}
+Thomas Weigel 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+July 2021 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vector_8h_ac858532f407521fdfb1f58b37301f1a7}\label{vector_8h_ac858532f407521fdfb1f58b37301f1a7}} 
+\index{vector.h@{vector.h}!abs@{abs}}
+\index{abs@{abs}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
+{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})}
+
+
+
+Fehlermeldung ausgeben. 
+
+Calculates the absolute value of a double vector \mbox{\Hypertarget{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}\label{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}} 
+\index{vector.h@{vector.h}!cart2sphere@{cart2sphere}}
+\index{cart2sphere@{cart2sphere}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{cart2sphere()}{cart2sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$T$>$ cart2sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{x }\end{DoxyParamCaption})}
+
+
+
+Transformation from cartesian coordinates to spherical coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & \mbox{\hyperlink{class_vector}{Vector}} in cartesian coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_vector}{Vector}} in spherical coordinates $(r,\vartheta,\varphi)$ 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vector_8h_a93a6f5573d810d6afecd23809569a8a1}\label{vector_8h_a93a6f5573d810d6afecd23809569a8a1}} 
+\index{vector.h@{vector.h}!cart2sphere@{cart2sphere}}
+\index{cart2sphere@{cart2sphere}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{cart2sphere()}{cart2sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ cart2sphere (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+
+
+
+Converts a vector, described by its cartesian components, into a vector in spherical coordinates ( $(r, \vartheta, \varphi) $) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & x-\/component \\
+\hline
+{\em y} & y-\/component \\
+\hline
+{\em z} & z-\/component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}\label{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}} 
+\index{vector.h@{vector.h}!ceil@{ceil}}
+\index{ceil@{ceil}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{ceil()}{ceil()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ ceil (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & rounding down, component -\/ by -\/ component rounding \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}\label{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}} 
+\index{vector.h@{vector.h}!conv2double@{conv2double}}
+\index{conv2double@{conv2double}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{conv2double()}{conv2double()}}
+{\footnotesize\ttfamily double $\ast$ conv2double (\begin{DoxyParamCaption}\item[{int}]{numV,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+This function returns an array with all components of the Vector-\/array r. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numV} & number of elements in vector list r \\
+\hline
+{\em r} & List of vectors to convert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array with all components of r\+: erg\mbox{[}0\mbox{]}=real(r\mbox{[}0\mbox{]}), erg\mbox{[}1\mbox{]}=imag(r\mbox{[}0\mbox{]}),erg\mbox{[}2\mbox{]}=real(r\mbox{[}1\mbox{]}), erg\mbox{[}2\mbox{]}=imag(r\mbox{[}1\mbox{]}),... 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}\label{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}} 
+\index{vector.h@{vector.h}!conv2vector@{conv2vector}}
+\index{conv2vector@{conv2vector}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{conv2vector()}{conv2vector()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$ conv2vector (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{double $\ast$}]{r }\end{DoxyParamCaption})}
+
+
+
+This function converts a list of doubles into a list of complex vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em num} & Number of complex vectors to convert \\
+\hline
+{\em r} & List of double values \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List of complex vectors (erg)\+: erg\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}=r\mbox{[}0\mbox{]}+i$\ast$r\mbox{[}1\mbox{]},erg\mbox{[}0\mbox{]}\mbox{[}1\mbox{]}=r\mbox{[}2\mbox{]}+i$\ast$r\mbox{[}3\mbox{]},erg\mbox{[}0\mbox{]}\mbox{[}2\mbox{]}=r\mbox{[}4\mbox{]}+i$\ast$r\mbox{[}5\mbox{]}, erg\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}=r\mbox{[}6\mbox{]}+i$\ast$r\mbox{[}7\mbox{]},... 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vector_8h_a692a1996d44a95f383edf9d176deabea}\label{vector_8h_a692a1996d44a95f383edf9d176deabea}} 
+\index{vector.h@{vector.h}!getKSystem@{getKSystem}}
+\index{getKSystem@{getKSystem}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{getKSystem()}{getKSystem()}}
+{\footnotesize\ttfamily void get\+K\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{n,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{k,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e1,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e2,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e3 }\end{DoxyParamCaption})}
+
+
+
+Calculates the three direction vectors of a coordinate system formed by the surface normal n and the propagation vector k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Surface normal \\
+\hline
+{\em k} & propagation vector \\
+\hline
+{\em e0} & normalized direction vector for the first coordinate axis, equal to n \\
+\hline
+{\em e1} & normalized direction vector for the first coordinate axis, $\vec{e_1}=\vec{e_2}\times\vec{e_0}$ \\
+\hline
+{\em e2} & normalized direction vector for the third coordinate axis\+: $\vec{e_2}=\vec{n}\times\vec{k}$. If $\vec{e_2}=0$, $\vec{e_2}= \frac{\vec{n}\times\vec{e_x}}{\left|\vec{n}\times\vec{e_x}\right|$ \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}\label{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}} 
+\index{vector.h@{vector.h}!iceil@{iceil}}
+\index{iceil@{iceil}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{iceil()}{iceil()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$int$>$ iceil (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & rounding down, component -\/ by -\/ component rounding \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}\label{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}} 
+\index{vector.h@{vector.h}!sign@{sign}}
+\index{sign@{sign}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{sign()}{sign()}}
+{\footnotesize\ttfamily double sign (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & returns -\/1 if x$<$0, 0 if x equals to 0 and 1 if x$>$0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}\label{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}} 
+\index{vector.h@{vector.h}!sphere2cart@{sphere2cart}}
+\index{sphere2cart@{sphere2cart}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{sphere2cart()}{sphere2cart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$T$>$ sphere2cart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{P }\end{DoxyParamCaption})}
+
+
+
+Transforms vector from spherical coordinates into cartesian coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & \mbox{\hyperlink{class_vector}{Vector}} in spherical coordinates $(r,\vartheta,\varphi)$ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_vector}{Vector}} in cartesian coordinates 
+\end{DoxyReturn}
+\mbox{\Hypertarget{vector_8h_ad827cddff518c2fe68792742227db9b1}\label{vector_8h_ad827cddff518c2fe68792742227db9b1}} 
+\index{vector.h@{vector.h}!sphere2cart@{sphere2cart}}
+\index{sphere2cart@{sphere2cart}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{sphere2cart()}{sphere2cart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ sphere2cart (\begin{DoxyParamCaption}\item[{double}]{r,  }\item[{double}]{theta,  }\item[{double}]{phi }\end{DoxyParamCaption})}
+
+
+
+Converts a vector, described by its spherical components ( $(r, \vartheta, \varphi) $), into a vector in cartesian coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & r-\/component \\
+\hline
+{\em theta} & $(\vartheta$)-\/component \\
+\hline
+{\em phi} & $(\varphi$)-\/component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}\label{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}} 
+\index{vector.h@{vector.h}!toString@{toString}}
+\index{toString@{toString}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily char$\ast$ to\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{S,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
+
+
+
+Converts a double vector into a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & string in which the components of the vector P will be written. The components will be written in one row, separated by spaces. \\
+\hline
+{\em P} & \mbox{\hyperlink{class_vector}{Vector}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{vector_8h_a815257966809f76ea36823ff775d1453}\label{vector_8h_a815257966809f76ea36823ff775d1453}} 
+\index{vector.h@{vector.h}!toString@{toString}}
+\index{toString@{toString}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily char$\ast$ to\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{S,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{P }\end{DoxyParamCaption})}
+
+
+
+Converts a complex vector into a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & string in which the components of the vector P will be written. The components (first real part, then imaginary part) will be written in one row, separated by spaces. \\
+\hline
+{\em P} & \mbox{\hyperlink{class_vector}{Vector}} \\
+\hline
+\end{DoxyParams}

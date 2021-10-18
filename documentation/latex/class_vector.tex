@@ -1,0 +1,388 @@
+\hypertarget{class_vector}{}\doxysection{Vector$<$ T $>$ Class Template Reference}
+\label{class_vector}\index{Vector$<$ T $>$@{Vector$<$ T $>$}}
+
+
+Template class for threedimensional vectors.  
+
+
+
+
+{\ttfamily \#include $<$vector.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_vector_a1d20fea902fe5805b0466c6e04efe7b9}{bin\+Write}} (std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{class_vector_a570e48e1368ba9dd36b1ca9bdc60e260}{bin\+Read}} (std\+::ifstream \&is)
+\item 
+\mbox{\Hypertarget{class_vector_a39d6069675db4ecfc1ab81d440da759a}\label{class_vector_a39d6069675db4ecfc1ab81d440da759a}} 
+\mbox{\hyperlink{class_vector_a39d6069675db4ecfc1ab81d440da759a}{Vector}} ()
+\begin{DoxyCompactList}\small\item\em Standard constructor (all components are initialized with 0) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector_a54134ff12d09ce692667fe5c578ee2e9}{Vector}} (T x, T y, T z)
+\begin{DoxyCompactList}\small\item\em Constructor with the three components as parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector_a3ff77c4679d32a0af1eb8136879c748b}{Vector}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_ae1cfdf227834bc42d2d6d687e8e13ed9}{operator-\/}} ()
+\item 
+\mbox{\Hypertarget{class_vector_ab8552c891399b84258a20da0608056bd}\label{class_vector_ab8552c891399b84258a20da0608056bd}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_ab8552c891399b84258a20da0608056bd}{operator=}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a6801adbac9bc296836e5ac2ff7ac9cfe}\label{class_vector_a6801adbac9bc296836e5ac2ff7ac9cfe}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_a6801adbac9bc296836e5ac2ff7ac9cfe}{operator=}} (T r\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em Assignment operator (with an ordinary threedimensional array. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_acea636e2aad05049a4eae1351ecbb8f5}\label{class_vector_acea636e2aad05049a4eae1351ecbb8f5}} 
+bool \mbox{\hyperlink{class_vector_acea636e2aad05049a4eae1351ecbb8f5}{operator==}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Comparison operators\+: two vectors are equal if their components are (exactly) the same. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a768eba0997369411455fc66e962b7f98}\label{class_vector_a768eba0997369411455fc66e962b7f98}} 
+bool \mbox{\hyperlink{class_vector_a768eba0997369411455fc66e962b7f98}{operator!=}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Inequality operator\+: Two vectors are inequal if at least one component is not equal. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a9cdf89b833f4758e14ce4b13f4f1d93f}\label{class_vector_a9cdf89b833f4758e14ce4b13f4f1d93f}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_a9cdf89b833f4758e14ce4b13f4f1d93f}{operator+=}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Addition operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a3e64f74db313d5cbfefad4d5f317903a}\label{class_vector_a3e64f74db313d5cbfefad4d5f317903a}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_a3e64f74db313d5cbfefad4d5f317903a}{operator-\/=}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Subtraction operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a63ffcd7ac98b1b4367e3ddca5af48f84}\label{class_vector_a63ffcd7ac98b1b4367e3ddca5af48f84}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_a63ffcd7ac98b1b4367e3ddca5af48f84}{operator$\ast$=}} (T r)
+\begin{DoxyCompactList}\small\item\em Multiplication with scalar. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_aa9a9079b872ee401edc12e61f5bd3ff8}\label{class_vector_aa9a9079b872ee401edc12e61f5bd3ff8}} 
+\mbox{\hyperlink{class_vector}{Vector}} \& \mbox{\hyperlink{class_vector_aa9a9079b872ee401edc12e61f5bd3ff8}{operator/=}} (T r)
+\begin{DoxyCompactList}\small\item\em Division by scalar. \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_vector_a5db0910fc60e17551b75f6b227c49b46}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\begin{DoxyCompactList}\small\item\em Bracket operator, gives access to the i-\/th component of the vector (as for a usual array). \end{DoxyCompactList}\item 
+const T \& \mbox{\hyperlink{class_vector_a7e1d304e147e3c7bf626ab5c9976a9bb}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Bracket operator, gives access to the i-\/th component of the vector (as for a usual array). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vector_a2fba88202e63f7178955d0927dda6fa0}\label{class_vector_a2fba88202e63f7178955d0927dda6fa0}} 
+T {\bfseries data} \mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a612b365209313dfb6cb7743c825eb0ca}{operator+}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r1, const \mbox{\hyperlink{class_vector}{Vector}} \&r2)
+\begin{DoxyCompactList}\small\item\em Addition of two vectors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_aa54d7c127a200476153797900de499e0}{operator-\/}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r1, const \mbox{\hyperlink{class_vector}{Vector}} \&r2)
+\begin{DoxyCompactList}\small\item\em Subtraction of two vectors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_ac7bca2feb601c6a87842090a71e00cd0}{operator\%}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r1, const \mbox{\hyperlink{class_vector}{Vector}} \&r2)
+\begin{DoxyCompactList}\small\item\em cross product between two vectors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a6d077c31ce811385d86678f3ec474d66}\label{class_vector_a6d077c31ce811385d86678f3ec474d66}} 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a6d077c31ce811385d86678f3ec474d66}{sqrt}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em calculates the square root of a vector\+: result\+: sqrt((x,y,z)) $ \rightarrow (\sqrt{x},\sqrt{y},\sqrt{z}) $ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_af27d3dbc56231c1030f868d162a327e9}\label{class_vector_af27d3dbc56231c1030f868d162a327e9}} 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_af27d3dbc56231c1030f868d162a327e9}{exp}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em exponential function of a vector (x,y,z), defined by exp((x,y,z)) $\rightarrow (e^x,e^y,e^z)$ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_a09cfdc3c1006b7e844de9a71d7818f26}\label{class_vector_a09cfdc3c1006b7e844de9a71d7818f26}} 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a09cfdc3c1006b7e844de9a71d7818f26}{emult}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r1, const \mbox{\hyperlink{class_vector}{Vector}} \&r2)
+\begin{DoxyCompactList}\small\item\em Component-\/wise multiplication of two vectors. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_vector_adc531f5d3cedc36dd803f478654647cf}\label{class_vector_adc531f5d3cedc36dd803f478654647cf}} 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_adc531f5d3cedc36dd803f478654647cf}{ediv}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r1, const \mbox{\hyperlink{class_vector}{Vector}} \&r2)
+\begin{DoxyCompactList}\small\item\em Component-\/wise division of two vectors. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a4712b5cbb43d26736ea11b56f66a00f0}{ediv}} (T s, const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Component-\/wise division, scalar (s) by vector (r) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_vector_a91bff6eb5390c6b2a91ca8742ffffaeb}{operator==}} (const \mbox{\hyperlink{class_vector}{Vector}} \&A, const \mbox{\hyperlink{class_vector}{Vector}} \&B)
+\item 
+bool \mbox{\hyperlink{class_vector_acfc84ab5ef07d2b3460f57d455d1c8be}{operator!=}} (const \mbox{\hyperlink{class_vector}{Vector}} \&A, const \mbox{\hyperlink{class_vector}{Vector}} \&B)
+\item 
+T \mbox{\hyperlink{class_vector_a096824fd04adf2ce5a0d0f738ff9b1e0}{operator$\ast$}} (const \mbox{\hyperlink{class_vector}{Vector}} \&a, const \mbox{\hyperlink{class_vector}{Vector}} \&b)
+\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a86ee32a2c67d28eac1fa67c3155e8a03}{operator$\ast$}} (T x, const \mbox{\hyperlink{class_vector}{Vector}} \&r)
+\begin{DoxyCompactList}\small\item\em Multiplication of a scalar with a vector. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_a2e1d6fe9a1868ff0e9500dfcc7c070d1}{operator$\ast$}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r, T x)
+\begin{DoxyCompactList}\small\item\em Multiplication of a vector with a scalar. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector_af38f5fe8a041a7e13720423deaf6b18a}{operator/}} (const \mbox{\hyperlink{class_vector}{Vector}} \&r, T x)
+\begin{DoxyCompactList}\small\item\em Division of a vector by a scalar. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Vector$<$ T $>$}
+
+Template class for threedimensional vectors. 
+
+This class provides standard operations and functions for threedimensional vectors. It is intended for use with int, double and complex$<$double$>$ based vectors. Also, operators with mixed types are given (e.\+g. operators for double and complex vectors). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_vector_a54134ff12d09ce692667fe5c578ee2e9}\label{class_vector_a54134ff12d09ce692667fe5c578ee2e9}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_vector}{Vector}} (\begin{DoxyParamCaption}\item[{T}]{x,  }\item[{T}]{y,  }\item[{T}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor with the three components as parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & first component \\
+\hline
+{\em y} & second component \\
+\hline
+{\em z} & third component \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a3ff77c4679d32a0af1eb8136879c748b}\label{class_vector_a3ff77c4679d32a0af1eb8136879c748b}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!Vector@{Vector}}
+\index{Vector@{Vector}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::\mbox{\hyperlink{class_vector}{Vector}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copy constructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_vector_a570e48e1368ba9dd36b1ca9bdc60e260}\label{class_vector_a570e48e1368ba9dd36b1ca9bdc60e260}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!binRead@{binRead}}
+\index{binRead@{binRead}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{binRead()}{binRead()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & reads vector from binary file, represented by the input stream is \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a1d20fea902fe5805b0466c6e04efe7b9}\label{class_vector_a1d20fea902fe5805b0466c6e04efe7b9}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!binWrite@{binWrite}}
+\index{binWrite@{binWrite}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & writes vector to a binary file, represented by the output stream os \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_ae1cfdf227834bc42d2d6d687e8e13ed9}\label{class_vector_ae1cfdf227834bc42d2d6d687e8e13ed9}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+sign minus \mbox{\Hypertarget{class_vector_a5db0910fc60e17551b75f6b227c49b46}\label{class_vector_a5db0910fc60e17551b75f6b227c49b46}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T\& \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Bracket operator, gives access to the i-\/th component of the vector (as for a usual array). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+content of the i-\/th component 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vector_a7e1d304e147e3c7bf626ab5c9976a9bb}\label{class_vector_a7e1d304e147e3c7bf626ab5c9976a9bb}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T\& \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Bracket operator, gives access to the i-\/th component of the vector (as for a usual array). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the component \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+content of the i-\/th component 
+\end{DoxyReturn}
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_vector_a4712b5cbb43d26736ea11b56f66a00f0}\label{class_vector_a4712b5cbb43d26736ea11b56f66a00f0}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!ediv@{ediv}}
+\index{ediv@{ediv}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ediv}{ediv}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} ediv (\begin{DoxyParamCaption}\item[{T}]{s,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Component-\/wise division, scalar (s) by vector (r) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & Scalar \\
+\hline
+{\em r} & \mbox{\hyperlink{class_vector}{Vector}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_vector}{Vector}} with components\+: (s/r\mbox{[}0\mbox{]},s/r\mbox{[}1\mbox{]},s/r\mbox{[}2\mbox{]}) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vector_acfc84ab5ef07d2b3460f57d455d1c8be}\label{class_vector_acfc84ab5ef07d2b3460f57d455d1c8be}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=}{operator!=}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & Inequality operator. Two vectors are unequal if they differ in at least one component. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_ac7bca2feb601c6a87842090a71e00cd0}\label{class_vector_ac7bca2feb601c6a87842090a71e00cd0}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator\%@{operator\%}}
+\index{operator\%@{operator\%}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\%}{operator\%}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator\% (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+cross product between two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & first vector \\
+\hline
+{\em r2} & second vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cross product 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vector_a096824fd04adf2ce5a0d0f738ff9b1e0}\label{class_vector_a096824fd04adf2ce5a0d0f738ff9b1e0}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{a,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Scalar product between two vectors \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a2e1d6fe9a1868ff0e9500dfcc7c070d1}\label{class_vector_a2e1d6fe9a1868ff0e9500dfcc7c070d1}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r,  }\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiplication of a vector with a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & vector \\
+\hline
+{\em x} & scalar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a86ee32a2c67d28eac1fa67c3155e8a03}\label{class_vector_a86ee32a2c67d28eac1fa67c3155e8a03}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator$\ast$ (\begin{DoxyParamCaption}\item[{T}]{x,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Multiplication of a scalar with a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & scalar \\
+\hline
+{\em r} & vector \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a612b365209313dfb6cb7743c825eb0ca}\label{class_vector_a612b365209313dfb6cb7743c825eb0ca}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+}{operator+}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Addition of two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & first summand \\
+\hline
+{\em r2} & second summand \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sum of r1 and r2 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vector_aa54d7c127a200476153797900de499e0}\label{class_vector_aa54d7c127a200476153797900de499e0}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r1,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Subtraction of two vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & minuend \\
+\hline
+{\em r2} & subtrahend \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_vector_af38f5fe8a041a7e13720423deaf6b18a}\label{class_vector_af38f5fe8a041a7e13720423deaf6b18a}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vector}{Vector}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{r,  }\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Division of a vector by a scalar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & vector \\
+\hline
+{\em x} & scalar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_vector_a91bff6eb5390c6b2a91ca8742ffffaeb}\label{class_vector_a91bff6eb5390c6b2a91ca8742ffffaeb}} 
+\index{Vector$<$ T $>$@{Vector$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!Vector$<$ T $>$@{Vector$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{A,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{B }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & Comparison operator. Two vectors are equal if all components are the same \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/maths/\mbox{\hyperlink{vector_8h}{vector.\+h}}\end{DoxyCompactItemize}
