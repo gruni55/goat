@@ -9,6 +9,9 @@ To make the mathematical description as simple as possible, a vector as well as 
 
 The library is divided into two parts: 
 
+> - The basic mathematical functions in the template classes Matrix and Vector, which describes three dimensional matrices and vector and the corresponding operators (the include files can be found in the folder : /maths)
+> - The main raytracer together with the light source and object representations (the include files can be found in the folder:  /raytracing)
+
 
 
 
@@ -26,7 +29,12 @@ type "cmake ." (don't forget the dot!)
 
 Cmake automatically recognizes the corresponding compiler system. For the Visual Studio, a corresponding project file will be generated and for the gcc a Makefile is created. 
 
+After compiling, the libraries are created in the folder /lib/Debug or in /lib/Release, depending if the library is compiled with "Debug" or with "Release" settings. 
 
+The names of the libraries are:
+
+> - **goat_raytracing.lib** : here are all the raytracing functions and representations
+> - **goat_maths.lib** : here are all basic mathemical functions and operators (Matrix and Vector template classes)
 
 
 
