@@ -121,7 +121,7 @@ bool IRay::next()
  int Index;
  Vector<double> p,R;  
  bool found=true;
- bool inObject=true;
+ bool inObject=true && objIndex>-1;
  if (!inObject) // Strahl ist ausserhalb eines Einschlusses
  {
    if (numObj==0) Index=-1;  
