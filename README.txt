@@ -6,10 +6,16 @@ this project requires CMake by Kitware
 Please note that for Windows, the slash "/" must be replaced by the backslash "\" in the specifications for the directories. 
 
 
+*** INSTALLATION NOTES ***
+
 Windows (with Visual Studio) 
 ============================
-open a command prompt and change to the GOAT directory
-to create a Visual Studio project just type "cmake ."
+Here, you have two possible ways: 
+
+Just open the GOAT directory with Visual Studio (if your VS version supports CMake, which is true e.g. for VS 2019 Community edition or later) 
+or you can use the command line: 
+             1. open a command prompt and change to the GOAT directory
+             2. create a Visual Studio with typing "cmake ."
 
 
 Linux with GCC compiler
@@ -30,8 +36,8 @@ the header files are in the directories /maths and /raytracing
 
 an documentation created by doxygen can be found in the folder /documentation
 
-Examples
-========
+
+*** Examples ***
 
 in the folder /examples/ot 
     - Single spherical particle in an optical trap (example_one_sphere.cpp)
