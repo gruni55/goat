@@ -12,24 +12,23 @@ The library is divided into two parts:
 > - The basic mathematical functions in the template classes Matrix and Vector, which describes three dimensional matrices and vector and the corresponding operators (the include files can be found in the folder : /maths)
 > - The main raytracer together with the light source and object representations (the include files can be found in the folder:  /raytracing)
 
-
-
-
+take also a look into README.txt
 
 ## Installation instructions
 
-For a proper installation, cmake is highly recommended. You can download it from [](https://cmake.org/)
+For a proper installation, cmake is highly recommended. You can download it from (https://cmake.org/)
 and of course, a working C++-Compiler (We tested it on Windows with Visual Studio Community Edition 2019 and on Linux with gcc)
 
 open a console window a 
 
 change to your GOAT directory 
-
 type "cmake ." (don't forget the dot!) 
 
 Cmake automatically recognizes the corresponding compiler system. For the Visual Studio, a corresponding project file will be generated and for the gcc a Makefile is created. 
 
-After compiling, the libraries are created in the folder /lib/Debug or in /lib/Release, depending if the library is compiled with "Debug" or with "Release" settings. 
+Newer versions of Visual Studio (e.g. VS 2019) supports cmake directly, so you can just open the GOAT directory with VS
+
+After compiling, the libraries can be found in /lib
 
 The names of the libraries are:
 
