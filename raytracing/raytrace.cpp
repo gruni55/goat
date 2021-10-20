@@ -1,4 +1,5 @@
 #include "raytrace.h"
+#include <float.h>
 #define MAX_RECURSIONS 20
 Raytrace::Raytrace()
 {

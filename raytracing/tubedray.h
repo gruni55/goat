@@ -75,7 +75,7 @@
     const Gauss ohne_gauss = { 0,Vector<double>(0,0,0),Vector<double>(0,0,0),false };
 #endif
 
-#include "RayBase.h"
+#include "raybase.h"
 
     /**
     *  class tubedRay: 

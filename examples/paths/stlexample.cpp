@@ -2,7 +2,7 @@
 *  This example shows you how to import an object from a STL-file in a simple ray path log. 
 *  A gaussian light source is used
 */
-#include "Raytrace.h"
+#include "raytrace.h"
 
 int main()
 {

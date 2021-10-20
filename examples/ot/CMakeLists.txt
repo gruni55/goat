@@ -17,13 +17,16 @@ endif(NOT CMAKE_BUILD_TYPE)
 message (STATUS "LIB Library: ${LIBDIR}")
 #counterpropagating trap
 add_executable (cp_trap counterpropagating_trap.cpp)
-target_link_directories(cp_trap PUBLIC ${LIBDIR})
+# target_link_directories(cp_trap PUBLIC ${LIBDIR})
+find_library (NAMES goat_maths PATHS ../../lib)
+find_library (NAMES goat_raytracing PATHS ../../lib)
+
 target_include_directories (cp_trap PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (cp_trap goat_raytracing goat_maths)
 
 #one particle in a optical trap
 add_executable (otexample example_one_sphere.cpp)
-target_link_directories(otexample PUBLIC ${LIBDIR})
+#target_link_directories(otexample PUBLIC ${LIBDIR})
 target_include_directories (otexample PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (otexample goat_raytracing goat_maths)
 

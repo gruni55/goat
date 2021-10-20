@@ -1,4 +1,4 @@
-#include "lightSrc.h"
+#include "lightsrc.h"
 #include "ray_pow.h"
 #include "misc.h"
 

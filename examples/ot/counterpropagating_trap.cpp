@@ -9,7 +9,7 @@
  * \date   July 2021
  *********************************************************************/
 #include <fstream>
-#include <Raytrace.h>
+#include "raytrace.h"
 
 int main()
 {

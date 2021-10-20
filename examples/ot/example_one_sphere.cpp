@@ -1,4 +1,4 @@
-#include <Raytrace.h> // include file for the raytracing process
+#include "raytrace.h" // include file for the raytracing process
 
 int main()
 {
