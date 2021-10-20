@@ -3,9 +3,12 @@ by Thomas Weigel (C) 2021
 
 this project requires CMake by Kitware 
 
+Please note that for Windows, the slash "/" must be replaced by the backslash "\" in the specifications for the directories. 
+
 
 Windows (with Visual Studio) 
 ============================
+open a command prompt and change to the GOAT directory
 to create a Visual Studio project just type "cmake ."
 
 
@@ -26,4 +29,24 @@ the libraries can be found in /lib/Release or in /lib/Debug, depending on wether
 the header files are in the directories /maths and /raytracing
 
 an documentation created by doxygen can be found in the folder /documentation
+
+Examples
+========
+
+in the folder /examples/ot 
+    - Single spherical particle in an optical trap (example_one_sphere.cpp)
+    - Particle in a counterpropagating trap, i.e. two opposite traps (counterpropagating_trap.cpp)
+    
+in /examples/paths
+    One example, how to trace the rays from a light source and store it to a file. 
+    Here is also shown how to import an object from a STL-file.  
+    The generated file contains the start and end points (with the x, y and z coordinates) for each step:
+    
+    P1Startx P1Starty P1Startz P1Stopx P1Stopy P1Stopz
+    P2Startx P2Starty P2Startz P2Stopx P2Stopy P2Stopz
+    :        :        :        :       :       :
+    
+    
+
+
 
