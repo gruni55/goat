@@ -29,6 +29,7 @@ public:
 	void addDetector(Detector* D); ///< add single detector to scene
 	void addDetectorList(int nDet, Detector** D); ///< add a list of detectors to the scene, nDet: number of detectors to add
 	void removeAllDetectors(); ///< remove all detectors from the scene
+	void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
 	void setr0(double r0); ///< set the radius of the calculation space
 	void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 	void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene

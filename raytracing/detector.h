@@ -19,6 +19,7 @@ public:
 	Vector<std::complex<double> >& operator () (int i1,int i2) { return D[i1][i2]; } ///< bracket operator which gives the content inside the array determined by the indices i1 and i2
 	~Detector(void); 
 	
+	void clean(); ///< Clean all data, i.e. all data is set to zero (Data array is not removed)
 	void clear(); ///< clear 
 	/**
 	 * The virtual function checks if the ray hits the detector.
@@ -38,6 +39,7 @@ public:
     void savereal (char *fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
     void saveimag (char *fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 	Vector<std::complex<double> >** D; ///< Here, the data will be stored
+
 friend std::ostream& operator << (std::ostream &os, Detector& D);  
 	protected: 
 		Vector<double> e1; 

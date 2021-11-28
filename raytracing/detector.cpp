@@ -62,6 +62,15 @@ Detector::~Detector(void)
  clear();
 }
 
+
+void Detector::clean()
+{
+	if (n1 > 0)
+		for (int i1 = 0; i1 < n1; i1++)
+			for (int i2 = 0; i2 < n2; i2++)
+				D[i1][i2] = czero;
+}
+
 void Detector::clear()
 {
 	 if (n1>0) 

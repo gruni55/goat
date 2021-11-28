@@ -24,4 +24,5 @@ add_subdirectory (maths)
 add_subdirectory (raytracing)
 add_subdirectory (examples/ot)
 add_subdirectory (examples/paths)
+add_subdirectory (examples/layers)
 

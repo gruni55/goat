@@ -111,7 +111,7 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 			double l;
 			stepSize = abs(PStop - PStart);
 			std::complex<double> n;
-			if (ray->isInObject()) n = S.Obj[objIndex]->n;
+			if (ray->isInObject() && (objIndex>-1)) n = S.Obj[objIndex]->n;
 			else n = S.nS;
 			for (int i = 0; i < S.nDet; i++)
 			{
@@ -427,6 +427,12 @@ void Scene::addDetector(Detector* D)
 void Scene::addDetectorList(int nDet, Detector** D)
 {
 	for (int i = 0; i < nDet; i++) addDetector(D[i]);
+}
+
+void Scene::cleanAllDetectors()
+{
+	if (nDet > 0)
+		for (int i = 0; i < nDet; i++) Det[i]->clean();
 }
 
 void Scene::removeAllDetectors()
