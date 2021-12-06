@@ -116,7 +116,7 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 			for (int i = 0; i < S.nDet; i++)
 			{
 				if (S.Det[i]->cross(PStart, kin, i1, i2, l))
-					if ((l <= stepSize) && (l>0) ) S.Det[i]->D[i1][i2] += EStart * exp(I * n * l);
+					if ((l <= stepSize) && (l>0) ) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
 			}
 		}
 
@@ -485,6 +485,8 @@ Scene::Scene(const Scene& S)
 	r0 = S.r0;
 	nS = S.nS;
 	raytype = S.raytype;
+	Det = S.Det;
+	nDet = S.nDet;
 }
 
 void Scene::setRaytype(int raytype)

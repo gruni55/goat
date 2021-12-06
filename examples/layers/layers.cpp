@@ -2,42 +2,50 @@
 
 int main(int argc, char** argv)
 {
-	LightSrcPlane LS(-200 * ex, 10, 1.0,500);
-	double alpha = 5.0 / 180.0 * M_PI;
-	Vector<double> k(cos(alpha), sin(alpha), 0.0);
-	std::cout << "k=" << k << std::endl;
-	LS.setk(k);
-	double l = 10;
-	Vector<double> d(l, 100, 100);
-	Box Layer=Box(dzero, d, 1.5);
+	LightSrcPlane LS(-200 * ex, 300, 1.0,50.0,I*ey);
+	LS.setk(ex);
+	double l = 5;
+	Vector<double> d(l, 300, 300);
+	Box Layer(dzero, d, 1.5);
+	double alpha = 30.0 / 180.0 * M_PI;
+	Layer.setBeta(alpha);
 
 	Scene S;
-	S.setr0(1000.0);
+	
+	
 	S.addLightSource(&LS);
+	S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
     S.addObject(&Layer);
+	S.setr0(1000.0);
+	S.setnS(1.0);
 	
-	int N = 100;
-	DetectorPlane D(20.0 * ex, -ex, 100, N);
+	int N = 1;
+	DetectorPlane D(200.0 * ex, -ex,500, N);
+	DetectorPlane D0(-180.0 * ex, -ex, 400, N);
 	S.addDetector(&D);
-
+	S.addDetector(&D0);
 	Raytrace_pure RP(S);
-	RP.setNumReflex(20);
+	RP.setNumReflex(2);
 	
-	Vector<std::complex<double> > E1;
+	Vector<std::complex<double> > E1, E2;
 	std::ofstream os("C:\\Users\\Thomas\\tmp\\test.dat");
-	for (double wvl = 1.0; wvl <= 5.0; wvl += 0.01)
+	 for (double d = 1.0; d <= 3.0; d += 0.01)
+	// for (double wvl = 4.0; wvl <= 20.0; wvl += 0.01)
 	{
-		RP.S.LS[0]->wvl = wvl;
+		((Box *)RP.S.Obj[0])->setD(Vector<double> (d, 300, 300));
+		// RP.S.LS[0]->wvl = wvl;
 		RP.S.cleanAllDetectors();
 		RP.trace();
 		E1 = czero;
+		E2 = czero;
 		for (int ix = 0; ix < N; ix++)
 			for (int iy = 0; iy < N; iy++)
 			{
 				E1 = E1 + RP.S.Det[0]->D[ix][iy];
+				E2 = E2 + RP.S.Det[1]->D[ix][iy];
 			}
-		os << wvl << "\t" << abs2(E1) << std::endl;
-		std::cout << wvl << "\t" << abs2(E1)  << std::endl;
+		os << d << "\t" << abs2(E1) << "\t" << abs2(E2) << std::endl;
+		std::cout << d << "\t" << abs2(E1)  << "\t" << abs2(E2) << std::endl;
 	}
 	os.close();
 

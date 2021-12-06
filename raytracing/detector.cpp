@@ -86,6 +86,23 @@ void Detector::clear()
 
 int Detector::N1() { return n1; }
 int Detector::N2() { return n2; }
+
+void Detector::save(char* fn)
+{
+	std::ofstream os;
+	os.open(fn);
+	for (int i1 = 0; i1 < n1; i1++)
+	{
+		for (int i2 = 0; i2 < n2; i2++)
+		{
+	
+			os << D[i1][i2] << "   ";
+		}
+		os << std::endl;
+	}
+	os.close();
+}
+
 void Detector::saveabs (char *fn)
 {
   std::ofstream os;
@@ -234,11 +251,17 @@ DetectorPlane::DetectorPlane (Vector<double> P, Vector<double> e1, Vector<double
 
 bool DetectorPlane::cross(Vector<double> P, Vector<double> k, int &i1, int &i2, double &l)
 {
+	/*
+	*  Ebene: n*(PE-P)=0 
+	*  Strahl: P=k*l+PS 
+	*  in Ebenengleichung n*PE-n*(k*l+PS)=0 => n*(PE-PS)=n*k*l => l=n*(PE-PS)/(n*k)
+	*/
 	Vector<double> dP = this->P - P;
 	double kn = k * n;
 	if (kn == 0) return false;
 	l = (dP * n) / kn;
 
+	/* Index berechnen */
 	Vector<double> Ph = P + l * k;
 	dP= Ph - this->P;
 	i1 = dP * e1 * n1 / d1 + n1 / 2;

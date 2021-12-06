@@ -319,8 +319,8 @@ int LightSrcPlane::next(IRay &S)
   E.e2=e2;
   E.n=k;
   S=IRay(P,Pol,k,1.0,r0,2.0*M_PI/wvl,numObjs,Obj);  
-  S.E1=Pol;
-  S.E2=Pol2;
+  S.E1=Pol/(N*N);
+  S.E2=Pol2/(N*N);
  // S.init_Efeld(E,Pol);
   i1++;
    
@@ -346,7 +346,7 @@ int LightSrcPlane::next(Ray_pow &S)
   S.initElectricField(E,Pol);
   S.P=P;
   S.E1=Pol;
-  S.E2=sqrt(Pow)*Pol;
+  S.E2=sqrt(Pow)*Pol/(double)(N*N);
   S.k=k;  
   i1++;
   Pall += abs2(S.E2);

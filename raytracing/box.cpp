@@ -277,7 +277,7 @@ double findmin (double t1, double t2)
 bool Box::next(const Vector<double> &ps, const Vector<double> &K, Vector<double> &pout)
 {
 	Vector<double> k = H*K;
-	Vector<double> p = H*ps;
+	Vector<double> p = H*(ps-P);
 
 	double tmin, tmax;
 	if (k[0] >= 0)
