@@ -17,7 +17,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 message (STATUS "LIB Library: ${LIBDIR}")
 #counterpropagating trap
 add_executable (layers layers.cpp)
-add_executable (testlayer testlayer.cpp)
+add_executable (axicon "axicon.cpp")
 # target_link_directories(cp_trap PUBLIC ${LIBDIR})
 find_library (NAMES goat_maths PATHS ../../lib)
 find_library (NAMES goat_raytracing PATHS ../../lib)
@@ -27,11 +27,11 @@ target_link_libraries (layers goat_raytracing goat_maths)
 
 
 
-target_include_directories (testlayer PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (testlayer goat_raytracing goat_maths)
+target_include_directories (axicon PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (axicon goat_raytracing goat_maths)
 
 
-install(TARGETS layers testlayer
+install(TARGETS layers axicon
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib

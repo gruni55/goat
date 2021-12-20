@@ -250,9 +250,9 @@ initQuad();
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
         Vector<double> hd(h,h,h); 
-		Tree.BBox = Box(Ph, 1.05*d, this->n);
-		Tree.BBox.setOctree(true);
-        Tree.createTree(TREE_RECURSIONS,0);
+		Tree.BBox = Box(Ph, 1.05 * d, this->n);
+		Tree.createTree();
+		
         writeTriangleOctree("octree.log", Tree);
 		for (int i = 0; i < numTriangles; i++)
 			addTriangleToTriangle(Tree, S[i]);
@@ -317,11 +317,8 @@ int surface::importBinSTL(std::string FName)
 
 		cm=cm/anz/3.0;
 		is.read(str,2);
-//		cout << P1 << "   " << P2 << "   " << P3 <<  "    " << n << endl;
-
-//		S[i]=triangle(P1-cm,P2-cm,P3-cm);
 		S[i]=triangle(P1,P2,P3);
-		S[i].setnorm(); // Glauben wir mal, dass die Oberfl�chennormale im STL-File richtig ist !
+		S[i].setnorm(n); // Glauben wir mal, dass die Oberfl�chennormale im STL-File richtig ist !
 	}
 	
 	initQuad();
@@ -329,6 +326,8 @@ int surface::importBinSTL(std::string FName)
 	is.close();
 /*	setCenter2CoM();
 	setCenter(P); */
+	P = dzero;
+	setCenter(P);
 	cout << "% P=" << P << endl;
         initQuad();
 #ifdef WITH_OCTREE
@@ -339,11 +338,11 @@ int surface::importBinSTL(std::string FName)
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
         Vector<double> hd(h,h,h); 	
-		hd = (pul + por) / 2.0;
-		Tree.BBox = Box(hd, d, this->n);
-		Tree.BBox.setOctree(true);
-    	Tree.createTree(TREE_RECURSIONS,0);
-		writeTriangleOctree("octree.log", Tree); 
+		// hd = (pul + por) / 2.0;
+//		Tree.BBox = Box(dzero, Vector<double>(20,20,20), this->n);
+		Tree.BBox = Box(P, d, this->n);
+    	Tree.createTree();
+		
 		for (int i = 0; i < numTriangles; i++)
 			addTriangleToTriangle(Tree, S[i]);
 	

@@ -535,8 +535,8 @@ void Raytrace_Path::trace()
 	storeInFile = false;
 	if (numRays > 0)
 	{
-		free(P1);
-		free(P2);
+		if (P1!=0) free(P1);
+		if (P2!=0) free(P2);
 	}
 	numRays = 0;
 	Raytrace::trace();
