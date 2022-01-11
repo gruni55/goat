@@ -1,7 +1,7 @@
 GOAT - (G)eometrical (O)ptics (A)pplication (T)ool
 by Thomas Weigel (C) 2021 
 
-this project requires CMake by Kitware 
+this project requires CMake by Kitware, which can be downloaded from https://cmake.org/ 
 
 Please note that for Windows, the slash "/" must be replaced by the backslash "\" in the specifications for the directories. 
 
