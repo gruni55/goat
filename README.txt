@@ -43,6 +43,9 @@ in the folder /examples/ot
     - Single spherical particle in an optical trap (example_one_sphere.cpp)
     - Particle in a counterpropagating trap, i.e. two opposite traps (counterpropagating_trap.cpp)
     
+in /examples/layers 
+    intensity of the transmitted light after passing a tilted thin layer as a function of the layer thickness  
+    
 in /examples/paths
     One example, how to trace the rays from a light source and store it to a file. 
     Here is also shown how to import an object from a STL-file.  
@@ -52,7 +55,17 @@ in /examples/paths
     P2Startx P2Starty P2Startz P2Stopx P2Stopy P2Stopz
     :        :        :        :       :       :
     
+in /examples/axicon
+This is an example how a srf file can be used (for details, please refer to the documentation of the library). 
+In the example a gaussian beam hits an axicon. The intensity profile before and after the axicon as well as the path of the rays through the axicon are caclulated and stored in separate files. 
+
+Before starting the program, please copy the srf-File into the folder where the binary is located.
+
     
+
+The output files can be found in the same directory where the binary is. 
+If you use Visual Studio, the default folder is: goat-main/out/install/x64-Debug/bin
+
 
 
 
