@@ -1,7 +1,7 @@
 #include "raytrace.h"
 /*****************************************************************//**
  * \file   axicon.cpp
- * \brief Example for the intensity distribution after an axicon with 10° angle, height 1mm, 
+ * \brief Example for the intensity distribution after an axicon with 10Â° angle, height 1mm, 
  * and 30mm diameter  
  * 
  * Light source: gaussian beam with waist 8mm
@@ -16,8 +16,8 @@ int main(int argc, char** argv)
 	Vector<double> focusPos(0, 0, 70000.0);  // Position of the focus
 	int numRays = 801;                       // number of rays (per direction)  
 	double wvl = 1.0;                        // wavelength
-	double waist = 8000.0;                   // waist diameter in µm 
-	double LSsize = 15000.0;                  // size of the light source in µm 
+	double waist = 8000.0;                   // waist diameter in Âµm 
+	double LSsize = 15000.0;                  // size of the light source in Âµm 
 
 	LightSrcGauss LS(LSPos, numRays, wvl,waist,focusPos,LSsize); // initialize gaussian light source
 	LS.setPol(Vector<std::complex<double> >(1.0, 0.0, 0.0));
@@ -38,7 +38,7 @@ int main(int argc, char** argv)
 	// Scene definition 
 	Scene S;
 	S.setnS(1.0);                            // refractive index surrounding medium 
-	S.setr0(1E+8);                           // radius of the calculation sphere (in µm) 
+	S.setr0(1E+8);                           // radius of the calculation sphere (in Âµm) 
 	S.addLightSource(&LS);                   // add light source to scene
 	S.addObject(&surf);                      // add object (axicon) to scene
 	S.addDetector(&dp);                      // add detector to scene
@@ -46,7 +46,7 @@ int main(int argc, char** argv)
 	
 	 Raytrace_pure rp(S);                    // define raytracer without interfaces, just for the detectors
 	 rp.setNumReflex(0);                     // consider no reflexions
-	 // rp.trace();                             // start raytracing
+	 rp.trace();                             // start raytracing
 	
 	 dp.saveabs("axicon_intensity.dat");     // save detector contents as absolute value of the electric field
 	 dp2.saveabs("axicon_intensity_before.dat");     // save detector contents as absolute value of the electric field
