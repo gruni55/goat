@@ -87,7 +87,7 @@ void Detector::clear()
 int Detector::N1() { return n1; }
 int Detector::N2() { return n2; }
 
-void Detector::save(char* fn)
+void Detector::save(const char* fn)
 {
 	std::ofstream os;
 	os.open(fn);
@@ -103,7 +103,7 @@ void Detector::save(char* fn)
 	os.close();
 }
 
-void Detector::saveabs (char *fn)
+void Detector::saveabs (const char *fn)
 {
   std::ofstream os;
   double h;
@@ -123,7 +123,7 @@ void Detector::saveabs (char *fn)
 }
 
 
-void Detector::savereal (char *fn, int type)
+void Detector::savereal (const char *fn, int type)
 {
   std::ofstream os;
   double h;
@@ -143,7 +143,7 @@ void Detector::savereal (char *fn, int type)
 }
 
 
-void Detector::saveimag (char *fn, int type)
+void Detector::saveimag (const char *fn, int type)
 {
 	std::ofstream os;
   double h;
@@ -163,7 +163,7 @@ void Detector::saveimag (char *fn, int type)
 }
 
 
-void Detector::savePhase (char *fn, int type)
+void Detector::savePhase (const char *fn, int type)
 {
 	std::ofstream os;
   double h;

@@ -496,7 +496,7 @@ double sDreieck (Vector<double> A,Vector<double> B,Vector<double> C)
   Erg=(a+b+c-rA*M_PI)*rA; 
   return Erg; 
  }
- else errmsg ("sTriangle : Punkte liegen nicht auf einer Kugel !");
+ //else errmsg ("sTriangle : Punkte liegen nicht auf einer Kugel !");
  return 0.0; 
 }
 

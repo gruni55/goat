@@ -253,7 +253,6 @@ initQuad();
 		Tree.BBox = Box(Ph, 1.05 * d, this->n);
 		Tree.createTree();
 		
-        writeTriangleOctree("octree.log", Tree);
 		for (int i = 0; i < numTriangles; i++)
 			addTriangleToTriangle(Tree, S[i]);
 #endif 

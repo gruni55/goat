@@ -34,11 +34,11 @@ public:
 	int N1(); ///< returns the dimension of the array in the first direction
 	int N2(); ///< returns the dimension of the array in the second direction
 	int Type() {return type; } ///< returns kind of detector
-	void save(char* fn); ///< stores the content (the whole vector)
-	void saveabs (char *fn);  ///< stores the content (absolute value of the electric field) of the detector array in the file determined by its filename fn 
-	void savePhase (char *fn, int coord);  ///< stores the content (phase of one component of the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
-    void savereal (char *fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
-    void saveimag (char *fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
+	void save(const char* fn); ///< stores the content (the whole vector)
+	void saveabs (const char *fn);  ///< stores the content (absolute value of the electric field) of the detector array in the file determined by its filename fn 
+	void savePhase (const char *fn, int coord);  ///< stores the content (phase of one component of the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
+    void savereal (const char *fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
+    void saveimag (const char *fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 	Vector<std::complex<double> >** D; ///< Here, the data will be stored
 
 friend std::ostream& operator << (std::ostream &os, Detector& D);  

@@ -6,8 +6,8 @@
 /********************************************************/
 /* AABB-triangle overlap test code                      */
 /* by Tomas Akenine-M�ller                              */
-/* Function: int triBoxOverlap(float boxcenter[3],      */
-/*          float boxhalfsize[3],float triverts[3][3]); */
+/* Function: int triBoxOverlap(double boxcenter[3],      */
+/*          double boxhalfsize[3],double triverts[3][3]); */
 /* History:                                             */
 /*   2001-03-05: released the code in its first version */
 /*   2001-06-18: changed the order of the tests, faster */
@@ -49,10 +49,10 @@ if (x1<min) min = x1; \
 
 
 
-int planeBoxOverlap(float normal[3], float vert[3], float maxbox[3])	// -NJMP-
+int planeBoxOverlap(double normal[3], double vert[3], double maxbox[3])	// -NJMP-
 {
 	int q;
-	float vmin[3], vmax[3], v;
+	double vmin[3], vmax[3], v;
 	for (q = X; q <= Z; q++)
 	{
 		v = vert[q];					// -NJMP-
@@ -144,7 +144,7 @@ if (min>rad || max<-rad) return 0;
 
 
 
-int triBoxOverlap(float boxcenter[3], float boxhalfsize[3], float triverts[3][3])
+int triBoxOverlap(double boxcenter[3], double boxhalfsize[3], double triverts[3][3])
 {
 
 	/*    use separating axis theorem to test overlap between triangle and box */
@@ -154,10 +154,10 @@ int triBoxOverlap(float boxcenter[3], float boxhalfsize[3], float triverts[3][3]
 	/*    2) normal of the triangle */
 	/*    3) crossproduct(edge from tri, {x,y,z}-directin) */
 	/*       this gives 3x3=9 more tests */
-	float v0[3], v1[3], v2[3];
-	//   float axis[3];
-	float min, max, p0, p1, p2, rad, fex, fey, fez;		// -NJMP- "d" local variable removed
-	float normal[3], e0[3], e1[3], e2[3];
+	double v0[3], v1[3], v2[3];
+	//   double axis[3];
+	double min, max, p0, p1, p2, rad, fex, fey, fez;		// -NJMP- "d" local variable removed
+	double normal[3], e0[3], e1[3], e2[3];
 
 	/* This is the fastest branch on Sun */
 	/* move everything so that the boxcenter is in (0,0,0) */
@@ -233,20 +233,20 @@ int triBoxOverlap(float boxcenter[3], float boxhalfsize[3], float triverts[3][3]
 
 int triBoxOverlap(const Vector<double> boxcenter, const Vector<double> boxhalfsize, const Vector<double> triverts[3])
 {
-	float bc[3] = { boxcenter[0],boxcenter[1],boxcenter[2] };
-	float bhs[3] = { boxhalfsize[0], boxhalfsize[1],boxhalfsize[2] };
-	float tv[3][3];
+	double bc[3] = { boxcenter[0],boxcenter[1],boxcenter[2] };
+	double bhs[3] = { boxhalfsize[0], boxhalfsize[1],boxhalfsize[2] };
+	double tv[3][3];
 	for (int i = 0; i < 3; i++)
 		for (int j = 0; j < 3; j++)
 			tv[i][j] = triverts[i][j];
 	return triBoxOverlap(bc, bhs, tv);
 }
 
-#ifndef min(x,y)
+#ifndef min
 #define min(x,y)  x<y ? x : y
 #endif
 
-#ifndef max(x,y)
+#ifndef max
 #define max(x,y)  x>y ? x : y
 #endif
 #ifndef EPS_D 
@@ -307,7 +307,6 @@ bool triangleAABBIntersection(const Box &B, const triangle &T)
 			if (p + d < -R) return false;
 		}
 	}
-//	cout << "% Ai % Ek Test" << endl;
 
 	// test Ak
 	double d0, d1;
@@ -353,79 +352,4 @@ bool triangleAABBIntersection(const Box &B, const triangle &T)
 	return true;
 }
 
-/*bool triangleAABBIntersection(const Box &B, const triangle &d)
-{
-	float boxcenter[3] = { B.P[0],B.P[1],B.P[2] };
-	float boxhalfsize[3] = { B.d[0] / 2.0,B.d[1] / 2.0,B.d[2] / 2.0 };
-	// double triverts[3][3] = { {d.P[0][0],d.P[1][0],d.P[2][0]},{ d.P[0][1],d.P[1][1],d.P[2][1] },{ d.P[0][2],d.P[1][2],d.P[2][2] } };
-	float triverts[3][3] = { {d.P[0][0],d.P[0][1],d.P[0][2]},{ d.P[1][0],d.P[1][1],d.P[1][2] },{ d.P[2][0],d.P[2][1],d.P[2][2] } };
-	return triBoxOverlap(boxcenter, boxhalfsize, triverts);
-}*/
-/*{
-	// Overlap testing with x,y,z 
-	bool erg;
-	double Max, hmax;
-	int l;
-	erg = true;
-	Vector<double> dmax, dmin;
 
-	for (int j = 0; j < 3; j++)
-	{
-		dmax[j] = d.P[0][j] > d.P[1][j] ? d.P[0][j] : d.P[1][j];
-		dmax[j] = dmax[j] > d.P[2][j] ? dmax[j] : d.P[2][j];
-
-		dmin[j] = d.P[0][j] < d.P[1][j] ? d.P[0][j] : d.P[1][j];
-		dmin[j] = dmin[j] < d.P[2][j] ? dmin[j] : d.P[2][j];
-	}
-	cout << "%Dreieck: " << d.P[0] << "   " << d.P[1] << "  " << d.P[2] << "   Box:" << B.P << "   " << B.d << endl;
-	cout << "%dmin=" << dmin << "  dmax=" << dmax << endl;
-	cout << "%bounds: " << B.bounds[0] << "   " << B.bounds[1] << endl;
-
-	erg = !((dmin[0] < B.bounds[1][0]) || (dmax[0] > B.bounds[0][0]))
-		&& !((dmin[1] < B.bounds[1][1]) || (dmax[1] > B.bounds[0][1]))
-		&& !((dmin[2] < B.bounds[1][2]) || (dmax[2] > B.bounds[0][2]));
-
-	
-	if (erg) return false;
-	cout << "% pass 1" << endl;
-	// Test 2: Testen gegen Achse parallel zur Oberfl�chennormale des Dreiecks
-	double b[3];
-	int n;
-	b[0] = fabs(B.diag[0] * d.n);
-	b[1] = fabs(B.diag[1] * d.n);
-	b[2] = fabs(B.diag[2] * d.n);
-	
-	double bmax = b[0] > b[1] / abs(B.diag[1]) ? b[0] : b[1];
-	bmax = bmax > b[2] ? bmax : b[2];
-	bmax = bmax / 2.0;
-
-	
-	double dd = (d.P[0]-B.P)*d.n;
-	erg = (dd > -bmax) && (dd < bmax);
-	if (!erg) return false;
-	cout << "% pass 2" << endl;
-	Vector<double> e[3];
-	e[0] = ex;
-	e[1] = ey;
-	e[2] = ez;
-	Vector<double> a;
-	double p0, p1, p2,r ;
-	double maxp, minp;
-	
-	for (int i=0; i<3; i++)
-		for (int j = 0; j < 3; j++)
-		{
-			a = e[i] % d.f[j];
-			p0 = a*(d.P[0]-B.P);
-			p1 = a*(d.P[1]-B.P);
-			p2 = a*(d.P[2]-B.P);
-			r = B.d[0] / 2.0*fabs(a[0]) + B.d[1] / 2.0*fabs(a[1]) + B.d[2] / 2.0*fabs(a[2]);
-			minp = p0 < p1 ? p0 : p1;
-			minp = minp < p2 ? minp : p2;
-			maxp = p0 > p1 ? p0 : p1;
-			maxp = maxp > p2 ? maxp : p2;
-			if (( minp > r) || ( maxp < -r)) return false;
-		}
-	cout << "% pass 3" << endl;
-	return true;
-}*/

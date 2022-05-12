@@ -6,8 +6,9 @@
 #define I std::complex<double>(0.0,1.0)
 #endif
 
-// #define INF 1.0/0.0
-#define INF -10000
+#ifndef INF
+#define INF 1.0/0.0
+#endif
 #ifndef RESUTIL_H
 #define RESUTIL_H 
 
