@@ -687,9 +687,31 @@ int LightSrcGauss::next(tubedRay &S)
 	double E0=exp(-r*r/s/s);
 	S=tubedRay(P,density,density,Pol,k,1.0,r0,2.0*M_PI/wvl,numObjs,Obj);
 
+	// set direction for each sub-ray
+	for (int i = 0; i < 5; i++)
+	{
+		S.k[i] = focuspos - S.P[i];
+		S.k[i] /= abs(S.k[i]);
+	}
     S.setN0(n0);
     S.n=n0;
-	for (int i=0; i<5; i++) S.E[i]=Pol*E0;
+
+	// now set the electric fields for the sub-rays
+	Vector<double> fp;
+	double r2;
+	std::complex<double> Pow;
+	Vector<double> hk;
+	double g;
+	
+	for (int i = 0; i < 5; i++)
+	{
+		fp = focuspos - S.P[i];
+		hk = fp / abs(fp);
+		g = gaussw(-fp*k,2.0*M_PI/(real(S.k0)),w0);
+		r2 = S.P[i][0] * S.P[i][0] + S.P[i][1] * S.P[i][1];
+		Pow = k * hk*exp(-2.0*r2/g/g)/((double)N*N)*D*D/g;
+		S.E[i] = Pol * sqrt(Pow);
+	}
 	i1++;
 	 if (i1*density>D) {i1=0; i2++; }
   if (i2*density>=D) return LIGHTSRC_IS_LAST_RAY;

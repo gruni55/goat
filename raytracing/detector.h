@@ -40,7 +40,7 @@ public:
     void savereal (const char *fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
     void saveimag (const char *fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 	Vector<std::complex<double> >** D; ///< Here, the data will be stored
-
+	void setPosition(Vector<double> Pos) { P = Pos; } ///< set the position of the detector
 friend std::ostream& operator << (std::ostream &os, Detector& D);  
 	protected: 
 		Vector<double> e1; 
@@ -52,6 +52,7 @@ friend std::ostream& operator << (std::ostream &os, Detector& D);
 int n1,n2;
 int type;
 friend class DetectorPlane;
+friend class DetectorSpherical;
 }; 
 
 
@@ -80,12 +81,41 @@ public:
   bool cross(Vector<double> P, Vector<double> k, int &i1, int &i2, double &l);	///< implementation of the intersection checking function for the plane detector
 };
 
+/**
+ * This class provides a detector whose area is a part of a sphere surface with radius r. The grid is described by the polar angle theta and the azimuth angle phi. 
+ * The number of divisions in theta direction is stored in n1 and the number of divisions in phi direction is stored in n2. 
+ */
+class DetectorSpherical : public Detector
+{
+	public:
+	/**
+	 * Constructor
+	 * \param r Radius of the sphere
+	 * \param minTheta lower limit of the theta range
+	 * \param maxtheta upper limit of the theta range
+	 * \param minPhi lower limit of the phi range
+	 * \param maxPhi upper limit of the phi range
+	 * \param nTheta number of divisions in theta direction
+	 * \param nPhi number of division in phi direction
+	 * \param Pos Position of the center of the sphere
+	 */
+	DetectorSpherical(double r, double minTheta, double maxTheta, double minPhi, double maxPhi, int nTheta, int nPhi, Vector<double> Pos=dzero);
+	bool cross(Vector<double> P, Vector<double> k, int& i1, int& i2, double& l);
+   private:
+	   double r;
+	   double minTheta, maxTheta;
+	   double minPhi, maxPhi;
+	   double dphi, dtheta;
+};
+
 #define SAVE_X 0
 #define SAVE_Y 1
 #define SAVE_Z 2
 #define SAVE_PHASE_X 3
 #define SAVE_PHASE_Y 4
 #define SAVE_PHASE_Z 5
-#define SAVE_ABS 6
+#define SAVE_ABS  6
+#define SAVE_ABS2 7
+#define SAVE_E 8
 
 #endif

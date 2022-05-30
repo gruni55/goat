@@ -82,6 +82,9 @@ class Raytrace
 	Vector<double> kin; ///< direction of the incident ray
 	Vector<double> kref; ///< direction of the reflected ray
     Vector<double> ktrans; ///< direction of the transmitted ray
+	Vector<double> kout; ///< direction of the outgoing ray
+	Vector<double> Pout; ///< last position of the outgoing ray
+	Vector<std::complex<double> > Eout; ///< electric field of the outgoing ray
 	/// @} 
 	
 	///@{ Powers stored when ray type is PRay 
@@ -160,3 +163,44 @@ private:
 	void traceEnterObject() {};
 };
 
+/**
+ * This class is intended for elastic scattering calculations. It is assumed, that the distance to the observer is much 
+ * larger than the scene dimensions, therefore the direction of the outgoing ray can be used as scattering direction (Fraunhofer scattering)
+ * 
+ */
+class Raytrace_scattering : public Raytrace
+{
+  public:
+	Raytrace_scattering();
+	/**
+	 * Constructor.
+	 * @param ntheta: number of divisions in theta-direction
+	 * @param nphi: number of divisions in phi-direction
+	 */
+	Raytrace_scattering(const Scene& S, int ntheta, int nphi);
+	double getNtheta() { return ntheta; } ///< returns the number of divisions in theta-direction
+	double getNphi() { return nphi; } ///< returns the number of divisions in phi-direction
+	Vector<std::complex<double> > getE(int itheta, int iphi) { return E[itheta][iphi]; } ///< returns the electric field at position itheta, iphi
+	/**
+	 * Stores the electric field in a file. 
+	 * @param fname: File name
+	 * @param type:  The way the data is stored in the file. In a row, one data point with the same phi value is stored, so each column belongs to a phi value, each row to a theta value. 
+	 *               SAVE_ABS: absolute value of the electric field
+	 *               SAVE_ABS2: squared absolute value of the electric field 
+	 *				 SAVE_PHASE_X, SAVE_PHASE_Y, SAVE_PHASE_Z: data point: argument (phase) of the complex-valued x-, y- or z-component of the electric field
+	 *               SAVE_X, SAVE_Y, SAVE_Z: data point: real and imaginary part of the complex-valued x-, y- or z-component of the electric field
+	 *               SAVE_E : data point: real and imaginary part of the complex-valued x-component, than the same for the y- and the z-component of the electric field  
+	 *                   
+	 */
+	void save(std::string fname, int type = SAVE_ABS); 
+
+ private:
+	 void traceLeaveObject() {};
+	 void traceEnterObject() {};
+	 void traceStopObject();
+	 Vector<std::complex<double> >** E;
+
+	 int ntheta; ///< number of divisions in theta-direction
+	 int nphi; ///< number of divisions in phi-direction
+	 double dtheta; ///< subdivision in theta-direction
+};

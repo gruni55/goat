@@ -85,6 +85,7 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 	Abbruch = recur > MAX_RECURSIONS;
 	recur++;
 
+	// main loop for one ray
 	while ((Reflexions <= numReflex) && (!Abbruch) )
 	{
 		
@@ -93,9 +94,15 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 		EStart = ray->getE();
 		PStart = ray->getP();
 		
+		if (useRRTParms) EStart2 = ((IRay*)ray)->E2;
+		else
+		switch (S.raytype)
+		{
+		   case LIGHTSRC_RAYTYPE_IRAY : EStart2 = ((IRay*)ray)->E2; break;
+		   case LIGHTSRC_RAYTYPE_PRAY : PowIn = ((Ray_pow*)ray)->Pow; break;
+		}
+
 		
-		if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
-		if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow *)ray)->Pow;
 		Abbruch = !ray->next();
 		objIndex = ray->objectIndex();
 		EStop = ray->getE();
@@ -105,7 +112,7 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 		if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 		kin = ray->getk();
 
-		if (S.nDet > 0)
+		if (S.nDet > 0)  // Are there some detectors ?
 		{
 			int i1, i2;
 			double l;
@@ -115,22 +122,23 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 			else n = S.nS;
 			for (int i = 0; i < S.nDet; i++)
 			{
-				if (S.Det[i]->cross(PStart, kin, i1, i2, l))
-					if ((l <= stepSize) && (l>0) ) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
+				if (S.Det[i]->cross(PStart, kin, i1, i2, l)) // Was the detector hit ?
+					if ((l <= stepSize) && (l>0) ) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l); // Is the detector in the rays direction ?
 			}
 		}
 
-		if (abs(PStart - PStop) / S.r0 < 1E-10)
+		if (abs(PStart - PStop) / S.r0 < 1E-10) // Has the ray not moved ?
 		{
 			Abbruch = true;
 			lost++;
 		}
 
-		if (!Abbruch)
+		if (!Abbruch) // Was the ray stopped ?
 		{
-			if (ray->isInObject()) // Strahl befindet sich im Objekt
+			// Ray was not stopped
+			if (ray->isInObject()) // Is ray within an object ?
 			{
-				if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+				if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS); // Is reversed-raytracing (RRT) used ?
 				else
 				{
 					copyRay(tray, ray);
@@ -151,8 +159,8 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 					Reflexions++;
 				//delete tray;
 			}
-			else
-				if (objIndex > -1)
+			else // Ray is not in object
+				if (objIndex > -1) // Has the ray hit an object?
 				{
 					Vector<double> n = S.Obj[objIndex]->norm(PStop);
 					if (useRRTParms)
@@ -178,10 +186,17 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 					traceOneRay(tray, Reflexions,recur);
 					//delete tray;
 					Reflexions++;
+					kout = ray->getk();
+					Pout = ray->getP();
+					Eout = ray->getE();
+					traceStopObject();
 					Abbruch = true;
 				}
 				else
 				{
+					kout = ray->getk();
+					Pout = ray->getP();
+					Eout = ray->getE();
 					traceStopObject();
 					Abbruch = true;
 				}
@@ -597,3 +612,62 @@ Raytrace_pure::Raytrace_pure() : Raytrace()
 
 Raytrace_pure::Raytrace_pure(const Scene& S) : Raytrace(S)
 {}
+
+
+Raytrace_scattering::Raytrace_scattering () : Raytrace()
+{}
+
+Raytrace_scattering::Raytrace_scattering(const Scene& S, int ntheta, int nphi) : Raytrace(S)
+{
+	this->ntheta = ntheta;
+	this->nphi = nphi;
+	dtheta = M_PI / (double)(ntheta - 1);
+	E = new Vector<std::complex<double> > *[ntheta];
+	for (int i = 0; i < ntheta; i++)
+		E[i] = new Vector<std::complex<double> >[nphi];
+}
+
+void Raytrace_scattering::traceStopObject()
+{
+   // first, calculate the indices inside the theta-phi-grating
+	int itheta, iphi;
+	double theta, phi;
+	std::complex<double> dphi;
+	
+	theta = acos(kout[2]);
+	itheta = floor( theta / M_PI * (double)(ntheta - 1));
+	phi = atan2(kout[1], kout[0]);
+	if (phi >= 0) iphi = floor(phi / (2.0 * M_PI) * (double)(nphi - 1));
+	else iphi = floor((1.0 + phi / (2.0 * M_PI)) * (double)(nphi - 1));
+
+	dphi = S.nS * (S.r0 - Pout * kout);
+
+	// std::cout << theta / M_PI * 180.0 << "\t" << itheta <<"\t" << ntheta << "\t" << phi / M_PI * 180.0 << "\t" << iphi << "\t" << EStop  << std::endl;
+	E[itheta][iphi] += EStop * exp(I * dphi)/sqrt(sin(theta));
+}
+
+void Raytrace_scattering::save(std::string fname, int type)
+{
+	std::ofstream os;
+	os.open(fname);
+	for (int i = 0; i < ntheta; i++)
+	{
+		for (int j = 0; j < nphi; j++)
+		{
+			switch (type)
+			{
+				case SAVE_ABS: os << abs(E[i][j]) << "\t"; break;
+				case SAVE_ABS2: os << abs2(E[i][j]) << "\t"; break;
+				case SAVE_PHASE_X: os << arg(E[i][j][0]) << "\t"; break;
+				case SAVE_PHASE_Y: os << arg(E[i][j][1]) << "\t"; break;
+				case SAVE_PHASE_Z: os << arg(E[i][j][2]) << "\t"; break;
+				case SAVE_X: os << real(E[i][j][0]) << "\t" << imag(E[i][j][0]) << "\t"; break;
+				case SAVE_Y: os << real(E[i][j][1]) << "\t" << imag(E[i][j][1]) << "\t"; break;
+				case SAVE_Z: os << real(E[i][j][2]) << "\t" << imag(E[i][j][2]) << "\t"; break;
+				case SAVE_E: os << real(E[i][j][0]) << "\t" << imag(E[i][j][0]) << "\t" << real(E[i][j][1]) << "\t" << imag(E[i][j][1]) << "\t" << real(E[i][j][2]) << "\t" << imag(E[i][j][2]) << "\t"; break;
+			};
+		}
+		os << std::endl;
+	}
+	os.close();
+}

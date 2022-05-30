@@ -282,3 +282,40 @@ std::ostream& operator << (std::ostream &os, Detector& D)
  return os;
 }
  
+DetectorSpherical::DetectorSpherical(double r, double minTheta, double maxTheta, double minPhi, double maxPhi, int nTheta, int nPhi, Vector<double> Pos) : Detector(nTheta, nPhi)
+{
+	this->r = r;
+	this->minTheta = minTheta;
+	this->maxTheta = maxTheta;
+	this->minPhi = minPhi;
+	this->maxPhi = maxPhi;
+	dphi = (maxPhi - minPhi) / (double)nPhi;
+	dtheta = (maxTheta - minTheta) / (double)nTheta;
+	P = Pos;
+}
+
+bool DetectorSpherical::cross(Vector<double> Ps, Vector<double> k, int& i1, int& i2, double& l)
+{
+	double l1, l2;
+	double h = -k * (Ps - P);
+	Vector<double> Pnew;
+	l1 = h + r;
+	l2 = h - r;
+	l = l2 > 0 ? l2 : l1;
+	if (l >= 0)
+	{
+		Vector<double> Ph = Ps + l * k;
+		Pnew[0] = abs(Ph);
+		Pnew[2] = acos(Ph[2] / Pnew[0]);
+		Pnew[1] = atan2(Ph[1], Ph[0]);
+		// Pnew[2] = acos(Ph[0] / (Pnew[0] * sin(Pnew[1])));
+		
+		i1 = floor((Pnew[1]- minTheta)/(maxTheta-minTheta)*n1);
+		i2 = floor((Pnew[2] - minPhi)/(maxPhi-minPhi)*n2);
+		if ((i1 >= 0) && (i1 < n1) && (i2 >= 0) && (i2 < n2)) return true;
+	}
+	i1 = -1;
+	i2 = -1;
+	return false;
+}
+

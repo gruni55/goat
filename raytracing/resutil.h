@@ -7,7 +7,7 @@
 #endif
 
 #ifndef INF
-#define INF 1.0/0.0
+constexpr double INF=std::numeric_limits<double>::infinity();
 #endif
 #ifndef RESUTIL_H
 #define RESUTIL_H 

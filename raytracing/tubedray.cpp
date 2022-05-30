@@ -180,9 +180,12 @@ bool tubedRay::next()
 {
  int Index[5];
  Vector<double> R[5];
+ Vector<double> Pold[5];
  bool found2,found=true;
  bool Einschluss=true;
- if (!inObject)
+
+
+ if (!inObject) // is ray not in object ?
  {
   if (numObj==0) Index[4]=-1;
   else 
@@ -190,11 +193,12 @@ bool tubedRay::next()
      if (!isValid) return false;		 
   } 
 
-  if(/*Index[0]==-1 || Index[1]==-1 || Index[2]==-1 || Index[3]==-1 ||*/ Index[4]==-1) // Es wurde kein Einschluss gefunden !
+  if(/*Index[0]==-1 || Index[1]==-1 || Index[2]==-1 || Index[3]==-1 ||*/ Index[4]==-1) // No object found ?
   {
-   
+  
    for (int i=0; i<5; i++)
    {
+       Pold[i] = P[i];
       R[i]=nextP(P[i],k[i],dzero,r0,found2);
 	  found=found && found2;
    }
@@ -221,6 +225,7 @@ bool tubedRay::next()
  if (abs(P[4]-R[4])>1E-15) for (int i=0;i<5;i++) this->P[i]=R[i];
  else objIndex=-1;
 
+ for (int i = 0; i < 5; i++) E[i] *= exp(I * pjump(Pold,P));
 return found;
 }
 
