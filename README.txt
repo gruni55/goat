@@ -64,8 +64,6 @@ Before starting the program, please copy the srf-File into the folder where the 
     
 
 The output files can be found in the same directory where the binary is. 
-If you use Visual Studio, the default folder is: goat-main/out/install/x64-Debug/bin
-
-
+If you use Visual Studio, the default folder is: goat-main/out/build/x64-Debug/bin (goat-main/out/build/x64-Release/bin, if you compile in release mode)
 
 
