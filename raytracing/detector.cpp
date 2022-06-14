@@ -96,7 +96,7 @@ void Detector::save(const char* fn)
 		for (int i2 = 0; i2 < n2; i2++)
 		{
 	
-			os << D[i1][i2] << "   ";
+			os << D[i1][i2] << std::endl;
 		}
 		os << std::endl;
 	}

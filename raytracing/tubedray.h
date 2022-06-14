@@ -105,6 +105,7 @@
         Vector<std::complex<double> > getE() { return E[4]; }
         int objectIndex() { return objIndex; }
         void reflectRay(RayBase*& tray, Vector<double> n, std::complex<double> n1, std::complex<double> n2);
+        void reflectRay(RayBase*& tray, Vector<double> n[5], std::complex<double> n1, std::complex<double> n2);
         tubedRay reflect(Vector<double> n, std::complex<double>  n1, std::complex<double>  n2); /// Strahl wird reflektiert
         void refract(Vector<double> n, std::complex<double>  n1, std::complex<double>  n2); /// Strahl wird gebrochen
         void tunnel(Vector<std::complex<double> > Pol, std::complex<double>  n1, std::complex<double>  n2);
@@ -152,13 +153,13 @@
         \param n2 Brechungsindex Medium 2
         Rueckgabewert: gebrochener Strahl
         */
-        tubedRay reflect(Vector<double>* n, std::complex<double>  n1, std::complex<double>  n2); /// Reflexion des Strahls
+        tubedRay reflect(Vector<double> n[5], std::complex<double>  n1, std::complex<double>  n2); /// Reflexion des Strahls
         /*!
         \param n Oberflaechennormale (in Richtung gegen den Strahl)
         \param n1 Brechungsindex Medium 1
         \param n2 Brechungsindex Medium 2
         */
-        void refract(Vector<double>* N, std::complex<double>  n1, std::complex<double>  n2); /// Brechung des Strahls
+        void refract(Vector<double> N[5], std::complex<double>  n1, std::complex<double>  n2); /// Brechung des Strahls
 
 
         Matrix<std::complex<double> > Fresnel_reflect(double alpha, std::complex<double>  n1, std::complex<double>  n2);

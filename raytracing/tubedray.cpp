@@ -178,6 +178,7 @@ tubedRay::tubedRay(tubedRayBuffer &B)
 
 bool tubedRay::next()
 {
+    double pj = 0;
  int Index[5];
  Vector<double> R[5];
  Vector<double> Pold[5];
@@ -187,27 +188,26 @@ bool tubedRay::next()
 
  if (!inObject) // is ray not in object ?
  {
-  if (numObj==0) Index[4]=-1;
+  if (numObj==0) Index[4]=-1; // if no object there => set hit index to -1 (=no object hit)
   else 
   {    checkObjectIntersection(Index,R);
-     if (!isValid) return false;		 
+     if (!isValid) return false;		 // someting went wrong
   } 
 
   if(/*Index[0]==-1 || Index[1]==-1 || Index[2]==-1 || Index[3]==-1 ||*/ Index[4]==-1) // No object found ?
   {
-  
    for (int i=0; i<5; i++)
    {
        Pold[i] = P[i];
-      R[i]=nextP(P[i],k[i],dzero,r0,found2);
+      R[i]=nextP(P[i],k[i],dzero,r0,found2); // search for intersection point with boundary
 	  found=found && found2;
    }
-   if (!found) { objIndex=-1;  return found;}
+   if (!found) { objIndex=-1;  return found;} 
   }
   
-  objIndex=Index[4];
-  
-  for (int i = 0; i < 5; i++) E[i] = E[i]  *exp(I * k0 * n * abs(R[i] - P[i]));
+  objIndex=Index[4]; 
+  pj = pjump(P, R);  // calc phasejump due to self-focusing
+  for (int i = 0; i < 5; i++) E[i] = E[i]  *exp(I * (k0 * n * abs(R[i] - P[i])+pj)) ;
   
  }
  else
@@ -217,22 +217,26 @@ bool tubedRay::next()
    Obj[objIndex]->next(P[i],k[i],R[i]);
    E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
   }
- 
+  pj = pjump(P, R);
+  for (int i = 0; i < 5; i++) E[i] *= exp(I * pj);
  }
 
-
- 
  if (abs(P[4]-R[4])>1E-15) for (int i=0;i<5;i++) this->P[i]=R[i];
  else objIndex=-1;
-
- for (int i = 0; i < 5; i++) E[i] *= exp(I * pjump(Pold,P));
+ pj = pjump(Pold, P);
+ for (int i = 0; i < 5; i++) E[i] *= exp(I * pj);
+ /*for (int i = 0; i < 5; i++)
+ {
+     std::cout << Pold[i] << "\t" << P[i] << std::endl;
+ }
+ std::cout << "%***************************" << std::endl;*/
 return found;
 }
 
 
 
 
-void tubedRay::refract(Vector<double> *N, complex<double>  n1, complex<double>  n2)
+void tubedRay::refract(Vector<double> N[5], complex<double>  n1, complex<double>  n2)
 {
  double s,det;
  Matrix<double> H,R;
@@ -275,7 +279,7 @@ void tubedRay::refract(Vector<double> *N, complex<double>  n1, complex<double>  
 
 
 
-tubedRay tubedRay::reflect(Vector<double> *n, complex<double>  n1, complex<double>  n2)
+tubedRay tubedRay::reflect(Vector<double> n[5], complex<double>  n1, complex<double>  n2)
 /* Strahl wird an einer Oberflaeche reflektiert. Wird an einer Einschlussoberflaeche
    reflektiert (objIndex >-1 ), dann wird der transmittierte Strahl zurueckgegeben */
 {
@@ -417,12 +421,20 @@ void tubedRay::refract(Vector<double> N, complex<double>  n1, complex<double>  n
 
 
 
+
 void tubedRay::reflectRay(RayBase* &tray, Vector<double> n, std::complex<double> n1, std::complex<double> n2)
 {
 
     tubedRay Tray= reflect(n, n1, n2);
     *(tubedRay *)tray = tubedRay(Tray);
 }
+
+void tubedRay::reflectRay(RayBase*& tray, Vector<double> n[5], std::complex<double> n1, std::complex<double> n2)
+{
+    tubedRay Tray = reflect(n, n1, n2);
+    *(tubedRay*)tray = tubedRay(Tray);
+}
+
 
 tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double>  n2)
 /* Strahl wird an einer Oberflaeche reflektiert. Wird an einer Einschlussoberflaeche
@@ -1152,17 +1164,32 @@ Vector<double> Schnittpunkt (Vector<double> P, Vector<double> k, Vector<double> 
 
 double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5],const double epsilon)
 {
- double D1,D2;
  double pj=0;
- double l=1E-10*r0;
+ 
+ Vector<double> k0 = P2[0] - P1[0];
+ k0 /= abs(k0);
+ Vector<double> k1 = P2[1] - P1[1];
+ k1 /= abs(k1);
 
+ Vector<double> d01 = P1[1] - P1[0]; 
+ Vector<double> d01s = P2[1] - P2[0];
+ Vector<double> d03 = P1[3] - P1[0];
+ Vector<double> d03s = P2[3] - P2[0];
+  // std::cout << "k0=" << k0 << "\td01=" << d01 << "\td01s=" << d01s << "\td01%k0=" << d01 % k0 << "\td01s%k0=" << d01s % k0 << "\t SP=" << (d03 % k0) * (d03s % k0) << std::endl;
+ // std::cout << "|d01|=" << abs(d01) << "\t|d01s|=" << abs(d01s) << "\tk0=" << k0 << "\tk1=" << k1 << std::endl;
+ if (((d01 % k0) * (d01s % k0)) < 0) {
+     pj = -M_PI_2; // std::cout << "*" << std::endl;
+ };
+// if (((d03 % k0) * (d03s % k0)) < 0) { pj += -M_PI_2; std::cout << "*" << std::endl; }
+
+/*
  D1=abs(P1[3]-P1[0]+l*(k[3]-k[0]))-abs(P1[3]-P1[0]);
  D2=abs(P2[3]-P2[0]+l*(k[3]-k[0]))-abs(P2[3]-P2[0]);
- if (D1*D2<0) { pj-=M_PI_2; /*cout << Schnittpunkt (P[0],k[0],P[3],k[3]) << "   0 0 0" << endl; */}
+ if (D1*D2<0) { pj-=M_PI_2; cout << Schnittpunkt (P[0],k[0],P[3],k[3]) << "   0 0 0" << endl; }
  
  D1=abs(P1[1]-P1[0]+l*(k[1]-k[0]))-abs(P1[1]-P1[0]);
  D2=abs(P2[1]-P2[0]+l*(k[1]-k[0]))-abs(P2[1]-P2[0]);
- if (D1*D2<0) { pj-=M_PI_2;/* cout << "0 0 0   " << Schnittpunkt (P[0],k[0],P[1],k[1]) << endl;*/ }
+ if (D1*D2<0) { pj-=M_PI_2; cout << "0 0 0   " << Schnittpunkt (P[0],k[0],P[1],k[1]) << endl;} */
  return pj; 
 }
 

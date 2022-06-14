@@ -123,7 +123,8 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 			for (int i = 0; i < S.nDet; i++)
 			{
 				if (S.Det[i]->cross(PStart, kin, i1, i2, l)) // Was the detector hit ?
-					if ((l <= stepSize) && (l>0) ) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l); // Is the detector in the rays direction ?
+					if ((l <= stepSize) && (l > 0))
+						S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l); // Is the detector in the rays direction ?
 			}
 		}
 
@@ -142,7 +143,14 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 				else
 				{
 					copyRay(tray, ray);
-					ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+					if (S.raytype == LIGHTSRC_RAYTYPE_RAY)
+					{
+						Vector<double> n[5];
+						tubedRay* tr = (tubedRay * )ray;
+						for (int i = 0; i < 5; i++) n[i] = -S.Obj[objIndex]->norm(tr->P[i]); 
+						tr->reflectRay(tray, n, S.Obj[objIndex]->n, S.nS);
+					}
+					else ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 				}
 				kref = ray->getk();
 				ktrans = tray->getk();
@@ -162,16 +170,29 @@ void Raytrace::traceOneRay(RayBase *ray, int &Reflexions, int& recur)
 			else // Ray is not in object
 				if (objIndex > -1) // Has the ray hit an object?
 				{
-					Vector<double> n = S.Obj[objIndex]->norm(PStop);
 					if (useRRTParms)
 					{
 						copyRay(tray, ray);
-						ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+						if (S.raytype == LIGHTSRC_RAYTYPE_RAY)
+						{
+							Vector<double> n[5];
+							tubedRay* tr = (tubedRay*)ray;
+							for (int i = 0; i < 5; i++) n[i] = S.Obj[objIndex]->norm(tr->P[i]);
+							tr->reflectRay(tray, n, S.Obj[objIndex]->n, S.nS);
+						}
+						else ray->reflectRay(tray, S.Obj[objIndex]->norm(PStop) , S.nS, S.Obj[objIndex]->n);
 					}
 					else
 					{
 						copyRay(tray, ray);
-						ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+						if (S.raytype == LIGHTSRC_RAYTYPE_RAY)
+						{
+							Vector<double> n[5];
+							tubedRay* tr = (tubedRay*)ray;
+							for (int i = 0; i < 5; i++) n[i] = S.Obj[objIndex]->norm(tr->P[i]);
+							tr->reflectRay(tray, n, S.Obj[objIndex]->n, S.nS);
+						}
+						else ray->reflectRay(tray, S.Obj[objIndex]->norm(PStop), S.nS, S.Obj[objIndex]->n);
 					}
 					kref = ray->getk();
 					ktrans = tray->getk();
@@ -634,7 +655,7 @@ void Raytrace_scattering::traceStopObject()
 	double theta, phi;
 	std::complex<double> dphi;
 	
-	theta = acos(kout[2]);
+	theta = acos(kout[2]/abs(kout));
 	itheta = floor( theta / M_PI * (double)(ntheta - 1));
 	phi = atan2(kout[1], kout[0]);
 	if (phi >= 0) iphi = floor(phi / (2.0 * M_PI) * (double)(nphi - 1));
