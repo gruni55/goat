@@ -1,5 +1,5 @@
 #include "raytrace.h" // include file for the raytracing process
-
+using namespace GOAT;
 int main()
 {
 	double wvl = 1.064;
@@ -10,14 +10,14 @@ int main()
 	
 	
 	// define object (ellipsoid with radius "radius" and refractive index n_particle positioned at the origin of the coordinate system
-	Ellipsoid E(dzero, Vector<double>(radius, radius, radius), n_particle); 
+	raytracing::Ellipsoid E(maths::dzero, maths::Vector<double>(radius, radius, radius), n_particle);
 
 	// define light source (gaussian beam starting position at -200ez, wavelength wvl, waist 1.0 (not interesting here) and fokus position at the origin)
-	LightSrcGauss LS(-200.0 * ez, 500, wvl, 1.0, dzero);
+	raytracing::LightSrcGauss LS(-200.0 * maths::ez, 500, wvl, 1.0, maths::dzero);
 
 	LS.P0 = 1.0; // Power of the light source is set to 1W
 
-    Scene S; // define scene
+	raytracing::Scene S; // define scene
 	S.setr0(1000.0);        // set radius of the calculation sphere
 	S.addObject(&E);        // add object to scene  
 	S.addLightSource(&LS);  // add light source to scene
@@ -25,7 +25,7 @@ int main()
 
 	LS.setNA(1.02); // set light source's numerical aperture
 
-	Raytrace_OT rot(S);     // define raytracer and initialize it with scene 
+	raytracing::Raytrace_OT rot(S);     // define raytracer and initialize it with scene 
 
 	std::ofstream os("example_one_sphere.dat"); // open file for writing
 	for (double z = -10 * wvl_medium; z <= 10 * wvl_medium; z += 20 * wvl_medium / 299.0) // loop over position

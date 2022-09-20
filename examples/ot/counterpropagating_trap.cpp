@@ -11,15 +11,16 @@
 #include <fstream>
 #include "raytrace.h"
 
+using namespace GOAT;
 int main()
 {
     std::ofstream os;
-    Scene S;
+    raytracing::Scene S;
 
     /* Define object, sphere as ellipsoid with radius 5µm and refractive index 1.59 */
     double wvl = 1.064;
     double wvlm = wvl / 1.33;
-    Ellipsoid obj(dzero, Vector<double>(10,5,5), 1.5);
+    raytracing::Ellipsoid obj(maths::dzero, maths::Vector<double>(10,5,5), 1.5);
 
     /* Defining Scene with calculation radius 1000µm and a refractive index of 1.33 */
     S.setnS(1.33);
@@ -31,8 +32,8 @@ int main()
        will later be overwritten by the definition of the NA. The x-position of the particle is varied from -10µm to 10µm */
 
     double d = 5;
-    LightSrcGauss ls1 = LightSrcGauss(-200.0 * ez, 200, 1.064, 0.5, dzero+d*ez);
-    LightSrcGauss ls2 = LightSrcGauss(200.0 * ez, 200, 1.064, 0.5, dzero-d*ez);
+    raytracing::LightSrcGauss ls1 = raytracing::LightSrcGauss(-200.0 * maths::ez, 200, 1.064, 0.5, maths::dzero + d * maths::ez);
+    raytracing::LightSrcGauss ls2 = raytracing::LightSrcGauss(200.0 * maths::ez, 200, 1.064, 0.5, maths::dzero-d*maths::ez);
 
     /* set the power to 1W */
     ls1.P0 = 1.0;
@@ -47,7 +48,7 @@ int main()
     ls2.setNA(1.2);
 
     /* initialize raytracer for optical tweezers */
-    Raytrace_OT ot(S);
+    raytracing::Raytrace_OT ot(S);
 
     os.open("cp5.dat");
 

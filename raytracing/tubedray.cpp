@@ -10,13 +10,16 @@
 #include "ellipsoid.h"
 #include <fstream> 
 
-using namespace std;
 
+namespace GOAT
+{
+    namespace raytracing
+    { 
 tubedRay::tubedRay(){
  g.isGauss=false;
  iR=0;
  objIndex=-1;
- OK=dzero;
+ OK= GOAT::maths::dzero;
  isValid=true;
  getunnelt = false;
  // KORR=1E-8;
@@ -52,9 +55,9 @@ tubedRay::tubedRay(const tubedRay& ray)
 tubedRay::~tubedRay(){
 }
 
-void tubedRay::checkObjectIntersection(int Index[5], Vector<double> *Pmin)
+void tubedRay::checkObjectIntersection(int Index[5], maths::Vector<double> *Pmin)
 {
- Vector<double> P1,n;
+    maths::Vector<double> P1,n;
  double amin,a;
  bool found;
  bool inside=(objIndex>-1);
@@ -88,13 +91,13 @@ void tubedRay::checkObjectIntersection(int Index[5], Vector<double> *Pmin)
  } 
 
 
-tubedRay::tubedRay(Plane E, const Vector<double> &p, double dy, double dz,
-         const Vector<complex<double> > &Pol,
-         complex<double>  n0, double r0, double k0,
+tubedRay::tubedRay(Plane E, const maths::Vector<double> &p, double dy, double dz,
+         const maths::Vector<std::complex<double> > &Pol,
+         std::complex<double>  n0, double r0, double k0,
          const int Anzein, ObjectShape **Einschluss,bool logRay)
 {
  g.isGauss=false;
- Matrix<double> D;
+ GOAT::maths::Matrix<double> D;
  double phi=(double)rand()/(double)RAND_MAX*M_PI;
  this->logRay=logRay;
   ka=E.n;
@@ -116,16 +119,16 @@ tubedRay::tubedRay(Plane E, const Vector<double> &p, double dy, double dz,
  this->k0=k0;
  inObject=false;
  objIndex=-1;
- OK=dzero;
+ OK= maths::dzero;
  rc=abs(P[4])/real(n);
  getunnelt=false;
  isValid=true;
 }
 
 
-tubedRay::tubedRay(const Vector<double> &p, double dy, double dz,
-         const Vector<complex<double> > &Pol, const Vector<double> &K,
-         complex<double>  n0, double r0, double k0,
+tubedRay::tubedRay(const maths::Vector<double> &p, double dy, double dz,
+         const maths::Vector<std::complex<double> > &Pol, const maths::Vector<double> &K,
+         std::complex<double>  n0, double r0, double k0,
          const int Anzein, ObjectShape **Einschluss,bool logRay)
 {
  g.isGauss=false;
@@ -133,10 +136,10 @@ tubedRay::tubedRay(const Vector<double> &p, double dy, double dz,
   ka=K;
  
  P[4]=p;
- P[0]=p-dy/2.0*ey+dz/2.0*ex; // links oben
- P[1]=p-dy/2.0*ey-dz/2.0*ex; // links unten
- P[2]=p+dy/2.0*ey-dz/2.0*ex; // rechts unten
- P[3]=p+dy/2.0*ey+dz/2.0*ex; // rechts oben
+ P[0]=p-dy/2.0* maths::ey+dz/2.0* maths::ex; // links oben
+ P[1]=p-dy/2.0* maths::ey-dz/2.0* maths::ex; // links unten
+ P[2]=p+dy/2.0* maths::ey-dz/2.0* maths::ex; // rechts unten
+ P[3]=p+dy/2.0* maths::ey+dz/2.0* maths::ex; // rechts oben
  for (int i=0; i<5; i++) k[i]=K;
  Obj=Einschluss;
  numObj=Anzein;
@@ -149,7 +152,7 @@ tubedRay::tubedRay(const Vector<double> &p, double dy, double dz,
  //init_Efeld(Pol);
  inObject=false;
  objIndex=-1;
- OK=dzero;
+ OK= maths::dzero;
  rc=abs(P[4])/real(n);
  getunnelt=false;
  isValid=true;
@@ -171,7 +174,7 @@ tubedRay::tubedRay(tubedRayBuffer &B)
  r0=B.r0;
  inObject=false;
  getunnelt=false;
- OK=dzero;
+ OK= maths::dzero;
  numObj=0;
  isValid=true;
 }
@@ -179,7 +182,7 @@ tubedRay::tubedRay(tubedRayBuffer &B)
 bool tubedRay::next()
 {
  int Index[5];
- Vector<double> R[5];
+ maths::Vector<double> R[5];
  bool found2,found=true;
  bool Einschluss=true;
  if (!inObject)
@@ -195,7 +198,7 @@ bool tubedRay::next()
    
    for (int i=0; i<5; i++)
    {
-      R[i]=nextP(P[i],k[i],dzero,r0,found2);
+      R[i]=nextP(P[i],k[i], maths::dzero,r0,found2);
 	  found=found && found2;
    }
    if (!found) { objIndex=-1;  return found;}
@@ -227,13 +230,13 @@ return found;
 
 
 
-void tubedRay::refract(Vector<double> *N, complex<double>  n1, complex<double>  n2)
+void tubedRay::refract(maths::Vector<double> *N, std::complex<double>  n1, std::complex<double>  n2)
 {
  double s,det;
- Matrix<double> H,R;
- Matrix<complex<double> > T;
- Matrix<double> D;
- Vector <double> n,e0,e1,e2;
+ maths::Matrix<double> H,R;
+ maths::Matrix<std::complex<double> > T;
+ maths::Matrix<double> D;
+ maths::Vector <double> n,e0,e1,e2;
  double alpha, gamma;
  double  beta;
  isValid=true;
@@ -247,10 +250,10 @@ void tubedRay::refract(Vector<double> *N, complex<double>  n1, complex<double>  
   if (det<-1) det=-1;
   else
 	  if (det>1) det=1;
-  alpha=acos(det);
+  alpha= std::acos(det);
   if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
 
-  beta=real(asin((complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
   isValid=isValid ; //&& (fabs(beta)>EPS_WINKEL);
 //  if (real(n1/n2*sin(alpha))>=1.0) cout << "P=" << P[4] << "    " << n1/n2*sin(alpha) << endl;
   gamma=beta-alpha;
@@ -270,20 +273,20 @@ void tubedRay::refract(Vector<double> *N, complex<double>  n1, complex<double>  
 
 
 
-tubedRay tubedRay::reflect(Vector<double> *n, complex<double>  n1, complex<double>  n2)
+tubedRay tubedRay::reflect(maths::Vector<double> *n, std::complex<double>  n1, std::complex<double>  n2)
 /* Strahl wird an einer Oberflaeche reflektiert. Wird an einer Einschlussoberflaeche
    reflektiert (objIndex >-1 ), dann wird der transmittierte Strahl zurueckgegeben */
 {
  tubedRay Erg;
- Matrix <double> D,H,R;
- Matrix<complex<double> > F;
- Vector <double> Ph,e0,e1,e2;
+ maths::Matrix <double> D,H,R;
+ maths::Matrix<std::complex<double> > F;
+ maths::Vector <double> Ph,e0,e1,e2;
  double det,alpha,gamma;
   if (inObject)
   {
   // Strahl will aus dem Einschluss raus
   Erg=*this;
-  Erg.OK=dzero;
+  Erg.OK= maths::dzero;
   Erg.inObject=false;
   Erg.n=n2;
   Erg.r0=r0;
@@ -324,7 +327,7 @@ tubedRay tubedRay::reflect(Vector<double> *n, complex<double>  n1, complex<doubl
    else
    {
     Erg=*this;
-    Erg.OK=dzero;
+    Erg.OK= maths::dzero;
     Erg.inObject=false;
     Erg.n=n2;
     Erg.objIndex=-1;
@@ -342,7 +345,7 @@ tubedRay tubedRay::reflect(Vector<double> *n, complex<double>  n1, complex<doubl
   if (det<-1) det=-1;
   else
 	  if (det>1) det=1;
-  alpha=acos(det);
+  alpha=std::acos(det);
   // isValid=isValid && (fabs(alpha)>EPS_WINKEL);
   gamma=M_PI-2.0*alpha;
   if (alpha>M_PI/2.0) { gamma=-gamma; alpha=M_PI-alpha;}
@@ -368,13 +371,13 @@ tubedRay tubedRay::reflect(Vector<double> *n, complex<double>  n1, complex<doubl
 
 
 
-void tubedRay::refract(Vector<double> N, complex<double>  n1, complex<double>  n2)
+void tubedRay::refract(maths::Vector<double> N, std::complex<double>  n1, std::complex<double>  n2)
 {
  double s;
- Matrix<double> H,R;
- Matrix<complex<double> > T;
- Matrix<double> D;
- Vector <double> n,e0,e1,e2;
+ maths::Matrix<double> H,R;
+ maths::Matrix<std::complex<double> > T;
+ maths::Matrix<double> D;
+ maths::Vector <double> n,e0,e1,e2;
  double ha,alpha, gamma;
  double  beta;
 
@@ -389,11 +392,11 @@ void tubedRay::refract(Vector<double> N, complex<double>  n1, complex<double>  n
   if (fabs(ha)>=1) alpha=0;  // <- um Ungenauigkeiten auszugleichen (sollte real eigentlich nicht vorkommen... ;-) )
   else
   {
-	  alpha=acos(ha);
+	  alpha=std::acos(ha);
        if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
   }
 
-  beta=real(asin((complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
  //  isValid=isValid && fabs(beta)>EPS_WINKEL;  // HÄH ????
   gamma=beta-alpha;
   s=1.0;
@@ -412,21 +415,21 @@ void tubedRay::refract(Vector<double> N, complex<double>  n1, complex<double>  n
 
 
 
-void tubedRay::reflectRay(RayBase* &tray, Vector<double> n, std::complex<double> n1, std::complex<double> n2)
+void tubedRay::reflectRay(RayBase* &tray, maths::Vector<double> n, std::complex<double> n1, std::complex<double> n2)
 {
 
     tubedRay Tray= reflect(n, n1, n2);
     *(tubedRay *)tray = tubedRay(Tray);
 }
 
-tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double>  n2)
+tubedRay tubedRay::reflect(maths::Vector<double> n, std::complex<double>  n1, std::complex<double>  n2)
 /* Strahl wird an einer Oberflaeche reflektiert. Wird an einer Einschlussoberflaeche
    reflektiert (objIndex >-1 ), dann wird der transmittierte Strahl zurueckgegeben */
 {
  tubedRay Erg;
- Matrix <double> D,H,R;
- Matrix<complex<double> > F;
- Vector <double> Ph,e0,e1,e2;
+ maths::Matrix <double> D,H,R;
+ maths::Matrix<std::complex<double> > F;
+ maths::Vector <double> Ph,e0,e1,e2;
  double ha;
  double alpha,gamma;
  isValid=true;
@@ -434,7 +437,7 @@ tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double
   {
   // Strahl will aus dem Einschluss raus
   Erg=*this;
-  Erg.OK=dzero;
+  Erg.OK= maths::dzero;
   Erg.inObject=false;
   Erg.n=n2;
   Erg.r0=r0;
@@ -474,7 +477,7 @@ tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double
    else
    {
     Erg=*this;
-    Erg.OK=dzero;
+    Erg.OK= maths::dzero;
     Erg.inObject=false;
     Erg.n=n2;
     Erg.objIndex=-1;
@@ -486,13 +489,13 @@ tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double
 
  n=-n;
 
- Vector<std::complex<double> >hE=E[4];
+ maths::Vector<std::complex<double> >hE=E[4];
  for (int i=0; i<5; i++)
  {
     getKSystem(n,k[i],e0,e1,e2);
 	ha=n*k[i]/(abs(n)*abs(k[i]));
 	if (fabs(ha)>1) alpha=0;
-  else alpha=acos(ha);
+  else alpha=std::acos(ha);
   isValid=isValid && fabs(alpha)>EPS_WINKEL;
   gamma=M_PI-2.0*alpha;
   if (alpha>M_PI/2.0) { gamma=-gamma; alpha=M_PI-alpha;}
@@ -513,16 +516,16 @@ tubedRay tubedRay::reflect(Vector<double> n, complex<double>  n1, complex<double
  return Erg;
 }
 
-Matrix<complex<double> > tubedRay::Fresnel_reflect (double alpha, complex<double>  n1, complex<double>  n2)
+GOAT::maths::Matrix<std::complex<double> > tubedRay::Fresnel_reflect (double alpha, std::complex<double>  n1, std::complex<double>  n2)
 {
- complex<double>  rs,rp;
- Matrix<complex<double> > R;
+ std::complex<double>  rs,rp;
+ GOAT::maths::Matrix<std::complex<double> > R;
  double  n12;
  double  beta;
  n12=real(n2)/real(n1);
  int l;
  double x;
- beta=real(asin((complex<double> ) sin(alpha) / n12));
+ beta=real(asin((std::complex<double> ) sin(alpha) / n12));
   
  
   if (alpha==0) { rp=(n2-n1)/(n2+n1); rs=-rp; }
@@ -539,11 +542,11 @@ Matrix<complex<double> > tubedRay::Fresnel_reflect (double alpha, complex<double
  return R;
 }
 
-Matrix<complex<double> > tubedRay::Fresnel_trans (double alpha,complex<double>  beta, complex<double>  n1, complex<double>  n2)
+GOAT::maths::Matrix<std::complex<double> > tubedRay::Fresnel_trans (double alpha,std::complex<double>  beta, std::complex<double>  n1, std::complex<double>  n2)
 {
  double rbeta=real(beta);
- complex<double>  ts,tp;
- Matrix<complex<double> > T;
+ std::complex<double>  ts,tp;
+ GOAT::maths::Matrix<std::complex<double> > T;
  
  if (alpha==0.0)
  {
@@ -565,7 +568,7 @@ Matrix<complex<double> > tubedRay::Fresnel_trans (double alpha,complex<double>  
 }
 
 void tubedRay::initElectricFieldGauss (int i, const Plane& Eb,
-                                   const Vector<complex<double> >& Pol)
+                                   const maths::Vector<std::complex<double> >& Pol)
 { 
  k[i]=g.F-P[i];
  k[i]=k[i]/abs(k[i]);
@@ -574,8 +577,8 @@ void tubedRay::initElectricFieldGauss (int i, const Plane& Eb,
  double r;
  double R;
  double l0=2.0*M_PI/k0;
-  Vector<double> hr,h;
-  complex<double> E0;
+ maths::Vector<double> hr,h;
+  std::complex<double> E0;
   double w,G; 
   double z0=M_PI*g.w0*g.w0/l0;
   theta=atan2(g.w0,z0);
@@ -592,18 +595,18 @@ void tubedRay::initElectricFieldGauss (int i, const Plane& Eb,
 }
 
 
-void tubedRay::initElectricField (const Vector<complex<double> >& Pol,const int
+void tubedRay::initElectricField (const maths::Vector<std::complex<double> >& Pol,const int
 AnzRays, double dx, Plane Eb)
 {
   double dx2=dx/2.0;
   char Str[255];
   double w2,R,b,w02,z;
   double l,r,r2;
-  Vector<double> h,hr;
+  maths::Vector<double> h,hr;
   bool found;
   isValid=true;
   double x1,x2,xn,p;
-  Vector<double> rh;
+  maths::Vector<double> rh;
   int i;
   if (!getunnelt)
   { 
@@ -639,7 +642,7 @@ AnzRays, double dx, Plane Eb)
   else // getunnelt!
   {
     /*Vector<double> kall, nall, Pall;   
-    Vector< complex<double> > Eall;
+    Vector< std::complex<double> > Eall;
     kall = k[4]/abs(k[4]);
 
        hr=P[4];
@@ -654,13 +657,13 @@ AnzRays, double dx, Plane Eb)
     k[i]=kall;*/
 
     double alpha,b;
-    Vector<double> er;
+    maths::Vector<double> er;
     for (int i=0; i<5; i++)
     {
      E[i]=Pol*exp(I*k0*r0);
      P[i]=(Eb.e1*P[i])*Eb.e1+(Eb.e2*P[i])*Eb.e2;
      b=abs(P[i]);
-     alpha=acos(b/r0/real(n));
+     alpha=std::acos(b/r0/real(n));
      er=P[i]/abs(P[i]); 
      k[i]=cos(alpha)*Eb.n-sin(alpha)*er;
      P[i]=r0*er;
@@ -669,16 +672,16 @@ AnzRays, double dx, Plane Eb)
 }
 
 
-void tubedRay::initElectricField (const Vector<complex<double> >& Pol,int AnzRays)
+void tubedRay::initElectricField (const maths::Vector<std::complex<double> >& Pol,int AnzRays)
 {
   char Str[255];
   //QString HStr;
   double absh,w2,R,b,w02,z;
   double r,r2;
-  Vector<double> h,hr;
+  maths::Vector<double> h,hr;
   bool found;
 double x1,x2,xn,p;
-  Vector<double> rh;
+maths::Vector<double> rh;
   isValid=true;
 //   cout << "P Anfang:" << P[0] << P[1] << P[2] << P[3] << P[4] << endl;
   if (!getunnelt)
@@ -699,8 +702,8 @@ double x1,x2,xn,p;
     { // ----------- Gaussstrahl ---------------
       double zi0,h2,alpha,cosa,absh,phi,det,l,R;
 
-      Matrix<double> D;
-      Vector<double> N,Pkt,Ps,d,hk;
+      maths::Matrix<double> D;
+      maths::Vector<double> N,Pkt,Ps,d,hk;
 
       hk=k[i];
       d=P[i]-g.F*r0;
@@ -724,7 +727,7 @@ double x1,x2,xn,p;
        P[i]=P[i]+l*k[i];
        h2=2*d[2]/(k0*w02);
        w2=w02*(1+h2*h2);
-      alpha=abs(ez*k[i]);
+      alpha=abs(maths::ez*k[i]);
       phi=atan(d[2]/zi0)-k0*(d[2]+r*r/(2*R));
       E[i]=Pol*g.w0*r0/w2*exp(-r*r/w2)*exp(I*phi);
       D=rotMatrix(k[i]%hk,alpha);
@@ -766,11 +769,11 @@ double x1,x2,xn,p;
   else // getunnelt!
   {
     double lambda, alpha,gamma;
-    Vector<double> N;
-    Matrix<double> D;
+    maths::Vector<double> N;
+    maths::Matrix<double> D;
     lambda=-P[4]*k[4];
     P[4]=P[4]+lambda*k[4];
-    alpha=acos(abs(P[4])/(r0*real(n)));
+    alpha=std::acos(abs(P[4])/(r0*real(n)));
      N=P[4]/abs(P[4]);
     D=rotMatrixA(N,k[4],alpha);
     P[4]=P[4]/abs(P[4])*r0; 
@@ -789,14 +792,14 @@ double x1,x2,xn,p;
    // ------------- getunnelter Strahl ------------------
    Vector<double> e0,e1,e2,n;
    double alpha,d,gamma;
-   complex<double>  ts,tp,rs,rp;
+   std::complex<double>  ts,tp,rs,rp;
    double FR;
    int l;
    double m;
    double x;
 
-   Matrix<double> D,H,R;
-   Matrix<complex<double> > F;
+   GOAT::maths::Matrix<double> D,H,R;
+   GOAT::maths::Matrix<std::complex<double> > F;
 
    for (int i=0; i<5; i++)
    {
@@ -836,7 +839,7 @@ double x1,x2,xn,p;
    }
   } */
 }
-/*void Strahl::init_Efeld (const Vector<complex<double> >& Pol,const int AnzRays)
+/*void Strahl::init_Efeld (const Vector<std::complex<double> >& Pol,const int AnzRays)
 {
   char Str[255];
   //QString HStr;
@@ -861,7 +864,7 @@ double x1,x2,xn,p;
     { // ----------- Gaussstrahl ---------------
       double zi0,h2,alpha,cosa,absh,phi,det,l,R;
 
-      Matrix<double> D;
+      GOAT::maths::Matrix<double> D;
       Vector<double> n,Pkt,Ps,d,hk;
 
       hk=k[i];
@@ -920,14 +923,14 @@ double x1,x2,xn,p;
    // ------------- getunnelter Strahl ------------------
    Vector<double> e0,e1,e2,n;
    double alpha,d,gamma;
-   complex<double>  ts,tp,rs,rp;
+   std::complex<double>  ts,tp,rs,rp;
    double FR;
    int l;
    double m;
    double x;
 
-   Matrix<double> D,H,R;
-   Matrix<complex<double> > F;
+   GOAT::maths::Matrix<double> D,H,R;
+   GOAT::maths::Matrix<std::complex<double> > F;
 
    for (int i=0; i<5; i++)
    {
@@ -969,10 +972,10 @@ double x1,x2,xn,p;
 }*/
 
 
-bool tubedRay::schneidePlane (Vector<double> *Erg, const Plane &E)
+bool tubedRay::schneidePlane (maths::Vector<double> *Erg, const Plane &E)
 {
- Matrix<double> M1,M2;
- Vector<double> Ps,P1;
+ GOAT::maths::Matrix<double> M1,M2;
+ maths::Vector<double> Ps,P1;
  bool invertierbar;
   for (int i=0; i<3; i++)
   {
@@ -990,9 +993,9 @@ bool tubedRay::schneidePlane (Vector<double> *Erg, const Plane &E)
  
 }
 
-Vector<double> tubedRay::schneidePlane( const Plane &E, bool &found)
+maths::Vector<double> tubedRay::schneidePlane( const Plane &E, bool &found)
 {
- Vector<double> Ps=E.P-P[4];
+    maths::Vector<double> Ps=E.P-P[4];
  double l;
  double kn=k[4]*E.n;
  if (fabs(kn)<1E-10) 
@@ -1006,7 +1009,7 @@ Vector<double> tubedRay::schneidePlane( const Plane &E, bool &found)
  return P[4]+l*k[4];    
 }
 
-int tubedRay::schneidePlane(const Plane &E, double d, Vector<double> &S1, Vector<double> &S2)
+int tubedRay::schneidePlane(const Plane &E, double d, maths::Vector<double> &S1, maths::Vector<double> &S2)
 {
  double lp,lm,l;
   if (k[4]*E.n!=0.0)
@@ -1051,7 +1054,7 @@ double Strahl::flaeche ()
 
 double tubedRay::flaeche ()
 {
-	Vector<double> a,b,c,d;
+    maths::Vector<double> a,b,c,d;
 	a=P[0]-P[1];
 	b=P[2]-P[1];
 	c=P[0]-P[3];
@@ -1064,11 +1067,11 @@ double tubedRay::flaeche ()
 }
 
 
- double tubedRay::normVol (Vector<double> P[5],Vector<double> k,  Vector<double> n)
+ double tubedRay::normVol (maths::Vector<double> P[5], maths::Vector<double> k, maths::Vector<double> n)
   // Verhaeltnis zwischen Volumen eines Strahls der durch ein Volumenelement
   // geht zum Volumen des Volumenelements
  {
-  Vector <double> a10,a12,a20,a23,h;
+     maths::Vector <double> a10,a12,a20,a23,h;
   double dx,V,V0;
   dx=0;
   a10=P[0]-P[1];
@@ -1135,9 +1138,9 @@ double tubedRay::flaeche ()
  return pj;
 } */
 
-Vector<double> Schnittpunkt (Vector<double> P, Vector<double> k, Vector<double> P1, Vector<double> k1)
+ maths::Vector<double> Schnittpunkt (maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double> P1, maths::Vector<double> k1)
 {
- Vector<double> A,B;
+     maths::Vector<double> A,B;
  A=P-P1+((P1-P)*k)*k;
  B=(k1*k)*k-k1;
  double l1=-A*B/(B*B);
@@ -1145,7 +1148,7 @@ Vector<double> Schnittpunkt (Vector<double> P, Vector<double> k, Vector<double> 
 }
 
 
-double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5],const double epsilon)
+double tubedRay::pjump (maths::Vector<double> P1[5], maths::Vector<double> P2[5],const double epsilon)
 {
  double D1,D2;
  double pj=0;
@@ -1172,15 +1175,15 @@ double tubedRay::pjump(void)
 }
 
 
-double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5], Vector<double> *S)
+double tubedRay::pjump (maths::Vector<double> P1[5], maths::Vector<double> P2[5], maths::Vector<double> *S)
  { 
   double pj=0.0;
-  Vector<double> h1,h2;
+  maths::Vector<double> h1,h2;
   double d1,d2,a,b; 
   double l1,l2,l;
   int i;
-  S[0]=dzero;
-  S[1]=dzero;
+  S[0]= maths::dzero;
+  S[1]= maths::dzero;
   d1=abs(P1[1]-P2[1]);
   d2=abs(P1[2]-P2[2]);
 
@@ -1221,10 +1224,10 @@ double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5], Vector<double
 
 
  
- double tubedRay::cross (const Vector<double> P10, const Vector<double> P11,
-                       const Vector<double> P20, const Vector<double> P21)
+ double tubedRay::cross (const maths::Vector<double> P10, const maths::Vector<double> P11,
+                       const maths::Vector<double> P20, const maths::Vector<double> P21)
  {
-  Vector<double> a0,a1;
+     maths::Vector<double> a0,a1;
   double k1,k2,k;
 
   a0=P20-P10;
@@ -1235,8 +1238,8 @@ double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5], Vector<double
   return k;
  }
 
- double tubedRay::crossXAxis (const Vector<double>& P1, const Vector<double>& P2,
-   const Vector<double>& k)
+ double tubedRay::crossXAxis (const maths::Vector<double>& P1, const maths::Vector<double>& P2,
+   const maths::Vector<double>& k)
  {
   double m=0.0;
 
@@ -1245,38 +1248,38 @@ double tubedRay::pjump (Vector<double> P1[5],Vector<double> P2[5], Vector<double
   return m;
  }
 
-ostream & operator << (ostream & os, tubedRay S)
+std::ostream & operator << (std::ostream & os, tubedRay S)
 {
  for (int i=0; i<5;i++)
  {
-  os << "P[" << i << "]=" << S.P[i] << "   k[" << i << "]=" << S.k[i] << endl;
-  os << "E[" << i << "]=" << S.E[i] << endl;
-  os << "Anzahl Einschlsse=" << S.numObj << endl;
-  os << "imEinschlus=" << S.inObject  << "   objIndex=" << S.objIndex << endl;
-  os << "OK=" << S.OK << endl;
+  os << "P[" << i << "]=" << S.P[i] << "   k[" << i << "]=" << S.k[i] << std::endl;
+  os << "E[" << i << "]=" << S.E[i] << std::endl;
+  os << "Anzahl Einschlsse=" << S.numObj << std::endl;
+  os << "imEinschlus=" << S.inObject  << "   objIndex=" << S.objIndex << std::endl;
+  os << "OK=" << S.OK << std::endl;
  }
  return os;
 }
 
-Vector<double> tubedRay::nextCaustic (double &l)
+maths::Vector<double> tubedRay::nextCaustic (double &l)
 {
  l=-1;
- if (fabs((k[4]%ka)*P[4])>1E-6) return dzero;
- if (k[4]*ka==1.0) return dzero;
+ if (fabs((k[4]%ka)*P[4])>1E-6) return maths::dzero;
+ if (k[4]*ka==1.0) return maths::dzero;
 
  l=((P[4]*ka)*(ka*k[4])-P[4]*k[4])/(1.0-(ka*k[4])*(ka*k[4]));
  return P[4]+l*k[4];
 }
 
-ostream& operator << (ostream &os, Gauss gs)
+std::ostream& operator << (std::ostream &os, Gauss gs)
 {
- os << "Gausstrahl:" << endl;
- os << "w0=" << gs.w0 << endl;
- os << " F=" << gs.F << endl;
- os << " k=" << gs.k << endl;
+ os << "Gausstrahl:" << std::endl;
+ os << "w0=" << gs.w0 << std::endl;
+ os << " F=" << gs.F << std::endl;
+ os << " k=" << gs.k << std::endl;
  os << " isGauss=";
- if (gs.isGauss) os << "true" << endl;
- else os << "false" << endl;
+ if (gs.isGauss) os << "true" << std::endl;
+ else os << "false" << std::endl;
  return os;
 }
 
@@ -1313,19 +1316,19 @@ tubedRay& tubedRay::operator = (const tubedRay& S)
   return *this;
 }
 
-void tubedRay::tunnel(Vector<complex<double> > Pol, complex<double>  np, complex<double>  na, int l)
+void tubedRay::tunnel(maths::Vector<std::complex<double> > Pol, std::complex<double>  np, std::complex<double>  na, int l)
 {
  double s;
- Matrix<double> H,R;
- Matrix<complex<double> > T;
- Matrix<double> D;
- Vector <double> n,e0,e1,e2;
+ maths::Matrix<double> H,R;
+ maths::Matrix<std::complex<double> > T;
+ maths::Matrix<double> D;
+ maths::Vector <double> n,e0,e1,e2;
  double alpha,gamma;
- complex<double>  beta;
+ std::complex<double>  beta;
  double b;
 
  // Innerer Reflexionswinkel (von der Tangente an P aus gerechnet)
- gamma = acos((l+0.5)/(real(np)*k0*r0));
+ gamma = std::acos((l+0.5)/(real(np)*k0*r0));
 
 // cout << "P Anfang:" << P[0] << P[1] << P[2] << P[3] << P[4] << endl;
 
@@ -1397,13 +1400,13 @@ void tubedRay::tunnel(Vector<complex<double> > Pol, complex<double>  np, complex
 }
 
 
-void tubedRay::tunnel(Vector<complex<double> > Pol, complex<double>  n1, complex<double>  n2)
+void tubedRay::tunnel(maths::Vector<std::complex<double> > Pol, std::complex<double>  n1, std::complex<double>  n2)
 {
  double s;
- Matrix<double> H,R;
- Matrix<complex<double> > T;
- Matrix<double> D;
- Vector <double> n,e0,e1,e2;
+ maths::Matrix<double> H,R;
+ maths::Matrix<std::complex<double> > T;
+ maths::Matrix<double> D;
+ maths::Vector <double> n,e0,e1,e2;
  double alpha,gamma;
  double  beta;
  double b;
@@ -1414,19 +1417,19 @@ void tubedRay::tunnel(Vector<complex<double> > Pol, complex<double>  n1, complex
   b=sqrt(P[i][1]*P[i][1]+P[i][2]*P[i][2]);
   n=P[i]/abs(P[i]);
   getKSystem (n,k[i],e0,e1,e2);
-  alpha=acos(n*k[i]);
+  alpha=std::acos(n*k[i]);
   if (alpha>M_PI/2.0)
   {
    alpha=M_PI-alpha;
-   beta=real(asin((complex<double>)real(n1)/real(n2)*sin(alpha)));
+   beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
    e2=-e2;
   }
 
-  beta=real(asin((complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
   E[i]*=exp(I*n1*k0*P[i][0]);
   P[i][0]=0.0;
   P[i]*=r0/abs(P[i]);
-  gamma=-acos(b*real(n1)/(r0*real(n2)));
+  gamma=-std::acos(b*real(n1)/(r0*real(n2)));
 
   s=1.0;
   trafo(e0,e1,e2,H,R);
@@ -1443,22 +1446,22 @@ void tubedRay::tunnel(Vector<complex<double> > Pol, complex<double>  n1, complex
  }
 }
 
-Vector<double> tubedRay::crossPlane (const Vector<double> Pe, const Vector<double> n)
+maths::Vector<double> tubedRay::crossPlane (const maths::Vector<double> Pe, const maths::Vector<double> n)
 /* Berechnet den Schnittpunkt des zentralen Strahls mit einer Plane, die durch den Aufpunkt Pe und die Normale n beschrieben wird 
  * Die Routine liefert inf-Vektor, falls kein Schnittpunkt */
 {
  double l=k[4]*n;
  double h=(Pe-P[4])*n;
- Vector<double> S;
+ maths::Vector<double> S;
 
  if ( (l==0) && (h==0) ) return P[4]; // Strahl befindet sich in der Plane und bewegt sich in der Plane
- if ( (l==0) && (h!=0) ) return Vector<double> (-1,-1,-1);
+ if ( (l==0) && (h!=0) ) return maths::Vector<double> (-1,-1,-1);
  l=h/l;
  S=P[4]+l*k[4];
  return S;
 }
 
-void binWrite (Gauss gs, ofstream &os)
+void binWrite (Gauss gs, std::ofstream &os)
 {
  os.write((char *) &gs.w0, (char) sizeof(gs.w0));
  gs.F.binWrite(os);
@@ -1467,7 +1470,7 @@ void binWrite (Gauss gs, ofstream &os)
 }
 
 
-void binRead (Gauss &Gs, ifstream &is)
+void binRead (Gauss &Gs, std::ifstream &is)
 {
  Gauss gs; 
  is.read((char *) &gs.w0, (char) sizeof(gs.w0));
@@ -1475,4 +1478,6 @@ void binRead (Gauss &Gs, ifstream &is)
  gs.k.binRead(is);
  is.read((char *) &gs.isGauss, (char) sizeof (gs.isGauss));
  Gs=gs;
+}
+}
 }

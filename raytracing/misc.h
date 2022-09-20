@@ -15,7 +15,10 @@
 
 #ifndef MISC_H
 #define MISC_H
-
+namespace GOAT
+{
+    namespace raytracing
+    {
 #ifndef c_light
 #define c_light 299792458.0   // Vakuumlichtgeschwindigkeit in m/s
 #endif
@@ -27,19 +30,21 @@
 #define Planck_hquer 1.054571628E-34 // h/2PI in Js 
 
 
-void initInc(ObjectShape *E);
-void setR0 (ObjectShape *E, double r0);
-void copyFormList (ObjectShape **&d ,ObjectShape **s, int anz);
-void binWriteIncList (std::ofstream &os, ObjectShape **E, int anz);
-void binWriteInc (std::ofstream &os, ObjectShape *E);
-void binReadIncList (std::ifstream &is, ObjectShape **&E, int anz);
-void binReadInc (std::ifstream &is, ObjectShape *&E, bool isNew);
-void copyInc (ObjectShape *&d, ObjectShape *s);
-void deleteInc (ObjectShape *E);
-Vector<double> force (Vector<double> norm, tubedRay Se, tubedRay Sr, tubedRay St, double df);
-double gaussw(double z, double wvl, double w0);
-std::complex<double> gaussphase (Vector<double> P, Vector<double> F, Vector<double> k, double w0, double k0);
-double NA2w0(double lambda, double NA, std::complex<double> n);
-float readLE_float32(std::istream &is);
-int readLE_int32(std::istream &is);
+        void initInc(ObjectShape* E);
+        void setR0(ObjectShape* E, double r0);
+        void copyFormList(ObjectShape**& d, ObjectShape** s, int anz);
+        void binWriteIncList(std::ofstream& os, ObjectShape** E, int anz);
+        void binWriteInc(std::ofstream& os, ObjectShape* E);
+        void binReadIncList(std::ifstream& is, ObjectShape**& E, int anz);
+        void binReadInc(std::ifstream& is, ObjectShape*& E, bool isNew);
+        void copyInc(ObjectShape*& d, ObjectShape* s);
+        void deleteInc(ObjectShape* E);
+        maths::Vector<double> force(maths::Vector<double> norm, tubedRay Se, tubedRay Sr, tubedRay St, double df);
+        double gaussw(double z, double wvl, double w0);
+        std::complex<double> gaussphase(maths::Vector<double> P, maths::Vector<double> F, maths::Vector<double> k, double w0, double k0);
+        double  NA2w0(double lambda, double NA, std::complex<double> n);
+        float readLE_float32(std::istream& is);
+        int readLE_int32(std::istream& is);
+    }
+}
 #endif

@@ -9,114 +9,120 @@
 
 #include "plane.h"
 
-Plane::Plane(){
-
-}
-
-Plane::Plane(const Vector<double>& P, const Vector<double>& e1, const Vector<double>& e2)
+namespace GOAT
 {
- this->P=P;
- this->e1=e1/abs(e1);
- this->e2=e2/abs(e2);
- n=e1%e2;
- n/=abs(n);
-}
+    namespace raytracing
+    {
+        Plane::Plane() {
 
-void Plane::norm()
-{
- e1/=abs(e1);
- e2/=abs(e2);
- //n=e1%e2;
- n/=abs(n);
-}
+        }
 
-void Plane::Normalenform()
-{
- Vector<double> n=e1%e2;
- Vector<double> Ps;
- Matrix<double> M1,M2;
+        Plane::Plane(const maths::Vector<double>& P, const maths::Vector<double>& e1, const maths::Vector<double>& e2)
+        {
+            this->P = P;
+            this->e1 = e1 / abs(e1);
+            this->e2 = e2 / abs(e2);
+            n = e1 % e2;
+            n /= abs(n);
+        }
 
- for (int i=0; i<3; i++)
- {
-  M1(i,0)=n[i];
-  M1(i,1)=-e1[i];
-  M1(i,2)=-e2[i];
-  }
-  M2=invert(M1);
-  Ps=M2*P;
-  P=Ps[0]*P;
-  norm();
-}
+        void Plane::norm()
+        {
+            e1 /= abs(e1);
+            e2 /= abs(e2);
+            //n=e1%e2;
+            n /= abs(n);
+        }
 
-void Plane::intersectSphere (Vector<double> O, double r)
-{
- double a;
- double Pe1=P*e1;
-  a=(-P*e1+sqrt(Pe1*Pe1-(P*P)*(e1*e1)+r*r*(e1*e1)))/(e1*e1);
-}
+        void Plane::Normalenform()
+        {
+            maths::Vector<double> n = e1 % e2;
+            maths::Vector<double> Ps;
+            maths::Matrix<double> M1, M2;
 
-Plane::~Plane(){
-}
+            for (int i = 0; i < 3; i++)
+            {
+                M1(i, 0) = n[i];
+                M1(i, 1) = -e1[i];
+                M1(i, 2) = -e2[i];
+            }
+            M2 = invert(M1);
+            Ps = M2 * P;
+            P = Ps[0] * P;
+            norm();
+        }
 
-double Plane::distance (Vector<double> R)
-{
-  // Voraussetzung |n|=1 !
+        void Plane::intersectSphere(maths::Vector<double> O, double r)
+        {
+            double a;
+            double Pe1 = P * e1;
+            a = (-P * e1 + sqrt(Pe1 * Pe1 - (P * P) * (e1 * e1) + r * r * (e1 * e1))) / (e1 * e1);
+        }
 
-  double d,Erg;
-  d=(P*n)/abs(n);
-  Erg=fabs(n*R-d);
- return Erg;
-}
+        Plane::~Plane() {
+        }
 
-void Plane::toString(char *S)
-{
- sprintf (S," P=%f   %f   %f      n=%f  %f  %f\ne1=%f  %f  %f   e2=%f  %f  %f",
-          P[0],P[1],P[2],n[0],n[1],n[2],e1[0],e1[1],e1[2],e2[0],e2[1],e2[2]);
-}
+        double Plane::distance(maths::Vector<double> R)
+        {
+            // Voraussetzung |n|=1 !
 
-void Plane::rotate(double dr, double dtheta,double dphi)
-{
- Vector<double> P1,P2;
- Vector<double> Ps,P1s,P2s;
- P1=P+e1;
- P2=P+e2;
+            double d, Erg;
+            d = (P * n) / abs(n);
+            Erg = fabs(n * R - d);
+            return Erg;
+        }
 
- Ps=cart2sphere(P);
- Ps[1]+=dtheta;
- Ps[2]+=dphi;
- P=sphere2cart(Ps);
+        void Plane::toString(char* S)
+        {
+            sprintf(S, " P=%f   %f   %f      n=%f  %f  %f\ne1=%f  %f  %f   e2=%f  %f  %f",
+                P[0], P[1], P[2], n[0], n[1], n[2], e1[0], e1[1], e1[2], e2[0], e2[1], e2[2]);
+        }
 
- P1s=cart2sphere(P1);
- P1s[1]+=dtheta;
- P1s[2]+=dphi;
- P1=sphere2cart(P1s);
+        void Plane::rotate(double dr, double dtheta, double dphi)
+        {
+            maths::Vector<double> P1, P2;
+            maths::Vector<double> Ps, P1s, P2s;
+            P1 = P + e1;
+            P2 = P + e2;
 
- P2s=cart2sphere(P2);
- P2s[1]+=dtheta;
- P2s[2]+=dphi;
- P2=sphere2cart(P2s);
+            Ps = cart2sphere(P);
+            Ps[1] += dtheta;
+            Ps[2] += dphi;
+            P = sphere2cart(Ps);
 
- e1=P1-P;
- e2=P2-P;
- n=e1%e2;
- n/=abs(n);
- P+=dr*n;
-}
+            P1s = cart2sphere(P1);
+            P1s[1] += dtheta;
+            P1s[2] += dphi;
+            P1 = sphere2cart(P1s);
 
-void Plane::binWrite (std::ofstream &os)
-{
- char svd=sizeof (Vector<double>);
- os.write((char *) &P, svd);
- os.write((char *) &e1, svd);
- os.write((char *) &e2, svd);
- os.write((char *) &n, svd);
-}
+            P2s = cart2sphere(P2);
+            P2s[1] += dtheta;
+            P2s[2] += dphi;
+            P2 = sphere2cart(P2s);
 
-void Plane::binRead (std::ifstream &is)
-{
- char svd=sizeof (Vector<double>);
- is.read ((char *) &P, svd);
- is.read ((char *) &e1, svd);
- is.read ((char *) &e2, svd);
- is.read ((char *) &n, svd);
+            e1 = P1 - P;
+            e2 = P2 - P;
+            n = e1 % e2;
+            n /= abs(n);
+            P += dr * n;
+        }
+
+        void Plane::binWrite(std::ofstream& os)
+        {
+            char svd = sizeof(maths::Vector<double>);
+            os.write((char*)&P, svd);
+            os.write((char*)&e1, svd);
+            os.write((char*)&e2, svd);
+            os.write((char*)&n, svd);
+        }
+
+        void Plane::binRead(std::ifstream& is)
+        {
+            char svd = sizeof(maths::Vector<double>);
+            is.read((char*)&P, svd);
+            is.read((char*)&e1, svd);
+            is.read((char*)&e2, svd);
+            is.read((char*)&n, svd);
+        }
+    }
 }

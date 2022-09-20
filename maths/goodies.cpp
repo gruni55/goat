@@ -5,22 +5,25 @@
 #include <sstream>
 
 using namespace std;
-
-bool testnan (double x)
+namespace GOAT
 {
- stringstream ss;
- string S; 
- ss << x;
- ss >> S;
- return S=="nan"; 
+	namespace maths
+	{
+		bool testnan(double x)
+		{
+			stringstream ss;
+			string S;
+			ss << x;
+			ss >> S;
+			return S == "nan";
+		}
+
+		double sqr(double x) { return x * x; }
+
+		double abs(complex<double> x)
+		{
+			return real(sqrt(x * conj(x)));
+		}
+	}
 }
-
-double sqr(double x){return x*x;}
-
-double abs (complex<double> x)
-{
- return real(sqrt(x*conj(x)));
-}
-
-
 

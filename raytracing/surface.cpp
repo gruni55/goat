@@ -7,50 +7,32 @@
 
 #define TREE_RECURSIONS 4
 
-//#define TEST_CULL
 
-using namespace std;
 
-/*
-surface::surface(int anz)
-{
-  r0=1.0;
-  sf=1.0;
-  numTriangles=anz;
-  S=new triangle[numTriangles];
-  P=dzero;
-  currentnorm=Vector<double>(0,0,0);
-  currentIndex = -1;
-  type=OBJECTSHAPE_SURFACE;
-}
-*/
+namespace GOAT
+{ 
+	namespace raytracing
+	{ 
+
 surface::surface() 
 {
   r0=1.0;
   sf=1.0;
   numTriangles=0;
   S=NULL;
-  P = dzero;
-  currentnorm=Vector<double>(0,0,0);
+  P = maths::dzero;
+  currentnorm=maths::Vector<double>(0,0,0);
   currentIndex = -1;
   type=OBJECTSHAPE_SURFACE;
 }
-/*
-surface::surface (const ObjectShape &F)
-{
- r0=1.0;
- sf=1.0;
- type=OBJECTSHAPE_SURFACE;
- S = 0;
-}
-*/
+
 surface::surface(const surface &Su):ObjectShape(Su)
 { 
     numTriangles=Su.numTriangles;
   sf=Su.sf;
   r0=Su.r0;
   sf=1.0;  
-  P = dzero;
+  P = maths::dzero;
   currentnorm=Su.currentnorm;
   currentIndex = Su.currentIndex;
   S=new triangle[numTriangles];
@@ -68,9 +50,9 @@ surface::surface(const surface &Su):ObjectShape(Su)
 //  cout << "weiter" << endl;
   initQuad(); 
   #ifdef WITH_OCTREE
-  Vector<double> pul, por;
+  maths::Vector<double> pul, por;
   initBounds(pul,por);
-  Vector<double> d = por - pul;
+  maths::Vector<double> d = por - pul;
   double h = d[0];
   if (d[1] > h) h = d[1];
   if (d[2] > h) h = d[2];
@@ -81,7 +63,7 @@ surface::surface(const surface &Su):ObjectShape(Su)
  /* cube = Octree<triangle>::Section(P, d, 1.0, h);
   Tree.setRootSection(cube);
   Tree.build(S, numTriangles);*/
-  Tree.BBox = Box(dzero, d, n);
+  Tree.BBox = Box(maths::dzero, d, n);
   Tree.BBox.setOctree(true);
   Tree.createTree(TREE_RECURSIONS);
   for (int i = 0; i < numTriangles; i++)
@@ -99,7 +81,7 @@ surface::surface(const surface &Su):ObjectShape(Su)
    
 }
 
-surface::surface(Vector<double> Oh) : ObjectShape()
+surface::surface(maths::Vector<double> Oh) : ObjectShape()
 {
   numTriangles=0;
   S=NULL;
@@ -109,12 +91,12 @@ surface::surface(Vector<double> Oh) : ObjectShape()
 }
 
 
-surface::surface(const Vector<double> &P,
-                complex<double>  n,
-          const Matrix<complex<double> > alpha,
-          const Vector<double> &Ex,
-          const Vector<double> &Ey,
-          const Vector<double> &Ez
+surface::surface(const maths::Vector<double> &P,
+                std::complex<double>  n,
+          const maths::Matrix<std::complex<double> > alpha,
+          const maths::Vector<double> &Ex,
+          const maths::Vector<double> &Ey,
+          const maths::Vector<double> &Ez
          )
 : ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
 {
@@ -122,20 +104,20 @@ surface::surface(const Vector<double> &P,
   sf=1.0;
   numTriangles=0;
   S=NULL;
-  currentnorm=Vector<double>(0,0,0);
+  currentnorm= maths::Vector<double>(0,0,0);
   currentIndex = -1;
  trafo (Ex,Ey,Ez,H,R);
  this->P=P;
  type=OBJECTSHAPE_SURFACE;
 } 
 
-surface::surface(const Vector<double> &P,
-                complex<double>  n,
+surface::surface(const maths::Vector<double> &P,
+                std::complex<double>  n,
           int anz, triangle* list,
-          const Matrix<complex<double> > alpha,
-          const Vector<double> &Ex,
-          const Vector<double> &Ey,
-          const Vector<double> &Ez)
+          const maths::Matrix<std::complex<double> > alpha,
+          const maths::Vector<double> &Ex,
+          const maths::Vector<double> &Ey,
+          const maths::Vector<double> &Ez)
 : ObjectShape (P, n, alpha, Ex, Ey, Ez,OBJECTSHAPE_SURFACE)
 {
  trafo (Ex,Ey,Ez,H,R);
@@ -149,7 +131,7 @@ surface::surface(const Vector<double> &P,
 #ifdef WITH_OCTREE
 // Vector<double> por, pul;
 // initBounds(pul,por); 
- Vector<double> d = por - pul;
+ maths::Vector<double> d = por - pul;
  double h = d[0];
  if (d[1] > h) h = d[1];
  if (d[2] > h) h = d[2];
@@ -175,35 +157,35 @@ surface::~surface()
 int surface::createsurface()
 {
   double P1x, P1y, P1z, P2x, P2y, P2z, P3x, P3y, P3z;
-  Vector<double> P1, P2, P3;
-  cout  << "% Anzahl Flaechen:";
-  cin >> numTriangles;
+  maths::Vector<double> P1, P2, P3;
+  std::cout  << "% Anzahl Flaechen:";
+  std::cin >> numTriangles;
   delete[] S;
   S = new triangle[numTriangles];
 
   for(int i=0;i<numTriangles;i++){
-    cout << "% Flaeche" << i+1 << endl;
-    cout << "P1x:" << endl;
-    cin >> P1x;
-    cout << "P1y:" << endl;
-    cin >> P1y;
-    cout << "P1z:" << endl;
-    cin >> P1z;
-    cout << "P2x:" << endl;
-    cin >> P2x;
-    cout << "P2y:" << endl;
-    cin >> P2y;
-    cout << "P2z:" << endl;
-    cin >> P2z;
-    cout << "P3x:" << endl;
-    cin >> P3x;
-    cout << "P3y:" << endl;
-    cin >> P3y;
-    cout << "P3z:" << endl;
-    cin >> P3z;
-    P1 = Vector<double>(P1x,P1y,P1z);
-    P2 = Vector<double>(P2x,P2y,P2z);
-    P3 = Vector<double>(P3x,P3y,P3z);
+    std::cout << "% Flaeche" << i+1 << std::endl;
+    std::cout << "P1x:" << std::endl;
+    std::cin >> P1x;
+    std::cout << "P1y:" << std::endl;
+    std::cin >> P1y;
+    std::cout << "P1z:" << std::endl;
+    std::cin >> P1z;
+    std::cout << "P2x:" << std::endl;
+    std::cin >> P2x;
+    std::cout << "P2y:" << std::endl;
+    std::cin >> P2y;
+    std::cout << "P2z:" << std::endl;
+    std::cin >> P2z;
+    std::cout << "P3x:" << std::endl;
+    std::cin >> P3x;
+    std::cout << "P3y:" << std::endl;
+    std::cin >> P3y;
+    std::cout << "P3z:" << std::endl;
+    std::cin >> P3z;
+    P1 = maths::Vector<double>(P1x,P1y,P1z);
+    P2 = maths::Vector<double>(P2x,P2y,P2z);
+    P3 = maths::Vector<double>(P3x,P3y,P3z);
     S[i]=triangle(P1,P2,P3);
 	S[i].setnorm();
   }
@@ -212,9 +194,9 @@ int surface::createsurface()
 
 int surface::createsurface(std::string FName)
 {
-  Vector<double> P1, P2, P3;
+	maths::Vector<double> P1, P2, P3;
 
-  ifstream is;
+   std::ifstream is;
 //  if (this->FName!=0) delete this->FName;
   int Nc = FName.length() + 1;
  //  this->FName=new char[Nc];
@@ -241,15 +223,15 @@ int surface::createsurface(std::string FName)
   setCenter(P);
 initQuad();
 #ifdef WITH_OCTREE
-        Vector<double> por, pul;
+maths::Vector<double> por, pul;
         initBounds(pul,por);
 
-	Vector<double> d = por - pul;
-	Vector<double> Ph = (por + pul) / 2.0;
+	maths::Vector<double> d = por - pul;
+	maths::Vector<double> Ph = (por + pul) / 2.0;
 	double h = d[0];
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
-        Vector<double> hd(h,h,h); 
+		maths::Vector<double> hd(h,h,h);
 		Tree.BBox = Box(Ph, 1.05 * d, this->n);
 		Tree.createTree();
 		
@@ -261,19 +243,19 @@ initQuad();
 
 int surface::importBinSTL(std::string FName)
 {
-	ifstream is;
+	std::ifstream is;
 	int dummy;
 	int i,j;
 	int anz;
 	float data;
 	char str[255];
-	Vector<double> P1,P2,P3,n;
-	Vector<double> cm;
-	cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << endl;
-        cout << "% Lese:" << FName << endl;
+	maths::Vector<double> P1,P2,P3,n;
+	maths::Vector<double> cm;
+	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
+	std::cout << "% Lese:" << FName << std::endl;
 	if (numTriangles!=0) delete[] S;
 
-	is.open (FName,ios::binary);
+	is.open (FName, std::ios::binary);
 	if (is.good())
 	{
 	is.read (str,80);
@@ -285,7 +267,7 @@ int surface::importBinSTL(std::string FName)
 	this->FName = std::string(FName);
 	S=new triangle[anz];
 	numTriangles=anz;
-	cout << "% Lese " << anz << "  Dreiecke" << endl;
+	std::cout << "% Lese " << anz << "  Dreiecke" << std::endl;
 
 	for (i=0; i<anz && !is.eof(); i++)
 	{
@@ -321,22 +303,22 @@ int surface::importBinSTL(std::string FName)
 	}
 	
 	initQuad();
-        cout << "% por=" << por << "    pul=" << pul << endl;
+	std::cout << "% por=" << por << "    pul=" << pul << std::endl;
 	is.close();
 /*	setCenter2CoM();
 	setCenter(P); */
-	P = dzero;
+	P = maths::dzero;
 	setCenter(P);
-	cout << "% P=" << P << endl;
+	std::cout << "% P=" << P << std::endl;
         initQuad();
 #ifdef WITH_OCTREE
-        Vector<double> por, pul;
+        maths::Vector<double> por, pul;
         initBounds(pul,por);
-	Vector<double> d = por - pul;
+		maths::Vector<double> d = por - pul;
 	double h = d[0];
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
-        Vector<double> hd(h,h,h); 	
+	maths::Vector<double> hd(h,h,h);
 		// hd = (pul + por) / 2.0;
 //		Tree.BBox = Box(dzero, Vector<double>(20,20,20), this->n);
 		Tree.BBox = Box(P, d, this->n);
@@ -346,7 +328,7 @@ int surface::importBinSTL(std::string FName)
 			addTriangleToTriangle(Tree, S[i]);
 	
 #endif 
-	std::cout <<  "% ------------------------------- IMPORT ENDE ---------------------------------" << endl;
+	std::cout <<  "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
 	return 0;
 	}
 	else 
@@ -356,7 +338,7 @@ int surface::importBinSTL(std::string FName)
         }
 }
 
-bool surface::next(const Vector<double> &r, const Vector<double> &k, Vector<double> &p)
+bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &k, maths::Vector<double> &p)
 {
 // Angenommene Koordinatensysteme:
 //
@@ -418,7 +400,7 @@ bool surface::next(const Vector<double> &r, const Vector<double> &k, Vector<doub
 #endif
 #ifdef WITH_OCTREE
   triangle d;
-  Vector<double> rhilf, philf, khilf;
+  maths::Vector<double> rhilf, philf, khilf;
   bool found = false;
   rhilf = H*(r - P);  
   khilf = H*k;
@@ -449,26 +431,25 @@ bool surface::next(const Vector<double> &r, const Vector<double> &k, Vector<doub
 #endif
 }
 
-bool surface::isInside(const Vector<double> &p)
+bool surface::isInside(const maths::Vector<double> &p)
 {
   double hilf;
-  Vector<double>  hilf2;
-  cout << "XXX p:" << p << endl;
+  maths::Vector<double>  hilf2;
   for(int i=0;i<numTriangles;i++)
   {
     hilf2 = S[i].P[2]-p;
     hilf = (S[i].n*hilf2);
-    cout << "Dreieck" << i <<": " << S[i] << endl;
-    cout << "n:" << S[i].n << endl;
-    cout << "hilf2:" << hilf2 << endl;
-    cout << "hilf:" << hilf << endl;
+  /*  std::cout << "Dreieck" << i << ": " << S[i] << std::endl;
+    std::cout << "n:" << S[i].n << std::endl;
+    std::cout << "hilf2:" << hilf2 << std::endl;
+    std::cout << "hilf:" << hilf << std::endl;*/
     if(hilf<0.0)
       return false;
   }
   return true;
 }
 
-void surface::initBounds(Vector<double> &pul, Vector<double> &por)
+void surface::initBounds(maths::Vector<double> &pul, maths::Vector<double> &por)
 {
   double xmin,ymin,zmin,xmax,ymax,zmax;
   triangle Sh;
@@ -523,8 +504,8 @@ void surface::initBounds(Vector<double> &pul, Vector<double> &por)
  /* cout << "xmin=" << xmin << "   xmax=" << xmax;
   cout << "  ymin=" << ymin << "   ymax=" << ymax;
   cout << "  zmin=" << zmin << "   zmax=" << zmax << endl; */
-  pul=Vector<double>(xmin,ymin,zmin);
-  por=Vector<double>(xmax,ymax,zmax);
+  pul= maths::Vector<double>(xmin,ymin,zmin);
+  por= maths::Vector<double>(xmax,ymax,zmax);
  // cout << "pul=" << pul << "    por=" << por << endl;
 }
 
@@ -585,13 +566,13 @@ void surface::initQuad()
 	  /*cout << "xmin=" << xmin << "   xmax=" << xmax;
 	  cout << "  ymin=" << ymin << "   ymax=" << ymax;
 	  cout << "  zmin=" << zmin << "   zmax=" << zmax << endl; */
-	  pul = Vector<double>(xmin, ymin, zmin) + P;
-	  por = Vector<double>(xmax, ymax, zmax) + P;
+	  pul = maths::Vector<double>(xmin, ymin, zmin) + P;
+	  por = maths::Vector<double>(xmax, ymax, zmax) + P;
 	  // cout << "pul=" << pul << "    por=" << por << endl;
   }
 }
 
-Vector<double> surface::norm (const Vector<double> &dummy)
+maths::Vector<double> surface::norm (const maths::Vector<double> &dummy)
 {
  // Dummy Argument ist notwendig aufgrund des Designs der Formklasse
  return currentnorm;
@@ -646,11 +627,11 @@ void surface::addTriangle(triangle* list,int anz)
 
 
 
-ostream& operator << (ostream &os, const surface &su)
+std::ostream& operator << (std::ostream &os, const surface &su)
 {
-	os << "Pos=" << su.P << endl;
-	os << "Winkel:" << su.Ealpha << "," << su.Ebeta << "," << su.Egamma << endl; 
- os << "anzp:" << su.numTriangles << endl;
+	os << "Pos=" << su.P << std::endl;
+	os << "Winkel:" << su.Ealpha << "," << su.Ebeta << "," << su.Egamma << std::endl; 
+ os << "anzp:" << su.numTriangles << std::endl;
  if(su.numTriangles>0)
  {
   os << "[";
@@ -693,11 +674,11 @@ surface& surface::operator = (const surface &s)
   //strcpy (this->FName,FName);
   
 #ifdef WITH_OCTREE
-   Vector<double> d = por - pul;
+  maths::Vector<double> d = por - pul;
    double h = d[0];
    if (d[1] > h) h = d[1];
    if (d[2] > h) h = d[2];
-    Tree.BBox = Box(dzero, d, n);
+    Tree.BBox = Box(maths::dzero, d, n);
    Tree.BBox.setOctree(true);
 
    Tree.createTree(TREE_RECURSIONS,0);
@@ -713,7 +694,7 @@ surface& surface::operator = (const surface &s)
   return *this;
 }
 
-surface operator + (const surface &s, const Vector<double> &v)
+surface operator + (const surface &s, const maths::Vector<double> &v)
 {
 
  surface h(s);
@@ -725,7 +706,7 @@ surface operator + (const surface &s, const Vector<double> &v)
  return h;
 }
 
-surface operator - (const surface &s, const Vector<double> &v)
+surface operator - (const surface &s, const maths::Vector<double> &v)
 {
 
  surface h(s);
@@ -737,7 +718,7 @@ surface operator - (const surface &s, const Vector<double> &v)
  return h;
 }
 
-surface operator * (const Matrix<double> &M, const surface &s)
+surface operator * (const maths::Matrix<double> &M, const surface &s)
 {
  surface h(s);
 
@@ -782,7 +763,7 @@ void surface::scale (double sf)
  return 1.0/erg;
 }
 */
-void surface::binWrite (ofstream &os)
+void surface::binWrite (std::ofstream &os)
 {
  size_t strl;
  P.binWrite(os);
@@ -806,14 +787,14 @@ void surface::binWrite (ofstream &os)
  for (int i=0; i<=FName.length(); i++)
  {
   c=FName[i];
-  cout << "c=" << c << endl;
+  // std::cout << "c=" << c << std::endl;
  os.write ((char *) &c, 1);
  }
  for (int i=0; i<numTriangles; i++)
   S[i].binWrite(os);  
 }
 
-void surface::binRead (ifstream &is)
+void surface::binRead (std::ifstream &is)
 {
  type=OBJECTSHAPE_SURFACE;
  P.binRead(is);
@@ -852,11 +833,11 @@ void surface::binRead (ifstream &is)
 
 void surface::exportSRF (std::string FName)
 {
- ofstream os;
+ std::ofstream os;
  os.open (FName);
- os << numTriangles << endl;
+ os << numTriangles << std::endl;
  for (int i=0; i<numTriangles; i++)
-  os << S[i] << endl;
+  os << S[i] << std::endl;
  os.close();
 }
 
@@ -885,7 +866,7 @@ double surface::volume()
   return Vg;*/
   double Vg=0;
   double A;
-  Vector<double> vsum;
+  maths::Vector<double> vsum;
   
   for (int i=0; i<numTriangles; i++)
   {
@@ -895,7 +876,7 @@ double surface::volume()
   }
   return Vg/3.0;
 }
-void surface::setP (Vector<double> r)
+void surface::setPos (maths::Vector<double> r)
 {
  //Vector<double> dP=P-r;
  P=r;
@@ -906,9 +887,9 @@ void surface::setP (Vector<double> r)
 }
 
 
-Vector<double> surface::calcCoM()
+maths::Vector<double> surface::calcCoM()
 {
-	Vector<double> n,Fx,Fy,Fz;
+	maths::Vector<double> n,Fx,Fy,Fz;
 	double int_x=0,int_y=0,int_z=0;
 	double F,x,y,z,V=volume(),Fges=0;
 	for (int i=0; i<numTriangles; i++)
@@ -919,22 +900,22 @@ Vector<double> surface::calcCoM()
 		y=S[i][0][1];
 		z=S[i][0][2];
 		n=S[i].getnorm();
-		Fx=Vector<double> (0.5*x*x,0,0);
-		Fy=Vector<double> (0,0.5*y*y,0);
-		Fz=Vector<double> (0,0,0.5*z*z);
+		Fx= maths::Vector<double> (0.5*x*x,0,0);
+		Fy= maths::Vector<double> (0,0.5*y*y,0);
+		Fz= maths::Vector<double> (0,0,0.5*z*z);
 		int_x+=F*Fx*n;
 		int_y+=F*Fy*n;
 		int_z+=F*Fz*n;
 //                cout << "i=" << i << "   F=" << F << "   Fx=" << Fx << "   Fy=" << Fy << "   Fz=" << Fz << "   n=" << n << endl;
 	}
-	cout << "% Gesamtfl�che :" << Fges << endl;
-	Vector<double> P=Vector<double>(int_x,int_y,int_z)/V;
+	// std::cout << "% Gesamtfl�che :" << Fges << std::endl;
+	maths::Vector<double> P= maths::Vector<double>(int_x,int_y,int_z)/V;
 	return P;
 }
 
-void surface::setCenter(Vector<double> P)
+void surface::setCenter(maths::Vector<double> P)
 {
-	cout << "% P= " << P << "     anzp=" << numTriangles << endl;
+	// std::cout << "% P= " << P << "     anzp=" << numTriangles << std::endl;
 	for (int i=0; i<numTriangles; i++)
 	{
 		S[i].P[0]=S[i].P[0]-P;
@@ -952,7 +933,7 @@ inline void Subexpressions (double w0,double w1, double w2, double &f1, double &
 	g0=f2+w0*(f1+w0); g1=f2+w1*(f1+w1); g2=f2+w2*(f1+w2);
 }
 
-Matrix<double> surface::computeInertia()
+maths::Matrix<double> surface::computeInertia()
 {
 	double f1x,f2x,f3x,g0x,g1x,g2x;
 	double f1y,f2y,f3y,g0y,g1y,g2y;
@@ -960,8 +941,8 @@ Matrix<double> surface::computeInertia()
 	double x0,y0,z0;
 	double x1,y1,z1;
 	double x2,y2,z2;
-	Vector<double> d;
-	Matrix <double> inertia;
+	maths::Vector<double> d;
+	maths::Matrix <double> inertia;
 		
 	const double mult[10]={1.0/6.0,1.0/24.0,1.0/24.0,1.0/24.0,1.0/60.0,1.0/60.0,1.0/60.0,1.0/120.0,1.0/120.0,1.0/120.0};
 	double intg[10]={0,0,0,0,0,0,0,0,0,0};
@@ -991,9 +972,9 @@ Matrix<double> surface::computeInertia()
 	double mass=intg[0];
 
 	// center of mass 
-	Vector<double> cm=Vector<double> (intg[1],intg[2],intg[3])/mass;
-	cout << "% CoM=" << cm << endl;
-	cout << "% mass=" << mass << endl;
+	maths::Vector<double> cm= maths::Vector<double> (intg[1],intg[2],intg[3])/mass;
+	// cout << "% CoM=" << cm << endl;
+	// cout << "% mass=" << mass << endl;
 	inertia(0,0)=intg[5]+intg[6]-mass*(cm[1]*cm[1]+cm[2]*cm[2]);
 	inertia(1,1)=intg[4]+intg[6]-mass*(cm[2]*cm[2]+cm[0]*cm[0]);
 	inertia(2,2)=intg[4]+intg[5]-mass*(cm[0]*cm[0]+cm[1]*cm[1]);
@@ -1006,7 +987,7 @@ Matrix<double> surface::computeInertia()
 
 void surface::setCenter2CoM()
 {
-	Vector<double> CoM=calcCoM();
+	maths::Vector<double> CoM=calcCoM();
 	setCenter(CoM);
 }
 
@@ -1056,7 +1037,7 @@ void getMinMax(int numTriangles, triangle *S, double &min, double &max)
 	}
 }
 
-surface generatePill (double a, double b, double h, int N, double r0, Matrix<double> M)
+surface generatePill (double a, double b, double h, int N, double r0, maths::Matrix<double> M)
 { 
  if (N % 2!=0) N=N+1;
  triangle *D=new triangle [2*N*(N-1)];
@@ -1065,7 +1046,7 @@ surface generatePill (double a, double b, double h, int N, double r0, Matrix<dou
  double **z=new double *[N]; for (int l=0;l<N;l++) z[l]=new double  [N]; 
  double dr,r;
  double dphi,phi;
- Vector<double> P[3];
+ maths::Vector<double> P[3];
 
  
  dr=2.0*b/((double)N-1.0);
@@ -1098,15 +1079,15 @@ surface generatePill (double a, double b, double h, int N, double r0, Matrix<dou
  for (lr=0; lr<N/2-1; lr++)
   for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi],y[lr+1][lphi],z[lr+1][lphi]);
-  P[2]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi],y[lr+1][lphi],z[lr+1][lphi]);
+  P[2]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
-  P[2]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],z[lr][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],z[lr][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
     c++;
  }
@@ -1114,15 +1095,15 @@ surface generatePill (double a, double b, double h, int N, double r0, Matrix<dou
  for (lr=0; lr<N/2-1; lr++)
   for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi],y[lr+1][lphi],-z[lr+1][lphi]);
-  P[2]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi],y[lr+1][lphi],-z[lr+1][lphi]);
+  P[2]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
-  P[2]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-z[lr][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-z[lr][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  }
@@ -1131,15 +1112,15 @@ surface generatePill (double a, double b, double h, int N, double r0, Matrix<dou
 
  for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (0,0,-a);
-  P[1]=M*Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2-1][lphi+1]);
-  P[2]=M*Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2-1][lphi+1]);
+  P[0]=M* maths::Vector<double> (0,0,-a);
+  P[1]=M* maths::Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2-1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2-1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
 
-  P[0]=M*Vector<double> (0,0,a);
-  P[1]=M*Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2][lphi+1]);
-  P[2]=M*Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2][lphi+1]);
+  P[0]=M* maths::Vector<double> (0,0,a);
+  P[1]=M* maths::Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  }
@@ -1147,27 +1128,27 @@ surface generatePill (double a, double b, double h, int N, double r0, Matrix<dou
  lr=N-1;
  for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],h/2.0);
-  P[1]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],h/2.0);
-  P[2]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-h/2.0);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],h/2.0);
+  P[1]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],h/2.0);
+  P[2]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-h/2.0);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  
-  P[0]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],h/2.0);
-  P[1]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-h/2.0);
-  P[2]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-h/2.0);
+  P[0]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],h/2.0);
+  P[1]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-h/2.0);
+  P[2]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-h/2.0);
   D[c]=triangle (P[0],P[1],P[2]);
     c++;
  }
   
-       S=surface(dzero, 1.5, c, D);
+       S=surface(maths::dzero, 1.5, c, D);
        S.r0;
   
 	return S;
 
 }
 
-surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> M)
+surface generateEllipsoid (double a, double b, int N, double r0, maths::Matrix<double> M)
 { 
  if (N % 2!=0) N=N+1;
  triangle *D=new triangle [2*N*(N-1)];
@@ -1176,7 +1157,7 @@ surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> 
  double **z=new double *[N]; for (int l=0;l<N;l++) z[l]=new double  [N]; 
  double dr,r;
  double dphi,phi;
- Vector<double> P[3];
+ maths::Vector<double> P[3];
  
  dr=2.0*b/((double)N-1.0);
  dphi=2.0*M_PI/((double)N-1.0);
@@ -1206,15 +1187,15 @@ surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> 
  for (lr=0; lr<N/2-1; lr++)
   for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi],y[lr+1][lphi],z[lr+1][lphi]);
-  P[2]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi],y[lr+1][lphi],z[lr+1][lphi]);
+  P[2]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
-  P[2]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],z[lr][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],z[lr+1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],z[lr][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
     c++;
  }
@@ -1222,15 +1203,15 @@ surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> 
  for (lr=0; lr<N/2-1; lr++)
   for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi],y[lr+1][lphi],-z[lr+1][lphi]);
-  P[2]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi],y[lr+1][lphi],-z[lr+1][lphi]);
+  P[2]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  
-  P[0]=M*Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
-  P[1]=M*Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
-  P[2]=M*Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-z[lr][lphi+1]);
+  P[0]=M* maths::Vector<double> (x[lr][lphi],y[lr][lphi],-z[lr][lphi]);
+  P[1]=M* maths::Vector<double> (x[lr+1][lphi+1],y[lr+1][lphi+1],-z[lr+1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[lr][lphi+1],y[lr][lphi+1],-z[lr][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  }
@@ -1239,20 +1220,20 @@ surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> 
 
  for (lphi=0; lphi<N-1; lphi++)
  {
-  P[0]=M*Vector<double> (0,0,-a);
-  P[1]=M*Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2-1][lphi+1]);
-  P[2]=M*Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2-1][lphi+1]);
+  P[0]=M* maths::Vector<double> (0,0,-a);
+  P[1]=M* maths::Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2-1][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2-1][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
 
-  P[0]=M*Vector<double> (0,0,a);
-  P[1]=M*Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2][lphi+1]);
-  P[2]=M*Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2][lphi+1]);
+  P[0]=M* maths::Vector<double> (0,0,a);
+  P[1]=M* maths::Vector<double> (x[N/2-1][lphi],y[N/2-1][lphi],z[N/2][lphi+1]);
+  P[2]=M* maths::Vector<double> (x[N/2-1][lphi+1],y[N/2-1][lphi+1],z[N/2][lphi+1]);
   D[c]=triangle (P[0],P[1],P[2]);
   c++;
  }
   
-       S=surface(dzero, 1.5, c, D);
+       S=surface(maths::dzero, 1.5, c, D);
        S.r0;
   
 	return S;
@@ -1260,32 +1241,32 @@ surface generateEllipsoid (double a, double b, int N, double r0, Matrix<double> 
 }
 
 
-surface generateHexagonCylinder(double a, double h, Matrix<double> M)
+surface generateHexagonCylinder(double a, double h, maths::Matrix<double> M)
 {
 	int i;
 	int N = 24; // 24 Dreiecke
 	double s30 = 0.5; // sin 30�
 	double c30 = SQRT3 / 2.0;
 	triangle *D = new triangle[N];
-	Vector<double> P[7],P1,P2,P3;
-	Vector<double> hp = 0.5*h*ez;
-	Vector<double> hm = -hp;
+	maths::Vector<double> P[7],P1,P2,P3;
+	maths::Vector<double> hp = 0.5*h* maths::ez;
+	maths::Vector<double> hm = -hp;
         surface S;
 //		sprintf(S.FName, "hexcyl");
 
-	P[0] = Vector<double>(0, a, 0);
-	P[1] = Vector<double>(c30*a, s30*a, 0);
-	P[2] = Vector<double>(c30*a, -s30*a, 0);
-	P[3] = Vector<double>(0, -a, 0);
-	P[4] = Vector<double>(-c30*a, -s30*a, 0);
-	P[5] = Vector<double>(-c30*a, s30*a, 0);
+	P[0] = maths::Vector<double>(0, a, 0);
+	P[1] = maths::Vector<double>(c30*a, s30*a, 0);
+	P[2] = maths::Vector<double>(c30*a, -s30*a, 0);
+	P[3] = maths::Vector<double>(0, -a, 0);
+	P[4] = maths::Vector<double>(-c30*a, -s30*a, 0);
+	P[5] = maths::Vector<double>(-c30*a, s30*a, 0);
 	P[6] = P[0];
 	for (i = 0; i < 6; i++)
 	{
 		D[i] = triangle(M*(P[i] + hp), M*(P[i + 1] + hp), M*hp);  // oberer Deckel
-                D[i].n = M*ez; 
+                D[i].n = M* maths::ez;
 		D[i + 6] = triangle(M*(P[i] + hm),M*( P[i + 1] + hm), M*hm); // unterer Deckel
-                D[i+6].n =-M*ez;
+                D[i+6].n =-M* maths::ez;
                 
                 P1=M*(P[i] + hp); 
                 P2=M*(P[i] + hm); 
@@ -1302,12 +1283,12 @@ surface generateHexagonCylinder(double a, double h, Matrix<double> M)
                 D[i + 18].n/=abs(D[i + 18].n);
  
 	}
-        S=surface(dzero, 1.5, N, D);
+        S=surface(maths::dzero, 1.5, N, D);
   
 	return S;
 }
 
-surface generateHollowHexagonalCylinder (double a, double h, double t, Matrix<double> M)
+surface generateHollowHexagonalCylinder (double a, double h, double t, maths::Matrix<double> M)
 {
 	int i;
 	int N = 24; // 24 Dreiecke
@@ -1315,23 +1296,23 @@ surface generateHollowHexagonalCylinder (double a, double h, double t, Matrix<do
 	double c30 = SQRT3 / 2.0;
         surface S;
 	triangle *D = new triangle[N];
-	Vector<double> P[7],P1,P2,P3;
-	Vector<double> hp = 0.5*h*ez;
-	Vector<double> hm = -hp;
+	maths::Vector<double> P[7],P1,P2,P3;
+	maths::Vector<double> hp = 0.5*h* maths::ez;
+	maths::Vector<double> hm = -hp;
 
-	P[0] = Vector<double>(0, a, 0);
-	P[1] = Vector<double>(c30*a, s30*a, 0);
-	P[2] = Vector<double>(c30*a, -s30*a, 0);
-	P[3] = Vector<double>(0, -a, 0);
-	P[4] = Vector<double>(-c30*a, -s30*a, 0);
-	P[5] = Vector<double>(-c30*a, s30*a, 0);
+	P[0] = maths::Vector<double>(0, a, 0);
+	P[1] = maths::Vector<double>(c30*a, s30*a, 0);
+	P[2] = maths::Vector<double>(c30*a, -s30*a, 0);
+	P[3] = maths::Vector<double>(0, -a, 0);
+	P[4] = maths::Vector<double>(-c30*a, -s30*a, 0);
+	P[5] = maths::Vector<double>(-c30*a, s30*a, 0);
 	P[6] = P[0];
 	for (i = 0; i < 6; i++)
 	{
-		D[i] = triangle(M*(P[i] + hp), M*(P[i + 1] + hp), M*(hp-t*ez));  // oberer Deckel
-                D[i].n = M*ez; 
-		D[i + 6] = triangle(M*(P[i] + hm),M*( P[i + 1] + hm), M*(hm+t*ez)); // unterer Deckel
-                D[i+6].n =-M*ez;
+		D[i] = triangle(M*(P[i] + hp), M*(P[i + 1] + hp), M*(hp-t* maths::ez));  // oberer Deckel
+                D[i].n = M* maths::ez;
+		D[i + 6] = triangle(M*(P[i] + hm),M*( P[i + 1] + hm), M*(hm+t* maths::ez)); // unterer Deckel
+                D[i+6].n =-M* maths::ez;
                 
                 P1=M*(P[i] + hp); 
                 P2=M*(P[i] + hm); 
@@ -1345,16 +1326,16 @@ surface generateHollowHexagonalCylinder (double a, double h, double t, Matrix<do
                 P3=M*(P[i] + hm);
 		D[i + 18] = triangle(P1,P2,P3);
                 D[i + 18].n=-(P1-P2)%(P3-P2);
-                D[i + 18].n/=abs(D[i + 18].n);
+                D[i + 18].n/=abs(D[i  + 18].n);
  
 	}
-        S=surface(dzero, 1.5, N, D);
+        S=surface(maths::dzero, 1.5, N, D);
         S.FName="UNBEKANNT";
 
 	return S;
 }	
 
-surface& generateBullet (double a, double h, double t, Matrix<double> M)
+surface& generateBullet (double a, double h, double t, maths::Matrix<double> M)
 {
 	surface obj;
 	int i;
@@ -1362,10 +1343,10 @@ surface& generateBullet (double a, double h, double t, Matrix<double> M)
 	double s30 = 0.5; // sin 30�
 	double c30 = SQRT3 / 2.0;
 	triangle *D = new triangle[N];
-	Vector<double> P[7],P1,P2,P3; 
+	maths::Vector<double> P[7],P1,P2,P3;
         double hs=h-t;
-	Vector<double> hp = 0.5*hs*ez;
-	Vector<double> hm = -hp;
+		maths::Vector<double> hp = 0.5*hs* maths::ez;
+		maths::Vector<double> hm = -hp;
         double dphi=60.0/180.0*M_PI;
         double phi,phip;  
         
@@ -1375,33 +1356,33 @@ surface& generateBullet (double a, double h, double t, Matrix<double> M)
                 phi=i*dphi;
                 phip=phi+dphi;
                  
-                P1=Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
-                P2=Vector<double> (cos(phip) * a,sin(phip) * a , h/2.0);
-                P3=Vector<double> (0,0 , h/2.0+t);
+                P1= maths::Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
+                P2= maths::Vector<double> (cos(phip) * a,sin(phip) * a , h/2.0);
+                P3= maths::Vector<double> (0,0 , h/2.0+t);
   
                 D[i] = triangle(M*P1,M*P2,M*P3);
                 D[i].setnorm();
 
  
-                P1=Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
-                P2=Vector<double> (cos(phip) * a,sin(phip) * a , h/2.0);
-                P3=Vector<double> (cos(phip) *a, sin(phip) * a, -h/2.0);
+                P1= maths::Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
+                P2= maths::Vector<double> (cos(phip) * a,sin(phip) * a , h/2.0);
+                P3= maths::Vector<double> (cos(phip) *a, sin(phip) * a, -h/2.0);
   
                 D[i+6] = triangle(M*P1,M*P2,M*P3);
                 D[i+6].setnorm();
 
            
-                P1=Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
-                P2=Vector<double> (cos(phip) * a,sin(phip) * a , -h/2.0);
-                P3=Vector<double> (cos(phi) *a, sin(phi) * a, -h/2.0);
+                P1= maths::Vector<double> (cos(phi) * a,sin(phi) * a , h/2.0);
+                P2= maths::Vector<double> (cos(phip) * a,sin(phip) * a , -h/2.0);
+                P3= maths::Vector<double> (cos(phi) *a, sin(phi) * a, -h/2.0);
   
                 D[i+12] = triangle(M*P1,M*P2,M*P3);
                 D[i+12].setnorm();
 
   
-                P1=Vector<double> (cos(phi) * a,sin(phi) * a , -h/2.0);
-                P2=Vector<double> (cos(phip) * a,sin(phip) * a , -h/2.0);
-                P3=Vector<double> (0,0 , -h/2.0);
+                P1= maths::Vector<double> (cos(phi) * a,sin(phi) * a , -h/2.0);
+                P2= maths::Vector<double> (cos(phip) * a,sin(phip) * a , -h/2.0);
+                P3= maths::Vector<double> (0,0 , -h/2.0);
   
                 D[i+18] = triangle(M*P1,M*P2,M*P3);
                 D[i+18].setnorm();
@@ -1429,13 +1410,13 @@ surface& generateBullet (double a, double h, double t, Matrix<double> M)
 */
  
 	}
-        surface *S=new surface(dzero, 1.5, N, D);
+        surface *S=new surface(maths::dzero, 1.5, N, D);
         S->FName = "UNBEKANNT"; 
 	return *S;
 }
 
 
-surface generatePolyBullet(int n, double a, double h, double t, Matrix<double> M)
+surface generatePolyBullet(int n, double a, double h, double t, maths::Matrix<double> M)
 {
 	//a ist Seitenlänge
 	//Koordinatenursprung ist in dem Zentrum des Zylinders vom Körper
@@ -1449,10 +1430,10 @@ surface generatePolyBullet(int n, double a, double h, double t, Matrix<double> M
 	r = a / (2.0 * sin(alpha));
 
 	triangle* D = new triangle[N];
-	Vector<double> P[7], P1, P2, P3;
+	maths::Vector<double> P[7], P1, P2, P3;
 	double hs = h/2.0 + t; // Abstand Koordinatenursprung bis Spitze
-	Vector<double> hp =  hs * ez; // " als Vektor oben
-	Vector<double> hm = -hp; // " als Vektor unten
+	maths::Vector<double> hp =  hs * maths::ez; // " als Vektor oben
+	maths::Vector<double> hm = -hp; // " als Vektor unten
 	//double dphi = 60.0 / 180.0 * M_PI;
 	
 	for (i = 0; i < n; i++)
@@ -1460,60 +1441,41 @@ surface generatePolyBullet(int n, double a, double h, double t, Matrix<double> M
 		beta = i * dbeta;
 		betap = beta + dbeta;
 		//Mantel des Zylinders mit n-eckiger Grundfläche
-		P1 = Vector<double>(cos(beta)*r , sin(beta)*r, h/ 2.0);
-		P2 = Vector<double>(cos(beta) * r, sin(beta) * r, -h/ 2.0);
-		P3 = Vector<double>(cos(betap)*r, sin(betap)*r, h/2.0); 
+		P1 = maths::Vector<double>(cos(beta)*r , sin(beta)*r, h/ 2.0);
+		P2 = maths::Vector<double>(cos(beta) * r, sin(beta) * r, -h/ 2.0);
+		P3 = maths::Vector<double>(cos(betap)*r, sin(betap)*r, h/2.0);
 		D[i*4] = triangle(M * P1, M * P2, M * P3);
 		D[i*4].setnorm();
 
- 		P1 = Vector<double>(cos(beta)*r , sin(beta)*r, -h / 2.0);
-		P2 = Vector<double>(cos(betap) * r, sin(betap) * r, -h/ 2.0);
-	        P3 = Vector<double>(cos(betap) * r, sin(betap) * r,  h / 2.0);
+ 		P1 = maths::Vector<double>(cos(beta)*r , sin(beta)*r, -h / 2.0);
+		P2 = maths::Vector<double>(cos(betap) * r, sin(betap) * r, -h/ 2.0);
+	        P3 = maths::Vector<double>(cos(betap) * r, sin(betap) * r,  h / 2.0);
 
 		D[i*4+1] = triangle(M * P1, M * P2, M * P3);
 		D[i*4+1].setnorm();
 
 		//Deckel oben
-		P1 = Vector<double>(cos(beta) * r, sin(beta) * r, h / 2.0);
-		P2 = Vector<double>(0, 0, hs);
-		P3 = Vector<double>(cos(betap) * r, sin(betap) * r, h / 2.0);
+		P1 = maths::Vector<double>(cos(beta) * r, sin(beta) * r, h / 2.0);
+		P2 = maths::Vector<double>(0, 0, hs);
+		P3 = maths::Vector<double>(cos(betap) * r, sin(betap) * r, h / 2.0);
 
 		D[i*4+2] = triangle(M * P1, M * P2, M * P3);
 		D[i*4+2].setnorm();
 		
 //Deckel unten... moment, die Oberfläche für beide Deckel ist doch exakt dieselbe, warum berechnen wir die noch mal neu?
-		P1 = Vector<double>(cos(beta) * r, sin(beta) * r, -h / 2.0);
-		P2 = Vector<double>(0, 0, -h/2.0);
-		P3 = Vector<double>(cos(betap) * r, sin(betap) * r, -h / 2.0);
+		P1 = maths::Vector<double>(cos(beta) * r, sin(beta) * r, -h / 2.0);
+		P2 = maths::Vector<double>(0, 0, -h/2.0);
+		P3 = maths::Vector<double>(cos(betap) * r, sin(betap) * r, -h / 2.0);
 
 
 		D[i*4+3] = triangle(M * P1, M * P2, M * P3);
 		D[i*4+3].setnorm();
 	}
-        surface S=surface(dzero, 1.5, N, D);
+        surface S=surface(maths::dzero, 1.5, N, D);
         S.FName = "UNBEKANNT"; 
 	return S;
-}
-	
+}	
 
-/*#ifdef WITH_OCTREE
-void surface::initBounds()
-{
-	Vector<double> Pmin, Pmax;
-	int i, j, l;
-	for (i = 0; i < numTriangles; i++)  // Dreiecke
-	{
-		for (j = 0; j < 3; j++)   // Punkte im Dreieck
-		{
-			for (l = 0; l < 3; l++)    // Koordinaten
-			{
-				if (S[i].P[j][l] > Pmax[l]) Pmax[l] = S[i].P[j][l];
-				if (S[i].P[j][l] < Pmin[l]) Pmin[l] = S[i].P[j][l];
-			}
-		}
-	}
-	Tree.BBox.bounds[0] = Pmin;
-	Tree.BBox.bounds[1] = Pmax;
 }
-#endif*/
+}
 

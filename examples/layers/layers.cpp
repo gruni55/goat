@@ -9,18 +9,18 @@
 int main(int argc, char** argv)
 {
 	/* First, define the light source */
-	LightSrcPlane LS(-200 * ex, 300, 1.0,50.0,I*ey); // plane wave with a diameter of 50µm and a wavelength 1µm
-	LS.setk(ex);  // travels in positive x-direction
+	GOAT::raytracing::LightSrcPlane LS(-200 * GOAT::maths::ex, 300, 1.0,50.0,I*GOAT::maths::ey); // plane wave with a diameter of 50µm and a wavelength 1µm
+	LS.setk(GOAT::maths::ex);  // travels in positive x-direction
 	
 	/* Now, define the layer, described by a box (i.e. a cuboid) */
 	double l = 5;
-	Vector<double> d(l, 300, 300); 
-	Box Layer(dzero, d, 1.5); // define the layer with a thickness of l and an expansion in y- and z-direction  of 300µm
+	GOAT::maths::Vector<double> d(l, 300, 300);
+	GOAT::raytracing::Box Layer(GOAT::maths::dzero, d, 1.5); // define the layer with a thickness of l and an expansion in y- and z-direction  of 300µm
 	double alpha = 30.0 / 180.0 * M_PI; // the layer is rotated by 30° around the y-axis
 	Layer.setBeta(alpha);
 
 	/* define the scene */
-	Scene S;
+	GOAT::raytracing::Scene S;
 	S.addLightSource(&LS);  // add the previously defined light source 
 	S.setRaytype(LIGHTSRC_RAYTYPE_IRAY); // select the ray type
     S.addObject(&Layer);    // add the layer
@@ -29,28 +29,28 @@ int main(int argc, char** argv)
 	
 	int N = 1;
 	/* Define  two detectors */
-	DetectorPlane D(200.0 * ex, -ex,500, N);    //  one after the layer... 
-	DetectorPlane D0(-180.0 * ex, -ex, 400, N); //  one before the layer 
+	GOAT::raytracing::DetectorPlane D(200.0 * GOAT::maths::ex, -GOAT::maths::ex,500, N);    //  one after the layer... 
+	GOAT::raytracing::DetectorPlane D0(-180.0 * GOAT::maths::ex, -GOAT::maths::ex, 400, N); //  one before the layer 
 	// Add the detectors to the scene
 	S.addDetector(&D);     
 	S.addDetector(&D0);
 
-	Raytrace_pure RP(S); // Calculate with the detectors only
+	GOAT::raytracing::Raytrace_pure RP(S); // Calculate with the detectors only
 	RP.setNumReflex(2);  // Set the number of internal reflections to 2
 	
-	Vector<std::complex<double> > E1, E2;
+	GOAT::maths::Vector<std::complex<double> > E1, E2;
 	std::ofstream os("layers.dat"); 
 
 	// loop over the different layer thicknesses
 	for (double d = 1.0; d <= 3.0; d += 0.01)
 	{
-		((Box *)RP.S.Obj[0])->setD(Vector<double> (d, 300, 300)); // set the new thickness
+		((GOAT::raytracing::Box *)RP.S.Obj[0])->setD(GOAT::maths::Vector<double> (d, 300, 300)); // set the new thickness
 		RP.S.cleanAllDetectors(); // Clean the detectors
 		RP.trace();               // perform raytracing  
 
 		// Sum up the intensities of all detectors
-		E1 = czero;                
-		E2 = czero;
+		E1 = GOAT::maths::czero;
+		E2 = GOAT::maths::czero;
 		for (int ix = 0; ix < N; ix++)
 			for (int iy = 0; iy < N; iy++)
 			{
