@@ -574,7 +574,8 @@ namespace GOAT
 #define ey Vector<double> (0.0,1.0,0.0)
 #define ez Vector<double> (0.0,0.0,1.0)
 #define dzero Vector<double> (0.0,0.0,0.0)
-#define one Vector<double>  (1.0,1.0,1.0)
+// #define one Vector<double>  (1.0,1.0,1.0)
+        const Vector<double> one=Vector<double>(1.0, 1.0, 1.0);
 #define czero Vector<std::complex<double> > (0.0,0.0,0.0)
 #define cone Vector<std::complex<double> >  (1.0,1.0,1.0)
 

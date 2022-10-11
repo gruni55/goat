@@ -224,12 +224,14 @@ namespace GOAT
 		{
 			F = 0;
 			L = 0;
+			type = RAYTRACER_TYPE_OT;
 		}
 
 		Raytrace_OT::Raytrace_OT(Scene S)
 		{
 			F = 0;
 			L = 0;
+			type = RAYTRACER_TYPE_OT;
 			S.setRaytype(LIGHTSRC_RAYTYPE_PRAY);
 			this->S = S;
 			//	for (int i = 0; i < nLS; i++) LS[i]->raytype = LIGHTSRC_RAYTYPE_PRAY;
@@ -550,10 +552,12 @@ namespace GOAT
 
 		Raytrace_Path::Raytrace_Path() : Raytrace()
 		{
+			type = RAYTRACER_TYPE_PATH;
 		}
 
 		Raytrace_Path::Raytrace_Path(Scene S) : Raytrace(S)
 		{
+			type = RAYTRACER_TYPE_PATH;
 		}
 
 		void Raytrace_Path::trace(std::string FName)
@@ -627,10 +631,12 @@ namespace GOAT
 
 		Raytrace_pure::Raytrace_pure() : Raytrace()
 		{
-
+			type = RAYTRACER_TYPE_PURE;
 		}
 
 		Raytrace_pure::Raytrace_pure(const Scene& S) : Raytrace(S)
-		{}
+		{
+			type = RAYTRACER_TYPE_PURE;
+		}
 	}
 }

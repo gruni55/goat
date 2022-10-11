@@ -10,7 +10,13 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-#define RAYTRACE_MAX_REFLEXIONS 2
+		#define RAYTRACER_TYPE_NONE 0
+		#define RAYTRACER_TYPE_PATH 1
+		#define RAYTRACER_TYPE_OT   2	
+		#define RAYTRACER_TYPE_PURE  3
+
+
+		#define RAYTRACE_MAX_REFLEXIONS 2
 		/**
 		 * @brief Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings.
 		 * Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual LightSrc base class. All objects are described by classes derived from the virtual
@@ -96,6 +102,7 @@ namespace GOAT
 			double PowTrans; ///< Power of the transmitted ray
 			Scene S; ///< Description of the scene
 			bool useRRTParms; ///< Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation
+			int type=RAYTRACER_TYPE_NONE; ///< Flag which shows which type of raytracer is selected
 
 		private:
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
@@ -105,7 +112,7 @@ namespace GOAT
 			RayBase* ray; ///< current ray 
 			RayBase* tray; ///< transmitted ray
 			bool Abbruch; ///< flag to stop calculation
-			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 
+			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
 		};
 
 		/**
@@ -144,7 +151,7 @@ namespace GOAT
 			bool getShowOutgoingRays(); ///< Returns true, if Rays, which going out of an object without hidding a second one will be stored
 			maths::Vector<double>* P1; ///< Here, the starting points of each step are stored if no filename is given
 			maths::Vector<double>* P2; ///< Here, the ending points of each step are stored if no filename is given
-			int numRays; ///< Number of rays stored
+			int numRays=0; ///< Number of rays stored
 		private:
 			void traceLeaveObject();
 			void traceEnterObject();
