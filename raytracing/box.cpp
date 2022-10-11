@@ -487,8 +487,8 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> b0 = H * bounds[0];
 			maths::Vector<double> b1 = H * bounds[1];
-			por = maths::Vector<double>(max(b0[0], b1[0]), max(b0[1], b1[1]), max(b0[2], b1[2])) + P;
-			pul = maths::Vector<double>(min(b0[0], b1[0]), min(b0[1], b1[1]), min(b0[2], b1[2])) + P;
+			por = maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2])) + P;
+			pul = maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2])) + P;
 		}
 
 		void Box::setr0(double r0)
