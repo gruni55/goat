@@ -90,6 +90,8 @@ namespace GOAT
 
 		int Detector::N1() { return n1; }
 		int Detector::N2() { return n2; }
+		double Detector::D1() { return d1; }
+		double Detector::D2() { return d2; }
 
 		void Detector::save(const char* fn)
 		{
@@ -100,9 +102,8 @@ namespace GOAT
 				for (int i2 = 0; i2 < n2; i2++)
 				{
 
-					os << D[i1][i2] << "   ";
+					os << D[i1][i2] << std::endl;
 				}
-				os << std::endl;
 			}
 			os.close();
 		}
