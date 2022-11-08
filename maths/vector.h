@@ -18,7 +18,7 @@
 #endif
 #include<math.h> 
 #include<iostream>
-
+#include "goodies.h"
 namespace GOAT
 {
     namespace maths
