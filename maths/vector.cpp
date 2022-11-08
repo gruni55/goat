@@ -1,16 +1,5 @@
 #ifndef VEKTOR_CC
 #define VEKTOR_CC
-#ifdef _WIN32
-
-#ifndef min
-#define min(a,b) a<b ? a : b
-#endif
-
-#ifndef max
-#define max(a,b) a>b ? a : b
-#endif
-
-#endif
 
 #include <stdlib.h>
 #include <iostream>
@@ -733,7 +722,7 @@ namespace GOAT
 
         Vector <double> emax(Vector<double>& P1, Vector<double>& P2)
         {
-            return Vector<double>(max(P1[0], P2[0]), max(P1[1], P2[1]), max(P1[2], P2[2]));
+            return Vector<double>(std::max(P1[0], P2[0]), std::max(P1[1], P2[1]), std::max(P1[2], P2[2]));
         }
 
 
