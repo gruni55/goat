@@ -46,7 +46,8 @@ namespace GOAT
 		void savereal(const char* fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 		void saveimag(const char* fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 			maths::Vector<std::complex<double> >** D; ///< Here, the data will be stored
-
+			maths::Vector<double> position() { return P; } ///< returns the position of the detector 
+			maths::Vector<double> norm() { return n; } ///< returns the normal vector of the detectors surface
 		friend std::ostream& operator << (std::ostream& os, Detector& D);
 	protected:
 		maths::Vector<double> e1;
