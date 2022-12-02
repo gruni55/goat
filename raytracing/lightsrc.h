@@ -15,9 +15,9 @@ namespace GOAT
 #define LIGHTSRC_RAYTYPE_RAY 1    ///< Ray class : tubedRay
 #define LIGHTSRC_RAYTYPE_IRAY 2   ///< Ray class : IRay
 #define LIGHTSRC_RAYTYPE_PRAY 3   ///< Ray class : Pow_Ray
-#define LIGHTSRC_SRCTYPE_PLANE 1  ///< Light source is a plane wave
-#define LIGHTSRC_SRCTYPE_GAUSS 2  ///< Light source is a gaussian wave
-#define LIGHTSRC_SRCTYPE_TOPHAT 3 ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
+constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
+constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -73,7 +73,7 @@ namespace GOAT
 			///@}
 			void binRead(std::ifstream& is); ///< writes content of LightSrc in a binary file, represented by is
 			void binWrite(std::ofstream& os); ///< reads content of LightSrc from  a binary file, represented by os
-			virtual void binWriteItem(std::ofstream& os) = 0; ///< writes content of LightSrc in a binary file, represented by is (has to be specified by the derived classes)
+			virtual void binWriteItem(std::ofstream& os) = 0; ///< writes content of LightSrc in a binary file, represented by is (has to be specified by the derived classes)focuspos
 			virtual void binReadItem(std::ifstream& os) = 0; ///< reads content of LightSrc from a binary file, represented by os (has to be specified by the derived classes)
 			int getNumObjs() { return numObjs; } ///< returns the number of Objects (only needed, when used seperately outside scene)
 			ObjectShape* getObject(int i) { if ((i < 0) || (i > numObjs)) return NULL; return Obj[i]; }  ///< returns i-th item in the object list
@@ -126,6 +126,7 @@ namespace GOAT
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 		};
+
 
 
 
@@ -235,7 +236,7 @@ namespace GOAT
 			double w0;        ///< Waist diameter (fictitious !), only used for the correct calculation of the electric field distribution within the starting area
 			double f;         ///< distance between light source area and the focal point 
 			double getNA() { return NA; } ///< returns numerical aperture
-		protected:
+
 			std::complex<double> Normfak;
 			maths::Vector<double> focuspos; ///< focal position	
 			double z0;				 ///< Rayleigh length (for internal use only)
