@@ -16,12 +16,12 @@ namespace GOAT
             do 
             {
                x=nd(gen);
-            } while ((x>=-D/2.0) && (x<=D/2.0));
+            } while ((x<-D/2.0) || (x>D/2.0));
 
             do 
             {
                y=nd(gen);
-            } while ((y>=-D/2.0) &&(y<=D/2.0));
+            } while ((y<-D/2.0) || (y>D/2.0));
 
             GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
@@ -42,11 +42,9 @@ namespace GOAT
 
         int LightSrcGauss_mc::next(Ray_pow& S)
         {                    
-			maths::Vector<double> fp, P;
-			//  maths::Vector<double> fp,P=Pos+(i1*density-D/2.0)*e1; // nur zu TESTZWECKEN !!!
-				// P : Startort, density=Anzahl Strahlen/Längeneinheit, D: Breite der Lichtquelle
-				//     i1=momentaner Index in e1-Richtung (normalerweise x-Richtung), i2=momentaner Index in e2-Richtung (normalerweise y-Richtung)
+			maths::Vector<double> fp, P = genStartingPos() + Pos;
 
+			
 			double x1, x2, x3; // Hilfsgrößen
 			x1 = P * e1;
 			x2 = P * e2;
@@ -88,8 +86,7 @@ namespace GOAT
 				gamma = std::acos(k * hk / (abs(k) * abs(hk)));
 			}
 
-			// Pol=maths::Vector<std::complex<double> >(0,1,0);  // y-Polarisation
-
+			
 			DM = rotMatrix(h, gamma);
 			S = Ray_pow(1, P, Pol, hk, n0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.k = k;
@@ -100,14 +97,10 @@ namespace GOAT
 
 			r2 = S.P[0] * S.P[0] + S.P[1] * S.P[1];
 
-			S.Pow = P0 * k * hk * exp(-2.0 * r2 / g / g) / ((double)N * N) * D * D / g;//*sqrt(8.0/M_PI);// *real(Normfak);
+			S.Pow = 1.0;
 
-			// cout << "%w=" << g << "   Pow=" << S.Pow << "   P0=" << P0 << endl;
-#ifdef MIT_NORMIERUNG
-			S.Pow = k * hk * exp(-2.0 * r2 / g / g) / ((double)N * N) * D * D / g;
-#endif
-			S.E1 = Pol;
-			S.E2 = sqrt(S.Pow) * Pol;
+		    S.E1 = Pol;
+			S.E2 = Pol;
 
 			maths::Vector<double> F = focuspos;
 			S.k = focuspos - S.P;   // Richtungsvektor auf den Fokus gerichtet
@@ -122,14 +115,10 @@ namespace GOAT
 				S.E1 = DM * S.E1;
 				S.E2 = DM * S.E2;
 			}
-			// else S.E1=E0*Pol;
+			
 			S.n = n0;
 			i1++;
-			if (type == LIGHTSRC_SRCTYPE_TOPHAT)
-			{
-				S.E2 = S.E2 / abs(S.E2);
-				S.Pow = 1.0;
-			}
+			
 			Pall += abs2(S.E2);
 			//  if (i1*density>D) { return LIGHTSRC_IS_LAST_RAY; } // nur zu TESTZWECKEN !!!!
 			if (i1 * density > D) { i1 = 0; i2++; }
@@ -140,7 +129,6 @@ namespace GOAT
         int LightSrcGauss_mc::next (IRay& S)
         {
             maths::Vector<double> fp, P = genStartingPos();
-			// maths::Vector<double> P=Pos+(i1*density-D/2.0)*e1; // NUR ZU TESTZWECKEN !!!!!!!!!! 
 			double x1, x2, x3;
 			x1 = P * e1;
 			x2 = P * e2;
@@ -190,7 +178,9 @@ namespace GOAT
 			maths::Vector<double> F = focuspos;
 
 			S.k = focuspos - S.P;   // Richtungsvektor auf den Fokus gerichtet
-			S.k /= abs(S.k);
+			double z = abs(S.k);
+			S.k /= z;
+			z = -z;
 			h = k % S.k;
 			absh = abs(h);
 			if (absh != 0)
@@ -198,8 +188,9 @@ namespace GOAT
 				h /= absh;
 				gamma = std::acos(S.k * k);
 				DM = rotMatrix(h, gamma);
-				S.E1 = E0 * DM * Pol;
-				S.E2 = E0 * DM * Pol2;
+				std::complex<double> fak = exp(-std::complex<double>(0, 1) * S.k0 * (z + r2 / (2.0 * z) - M_PI_2));
+				S.E1 = E0 * DM * Pol * fak;
+				S.E2 = E0 * DM * Pol2 * fak;
 			}
 			else
 			{
@@ -213,6 +204,47 @@ namespace GOAT
             if ( (rayCounter >= N) && (N>-1)) return LIGHTSRC_IS_LAST_RAY;
 			return LIGHTSRC_NOT_LAST_RAY;
         }
+
+		int LightSrcGauss_mc::next(tubedRay& S)
+		{
+
+			maths::Vector<double> Ph = genStartingPos();
+			maths::Vector<double> P = Pos + Ph;
+			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
+			k = k / abs(k);
+			double E0 = 1.0;
+			S = tubedRay(P, density, density, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+
+			S.setN0(n0);
+			S.n = n0;
+
+			maths::Vector<double> h;
+			maths::Matrix<double> DM;
+			double absh, gamma;
+
+			for (int i = 0; i < 5; i++)
+			{
+				S.k[i] = focuspos - S.P[i];   // Richtungsvektor auf den Fokus gerichtet
+				S.k[i] /= abs(S.k[i]);
+				h = k % S.k[i];
+				absh = abs(h);
+				if (absh != 0)
+				{
+					h /= absh;
+					gamma = std::acos(S.k[i] * k);
+					DM = rotMatrix(h, gamma);
+					S.E[i] = E0 * DM * Pol;					
+				}
+				else
+				{
+					S.E[i] = E0 * Pol;
+				}
+				S.n = n0;
+			}
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
 
         void LightSrcGauss_mc::reset() 
         {

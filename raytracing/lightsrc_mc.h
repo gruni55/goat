@@ -26,9 +26,10 @@ namespace GOAT
 			 */
 			LightSrcGauss_mc(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, 
                           double D = 1.0, maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0),
-                         int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 1.0);
+                         int raytype = LIGHTSRC_RAYTYPE_PRAY, double r0 = 1.0);
                 int next(Ray_pow& S);
                 int next (IRay& S);
+                int next(tubedRay& ray);
                 void reset();                
                 // int next (tubedRay &S);
                 GOAT::maths::Vector<double> genStartingPos ();

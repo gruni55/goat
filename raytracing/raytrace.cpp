@@ -38,6 +38,7 @@ namespace GOAT
 			int Reflexions = 0;
 			int recursions = 0;
 			lost = 0;
+			
 			switch (S.raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: ray = new IRay; tray = new IRay;  break;
@@ -120,7 +121,10 @@ namespace GOAT
 					for (int i = 0; i < S.nDet; i++)
 					{
 						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
+						{
+							// std::cout << "i=" << i << "  i1="  << i1 << "  i2="<< i2 << "   Estart=" << EStart << std::endl;
 							if ((l <= stepSize) && (l > 0)) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
+						}
 					}
 				}
 
