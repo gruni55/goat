@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
     rp.setNumReflex(1);
     rp.trace("rays.dat");
 
-    S.LS[0]->setNumRays(10000000);
+    S.LS[0]->setNumRays(1000000);
     S.addDetector(&D);
     GOAT::raytracing::Raytrace_pure rp2;
     rp2.setScene(S);
@@ -27,6 +27,6 @@ int main(int argc, char* argv[])
     rp2.trace();
     D.saveabs("test.dat");
     S.Det[0]->saveabs("test2.dat");
-    S.Det[0]->savePhase("test2p.dat", 1);
+    S.Det[0]->savePhase("test2p.dat", 2);
     return 0;
 }

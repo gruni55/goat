@@ -63,14 +63,15 @@ namespace GOAT
 			double zeta;
 			double absfp;
 			
-			fp = focuspos - P;  // Hier beginnt der Strahl
-			hk = fp / abs(fp);  // Normierter Richtungsvektor vom Startpunkt zum Fokus
+			fp = focuspos - P;  // Vector from the starting point to the focus
+			hk = fp / abs(fp);  // Normalized vector pointing from start to the focus
 
 			h = k % hk;
 			absh = abs(h);
 
-			x3 = fp * k;
-			R = x3 * (1.0 + z0 * z0 / (x3 * x3));
+			x3 = fp * k; // This is the coordinate along the laser axis (i.e. in the laser coordinate system: z)
+
+			R = x3 * (1.0 + z0 * z0 / (x3 * x3)); // R(z)
 			if (z0 == 0) zeta = M_PI / 2.0;
 			else zeta = atan(x3 / z0);
 
@@ -102,9 +103,10 @@ namespace GOAT
 		    S.E1 = Pol;
 			S.E2 = Pol;
 
+			std::complex<double> I(0.0,1.0); 
+			std::complex<double> Phase=exp (I*(S.k0*S.n0*r2/(2.0*R)+S.k0*S.n0*x3-zeta)); // Phase factor
 			maths::Vector<double> F = focuspos;
-			S.k = focuspos - S.P;   // Richtungsvektor auf den Fokus gerichtet
-			S.k /= abs(S.k);
+			S.k = fp / abs(fp);   // directional vector (normalized vector, that points in the direction of the focus)
 			h = k % S.k;
 			absh = abs(h);
 			if (absh != 0)
@@ -112,8 +114,8 @@ namespace GOAT
 				h /= absh;
 				gamma = std::acos(S.k * k);
 				DM = rotMatrix(h, gamma);
-				S.E1 = DM * S.E1;
-				S.E2 = DM * S.E2;
+				S.E1 = Phase * DM * S.E1;
+				S.E2 = Phase * DM * S.E2;
 			}
 			
 			S.n = n0;
