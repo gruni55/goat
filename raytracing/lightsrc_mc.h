@@ -36,5 +36,20 @@ namespace GOAT
                 double stddev;
                 int rayCounter=0;
         };
-    }
+
+        class LightSrcPlane_mc : public LightSrcPlane
+        {
+            public:
+                LightSrcPlane_mc (const LightSrcPlane_mc & L);
+                LightSrcPlane_mc (maths::Vector<double> Pos, int N, double wvl, double D = 100.0, 
+                                  maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), 
+                                  int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+                int next(IRay& S);
+                GOAT::maths::Vector<double> genStartingPos ();
+                int rayCounter=0;
+                void reset();
+        };
+
+        
+    }    
 }

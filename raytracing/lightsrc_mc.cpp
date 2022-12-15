@@ -253,5 +253,52 @@ namespace GOAT
             LightSrc::reset();
             rayCounter=0;
         }
+
+
+		LightSrcPlane_mc::LightSrcPlane_mc(const LightSrcPlane_mc &L) : LightSrcPlane(L)
+		{
+		}
+
+		LightSrcPlane_mc::LightSrcPlane_mc(maths::Vector<double> Pos, int N, double wvl, double D, 
+                                  maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrcPlane(Pos,N,wvl,D,Pol,raytype,r0)
+		{
+
+		}
+
+		void LightSrcPlane_mc::reset()
+		{
+			rayCounter=0;
+		}
+
+		int LightSrcPlane_mc::next (IRay &S)
+		{
+			Plane E;
+
+			maths::Vector<double> P = genStartingPos();
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.E1 = Pol / N;
+			S.E2 = Pol2 / N;
+			// S.init_Efeld(E,Pol);
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;			
+		}
+
+		GOAT::maths::Vector<double>  LightSrcPlane_mc::genStartingPos ()
+		{
+			std::random_device rd;
+            std::mt19937 gen(rd());
+            std::uniform_real_distribution<double> ud (-D/2.0,D/2.0);
+
+            double x,y;
+
+               x=ud(gen);
+			   y=ud(gen);            
+            GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
+            return P;
+		}
     }
 }

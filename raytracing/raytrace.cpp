@@ -48,7 +48,7 @@ namespace GOAT
 			}
 
 			if (!useRRTParms)
-				for (int i = 0; i < S.nLS; i++) // Schleife über die Lichtquellen
+				for (int i = 0; i < S.nLS; i++) // Schleife ï¿½ber die Lichtquellen
 				{
 					S.resetLS();
 					do
@@ -325,8 +325,7 @@ namespace GOAT
 			nObj = 0;
 			Obj = 0;
 			r0 = DBL_MAX;
-			nS = 1.0;
-			raytype = LIGHTSRC_RAYTYPE_RAY;
+			nS = 1.0;			
 			LS = 0;
 			LSRRT = 0;
 			nDet = 0;
