@@ -89,7 +89,8 @@ namespace GOAT
             * the inelastic scattered field (RRT-field) is calculated. Here, the calculation in one direction is done. Since the calculation of the excited field is somewhat
             * time consuming, this field is not recalculated if the function is called a second time. If the scene has changed, just call the function resetCalculation() or 
             * change the currrent scene by calling sceneChanged(Scene &S) to start the whole calculation together from the beginning  (together with the excitation field). 
-            * If only the excitation field is to be calculated in this function, then the function setExcitationFieldOnly() must be called beforehand.  
+            * If only the excitation field is to be calculated in this function, then the function setExcitationFieldOnly() must be called beforehand. The exciting field is stored 
+            * inside the object @see SGE (For details refer to #SuperArray). 
             * @param D Parameters for the inelastic scattering calculation
             */
             void trace(RRTParms D); 
@@ -115,6 +116,8 @@ namespace GOAT
             double inel1, inel2; ///< result of the inelastic scattering for the two given polarisations
             void resetCalculation() { calcphase = INEL_CALCPHASE_EXCITATION; } ///< forces the calculation of the excited field when calling trace(RRTParms D)
             void setExcitationFieldOnly() { calcphase = INEL_CALCPHASE_EXCITATION_ONLY; } ///< Sets calculation phase so, that for the next call of trace(RRTParms D), only the excitation field is calculated.
+            SuperArray* SGE;  ///< Here, the exciting field is stored 
+            
         private:
             std::complex<double>  gewichte(maths::Vector<std::complex<double> > E, maths::Vector<std::complex<double> > p);
             void initExcitation();
@@ -125,10 +128,9 @@ namespace GOAT
             void saveRRT();
             void traceRRT();
             int calcphase;
-
-            SuperArray* SGE; 
-            SuperArray* SGRRT1;
+            SuperArray* SGRRT1; 
             SuperArray* SGRRT2;
+            
             bool* active;
             int n;
             int iR;

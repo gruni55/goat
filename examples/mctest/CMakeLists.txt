@@ -27,3 +27,14 @@ install(TARGETS mctest
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     )
+
+
+add_executable (mctest2 mctest2.cpp)
+target_include_directories (mctest2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (mctest2 goat_raytracing goat_maths)
+
+install(TARGETS mctest
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    )

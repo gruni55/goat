@@ -25,15 +25,21 @@ namespace GOAT
          /**
           * @brief Constructor for SuperArray
           * @param r0 Radius of the circumscribed sphere
-          * @param nx, ny, nz number of cells in the x-, y-, z- direction
+          * @p nx, @p ny, @p nz number of cells in the x-, y-, z- direction
           * @param type describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT) 
          */
          SuperArray(double r0,int nx,int ny,int nz, const int typ=IN_HOST); 
          SuperArray(double r0,int nx, int ny, int nz,ObjectShape **Obj, int anzEin, const bool isAbsolute=false, const int typ=0);
          ~SuperArray () { clear();};
 
-
+         /**
+          * 
+         */
          void copy (const SuperArray &S);
+         /**
+          * 
+          *  
+          */ 
          void add (const SuperArray& S);
          void sub (const SuperArray& S);
          friend double sumabs (const SuperArray &S);
@@ -57,14 +63,40 @@ namespace GOAT
          maths::Vector<std::complex<double> >& operator () (int i,maths::Vector<int> Pi);
          maths::Vector<std::complex<double> >& operator () (maths::Vector<double> P);
          maths::Vector<std::complex<double> >& operator () (int i, maths::Vector<double> P);
-         void saveExPhase (char* FName,int i);
-         void saveEyPhase (char * FName,int i);
-         void saveEzPhase (char* FName,int i);
-         void saveExPol (char* FName,int i);
-         void saveEyPol (char* FName,int i);
-         void saveEzPol (char* FName,int i);
-         void saveabsE (const char* FName,int i);
-         void saveFullE(const char* FName, int i);
+         void saveExPhase (char* FName,int i=0);
+         void saveEyPhase (char * FName,int i=0);
+         void saveEzPhase (char* FName,int i=0);
+         void saveExPol (char* FName,int i=0);
+         void saveEyPol (char* FName,int i=0);
+         /**
+          * @brief store the absolute value of the field inside the i-th object
+          * @param FName name of the file where the data should be stored
+          * @param i number of the object 
+         */
+         void saveEzPol (char* FName,int i=0);
+         /**
+          * @brief store the absolute value of the field inside the i-th object
+          * @param FName name of the file where the data should be stored
+          * @param i number of the object 
+         */
+         void saveabsE (const char* FName, int i=0); 
+         /**
+          * @brief store the full electric field inside the i-th object
+          * 
+          * The full electric field is stored in the following way:
+          * real(Ex(x0,y0,z0)) imag(Ex(x0,y0,z0)) real(Ey(x0,y0,z0)) imag(Ey(x0,y0,z0)) real(Ez(x0,y0,z0)) imag(Ez(x0,y0,z0)) 
+          * real(Ex(x0,y0,z1)) imag(Ex(x0,y0,z1)) ...
+          *    :                      :  ...
+          * real(Ex(x0,y0,zN)) imag(Ex(x0,y0,zN)) ...
+          * real(Ex(x0,y1,z0)) imag(Ex(x0,y1,z0)) ...
+          *    :                      :
+          * real(Ex(x0,y1,zN)) imag(Ex(x0,y1,zN)) ...
+          *    :                      :
+          * 
+          * @param FName name of the file where the data should be stored
+          * @param i number of the object 
+         */
+         void saveFullE(const char* FName, int i=0);
          void makeReal ();
          void fill(const maths::Vector<std::complex<double> > &x);
          SuperArray& operator = (const SuperArray &S);

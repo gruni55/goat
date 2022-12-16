@@ -287,6 +287,48 @@ namespace GOAT
 			return LIGHTSRC_NOT_LAST_RAY;			
 		}
 
+		int LightSrcPlane_mc::next(Ray_pow& S)
+		{
+
+			Plane E;
+			double Pow;
+
+			maths::Vector<double> P = genStartingPos();
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			// Pow = 1.0 / ((double)(N * N) * D * D);
+			Pow = 1.0;
+			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+
+			S.initElectricField(E, Pol);
+			S.P = P;
+			S.E1 = Pol;
+			S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+			S.k = k;
+			i1++;
+			Pall += abs2(S.E2);
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;			
+		}
+
+
+		int LightSrcPlane_mc::next(tubedRay& S)
+		{
+			double Pow = 1.0;
+			maths::Vector<double> P = genStartingPos();
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.setN0(n0);
+			
+			i1++;
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;			
+		}
+
+
+
 		GOAT::maths::Vector<double>  LightSrcPlane_mc::genStartingPos ()
 		{
 			std::random_device rd;

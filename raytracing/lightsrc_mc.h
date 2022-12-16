@@ -45,6 +45,8 @@ namespace GOAT
                                   maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), 
                                   int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
                 int next(IRay& S);
+                int next(tubedRay& S);
+                int next(Ray_pow& S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 int rayCounter=0;
                 void reset();
