@@ -122,9 +122,8 @@ namespace GOAT
 			i1++;
 			
 			Pall += abs2(S.E2);
-			//  if (i1*density>D) { return LIGHTSRC_IS_LAST_RAY; } // nur zu TESTZWECKEN !!!!
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density > D) return LIGHTSRC_IS_LAST_RAY;
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
 			return LIGHTSRC_NOT_LAST_RAY;
         }
 

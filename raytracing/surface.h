@@ -250,7 +250,7 @@ namespace GOAT
          * @return min shortest side length
          * @return max longest side length
          */
-        void getMinMax(int numTriangles, triangle* S, double& min, double& max);
+        void getMinMax(int numTriangles, triangle *S, double& min, double& max);
     }
 }
 #endif

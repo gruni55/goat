@@ -33,25 +33,55 @@ namespace GOAT
          ~SuperArray () { clear();};
 
          /**
-          * 
+          * @brief Copies SuperArray object
+          * Here, \p S will be copied into the existing SuperArray and all elements will be overridden
          */
          void copy (const SuperArray &S);
          /**
           * 
-          *  
+          *  @brief Adds another SuperArray object. 
+          * In this function, all array elements from \p S are added to the existing array elements.
+          *
           */ 
          void add (const SuperArray& S);
+         /**
+          *
+          *  @brief Subtract another SuperArray object.
+          * In this function, all array elements from \p S are subtracted from the existing array elements.
+          *
+          */
          void sub (const SuperArray& S);
-         friend double sumabs (const SuperArray &S);
-         friend double sumabs2 (const SuperArray &S);
+         friend double sumabs (const SuperArray &S); ///< The absolute values of the cell contents are summed up
+         friend double sumabs2 (const SuperArray &S); ///< The squared absolute values of the cell contents are summed up
+         /**
+         * @brief Summing up SuperArray
+         * Here, all cell contents are first added up. The absolute value is taken from the result and squared.
+         */
          friend double abs2sum (const SuperArray &S);
-         bool addInc(ObjectShape **Obj,int anzEin, const bool isAbsolute=false); // anzEin Einschluesse hinzufuegen
+         /**
+         * @brief Add objects to SuperArray
+         * Adds a list of objects to the SuperArray.
+         * An object is added to the SuperArray by allocating memory that corresponds to the volume of the circumscribing cuboid.
+         * @param Obj The object list
+         * @param numObj Number of objects to add
+         * @param isAbsolute true: Location/size information in absolute coordinates
+         * 
+         */
+         bool addInc(ObjectShape **Obj,int numObj, const bool isAbsolute=false); // anzEin Einschluesse hinzufuegen
                                            // isAbsolute=true => Orts-/Groessenangaben in absoluten Koordinaten 
+         /**
+         * @brief Add object to SuperArray
+         * Add one objects to the SuperArray.
+         * An object is added to the SuperArray by allocating memory that corresponds to the volume of the circumscribing cuboid.
+         * @param E The object 
+         * @param isAbsolute true: Location/size information in absolute coordinates
+         *
+         */
          bool addInc (ObjectShape *E,const bool isAbsolute=false);  // Einschluss hinzufuegen (isAbsolute s.o.) 
          maths::Vector<int> gitterpunkt (maths::Vector<double> P);
-         bool inObject (maths::Vector<double> P, int i);
-         bool inObject (maths::Vector<int> Pi, int i);
-         bool inObject (int ix, int iy, int iz, int i);
+         bool inObject (maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
+         bool inObject (maths::Vector<int> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
+         bool inObject (int ix, int iy, int iz, int i); ///< checks if a point indicated by its indices (\p ix, \p iy, \p iz) is inside the \p i -th object
          maths::Vector<std::complex<double> >& operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
          /**
           * @brief returns the content of the i-th object, with the grid-coordinates ix,iy,iz
@@ -98,12 +128,18 @@ namespace GOAT
          */
          void saveFullE(const char* FName, int i=0);
          void makeReal ();
-         void fill(const maths::Vector<std::complex<double> > &x);
-         SuperArray& operator = (const SuperArray &S);
-         void clear();
-         void allockugel();
-         maths::Vector<int> kugelindex(maths::Vector<int> Pi);
-         maths::Vector<std::complex<double> > kugelwert(maths::Vector<int> Pi);
+         void fill(const maths::Vector<std::complex<double> > &x); ///< Fill the whole SuperArray with value \p x
+         SuperArray& operator = (const SuperArray &S); ///< Assignment operator
+         void clear(); ///< Clear the SuperArray and release the allocated memory
+         void allockugel(); 
+
+         /**
+         * @brief Checks if the point \p Pi (indicated by the indices) is inside the calculation sphere
+         * The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned 
+         * (for internal use only)
+         */
+         maths::Vector<int> kugelindex(maths::Vector<int> Pi); 
+         maths::Vector<std::complex<double> > kugelwert(maths::Vector<int> Pi); 
          maths::Vector<std::complex<double> > kugelwert(int ix, int iy, int iz);
          friend std::ostream&   operator << (std::ostream &os, const SuperArray &S);
  

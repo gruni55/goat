@@ -1,3 +1,8 @@
+/**
+* /file grid.h
+* Here, the grid class is declared and also some useful function around this class
+*/
+
 #ifndef __grid_H__
 #define __grid_H__
 
@@ -9,7 +14,11 @@ namespace GOAT
 {
     namespace raytracing
     {
-
+        /**
+        * @brief This class provides a grid used for inelastic scattering calculation 
+        * 
+        * 
+        */
         class grid
         {
 
@@ -17,20 +26,25 @@ namespace GOAT
         maths::Vector <std::complex<double> > ****newarray();
         void delarray();
 
-        // Testet allgemein, ob eine gridzelle ix, iy, iz innerhalb einer 
-        // Kugel mit Radius r0 und Mittelpunkt x0, y0, z0 liegt
-        // wird von in_kugel und in_einschluss benoetigt
+        /**
+        * @brief Function for testing of inside 
+        * Tests, if the cell with indices \p ix, \p iy and  \p iz lies inside a sphere of radius \p r0 and the center coordinates 
+        * with the world coordinates \p x0, \p y0 and \p z0
+        * 
+        */
+        int isInside(int ix, int iy, int iz,double x0, double y0, double z0, double r0);
+        /**
+        * @brief Function for testing of inside 
+        * Tests, if the cell with indices \p ix, \p iy and  \p iz lies inside a sphere of radius \p r0 and the center at \p p
+        */
+        int isInside(int ix, int iy, int iz, maths::Vector<double> P, double r0);
 
-        int ist_innen(int ix, int iy, int iz,
-                    double x0, double y0, double z0, double r0);
-        int ist_innen(int ix, int iy, int iz, maths::Vector<double> P, double r0);
-
-        double dx2, dy2, dz2;
+        double dx2, dy2, dz2; ///<  \p dx2, \p dy2, \p dz2 half of the side length in x-, y- and z-direction
 
         public:
 
         double rP;
-        int nxmax,nymax,nzmax;
+        int nxmax,nymax,nzmax; 
         double xmax, ymax,  zmax, dx, dy, dz;
         maths::Vector<std::complex<double> > DUMMY;
 
@@ -67,7 +81,7 @@ namespace GOAT
 
         // Testet, ob die gridzelle ix, iy, iz innerhalb des Einschlusses ein
         // liegt
-        int  in_einschluss(int ix, int iy, int iz, objectInfo ein);
+        int  inObject(int ix, int iy, int iz, objectInfo ein);
 
         void set_parms(int nx, int ny, int nz, int xmax, int ymax, int zmax);
         };

@@ -873,9 +873,12 @@ namespace  GOAT
 			double theta = asin(NA / real(n0));
 			double l = abs(Pos - focuspos);
 			w0 = wvl / (M_PI * tan(theta));
-			D = 2.0 * l * wvl / (M_PI * w0);
-			density = D / ((double)N);
 			calcz0();
+			w=calcw(l);
+			// D = 2.0 * l * wvl / (M_PI * w0);
+			D = 6 * w;
+			density = D / ((double)N);
+			
 		}
 
 		void copyLightSrcList(LightSrc**& d, LightSrc** s, int nLS)

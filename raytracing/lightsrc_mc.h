@@ -1,3 +1,7 @@
+/**
+* /file lightsrc_mc.h
+* Here you can find the light sources with random ray distribution
+*/
 #pragma once
 #include "lightsrc.h"
 namespace GOAT

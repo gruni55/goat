@@ -148,7 +148,7 @@ namespace GOAT
     }
 
 
-    int grid::ist_innen(int ix, int iy, int iz,
+    int grid::isInside(int ix, int iy, int iz,
                           double x0, double y0, double z0, double r0)
     // Basisfunktion zur Bestimmung der Lage eines 
     // gridpunktes ix, iy, iz innerhal einer        
@@ -163,7 +163,7 @@ namespace GOAT
       return 0;
     } 
 
-    int grid::ist_innen(int ix, int iy, int iz, maths::Vector<double> P, double r0)
+    int grid::isInside(int ix, int iy, int iz, maths::Vector<double> P, double r0)
     // Basisfunktion zur Bestimmung der Lage eines 
     // gridpunktes ix, iy, iz innerhal einer        
     // Kugel vom Radius r_0 mit Mittelpunkt bei P
@@ -194,7 +194,7 @@ namespace GOAT
           {
           if (gridarray[ix][iy][iz]==0)
           {
-            if (in_einschluss(ix,iy,iz,ein[nein]))
+            if (inObject(ix,iy,iz,ein[nein]))
             {
               gridarray[ix][iy][iz] =  new maths::Vector<std::complex<double> >;
               *gridarray[ix][iy][iz] = maths::Vector<std::complex<double> >(1,1,1);
@@ -219,14 +219,14 @@ namespace GOAT
     double y0 = ymax/2;
     double z0 = zmax/2;
     double r0 = x0;
-    int hilf = ist_innen(ix, iy, iz, x0, y0, z0, r0);
+    int hilf = isInside(ix, iy, iz, x0, y0, z0, r0);
     return hilf;
     }
 
-    int grid::in_einschluss(int ix, int iy, int iz, objectInfo ein)
+    int grid::inObject(int ix, int iy, int iz, objectInfo ein)
     {
     double r0 = ein.a*rP;
-    int hilf = ist_innen(ix, iy, iz, ein.P*rP, r0);
+    int hilf = isInside(ix, iy, iz, ein.P*rP, r0);
     return hilf;
     }
 

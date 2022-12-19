@@ -266,6 +266,7 @@ namespace GOAT
                 return *this;
             }
 
+           
             inline friend bool operator == (const Vector& A, const Vector& B) ///< Comparison operator. Two vectors are equal if all components are the same
             {
                 return ((A[0] == B[0]) && (A[1] == B[1]) && (A[2] == B[2]));
@@ -414,6 +415,12 @@ namespace GOAT
         }
 
 
+        /**
+        * @brief input operator, reads complex vector from file
+        * 
+        * This function reads the content of a complex vector provided by real and imaginary part of each component
+        * 
+        */
         std::istream& operator >> (std::istream& is, Vector<std::complex<double> >& r);
         std::istream& operator >> (std::istream& is, Vector<double>& r);
         std::istream& operator >> (std::istream& is, Vector<int>& r);
@@ -424,11 +431,11 @@ namespace GOAT
 
         void errmsg(char* S); //! Fehlermeldung ausgeben
         double abs(const Vector<double>& r); ///< Calculates the absolute value of a double vector
-        double abs(const Vector<std::complex<double> >& r); ///< Calculates the absolute value of a complex vector \$f(abs(\vec{r})=\sqrt{\vec{r} \cdot \vec{r}*\$f})
+        double abs(const Vector<std::complex<double> >& r); ///< Calculates the absolute value of a complex vector \f$ (abs(\vec{r})=\sqrt{\vec{r} \cdot \vec{r} }) \f$
         double abs(const Vector<int>& r); ///< Calculates the absolute value of an integer vector 
         double abs2(const Vector<double>& r); ///< Calculates the squared absolute value of double vector
-        double abs2(const Vector<std::complex<double> >& r);///< Calculates the squared absolute value of double vector \$f(abs2(\vec{r})=\vec{r} \cdot \vec{r}*\$f)
-        double  abs2(std::complex<double>  x); ///< Absolute value of the complex number x \$f(abs(x)=x \cdot x*\$f)
+        double abs2(const Vector<std::complex<double> >& r);///< Calculates the squared absolute value of double vector \f$ (abs2(\vec{r})=\vec{r} \cdot \vec{r} ) \f$
+        double abs2(std::complex<double>  x); ///< Absolute value of the complex number x \f$ abs(x)=\sqrt{x \cdot x} \f$ 
         double abs2(double x); ///< Squared absolute value of x
 
         /** @name Standard operators for vectors
@@ -570,25 +577,45 @@ namespace GOAT
         void sphereunitv(Vector<double>& P, Vector<double>& er, Vector<double>& etheta, Vector<double>& ephi);
         Vector <double> emax(Vector<double>& P1, Vector<double>& P2);
 
-#define ex Vector<double> (1.0,0.0,0.0)
-#define ey Vector<double> (0.0,1.0,0.0)
-#define ez Vector<double> (0.0,0.0,1.0)
-#define dzero Vector<double> (0.0,0.0,0.0)
+#define ex Vector<double> (1.0,0.0,0.0)  ///< unit vector in the x-direction 
+#define ey Vector<double> (0.0,1.0,0.0)  ///< unit vector in the y-direction 
+#define ez Vector<double> (0.0,0.0,1.0)  ///< unit vector in the z-direction 
+#define dzero Vector<double> (0.0,0.0,0.0)  ///< double valued vector with all components set to 0
 // #define one Vector<double>  (1.0,1.0,1.0)
-        const Vector<double> one=Vector<double>(1.0, 1.0, 1.0);
-#define czero Vector<std::complex<double> > (0.0,0.0,0.0)
-#define cone Vector<std::complex<double> >  (1.0,1.0,1.0)
+        const Vector<double> one=Vector<double>(1.0, 1.0, 1.0); ///< double valued vector with all components set to 1
+#define czero Vector<std::complex<double> > (0.0,0.0,0.0) ///< complex valued vector with all components set to  0
+#define cone Vector<std::complex<double> >  (1.0,1.0,1.0) ///< complex valued vector with all components set to  1
 
 
-        Vector<double> er(double theta, double phi);
-        Vector<double> etheta(double theta, double phi);
-        Vector<double> ephi(double theta, double phi);
+        Vector<double> er(double theta, double phi); ///< returns a normalized vector in r-direction on a unit sphere with spherical coordinates /p theta and /p phi 
+        Vector<double> etheta(double theta, double phi); ///< returns a normalized vector in theta-direction on a unit sphere with spherical coordinates /p theta and /p phi 
+        Vector<double> ephi(double theta, double phi);///< returns a normalized vector in phi-direction on a unit sphere with spherical coordinates /p theta and /p phi 
 
-        Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<double>& r);
-        Vector<std::complex<double> > operator * (const Vector<double>& r, std::complex<double>  x);
-        double* conv2double(int Anz, Vector<std::complex<double> >* r);
+        Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<double>& r); ///<  multiplication between a complex valued scalar and a double valued vector
+        Vector<std::complex<double> > operator * (const Vector<double>& r, std::complex<double>  x); ///< multiplication between a double valued vector  and a complex valued scalar
+        /**
+        * @brief converts an array of complex valued vectors into an double valued array
+        * This function converts an array of complex vectors into a double valued array, where the real and the imaginary part of each component is 
+        * stored in a separate cell inside the new array  
+        * \param no: number of elements in the vector array
+        * \param r: vector array
+        */
+        double* conv2double(int no, Vector<std::complex<double> >* r); 
+        /**
+        * @brief converts an array of double valued vectors into an double valued array
+        * This function converts an array of double vectors into a double valued array, where the real and the imaginary part of each component is
+        * stored in a separate cell inside the new array
+        * @param no: number of elements in the vector array
+        * @param r: vector array
+        */
         Vector<std::complex<double> >* conv2vector(int Anz, double* r);
-        Vector<std::complex<double> > grad2d(double(*f(Vector<std::complex<double> >)), Vector<std::complex<double> > x, double dx);
+        /**
+        * @brief calculates the gradient of a given function at a certain position
+        * 
+        * This function gives the gradient (as complex vector) of a function /f at the position /p x, where the gradient is approximated by
+        * \f$\nabla f(\vec{r})= \frac{f(r\vec + \vec e_x \cdot d)}{d}\f$
+        */
+        Vector<std::complex<double> > grad2d(double(*f(Vector<std::complex<double> >)), Vector<std::complex<double> > r, double d);
         Vector<std::complex<double> > convd2c(const Vector<std::complex<double> >& r);
         void rotate(Vector<double>& r, double phi);
         std::complex<double>  asin(std::complex<double>  z);

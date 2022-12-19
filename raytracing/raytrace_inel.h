@@ -1,22 +1,12 @@
+/** \file raytrace_inel.h
+ * Here you can find raytracing routines used for inelastic scattering
+ * The file provides classes for inelastic scattering, but also for calculating the internal fields inside objects or in the whole 
+ * calculation sphere 
+ */
 #pragma once
 #include "raytrace.h"
 #include "superarray.h"
 
-/*#define INEL_CALCPHASE_EXCITATION 1
-        #define INEL_CALCPHASE_RRT      2
-        #define INEL_CALCPHASE_EXCITATION_ONLY 3
-
-        #define INEL_MAX_NREFLEX 5
-        #define INEL_SAVE_ABSE   1
-
-        #define INEL_RADIATION_TYPE_FLOURESCENCE 1
-        #define INEL_RADIATION_TYPE_RAMAN        2
-
-        #define INEL_RADIATION_COHERENT   1
-        #define INEL_RADIATION_INCOHERENT 2
-
-        #define INEL_EXPORT_EXCITATION_FIELD_ABS 0
-        #define INEL_EXPORT_EXCITATION_FIELD_VECTOR 1*/
 namespace GOAT
 {
     namespace raytracing
@@ -116,6 +106,7 @@ namespace GOAT
             double inel1, inel2; ///< result of the inelastic scattering for the two given polarisations
             void resetCalculation() { calcphase = INEL_CALCPHASE_EXCITATION; } ///< forces the calculation of the excited field when calling trace(RRTParms D)
             void setExcitationFieldOnly() { calcphase = INEL_CALCPHASE_EXCITATION_ONLY; } ///< Sets calculation phase so, that for the next call of trace(RRTParms D), only the excitation field is calculated.
+            void unsetExcitationFieldOnly() { calcphase = INEL_CALCPHASE_RRT;  } ///< sets calculation phase in the way, that also the inelastic calculation will be done
             SuperArray* SGE;  ///< Here, the exciting field is stored 
             
         private:
