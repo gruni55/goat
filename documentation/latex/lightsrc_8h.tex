@@ -1,0 +1,208 @@
+\hypertarget{lightsrc_8h}{}\doxysection{raytracing/lightsrc.h File Reference}
+\label{lightsrc_8h}\index{raytracing/lightsrc.h@{raytracing/lightsrc.h}}
+{\ttfamily \#include \char`\"{}raybase.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tubedray.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}iray.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objectshape.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ray\+\_\+pow.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{G\+O\+A\+T\+::raytracing\+::\+Light\+Src}}
+\begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{G\+O\+A\+T\+::raytracing\+::\+Light\+Src\+Plane}}
+\begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{G\+O\+A\+T\+::raytracing\+::\+Light\+Src\+Gauss}}
+\begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{G\+O\+A\+T\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+R\+AY}}~1
+\begin{DoxyCompactList}\small\item\em Ray class \+: tubed\+Ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+I\+R\+AY}}~2
+\begin{DoxyCompactList}\small\item\em Ray class \+: I\+Ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+P\+R\+AY}}~3
+\begin{DoxyCompactList}\small\item\em Ray class \+: Pow\+\_\+\+Ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+N\+O\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY}}~0
+\begin{DoxyCompactList}\small\item\em Created ray is not the last ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+I\+S\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY}}~1
+\begin{DoxyCompactList}\small\item\em Created ray is the last ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a9427e832c03d24eb45706347a7e36cb6}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+E\+R\+R\+OR}}~-\/1
+\begin{DoxyCompactList}\small\item\em Error occurs within the ray creation. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
+\begin{DoxyCompactList}\small\item\em Wave impedance of free space. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+X}}~0
+\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+Y}}~1
+\item 
+\#define \mbox{\hyperlink{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+Z}}~2
+\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}{L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+ED}}~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{G\+O\+A\+T\+::raytracing\+::bin\+Write\+L\+S\+List}} (std\+::ofstream \&os, int n\+LS, Light\+Src $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{G\+O\+A\+T\+::raytracing\+::bin\+Read\+L\+S\+List}} (std\+::ifstream \&is, int n\+LS, Light\+Src $\ast$$\ast$\&ls)
+\begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{G\+O\+A\+T\+::raytracing\+::copy\+Light\+Src\+List}} (Light\+Src $\ast$$\ast$\&d, Light\+Src $\ast$$\ast$s, int n\+LS)
+\begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{G\+O\+A\+T\+::raytracing\+::\+L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+S\+R\+C\+T\+Y\+P\+E\+\_\+\+P\+L\+A\+NE}} =1
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828bc8a67bb99cf2988f}{G\+O\+A\+T\+::raytracing\+::\+L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+S\+R\+C\+T\+Y\+P\+E\+\_\+\+G\+A\+U\+SS}} =2
+\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{G\+O\+A\+T\+::raytracing\+::\+L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+S\+R\+C\+T\+Y\+P\+E\+\_\+\+T\+O\+P\+H\+AT}} =3
+\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lightsrc_8h_a9427e832c03d24eb45706347a7e36cb6}\label{lightsrc_8h_a9427e832c03d24eb45706347a7e36cb6}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_ERROR@{LIGHTSRC\_ERROR}}
+\index{LIGHTSRC\_ERROR@{LIGHTSRC\_ERROR}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_ERROR}{LIGHTSRC\_ERROR}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+E\+R\+R\+OR~-\/1}
+
+
+
+Error occurs within the ray creation. 
+
+
+
+Definition at line 25 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}\label{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_IS\_LAST\_RAY@{LIGHTSRC\_IS\_LAST\_RAY}}
+\index{LIGHTSRC\_IS\_LAST\_RAY@{LIGHTSRC\_IS\_LAST\_RAY}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_IS\_LAST\_RAY}{LIGHTSRC\_IS\_LAST\_RAY}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+I\+S\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY~1}
+
+
+
+Created ray is the last ray. 
+
+
+
+Definition at line 24 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}\label{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_NOT\_LAST\_RAY@{LIGHTSRC\_NOT\_LAST\_RAY}}
+\index{LIGHTSRC\_NOT\_LAST\_RAY@{LIGHTSRC\_NOT\_LAST\_RAY}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_NOT\_LAST\_RAY}{LIGHTSRC\_NOT\_LAST\_RAY}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+N\+O\+T\+\_\+\+L\+A\+S\+T\+\_\+\+R\+AY~0}
+
+
+
+Created ray is not the last ray. 
+
+
+
+Definition at line 23 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}\label{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_USER\_DEFINED@{LIGHTSRC\_POL\_USER\_DEFINED}}
+\index{LIGHTSRC\_POL\_USER\_DEFINED@{LIGHTSRC\_POL\_USER\_DEFINED}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_POL\_USER\_DEFINED}{LIGHTSRC\_POL\_USER\_DEFINED}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+\+U\+S\+E\+R\+\_\+\+D\+E\+F\+I\+N\+ED~0}
+
+
+
+Definition at line 31 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}\label{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_X@{LIGHTSRC\_POL\_X}}
+\index{LIGHTSRC\_POL\_X@{LIGHTSRC\_POL\_X}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_POL\_X}{LIGHTSRC\_POL\_X}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+X~0}
+
+
+
+Definition at line 28 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}\label{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_Y@{LIGHTSRC\_POL\_Y}}
+\index{LIGHTSRC\_POL\_Y@{LIGHTSRC\_POL\_Y}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_POL\_Y}{LIGHTSRC\_POL\_Y}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+Y~1}
+
+
+
+Definition at line 29 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}\label{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_Z@{LIGHTSRC\_POL\_Z}}
+\index{LIGHTSRC\_POL\_Z@{LIGHTSRC\_POL\_Z}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_POL\_Z}{LIGHTSRC\_POL\_Z}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+P\+O\+L\+\_\+Z~2}
+
+
+
+Definition at line 30 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}\label{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_RAYTYPE\_IRAY@{LIGHTSRC\_RAYTYPE\_IRAY}}
+\index{LIGHTSRC\_RAYTYPE\_IRAY@{LIGHTSRC\_RAYTYPE\_IRAY}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_RAYTYPE\_IRAY}{LIGHTSRC\_RAYTYPE\_IRAY}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+I\+R\+AY~2}
+
+
+
+Ray class \+: I\+Ray. 
+
+
+
+Definition at line 16 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}\label{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_RAYTYPE\_PRAY@{LIGHTSRC\_RAYTYPE\_PRAY}}
+\index{LIGHTSRC\_RAYTYPE\_PRAY@{LIGHTSRC\_RAYTYPE\_PRAY}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_RAYTYPE\_PRAY}{LIGHTSRC\_RAYTYPE\_PRAY}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+P\+R\+AY~3}
+
+
+
+Ray class \+: Pow\+\_\+\+Ray. 
+
+
+
+Definition at line 17 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}\label{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}} 
+\index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_RAYTYPE\_RAY@{LIGHTSRC\_RAYTYPE\_RAY}}
+\index{LIGHTSRC\_RAYTYPE\_RAY@{LIGHTSRC\_RAYTYPE\_RAY}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_RAYTYPE\_RAY}{LIGHTSRC\_RAYTYPE\_RAY}}
+{\footnotesize\ttfamily \#define L\+I\+G\+H\+T\+S\+R\+C\+\_\+\+R\+A\+Y\+T\+Y\+P\+E\+\_\+\+R\+AY~1}
+
+
+
+Ray class \+: tubed\+Ray. 
+
+
+
+Definition at line 15 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}\label{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}} 
+\index{lightsrc.h@{lightsrc.h}!Z0@{Z0}}
+\index{Z0@{Z0}!lightsrc.h@{lightsrc.h}}
+\doxysubsubsection{\texorpdfstring{Z0}{Z0}}
+{\footnotesize\ttfamily \#define Z0~376.\+730313461}
+
+
+
+Wave impedance of free space. 
+
+
+
+Definition at line 26 of file lightsrc.\+h.
+

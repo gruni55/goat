@@ -1,0 +1,57 @@
+\hypertarget{surface_8h}{}\doxysection{raytracing/surface.h File Reference}
+\label{surface_8h}\index{raytracing/surface.h@{raytracing/surface.h}}
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objectshape.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}triangle.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{G\+O\+A\+T\+::raytracing\+::surface}}
+\begin{DoxyCompactList}\small\item\em This class represents objects those surface is described by triangles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{G\+O\+A\+T\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad695661e64d33d269dbc65b5a13c252e}{G\+O\+A\+T\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const surface \&su)
+\end{DoxyCompactItemize}
+\begin{Indent}\textbf{ operators on surface}\par
+{\em Operators, which act directly on the surface class }\begin{DoxyCompactItemize}
+\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac7c2b09523977b858ecf36c2176e216d}{G\+O\+A\+T\+::raytracing\+::operator+}} (const surface \&s, const maths\+::\+Vector$<$ double $>$ \&v)
+\begin{DoxyCompactList}\small\item\em \{ \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1bb8016b176c61c48bc2313f25cfa02b}{G\+O\+A\+T\+::raytracing\+::operator-\/}} (const surface \&s, const maths\+::\+Vector$<$ double $>$ \&v)
+\begin{DoxyCompactList}\small\item\em subtracts vector v from all corners of the triangle list of the surface object s \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1ee415d06c371da35e392a769ea42632}{G\+O\+A\+T\+::raytracing\+::operator+}} (const maths\+::\+Vector$<$ double $>$ \&v, const surface \&s)
+\begin{DoxyCompactList}\small\item\em adds vector v to all corners of the triangle list of the surface object s \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5d210bf4c939fd91910517f84e70730}{G\+O\+A\+T\+::raytracing\+::operator-\/}} (const maths\+::\+Vector$<$ double $>$ \&v, const surface \&s)
+\begin{DoxyCompactList}\small\item\em subtracts vector v from all corners of the triangle list of the surface object s \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae6a8055163322a103e76c795333e69cb}{G\+O\+A\+T\+::raytracing\+::operator$\ast$}} (const maths\+::\+Matrix$<$ double $>$ \&M, const surface \&s)
+\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd8d5b420a55ba7db37ddfb125ef873a}{G\+O\+A\+T\+::raytracing\+::generate\+Hexagon\+Cylinder}} (double a, double h, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\begin{DoxyCompactList}\small\item\em \} \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a54be4faf95c9d3dc3848cad776670b05}{G\+O\+A\+T\+::raytracing\+::generate\+Hollow\+Hexagonal\+Cylinder}} (double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\begin{DoxyCompactList}\small\item\em generates a cylinder with hexagonal cross section. At the upper and lower faces, there are pyramidal dips. \end{DoxyCompactList}\item 
+surface \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abbdc607b61ea4ff97be86b6f21b5fd04}{G\+O\+A\+T\+::raytracing\+::generate\+Bullet}} (double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\begin{DoxyCompactList}\small\item\em generates a cylinder with hexagonal cross section with a pyramid-\/shaped tip on the upper surface. \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac78d7b74c839c07fb829320096b52fd3}{G\+O\+A\+T\+::raytracing\+::generate\+Ellipsoid}} (double a, double b, int N, double r0=1.\+0, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\begin{DoxyCompactList}\small\item\em Generiert einen hexagonalen Zylinder mit Seitenlänge a und Höhe h und einer pyramidalen Spitze. \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a800fe986dd97969ec8c9aa8b641f08e5}{G\+O\+A\+T\+::raytracing\+::generate\+Pill}} (double a, double b, double h, int N, double r0=1.\+0, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\begin{DoxyCompactList}\small\item\em Generates a cylinder with ellipsoidal caps. \end{DoxyCompactList}\item 
+surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af8e5b4805908366c7e4c42d8e6183229}{G\+O\+A\+T\+::raytracing\+::generate\+Poly\+Bullet}} (int n, double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+U\+N\+I\+TY)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe146fc689}{G\+O\+A\+T\+::raytracing\+::get\+Min\+Max}} (int num\+Triangles, triangle $\ast$S, double \&min, double \&max)
+\begin{DoxyCompactList}\small\item\em calculates the longest and shortest side length \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}

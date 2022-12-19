@@ -1,0 +1,125 @@
+\hypertarget{misc_8h}{}\doxysection{raytracing/misc.h File Reference}
+\label{misc_8h}\index{raytracing/misc.h@{raytracing/misc.h}}
+{\ttfamily \#include \char`\"{}surface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ellipsoid.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tubedray.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}box.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{G\+O\+A\+T\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{misc_8h_aaa394eb43d83411862c2480cca91d331}{c\+\_\+light}}~299792458.\+0
+\item 
+\#define \mbox{\hyperlink{misc_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
+\item 
+\#define \mbox{\hyperlink{misc_8h_a913e4feb488dce7bfeee4b0e4f886a11}{mu0}}~4.\+0$\ast$M\+\_\+\+PI$\ast$1E-\/7
+\item 
+\#define \mbox{\hyperlink{misc_8h_a77e87d06f5832eb1a8c064c37e301087}{eps0}}~8.\+854187817E-\/12
+\item 
+\#define \mbox{\hyperlink{misc_8h_a390d4f025a7c09f071fd3f6804669ddb}{Planck\+\_\+h}}~6.\+62606896E-\/34
+\item 
+\#define \mbox{\hyperlink{misc_8h_a26242616de488ad628c1967a436a520c}{Planck\+\_\+hquer}}~1.\+054571628E-\/34
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1e2a56a7879491478cf4ba42dab27048}{G\+O\+A\+T\+::raytracing\+::init\+Inc}} (Object\+Shape $\ast$E)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7a26d5e1f02540ef7367f5d76ca5fa2}{G\+O\+A\+T\+::raytracing\+::set\+R0}} (Object\+Shape $\ast$E, double r0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2b4dedb873698843f75c9abf9fe4b4fe}{G\+O\+A\+T\+::raytracing\+::copy\+Form\+List}} (Object\+Shape $\ast$$\ast$\&d, Object\+Shape $\ast$$\ast$s, int anz)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{G\+O\+A\+T\+::raytracing\+::bin\+Write\+Inc\+List}} (std\+::ofstream \&os, Object\+Shape $\ast$$\ast$E, int anz)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{G\+O\+A\+T\+::raytracing\+::bin\+Write\+Inc}} (std\+::ofstream \&os, Object\+Shape $\ast$E)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf30bb9321fb4f42e447cbe0b255c284}{G\+O\+A\+T\+::raytracing\+::bin\+Read\+Inc\+List}} (std\+::ifstream \&is, Object\+Shape $\ast$$\ast$\&E, int anz)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{G\+O\+A\+T\+::raytracing\+::bin\+Read\+Inc}} (std\+::ifstream \&is, Object\+Shape $\ast$\&E, bool is\+New)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a58fa5326b697b71fc6bb611547782000}{G\+O\+A\+T\+::raytracing\+::copy\+Inc}} (Object\+Shape $\ast$\&d, Object\+Shape $\ast$s)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af784b943e18085be4e90bd83d2b7a499}{G\+O\+A\+T\+::raytracing\+::delete\+Inc}} (Object\+Shape $\ast$E)
+\item 
+maths\+::\+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aadd816301b7a043d61b863299db10a92}{G\+O\+A\+T\+::raytracing\+::force}} (maths\+::\+Vector$<$ double $>$ norm, tubed\+Ray Se, tubed\+Ray Sr, tubed\+Ray St, double df)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7874817c58cb0f9a946cca676453a292}{G\+O\+A\+T\+::raytracing\+::gaussw}} (double z, double wvl, double w0)
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afbd405954ef29592058437c1790666a6}{G\+O\+A\+T\+::raytracing\+::gaussphase}} (maths\+::\+Vector$<$ double $>$ P, maths\+::\+Vector$<$ double $>$ F, maths\+::\+Vector$<$ double $>$ k, double w0, double k0)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aeb50e037d12fc6eef98ad0fe58179f0e}{G\+O\+A\+T\+::raytracing\+::\+N\+A2w0}} (double lambda, double NA, std\+::complex$<$ double $>$ n)
+\item 
+float \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abb4d508128867885d88a5acecb346908}{G\+O\+A\+T\+::raytracing\+::read\+L\+E\+\_\+float32}} (std\+::istream \&is)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9bf7fb662ab6211a6ff3937a6e5a41ff}{G\+O\+A\+T\+::raytracing\+::read\+L\+E\+\_\+int32}} (std\+::istream \&is)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{misc_8h_aaa394eb43d83411862c2480cca91d331}\label{misc_8h_aaa394eb43d83411862c2480cca91d331}} 
+\index{misc.h@{misc.h}!c\_light@{c\_light}}
+\index{c\_light@{c\_light}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{c\_light}{c\_light}}
+{\footnotesize\ttfamily \#define c\+\_\+light~299792458.\+0}
+
+
+
+Definition at line 23 of file misc.\+h.
+
+\mbox{\Hypertarget{misc_8h_a77e87d06f5832eb1a8c064c37e301087}\label{misc_8h_a77e87d06f5832eb1a8c064c37e301087}} 
+\index{misc.h@{misc.h}!eps0@{eps0}}
+\index{eps0@{eps0}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{eps0}{eps0}}
+{\footnotesize\ttfamily \#define eps0~8.\+854187817E-\/12}
+
+
+
+Definition at line 28 of file misc.\+h.
+
+\mbox{\Hypertarget{misc_8h_a913e4feb488dce7bfeee4b0e4f886a11}\label{misc_8h_a913e4feb488dce7bfeee4b0e4f886a11}} 
+\index{misc.h@{misc.h}!mu0@{mu0}}
+\index{mu0@{mu0}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{mu0}{mu0}}
+{\footnotesize\ttfamily \#define mu0~4.\+0$\ast$M\+\_\+\+PI$\ast$1E-\/7}
+
+
+
+Definition at line 27 of file misc.\+h.
+
+\mbox{\Hypertarget{misc_8h_a390d4f025a7c09f071fd3f6804669ddb}\label{misc_8h_a390d4f025a7c09f071fd3f6804669ddb}} 
+\index{misc.h@{misc.h}!Planck\_h@{Planck\_h}}
+\index{Planck\_h@{Planck\_h}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{Planck\_h}{Planck\_h}}
+{\footnotesize\ttfamily \#define Planck\+\_\+h~6.\+62606896E-\/34}
+
+
+
+Definition at line 29 of file misc.\+h.
+
+\mbox{\Hypertarget{misc_8h_a26242616de488ad628c1967a436a520c}\label{misc_8h_a26242616de488ad628c1967a436a520c}} 
+\index{misc.h@{misc.h}!Planck\_hquer@{Planck\_hquer}}
+\index{Planck\_hquer@{Planck\_hquer}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{Planck\_hquer}{Planck\_hquer}}
+{\footnotesize\ttfamily \#define Planck\+\_\+hquer~1.\+054571628E-\/34}
+
+
+
+Definition at line 30 of file misc.\+h.
+
+\mbox{\Hypertarget{misc_8h_a49a0a00a612635d79a06bbe9fc15c094}\label{misc_8h_a49a0a00a612635d79a06bbe9fc15c094}} 
+\index{misc.h@{misc.h}!Z0@{Z0}}
+\index{Z0@{Z0}!misc.h@{misc.h}}
+\doxysubsubsection{\texorpdfstring{Z0}{Z0}}
+{\footnotesize\ttfamily \#define Z0~376.\+730313461}
+
+
+
+Definition at line 26 of file misc.\+h.
+

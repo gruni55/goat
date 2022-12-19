@@ -1,0 +1,172 @@
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t}{}\doxysection{G\+O\+AT\+::raytracing\+::Raytrace\+\_\+\+OT Class Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t}\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+
+
+This class provides functionality to calculate the forces for optical tweezers. It is derived by the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace}{Raytrace}}.  
+
+
+
+
+{\ttfamily \#include $<$raytrace.\+h$>$}
+
+Inheritance diagram for G\+O\+AT\+::raytracing\+::Raytrace\+\_\+\+OT\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a57018839015a32be4d9a75ceeb259cdd}{Raytrace\+\_\+\+OT}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a1fcfd412d38226ba67ce0af453729016}{Raytrace\+\_\+\+OT}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a45c5607a957a727efc84532c348790dd}{set\+Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a56f22e2200d317d1e37ed1d4e0ff5ed9}{trace}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a47364751baf664a70cab6e25463a4b25}{trace\+Leave\+Object}} ()
+\begin{DoxyCompactList}\small\item\em force calculation, when the ray leaves an object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a177e2638d990fe28fa9bb184e5e182ae}{trace\+Enter\+Object}} ()
+\begin{DoxyCompactList}\small\item\em force calculation, when the ray enters an object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a63b62cf2d772d93d31b048d5e6906327}{F}}
+\begin{DoxyCompactList}\small\item\em list of the forces acting on the objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a8e47fe7734da28cab54c67f42e5e894f}{L}}
+\begin{DoxyCompactList}\small\item\em angular momenta acting on the objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a91756c37a4ca2b39de22e34ba820698a}{f}}
+\begin{DoxyCompactList}\small\item\em list of the forces acting on the objects, separated for the different light sources \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a798f80ed574316ba22506fe07dabc9bb}{l}}
+\begin{DoxyCompactList}\small\item\em list of the angular momenta acting on the objects, separated for the different light sources \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides functionality to calculate the forces for optical tweezers. It is derived by the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace}{Raytrace}}. 
+
+Definition at line 122 of file raytrace.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a57018839015a32be4d9a75ceeb259cdd}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a57018839015a32be4d9a75ceeb259cdd}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!Raytrace\_OT@{Raytrace\_OT}}
+\index{Raytrace\_OT@{Raytrace\_OT}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_OT()}{Raytrace\_OT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::\+Raytrace\+\_\+\+OT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a1fcfd412d38226ba67ce0af453729016}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a1fcfd412d38226ba67ce0af453729016}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!Raytrace\_OT@{Raytrace\_OT}}
+\index{Raytrace\_OT@{Raytrace\_OT}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_OT()}{Raytrace\_OT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::\+Raytrace\+\_\+\+OT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}}]{S }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a45c5607a957a727efc84532c348790dd}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a45c5607a957a727efc84532c348790dd}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!setScene@{setScene}}
+\index{setScene@{setScene}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{setScene()}{setScene()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::set\+Scene (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a56f22e2200d317d1e37ed1d4e0ff5ed9}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a56f22e2200d317d1e37ed1d4e0ff5ed9}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!trace@{trace}}
+\index{trace@{trace}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a177e2638d990fe28fa9bb184e5e182ae}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a177e2638d990fe28fa9bb184e5e182ae}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!traceEnterObject@{traceEnterObject}}
+\index{traceEnterObject@{traceEnterObject}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{traceEnterObject()}{traceEnterObject()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::trace\+Enter\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+force calculation, when the ray enters an object 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{G\+O\+A\+T\+::raytracing\+::\+Raytrace}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a47364751baf664a70cab6e25463a4b25}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a47364751baf664a70cab6e25463a4b25}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!traceLeaveObject@{traceLeaveObject}}
+\index{traceLeaveObject@{traceLeaveObject}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{traceLeaveObject()}{traceLeaveObject()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::trace\+Leave\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+force calculation, when the ray leaves an object 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{G\+O\+A\+T\+::raytracing\+::\+Raytrace}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a63b62cf2d772d93d31b048d5e6906327}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a63b62cf2d772d93d31b048d5e6906327}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!F@{F}}
+\index{F@{F}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$$\ast$ G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::F}
+
+
+
+list of the forces acting on the objects 
+
+
+
+Definition at line 131 of file raytrace.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a91756c37a4ca2b39de22e34ba820698a}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a91756c37a4ca2b39de22e34ba820698a}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!f@{f}}
+\index{f@{f}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$$\ast$$\ast$ G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::f}
+
+
+
+list of the forces acting on the objects, separated for the different light sources 
+
+
+
+Definition at line 133 of file raytrace.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a8e47fe7734da28cab54c67f42e5e894f}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a8e47fe7734da28cab54c67f42e5e894f}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!L@{L}}
+\index{L@{L}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{L}{L}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$$\ast$ G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::L}
+
+
+
+angular momenta acting on the objects 
+
+
+
+Definition at line 132 of file raytrace.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a798f80ed574316ba22506fe07dabc9bb}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a798f80ed574316ba22506fe07dabc9bb}} 
+\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!l@{l}}
+\index{l@{l}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
+\doxysubsubsection{\texorpdfstring{l}{l}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$$\ast$$\ast$ G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+O\+T\+::l}
+
+
+
+list of the angular momenta acting on the objects, separated for the different light sources 
+
+
+
+Definition at line 134 of file raytrace.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{raytrace_8h}{raytrace.\+h}}\end{DoxyCompactItemize}

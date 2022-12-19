@@ -1,0 +1,110 @@
+\hypertarget{tubedray_8h}{}\doxysection{raytracing/tubedray.h File Reference}
+\label{tubedray_8h}\index{raytracing/tubedray.h@{raytracing/tubedray.h}}
+{\ttfamily \#include \char`\"{}raybase.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include \char`\"{}fresnel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}resutil.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}plane.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}objectshape.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{G\+O\+A\+T\+::raytracing\+::tubed\+Ray\+Buffer}}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{G\+O\+A\+T\+::raytracing\+::\+Gauss}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{G\+O\+A\+T\+::raytracing\+::tubed\+Ray}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{G\+O\+A\+T\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}{K\+E\+I\+N\+\_\+\+S\+C\+H\+N\+I\+T\+T\+P\+U\+N\+KT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}{G\+E\+S\+C\+H\+N\+I\+T\+T\+EN}}~0
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}{I\+N\+\_\+\+Plane}}~1
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}{E\+P\+S\+\_\+\+W\+I\+N\+K\+EL}}~0
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}{O\+H\+N\+E\+\_\+\+G\+A\+U\+SS}}
+\begin{DoxyCompactList}\small\item\em output operator for the Gauss structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{G\+O\+A\+T\+::raytracing\+::bin\+Write}} (Gauss gs, std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{G\+O\+A\+T\+::raytracing\+::bin\+Read}} (Gauss \&Gs, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em write the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure to a binary file \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a32c73e20492b12310aad307f3a27c48a}{G\+O\+A\+T\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, Gauss gs)
+\begin{DoxyCompactList}\small\item\em read the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure from a binary file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const Gauss \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7123161c2477beec6bb0171e7833655b}{G\+O\+A\+T\+::raytracing\+::ohne\+\_\+gauss}} = \{ 0,maths\+::\+Vector$<$double$>$(0,0,0),maths\+::\+Vector$<$double$>$(0,0,0),false \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}\label{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}} 
+\index{tubedray.h@{tubedray.h}!EPS\_WINKEL@{EPS\_WINKEL}}
+\index{EPS\_WINKEL@{EPS\_WINKEL}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{EPS\_WINKEL}{EPS\_WINKEL}}
+{\footnotesize\ttfamily \#define E\+P\+S\+\_\+\+W\+I\+N\+K\+EL~0}
+
+
+
+Definition at line 33 of file tubedray.\+h.
+
+\mbox{\Hypertarget{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}\label{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}} 
+\index{tubedray.h@{tubedray.h}!GESCHNITTEN@{GESCHNITTEN}}
+\index{GESCHNITTEN@{GESCHNITTEN}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{GESCHNITTEN}{GESCHNITTEN}}
+{\footnotesize\ttfamily \#define G\+E\+S\+C\+H\+N\+I\+T\+T\+EN~0}
+
+
+
+Definition at line 29 of file tubedray.\+h.
+
+\mbox{\Hypertarget{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}\label{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}} 
+\index{tubedray.h@{tubedray.h}!IN\_Plane@{IN\_Plane}}
+\index{IN\_Plane@{IN\_Plane}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{IN\_Plane}{IN\_Plane}}
+{\footnotesize\ttfamily \#define I\+N\+\_\+\+Plane~1}
+
+
+
+Definition at line 30 of file tubedray.\+h.
+
+\mbox{\Hypertarget{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}\label{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}} 
+\index{tubedray.h@{tubedray.h}!KEIN\_SCHNITTPUNKT@{KEIN\_SCHNITTPUNKT}}
+\index{KEIN\_SCHNITTPUNKT@{KEIN\_SCHNITTPUNKT}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{KEIN\_SCHNITTPUNKT}{KEIN\_SCHNITTPUNKT}}
+{\footnotesize\ttfamily \#define K\+E\+I\+N\+\_\+\+S\+C\+H\+N\+I\+T\+T\+P\+U\+N\+KT~-\/1}
+
+
+
+Definition at line 28 of file tubedray.\+h.
+
+\mbox{\Hypertarget{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}\label{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}} 
+\index{tubedray.h@{tubedray.h}!OHNE\_GAUSS@{OHNE\_GAUSS}}
+\index{OHNE\_GAUSS@{OHNE\_GAUSS}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{OHNE\_GAUSS}{OHNE\_GAUSS}}
+{\footnotesize\ttfamily \#define O\+H\+N\+E\+\_\+\+G\+A\+U\+SS}
+
+
+
+output operator for the Gauss structure 
+
+
+
+Definition at line 77 of file tubedray.\+h.
+

@@ -1,0 +1,683 @@
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray}{}\doxysection{G\+O\+AT\+::raytracing\+::I\+Ray Class Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_i_ray}\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+
+
+This class represents a single ray.  
+
+
+
+
+{\ttfamily \#include $<$iray.\+h$>$}
+
+Inheritance diagram for G\+O\+AT\+::raytracing\+::I\+Ray\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_g_o_a_t_1_1raytracing_1_1_i_ray}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae89a67598dd13a855d9c5d86d222750f}{I\+Ray}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae10c46b6e8a1c30e745e79f6b5066767}{I\+Ray}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&K, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}}, const int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}}=0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$obj=N\+U\+LL)
+\begin{DoxyCompactList}\small\item\em Contructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab154f48541ab127915caf7922c7e31a3}{I\+Ray}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}} \&r)
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab2d79f1699d60fc52fd3483fadddc5cc}{next}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_adc0686e4087c254af6d654ac626bf985}{getE}} ()
+\begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a64a24bdb99e97132085c8f0c11290110}{reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This function reflects ray on the surface. Here, the ray is reflected and the transmitted ray is created. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a26e2954928a357c7303e4ad1043cae5c}{refract}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ N, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This function refracts the ray on the surface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a42f3248340dafd4725d66288ee994e03}{set\+Refract}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\begin{DoxyCompactList}\small\item\em Sets the current refractive index. \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a048a35cb3e77ee86e34c95d048661baf}{get\+Refract}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current refractive index. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a91e1eac63dc87eba490f876ec213f608}{setk}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&K)
+\begin{DoxyCompactList}\small\item\em Sets the direction of the ray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a688ee154bc2f40e7bfe980d7fda20075}{setP}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Current position of the ray. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac2f5e68fc74663ea4e199d099104e12a}{setiR}} (int i)
+\begin{DoxyCompactList}\small\item\em Sets the current reflexion counter (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3a0594d502603ae4c464e92c4f2cdf96}{getk}} ()
+\begin{DoxyCompactList}\small\item\em Returns the direction of the ray. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_abcbe819e6953eab52b4df2679cd5bb17}{getP}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current position of the ray. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab3ad13adcdada4e23c238051cde4a6c9}{object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Returns the index of the last hidden object (or -\/1 if no object was hidden) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1075d017e6b5d581daa545637cd15809}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em Reflects ray on the surface /param tray Transmitted (=refracted) ray /param n Surface normal /param n1 Refractive index (incident side) /param n2 Refractive index (transmitted side) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9ae993a331e4bf3b00a6b15eea0059f7}{get\+Object}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the i-\/th object (for internal use only) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab9a6b006b06ba98ceae6e622c74af344}{$\sim$\+I\+Ray}} ()
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac5beb6e3be67438d2f0ac89de0da7863}{is\+In\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if ray is inside an object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7687b805440c564f234afcb1d7f45569}{check\+Object\+Intersection}} (int \&Index, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Pmin)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a55ef763138620ad9d82ac3bff289044a}{current\+Object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em returns the index of the hidden object or -\/1 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ad90c735d4e2ee50846631fe6de82b526}{reflections}} ()
+\begin{DoxyCompactList}\small\item\em Returns the number of reflections the beam has already passed through. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a263c6bb6512b3cd351a6f89090f1ccec}{Pol1}} ()
+\begin{DoxyCompactList}\small\item\em direction of the first polarisation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a665fc7b318a4f4c118418529e30f569f}{Pol2}} ()
+\begin{DoxyCompactList}\small\item\em direction of the second polarisation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a56260d0584947118c50e673d6ce2e970}{Fresnel\+\_\+reflect}} (double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em returns Fresnel matrix for the reflection calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3b4916eddfa87f5c094ff9df082d6afb}{Fresnel\+\_\+trans}} (double alpha, std\+::complex$<$ double $>$ beta, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em returns Fresnel matrix for the transmission calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9d5bbfa0c6ed1a54b9e52bc1f1f2f4eb}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const int num\+Of\+Rays=1)
+\begin{DoxyCompactList}\small\item\em initialises the electric field with help of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} Eb and the polarisation Pol, num\+Of\+Rays can be omitted. (Here, only one polarisation is given, the other is skipped) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_aa80b3c744c6a4f7325cb40f61af2dfa7}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolS, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolP, const int Anz\+Rays)
+\begin{DoxyCompactList}\small\item\em initialises the electric field vectors with help of polarisation vectors PolS and PolP, num\+Of\+Rays can be omitted \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9637a35931ae2b9648a1efaebc6bff27}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a263c6bb6512b3cd351a6f89090f1ccec}{Pol1}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a665fc7b318a4f4c118418529e30f569f}{Pol2}}, const int Anz\+Rays)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_afb49ec7fd1419d708d32a7a564879547}{init\+Electric\+Field\+Gauss}} (double sigma2, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ focuspos, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ Pol)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a4ce0b3617dec9311dd1dd2f05315a}{init\+Electric\+Field\+Gauss}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolS, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&PolP, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} g)
+\begin{DoxyCompactList}\small\item\em Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vectors PolS and PolP. The parameters for the gaussian beam are stored in g. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7e97293c0bb563ddb1c34047ed7fe1ad}{init\+Electric\+Field\+Gauss}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} g)
+\begin{DoxyCompactList}\small\item\em Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vector Pol (second polarisation is not used, E2 is set to E1). The parameters for the gaussian beam are stored in g. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a8a22b5e263db925074cdf637b38d5325}{cross}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P10, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P11, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P20, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P21)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a2869bd4b5d6d51c0b90d6269617917fb}{cross\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Pe, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\begin{DoxyCompactList}\small\item\em calculates the intersection point between the ray and a plane, which is defined by the vector P and the normal n \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_abdb9d91a20eb01abfd3636943f7e0b1d}{intersect\+Rect}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a495aeca0112d5dca8f3aa437a6ebaef3}{P}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ e1, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ e2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a495aeca0112d5dca8f3aa437a6ebaef3}{P}}
+\begin{DoxyCompactList}\small\item\em current position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1da85d4b98f76d32412e43b64599e552}{k}}
+\begin{DoxyCompactList}\small\item\em current direction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac22c9cb9a841399271beccd23a895228}{E1}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab4090c7ad52aa3c9105da5595acd9c56}{E2}}
+\begin{DoxyCompactList}\small\item\em electric fields \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a0cc398b58f73eb47febd53865d1ccfd9}{OK}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a427c7c99619006b96f4277ea72f711b3}{K\+O\+RR}}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_aeb971a2a55b4ba94dc1096010527f858}{is\+Valid}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a1b65f6231e7c32da9dc0f7645cf39}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}} S)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class represents a single ray. 
+
+This ray is intended to calculate with a single ray with two different polarisations. This class should not be used directly. It is intended for use together with classes derived by \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} (like \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+Src\+Plane}} or \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+Src\+Gauss}}) 
+
+Definition at line 35 of file iray.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae89a67598dd13a855d9c5d86d222750f}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae89a67598dd13a855d9c5d86d222750f}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!IRay@{IRay}}
+\index{IRay@{IRay}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{IRay()}{IRay()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+I\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae10c46b6e8a1c30e745e79f6b5066767}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae10c46b6e8a1c30e745e79f6b5066767}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!IRay@{IRay}}
+\index{IRay@{IRay}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{IRay()}{IRay()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+I\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{K,  }\item[{std\+::complex$<$ double $>$}]{n0,  }\item[{double}]{r0,  }\item[{double}]{k0,  }\item[{const int}]{num\+Obj = {\ttfamily 0},  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$}]{obj = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Contructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Position of the ray \\
+\hline
+{\em Pol} & Polarisation (in the moment not used) \\
+\hline
+{\em K} & direction of the ray \\
+\hline
+{\em n0} & refractive index \\
+\hline
+{\em r0} & radius of the calculation sphere \\
+\hline
+{\em k0} & wavenumber (=2$\ast$pi/wavelength in vacuum) \\
+\hline
+{\em num\+Obj} & number of objects \\
+\hline
+{\em obj} & list of the objects \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab154f48541ab127915caf7922c7e31a3}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab154f48541ab127915caf7922c7e31a3}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!IRay@{IRay}}
+\index{IRay@{IRay}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{IRay()}{IRay()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+I\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}} \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 54 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab9a6b006b06ba98ceae6e622c74af344}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab9a6b006b06ba98ceae6e622c74af344}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!````~IRay@{$\sim$IRay}}
+\index{````~IRay@{$\sim$IRay}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{$\sim$IRay()}{~IRay()}}
+{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::$\sim$\+I\+Ray (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7687b805440c564f234afcb1d7f45569}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7687b805440c564f234afcb1d7f45569}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!checkObjectIntersection@{checkObjectIntersection}}
+\index{checkObjectIntersection@{checkObjectIntersection}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{checkObjectIntersection()}{checkObjectIntersection()}}
+{\footnotesize\ttfamily bool G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::check\+Object\+Intersection (\begin{DoxyParamCaption}\item[{int \&}]{Index,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{Pmin }\end{DoxyParamCaption})}
+
+Checks wether there is an intersection between the ray and an object or not. In case of an intersection the function returns true and Index is set to the index of the object within the object list and Pmin gives the (nearest) intersection point \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a8a22b5e263db925074cdf637b38d5325}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a8a22b5e263db925074cdf637b38d5325}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!cross@{cross}}
+\index{cross@{cross}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{cross()}{cross()}}
+{\footnotesize\ttfamily double G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::cross (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P10,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P11,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P20,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P21 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a2869bd4b5d6d51c0b90d6269617917fb}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a2869bd4b5d6d51c0b90d6269617917fb}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!crossPlane@{crossPlane}}
+\index{crossPlane@{crossPlane}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{crossPlane()}{crossPlane()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::cross\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Pe,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n }\end{DoxyParamCaption})}
+
+
+
+calculates the intersection point between the ray and a plane, which is defined by the vector P and the normal n 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a55ef763138620ad9d82ac3bff289044a}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a55ef763138620ad9d82ac3bff289044a}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!currentObjectIndex@{currentObjectIndex}}
+\index{currentObjectIndex@{currentObjectIndex}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{currentObjectIndex()}{currentObjectIndex()}}
+{\footnotesize\ttfamily int G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::current\+Object\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the index of the hidden object or -\/1 
+
+
+
+Definition at line 121 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a56260d0584947118c50e673d6ce2e970}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a56260d0584947118c50e673d6ce2e970}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!Fresnel\_reflect@{Fresnel\_reflect}}
+\index{Fresnel\_reflect@{Fresnel\_reflect}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{Fresnel\_reflect()}{Fresnel\_reflect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+Fresnel\+\_\+reflect (\begin{DoxyParamCaption}\item[{double}]{alpha,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+returns Fresnel matrix for the reflection calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3b4916eddfa87f5c094ff9df082d6afb}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3b4916eddfa87f5c094ff9df082d6afb}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!Fresnel\_trans@{Fresnel\_trans}}
+\index{Fresnel\_trans@{Fresnel\_trans}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{Fresnel\_trans()}{Fresnel\_trans()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+Fresnel\+\_\+trans (\begin{DoxyParamCaption}\item[{double}]{alpha,  }\item[{std\+::complex$<$ double $>$}]{beta,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+returns Fresnel matrix for the transmission calculation (alpha\+: angle of incidence, n1,n2 are the refractive indices) 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_adc0686e4087c254af6d654ac626bf985}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_adc0686e4087c254af6d654ac626bf985}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!getE@{getE}}
+\index{getE@{getE}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{getE()}{getE()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::getE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+gives back electric field strength 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a948c013cc648112ea9d44d91ae0211f2}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Definition at line 77 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3a0594d502603ae4c464e92c4f2cdf96}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3a0594d502603ae4c464e92c4f2cdf96}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!getk@{getk}}
+\index{getk@{getk}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{getk()}{getk()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::getk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the direction of the ray. 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a80fcbaed3e121f3fecd5d3b0e5b09e2a}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Definition at line 102 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9ae993a331e4bf3b00a6b15eea0059f7}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9ae993a331e4bf3b00a6b15eea0059f7}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!getObject@{getObject}}
+\index{getObject@{getObject}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{getObject()}{getObject()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}$\ast$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::get\+Object (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the i-\/th object (for internal use only) 
+
+
+
+Definition at line 113 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_abcbe819e6953eab52b4df2679cd5bb17}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_abcbe819e6953eab52b4df2679cd5bb17}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!getP@{getP}}
+\index{getP@{getP}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{getP()}{getP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::getP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the current position of the ray. 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef16d541e35bf80afc480bba864e5e58}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Definition at line 103 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a048a35cb3e77ee86e34c95d048661baf}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a048a35cb3e77ee86e34c95d048661baf}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!getRefract@{getRefract}}
+\index{getRefract@{getRefract}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{getRefract()}{getRefract()}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::get\+Refract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the current refractive index. 
+
+
+
+Definition at line 97 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_aa80b3c744c6a4f7325cb40f61af2dfa7}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_aa80b3c744c6a4f7325cb40f61af2dfa7}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricField@{initElectricField}}
+\index{initElectricField@{initElectricField}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricField()}{initElectricField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{PolS,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{PolP,  }\item[{const int}]{Anz\+Rays }\end{DoxyParamCaption})}
+
+
+
+initialises the electric field vectors with help of polarisation vectors PolS and PolP, num\+Of\+Rays can be omitted 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9d5bbfa0c6ed1a54b9e52bc1f1f2f4eb}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9d5bbfa0c6ed1a54b9e52bc1f1f2f4eb}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricField@{initElectricField}}
+\index{initElectricField@{initElectricField}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricField()}{initElectricField()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&}]{Eb,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{const int}]{num\+Of\+Rays = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+
+
+initialises the electric field with help of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} Eb and the polarisation Pol, num\+Of\+Rays can be omitted. (Here, only one polarisation is given, the other is skipped) 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9637a35931ae2b9648a1efaebc6bff27}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a9637a35931ae2b9648a1efaebc6bff27}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricField@{initElectricField}}
+\index{initElectricField@{initElectricField}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricField()}{initElectricField()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&}]{Eb,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol1,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol2,  }\item[{const int}]{Anz\+Rays }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a4ce0b3617dec9311dd1dd2f05315a}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a4ce0b3617dec9311dd1dd2f05315a}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricFieldGauss@{initElectricFieldGauss}}
+\index{initElectricFieldGauss@{initElectricFieldGauss}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricFieldGauss()}{initElectricFieldGauss()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field\+Gauss (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&}]{Eb,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{PolS,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{PolP,  }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vectors PolS and PolP. The parameters for the gaussian beam are stored in g. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_afb49ec7fd1419d708d32a7a564879547}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_afb49ec7fd1419d708d32a7a564879547}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricFieldGauss@{initElectricFieldGauss}}
+\index{initElectricFieldGauss@{initElectricFieldGauss}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricFieldGauss()}{initElectricFieldGauss()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field\+Gauss (\begin{DoxyParamCaption}\item[{double}]{sigma2,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{focuspos,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol }\end{DoxyParamCaption})}
+
+Initialises the ray for a gaussian beam according to
+
+$ \vec E=\vec{Pol} \cdot e^{-ik_0h} \cdot e^{-(r^2-h^2)/\sigma_2} $ where $ r=(\vec{F}-\vec{P})\cdot\vec{k},~h=r-|\vec{F}-\vec{P}| $ ( $\vec{F}$\+: focal point)
+
+E1 and E2 are set to the same value ! \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7e97293c0bb563ddb1c34047ed7fe1ad}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a7e97293c0bb563ddb1c34047ed7fe1ad}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!initElectricFieldGauss@{initElectricFieldGauss}}
+\index{initElectricFieldGauss@{initElectricFieldGauss}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{initElectricFieldGauss()}{initElectricFieldGauss()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::init\+Electric\+Field\+Gauss (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}}}]{g }\end{DoxyParamCaption})}
+
+
+
+Initialises the ray for gaussian beam with help of the plane Eb and the polarisation vector Pol (second polarisation is not used, E2 is set to E1). The parameters for the gaussian beam are stored in g. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_abdb9d91a20eb01abfd3636943f7e0b1d}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_abdb9d91a20eb01abfd3636943f7e0b1d}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!intersectRect@{intersectRect}}
+\index{intersectRect@{intersectRect}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{intersectRect()}{intersectRect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::intersect\+Rect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e1,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e2 }\end{DoxyParamCaption})}
+
+Calculates the intersection point between the ray and a rectangle defined by the edge point P and the vectors e1 and e2. If there is no intersection point, a NaN valued vector is returned. \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac5beb6e3be67438d2f0ac89de0da7863}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac5beb6e3be67438d2f0ac89de0da7863}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!isInObject@{isInObject}}
+\index{isInObject@{isInObject}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{isInObject()}{isInObject()}}
+{\footnotesize\ttfamily bool G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::is\+In\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns true if ray is inside an object. 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Definition at line 115 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab2d79f1699d60fc52fd3483fadddc5cc}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab2d79f1699d60fc52fd3483fadddc5cc}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!next@{next}}
+\index{next@{next}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily bool G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab3ad13adcdada4e23c238051cde4a6c9}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab3ad13adcdada4e23c238051cde4a6c9}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!objectIndex@{objectIndex}}
+\index{objectIndex@{objectIndex}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{objectIndex()}{objectIndex()}}
+{\footnotesize\ttfamily int G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::object\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the index of the last hidden object (or -\/1 if no object was hidden) 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Definition at line 104 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a263c6bb6512b3cd351a6f89090f1ccec}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a263c6bb6512b3cd351a6f89090f1ccec}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!Pol1@{Pol1}}
+\index{Pol1@{Pol1}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{Pol1()}{Pol1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+Pol1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+direction of the first polarisation 
+
+
+
+Definition at line 126 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a665fc7b318a4f4c118418529e30f569f}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a665fc7b318a4f4c118418529e30f569f}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!Pol2@{Pol2}}
+\index{Pol2@{Pol2}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{Pol2()}{Pol2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+Pol2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+direction of the second polarisation 
+
+
+
+Definition at line 127 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a64a24bdb99e97132085c8f0c11290110}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a64a24bdb99e97132085c8f0c11290110}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!reflect@{reflect}}
+\index{reflect@{reflect}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{reflect()}{reflect()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}} G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::reflect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+This function reflects ray on the surface. Here, the ray is reflected and the transmitted ray is created. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & Surface normal \\
+\hline
+{\em n1} & Refractive index (incident side) \\
+\hline
+{\em n2} & Refractive index (transmitted side) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Transmitted ray 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ad90c735d4e2ee50846631fe6de82b526}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ad90c735d4e2ee50846631fe6de82b526}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!reflections@{reflections}}
+\index{reflections@{reflections}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{reflections()}{reflections()}}
+{\footnotesize\ttfamily int G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::reflections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the number of reflections the beam has already passed through. 
+
+
+
+Definition at line 123 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1075d017e6b5d581daa545637cd15809}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1075d017e6b5d581daa545637cd15809}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!reflectRay@{reflectRay}}
+\index{reflectRay@{reflectRay}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{reflectRay()}{reflectRay()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::reflect\+Ray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$\&}]{tray,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reflects ray on the surface /param tray Transmitted (=refracted) ray /param n Surface normal /param n1 Refractive index (incident side) /param n2 Refractive index (transmitted side) 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}{G\+O\+A\+T\+::raytracing\+::\+Ray\+Base}}.
+
+
+
+Reimplemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow_ade6c45d46893565559f4665df27d5bc9}{G\+O\+A\+T\+::raytracing\+::\+Ray\+\_\+pow}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a26e2954928a357c7303e4ad1043cae5c}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a26e2954928a357c7303e4ad1043cae5c}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!refract@{refract}}
+\index{refract@{refract}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{refract()}{refract()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::refract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{N,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+
+
+
+This function refracts the ray on the surface. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em N} & Surface normal \\
+\hline
+{\em n1} & Refractive index (incident side) \\
+\hline
+{\em n2} & Refractive index (transmitted side) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac2f5e68fc74663ea4e199d099104e12a}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac2f5e68fc74663ea4e199d099104e12a}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!setiR@{setiR}}
+\index{setiR@{setiR}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{setiR()}{setiR()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::setiR (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current reflexion counter (for internal use only) 
+
+
+
+Definition at line 100 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a91e1eac63dc87eba490f876ec213f608}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a91e1eac63dc87eba490f876ec213f608}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!setk@{setk}}
+\index{setk@{setk}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{setk()}{setk()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::setk (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{K }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the direction of the ray. 
+
+
+
+Definition at line 98 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a688ee154bc2f40e7bfe980d7fda20075}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a688ee154bc2f40e7bfe980d7fda20075}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!setP@{setP}}
+\index{setP@{setP}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{setP()}{setP()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::setP (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Current position of the ray. 
+
+
+
+Definition at line 99 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a42f3248340dafd4725d66288ee994e03}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a42f3248340dafd4725d66288ee994e03}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!setRefract@{setRefract}}
+\index{setRefract@{setRefract}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{setRefract()}{setRefract()}}
+{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::set\+Refract (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the current refractive index. 
+
+
+
+Definition at line 96 of file iray.\+h.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a1b65f6231e7c32da9dc0f7645cf39}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ae7a1b65f6231e7c32da9dc0f7645cf39}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{I\+Ray}}}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac22c9cb9a841399271beccd23a895228}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac22c9cb9a841399271beccd23a895228}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!E1@{E1}}
+\index{E1@{E1}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{E1}{E1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+E1}
+
+
+
+Definition at line 162 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab4090c7ad52aa3c9105da5595acd9c56}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab4090c7ad52aa3c9105da5595acd9c56}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!E2@{E2}}
+\index{E2@{E2}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{E2}{E2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+E2}
+
+
+
+electric fields 
+
+
+
+Definition at line 162 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_aeb971a2a55b4ba94dc1096010527f858}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_aeb971a2a55b4ba94dc1096010527f858}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!isValid@{isValid}}
+\index{isValid@{isValid}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{isValid}{isValid}}
+{\footnotesize\ttfamily bool G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::is\+Valid\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 167 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1da85d4b98f76d32412e43b64599e552}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1da85d4b98f76d32412e43b64599e552}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!k@{k}}
+\index{k@{k}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::k}
+
+
+
+current direction 
+
+
+
+Definition at line 161 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a427c7c99619006b96f4277ea72f711b3}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a427c7c99619006b96f4277ea72f711b3}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!KORR@{KORR}}
+\index{KORR@{KORR}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{KORR}{KORR}}
+{\footnotesize\ttfamily double G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+K\+O\+RR\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 166 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a0cc398b58f73eb47febd53865d1ccfd9}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a0cc398b58f73eb47febd53865d1ccfd9}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!OK@{OK}}
+\index{OK@{OK}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{OK}{OK}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::\+OK\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 165 of file iray.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_i_ray_a495aeca0112d5dca8f3aa437a6ebaef3}\label{class_g_o_a_t_1_1raytracing_1_1_i_ray_a495aeca0112d5dca8f3aa437a6ebaef3}} 
+\index{GOAT::raytracing::IRay@{GOAT::raytracing::IRay}!P@{P}}
+\index{P@{P}!GOAT::raytracing::IRay@{GOAT::raytracing::IRay}}
+\doxysubsubsection{\texorpdfstring{P}{P}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ G\+O\+A\+T\+::raytracing\+::\+I\+Ray\+::P}
+
+
+
+current position 
+
+
+
+Definition at line 160 of file iray.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{iray_8h}{iray.\+h}}\end{DoxyCompactItemize}
