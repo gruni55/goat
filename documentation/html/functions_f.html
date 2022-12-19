@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_f.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,40 +82,53 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_f"></a>- f -</h3><ul>
 <li>F
-: <a class="el" href="struct_gauss.html#aeee1d52e67a3db5aec8b9757f32fa87d">Gauss</a>
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a540f1b9c97170114f230a7d67a7a2709">GOAT::raytracing::Gauss</a>
 </li>
 <li>f
-: <a class="el" href="class_light_src_gauss.html#af104065f36a4a1e100dd461284ad6337">LightSrcGauss</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad85a71bde9dca01a088ab7f61c3c9bf8">GOAT::raytracing::LightSrcGauss</a>
 </li>
 <li>F
-: <a class="el" href="class_raytrace___o_t.html#a5fc49ec2506baff0867805bb50dd9445">Raytrace_OT</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a63b62cf2d772d93d31b048d5e6906327">GOAT::raytracing::Raytrace_OT</a>
 </li>
 <li>f
-: <a class="el" href="class_raytrace___o_t.html#a61c75d4200c0301005856d6ff459e31e">Raytrace_OT</a>
-, <a class="el" href="classtriangle.html#aa28f184567eebf3421fa50a37316a2c9">triangle</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a91756c37a4ca2b39de22e34ba820698a">GOAT::raytracing::Raytrace_OT</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1triangle.html#a778e375a2c8aa07592b8661dbdfb5719">GOAT::raytracing::triangle</a>
+</li>
+<li>fill()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a888c33b89084b36d55a3e4c3c5fb2e0e">GOAT::raytracing::SuperArray</a>
+</li>
+<li>flaeche()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#ae374d7183bd202d3c0bd2ea55be5d161">GOAT::raytracing::tubedRay</a>
 </li>
 <li>FName
-: <a class="el" href="classsurface.html#af1a25218b5019a21fe7e39bc936d2362">surface</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50">GOAT::raytracing::surface</a>
 </li>
 <li>focuspos
-: <a class="el" href="class_light_src_gauss.html#a1405d66f5fccf1601e16f490a11f4b50">LightSrcGauss</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81">GOAT::raytracing::LightSrcGauss</a>
+</li>
+<li>free
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c">GOAT::raytracing::SysMemInfo</a>
 </li>
 <li>Fresnel_reflect()
-: <a class="el" href="class_i_ray.html#a1229e6d6b05381bc5f3acfd66a1d38ba">IRay</a>
-, <a class="el" href="classtubed_ray.html#a0e9ccacf5274742f38ba717a931fb905">tubedRay</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a56260d0584947118c50e673d6ce2e970">GOAT::raytracing::IRay</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a75255ae9c9aa4ff960e9913fb6b39677">GOAT::raytracing::tubedRay</a>
 </li>
 <li>Fresnel_trans()
-: <a class="el" href="class_i_ray.html#a0aaca1a114e958c68e788eeccf503faf">IRay</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a3b4916eddfa87f5c094ff9df082d6afb">GOAT::raytracing::IRay</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a0275a8c867711201a66e6ec18681f5e2">GOAT::raytracing::tubedRay</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

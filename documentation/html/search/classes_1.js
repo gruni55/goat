@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['detector_314',['Detector',['../class_detector.html',1,'']]],
-  ['detectorplane_315',['DetectorPlane',['../class_detector_plane.html',1,'']]]
+  ['detector_714',['Detector',['../class_g_o_a_t_1_1raytracing_1_1_detector.html',1,'GOAT::raytracing']]],
+  ['detectorplane_715',['DetectorPlane',['../class_g_o_a_t_1_1raytracing_1_1_detector_plane.html',1,'GOAT::raytracing']]]
 ];

@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('globals.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,141 +82,360 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented file members with links to the documentation:</div>
+<div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>abs()
-: <a class="el" href="vector_8h.html#ac858532f407521fdfb1f58b37301f1a7">vector.h</a>
-</li>
-<li>abs2()
-: <a class="el" href="vector_8h.html#ae4aa0aace79bdb1703d793296e8e9520">vector.h</a>
+<li>ANZ_STRAHLEN
+: <a class="el" href="resutil_8h.html#a16d8477f8528cbbfd302e1c4a09356e8">resutil.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>cart2sphere()
-: <a class="el" href="vector_8h.html#a7a5ed24bd7b2a211c85792ac23bbea8a">vector.h</a>
+<li>c_light
+: <a class="el" href="misc_8h.html#aaa394eb43d83411862c2480cca91d331">misc.h</a>
 </li>
-<li>ceil()
-: <a class="el" href="vector_8h.html#ad0519c307e3a14b4cdded9d4ee3c756e">vector.h</a>
+<li>CALLOC_ERR
+: <a class="el" href="error_8h.html#adb77f46a31b51411b794576326b1a925">error.h</a>
 </li>
-<li>conj()
-: <a class="el" href="vector_8h.html#ac35d273a6252c06cb692f43e508c4158">vector.h</a>
+<li>complex_I
+: <a class="el" href="vector_8h.html#abb666b396b5cea23900efea0bd7cb2b8">vector.h</a>
+, <a class="el" href="resutil_8h.html#abb666b396b5cea23900efea0bd7cb2b8">resutil.h</a>
 </li>
-<li>conv2double()
-: <a class="el" href="vector_8h.html#aa38c826ac14964fdd1aedbc2f9f2d31a">vector.h</a>
+<li>COMPOUND
+: <a class="el" href="objectshape_8h.html#a03bd6f804505b7b4af1f39260a8e3d26">objectshape.h</a>
 </li>
-<li>conv2vector()
-: <a class="el" href="vector_8h.html#a6cca40c6ce3b27a3e461e54b523c851e">vector.h</a>
+<li>cone
+: <a class="el" href="vector_8h.html#a59e9c19a0ec2dab3ad6e815227a4b378">vector.h</a>
 </li>
-<li>cunity()
-: <a class="el" href="matrix_8h.html#ac9f1fdff7b0154977874f0878e8be08c">matrix.h</a>
-</li>
-<li>CUNITY
-: <a class="el" href="matrix_8h.html#a69a60d4c2f5edb6d0faeb760343d2762">matrix.h</a>
+<li>czero
+: <a class="el" href="vector_8h.html#a67b72833e47467ff90e7065cae471794">vector.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_d"></a>- d -</h3><ul>
-<li>Dx()
-: <a class="el" href="matrix_8h.html#ae9067f1a7f396b82414cd90646a90c76">matrix.h</a>
+<li>DETECTOR_ANGLE
+: <a class="el" href="detector_8h.html#a554483989b45b7389de90e01ac5c975d">detector.h</a>
 </li>
-<li>Dy()
-: <a class="el" href="matrix_8h.html#a61c1e545dde8067d07487f851fe6737e">matrix.h</a>
+<li>DETECTOR_PLANE
+: <a class="el" href="detector_8h.html#a220cc659cd779bb2adabd0a1008f49db">detector.h</a>
 </li>
-<li>Dz()
-: <a class="el" href="matrix_8h.html#ad1101a80418340324f5aaf7ea9a52770">matrix.h</a>
+<li>dzero
+: <a class="el" href="vector_8h.html#a8b38bbea61f8194f0c5fd3632d64aff0">vector.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_e"></a>- e -</h3><ul>
+<li>EPS
+: <a class="el" href="objectshape_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae">objectshape.h</a>
+</li>
+<li>eps0
+: <a class="el" href="misc_8h.html#a77e87d06f5832eb1a8c064c37e301087">misc.h</a>
+</li>
+<li>EPS_WINKEL
+: <a class="el" href="tubedray_8h.html#a7d91e88410257b42d7e2c1db13909757">tubedray.h</a>
+</li>
+<li>ERROR_H
+: <a class="el" href="error_8h.html#a02d916799f77b7caacdabd7fefe5c31f">error.h</a>
+</li>
+<li>ERYTHROCYTE
+: <a class="el" href="objectshape_8h.html#a2995f77081acce9b5c07ed7645f484a6">objectshape.h</a>
+</li>
+<li>ex
+: <a class="el" href="vector_8h.html#aa39e54ccef74a255384ae21989f11022">vector.h</a>
+</li>
+<li>ey
+: <a class="el" href="vector_8h.html#a56d8a5099eb4328d3a094331b89bc621">vector.h</a>
+</li>
+<li>ez
+: <a class="el" href="vector_8h.html#ae8cef987957a66194c27bf58d3f1b33e">vector.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
-<li>floor()
-: <a class="el" href="vector_8h.html#a7cfccf4ed2e06acc705661cad3952215">vector.h</a>
+<li>FLUORESZENZ
+: <a class="el" href="resutil_8h.html#aedf79555d5f8bff341f5cd36bd318de4">resutil.h</a>
+</li>
+<li>FUNSURF
+: <a class="el" href="objectshape_8h.html#a535f936f8a09a058049ed988fd98da92">objectshape.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_g"></a>- g -</h3><ul>
-<li>getKSystem()
-: <a class="el" href="vector_8h.html#a692a1996d44a95f383edf9d176deabea">vector.h</a>
+<li>GESCHNITTEN
+: <a class="el" href="tubedray_8h.html#a5cb74ae13f3c1e2151101fec2567cef0">tubedray.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_h"></a>- h -</h3><ul>
+<li>HOHLFASER
+: <a class="el" href="objectshape_8h.html#a4db1e68ecf602f0b78d0aa88a47cf4e1">objectshape.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_i"></a>- i -</h3><ul>
 <li>I
-: <a class="el" href="vector_8h.html#ab03128f28254e912f824640e69fc85ad">vector.h</a>
+: <a class="el" href="resutil_8h.html#a60ef6e1bcfabb95cfeb300e1d03ce470">resutil.h</a>
+, <a class="el" href="vector_8h.html#ab03128f28254e912f824640e69fc85ad">vector.h</a>
 </li>
-<li>iceil()
-: <a class="el" href="vector_8h.html#aec80f7330c273d3f3450e183e5f85f2c">vector.h</a>
+<li>IMHOST
+: <a class="el" href="error_8h.html#a0d4b2b09e52533e1923dff2f70dc9696">error.h</a>
 </li>
-<li>ifloor()
-: <a class="el" href="vector_8h.html#a734b1988e1f7a3439d264fbf4d95bf1f">vector.h</a>
+<li>IN_HOST
+: <a class="el" href="resutil_8h.html#ad93ae5f0faa011168de4377684a89b5e">resutil.h</a>
 </li>
-<li>imag()
-: <a class="el" href="vector_8h.html#a165a28c2c2814218fcf669d411a4e7de">vector.h</a>
+<li>IN_INC_AND_HOST
+: <a class="el" href="resutil_8h.html#a8ce3834e6580d44b7a978c7d41040051">resutil.h</a>
 </li>
-<li>isnan()
-: <a class="el" href="vector_8h.html#ace4d530549057caf05439de82395a75f">vector.h</a>
+<li>IN_OBJECT
+: <a class="el" href="resutil_8h.html#a34ef901b3a6cb0700948a113abb1adef">resutil.h</a>
+</li>
+<li>IN_Plane
+: <a class="el" href="tubedray_8h.html#a76cff632b82eccb287e1cec30a56078f">tubedray.h</a>
+</li>
+<li>INF
+: <a class="el" href="objectshape_8h.html#a12c2040f25d8e3a7b9e1c2024c618cb6">objectshape.h</a>
+</li>
+<li>IS_COL
+: <a class="el" href="resutil_8h.html#ab6e3620210547d28ac080b3cf2e20404">resutil.h</a>
+</li>
+<li>IS_NOTHING
+: <a class="el" href="resutil_8h.html#a13b8df8ecf372bfabede45145b0b7fd6">resutil.h</a>
+</li>
+<li>IS_ROW
+: <a class="el" href="resutil_8h.html#a9dcc31ecbaebd3291e172a4dbee73824">resutil.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_k"></a>- k -</h3><ul>
+<li>KEGELSTUMPF
+: <a class="el" href="objectshape_8h.html#add99c9136ff6c8fd78e6cb126b7de5cc">objectshape.h</a>
+</li>
+<li>KEGELSTUMPF_HOHL
+: <a class="el" href="objectshape_8h.html#ac7ad901198cfc026e30d981253b8de9e">objectshape.h</a>
+</li>
+<li>KEIN_SCHNITTPUNKT
+: <a class="el" href="tubedray_8h.html#adecb25a5942951bc8245d9d8f41ec7bc">tubedray.h</a>
+</li>
+<li>KREISKEGEL
+: <a class="el" href="objectshape_8h.html#a1c2dcd2285bd3386c2a92cd4efd571ef">objectshape.h</a>
+</li>
+<li>KUGELGITTER_K
+: <a class="el" href="error_8h.html#a90815b44d28504c3e3265574947b5bee">error.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_l"></a>- l -</h3><ul>
+<li>LIGHTSRC_ERROR
+: <a class="el" href="lightsrc_8h.html#a9427e832c03d24eb45706347a7e36cb6">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_IS_LAST_RAY
+: <a class="el" href="lightsrc_8h.html#af55dd6807d36e98d7dcc9e47736266b3">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_NOT_LAST_RAY
+: <a class="el" href="lightsrc_8h.html#a6cece43af479ca89e1767a51e7b4bf3d">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_POL_USER_DEFINED
+: <a class="el" href="lightsrc_8h.html#a0767e5f4cd385e2e8ac69efc11f4db71">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_POL_X
+: <a class="el" href="lightsrc_8h.html#a3ad7523b2497f1e43795163f3c517b13">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_POL_Y
+: <a class="el" href="lightsrc_8h.html#a9b0d133205a03c08c678067d79e0b169">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_POL_Z
+: <a class="el" href="lightsrc_8h.html#acb3b77ed87f4ed728d1e8f1123eed76b">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_RAYTYPE_IRAY
+: <a class="el" href="lightsrc_8h.html#a3a010aaffbbdd0d4020f4b01b95e07b4">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_RAYTYPE_PRAY
+: <a class="el" href="lightsrc_8h.html#ac4b6b5f07edda74abe23188b9e563478">lightsrc.h</a>
+</li>
+<li>LIGHTSRC_RAYTYPE_RAY
+: <a class="el" href="lightsrc_8h.html#a2646f407aa5ec41f8e913b2091abf310">lightsrc.h</a>
+</li>
+<li>LINSE
+: <a class="el" href="objectshape_8h.html#a5f0600cba388234350102b73392bfdd4">objectshape.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_m"></a>- m -</h3><ul>
+<li>MALLOC_ERR
+: <a class="el" href="error_8h.html#aa1ab001303a7dbf4e05f26804886106c">error.h</a>
+</li>
+<li>mu0
+: <a class="el" href="misc_8h.html#a913e4feb488dce7bfeee4b0e4f886a11">misc.h</a>
+</li>
+<li>MULTI
+: <a class="el" href="resutil_8h.html#ac7b4d7c5e5a25aeee8c5b6b37f1d2ba6">resutil.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
-<li>null()
-: <a class="el" href="matrix_8h.html#a998ae4b6970a200216cee48bf759aea2">matrix.h</a>
+<li>N_ERRORS
+: <a class="el" href="error_8h.html#a02bab355d02f4e3a3ed48f5094489c59">error.h</a>
+</li>
+<li>NINCTYPES
+: <a class="el" href="objectshape_8h.html#a9b8250d6aed63c8f28e3b7e60b593640">objectshape.h</a>
+</li>
+<li>NO_ERRORS
+: <a class="el" href="error_8h.html#a15218844bd3bc87e3ff485780c675998">error.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>OBJECTSHAPE_BOX
+: <a class="el" href="objectshape_8h.html#a8e522edc43615fed65ae2694d3228ea0">objectshape.h</a>
+</li>
+<li>OBJECTSHAPE_ELLIPSOID
+: <a class="el" href="objectshape_8h.html#aa0386bf39d15c112367c446013050044">objectshape.h</a>
+</li>
+<li>OBJECTSHAPE_NO_SHAPE
+: <a class="el" href="objectshape_8h.html#a4354c0c4f01b7567b272235472cc11f0">objectshape.h</a>
+</li>
+<li>OBJECTSHAPE_SURFACE
+: <a class="el" href="objectshape_8h.html#a632af5e410ba33b2c4496eb6e23ce0f6">objectshape.h</a>
+</li>
+<li>OHNE_GAUSS
+: <a class="el" href="tubedray_8h.html#a5c0b83dfddb62507d79b2da824ecb90b">tubedray.h</a>
+</li>
+</ul>
+
+
+<h3><a id="index_p"></a>- p -</h3><ul>
+<li>PARALLEL
+: <a class="el" href="fresnel_8h.html#adb2d9505bae635c86de4a47561d7d930">fresnel.h</a>
+, <a class="el" href="resutil_8h.html#adb2d9505bae635c86de4a47561d7d930">resutil.h</a>
+</li>
+<li>Planck_h
+: <a class="el" href="misc_8h.html#a390d4f025a7c09f071fd3f6804669ddb">misc.h</a>
+</li>
+<li>Planck_hquer
+: <a class="el" href="misc_8h.html#a26242616de488ad628c1967a436a520c">misc.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
-<li>real()
-: <a class="el" href="vector_8h.html#ad228f27ecb7edc69da9340cc45162678">vector.h</a>
+<li>RAMAN
+: <a class="el" href="resutil_8h.html#a2ac770360e3151dbfb4083137fc5d008">resutil.h</a>
 </li>
-<li>rotMatrix()
-: <a class="el" href="matrix_8h.html#a4c63c206b9455c6d107b642cd37d35a0">matrix.h</a>
+<li>RAYTRACE_MAX_REFLEXIONS
+: <a class="el" href="raytrace_8h.html#a634d573272f55167b178b564e96f2c2b">raytrace.h</a>
 </li>
-<li>rotMatrixA()
-: <a class="el" href="matrix_8h.html#ace6a6cdbf366cdcfad5d2d3e06824d2c">matrix.h</a>
+<li>RAYTRACER_TYPE_NONE
+: <a class="el" href="raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09">raytrace.h</a>
+</li>
+<li>RAYTRACER_TYPE_OT
+: <a class="el" href="raytrace_8h.html#a25e16a918a70b67479aceab7e4931fe2">raytrace.h</a>
+</li>
+<li>RAYTRACER_TYPE_PATH
+: <a class="el" href="raytrace_8h.html#a597741ae430d8fe18e5f99dae2e63c15">raytrace.h</a>
+</li>
+<li>RAYTRACER_TYPE_PURE
+: <a class="el" href="raytrace_8h.html#af65d07b66313420af5dc6b05d027c707">raytrace.h</a>
+</li>
+<li>REALLOC_ERR
+: <a class="el" href="error_8h.html#af75b71c8fffbbfbfd5cbf20748a50542">error.h</a>
+</li>
+<li>RESUTIL_H
+: <a class="el" href="resutil_8h.html#a0291232760a55b8e20503ad3f56efb03">resutil.h</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>sign()
-: <a class="el" href="vector_8h.html#a8f3cba07aa75b7320ae8bd6c0aeac498">vector.h</a>
+<li>SAVE_ABS
+: <a class="el" href="detector_8h.html#aa68865ed300bfbc8d69145a49d3b6386">detector.h</a>
 </li>
-<li>sphere2cart()
-: <a class="el" href="vector_8h.html#ad827cddff518c2fe68792742227db9b1">vector.h</a>
+<li>SAVE_PHASE_X
+: <a class="el" href="detector_8h.html#aa2176b44d1ac396bff50d9e545055a23">detector.h</a>
+</li>
+<li>SAVE_PHASE_Y
+: <a class="el" href="detector_8h.html#afae17a475b984f467c1408f065ae6ca8">detector.h</a>
+</li>
+<li>SAVE_PHASE_Z
+: <a class="el" href="detector_8h.html#ac5748b705d3dc3e5e85f0ded4b158a9e">detector.h</a>
+</li>
+<li>SAVE_X
+: <a class="el" href="detector_8h.html#a7987327e795cf45132e2c3bbe21b645e">detector.h</a>
+</li>
+<li>SAVE_Y
+: <a class="el" href="detector_8h.html#a962163256f7d4a46529426776695b8f4">detector.h</a>
+</li>
+<li>SAVE_Z
+: <a class="el" href="detector_8h.html#a30d376254460c5cbf83ee3a8ef3d32e9">detector.h</a>
+</li>
+<li>SENKRECHT
+: <a class="el" href="fresnel_8h.html#a3592f52dc1ce96e519957f2556c318af">fresnel.h</a>
+, <a class="el" href="resutil_8h.html#a3592f52dc1ce96e519957f2556c318af">resutil.h</a>
+</li>
+<li>SPIEGEL
+: <a class="el" href="objectshape_8h.html#a32127e210d1c5dd39d3f11dd6b894c90">objectshape.h</a>
+</li>
+<li>SQRT3
+: <a class="el" href="resutil_8h.html#ae42978afd835c3a1f70d409a1b5f5a39">resutil.h</a>
+</li>
+<li>SUPERELLIPSOID
+: <a class="el" href="objectshape_8h.html#a71a6202eb57b8cbe37567b138f4d8bff">objectshape.h</a>
+</li>
+<li>SUPERELLIPSOID_D
+: <a class="el" href="objectshape_8h.html#ac08570942c732e30d5af5e3746ced441">objectshape.h</a>
+</li>
+<li>SUPERELLIPSOID_N
+: <a class="el" href="objectshape_8h.html#ab293b58743e4ec8b7f4ea230db113c1b">objectshape.h</a>
+</li>
+<li>SUPERGITTER
+: <a class="el" href="error_8h.html#a01fe41f7daf244522bc4d73d3dc8d182">error.h</a>
 </li>
 </ul>
 
 
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>toString()
-: <a class="el" href="vector_8h.html#ab75d39aaa9059accb02fe0a58d8ef028">vector.h</a>
+<h3><a id="index_v"></a>- v -</h3><ul>
+<li>VAR_XY
+: <a class="el" href="resutil_8h.html#a4381a9a852575ade5defdb97269fcdb3">resutil.h</a>
 </li>
-<li>trafo()
-: <a class="el" href="matrix_8h.html#a9b4bf1088f1ff6c46930f1f78e842420">matrix.h</a>
+<li>VAR_XZ
+: <a class="el" href="resutil_8h.html#a3f2c8937e3e1ea713504e3d05c6e78df">resutil.h</a>
+</li>
+<li>VAR_YZ
+: <a class="el" href="resutil_8h.html#a16674acdaa6d2548e5bf636acae2b911">resutil.h</a>
 </li>
 </ul>
 
 
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>unity()
-: <a class="el" href="matrix_8h.html#a3bab9605a59e48e6e7f396c9aea24c69">matrix.h</a>
+<h3><a id="index_z"></a>- z -</h3><ul>
+<li>Z0
+: <a class="el" href="lightsrc_8h.html#a49a0a00a612635d79a06bbe9fc15c094">lightsrc.h</a>
+, <a class="el" href="misc_8h.html#a49a0a00a612635d79a06bbe9fc15c094">misc.h</a>
 </li>
-<li>UNITY
-: <a class="el" href="matrix_8h.html#af37368f7fa7e7325a0e99330d0431981">matrix.h</a>
+<li>ZYLINDER
+: <a class="el" href="objectshape_8h.html#a90722650e914ef6bb7c1ff89fd14d7a4">objectshape.h</a>
+</li>
+<li>ZYLINDER_HEXAGONAL
+: <a class="el" href="objectshape_8h.html#acdf5a8b1c8c983079c06e7d864e7c190">objectshape.h</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

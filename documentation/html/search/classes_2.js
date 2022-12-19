@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['einschlussinfo_316',['EinschlussInfo',['../struct_einschluss_info.html',1,'']]],
-  ['ellipsoid_317',['Ellipsoid',['../class_ellipsoid.html',1,'']]]
+  ['ellipsoid_716',['Ellipsoid',['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html',1,'GOAT::raytracing']]]
 ];

@@ -1,10 +1,17 @@
 var searchData=
 [
-  ['d_559',['d',['../class_box.html#ae74afe48f6aa9b1e6b0c079a1e3beaba',1,'Box::d()'],['../class_detector.html#aa192514da33d9b338a1d387bca214c59',1,'Detector::D()'],['../class_light_src.html#a13a76bff715aa48dcdfd0b516b7caa67',1,'LightSrc::D()']]],
-  ['density_560',['density',['../class_light_src.html#ab9fae3f4a26895d3bd030c9d4cd6bdef',1,'LightSrc']]],
-  ['det_561',['Det',['../class_scene.html#a0aa88165686ec75fef877ebea7beefb3',1,'Scene']]],
-  ['diag_562',['diag',['../class_box.html#a1c21e77e713680de4d1343ae4691f2ad',1,'Box']]],
-  ['dx_563',['dx',['../class_global_parms.html#a6fd433f13de413ef0c8da8cb81a64e2b',1,'GlobalParms']]],
-  ['dxy_564',['dxy',['../class_global_parms.html#af319bb53fd0eb8fe140870d876b3d3e9',1,'GlobalParms']]],
-  ['dy_565',['dy',['../class_global_parms.html#a06907fe69c58902629b8b11a201bff6e',1,'GlobalParms']]]
+  ['d_1181',['D',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#af4aa714e3db123a93aaefee90f962393',1,'GOAT::raytracing::Detector::D()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab67b99826922bbd4ffd53b4fa4a4aa47',1,'GOAT::raytracing::LightSrc::D()'],['../class_g_o_a_t_1_1raytracing_1_1_box.html#a8b0c56202c77308d8e9a4c7fb1c01817',1,'GOAT::raytracing::Box::d()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#ad5b60b5bb0fa7497bf8fb664df50c8c9',1,'GOAT::raytracing::SuperArray::d()']]],
+  ['d1_1182',['d1',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a18c46be7144806786003eaef47815a6d',1,'GOAT::raytracing::Detector']]],
+  ['d2_1183',['d2',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#aa849a37f952c61892592136249433a3c',1,'GOAT::raytracing::Detector']]],
+  ['data_1184',['data',['../class_g_o_a_t_1_1maths_1_1_vector.html#accf4b52eb387ad7504e511c45d1eb1ce',1,'GOAT::maths::Vector']]],
+  ['db_1185',['db',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a4f4f9048fab4f966ebb342f9ca870186',1,'GOAT::raytracing::GlobalParms']]],
+  ['density_1186',['density',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9fda0f2fab1dde7a34b6a41fdf970708',1,'GOAT::raytracing::LightSrc']]],
+  ['det_1187',['Det',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#ac6d2321d474cd3896786799deaf10584',1,'GOAT::raytracing::Scene']]],
+  ['diag_1188',['diag',['../class_g_o_a_t_1_1raytracing_1_1_box.html#af6bdb9fddc0933d31f66396aef873485',1,'GOAT::raytracing::Box']]],
+  ['dummy_1189',['DUMMY',['../class_g_o_a_t_1_1raytracing_1_1grid.html#aec00c69eea937c0f6e3e2b0ab5e63a06',1,'GOAT::raytracing::grid::DUMMY()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#af33bed7f9b5fe36c2c63f303fb383513',1,'GOAT::raytracing::SuperArray::dummy()']]],
+  ['dwvl_1190',['dWvl',['../namespace_g_o_a_t_1_1struct.html#af37e3ae6dedaae02e1bbaec4c02fea01',1,'GOAT::struct']]],
+  ['dx_1191',['dx',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a4fd6564282fe10fda859ba0831ffd091',1,'GOAT::raytracing::grid::dx()'],['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a9121519f96c5ee0f623dd2b7ffc948b4',1,'GOAT::raytracing::GlobalParms::dx()']]],
+  ['dxy_1192',['dxy',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ae54b0e9bf219dc6a498c03db1d290024',1,'GOAT::raytracing::GlobalParms']]],
+  ['dy_1193',['dy',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a49c3aae123e173fe684bb0ba936e2b82',1,'GOAT::raytracing::grid::dy()'],['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aa2a44116f9f7072086b4a6a27d53d638',1,'GOAT::raytracing::GlobalParms::dy()']]],
+  ['dz_1194',['dz',['../class_g_o_a_t_1_1raytracing_1_1grid.html#ad5bf869d4950747ed0f96a826588a15d',1,'GOAT::raytracing::grid']]]
 ];

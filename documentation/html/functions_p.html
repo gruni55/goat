@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_p.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,70 +82,118 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>P
-: <a class="el" href="class_i_ray.html#ab04d5d0aaa45adb1486d4f33d7306370">IRay</a>
-, <a class="el" href="class_object_shape.html#a6f30fe47f526f28a3f5b83ce92ae422c">ObjectShape</a>
-, <a class="el" href="classtriangle.html#ac826714da4ab9974db74547514634bc1">triangle</a>
-, <a class="el" href="structtubed_ray_buffer.html#a814be53b80d8342898d6b096d765bb68">tubedRayBuffer</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a0d42d0cffecb6424fca4dd34d4951b91">GOAT::raytracing::Detector</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a495aeca0112d5dca8f3aa437a6ebaef3">GOAT::raytracing::IRay</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1object_info.html#a407caf3cfaec3ca40c6b02bf072d0bd6">GOAT::raytracing::objectInfo</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a770b3c392c4794e74d0f5823d4aa56e6">GOAT::raytracing::ObjectShape</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html#ae73ffc2fc89bac0e220a1a2aec750673">GOAT::raytracing::Plane</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#a3678f00b90110f418a9d7687533ffbce">GOAT::raytracing::RRTParms</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html#af8ab175a34e0648535fb014975117313">GOAT::raytracing::StrahlArray</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1triangle.html#aef826060f8aaff71f3a590fff6abe4a1">GOAT::raytracing::triangle</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#ab19d3d9df652f5b3b5f2813ff8c1d1e3">GOAT::raytracing::tubedRay</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html#a0d013ecf8e2ae04a9f37f6048e02dc91">GOAT::raytracing::tubedRayBuffer</a>
 </li>
 <li>P0
-: <a class="el" href="class_light_src.html#a9ea4e20e81d369988727126062c0c92d">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ad8d9ede69b546d4221185d43d53aca48">GOAT::raytracing::LightSrc</a>
 </li>
 <li>P1
-: <a class="el" href="class_raytrace___path.html#a7de902a9af796243bf4780477d721022">Raytrace_Path</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a0333f310cd2a999b2d17963d7af6594b">GOAT::raytracing::Raytrace_Path</a>
 </li>
 <li>P2
-: <a class="el" href="class_ellipsoid.html#a901aa585959f5f19cf8d5d5f59700e6f">Ellipsoid</a>
-, <a class="el" href="class_raytrace___path.html#a1b2c1bfbc1c93f7b94331cb07236589e">Raytrace_Path</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#a1d5a7e95957d3f7ec7bfdc5a09843b40">GOAT::raytracing::Ellipsoid</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a0adfd077fd20027c982c218d005a2632">GOAT::raytracing::Raytrace_Path</a>
 </li>
 <li>Pall
-: <a class="el" href="class_light_src.html#a588a93305852daa01a5fd4a89f3edec0">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a328352a0ef3a68ade8e9dfb9c4500150">GOAT::raytracing::LightSrc</a>
+</li>
+<li>parent
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_octree.html#ab759a2409014bc59f2dd89d680a82385">GOAT::raytracing::Octree&lt; T &gt;</a>
+</li>
+<li>pc
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a14d85772247ee89c50e1cf3206de3978">GOAT::raytracing::SuperArray</a>
+</li>
+<li>phase
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a82ae53dc9f9f6a0cee52a22cbc6e2436">GOAT::raytracing::GlobalParms</a>
+</li>
+<li>phi
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#ad92c7e3146a4333d9ae9e3f9d19c01fa">GOAT::raytracing::StrahlInfo</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a9c2bd14ae40f1ad4e302341da586d4ee">GOAT::raytracing::tubedRay</a>
+</li>
+<li>pjump()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a94f5579201637132a4a99a110436ebbc">GOAT::raytracing::tubedRay</a>
 </li>
 <li>Plane()
-: <a class="el" href="class_plane.html#a57c023261b0b858ae145e45916a12b0e">Plane</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html#a2376d3f877881bda5de679d65219f5f4">GOAT::raytracing::Plane</a>
 </li>
 <li>pol
-: <a class="el" href="class_global_parms.html#a4628502b5812c14b92a285fbd9c28ea3">GlobalParms</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a9c0fe022036f5390e159029eb4bb18f8">GOAT::raytracing::GlobalParms</a>
 </li>
 <li>Pol
-: <a class="el" href="class_light_src.html#aa69283bdabfe02cbed2937f5f92010b4">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ad09806ad6481130cacff6dad6d92653b">GOAT::raytracing::LightSrc</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#a089bc58d011f0cd486be9d4b1711d92a">GOAT::raytracing::RRTParmsInfo</a>
+</li>
+<li>pol
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#a5e2ffef7c27458438b38f0298b0378c2">GOAT::raytracing::StrahlInfo</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a66b70096f4a0c32aee570f134f496cef">GOAT::raytracing::tubedRay</a>
 </li>
 <li>Pol1()
-: <a class="el" href="class_i_ray.html#aac72cfe43fa31e24a49bf839eca98cae">IRay</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a263c6bb6512b3cd351a6f89090f1ccec">GOAT::raytracing::IRay</a>
 </li>
 <li>Pol2()
-: <a class="el" href="class_i_ray.html#a7d87dcefd124e0845a11bb9cadd42939">IRay</a>
-, <a class="el" href="class_light_src.html#aa3ff7d75b8843ac3e4532ba26ca235ce">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a665fc7b318a4f4c118418529e30f569f">GOAT::raytracing::IRay</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9df03bb4a1a4a76b6f249187d76b74da">GOAT::raytracing::LightSrc</a>
+</li>
+<li>PolAngle
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a75082e483652cbdfa18d02115f827725">GOAT::raytracing::GlobalParms</a>
 </li>
 <li>polType
-: <a class="el" href="class_light_src.html#ac01b6ed62a027a74aa33cf49c342e5a4">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab7ec0f5da024d908eb44f8221e79465e">GOAT::raytracing::LightSrc</a>
 </li>
 <li>por
-: <a class="el" href="class_object_shape.html#afc5710dc2ef6006bcc8560bdfeb80d03">ObjectShape</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a372963153380dd68772fd0d213da1a3e">GOAT::raytracing::ObjectShape</a>
 </li>
 <li>Pos
-: <a class="el" href="class_light_src.html#ac39f69a2ab65803389b13932f61fec46">LightSrc</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a22341548b53dab68f10d0fd6a55c29d4">GOAT::raytracing::LightSrc</a>
+</li>
+<li>position()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a6a70e14262e3ae2f2885832bbd2423e7">GOAT::raytracing::Detector</a>
+</li>
+<li>Pow
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a3125acb46197056245381d614a868a75">GOAT::raytracing::Ray_pow</a>
 </li>
 <li>PowIn
-: <a class="el" href="class_raytrace.html#a09db8347c2db69fc2ffce8f819116325">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a34c15477de5d012d6d9682d9e70a56b9">GOAT::raytracing::Raytrace</a>
 </li>
 <li>PowRef
-: <a class="el" href="class_raytrace.html#aca6485c4743921cd76c2b124f908bf95">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#aa667c8d0015448b79ad6632655faa3cf">GOAT::raytracing::Raytrace</a>
 </li>
 <li>PowTrans
-: <a class="el" href="class_raytrace.html#a4c38c09ceeb8eeabf83bb6a4fd458377">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a35661a01ce3e3f64b6e2a2f2cf4d4b1c">GOAT::raytracing::Raytrace</a>
+</li>
+<li>PStart
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a408a74d9f23b319367edbc08b9f9d12a">GOAT::raytracing::Raytrace</a>
 </li>
 <li>PStop
-: <a class="el" href="class_raytrace.html#a68d940de566893c2b6e29124f39860db">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a5bb032f629b207be44f78e3aa0bf8818">GOAT::raytracing::Raytrace</a>
+</li>
+<li>pul
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a7563e04424687ffa01dc559f1c487134">GOAT::raytracing::ObjectShape</a>
+</li>
+<li>Pul
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a82a7487748e75e75a2c2a777edd0e0f7">GOAT::raytracing::SuperArray</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

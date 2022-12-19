@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['n1_446',['N1',['../class_detector.html#ad21921ac3f90297a85c427dc5e342184',1,'Detector']]],
-  ['n2_447',['N2',['../class_detector.html#aa9674befa2c88f133949e26e3ffea3f5',1,'Detector']]],
-  ['next_448',['next',['../class_box.html#ad82ff37c4c24950bacbf3699c9f37d17',1,'Box::next()'],['../class_ellipsoid.html#a61b8b80846a443afcf8f155a2f6822c1',1,'Ellipsoid::next()'],['../class_light_src.html#afb0fcc52e75d6dbc80ba151285894767',1,'LightSrc::next()'],['../class_light_src_plane.html#a53747cba9838a3988188718079e94c67',1,'LightSrcPlane::next(RayBase *ray)'],['../class_light_src_plane.html#a2e69cfcc1d4c663eab3b383970035d5e',1,'LightSrcPlane::next(IRay &amp;S)'],['../class_light_src_plane.html#a2fb17f49872b8aa553890cb5cc346f2f',1,'LightSrcPlane::next(tubedRay &amp;S)'],['../class_light_src_plane.html#a7a130d1cbaa8b20bba75878bbb10af24',1,'LightSrcPlane::next(Ray_pow &amp;S)'],['../class_light_src_gauss.html#a8f60ce38d3aa4271f28cd90a406dc634',1,'LightSrcGauss::next()'],['../class_object_shape.html#a9222f0aa8f70cb4f8ee3412727889fad',1,'ObjectShape::next()'],['../classsurface.html#abb390aaa0250b201f29de43477422a30',1,'surface::next()']]],
-  ['norm_449',['norm',['../class_box.html#a2ae17a5b56362c3bdb222f651092a213',1,'Box::norm()'],['../class_ellipsoid.html#a524a0538b7437820df17114e6f0dc1d5',1,'Ellipsoid::norm()'],['../class_object_shape.html#aeb191bae08862d48c2ffa307966d73fb',1,'ObjectShape::norm()'],['../class_plane.html#ad458e8aa5aabf3a681f91a0d186cdacf',1,'Plane::norm()'],['../classsurface.html#a7d30ea2cb4ad6a8458f1a742a95a6915',1,'surface::norm()']]],
-  ['nosurface_450',['nosurface',['../classsurface.html#a87e161b654fe0e23b01df5e083218663',1,'surface']]],
-  ['null_451',['null',['../matrix_8h.html#a998ae4b6970a200216cee48bf759aea2',1,'matrix.h']]]
+  ['makereal_968',['makeReal',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab476e085b7c57268d27aeb294768f0d1',1,'GOAT::raytracing::SuperArray::makeReal()'],['../namespace_g_o_a_t_1_1maths.html#ade7ad4d9a581dedc8a4ccfad33517435',1,'GOAT::maths::makeReal()']]],
+  ['matrix_969',['Matrix',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a9b3f9007da7429e5ef78445270830b60',1,'GOAT::maths::Matrix::Matrix()'],['../class_g_o_a_t_1_1maths_1_1_matrix.html#aa76dc79e85b3ab5074489d7bd04a83ed',1,'GOAT::maths::Matrix::Matrix(Vector&lt; T &gt; a, Vector&lt; T &gt; b, Vector&lt; T &gt; c)']]],
+  ['max3_970',['max3',['../namespace_g_o_a_t_1_1raytracing.html#a33366a151f0db1345e0a9e68e3d85482',1,'GOAT::raytracing']]],
+  ['memstat_971',['memstat',['../namespace_g_o_a_t_1_1raytracing.html#a7c73bcb2fb33bed3da19556841bbf64d',1,'GOAT::raytracing']]],
+  ['min3_972',['min3',['../namespace_g_o_a_t_1_1raytracing.html#abfc811755668dfce2bde8cdb2afc5f94',1,'GOAT::raytracing']]],
+  ['minmax_973',['minmax',['../namespace_g_o_a_t_1_1raytracing.html#ab897ab2ef20c4648f524c0a62433fa36',1,'GOAT::raytracing::minmax(double a, double b)'],['../namespace_g_o_a_t_1_1raytracing.html#ac826726a7d875427f756221ffa734599',1,'GOAT::raytracing::minmax(double x, double dx, int &amp;min, int &amp;max)']]]
 ];

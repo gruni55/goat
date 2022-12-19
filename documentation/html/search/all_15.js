@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7ebox_311',['~Box',['../class_box.html#a6a5e09398e85d602a046b429062fb9c2',1,'Box']]],
-  ['_7etriangle_312',['~triangle',['../classtriangle.html#a1922fe413161f745db0abf7b5f5a5a3d',1,'triangle']]]
+  ['x_690',['x',['../struct_g_o_a_t_1_1raytracing_1_1_point.html#a0dc1977dc5a6161b4e50b48ba86cea22',1,'GOAT::raytracing::Point']]],
+  ['xmax_691',['xmax',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a20ded0daab5df2cf05ee78eb506c6e8a',1,'GOAT::raytracing::grid']]]
 ];

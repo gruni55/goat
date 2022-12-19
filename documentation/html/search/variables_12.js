@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['w_635',['w',['../class_light_src_gauss.html#a0de7b516cb8a89aac55cd9480ad1cccc',1,'LightSrcGauss']]],
-  ['w0_636',['w0',['../class_light_src_gauss.html#ae0caa1d85216714240728fab410c0a5c',1,'LightSrcGauss']]],
-  ['wvl_637',['wvl',['../class_light_src.html#a4dacf6e8a6cdc356a42e112430408618',1,'LightSrc']]]
+  ['u_1346',['u',['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a8fa6940dbf62a810919060a470957857',1,'GOAT::raytracing::triangle']]],
+  ['unity_1347',['UNITY',['../namespace_g_o_a_t_1_1maths.html#a2dd26d9f28293a8e56d97660380ab622',1,'GOAT::maths']]],
+  ['used_1348',['used',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a6839a4ece3d3baf460fd01be1d1c5191',1,'GOAT::raytracing::SysMemInfo']]],
+  ['userrtparms_1349',['useRRTParms',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a0b42537e1a3e485f3613f9414d70784f',1,'GOAT::raytracing::Raytrace']]]
 ];

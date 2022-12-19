@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_k.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -62,33 +82,57 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Here is a list of all documented class members with links to the class documentation for each member:</div>
+<div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_k"></a>- k -</h3><ul>
 <li>k
-: <a class="el" href="struct_gauss.html#a506b72aadc2ed4f2d4d98b0c99d26fc0">Gauss</a>
-, <a class="el" href="class_i_ray.html#a75a8efea79e7888408555c2fd1797563">IRay</a>
-, <a class="el" href="class_light_src.html#a7dfa787bf399dfd05cebcc5e241fe96d">LightSrc</a>
-, <a class="el" href="class_light_src_gauss.html#a3596a5a0eec70e652f574ccabc59e094">LightSrcGauss</a>
-, <a class="el" href="structtubed_ray_buffer.html#a6ba767ed4cd2773c7ed1c3da10c38155">tubedRayBuffer</a>
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a621ce79869f0683b38a407d940534819">GOAT::raytracing::Gauss</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a1da85d4b98f76d32412e43b64599e552">GOAT::raytracing::IRay</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f">GOAT::raytracing::LightSrc</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae866addddafef9b9bc8ef79bcfc75d82">GOAT::raytracing::LightSrcGauss</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#abc3dad194b8ecca6da02dd5bafe98bcf">GOAT::raytracing::StrahlInfo</a>
+</li>
+<li>K
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a66b5ba4bf2ae3e643407d9857da5eaab">GOAT::raytracing::SuperArray</a>
+</li>
+<li>k
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a061c075d2bc0263a1fb8a5c10a6a43f1">GOAT::raytracing::tubedRay</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html#aa1c123d18cad94d00577c67d3dae35c9">GOAT::raytracing::tubedRayBuffer</a>
 </li>
 <li>k0
-: <a class="el" href="class_ray_base.html#a452923470162d5499657d0673d2860e5">RayBase</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a8885e8ed9ffc5490dd775da5143daaa5">GOAT::raytracing::GlobalParms</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad029d56061469a0b98d4aa06c2956eb8">GOAT::raytracing::RayBase</a>
+</li>
+<li>ka
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a3913a769a789739f72ee24cfd06ce61e">GOAT::raytracing::tubedRay</a>
 </li>
 <li>kin
-: <a class="el" href="class_raytrace.html#ac972c3fedfeb290e09a502595945986d">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a038f38f54d3e39e1edc71f69253716ef">GOAT::raytracing::Raytrace</a>
+</li>
+<li>KORR
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a427c7c99619006b96f4277ea72f711b3">GOAT::raytracing::IRay</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a75eb498a7c5e12252f625b12ee558f0c">GOAT::raytracing::tubedRay</a>
 </li>
 <li>kref
-: <a class="el" href="class_raytrace.html#acc67b939c693f1ca3e07c06107cc47c7">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ad8db18eed2860ab724c83609db73afb3">GOAT::raytracing::Raytrace</a>
 </li>
 <li>ktrans
-: <a class="el" href="class_raytrace.html#a5b0023c40617973f16512f49f59017e4">Raytrace</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a5a71c1f8d0f566fcbfa3ed37b13c6a58">GOAT::raytracing::Raytrace</a>
+</li>
+<li>kugelindex()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9103ac773918b84a016aed833afc08fc">GOAT::raytracing::SuperArray</a>
+</li>
+<li>kugelwert()
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#af5223fa6db5e597343b58ff1a4e89fa2">GOAT::raytracing::SuperArray</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

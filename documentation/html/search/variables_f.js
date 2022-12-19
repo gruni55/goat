@@ -1,5 +1,15 @@
 var searchData=
 [
-  ['tray_630',['tray',['../class_ray_base.html#ac2be3973a469802af13a50b23b6f1237',1,'RayBase']]],
-  ['type_631',['type',['../class_light_src.html#a3705f87c1598da6e3624e4b745696997',1,'LightSrc::type()'],['../class_object_shape.html#ab48f75a619d444ad3a13707298aa2040',1,'ObjectShape::type()']]]
+  ['r_1321',['R',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a91f6a122e15b8af8ae0b60b5b3c35e10',1,'GOAT::raytracing::ObjectShape::R()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac670c775f10d5e7fa64575489d232f0c',1,'GOAT::raytracing::SuperArray::R()'],['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#a654fb927456917711788d5b531404dce',1,'GOAT::raytracing::Ellipsoid::r()']]],
+  ['r0_1322',['r0',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a146ece724e84c542c18d70b04c442dbc',1,'GOAT::raytracing::LightSrc::r0()'],['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ac6f4e0e6e591f1617c38ee037074dd9a',1,'GOAT::raytracing::ObjectShape::r0()'],['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef88aaaaab2b96b59536ecc69a29c178',1,'GOAT::raytracing::RayBase::r0()'],['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a2595e0bdfd65f6f65b88919cbd4c368e',1,'GOAT::raytracing::Scene::r0()'],['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a3b86abef05adcc9459f523d16e3ef691',1,'GOAT::raytracing::GlobalParms::r0()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a884af4104a35c37416585471e07c62ee',1,'GOAT::raytracing::SuperArray::r0()'],['../struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html#a097f6ceabe7106ef3fa04312b4a49eac',1,'GOAT::raytracing::tubedRayBuffer::r0()']]],
+  ['r0end_1323',['r0end',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aaa75c2726cb2c96d322298fa2c6c933f',1,'GOAT::raytracing::GlobalParms']]],
+  ['r_5f2_1324',['r_2',['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#af6f48bf96cf0268b9ebf0ad378c89c5b',1,'GOAT::raytracing::Ellipsoid']]],
+  ['radiationtype_1325',['radiationType',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#a14cbbffde9dee555fa4e6fbfe08e37c0',1,'GOAT::raytracing::RRTParms']]],
+  ['raycounter_1326',['rayCounter',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a657df3a186da3978339ae38f8017fc41',1,'GOAT::raytracing::LightSrcGauss_mc::rayCounter()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#a620823b06364e269b903fae9b04ff1e7',1,'GOAT::raytracing::LightSrcPlane_mc::rayCounter()']]],
+  ['raytype_1327',['raytype',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6f2b403b668a8f41529e1b8d6b7b0593',1,'GOAT::raytracing::LightSrc::raytype()'],['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a3f5fb9596900399d56dc97e3e3fc874a',1,'GOAT::raytracing::Scene::raytype()']]],
+  ['rc_1328',['rc',['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad9467a1f9f00f2ed842e2a5c79f3cd9b',1,'GOAT::raytracing::RayBase']]],
+  ['resazi_1329',['ResAzi',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a7553fa2ed176db735d8a4fcbe468d405',1,'GOAT::raytracing::GlobalParms']]],
+  ['resrad_1330',['ResRad',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a1de355283014888c4758209edc9aadac',1,'GOAT::raytracing::GlobalParms']]],
+  ['rho_1331',['rho',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a5ff765220b51e3967a5f94211996bf71',1,'GOAT::raytracing::ObjectShape']]],
+  ['rp_1332',['rP',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a3ce537789afb302bbe9623bcccca4dd5',1,'GOAT::raytracing::grid']]]
 ];

@@ -1,8 +1,8 @@
-\hypertarget{vector_8h}{}\doxysection{C\+:/\+Users/\+Thomas/source/repos/raytracing/goat\+\_\+release/maths/vector.h File Reference}
-\label{vector_8h}\index{C:/Users/Thomas/source/repos/raytracing/goat\_release/maths/vector.h@{C:/Users/Thomas/source/repos/raytracing/goat\_release/maths/vector.h}}
+\hypertarget{vector_8h}{}\doxysection{maths/vector.h File Reference}
+\label{vector_8h}\index{maths/vector.h@{maths/vector.h}}
 
 
-This file contains the \mbox{\hyperlink{class_vector}{Vector}} template class and some useful functions around this class.  
+This file contains the Vector template class and some useful functions around this class.  
 
 
 {\ttfamily \#include $<$ostream$>$}\newline
@@ -12,355 +12,264 @@ This file contains the \mbox{\hyperlink{class_vector}{Vector}} template class an
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}goodies.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_vector}{Vector$<$ T $>$}}
+class \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{G\+O\+A\+T\+::maths\+::\+Vector$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em Template class for threedimensional vectors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{G\+O\+A\+T\+::maths}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{vector_8h_aa39e54ccef74a255384ae21989f11022}\label{vector_8h_aa39e54ccef74a255384ae21989f11022}} 
-\#define {\bfseries ex}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (1.\+0,0.\+0,0.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_a56d8a5099eb4328d3a094331b89bc621}\label{vector_8h_a56d8a5099eb4328d3a094331b89bc621}} 
-\#define {\bfseries ey}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,1.\+0,0.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}\label{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}} 
-\#define {\bfseries ez}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,0.\+0,1.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}\label{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}} 
-\#define {\bfseries dzero}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ (0.\+0,0.\+0,0.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_a7cf126dbeb6f30c606e3b42fea65cfef}\label{vector_8h_a7cf126dbeb6f30c606e3b42fea65cfef}} 
-\#define {\bfseries one}~\mbox{\hyperlink{class_vector}{Vector}}$<$double$>$  (1.\+0,1.\+0,1.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_a67b72833e47467ff90e7065cae471794}\label{vector_8h_a67b72833e47467ff90e7065cae471794}} 
-\#define {\bfseries czero}~\mbox{\hyperlink{class_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$ (0.\+0,0.\+0,0.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}\label{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}} 
-\#define {\bfseries cone}~\mbox{\hyperlink{class_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$  (1.\+0,1.\+0,1.\+0)
-\item 
-\mbox{\Hypertarget{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}\label{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}} 
-\#define {\bfseries complex\+\_\+I}
+\#define \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{ex}}~Vector$<$double$>$ (1.\+0,0.\+0,0.\+0)
+\begin{DoxyCompactList}\small\item\em unit vector in the x-\/direction \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{ey}}~Vector$<$double$>$ (0.\+0,1.\+0,0.\+0)
+\begin{DoxyCompactList}\small\item\em unit vector in the y-\/direction \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{ez}}~Vector$<$double$>$ (0.\+0,0.\+0,1.\+0)
+\begin{DoxyCompactList}\small\item\em unit vector in the z-\/direction \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}{dzero}}~Vector$<$double$>$ (0.\+0,0.\+0,0.\+0)
+\begin{DoxyCompactList}\small\item\em double valued vector with all components set to 0 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_a67b72833e47467ff90e7065cae471794}{czero}}~Vector$<$std\+::complex$<$double$>$ $>$ (0.\+0,0.\+0,0.\+0)
+\begin{DoxyCompactList}\small\item\em complex valued vector with all components set to 0 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}{cone}}~Vector$<$std\+::complex$<$double$>$ $>$  (1.\+0,1.\+0,1.\+0)
+\begin{DoxyCompactList}\small\item\em complex valued vector with all components set to 1 \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}{complex\+\_\+I}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{vector_8h_a9f335851c5d018e390c9c8a429585e3c}\label{vector_8h_a9f335851c5d018e390c9c8a429585e3c}} 
-double {\bfseries arctan} (double y, double x)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aae3fe0665203f8e6d3ca867bf3e10059}{G\+O\+A\+T\+::maths\+::arctan}} (double y, double x)
 \item 
-\mbox{\Hypertarget{vector_8h_a49d59cd206aabdbaa8c157722767f4ba}\label{vector_8h_a49d59cd206aabdbaa8c157722767f4ba}} 
-std\+::complex$<$ double $>$ {\bfseries tan} (std\+::complex$<$ double $>$ z)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aeb07510be73ba4f7279a4b3b493e1b7a}{G\+O\+A\+T\+::maths\+::tan}} (std\+::complex$<$ double $>$ z)
 \item 
-\mbox{\Hypertarget{vector_8h_a707bd7cd99c49872ccaf9f6dd640aa35}\label{vector_8h_a707bd7cd99c49872ccaf9f6dd640aa35}} 
-std\+::complex$<$ double $>$ {\bfseries operator+} (std\+::complex$<$ double $>$ x, int y)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a56b0b0699f8ccdee1cabcc54bc049b80}{G\+O\+A\+T\+::maths\+::operator+}} (std\+::complex$<$ double $>$ x, int y)
 \item 
-\mbox{\Hypertarget{vector_8h_af08b20d989559eb177dfc0a7d46601d0}\label{vector_8h_af08b20d989559eb177dfc0a7d46601d0}} 
-std\+::complex$<$ double $>$ {\bfseries operator+} (int y, std\+::complex$<$ double $>$ x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a9977a3d61af6f4265967b9ce9f1cc5b9}{G\+O\+A\+T\+::maths\+::operator+}} (int y, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_a7a619e21258d061a6717108fb4762e2c}\label{vector_8h_a7a619e21258d061a6717108fb4762e2c}} 
-std\+::complex$<$ double $>$ {\bfseries operator-\/} (std\+::complex$<$ double $>$ x, int y)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7414dc6a2238b3e75f2c43696bc82529}{G\+O\+A\+T\+::maths\+::operator-\/}} (std\+::complex$<$ double $>$ x, int y)
 \item 
-\mbox{\Hypertarget{vector_8h_ab388d7d5a0a3082a98ec14ac3f54c30e}\label{vector_8h_ab388d7d5a0a3082a98ec14ac3f54c30e}} 
-std\+::complex$<$ double $>$ {\bfseries operator-\/} (int y, std\+::complex$<$ double $>$ x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3f33364b44b1303ae2482c09ac1cd916}{G\+O\+A\+T\+::maths\+::operator-\/}} (int y, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_a9a5425e9840574b21773a05ce0670e8b}\label{vector_8h_a9a5425e9840574b21773a05ce0670e8b}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, int y)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a994cccf2f7515fd0d150b3cb7c73e0a9}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (std\+::complex$<$ double $>$ x, int y)
 \item 
-\mbox{\Hypertarget{vector_8h_a9766ef69384d4365d8c1a75a7d5ef0b2}\label{vector_8h_a9766ef69384d4365d8c1a75a7d5ef0b2}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (int y, std\+::complex$<$ double $>$ x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_afe3456765bb1ed9cb80cdb2fb0c1840e}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (int y, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_a7f11d989a87fdb61b26e7e857e3dad8f}\label{vector_8h_a7f11d989a87fdb61b26e7e857e3dad8f}} 
-std\+::complex$<$ double $>$ {\bfseries operator/} (std\+::complex$<$ double $>$ x, int y)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aeaf4c7f38c6c6cee959b572887700946}{G\+O\+A\+T\+::maths\+::operator/}} (std\+::complex$<$ double $>$ x, int y)
 \item 
-\mbox{\Hypertarget{vector_8h_a9aca44bb8f309135d19aad0d9c8632c1}\label{vector_8h_a9aca44bb8f309135d19aad0d9c8632c1}} 
-std\+::complex$<$ double $>$ {\bfseries operator/} (int y, std\+::complex$<$ double $>$ x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a63654603945e9790af6a4628fde1b5b6}{G\+O\+A\+T\+::maths\+::operator/}} (int y, std\+::complex$<$ double $>$ x)
 \item 
-{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}{cart2sphere}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&x)
+{\footnotesize template$<$class T $>$ }\\Vector$<$ T $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a66487f24b6a37b4700440fb9e32c601d}{G\+O\+A\+T\+::maths\+::cart2sphere}} (const Vector$<$ T $>$ \&x)
 \begin{DoxyCompactList}\small\item\em Transformation from cartesian coordinates to spherical coordinates. \end{DoxyCompactList}\item 
-{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}{sphere2cart}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&P)
+{\footnotesize template$<$class T $>$ }\\Vector$<$ T $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af9b4be1a3344c6be36cf312a36417d42}{G\+O\+A\+T\+::maths\+::sphere2cart}} (const Vector$<$ T $>$ \&P)
 \begin{DoxyCompactList}\small\item\em Transforms vector from spherical coordinates into cartesian coordinates. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a8da2aa92b08b7de40ece1a5ad6fc7d43}\label{vector_8h_a8da2aa92b08b7de40ece1a5ad6fc7d43}} 
-std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a07b9c814c617ce9747546d894cfd1bc4}{G\+O\+A\+T\+::maths\+::operator$>$$>$}} (std\+::istream \&is, Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em input operator, reads complex vector from file \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ab617df7636e3d9c684aec0d4ddde180f}{G\+O\+A\+T\+::maths\+::operator$>$$>$}} (std\+::istream \&is, Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_ae04a4172d2083d12f414da96ead0cbf8}\label{vector_8h_ae04a4172d2083d12f414da96ead0cbf8}} 
-std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0aca212b8423361c6ef7dd7449e05f44}{G\+O\+A\+T\+::maths\+::operator$>$$>$}} (std\+::istream \&is, Vector$<$ int $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a2700eea3f75e1556289e106fd76da164}\label{vector_8h_a2700eea3f75e1556289e106fd76da164}} 
-std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&is, \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2f6c63f334174b28d931a0563293a474}{G\+O\+A\+T\+::maths\+::operator$<$$<$}} (std\+::ostream \&is, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_af21f7ec205d25fdbf6e36f116de60f0e}\label{vector_8h_af21f7ec205d25fdbf6e36f116de60f0e}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3fe84d77e1d57045f117bfa67d1831b8}{G\+O\+A\+T\+::maths\+::operator$<$$<$}} (std\+::ostream \&is, const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a9a3c909e283a28dec3bf4ee0d52e0ae2}\label{vector_8h_a9a3c909e283a28dec3bf4ee0d52e0ae2}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a53c04c38b06f803be252a46b94ada86a}{G\+O\+A\+T\+::maths\+::operator$<$$<$}} (std\+::ostream \&is, const Vector$<$ int $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a6d628a29111b095617e536834300533b}\label{vector_8h_a6d628a29111b095617e536834300533b}} 
-std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&is, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acc8bbefb34bf57531024f09d47252d02}{G\+O\+A\+T\+::maths\+::errmsg}} (char $\ast$S)
 \item 
-\mbox{\Hypertarget{vector_8h_a81495ea36fe398670dfb10aabcc9d19c}\label{vector_8h_a81495ea36fe398670dfb10aabcc9d19c}} 
-void {\bfseries errmsg} (char $\ast$S)
-\item 
-double \mbox{\hyperlink{vector_8h_ac858532f407521fdfb1f58b37301f1a7}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7ecc2cf89285b9ea7ddc4f9a18238d98}{G\+O\+A\+T\+::maths\+::abs}} (const Vector$<$ double $>$ \&r)
 \begin{DoxyCompactList}\small\item\em Fehlermeldung ausgeben. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a5a223d427ab41ff47f53999accca16e6}\label{vector_8h_a5a223d427ab41ff47f53999accca16e6}} 
-double \mbox{\hyperlink{vector_8h_a5a223d427ab41ff47f53999accca16e6}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
-\begin{DoxyCompactList}\small\item\em Calculates the absolute value of a complex vector \$f(abs(\textbackslash{}vec\{r\})=\textbackslash{}sqrt\{\textbackslash{}vec\{r\} \textbackslash{}cdot \textbackslash{}vec\{r\}$\ast$\$f\}) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_af7c92fa01293f3254e54b5b586b94576}\label{vector_8h_af7c92fa01293f3254e54b5b586b94576}} 
-double \mbox{\hyperlink{vector_8h_af7c92fa01293f3254e54b5b586b94576}{abs}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac0bbe0864f5259342d6ad34cf367a4c1}{G\+O\+A\+T\+::maths\+::abs}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the absolute value of a complex vector $ (abs(\vec{r})=\sqrt{\vec{r} \cdot \vec{r} }) $. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac3148e6b7bdd6cd173fe34255c9ddc90}{G\+O\+A\+T\+::maths\+::abs}} (const Vector$<$ int $>$ \&r)
 \begin{DoxyCompactList}\small\item\em Calculates the absolute value of an integer vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a3fc21473fe844db8d617f7878831a006}\label{vector_8h_a3fc21473fe844db8d617f7878831a006}} 
-double \mbox{\hyperlink{vector_8h_a3fc21473fe844db8d617f7878831a006}{abs2}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6ca6210fbf996fddbe0a7c8bc2ba39c5}{G\+O\+A\+T\+::maths\+::abs2}} (const Vector$<$ double $>$ \&r)
 \begin{DoxyCompactList}\small\item\em Calculates the squared absolute value of double vector. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}\label{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}} 
-double \mbox{\hyperlink{vector_8h_ae4aa0aace79bdb1703d793296e8e9520}{abs2}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
-\begin{DoxyCompactList}\small\item\em Calculates the squared absolute value of double vector \$f(abs2(\textbackslash{}vec\{r\})=\textbackslash{}vec\{r\} \textbackslash{}cdot \textbackslash{}vec\{r\}$\ast$\$f) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_aad2af1db69a10be291dd8450fd1bc638}\label{vector_8h_aad2af1db69a10be291dd8450fd1bc638}} 
-double \mbox{\hyperlink{vector_8h_aad2af1db69a10be291dd8450fd1bc638}{abs2}} (std\+::complex$<$ double $>$ x)
-\begin{DoxyCompactList}\small\item\em Absolute value of the complex number x \$f(abs(x)=x \textbackslash{}cdot x$\ast$\$f) \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_ac1674032d96a03865abb95935683c5d3}\label{vector_8h_ac1674032d96a03865abb95935683c5d3}} 
-double \mbox{\hyperlink{vector_8h_ac1674032d96a03865abb95935683c5d3}{abs2}} (double x)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a601dd80de9b5466339d752e76046836f}{G\+O\+A\+T\+::maths\+::abs2}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
+\begin{DoxyCompactList}\small\item\em Calculates the squared absolute value of double vector $ (abs2(\vec{r})=\vec{r} \cdot \vec{r} ) $. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a5863c698f23807a4690e0bd2acb9a8f1}{G\+O\+A\+T\+::maths\+::abs2}} (std\+::complex$<$ double $>$ x)
+\begin{DoxyCompactList}\small\item\em Absolute value of the complex number x $ abs(x)=\sqrt{x \cdot x} $. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a24bf4b5cbe8ceed1f316568e319620dd}{G\+O\+A\+T\+::maths\+::abs2}} (double x)
 \begin{DoxyCompactList}\small\item\em Squared absolute value of x. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_ac35d273a6252c06cb692f43e508c4158}\label{vector_8h_ac35d273a6252c06cb692f43e508c4158}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{vector_8h_ac35d273a6252c06cb692f43e508c4158}{conj}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_add23e6e5e1b25b47e2498fdb74dc5578}{G\+O\+A\+T\+::maths\+::conj}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \begin{DoxyCompactList}\small\item\em Conjugate complex of the vector r. \end{DoxyCompactList}\item 
-double $\ast$ \mbox{\hyperlink{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}{conv2double}} (int numV, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$r)
+double $\ast$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae4d86f183e5ae3670511eb6168157341}{G\+O\+A\+T\+::maths\+::conv2double}} (int numV, Vector$<$ std\+::complex$<$ double $>$ $>$ $\ast$r)
 \begin{DoxyCompactList}\small\item\em This function returns an array with all components of the Vector-\/array r. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a7cfccf4ed2e06acc705661cad3952215}\label{vector_8h_a7cfccf4ed2e06acc705661cad3952215}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a7cfccf4ed2e06acc705661cad3952215}{floor}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a627e2c9419297debb8638c824894a563}{G\+O\+A\+T\+::maths\+::floor}} (const Vector$<$ double $>$ \&r)
 \begin{DoxyCompactList}\small\item\em rounding up, Component-\/by-\/component \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}\label{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \mbox{\hyperlink{vector_8h_a734b1988e1f7a3439d264fbf4d95bf1f}{ifloor}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ int $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acb48b1925958839ee420d2939413d903}{G\+O\+A\+T\+::maths\+::ifloor}} (const Vector$<$ double $>$ \&r)
 \begin{DoxyCompactList}\small\item\em rounding up, component-\/by-\/component rounding \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}{ceil}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a34bb6d1e220c252b50ef02e53ab6f1cd}{G\+O\+A\+T\+::maths\+::ceil}} (const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \mbox{\hyperlink{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}{iceil}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ int $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aaa2bb70e94e2154615a7a31c853724ea}{G\+O\+A\+T\+::maths\+::iceil}} (const Vector$<$ double $>$ \&r)
 \item 
-double \mbox{\hyperlink{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}{sign}} (double x)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a08509f3fd14b5c402613e3152004f89a}{G\+O\+A\+T\+::maths\+::sign}} (double x)
 \item 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$ \mbox{\hyperlink{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}{conv2vector}} (int num, double $\ast$r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ $\ast$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acc0feb18893b08a350b34785802e97b2}{G\+O\+A\+T\+::maths\+::conv2vector}} (int num, double $\ast$r)
 \begin{DoxyCompactList}\small\item\em This function converts a list of doubles into a list of complex vectors. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_aaa64dfc349f8e65a0a22ae87a0fa5f9f}\label{vector_8h_aaa64dfc349f8e65a0a22ae87a0fa5f9f}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries grad2d} (double($\ast$f(\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$)), \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ x, double dx)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a742ce59d14d32aa865619fd13bc370c8}{G\+O\+A\+T\+::maths\+::grad2d}} (double($\ast$f(Vector$<$ std\+::complex$<$ double $>$ $>$)), Vector$<$ std\+::complex$<$ double $>$ $>$ r, double d)
+\begin{DoxyCompactList}\small\item\em calculates the gradient of a given function at a certain position \end{DoxyCompactList}\item 
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a71dee6333ab15fe31d696f46c6a2bd2d}{G\+O\+A\+T\+::maths\+::convd2c}} (const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_ac3792fa1eb237f0b757ebb68e55e06f6}\label{vector_8h_ac3792fa1eb237f0b757ebb68e55e06f6}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries convd2c} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
-\item 
-\mbox{\Hypertarget{vector_8h_ad228f27ecb7edc69da9340cc45162678}\label{vector_8h_ad228f27ecb7edc69da9340cc45162678}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad228f27ecb7edc69da9340cc45162678}{real}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a4905c2e7b2fdf4f61d1a228b92bd71ab}{G\+O\+A\+T\+::maths\+::real}} (Vector$<$ std\+::complex$<$ double $>$ $>$ r)
 \begin{DoxyCompactList}\small\item\em returns a vector with the real parts of the components of the complex vector r \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a165a28c2c2814218fcf669d411a4e7de}\label{vector_8h_a165a28c2c2814218fcf669d411a4e7de}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a165a28c2c2814218fcf669d411a4e7de}{imag}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af20135e563a1924b1bf850aa3250fc7f}{G\+O\+A\+T\+::maths\+::imag}} (Vector$<$ std\+::complex$<$ double $>$ $>$ r)
 \begin{DoxyCompactList}\small\item\em returns a vector with the imaginary parts of the components of the complex vector r \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_a8b0686376d40d1b7410216a8e6a6e7ac}\label{vector_8h_a8b0686376d40d1b7410216a8e6a6e7ac}} 
-double {\bfseries s\+Dreieck} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af449ddbbe3378c952130f949dc658d06}{G\+O\+A\+T\+::maths\+::s\+Dreieck}} (Vector$<$ double $>$, Vector$<$ double $>$, Vector$<$ double $>$)
 \item 
-\mbox{\Hypertarget{vector_8h_a57b8df37562890589d211bd7e6315403}\label{vector_8h_a57b8df37562890589d211bd7e6315403}} 
-double {\bfseries s\+Viereck} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae6bd073aea822c6496839eb73fe6b00d}{G\+O\+A\+T\+::maths\+::s\+Viereck}} (Vector$<$ double $>$, Vector$<$ double $>$, Vector$<$ double $>$, Vector$<$ double $>$)
 \item 
-\mbox{\Hypertarget{vector_8h_a3725a34dd30d012af712a2da9fa7c173}\label{vector_8h_a3725a34dd30d012af712a2da9fa7c173}} 
-void {\bfseries rotate} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, double phi)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2eb6e0130d964dfec3743bb76852531e}{G\+O\+A\+T\+::maths\+::rotate}} (Vector$<$ double $>$ \&r, double phi)
 \item 
-\mbox{\Hypertarget{vector_8h_a7eebde889dfddab0af5085ae3da340ed}\label{vector_8h_a7eebde889dfddab0af5085ae3da340ed}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries rotate} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, double dtheta, double dphi)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a122123f7013cb24c5bd2e15d9d39ba7b}{G\+O\+A\+T\+::maths\+::rotate}} (const Vector$<$ double $>$ \&r, double dtheta, double dphi)
 \item 
-\mbox{\Hypertarget{vector_8h_acad6ec2b49343895220cb7909ec129d2}\label{vector_8h_acad6ec2b49343895220cb7909ec129d2}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries vdc} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7f1963d52b630a08daaafbe1c4c2f43b}{G\+O\+A\+T\+::maths\+::vdc}} (const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a854eb4d1855c3433f2376305311acfae}\label{vector_8h_a854eb4d1855c3433f2376305311acfae}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries make\+Real} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ade7ad4d9a581dedc8a4ccfad33517435}{G\+O\+A\+T\+::maths\+::make\+Real}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \item 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_a93a6f5573d810d6afecd23809569a8a1}{cart2sphere}} (double x, double y, double z)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a8f19d4b92ae5dd9f1797215db818871f}{G\+O\+A\+T\+::maths\+::cart2sphere}} (double x, double y, double z)
 \begin{DoxyCompactList}\small\item\em Converts a vector, described by its cartesian components, into a vector in spherical coordinates ( $(r, \vartheta, \varphi) $) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \mbox{\hyperlink{vector_8h_ad827cddff518c2fe68792742227db9b1}{sphere2cart}} (double r, double theta, double phi)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acd943dd94c3cd46e682f2193da944f22}{G\+O\+A\+T\+::maths\+::sphere2cart}} (double r, double theta, double phi)
 \begin{DoxyCompactList}\small\item\em Converts a vector, described by its spherical components ( $(r, \vartheta, \varphi) $), into a vector in cartesian coordinates. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{vector_8h_a692a1996d44a95f383edf9d176deabea}{get\+K\+System}} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&n, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e1, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e2, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&e3)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a849cf0391e02bb6fd2c94a326ee96416}{G\+O\+A\+T\+::maths\+::get\+K\+System}} (const Vector$<$ double $>$ \&n, const Vector$<$ double $>$ \&k, Vector$<$ double $>$ \&e1, Vector$<$ double $>$ \&e2, Vector$<$ double $>$ \&e3)
 \begin{DoxyCompactList}\small\item\em Calculates the three direction vectors of a coordinate system formed by the surface normal n and the propagation vector k. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_af0d80745eef284cff792f0b78825ff9f}\label{vector_8h_af0d80745eef284cff792f0b78825ff9f}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries arg} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a4932511236ad206e1254d419611c69a6}{G\+O\+A\+T\+::maths\+::arg}} (Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a68dadb74d9f500ed47898e6ef8f4d92d}\label{vector_8h_a68dadb74d9f500ed47898e6ef8f4d92d}} 
-std\+::complex$<$ double $>$ {\bfseries asin} (std\+::complex$<$ double $>$ z)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a604195146d7dc2e36a7aea1d98311499}{G\+O\+A\+T\+::maths\+::asin}} (std\+::complex$<$ double $>$ z)
 \item 
-\mbox{\Hypertarget{vector_8h_adb51165282e0742ca1c480f7d9c5f32f}\label{vector_8h_adb51165282e0742ca1c480f7d9c5f32f}} 
-std\+::complex$<$ double $>$ {\bfseries ihoch} (int l)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a935ca6e820bc5810089972396184af3d}{G\+O\+A\+T\+::maths\+::ihoch}} (int l)
 \item 
-\mbox{\Hypertarget{vector_8h_afa9c4d7b0bf1d4a0f074a9146e983441}\label{vector_8h_afa9c4d7b0bf1d4a0f074a9146e983441}} 
-void {\bfseries sphereunitv} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&er, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&etheta, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&ephi)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a51c66ae5521f4bed63cbf2314713de59}{G\+O\+A\+T\+::maths\+::sphereunitv}} (Vector$<$ double $>$ \&P, Vector$<$ double $>$ \&er, Vector$<$ double $>$ \&etheta, Vector$<$ double $>$ \&ephi)
 \item 
-\mbox{\Hypertarget{vector_8h_ac7017bb45eb17902a401e3ce25337448}\label{vector_8h_ac7017bb45eb17902a401e3ce25337448}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emax} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P1, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&P2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa596950ecf86c7de90c80f7813231481}{G\+O\+A\+T\+::maths\+::emax}} (Vector$<$ double $>$ \&P1, Vector$<$ double $>$ \&P2)
 \item 
-\mbox{\Hypertarget{vector_8h_a61ace4554d5c1fd39ad2154b3c8e1625}\label{vector_8h_a61ace4554d5c1fd39ad2154b3c8e1625}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries er} (double theta, double phi)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0c007c62deeb08550c46b87e348e055d}{G\+O\+A\+T\+::maths\+::er}} (double theta, double phi)
+\begin{DoxyCompactList}\small\item\em returns a normalized vector in r-\/direction on a unit sphere with spherical coordinates /p theta and /p phi \end{DoxyCompactList}\item 
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3079eb94c7f6805bcb75a0542daa0e99}{G\+O\+A\+T\+::maths\+::etheta}} (double theta, double phi)
+\begin{DoxyCompactList}\small\item\em returns a normalized vector in theta-\/direction on a unit sphere with spherical coordinates /p theta and /p phi \end{DoxyCompactList}\item 
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7bd50ad7c0d25cb1bdcb26861cf3ddcf}{G\+O\+A\+T\+::maths\+::ephi}} (double theta, double phi)
+\begin{DoxyCompactList}\small\item\em returns a normalized vector in phi-\/direction on a unit sphere with spherical coordinates /p theta and /p phi \end{DoxyCompactList}\item 
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a4f977d3b2a945953fc96a81e2f157cd1}{G\+O\+A\+T\+::maths\+::convd2c}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a82d11ebf265aaf8c09f80802cf58b99e}\label{vector_8h_a82d11ebf265aaf8c09f80802cf58b99e}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries etheta} (double theta, double phi)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af5200e70b759de6067c1da6ffee3c7cf}{G\+O\+A\+T\+::maths\+::norm}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_ad6683f2eb5cec010f745b8c24ed26b65}\label{vector_8h_ad6683f2eb5cec010f745b8c24ed26b65}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries ephi} (double theta, double phi)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aadfa25c45599fde0d0fa8504a0e463bd}{G\+O\+A\+T\+::maths\+::norm}} (const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_ab02d4803efd46120938bfdf152a2fa7d}\label{vector_8h_ab02d4803efd46120938bfdf152a2fa7d}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries convd2c} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
-\item 
-\mbox{\Hypertarget{vector_8h_aaf96b894b1042201bb510fd11f1376c0}\label{vector_8h_aaf96b894b1042201bb510fd11f1376c0}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries norm} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r)
-\item 
-\mbox{\Hypertarget{vector_8h_a961b99a0939328d68921c6c094357f75}\label{vector_8h_a961b99a0939328d68921c6c094357f75}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries norm} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
-\item 
-char $\ast$ \mbox{\hyperlink{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}{to\+String}} (char $\ast$S, \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ P)
+char $\ast$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a8bab60736ad65568e2d7d1945dd4bb6b}{G\+O\+A\+T\+::maths\+::to\+String}} (char $\ast$S, Vector$<$ double $>$ P)
 \begin{DoxyCompactList}\small\item\em Converts a double vector into a string. \end{DoxyCompactList}\item 
-char $\ast$ \mbox{\hyperlink{vector_8h_a815257966809f76ea36823ff775d1453}{to\+String}} (char $\ast$S, \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ P)
+char $\ast$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a1b683db6bb07dc19b300739b79f08785}{G\+O\+A\+T\+::maths\+::to\+String}} (char $\ast$S, Vector$<$ std\+::complex$<$ double $>$ $>$ P)
 \begin{DoxyCompactList}\small\item\em Converts a complex vector into a string. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_aaf6d430c60a643f5ca751ecb7847ab72}\label{vector_8h_aaf6d430c60a643f5ca751ecb7847ab72}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries nanV} (const char $\ast$tagp)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a381c3dfd33d36348310a88916657bd65}{G\+O\+A\+T\+::maths\+::nanV}} (const char $\ast$tagp)
 \item 
-\mbox{\Hypertarget{vector_8h_ace4d530549057caf05439de82395a75f}\label{vector_8h_ace4d530549057caf05439de82395a75f}} 
-bool \mbox{\hyperlink{vector_8h_ace4d530549057caf05439de82395a75f}{isnan}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ v)
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af8219b11bcbb0c250daca8b62f4da2dd}{G\+O\+A\+T\+::maths\+::isnan}} (Vector$<$ std\+::complex$<$ double $>$ $>$ v)
 \begin{DoxyCompactList}\small\item\em returns true if one of the components of v is NaN \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{vector_8h_afd917af2765b797a5e9084339179c0ea}\label{vector_8h_afd917af2765b797a5e9084339179c0ea}} 
-bool \mbox{\hyperlink{vector_8h_afd917af2765b797a5e9084339179c0ea}{isnan}} (\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ v)
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2a025b5797b35fded4314a10a0e2fb2d}{G\+O\+A\+T\+::maths\+::isnan}} (Vector$<$ double $>$ v)
 \begin{DoxyCompactList}\small\item\em returns true if one of the components of v is NaN \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Standard operators for vectors}\par
 {\em Standard operators for vectors with mixed types }\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{vector_8h_ae6e6119c02cebe41b0e225d68a8def80}\label{vector_8h_ae6e6119c02cebe41b0e225d68a8def80}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6ae31183ace3b21dd15990da4dee3f78}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ double $>$ \&r1, const Vector$<$ int $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a55a3cc6013040d08cd188bee97258bce}\label{vector_8h_a55a3cc6013040d08cd188bee97258bce}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a85747938182a58a01ed15442230d91b9}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ int $>$ \&r1, const Vector$<$ double $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a6123903ecea6ace3ae557afa28396bea}\label{vector_8h_a6123903ecea6ace3ae557afa28396bea}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_abe96106847037f62435e37a251f4e87c}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ double $>$ \&r1, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a803b0ae37262e1bb98ebb8d873d1914a}\label{vector_8h_a803b0ae37262e1bb98ebb8d873d1914a}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aed5ba557c80dff47c0f7a168c6eb65ec}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r1, const Vector$<$ double $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_aa971a2239f6701fd1515df496d479c4d}\label{vector_8h_aa971a2239f6701fd1515df496d479c4d}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a045c81610a942c335ccc90f0dc1a292f}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r1, const Vector$<$ int $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a777d5b3cf21271155d6953a90cd74100}\label{vector_8h_a777d5b3cf21271155d6953a90cd74100}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator-\/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acd1318635bc93ef92d208ce925b47e6a}{G\+O\+A\+T\+::maths\+::operator-\/}} (const Vector$<$ int $>$ \&r1, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_ad2df1b1ca40339a670bfc33e7b4390b3}\label{vector_8h_ad2df1b1ca40339a670bfc33e7b4390b3}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a1ddd4f601deae35d6ea655c85c605d9c}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ double $>$ \&r1, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_abe5f619b8561487f1ef91fa9521c4c05}\label{vector_8h_abe5f619b8561487f1ef91fa9521c4c05}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a60c70ab52fe034172ce0486df8068a33}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r1, const Vector$<$ double $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a7fdaab005e961c8db801160c96375dec}\label{vector_8h_a7fdaab005e961c8db801160c96375dec}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac4e9255fcbc5a721257229f0aec58393}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ int $>$ \&r1, const Vector$<$ double $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_ad649726737b4d0bc5d1b95ec8ef7b228}\label{vector_8h_ad649726737b4d0bc5d1b95ec8ef7b228}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a5c8b3662e61a0e074bb31f3a921061fb}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ double $>$ \&r1, const Vector$<$ int $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a7d6e5846e789c47b4c18310fa7bc00ed}\label{vector_8h_a7d6e5846e789c47b4c18310fa7bc00ed}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a66cac698bc8143f85a5d6578517b5118}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r1, const Vector$<$ int $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a8111997fc899bab04e682f30350f0d55}\label{vector_8h_a8111997fc899bab04e682f30350f0d55}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator+} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r2)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a499774d97cf2d1e11462247a7797efff}{G\+O\+A\+T\+::maths\+::operator+}} (const Vector$<$ int $>$ \&r1, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a7dd8d582f6232b0b8616d568852de57d}\label{vector_8h_a7dd8d582f6232b0b8616d568852de57d}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (int x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a83a141b92dfc35c29c427466bc3d23fc}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (int x, const Vector$<$ double $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_aa5456f82d9a4e33a13ef9513aef20507}\label{vector_8h_aa5456f82d9a4e33a13ef9513aef20507}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, int x)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa25a5cd2d2b7adcb2871afee14bb1258}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ double $>$ \&r, int x)
 \item 
-\mbox{\Hypertarget{vector_8h_a24141c1664cdb3bb645f94ab1495b5e7}\label{vector_8h_a24141c1664cdb3bb645f94ab1495b5e7}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (double x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a06897a9c18bf8716592232e97faac467}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (double x, const Vector$<$ int $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_a0aa3a9938f01386683d9c1814bffefcb}\label{vector_8h_a0aa3a9938f01386683d9c1814bffefcb}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, double x)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a91f0703e23ede8daa00b8ae8e0886100}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ int $>$ \&r, double x)
 \item 
-\mbox{\Hypertarget{vector_8h_adbc0b990f9c84c780935307c84ba44b8}\label{vector_8h_adbc0b990f9c84c780935307c84ba44b8}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ab902d95f300d49876d9d8a0a4fee56da}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (std\+::complex$<$ double $>$ x, const Vector$<$ double $>$ \&r)
+\begin{DoxyCompactList}\small\item\em multiplication between a complex valued scalar and a double valued vector \end{DoxyCompactList}\item 
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac1e304eb39be1a8ad5e8514a17239c53}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
+\begin{DoxyCompactList}\small\item\em multiplication between a double valued vector and a complex valued scalar \end{DoxyCompactList}\item 
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a1471ee0d710a37ecd5c23c9133cabb97}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (std\+::complex$<$ double $>$ x, const Vector$<$ int $>$ \&r)
 \item 
-\mbox{\Hypertarget{vector_8h_acec3508de45489ba7973c3ca4891dca2}\label{vector_8h_acec3508de45489ba7973c3ca4891dca2}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a5f08d1a9800c520b308d885aaa340d1a}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_a5b689bebd76693387a610fe9f62d07f3}\label{vector_8h_a5b689bebd76693387a610fe9f62d07f3}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (std\+::complex$<$ double $>$ x, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a718a50b718d28771b2a1fd5dfb109b55}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_a7c26bf7a31e7fe42d7cae22255e41fe1}\label{vector_8h_a7c26bf7a31e7fe42d7cae22255e41fe1}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a64c1f3e37508b25a5650b53659068abf}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ double $>$ \&r, int x)
 \item 
-\mbox{\Hypertarget{vector_8h_a84cb9aabc77da4b61dc54c8407a6627b}\label{vector_8h_a84cb9aabc77da4b61dc54c8407a6627b}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, std\+::complex$<$ double $>$ x)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3a81ab274b9afd4c88a94614f9d91c80}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r, double x)
 \item 
-\mbox{\Hypertarget{vector_8h_afe3ee31d859cba822ef3efd2893c5cfe}\label{vector_8h_afe3ee31d859cba822ef3efd2893c5cfe}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r, int x)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ad6c5bdcb0a6d5401bdef5d445283a005}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&r, int x)
 \item 
-\mbox{\Hypertarget{vector_8h_a757ff420c82b94a093862949686beb8d}\label{vector_8h_a757ff420c82b94a093862949686beb8d}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r, double x)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a1d99176f9e6ee80fe05e16cc1c875cac}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ int $>$ \&r, double x)
 \item 
-\mbox{\Hypertarget{vector_8h_aee3cff28110e58838cad44a7de0394dd}\label{vector_8h_aee3cff28110e58838cad44a7de0394dd}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&r, int x)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2d1ca6aa1d98f65cda1465ffb3f53652}{G\+O\+A\+T\+::maths\+::operator/}} (const Vector$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
 \item 
-\mbox{\Hypertarget{vector_8h_aa023e3c921c045a1141a1c134a284079}\label{vector_8h_aa023e3c921c045a1141a1c134a284079}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, double x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af706e0e2b971e47d9dcbfc9b579d5da5}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ double $>$ \&a, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a0648a2da16f0795174cef09ae3ffd3ad}\label{vector_8h_a0648a2da16f0795174cef09ae3ffd3ad}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator/} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r, std\+::complex$<$ double $>$ x)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2305bc5bf47338e5982aee15d7b0d79a}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&a, const Vector$<$ double $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_ad56597f7c437f39347a8d59a43106975}\label{vector_8h_ad56597f7c437f39347a8d59a43106975}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa620aa3105eee8cc19bca96252dd9876}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ double $>$ \&a, const Vector$<$ int $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a062c9ab9cd29a71452fcc064eb7ffb4d}\label{vector_8h_a062c9ab9cd29a71452fcc064eb7ffb4d}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a920fdd2a701fe12703652baa343f7c34}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ int $>$ \&a, const Vector$<$ double $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a6284e1df1a4398fee4ab662efa1902f3}\label{vector_8h_a6284e1df1a4398fee4ab662efa1902f3}} 
-double {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a19f1c75b8ce405c1178b617f409b724c}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&a, const Vector$<$ int $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_aa72468924fd71b79fd888edb06ce27f1}\label{vector_8h_aa72468924fd71b79fd888edb06ce27f1}} 
-double {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a470e1118370280dbf0fecb2aa5ade192}{G\+O\+A\+T\+::maths\+::operator$\ast$}} (const Vector$<$ int $>$ \&a, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a843162512c9945b1360696d5052ddfe9}\label{vector_8h_a843162512c9945b1360696d5052ddfe9}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_abc5b3e909e305ec42c89e078872fc5f0}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&a, const Vector$<$ double $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a8f4e3f0b87d1f6ab349b8a1f1840dc0c}\label{vector_8h_a8f4e3f0b87d1f6ab349b8a1f1840dc0c}} 
-std\+::complex$<$ double $>$ {\bfseries operator$\ast$} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a07071393eb28007325ffa53e6f69b229}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ double $>$ \&a, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_aa154732ac988f715963514907a14d2a6}\label{vector_8h_aa154732ac988f715963514907a14d2a6}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af5176c6a514b473bb86fca1d249b8f10}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ std\+::complex$<$ double $>$ $>$ \&a, const Vector$<$ int $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_ae0814ec24eba83e1ad96091e0169465d}\label{vector_8h_ae0814ec24eba83e1ad96091e0169465d}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a504c59008d9cbb5f6ac754a143368a7a}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ int $>$ \&a, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_aafe487403ebb9bb8177de3a48847ec85}\label{vector_8h_aafe487403ebb9bb8177de3a48847ec85}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae3e1f37c165a7fda6118330ec1304276}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ double $>$ \&a, const Vector$<$ int $>$ \&b)
 \item 
-\mbox{\Hypertarget{vector_8h_a483eac1134a616eda4b7e57bc964b850}\label{vector_8h_a483eac1134a616eda4b7e57bc964b850}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&b)
-\item 
-\mbox{\Hypertarget{vector_8h_a1c01ba8e28916b7d1a7832c75edde42a}\label{vector_8h_a1c01ba8e28916b7d1a7832c75edde42a}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&b)
-\item 
-\mbox{\Hypertarget{vector_8h_a09a6ac862d6d739334da3007895101c5}\label{vector_8h_a09a6ac862d6d739334da3007895101c5}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ {\bfseries operator\%} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&a, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&b)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a9e0255b4701e0a66f91dfa68ac5e4eb7}{G\+O\+A\+T\+::maths\+::operator\%}} (const Vector$<$ int $>$ \&a, const Vector$<$ double $>$ \&b)
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ element-\/wise multiplication}\par
 {\em Element-\/wise multiplication of two vectors with different types }\begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{vector_8h_ab0b2e871f3c4118f4724eff15d1e7173}\label{vector_8h_ab0b2e871f3c4118f4724eff15d1e7173}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emult} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a30eae98ce107fa5c221fb174eec35cf7}{G\+O\+A\+T\+::maths\+::emult}} (const Vector$<$ double $>$ \&r1, const Vector$<$ int $>$ \&r2)
 \item 
-\mbox{\Hypertarget{vector_8h_a055330c0ddfac4fd57726327db2dbb7a}\label{vector_8h_a055330c0ddfac4fd57726327db2dbb7a}} 
-\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ {\bfseries emult} (const \mbox{\hyperlink{class_vector}{Vector}}$<$ int $>$ \&r1, const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&r2)
+Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa8700cf474a8bcaedcf1fda6b2e85bc6}{G\+O\+A\+T\+::maths\+::emult}} (const Vector$<$ int $>$ \&r1, const Vector$<$ double $>$ \&r2)
 \end{DoxyCompactItemize}
 \end{Indent}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{vector_8h_ab03128f28254e912f824640e69fc85ad}\label{vector_8h_ab03128f28254e912f824640e69fc85ad}} 
-const std\+::complex$<$ double $>$ \mbox{\hyperlink{vector_8h_ab03128f28254e912f824640e69fc85ad}{I}} =std\+::complex$<$double$>$ (0.\+0,1.\+0)
+const Vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a045c79eb7da8bab8141ff4c9353508ad}{G\+O\+A\+T\+::maths\+::one}} =Vector$<$double$>$(1.\+0, 1.\+0, 1.\+0)
+\begin{DoxyCompactList}\small\item\em double valued vector with all components set to 1 \end{DoxyCompactList}\item 
+const std\+::complex$<$ double $>$ \mbox{\hyperlink{vector_8h_ab03128f28254e912f824640e69fc85ad}{I}} = std\+::complex$<$double$>$(0.\+0, 1.\+0)
 \begin{DoxyCompactList}\small\item\em imaginary unit \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file contains the \mbox{\hyperlink{class_vector}{Vector}} template class and some useful functions around this class. 
+This file contains the Vector template class and some useful functions around this class. 
 
 \begin{DoxyAuthor}{Author}
 Thomas Weigel 
@@ -370,220 +279,115 @@ July 2021
 \end{DoxyDate}
 
 
-\doxysubsection{Function Documentation}
-\mbox{\Hypertarget{vector_8h_ac858532f407521fdfb1f58b37301f1a7}\label{vector_8h_ac858532f407521fdfb1f58b37301f1a7}} 
-\index{vector.h@{vector.h}!abs@{abs}}
-\index{abs@{abs}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{abs()}{abs()}}
-{\footnotesize\ttfamily double abs (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})}
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}\label{vector_8h_abb666b396b5cea23900efea0bd7cb2b8}} 
+\index{vector.h@{vector.h}!complex\_I@{complex\_I}}
+\index{complex\_I@{complex\_I}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{complex\_I}{complex\_I}}
+{\footnotesize\ttfamily \#define complex\+\_\+I}
 
 
 
-Fehlermeldung ausgeben. 
+Definition at line 646 of file vector.\+h.
 
-Calculates the absolute value of a double vector \mbox{\Hypertarget{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}\label{vector_8h_a7a5ed24bd7b2a211c85792ac23bbea8a}} 
-\index{vector.h@{vector.h}!cart2sphere@{cart2sphere}}
-\index{cart2sphere@{cart2sphere}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{cart2sphere()}{cart2sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_vector}{Vector}}$<$T$>$ cart2sphere (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{x }\end{DoxyParamCaption})}
-
-
-
-Transformation from cartesian coordinates to spherical coordinates. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & \mbox{\hyperlink{class_vector}{Vector}} in cartesian coordinates \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{class_vector}{Vector}} in spherical coordinates $(r,\vartheta,\varphi)$ 
-\end{DoxyReturn}
-\mbox{\Hypertarget{vector_8h_a93a6f5573d810d6afecd23809569a8a1}\label{vector_8h_a93a6f5573d810d6afecd23809569a8a1}} 
-\index{vector.h@{vector.h}!cart2sphere@{cart2sphere}}
-\index{cart2sphere@{cart2sphere}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{cart2sphere()}{cart2sphere()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ cart2sphere (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}\label{vector_8h_a59e9c19a0ec2dab3ad6e815227a4b378}} 
+\index{vector.h@{vector.h}!cone@{cone}}
+\index{cone@{cone}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{cone}{cone}}
+{\footnotesize\ttfamily \#define cone~Vector$<$std\+::complex$<$double$>$ $>$  (1.\+0,1.\+0,1.\+0)}
 
 
 
-Converts a vector, described by its cartesian components, into a vector in spherical coordinates ( $(r, \vartheta, \varphi) $) 
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & x-\/component \\
-\hline
-{\em y} & y-\/component \\
-\hline
-{\em z} & z-\/component \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}\label{vector_8h_ad0519c307e3a14b4cdded9d4ee3c756e}} 
-\index{vector.h@{vector.h}!ceil@{ceil}}
-\index{ceil@{ceil}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{ceil()}{ceil()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ ceil (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-\begin{DoxyParams}{Parameters}
-{\em r} & rounding down, component -\/ by -\/ component rounding \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}\label{vector_8h_aa38c826ac14964fdd1aedbc2f9f2d31a}} 
-\index{vector.h@{vector.h}!conv2double@{conv2double}}
-\index{conv2double@{conv2double}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{conv2double()}{conv2double()}}
-{\footnotesize\ttfamily double $\ast$ conv2double (\begin{DoxyParamCaption}\item[{int}]{numV,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$}]{r }\end{DoxyParamCaption})}
+complex valued vector with all components set to 1 
 
 
 
-This function returns an array with all components of the Vector-\/array r. 
+Definition at line 587 of file vector.\+h.
 
-
-\begin{DoxyParams}{Parameters}
-{\em numV} & number of elements in vector list r \\
-\hline
-{\em r} & List of vectors to convert \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Array with all components of r\+: erg\mbox{[}0\mbox{]}=real(r\mbox{[}0\mbox{]}), erg\mbox{[}1\mbox{]}=imag(r\mbox{[}0\mbox{]}),erg\mbox{[}2\mbox{]}=real(r\mbox{[}1\mbox{]}), erg\mbox{[}2\mbox{]}=imag(r\mbox{[}1\mbox{]}),... 
-\end{DoxyReturn}
-\mbox{\Hypertarget{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}\label{vector_8h_a6cca40c6ce3b27a3e461e54b523c851e}} 
-\index{vector.h@{vector.h}!conv2vector@{conv2vector}}
-\index{conv2vector@{conv2vector}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{conv2vector()}{conv2vector()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$ conv2vector (\begin{DoxyParamCaption}\item[{int}]{num,  }\item[{double $\ast$}]{r }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{vector_8h_a67b72833e47467ff90e7065cae471794}\label{vector_8h_a67b72833e47467ff90e7065cae471794}} 
+\index{vector.h@{vector.h}!czero@{czero}}
+\index{czero@{czero}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{czero}{czero}}
+{\footnotesize\ttfamily \#define czero~Vector$<$std\+::complex$<$double$>$ $>$ (0.\+0,0.\+0,0.\+0)}
 
 
 
-This function converts a list of doubles into a list of complex vectors. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em num} & Number of complex vectors to convert \\
-\hline
-{\em r} & List of double values \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-List of complex vectors (erg)\+: erg\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}=r\mbox{[}0\mbox{]}+i$\ast$r\mbox{[}1\mbox{]},erg\mbox{[}0\mbox{]}\mbox{[}1\mbox{]}=r\mbox{[}2\mbox{]}+i$\ast$r\mbox{[}3\mbox{]},erg\mbox{[}0\mbox{]}\mbox{[}2\mbox{]}=r\mbox{[}4\mbox{]}+i$\ast$r\mbox{[}5\mbox{]}, erg\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}=r\mbox{[}6\mbox{]}+i$\ast$r\mbox{[}7\mbox{]},... 
-\end{DoxyReturn}
-\mbox{\Hypertarget{vector_8h_a692a1996d44a95f383edf9d176deabea}\label{vector_8h_a692a1996d44a95f383edf9d176deabea}} 
-\index{vector.h@{vector.h}!getKSystem@{getKSystem}}
-\index{getKSystem@{getKSystem}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{getKSystem()}{getKSystem()}}
-{\footnotesize\ttfamily void get\+K\+System (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{n,  }\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{k,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e1,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e2,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{e3 }\end{DoxyParamCaption})}
+complex valued vector with all components set to 0 
 
 
 
-Calculates the three direction vectors of a coordinate system formed by the surface normal n and the propagation vector k. 
+Definition at line 586 of file vector.\+h.
 
-
-\begin{DoxyParams}{Parameters}
-{\em n} & Surface normal \\
-\hline
-{\em k} & propagation vector \\
-\hline
-{\em e0} & normalized direction vector for the first coordinate axis, equal to n \\
-\hline
-{\em e1} & normalized direction vector for the first coordinate axis, $\vec{e_1}=\vec{e_2}\times\vec{e_0}$ \\
-\hline
-{\em e2} & normalized direction vector for the third coordinate axis\+: $\vec{e_2}=\vec{n}\times\vec{k}$. If $\vec{e_2}=0$, $\vec{e_2}= \frac{\vec{n}\times\vec{e_x}}{\left|\vec{n}\times\vec{e_x}\right|$ \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}\label{vector_8h_aec80f7330c273d3f3450e183e5f85f2c}} 
-\index{vector.h@{vector.h}!iceil@{iceil}}
-\index{iceil@{iceil}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{iceil()}{iceil()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$int$>$ iceil (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$ \&}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-\begin{DoxyParams}{Parameters}
-{\em r} & rounding down, component -\/ by -\/ component rounding \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}\label{vector_8h_a8f3cba07aa75b7320ae8bd6c0aeac498}} 
-\index{vector.h@{vector.h}!sign@{sign}}
-\index{sign@{sign}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{sign()}{sign()}}
-{\footnotesize\ttfamily double sign (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-\begin{DoxyParams}{Parameters}
-{\em x} & returns -\/1 if x$<$0, 0 if x equals to 0 and 1 if x$>$0 \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}\label{vector_8h_ad67c981cc2dd4f165ba3093f990ef755}} 
-\index{vector.h@{vector.h}!sphere2cart@{sphere2cart}}
-\index{sphere2cart@{sphere2cart}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{sphere2cart()}{sphere2cart()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_vector}{Vector}}$<$T$>$ sphere2cart (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_vector}{Vector}}$<$ T $>$ \&}]{P }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}\label{vector_8h_a8b38bbea61f8194f0c5fd3632d64aff0}} 
+\index{vector.h@{vector.h}!dzero@{dzero}}
+\index{dzero@{dzero}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{dzero}{dzero}}
+{\footnotesize\ttfamily \#define dzero~Vector$<$double$>$ (0.\+0,0.\+0,0.\+0)}
 
 
 
-Transforms vector from spherical coordinates into cartesian coordinates. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em P} & \mbox{\hyperlink{class_vector}{Vector}} in spherical coordinates $(r,\vartheta,\varphi)$ \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-\mbox{\hyperlink{class_vector}{Vector}} in cartesian coordinates 
-\end{DoxyReturn}
-\mbox{\Hypertarget{vector_8h_ad827cddff518c2fe68792742227db9b1}\label{vector_8h_ad827cddff518c2fe68792742227db9b1}} 
-\index{vector.h@{vector.h}!sphere2cart@{sphere2cart}}
-\index{sphere2cart@{sphere2cart}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{sphere2cart()}{sphere2cart()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_vector}{Vector}}$<$double$>$ sphere2cart (\begin{DoxyParamCaption}\item[{double}]{r,  }\item[{double}]{theta,  }\item[{double}]{phi }\end{DoxyParamCaption})}
+double valued vector with all components set to 0 
 
 
 
-Converts a vector, described by its spherical components ( $(r, \vartheta, \varphi) $), into a vector in cartesian coordinates. 
+Definition at line 583 of file vector.\+h.
 
-
-\begin{DoxyParams}{Parameters}
-{\em r} & r-\/component \\
-\hline
-{\em theta} & $(\vartheta$)-\/component \\
-\hline
-{\em phi} & $(\varphi$)-\/component \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}\label{vector_8h_ab75d39aaa9059accb02fe0a58d8ef028}} 
-\index{vector.h@{vector.h}!toString@{toString}}
-\index{toString@{toString}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily char$\ast$ to\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{S,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{vector_8h_aa39e54ccef74a255384ae21989f11022}\label{vector_8h_aa39e54ccef74a255384ae21989f11022}} 
+\index{vector.h@{vector.h}!ex@{ex}}
+\index{ex@{ex}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{ex}{ex}}
+{\footnotesize\ttfamily \#define ex~Vector$<$double$>$ (1.\+0,0.\+0,0.\+0)}
 
 
 
-Converts a double vector into a string. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em S} & string in which the components of the vector P will be written. The components will be written in one row, separated by spaces. \\
-\hline
-{\em P} & \mbox{\hyperlink{class_vector}{Vector}} \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{vector_8h_a815257966809f76ea36823ff775d1453}\label{vector_8h_a815257966809f76ea36823ff775d1453}} 
-\index{vector.h@{vector.h}!toString@{toString}}
-\index{toString@{toString}!vector.h@{vector.h}}
-\doxysubsubsection{\texorpdfstring{toString()}{toString()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily char$\ast$ to\+String (\begin{DoxyParamCaption}\item[{char $\ast$}]{S,  }\item[{\mbox{\hyperlink{class_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{P }\end{DoxyParamCaption})}
+unit vector in the x-\/direction 
 
 
 
-Converts a complex vector into a string. 
+Definition at line 580 of file vector.\+h.
+
+\mbox{\Hypertarget{vector_8h_a56d8a5099eb4328d3a094331b89bc621}\label{vector_8h_a56d8a5099eb4328d3a094331b89bc621}} 
+\index{vector.h@{vector.h}!ey@{ey}}
+\index{ey@{ey}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{ey}{ey}}
+{\footnotesize\ttfamily \#define ey~Vector$<$double$>$ (0.\+0,1.\+0,0.\+0)}
 
 
-\begin{DoxyParams}{Parameters}
-{\em S} & string in which the components of the vector P will be written. The components (first real part, then imaginary part) will be written in one row, separated by spaces. \\
-\hline
-{\em P} & \mbox{\hyperlink{class_vector}{Vector}} \\
-\hline
-\end{DoxyParams}
+
+unit vector in the y-\/direction 
+
+
+
+Definition at line 581 of file vector.\+h.
+
+\mbox{\Hypertarget{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}\label{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}} 
+\index{vector.h@{vector.h}!ez@{ez}}
+\index{ez@{ez}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{ez}{ez}}
+{\footnotesize\ttfamily \#define ez~Vector$<$double$>$ (0.\+0,0.\+0,1.\+0)}
+
+
+
+unit vector in the z-\/direction 
+
+
+
+Definition at line 582 of file vector.\+h.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{vector_8h_ab03128f28254e912f824640e69fc85ad}\label{vector_8h_ab03128f28254e912f824640e69fc85ad}} 
+\index{vector.h@{vector.h}!I@{I}}
+\index{I@{I}!vector.h@{vector.h}}
+\doxysubsubsection{\texorpdfstring{I}{I}}
+{\footnotesize\ttfamily const std\+::complex$<$double$>$ I = std\+::complex$<$double$>$(0.\+0, 1.\+0)}
+
+
+
+imaginary unit 
+
+
+
+Definition at line 647 of file vector.\+h.
+

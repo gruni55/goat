@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['iray_320',['IRay',['../class_i_ray.html',1,'']]]
+  ['iray_720',['IRay',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html',1,'GOAT::raytracing']]]
 ];

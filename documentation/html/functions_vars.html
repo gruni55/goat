@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('functions_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -65,400 +85,40 @@ $(function() {
 &#160;
 
 <h3><a id="index_a"></a>- a -</h3><ul>
+<li>a
+: <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1object_info.html#ab3c8574ba024ee2028ee5738d84973a1">GOAT::raytracing::objectInfo</a>
+</li>
 <li>alpha
-: <a class="el" href="class_global_parms.html#ac0dd341ecb9deb31d2ee1f64eea24a50">GlobalParms</a>
-, <a class="el" href="class_object_shape.html#a165f404eca226d65dbc6da810e5b7d04">ObjectShape</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a7cfb2b58eda267d76692487d7a5bb092">GOAT::raytracing::GlobalParms</a>
+, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1object_info.html#a6fa1e38062e8287464beb8b7fb7ed330">GOAT::raytracing::objectInfo</a>
+, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a68d5b537a0ef9ccd2a347f2383938eb6">GOAT::raytracing::ObjectShape</a>
+</li>
+<li>AngleTol
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ac7cd5bd12b5957ea2e75afd6ab1eceb6">GOAT::raytracing::GlobalParms</a>
+</li>
+<li>angmax
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#a341bffaca42a6eca6901f27293789331">GOAT::raytracing::RRTParmsInfo</a>
+</li>
+<li>angmin
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#a99e941ea9da8d640bc0ffa8dc1bafedc">GOAT::raytracing::RRTParmsInfo</a>
+</li>
+<li>anzEin
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ad156fea3a10d6b2204ef95f0864e146b">GOAT::raytracing::SuperArray</a>
 </li>
 <li>AnzRays
-: <a class="el" href="class_global_parms.html#ac9f6c10dbf56a2098049f6a1ac9d3c57">GlobalParms</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aef5143c2fac241880caded654b9025ca">GOAT::raytracing::GlobalParms</a>
 </li>
 <li>AnzReflex
-: <a class="el" href="class_global_parms.html#a789ab6af0ef4ff5ce361b4eeb26deda9">GlobalParms</a>
-</li>
-</ul>
-
-
-<h3><a id="index_b"></a>- b -</h3><ul>
-<li>bounds
-: <a class="el" href="class_box.html#a51ca97d7e68383ed248ac89c54634a5e">Box</a>
-</li>
-</ul>
-
-
-<h3><a id="index_c"></a>- c -</h3><ul>
-<li>currentIndex
-: <a class="el" href="classsurface.html#a8adb328cf891ede09b591f6eaece2c62">surface</a>
-</li>
-<li>currentLS
-: <a class="el" href="class_raytrace.html#acda8a8457fd0ed1f6ae03dfa74ea3585">Raytrace</a>
-</li>
-<li>currentnorm
-: <a class="el" href="classsurface.html#ab16389446ec76021dbfb4a0b8e1b9457">surface</a>
-</li>
-<li>currentObj
-: <a class="el" href="class_raytrace.html#af8c0b57c2ae8ecfbcc8053e44d037be2">Raytrace</a>
-</li>
-</ul>
-
-
-<h3><a id="index_d"></a>- d -</h3><ul>
-<li>d
-: <a class="el" href="class_box.html#ae74afe48f6aa9b1e6b0c079a1e3beaba">Box</a>
-</li>
-<li>D
-: <a class="el" href="class_detector.html#aa192514da33d9b338a1d387bca214c59">Detector</a>
-, <a class="el" href="class_light_src.html#a13a76bff715aa48dcdfd0b516b7caa67">LightSrc</a>
-</li>
-<li>density
-: <a class="el" href="class_light_src.html#ab9fae3f4a26895d3bd030c9d4cd6bdef">LightSrc</a>
-</li>
-<li>Det
-: <a class="el" href="class_scene.html#a0aa88165686ec75fef877ebea7beefb3">Scene</a>
-</li>
-<li>diag
-: <a class="el" href="class_box.html#a1c21e77e713680de4d1343ae4691f2ad">Box</a>
-</li>
-<li>dx
-: <a class="el" href="class_global_parms.html#a6fd433f13de413ef0c8da8cb81a64e2b">GlobalParms</a>
-</li>
-<li>dxy
-: <a class="el" href="class_global_parms.html#af319bb53fd0eb8fe140870d876b3d3e9">GlobalParms</a>
-</li>
-<li>dy
-: <a class="el" href="class_global_parms.html#a06907fe69c58902629b8b11a201bff6e">GlobalParms</a>
-</li>
-</ul>
-
-
-<h3><a id="index_e"></a>- e -</h3><ul>
-<li>e
-: <a class="el" href="class_object_shape.html#a64d8426fa6a30f70474e18e9b08a8e57">ObjectShape</a>
-</li>
-<li>E
-: <a class="el" href="structtubed_ray_buffer.html#a5f063de39920c9a82bffb4dbc20c18d3">tubedRayBuffer</a>
-</li>
-<li>E2
-: <a class="el" href="class_i_ray.html#a1dc4eafdff5fd7b8dc50442a332ea5f3">IRay</a>
-</li>
-<li>e2
-: <a class="el" href="class_light_src.html#a22f8e357c4786918fdab699c3dc206ae">LightSrc</a>
-</li>
-<li>Egamma
-: <a class="el" href="class_object_shape.html#ac0e5386093a1b22815362a1be126e41b">ObjectShape</a>
-</li>
-<li>EStop
-: <a class="el" href="class_raytrace.html#a18949e5d88f40936222bb21e9118432f">Raytrace</a>
-</li>
-<li>EStop2
-: <a class="el" href="class_raytrace.html#a763be6e290016ef90d29db53c1a4f23b">Raytrace</a>
-</li>
-</ul>
-
-
-<h3><a id="index_f"></a>- f -</h3><ul>
-<li>F
-: <a class="el" href="struct_gauss.html#aeee1d52e67a3db5aec8b9757f32fa87d">Gauss</a>
-</li>
-<li>f
-: <a class="el" href="class_light_src_gauss.html#af104065f36a4a1e100dd461284ad6337">LightSrcGauss</a>
-, <a class="el" href="class_raytrace___o_t.html#a61c75d4200c0301005856d6ff459e31e">Raytrace_OT</a>
-</li>
-<li>F
-: <a class="el" href="class_raytrace___o_t.html#a5fc49ec2506baff0867805bb50dd9445">Raytrace_OT</a>
-</li>
-<li>f
-: <a class="el" href="classtriangle.html#aa28f184567eebf3421fa50a37316a2c9">triangle</a>
-</li>
-<li>FName
-: <a class="el" href="classsurface.html#af1a25218b5019a21fe7e39bc936d2362">surface</a>
-</li>
-<li>focuspos
-: <a class="el" href="class_light_src_gauss.html#a1405d66f5fccf1601e16f490a11f4b50">LightSrcGauss</a>
-</li>
-</ul>
-
-
-<h3><a id="index_g"></a>- g -</h3><ul>
-<li>Gitter
-: <a class="el" href="structtubed_ray_buffer.html#a4531b7961f29cdc3539c0355caea5bae">tubedRayBuffer</a>
-</li>
-</ul>
-
-
-<h3><a id="index_i"></a>- i -</h3><ul>
-<li>i1
-: <a class="el" href="class_light_src.html#a484a167712206ad4e1c478a31b97d975">LightSrc</a>
-</li>
-<li>i2
-: <a class="el" href="class_light_src.html#acb63fe1982f043119c21338a40b2af46">LightSrc</a>
-</li>
-<li>inelactive
-: <a class="el" href="class_object_shape.html#a4dc51d51c9b8889689392ea45e0166b4">ObjectShape</a>
-</li>
-<li>inObject
-: <a class="el" href="class_ray_base.html#a2aaf98cee8308ecd33ed5478d672c4f5">RayBase</a>
-</li>
-<li>iR
-: <a class="el" href="class_ray_base.html#a6acb463c529e42ffa0c20595ef5e5b7b">RayBase</a>
-</li>
-<li>isGauss
-: <a class="el" href="struct_gauss.html#acb9d938860ca497edb68b05ff9ef1c19">Gauss</a>
-</li>
-<li>isLeaf
-: <a class="el" href="class_octree.html#a54395e7a200784fb493e136896f25901">Octree&lt; T &gt;</a>
-</li>
-</ul>
-
-
-<h3><a id="index_k"></a>- k -</h3><ul>
-<li>k
-: <a class="el" href="struct_gauss.html#a506b72aadc2ed4f2d4d98b0c99d26fc0">Gauss</a>
-, <a class="el" href="class_i_ray.html#a75a8efea79e7888408555c2fd1797563">IRay</a>
-, <a class="el" href="class_light_src.html#a7dfa787bf399dfd05cebcc5e241fe96d">LightSrc</a>
-, <a class="el" href="class_light_src_gauss.html#a3596a5a0eec70e652f574ccabc59e094">LightSrcGauss</a>
-, <a class="el" href="structtubed_ray_buffer.html#a6ba767ed4cd2773c7ed1c3da10c38155">tubedRayBuffer</a>
-</li>
-<li>k0
-: <a class="el" href="class_ray_base.html#a452923470162d5499657d0673d2860e5">RayBase</a>
-</li>
-<li>kin
-: <a class="el" href="class_raytrace.html#ac972c3fedfeb290e09a502595945986d">Raytrace</a>
-</li>
-<li>kref
-: <a class="el" href="class_raytrace.html#acc67b939c693f1ca3e07c06107cc47c7">Raytrace</a>
-</li>
-<li>ktrans
-: <a class="el" href="class_raytrace.html#a5b0023c40617973f16512f49f59017e4">Raytrace</a>
-</li>
-</ul>
-
-
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>L
-: <a class="el" href="class_raytrace___o_t.html#a786d921c106b99653b8e199619c4b0bf">Raytrace_OT</a>
-</li>
-<li>l
-: <a class="el" href="class_raytrace___o_t.html#a1275b943b450f25d409498a860506c04">Raytrace_OT</a>
-</li>
-<li>lost
-: <a class="el" href="class_raytrace.html#ac164fb2f3f4f5dae335198d0e015b491">Raytrace</a>
-</li>
-<li>LS
-: <a class="el" href="class_scene.html#a422c739d8a25111494c4752060076aee">Scene</a>
-</li>
-<li>LSRRT
-: <a class="el" href="class_scene.html#af16094af6ee11a02d03e7d94b829930a">Scene</a>
-</li>
-</ul>
-
-
-<h3><a id="index_n"></a>- n -</h3><ul>
-<li>N
-: <a class="el" href="class_light_src.html#a3dbc1d1dbc9741f31fb6b91444dbede5">LightSrc</a>
-</li>
-<li>n
-: <a class="el" href="class_object_shape.html#a2317c3e62a0028ceb7074c026599b4d2">ObjectShape</a>
-, <a class="el" href="classtriangle.html#aab64f790f21d4797b062ddbf40df03e7">triangle</a>
-</li>
-<li>n0
-: <a class="el" href="class_global_parms.html#afc531d7a55ed5fc63575d978448773e1">GlobalParms</a>
-, <a class="el" href="class_light_src.html#abf6da6dff4d5e9a8f8d0dcb7b4a5cb08">LightSrc</a>
-, <a class="el" href="class_ray_base.html#a83a852579a6b8f2e5e6f067001cdbb9d">RayBase</a>
-</li>
-<li>NA
-: <a class="el" href="class_light_src_gauss.html#a9e89502644c0f441e0235899ce969698">LightSrcGauss</a>
-</li>
-<li>nDet
-: <a class="el" href="class_scene.html#a61492de9a35e99f2a9eb9345d0bd1767">Scene</a>
-</li>
-<li>ninel
-: <a class="el" href="class_object_shape.html#a3ee40ff89db50b0cbe8c2915f84943e6">ObjectShape</a>
-</li>
-<li>nLS
-: <a class="el" href="class_scene.html#a5df1915a3f0e78c95c39233895fccea3">Scene</a>
-</li>
-<li>nObj
-: <a class="el" href="class_scene.html#a8393324c58e458ef81bd9a7a4802d16b">Scene</a>
-</li>
-<li>nS
-: <a class="el" href="class_scene.html#abc290e802b11eec05969ae1ccc2c13c8">Scene</a>
-</li>
-<li>nSRRT
-: <a class="el" href="class_scene.html#a97cc54e05a2265c07ea67dc25a98960d">Scene</a>
-</li>
-<li>numObj
-: <a class="el" href="class_ray_base.html#a47eed21dc568d7c78461a979b4944775">RayBase</a>
-, <a class="el" href="structtubed_ray_buffer.html#a4890ca2d5e162a383c25966849cce0ff">tubedRayBuffer</a>
-</li>
-<li>numObjs
-: <a class="el" href="class_light_src.html#a2064f5e2186f76a7a767675c1b2b8384">LightSrc</a>
-</li>
-<li>numRays
-: <a class="el" href="class_raytrace___path.html#a8910529c658a542a9213096b0db71a0d">Raytrace_Path</a>
-</li>
-<li>numTriangles
-: <a class="el" href="classsurface.html#af31daba97e3e4e8fb9b413b5f33fba7e">surface</a>
-</li>
-<li>nx
-: <a class="el" href="class_global_parms.html#a1d6558cfd0e4547cc77a2db71d22f68c">GlobalParms</a>
-</li>
-</ul>
-
-
-<h3><a id="index_o"></a>- o -</h3><ul>
-<li>Obj
-: <a class="el" href="class_light_src.html#a097868bb32a5beb92be8221429a0ba46">LightSrc</a>
-, <a class="el" href="class_ray_base.html#a251a10522027ae6c3a432ee8ca5a842f">RayBase</a>
-, <a class="el" href="class_scene.html#a57c2ec80ebabf4431ca7221991d3148b">Scene</a>
-, <a class="el" href="structtubed_ray_buffer.html#adb5e73496b4817686bef6df62fa25be8">tubedRayBuffer</a>
-</li>
-<li>objIndex
-: <a class="el" href="class_ray_base.html#a93a77c1d9f35b929f8528feda404abeb">RayBase</a>
-</li>
-</ul>
-
-
-<h3><a id="index_p"></a>- p -</h3><ul>
-<li>P
-: <a class="el" href="class_i_ray.html#ab04d5d0aaa45adb1486d4f33d7306370">IRay</a>
-, <a class="el" href="class_object_shape.html#a6f30fe47f526f28a3f5b83ce92ae422c">ObjectShape</a>
-, <a class="el" href="classtriangle.html#ac826714da4ab9974db74547514634bc1">triangle</a>
-, <a class="el" href="structtubed_ray_buffer.html#a814be53b80d8342898d6b096d765bb68">tubedRayBuffer</a>
-</li>
-<li>P0
-: <a class="el" href="class_light_src.html#a9ea4e20e81d369988727126062c0c92d">LightSrc</a>
-</li>
-<li>P1
-: <a class="el" href="class_raytrace___path.html#a7de902a9af796243bf4780477d721022">Raytrace_Path</a>
-</li>
-<li>P2
-: <a class="el" href="class_ellipsoid.html#a901aa585959f5f19cf8d5d5f59700e6f">Ellipsoid</a>
-, <a class="el" href="class_raytrace___path.html#a1b2c1bfbc1c93f7b94331cb07236589e">Raytrace_Path</a>
-</li>
-<li>Pall
-: <a class="el" href="class_light_src.html#a588a93305852daa01a5fd4a89f3edec0">LightSrc</a>
-</li>
-<li>pol
-: <a class="el" href="class_global_parms.html#a4628502b5812c14b92a285fbd9c28ea3">GlobalParms</a>
-</li>
-<li>Pol
-: <a class="el" href="class_light_src.html#aa69283bdabfe02cbed2937f5f92010b4">LightSrc</a>
-</li>
-<li>Pol2
-: <a class="el" href="class_light_src.html#aa3ff7d75b8843ac3e4532ba26ca235ce">LightSrc</a>
-</li>
-<li>polType
-: <a class="el" href="class_light_src.html#ac01b6ed62a027a74aa33cf49c342e5a4">LightSrc</a>
-</li>
-<li>por
-: <a class="el" href="class_object_shape.html#afc5710dc2ef6006bcc8560bdfeb80d03">ObjectShape</a>
-</li>
-<li>Pos
-: <a class="el" href="class_light_src.html#ac39f69a2ab65803389b13932f61fec46">LightSrc</a>
-</li>
-<li>PowIn
-: <a class="el" href="class_raytrace.html#a09db8347c2db69fc2ffce8f819116325">Raytrace</a>
-</li>
-<li>PowRef
-: <a class="el" href="class_raytrace.html#aca6485c4743921cd76c2b124f908bf95">Raytrace</a>
-</li>
-<li>PowTrans
-: <a class="el" href="class_raytrace.html#a4c38c09ceeb8eeabf83bb6a4fd458377">Raytrace</a>
-</li>
-<li>PStop
-: <a class="el" href="class_raytrace.html#a68d940de566893c2b6e29124f39860db">Raytrace</a>
-</li>
-</ul>
-
-
-<h3><a id="index_r"></a>- r -</h3><ul>
-<li>r
-: <a class="el" href="class_ellipsoid.html#a0529fddcdbb9aa68207530768800b3f8">Ellipsoid</a>
-</li>
-<li>R
-: <a class="el" href="class_object_shape.html#adc88a9cb75df7ba0fcc5f3950bbe7866">ObjectShape</a>
-</li>
-<li>r0
-: <a class="el" href="class_global_parms.html#a5555c9e1d8530c431673e464f50952fe">GlobalParms</a>
-, <a class="el" href="class_light_src.html#aca01db60c331aba7f23b149841579f1e">LightSrc</a>
-, <a class="el" href="class_object_shape.html#a5e968899de0583c41f6bad1a23be391b">ObjectShape</a>
-, <a class="el" href="class_scene.html#af9b49a6b520dd2f791e60a2e9e133968">Scene</a>
-, <a class="el" href="structtubed_ray_buffer.html#a5f2c8b7941ce88ac89e4d657c6ab0eff">tubedRayBuffer</a>
-</li>
-<li>r_2
-: <a class="el" href="class_ellipsoid.html#ae4b8dcbb062563b6c19bf7556980b688">Ellipsoid</a>
-</li>
-<li>raytype
-: <a class="el" href="class_light_src.html#acb626042fc76dc9ba8b05893a342b0d0">LightSrc</a>
-, <a class="el" href="class_scene.html#acad628fb9cd9ceba1c5aa32465e1697e">Scene</a>
-</li>
-<li>rc
-: <a class="el" href="class_ray_base.html#a005f5242340f1d953b65aeb4162f887f">RayBase</a>
-</li>
-<li>rho
-: <a class="el" href="class_object_shape.html#ae59d1a46edcdccd643563d2fa38bd010">ObjectShape</a>
-</li>
-</ul>
-
-
-<h3><a id="index_s"></a>- s -</h3><ul>
-<li>S
-: <a class="el" href="class_raytrace.html#a3ac230a42a035a613d75e54193c753ca">Raytrace</a>
-, <a class="el" href="classsurface.html#ac6849ca2b88887bc09e292492ccbe10c">surface</a>
-</li>
-<li>sf
-: <a class="el" href="class_object_shape.html#af720db107d7a5b4fda9e177963aa5b43">ObjectShape</a>
-</li>
-</ul>
-
-
-<h3><a id="index_t"></a>- t -</h3><ul>
-<li>tray
-: <a class="el" href="class_ray_base.html#ac2be3973a469802af13a50b23b6f1237">RayBase</a>
-</li>
-<li>type
-: <a class="el" href="class_light_src.html#a3705f87c1598da6e3624e4b745696997">LightSrc</a>
-, <a class="el" href="class_object_shape.html#ab48f75a619d444ad3a13707298aa2040">ObjectShape</a>
-</li>
-</ul>
-
-
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>useRRTParms
-: <a class="el" href="class_raytrace.html#ac80dbcbd5ac9203b68e8b3a324cf76a7">Raytrace</a>
-</li>
-</ul>
-
-
-<h3><a id="index_v"></a>- v -</h3><ul>
-<li>v
-: <a class="el" href="classtriangle.html#aacce73e05df992eaaedf1a7d2fd2dc9f">triangle</a>
-</li>
-</ul>
-
-
-<h3><a id="index_w"></a>- w -</h3><ul>
-<li>w
-: <a class="el" href="class_light_src_gauss.html#a0de7b516cb8a89aac55cd9480ad1cccc">LightSrcGauss</a>
-</li>
-<li>w0
-: <a class="el" href="class_light_src_gauss.html#ae0caa1d85216714240728fab410c0a5c">LightSrcGauss</a>
-</li>
-<li>wvl
-: <a class="el" href="class_light_src.html#a4dacf6e8a6cdc356a42e112430408618">LightSrc</a>
-</li>
-</ul>
-
-
-<h3><a id="index_z"></a>- z -</h3><ul>
-<li>z0
-: <a class="el" href="class_light_src_gauss.html#a6dab2e5a26268dad460da0d7c2a48772">LightSrcGauss</a>
+: <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a0c469027156d5e7cc8d4f0683cc45371">GOAT::raytracing::GlobalParms</a>
 </li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20 </li>
+  </ul>
+</div>
 </body>
 </html>

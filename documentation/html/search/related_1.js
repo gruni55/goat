@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['det_640',['det',['../class_matrix.html#aaf64d99c408b323083c1f40a25c1a5e6',1,'Matrix']]]
+  ['cutmatrix_1375',['cutMatrix',['../class_g_o_a_t_1_1maths_1_1_matrix.html#ac9244dbb542b5f2849b4859e85f48c49',1,'GOAT::maths::Matrix']]]
 ];
