@@ -10,5 +10,9 @@ namespace GOAT
 			this->S = S;
 			this->nList = nList;
 		}
+		 
+		void shortPulse::startRaytracing()
+		{
+		}
 	}
 }
