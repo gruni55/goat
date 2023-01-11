@@ -31,7 +31,7 @@ namespace GOAT
             */
             SuperGrid(double r0, int nx, int ny, int nz, const int typ = IN_HOST);
             SuperGrid(double r0, int nx, int ny, int nz, ObjectShape** Obj, int anzEin, const bool isAbsolute = false, const int typ = 0);
-            ~SuperArray() { clear(); };
+            ~SuperGrid() { clear(); };
 
             /**
              * @brief Copies SuperArray object
@@ -62,7 +62,7 @@ namespace GOAT
             * @param isAbsolute true: Location/size information in absolute coordinates
             *
             */
-            bool addInc(ObjectShape** Obj, int numObj, const bool isAbsolute = false); // anzEin Einschluesse hinzufuegen
+            bool addObject(ObjectShape** Obj, int numObj, const bool isAbsolute = false); // anzEin Einschluesse hinzufuegen
             // isAbsolute=true => Orts-/Groessenangaben in absoluten Koordinaten 
 /**
 * @brief Add object to SuperGrid
@@ -72,7 +72,7 @@ namespace GOAT
 * @param isAbsolute true: Location/size information in absolute coordinates
 *
 */
-            bool addInc(ObjectShape* E, const bool isAbsolute = false);  // Einschluss hinzufuegen (isAbsolute s.o.) 
+            bool addObject(ObjectShape* E, const bool isAbsolute = false);  ///< add new object to the grid 
             maths::Vector<int> gitterpunkt(maths::Vector<double> P);
             bool inObject(maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
             bool inObject(maths::Vector<int> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
@@ -124,12 +124,13 @@ namespace GOAT
             */
 
 
-            std::vector< ObjectShape*> Obj;            
-            int anzEin, type;
-            int* ywerte;
+            std::vector< ObjectShape*> Obj;      ///< List of the objects      
+            int anzEin; ///< Number of objects
+            int type;   ///< Type of grid (0: Field is stored only in the objects, 1: field is stored in the surroundings only, 2: field is stored in the whole volume                 
+            int* ywerte;                           
             int** zwerte;
             *std::vector<std:vector<std : vector<T> > > grid;
-            std::vector<std::vector<std::vector<std::vector<T>> > > G;
+            std::vector<std::vector<std::vector<std::vector<T> > > > G;
             std::vector<std:vector<std : vector<T> > > K;
             T dummy;
             std::vector<GOAT::maths::Vector<int> >Pul;
@@ -203,14 +204,14 @@ namespace GOAT
             {
                 allockugel();
             }
-            addInc(Obj, anzEin, isAbsolute);
+            addObject(Obj, anzEin, isAbsolute);
         }
 
 
-        template <class T> bool SuperGrid<T>::addInc(ObjectShape** Obj, int anzEin, const bool isAbsolute)
+        template <class T> bool SuperGrid<T>::addObject(ObjectShape** Obj, int anzEin, const bool isAbsolute)
         {
             bool ok = true;
-            for (int i = 0; (i < anzEin) && (ok); i++) ok = addInc(Obj[i], isAbsolute);
+            for (int i = 0; (i < anzEin) && (ok); i++) ok = addObject(Obj[i], isAbsolute);
             return ok;
         }
 
@@ -233,7 +234,7 @@ namespace GOAT
             return pi;
         }
 
-        template<class T> bool SuperGrid<T>::addInc(ObjectShape* E, const bool isAbsolute)
+        template<class T> bool SuperGrid<T>::addObject(ObjectShape* E, const bool isAbsolute)
         {
             int hmem, hmem2;
             char str[500];
@@ -567,10 +568,10 @@ namespace GOAT
             }*/
         }
 
-        void SuperArray::copy(const SuperArray& S)  // MUSS DRINGEND GE�NDERT WERDEN !
+        template <class T> void SuperGrid<T>::copy(const SuperGrid<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
         {
             for (int i = 0; i < anzEin; i++)
-                if (S.G[i] != NULL)
+                if (S.G[i].size()>0)
                 {
                     for (int ix = 0; ix < n[i][0]; ix++)
                         for (int iy = 0; iy < n[i][1]; iy++)
@@ -579,7 +580,7 @@ namespace GOAT
                 }
         }
 
-        SuperArray& SuperArray::operator = (const SuperArray& S)
+        template<class T> SuperGrid<T>& SuperGrid<T>::operator = (const SuperGrid<T>& S)
         {
             int i = 0;
             int anzx, anzx2;
@@ -596,7 +597,7 @@ namespace GOAT
 
             if (type == IN_OBJECT)
             {
-                isequal = true; addInc(S.Obj, S.anzEin, true);
+                isequal = true; addObject(S.Obj, S.anzEin, true);
                 isequal = true;
                 if (S.anzEin != 0)
                     do
@@ -612,7 +613,7 @@ namespace GOAT
             else
             {
                 allockugel();
-                isequal = true; addInc(S.Obj, S.anzEin, true);
+                isequal = true; addObject(S.Obj, S.anzEin, true);
                 isequal = true;
                 for (int k = 0; k < anzx2; k++)
                 {
@@ -639,7 +640,7 @@ namespace GOAT
 
 
 
-        void SuperArray::add(const SuperArray& S)
+        template <class T> void SuperGrid<T>::add(const SuperGrid<T>& S)
         {
             int anzx2 = nges[0] / 2;
             isequal = false;
@@ -676,7 +677,7 @@ namespace GOAT
             }
         }
 
-        void SuperArray::sub(const SuperArray& S)
+        template <class T> void SuperGrid<T>::sub(const SuperGrid<T>& S)
         {
             int anzx2 = nges[0] / 2;
 
@@ -712,9 +713,9 @@ namespace GOAT
             }
         }
 
-        std::ostream& operator << (std::ostream& os, const SuperArray& S)
+        template<T> std::ostream& operator << (std::ostream& os, const SuperGrid<T> & S)
         {
-            os << "r0=" << S.r0 << std::endl;
+            /*os << "r0=" << S.r0 << std::endl;
             os << "Ausdehnung:    nx=" << S.nges[0] << "  ny=" << S.nges[1] << "  nz=" << S.nges[2] << std::endl;
             os << S.anzEin << " Einschluesse" << std::endl;
             if (S.anzEin > 0)
@@ -725,11 +726,11 @@ namespace GOAT
                         for (int iy = 0; iy < S.n[i][1]; iy++)
                             for (int iz = 0; iz < S.n[i][2]; iz++)
                                 os << abs(S.G[i][ix][iy][iz]) << std::endl;
-                }
+                }*/
             return os;
         }
 
-        void SuperArray::fill(const maths::Vector<std::complex<double> >& x)
+        template <class T> void SuperGrid<T>::fill(const T& x)
         {
             int anzx, anzx2;
             anzx = nges[0]; anzx2 = nges[0] / 2;
@@ -765,7 +766,7 @@ namespace GOAT
         }
 
 
-        void SuperArray::makeReal()
+        template<class T> void SuperGrid<T>::makeReal()
         {
             for (int i = 0; i < anzEin; i++)
                 for (int ix = 0; ix < n[i][0]; ix++)
@@ -773,309 +774,6 @@ namespace GOAT
                         for (int iz = 0; iz < n[i][2]; iz++)
                             for (int j = 0; j < 3; j++)
                                 G[i][ix][iy][iz][j] = abs(G[i][ix][iy][iz][j]);
-        }
-
-
-
-        void SuperArray::saveExPhase(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            std::complex<double> phase;
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimensionen " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                        {
-                            os << atan2(imag(G[i][ix][iy][iz][0]), real(G[i][ix][iy][iz][0])) << std::endl;
-                        }
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << atan2(imag(E[0]), real(E[0])) << std::endl;
-                            }
-                        }
-            }
-            os.close();
-        }
-
-        void SuperArray::saveEyPhase(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            std::complex<double> phase;
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimensionen " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                        {
-                            os << atan2(imag(G[i][ix][iy][iz][1]), real(G[i][ix][iy][iz][1])) << std::endl;
-                        }
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << atan2(imag(E[1]), real(E[1])) << std::endl;
-                            }
-                        }
-            }
-            os.close();
-        }
-
-        void SuperArray::saveEzPhase(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            std::complex<double> phase;
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimensionen " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                        {
-                            os << atan2(imag(G[i][ix][iy][iz][2]), real(G[i][ix][iy][iz][2])) << std::endl;
-                        }
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << atan2(imag(E[2]), real(E[2])) << std::endl;
-                            }
-                        }
-            }
-            os.close();
-        }
-
-
-        void SuperArray::saveExPol(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimensionen " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                            os << abs(G[i][ix][iy][iz][0]) << std::endl;
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << abs(E[0]) << std::endl;
-                            }
-                        }
-            }
-            os.close();
-        }
-
-        void SuperArray::saveEyPol(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimension " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                            // os << abs(G[i][ix][iy][iz][1])/abs(G[i][ix][iy][iz]) << std::endl;
-                            //  os << real(G[i][ix][iy][iz][1]) << std::endl;
-                            os << abs(G[i][ix][iy][iz][1]) << std::endl;
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << abs(E[1]) << std::endl;
-                            }
-                        }
-
-
-            }
-
-
-            os.close();
-        }
-
-        void SuperArray::saveEzPol(char* FName, int i)
-        {
-            maths::Vector<int> Pi;
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimension " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                            //   os << abs(G[i][ix][iy][iz][2])/abs(G[i][ix][iy][iz]) << std::endl;
-                            // os << real(G[i][ix][iy][iz][2]) << std::endl;
-                            os << abs(G[i][ix][iy][iz][2]) << std::endl;
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << abs(E[2]) << std::endl;
-                            }
-                        }
-
-            }
-
-            os.close();
-        }
-
-        void SuperArray::saveabsE(const char* FName, int i)
-        {
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            maths::Vector<int> Pi;
-            double x;
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimension " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                        {
-                            x = real(G[i][ix][iy][iz][0] * conj(G[i][ix][iy][iz][0]));
-                            x += real(G[i][ix][iy][iz][1] * conj(G[i][ix][iy][iz][1]));
-                            x += real(G[i][ix][iy][iz][2] * conj(G[i][ix][iy][iz][2]));
-                            os << x << std::endl;
-                        }
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << real(E * conj(E)) << std::endl;
-                            }
-                        }
-            }
-
-            os.close();
-        }
-
-        void SuperArray::saveFullE(const char* FName, int i)
-        {
-            maths::Vector<std::complex<double> > E;
-            std::ofstream os;
-            os.open(FName);
-            maths::Vector<int> Pi;
-            double x;
-            if (type == IN_OBJECT)
-            {
-                os << "%Dimension " << n[i][0] << "  x  " << n[i][1] << "  x  " << n[i][2] << std::endl;
-
-
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
-                        {
-                            os << real(G[i][ix][iy][iz][0]) << "\t" << imag(G[i][ix][iy][iz][0]) << "\t";
-                            os << real(G[i][ix][iy][iz][1]) << "\t" << imag(G[i][ix][iy][iz][1]) << "\t";
-                            os << real(G[i][ix][iy][iz][2]) << "\t" << imag(G[i][ix][iy][iz][2]) << "\t" << std::endl;
-                        }
-            }
-            else
-            {
-                for (int ix = 0; ix < nges[0]; ix++)
-                    for (int iy = 0; iy < nges[1]; iy++)
-                        for (int iz = 0; iz < nges[2]; iz++)
-                        {
-                            Pi = kugelindex(maths::Vector<int>(ix, iy, iz));
-                            if (Fehler != NO_ERRORS) os << 0.0 << std::endl;
-                            else
-                            {
-                                E = K[Pi[0]][Pi[1]][Pi[2]];
-                                os << real(E[0]) << "\t" << imag(E[0]) << "\t";
-                                os << real(E[1]) << "\t" << imag(E[1]) << "\t";
-                                os << real(E[2]) << "\t" << imag(E[2]) << "\t" << std::endl;
-                            }
-                        }
-            }
-
-            os.close();
         }
 
     }
