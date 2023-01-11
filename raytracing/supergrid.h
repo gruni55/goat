@@ -53,6 +53,7 @@ namespace GOAT
              */
             void sub(const SuperGrid& S);
             
+            bool addPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, int n1 = 100, int n2 = 100);
             /**
             * @brief Add objects to SuperGrid
             * Adds a list of objects to the SuperGrid.
@@ -232,6 +233,35 @@ namespace GOAT
                 pi = ph;
             }
             return pi;
+        }
+
+        template<class T> bool SuperGrid<T>::addPlane(maths::Vector<double> P, maths::Vector<double> norm, double d1, double d2, int n1, int n2)
+        {
+            GOAT::maths::Vector<double> e1, e2;
+            if (abs(norm % GOAT::maths::ex) > 1E-5)
+                e1 = GOAT::maths::ex - (GOAT::maths::ex * norm) * norm;
+            else
+                e1 = GOAT::maths::ey - (GOAT::maths::ey * norm) * norm;
+            e1 = e1 / abs(e1);
+            e2 = norm % e1;
+            e2 = e2 / abs(e2);
+
+            maths::trafo(e1, e2, norm, H, R);
+
+            if (anzEin < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
+            {
+                G = std::vector < std::vector < std:vector <std::vector> > >(1);
+                Pul = std::vector < GOAT::maths::Vector<int> >(1);
+                n = std::vector < GOAT::maths::Vector<int> >(1);
+                Obj = std::vector <ObjectShape*>(1);
+            }
+            else
+            {
+                G.push_back(std::vector<std::vector<std::vector<T> > >(1));
+                Pul.push_back(GOAT::maths::Vector<int> > (1);
+                n.push_back(GOAT::maths::Vector<int> > (1);
+                Obj.push_back(ObjectShape*);
+            }
         }
 
         template<class T> bool SuperGrid<T>::addObject(ObjectShape* E, const bool isAbsolute)
