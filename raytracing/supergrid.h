@@ -6,12 +6,13 @@
 #include "vector.h"
 #include "resutil.h"
 #include "objectshape.h"
+#include <vector>
 
 namespace GOAT
 {
     namespace raytracing
     {
-        
+        constexpr int SUPERGRID_NOERRORS = -1;
         /**
          * This class provides a virtual 3D-grid of complex vectors which can be used to store e.g. the electric field in a volume.
          *  It circumscribes a sphere with radius r0 and virtual means here, that only  the parts which are needed were allocated,
@@ -30,7 +31,7 @@ namespace GOAT
              * @param type describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT)
             */
             SuperGrid(double r0, int nx, int ny, int nz, const int typ = IN_HOST);
-            SuperGrid(double r0, int nx, int ny, int nz, ObjectShape** Obj, int anzEin, const bool isAbsolute = false, const int typ = 0);
+            SuperGrid(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs, const bool isAbsolute = false, const int typ = 0);
             ~SuperGrid() { clear(); };
 
             /**
@@ -53,7 +54,7 @@ namespace GOAT
              */
             void sub(const SuperGrid& S);
             
-            bool addPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, int n1 = 100, int n2 = 100);
+            bool addPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, maths::Vector<double> cellSize);
             /**
             * @brief Add objects to SuperGrid
             * Adds a list of objects to the SuperGrid.
@@ -63,7 +64,7 @@ namespace GOAT
             * @param isAbsolute true: Location/size information in absolute coordinates
             *
             */
-            bool addObject(ObjectShape** Obj, int numObj, const bool isAbsolute = false); // anzEin Einschluesse hinzufuegen
+            bool addObject(ObjectShape** Obj, int numObj, const bool isAbsolute = false); // numObjs Einschluesse hinzufuegen
             // isAbsolute=true => Orts-/Groessenangaben in absoluten Koordinaten 
 /**
 * @brief Add object to SuperGrid
@@ -108,7 +109,7 @@ namespace GOAT
             /*
                Hier kommen die eigentlichen Daten:
                Ein : Array mit den Einschluessen (Orte und Ausdehnungen der Einschluesse werden absolut angegeben)
-               anzEin : Anzahl Einschluesse
+               numObjs : Anzahl Einschluesse
                type: Verteilung der aktiven Molek�le
                      0: nur im Einschluss
                      1: nur im Host
@@ -125,14 +126,14 @@ namespace GOAT
             */
 
 
-            std::vector< ObjectShape*> Obj;      ///< List of the objects      
-            int anzEin; ///< Number of objects
+            std::vector<ObjectShape*> Obj;      ///< List of the objects      
+            int numObjs; ///< Number of objects
             int type;   ///< Type of grid (0: Field is stored only in the objects, 1: field is stored in the surroundings only, 2: field is stored in the whole volume                 
             int* ywerte;                           
             int** zwerte;
-            *std::vector<std:vector<std : vector<T> > > grid;
+           // *std::vector<std:vector<std::vector<T> > > grid;
             std::vector<std::vector<std::vector<std::vector<T> > > > G;
-            std::vector<std:vector<std : vector<T> > > K;
+            std::vector<std::vector<std::vector<T> > > K;
             T dummy;
             std::vector<GOAT::maths::Vector<int> >Pul;
             std::vector<GOAT::maths::Vector<int> >n;
@@ -142,7 +143,7 @@ namespace GOAT
             bool isequal;
             bool iscleared;
             maths::Vector<std::complex<double> > pc;
-            //  int Fehler;
+            int Error;
             maths::Matrix<double> H, R;
         };
 
@@ -156,8 +157,8 @@ namespace GOAT
         {
             H = maths::unity();
             R = maths::unity();
-            Fehler = NO_ERRORS;
-            anzEin = 0;
+            Error = SUPERGRID_NOERRORS;
+            numObjs = 0;
             isequal = false;
 
             type = IN_HOST;
@@ -168,15 +169,15 @@ namespace GOAT
 
         template <class T> SuperGrid<T>::SuperGrid(double r0, int nx, int ny, int nz, const int typ)
         {
-            Fehler = NO_ERRORS;
+            Error = SUPERGRID_NOERRORS;
             double b = 2.0 * r0;
-            G = 0;
+           // G = 0;
             isequal = false;
-            anzEin = 0;
-            Obj = 0;
+            numObjs = 0;
+      //      Obj = 0;
             ywerte = 0;
             zwerte = 0;
-            K = 0;
+           // K = 0;
             this->r0 = r0;
 
 
@@ -189,12 +190,12 @@ namespace GOAT
                 allockugel();
         }
 
-        template <class T> SuperGrid<T>::SuperGrid(double r0, int nx, int ny, int nz, ObjectShape** Obj, int anzEin, const bool isAbsolute, const int typ)
+        template <class T> SuperGrid<T>::SuperGrid(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs, const bool isAbsolute, const int typ)
         {
-            Fehler = NO_ERRORS;
+            Error = SUPERGRID_NOERRORS;
             double b = 2.0 * r0;
             isequal = isAbsolute;
-            anzEin = 0;
+            numObjs = 0;
             G = 0;
             this->r0 = r0;
             nges = maths::Vector<int>(nx, ny, nz);
@@ -205,14 +206,14 @@ namespace GOAT
             {
                 allockugel();
             }
-            addObject(Obj, anzEin, isAbsolute);
+            addObject(Obj, numObjs, isAbsolute);
         }
 
 
-        template <class T> bool SuperGrid<T>::addObject(ObjectShape** Obj, int anzEin, const bool isAbsolute)
+        template <class T> bool SuperGrid<T>::addObject(ObjectShape** Obj, int numObjs, const bool isAbsolute)
         {
             bool ok = true;
-            for (int i = 0; (i < anzEin) && (ok); i++) ok = addObject(Obj[i], isAbsolute);
+            for (int i = 0; (i < numObjs) && (ok); i++) ok = addObject(Obj[i], isAbsolute);
             return ok;
         }
 
@@ -235,7 +236,7 @@ namespace GOAT
             return pi;
         }
 
-        template<class T> bool SuperGrid<T>::addPlane(maths::Vector<double> P, maths::Vector<double> norm, double d1, double d2, int n1, int n2)
+        template<class T> bool SuperGrid<T>::addPlane(maths::Vector<double> P, maths::Vector<double> norm, double d1, double d2, maths::Vector<double> cellSize)
         {
             GOAT::maths::Vector<double> e1, e2;
             if (abs(norm % GOAT::maths::ex) > 1E-5)
@@ -248,7 +249,8 @@ namespace GOAT
 
             maths::trafo(e1, e2, norm, H, R);
 
-            if (anzEin < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
+
+            if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
             {
                 G = std::vector < std::vector < std:vector <std::vector> > >(1);
                 Pul = std::vector < GOAT::maths::Vector<int> >(1);
@@ -258,10 +260,32 @@ namespace GOAT
             else
             {
                 G.push_back(std::vector<std::vector<std::vector<T> > >(1));
-                Pul.push_back(GOAT::maths::Vector<int> > (1);
-                n.push_back(GOAT::maths::Vector<int> > (1);
-                Obj.push_back(ObjectShape*);
+                Pul.push_back(GOAT::maths::Vector<int>  (1));
+                n.push_back(GOAT::maths::Vector<int>  (1));
+                Obj.push_back(ObjectShape*);                
             }
+            n[numObjs] = GOAT::maths::Vector<int>(d1/cellSize[0], d2/cellSize[1], 1);
+
+            GOAT::maths::Vector<double> h;
+            GOAT::maths::Vector<int> hn;
+            h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
+            hn = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);
+            Pul[numObjs] = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);
+
+            G[numObjs] = std::vector<std::vector<std::vector<T> > >(n[numObjs][0]);
+            for (int ix = 0; ix < n[numObjs][0] + 1; ix++)
+            {
+                G[numObjs][ix] = std::vector<std::vector<T> >(n[numObjs][1]);
+                for (int iy = 0; iy < n[numObjs][1] + 1; iy++)
+                {
+                    G[numObjs][ix][iy] = std::vector<T>(n[numObjs][2]);
+                    /*for (int iz = 0; iz < n[numObjs][2] + 1; iz++)
+                        G[numObjs][ix][iy][iz] = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);*/
+                    G[numObjs][ix][iy][0] = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+                }
+            }
+            numObjs++;
+
         }
 
         template<class T> bool SuperGrid<T>::addObject(ObjectShape* E, const bool isAbsolute)
@@ -281,7 +305,7 @@ namespace GOAT
 
             hn = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
             
-                if (anzEin < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
+                if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
                 {
                     G = std::vector < std::vector < std:vector <std::vector> > >(1);
                     Pul = std::vector < GOAT::maths::Vector<int> >(1);
@@ -291,35 +315,35 @@ namespace GOAT
                 else
                 {
                     G.push_back(std::vector<std::vector<std::vector<T> > >(1));
-                    Pul.push_back(GOAT::maths::Vector<int> > (1);
-                    n.push_back(GOAT::maths::Vector<int> > (1);
+                    Pul.push_back(GOAT::maths::Vector<int>  (1));
+                    n.push_back(GOAT::maths::Vector<int>  (1));
                     Obj.push_back(ObjectShape *);                    
                 }
             
-            n[anzEin] = hn;
+            n[numObjs] = hn;
 
-            Obj[anzEin] = E;
-            h = floor(ediv(Obj[anzEin]->pul + maths::Vector<double>(r0, r0, r0), d));
-            Pul[anzEin] = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);  // ???????????
+            Obj[numObjs] = E;
+            h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
+            Pul[numObjs] = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);  // ???????????
             Ellipsoid* H = (Ellipsoid*)E;
             if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
             {
-                G[anzEin]=std::vector<std::vector<std::vector<T> > > (n[anzEin][0]);
-                for (int ix = 0; ix < n[anzEin][0] + 1; ix++)
+                G[numObjs]=std::vector<std::vector<std::vector<T> > > (n[numObjs][0]);
+                for (int ix = 0; ix < n[numObjs][0] + 1; ix++)
                 {
-                    G[anzEin][ix]=std::vector<std::vector<T> > (n[anzEin][1]);                    
-                    for (int iy = 0; iy < n[anzEin][1] + 1; iy++)
+                    G[numObjs][ix]=std::vector<std::vector<T> > (n[numObjs][1]);                    
+                    for (int iy = 0; iy < n[numObjs][1] + 1; iy++)
                     {
-                        G[anzEin][ix][iy] = std::vector<T>(n[anzEin][2]);                        
-                        for (int iz = 0; iz < n[anzEin][2] + 1; iz++)
-                            G[anzEin][ix][iy][iz] = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+                        G[numObjs][ix][iy] = std::vector<T>(n[numObjs][2]);                        
+                        for (int iz = 0; iz < n[numObjs][2] + 1; iz++)
+                            G[numObjs][ix][iy][iz] = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
                     }
                 }
             }
-            // else G[anzEin] = NULL;
+            // else G[numObjs] = NULL;
 
             int i = 0;
-            anzEin++;
+            numObjs++;
             iscleared = false;
             return true;
         }
@@ -351,14 +375,14 @@ namespace GOAT
                 {
                     found = inObject(ix, iy, iz, i);
                     i++;
-                } while ((i < anzEin) && (!found));
+                } while ((i < numObjs) && (!found));
                 i--;
                 if (!found) return dummy;
                 else
                 {
                     Pi = Pi - Pul[i];
                     Pi = kugelindex(Pi);
-                    if (Fehler == NO_ERRORS)
+                    if (Error == SUPERGRID_NOERRORS)
                         return G[i][Pi[0]][Pi[1]][Pi[2]];
                     else return dummy;
                 }
@@ -366,7 +390,7 @@ namespace GOAT
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else return dummy;
             }
@@ -383,7 +407,7 @@ namespace GOAT
                 {
                     found = inObject(Pi, i);
                     i++;
-                } while ((i < anzEin) && (!found));
+                } while ((i < numObjs) && (!found));
                 i--;
 
                 if (!found) return dummy;
@@ -391,7 +415,7 @@ namespace GOAT
                 {
                     Pi = Pi - Pul[i];
                     Pi = kugelindex(Pi);
-                    if (Fehler == NO_ERRORS)
+                    if (Error == SUPERGRID_NOERRORS)
                         return G[i][Pi[0]][Pi[1]][Pi[2]];
                     else
                         return dummy;
@@ -400,7 +424,7 @@ namespace GOAT
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else
                     return dummy;
@@ -420,7 +444,7 @@ namespace GOAT
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else
                     return dummy;
@@ -440,35 +464,35 @@ namespace GOAT
                 if (Pi[2] < 0) return dummy; // maths::Vector<std::complex<double> > (0,0,0);
                 if (Pi[0] > n[i][0])
                 {
-                    Fehler = SUPERGITTER;
+                    Error = SUPERGITTER;
                     return dummy; //maths::Vector<std::complex<double> > (0,0,0);
                 }
 
                 if (Pi[1] > n[i][1])
                 {
-                    Fehler = SUPERGITTER;
+                    Error = SUPERGITTER;
                     return dummy; //maths::Vector<std::complex<double> > (0,0,0);
                 }
 
                 if (Pi[2] > n[i][2])
                 {
-                    Fehler = SUPERGITTER;
+                    Error = SUPERGITTER;
                 }
 
-                Fehler = NO_ERRORS;
+                Error = SUPERGRID_NOERRORS;
                 return G[i][Pi[0]][Pi[1]][Pi[2]];
             }
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else
                     return dummy;
             }
         }
 
-        template<class T> T& SuperGrid::operator () (maths::Vector<double> P)
+        template<class T> T& SuperGrid<T>::operator () (maths::Vector<double> P)
         {
             int i;
             maths::Vector<int> Pi;
@@ -486,7 +510,7 @@ namespace GOAT
                 {
                     found = inObject(Pi, i);
                     i++;
-                } while ((i < anzEin) && (!found));
+                } while ((i < numObjs) && (!found));
                 i--;
                 
                 if (!found) return dummy;
@@ -500,7 +524,7 @@ namespace GOAT
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else return dummy;
             }
@@ -525,7 +549,7 @@ namespace GOAT
             else
             {
                 Pi = kugelindex(Pi);
-                if (Fehler == NO_ERRORS)
+                if (Error == SUPERGRID_NOERRORS)
                     return K[Pi[0]][Pi[1]][Pi[2]];
                 else return dummy;
             }
@@ -539,9 +563,9 @@ namespace GOAT
 
             if (type == IN_OBJECT)
             {
-                if (anzEin > 0)
+                if (numObjs > 0)
                 {
-                    for (int i = anzEin - 1; i >= 0; i--)
+                    for (int i = numObjs - 1; i >= 0; i--)
                     {
                         if (G[i] != NULL)
                         {
@@ -561,7 +585,7 @@ namespace GOAT
                     free(n);
                     free(Pul);
                     free(Obj);
-                    anzEin = 0;
+                    numObjs = 0;
                     iscleared = true;
                     G = 0;
                 }
@@ -587,20 +611,20 @@ namespace GOAT
                     delete[] ywerte;
                     delete[] zwerte;
 
-                    if (anzEin > 0)
+                    if (numObjs > 0)
                         free(Obj);
                 }
                 K = 0;
                 zwerte = 0;
                 ywerte = 0;
-                anzEin = 0;
+                numObjs = 0;
                 iscleared = true;
             }*/
         }
 
         template <class T> void SuperGrid<T>::copy(const SuperGrid<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
         {
-            for (int i = 0; i < anzEin; i++)
+            for (int i = 0; i < numObjs; i++)
                 if (S.G[i].size()>0)
                 {
                     for (int ix = 0; ix < n[i][0]; ix++)
@@ -627,9 +651,9 @@ namespace GOAT
 
             if (type == IN_OBJECT)
             {
-                isequal = true; addObject(S.Obj, S.anzEin, true);
+                isequal = true; addObject(S.Obj, S.numObjs, true);
                 isequal = true;
-                if (S.anzEin != 0)
+                if (S.numObjs != 0)
                     do
                     {
                         for (int ix = 0; ix < n[i][0]; ix++)
@@ -637,13 +661,13 @@ namespace GOAT
                                 for (int iz = 0; iz < n[i][2]; iz++)
                                     G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
                         i++;
-                    } while (i < S.anzEin);
+                    } while (i < S.numObjs);
                     isequal = false;
             }
             else
             {
                 allockugel();
-                isequal = true; addObject(S.Obj, S.anzEin, true);
+                isequal = true; addObject(S.Obj, S.numObjs, true);
                 isequal = true;
                 for (int k = 0; k < anzx2; k++)
                 {
@@ -678,7 +702,7 @@ namespace GOAT
             R = S.R;
             if (type == IN_OBJECT)
             {
-                for (int i = 0; i < S.anzEin; i++)
+                for (int i = 0; i < S.numObjs; i++)
                     for (int ix = 0; ix < S.n[i][0]; ix++)
                         for (int iy = 0; iy < S.n[i][1]; iy++)
                             for (int iz = 0; iz < S.n[i][2]; iz++)
@@ -714,7 +738,7 @@ namespace GOAT
             isequal = false;
             if (type == IN_OBJECT)
             {
-                for (int i = 0; i < S.anzEin; i++)
+                for (int i = 0; i < S.numObjs; i++)
                     for (int ix = 0; ix < S.n[i][0]; ix++)
                         for (int iy = 0; iy < S.n[i][1]; iy++)
                             for (int iz = 0; iz < S.n[i][2]; iz++)
@@ -743,13 +767,13 @@ namespace GOAT
             }
         }
 
-        template<T> std::ostream& operator << (std::ostream& os, const SuperGrid<T> & S)
+        template<class T> std::ostream& operator << (std::ostream& os, const SuperGrid<T> & S)
         {
             /*os << "r0=" << S.r0 << std::endl;
             os << "Ausdehnung:    nx=" << S.nges[0] << "  ny=" << S.nges[1] << "  nz=" << S.nges[2] << std::endl;
-            os << S.anzEin << " Einschluesse" << std::endl;
-            if (S.anzEin > 0)
-                for (int i = 0; i < S.anzEin; i++)
+            os << S.numObjs << " Einschluesse" << std::endl;
+            if (S.numObjs > 0)
+                for (int i = 0; i < S.numObjs; i++)
                 {
                     os << "====================== Einschluss Nr. " << i << " ======================" << std::endl;
                     for (int ix = 0; ix < S.n[i][0]; ix++)
@@ -767,7 +791,7 @@ namespace GOAT
 
             if (type == IN_OBJECT)
             {
-                for (int i = 0; i < anzEin; i++)
+                for (int i = 0; i < numObjs; i++)
                     for (int ix = 0; ix < n[i][0]; ix++)
                         for (int iy = 0; iy < n[i][1]; iy++)
                             for (int iz = 0; iz < n[i][2]; iz++)
@@ -796,15 +820,54 @@ namespace GOAT
         }
 
 
-        template<class T> void SuperGrid<T>::makeReal()
+        template <class T> void SuperGrid<T>::allockugel()
         {
-            for (int i = 0; i < anzEin; i++)
+            int anzx, anzx2;
+            double dx, dy, dz, hilf;
+            anzx = nges[0];
+            anzx2 = nges[0] / 2;
+            // cout << "allockugel" << std::endl;
+            ywerte = new int[anzx2];
+            zwerte = new int* [anzx2];
+
+            /*dx=d[0];
+            dy=d[1];
+            dz=d[2];*/
+            dx = 2.0 / nges[0];
+            dy = 2.0 / nges[1];
+            dz = 2.0 / nges[2];
+
+            // cout << "dx=" << dx << std::endl; 
+            for (int i = 0; i < anzx2; i++)
+            {
+                ywerte[i] = int(ceil(sqrt(1.0 - (i * dx) * (i * dx)) / dy));
+                zwerte[i] = new int[anzx2];
+                for (int j = 0; j < anzx2; j++)
+                {
+                    hilf = 1.0 - (i * dx) * (i * dx) - (j * dy) * (j * dy);
+                    //      cout << "hilf:" << hilf << std::endl;
+                    if (hilf >= 0)
+                        //        zwerte[i][j]=int(ceil(sqrt(1.0-(i*dx)*(i*dx)-(j*dy)*(j*dy))*nges[2]/2.0));
+                        zwerte[i][j] = ceil(sqrt(hilf) / dz);
+                    else
+                        zwerte[i][j] = 1;
+
+                    //      cout << "zwerte[" << i << "][" << j << "]:" <<  zwerte[i][j] << std::endl;
+                }
+            }
+        }
+
+
+
+      /*  template<class T> void SuperGrid<T>::makeReal()
+        {
+            for (int i = 0; i < numObjs; i++)
                 for (int ix = 0; ix < n[i][0]; ix++)
                     for (int iy = 0; iy < n[i][1]; iy++)
                         for (int iz = 0; iz < n[i][2]; iz++)
                             for (int j = 0; j < 3; j++)
                                 G[i][ix][iy][iz][j] = abs(G[i][ix][iy][iz][j]);
         }
-
+        */
     }
 }

@@ -104,7 +104,7 @@ namespace GOAT
 				
 				// Jetzt muss das Ergebnis noch mit dem anregenden Feld und der Dipolcharakteristik gewichtet werden
 				std::complex<double> g;
-				for (int i = 0; i < SGRRT1[0].anzEin; i++)
+				for (int i = 0; i < SGRRT1[0].numObjs; i++)
 					for (int ix = 0; ix < SGRRT1[0].n[i][0]; ix++)
 						for (int iy = 0; iy < SGRRT1[0].n[i][1]; iy++)
 							for (int iz = 0; iz < SGRRT1[0].n[i][2]; iz++)
@@ -157,8 +157,8 @@ namespace GOAT
 				full_fn = std::to_string(i) + "_" + fname;
 				switch (savetype)
 				{
-					case INEL_EXPORT_EXCITATION_FIELD_ABS: SGE[0].saveabsE(full_fn.c_str(), i); break;
-					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: SGE[0].saveFullE(full_fn.c_str(), i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsE(SGE[0],full_fn.c_str(), i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: saveFullE(SGE[0],full_fn.c_str(), i); break;
 				}
 			}
 		}
@@ -167,10 +167,10 @@ namespace GOAT
 		{
 			if (S.nObj > 0)
 			{
-				SGE = new SuperArray[INEL_MAX_NREFLEX];
+				SGE = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX];
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
-					SGE[i] = SuperArray(S.r0, n, n, n, IN_OBJECT);
+					SGE[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
 					for (int j = 0; j < S.nObj; j++)
 					{
 						SGE[i].addInc(S.Obj[j]);
@@ -185,13 +185,13 @@ namespace GOAT
 			// Erst mal den Speicher (Supergitter) allozieren 
 			if (S.nObj > 0)
 			{
-				SGRRT1 = new SuperArray[INEL_MAX_NREFLEX]; // 2 wegen der beiden Reflexionsordnungen
-				SGRRT2 = new SuperArray[INEL_MAX_NREFLEX];
+				SGRRT1 = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX]; // 2 wegen der beiden Reflexionsordnungen
+				SGRRT2 = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX];
 
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
-					SGRRT1[i] = SuperArray(S.r0, n, n, n, IN_OBJECT);
-					SGRRT2[i] = SuperArray(S.r0, n, n, n, IN_OBJECT);
+					SGRRT1[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
+					SGRRT2[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
 					for (int j = 0; j < S.nObj; j++)
 					{
 						SGRRT1[i].addInc(S.Obj[j]);

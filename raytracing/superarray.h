@@ -6,6 +6,8 @@
 #include "vector.h"
 #include "resutil.h"
 #include "objectshape.h"
+#include "ellipsoid.h"
+#include "error.h"
 
 namespace GOAT
 {
@@ -18,7 +20,7 @@ namespace GOAT
        *  By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field 
        * inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments 
        **/ 
-      class SuperArray
+      template <class T> class SuperArray
       {
          public :
          SuperArray ();
@@ -29,7 +31,7 @@ namespace GOAT
           * @param type describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT) 
          */
          SuperArray(double r0,int nx,int ny,int nz, const int typ=IN_HOST); 
-         SuperArray(double r0,int nx, int ny, int nz,ObjectShape **Obj, int anzEin, const bool isAbsolute=false, const int typ=0);
+         SuperArray(double r0,int nx, int ny, int nz,ObjectShape **Obj, int numObjs, const bool isAbsolute=false, const int typ=0);
          ~SuperArray () { clear();};
 
          /**
@@ -51,13 +53,13 @@ namespace GOAT
           *
           */
          void sub (const SuperArray& S);
-         friend double sumabs (const SuperArray &S); ///< The absolute values of the cell contents are summed up
-         friend double sumabs2 (const SuperArray &S); ///< The squared absolute values of the cell contents are summed up
+      //   friend double sumabs (const SuperArray &S); ///< The absolute values of the cell contents are summed up
+      //   friend double sumabs2 (const SuperArray &S); ///< The squared absolute values of the cell contents are summed up
          /**
          * @brief Summing up SuperArray
          * Here, all cell contents are first added up. The absolute value is taken from the result and squared.
          */
-         friend double abs2sum (const SuperArray &S);
+      //   friend double abs2sum (const SuperArray &S);
          /**
          * @brief Add objects to SuperArray
          * Adds a list of objects to the SuperArray.
@@ -67,7 +69,7 @@ namespace GOAT
          * @param isAbsolute true: Location/size information in absolute coordinates
          * 
          */
-         bool addInc(ObjectShape **Obj,int numObj, const bool isAbsolute=false); // anzEin Einschluesse hinzufuegen
+         bool addInc(ObjectShape **Obj,int numObj, const bool isAbsolute=false); // numObjs Einschluesse hinzufuegen
                                            // isAbsolute=true => Orts-/Groessenangaben in absoluten Koordinaten 
          /**
          * @brief Add object to SuperArray
@@ -82,53 +84,20 @@ namespace GOAT
          bool inObject (maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
          bool inObject (maths::Vector<int> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
          bool inObject (int ix, int iy, int iz, int i); ///< checks if a point indicated by its indices (\p ix, \p iy, \p iz) is inside the \p i -th object
-         maths::Vector<std::complex<double> >& operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
+         T& operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
          /**
           * @brief returns the content of the i-th object, with the grid-coordinates ix,iy,iz
           * @param i number of the object
           * @param ix 
          */
-         maths::Vector<std::complex<double> >& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true);
-         maths::Vector<std::complex<double> >& operator () (maths::Vector<int> Pi);
-         maths::Vector<std::complex<double> >& operator () (int i,maths::Vector<int> Pi);
-         maths::Vector<std::complex<double> >& operator () (maths::Vector<double> P);
-         maths::Vector<std::complex<double> >& operator () (int i, maths::Vector<double> P);
-         void saveExPhase (char* FName,int i=0);
-         void saveEyPhase (char * FName,int i=0);
-         void saveEzPhase (char* FName,int i=0);
-         void saveExPol (char* FName,int i=0);
-         void saveEyPol (char* FName,int i=0);
-         /**
-          * @brief store the absolute value of the field inside the i-th object
-          * @param FName name of the file where the data should be stored
-          * @param i number of the object 
-         */
-         void saveEzPol (char* FName,int i=0);
-         /**
-          * @brief store the absolute value of the field inside the i-th object
-          * @param FName name of the file where the data should be stored
-          * @param i number of the object 
-         */
-         void saveabsE (const char* FName, int i=0); 
-         /**
-          * @brief store the full electric field inside the i-th object
-          * 
-          * The full electric field is stored in the following way:
-          * real(Ex(x0,y0,z0)) imag(Ex(x0,y0,z0)) real(Ey(x0,y0,z0)) imag(Ey(x0,y0,z0)) real(Ez(x0,y0,z0)) imag(Ez(x0,y0,z0)) 
-          * real(Ex(x0,y0,z1)) imag(Ex(x0,y0,z1)) ...
-          *    :                      :  ...
-          * real(Ex(x0,y0,zN)) imag(Ex(x0,y0,zN)) ...
-          * real(Ex(x0,y1,z0)) imag(Ex(x0,y1,z0)) ...
-          *    :                      :
-          * real(Ex(x0,y1,zN)) imag(Ex(x0,y1,zN)) ...
-          *    :                      :
-          * 
-          * @param FName name of the file where the data should be stored
-          * @param i number of the object 
-         */
-         void saveFullE(const char* FName, int i=0);
-         void makeReal ();
-         void fill(const maths::Vector<std::complex<double> > &x); ///< Fill the whole SuperArray with value \p x
+         T& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true);
+         T& operator () (maths::Vector<int> Pi);
+         T& operator () (int i,maths::Vector<int> Pi);
+         T& operator () (maths::Vector<double> P);
+         T& operator () (int i, maths::Vector<double> P);
+         
+          void makeReal ();
+         void fill(const T &x); ///< Fill the whole SuperArray with value \p x
          SuperArray& operator = (const SuperArray &S); ///< Assignment operator
          void clear(); ///< Clear the SuperArray and release the allocated memory
          void allockugel(); 
@@ -139,14 +108,14 @@ namespace GOAT
          * (for internal use only)
          */
          maths::Vector<int> kugelindex(maths::Vector<int> Pi); 
-         maths::Vector<std::complex<double> > kugelwert(maths::Vector<int> Pi); 
-         maths::Vector<std::complex<double> > kugelwert(int ix, int iy, int iz);
-         friend std::ostream&   operator << (std::ostream &os, const SuperArray &S);
+         T kugelwert(maths::Vector<int> Pi); 
+         T kugelwert(int ix, int iy, int iz);
+  //       friend std::ostream&   operator << (std::ostream &os, const SuperArray &S);
  
  /* 
     Hier kommen die eigentlichen Daten: 
     Ein : Array mit den Einschluessen (Orte und Ausdehnungen der Einschluesse werden absolut angegeben)
-    anzEin : Anzahl Einschluesse
+    numObjs : Anzahl Einschluesse
     type: Verteilung der aktiven Molek�le
           0: nur im Einschluss
           1: nur im Host
@@ -161,24 +130,861 @@ namespace GOAT
     nges : Ausdehnung des Uebergitters als Vektor (nx,ny,nz) zusammengefasst 
     d   : Gitterkonstanten als Vektor (dx,dy,dz) zusammengefasst
  */ 
-  
+  /*
+         std::vector<ObjectShape*> Obj;
+         int numObjs, type;
+         std::vector<int> ywerte;
+         std::vector<std::vector<int> > zwerte;
+         std::vector< std::vector< std::vector< std::vector<T> > > > G;
+         std::vector< std::vector< std::vector<T> > > K;
+         T dummy;
+         maths::Vector<int>* Pul, * n, nges;
+    */     
 
-
-         ObjectShape **Obj;
-         int anzEin,type;
+         int Error;
+         ObjectShape** Obj;
+         int numObjs,type;
          int* ywerte;
          int **zwerte;
-         maths::Vector<std::complex<double> >  ****G;
-         maths::Vector<std::complex<double> >  ***K;
-         maths::Vector<std::complex<double> > dummy;
-         maths::Vector<int> *Pul,*n,nges;
+         T  ****G;
+         T  ***K;
+         T dummy;
+         maths::Vector<int>* Pul, * n, nges;
+
+
+
+
          maths::Vector<double> d;    
          double r0;
          bool isequal;
          bool iscleared;
-         maths::Vector<std::complex<double> > pc;
+         T pc;
          //  int Fehler;
          maths::Matrix<double> H, R;
-};
+    };
+
+    /*------------------------- IMPLEMENTATION --------------------------------------*/
+
+    template <class T> SuperArray<T>::SuperArray()
+    {
+        H = maths::unity();
+        R = maths::unity();
+        Error = NO_ERRORS;
+        numObjs = 0;
+        isequal = false;
+
+        type = IN_HOST;
+        ywerte = 0;
+        zwerte = 0;
+        G = 0;
+        K = 0;
+    }
+
+    template <class T> SuperArray<T>::SuperArray(double r0, int nx, int ny, int nz, const int typ)
+    {
+        Error = NO_ERRORS;
+        double b = 2.0 * r0;
+        G = 0;
+        isequal = false;
+        numObjs = 0;
+        Obj = 0;
+        ywerte = 0;
+        zwerte = 0;
+        K = 0;
+        this->r0 = r0;
+
+
+
+        nges = maths::Vector<int>(nx, ny, nz);
+        d = maths::Vector<double>(b / nx, b / ny, b / nz);
+        iscleared = true;
+        type = typ;
+        if (type & IN_HOST)
+            allockugel();
+    }
+
+    template <class T> SuperArray<T>::SuperArray(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs, const bool isAbsolute, const int typ)
+    {
+        Error = NO_ERRORS;
+        double b = 2.0 * r0;
+        isequal = isAbsolute;
+        numObjs = 0;
+        G = 0;
+        this->r0 = r0;
+        nges = maths::Vector<int>(nx, ny, nz);
+        type = typ;
+        d = maths::Vector<double>(b / nx, b / ny, b / nz);
+        iscleared = true;
+        if (type & IN_HOST)
+        {
+            allockugel();
+        }
+        addInc(Obj, numObjs, isAbsolute);
+    }
+
+
+    template <class T> bool SuperArray<T>::addInc(ObjectShape** Obj, int numObjs, const bool isAbsolute)
+    {
+        bool ok = true;
+        for (int i = 0; (i < numObjs)/* && (canCalc)*/ && (ok); i++) ok = addInc(Obj[i], isAbsolute);
+        return ok;
+    }
+
+    template <class T> maths::Vector<int> SuperArray<T>::gitterpunkt(maths::Vector<double> P)
+    {
+        int ix, iy, iz, jx, jy, jz, jxh, jyh, anzx;
+        maths::Vector<int> pi, ph;
+        maths::Vector<double> h;
+        h = H * P + maths::Vector<double>(r0, r0, r0);
+        ph = maths::Vector<int>(floor(h[0] / d[0]), floor(h[1] / d[1]), floor(h[2] / d[2]));
+
+        if (type & IN_HOST)
+        {
+            pi = ph;
+        }
+        else
+        {
+            pi = ph;
+        }
+        return pi;
+    }
+
+    template <class T> bool SuperArray<T>::addInc(ObjectShape* E, const bool isAbsolute)
+    {
+        int hmem, hmem2;
+        char str[500];
+        //SysMemInfo smi;
+        //MemInfo mi;
+        long int allocMem;
+        maths::Vector<int> pul, por, N, hn;
+        maths::Vector<double> h, O;
+        O = maths::Vector<double>(-r0, -r0, -r0);
+
+       /* smi = sysmem();
+        mi = memstat();
+        */
+        h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
+
+        hn = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+
+        /* Berechne den tats�chlichen Bedarf */
+        allocMem = sizeof(T***) + 2 * sizeof(maths::Vector<int>) + sizeof(ObjectShape*)
+            + hn[0] * sizeof(T**)
+            + hn[0] * hn[1] * sizeof(T*)
+            + hn[0] * hn[1] * hn[2] * sizeof(T);
+
+        {
+            if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
+            {                
+                G = (T****) malloc(sizeof(T***));
+                if (G == NULL) { error(MALLOC_ERR, "SuperArray::addInc G=.."); return false; }
+                Pul = (maths::Vector<int> *) malloc(sizeof(maths::Vector<int>));
+                if (Pul == NULL) { error(MALLOC_ERR, "SuperArray::addInc Pul=.."); return false; }
+                n = (maths::Vector<int> *) malloc(sizeof(maths::Vector<int>));
+                if (n == NULL) { error(MALLOC_ERR, "SuperArray::addInc n=.."); return false; }
+                Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
+                if (Obj == NULL) { error(MALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
+            }
+            else
+            {
+                G = (T****) realloc(G, (numObjs + 1) * sizeof(T***));
+                if (G == NULL) { error(REALLOC_ERR, "SuperArray::addInc G=.."); return false; }
+                Pul = (maths::Vector<int> *) realloc(Pul, (numObjs + 1) * sizeof(maths::Vector<int>));
+                if (Pul == NULL) { error(REALLOC_ERR, "SuperArray::addInc G=.."); return false; }
+                n = (maths::Vector<int> *) realloc(n, (numObjs + 1) * sizeof(maths::Vector<int>));
+                if (n == NULL) { error(REALLOC_ERR, "SuperArray::addInc n=.."); return false; }
+                Obj = (ObjectShape**)realloc(Obj, (numObjs + 1) * sizeof(ObjectShape*));
+                if (Obj == NULL) { error(REALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
+            }
+        }
+
+        n[numObjs] = hn;
+
+        Obj[numObjs] = E;
+        h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
+        Pul[numObjs] = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);  // ???????????
+        Ellipsoid* H = (Ellipsoid*)E;
+        if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
+        {
+            G[numObjs] = (T***) malloc((n[numObjs][0] + 1) * sizeof(T**));
+            if (G[numObjs] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin] G[anzEin]=..");
+            for (int ix = 0; ix < n[numObjs][0] + 1; ix++)
+            {
+                G[numObjs][ix] = (T**) malloc((n[numObjs][1] + 1) * sizeof(T*));
+                if (G[numObjs][ix] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin][ix]=..");
+                for (int iy = 0; iy < n[numObjs][1] + 1; iy++)
+                {
+                    G[numObjs][ix][iy] = (T*) malloc((n[numObjs][2] + 1) * sizeof(T));
+                    if (G[numObjs][ix][iy] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin][ix][iy]=..");                   
+                }
+            }
+        }
+        else G[numObjs] = NULL;
+
+        int i = 0;
+        numObjs++;
+        iscleared = false;
+        return true;
+    }
+
+    template <class T> bool SuperArray<T>::inObject(maths::Vector<double> P, int i) // da muss noch was gemacht werden
+    {
+        return Obj[i]->isInside(P);
+    }
+
+    template <class T> bool SuperArray<T>::inObject(maths::Vector<int> Pi, int i)
+    {
+        return (Obj[i]->isInside(emult(Pi, d)));
+    }
+
+    template <class T> bool SuperArray<T>::inObject(int ix, int iy, int iz, int i)
+    {
+        return (Obj[i]->isInside(emult(maths::Vector<double>(ix, iy, iz), d)));
+    }
+
+    template <class T> T& SuperArray<T>::operator () (int ix, int iy, int iz)
+    {
+        maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
+        int i = 0;
+        bool found = false;
+        // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        if (type == IN_OBJECT)
+        {
+            do
+            {
+                found = inObject(ix, iy, iz, i);
+                i++;
+            } while ((i < numObjs) && (!found));
+            i--;
+            if (!found) return dummy;
+            else
+            {
+                Pi = Pi - Pul[i];
+                Pi = kugelindex(Pi);
+                if (Error == NO_ERRORS)
+                    return G[i][Pi[0]][Pi[1]][Pi[2]];
+                else return dummy;
+            }
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else return dummy;
+        }
+    }
+
+    template <class T> T& SuperArray<T>::operator () (maths::Vector<int> Pi)
+    {
+        // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        if (type == IN_OBJECT)
+        {
+            int i = 0;
+            bool found = false;
+            do
+            {
+                found = inObject(Pi, i);
+                i++;
+            } while ((i < numObjs) && (!found));
+            i--;
+
+            if (!found) return dummy;
+            else
+            {
+                Pi = Pi - Pul[i];
+                Pi = kugelindex(Pi);
+                if (Error == NO_ERRORS)
+                    return G[i][Pi[0]][Pi[1]][Pi[2]];
+                else
+                    return dummy;
+            }
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else
+                return dummy;
+        }
+    }
+
+
+    template <class T> T& SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
+    {
+        dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
+        if (type == IN_OBJECT)
+        {
+            if (G[i] == NULL) return dummy;
+            if (!isEinKoord)  Pi = Pi - Pul[i];
+            return G[i][Pi[0]][Pi[1]][Pi[2]];
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else
+                return dummy;
+        }
+    }
+
+    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
+    {
+      
+        if (type == IN_OBJECT)
+        {
+            Pi = Pi - Pul[i];
+            if (G[i] == NULL) return dummy;
+            if (Pi[0] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[1] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[2] < 0) return dummy; // maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[0] > n[i][0])
+            {
+                Error = SUPERGITTER;
+                return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+            }
+
+            if (Pi[1] > n[i][1])
+            {
+                Error = SUPERGITTER;
+                return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+            }
+
+            if (Pi[2] > n[i][2])
+            {
+                Error = SUPERGITTER;
+            }
+
+            Error = NO_ERRORS;
+            return G[i][Pi[0]][Pi[1]][Pi[2]];
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else
+                return dummy;
+        }
+    }
+
+    template <class T> T& SuperArray<T>::operator () (maths::Vector<double> P)
+    {
+        int i;
+        maths::Vector<int> Pi;
+        maths::Vector<double> h;
+        h = H * P - maths::Vector<double>(-r0, -r0, -r0);
+        dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        for (i = 0; i < 3; i++)
+            Pi[i] = h[i] / d[i];
+
+        if (type == IN_OBJECT)
+        {
+            bool found = false;
+            i = 0;
+            do
+            {
+                found = inObject(Pi, i);
+                i++;
+            } while ((i < numObjs) && (!found));
+            i--;
+            // if (!found) return maths::Vector<std::complex<double> > (INF,INF,INF);
+            if (!found) return INFdummy;
+            else
+            {
+                if (G[i] == NULL) return dummy;
+                Pi = Pi - Pul[i];
+                return G[i][Pi[0]][Pi[1]][Pi[2]];
+            }
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else return dummy;
+        }
+    }
+
+    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<double> P)
+    {
+        maths::Vector<int> Pi;
+        maths::Vector<double> h;
+        h = H * P - maths::Vector<double>(-r0, -r0, -r0);
+        T dummy;
+        // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+
+        for (int j = 0; j < 3; j++)
+            Pi[j] = h[j] / d[j];
+
+        if (type == IN_OBJECT)
+        {
+            if (G[i] == NULL) return dummy;
+            Pi = Pi - Pul[i];
+            return G[i][Pi[0]][Pi[1]][Pi[2]];
+        }
+        else
+        {
+            Pi = kugelindex(Pi);
+            if (Error == NO_ERRORS)
+                return K[Pi[0]][Pi[1]][Pi[2]];
+            else return dummy;
+        }
+    }
+
+
+    template <class T> void SuperArray<T>::clear()
+    {
+        int anzx, anzx2;
+        anzx = nges[0];
+        anzx2 = nges[0] / 2;
+
+        if (type == IN_OBJECT)
+        {
+            if (numObjs > 0)
+            {
+                for (int i = numObjs - 1; i >= 0; i--)
+                {
+                    if (G[i] != NULL)
+                    {
+                        for (int ix = n[i][0]; ix >= 0; ix--)
+                        {
+                            for (int iy = n[i][1]; iy >= 0; iy--)
+                                if (G[i][ix][iy] != 0)
+                                    free(G[i][ix][iy]);
+                            if (G[i][ix] != 0)
+                            {
+                                free(G[i][ix]);
+                            } // if
+                        } // for ix    
+                        free(G[i]);
+                    } // if (G[i]!=NULL)
+                } // for i
+                free(n);
+                free(Pul);
+                free(Obj);
+                numObjs = 0;
+                iscleared = true;
+                G = 0;
+            }
+        }
+        else
+        {
+            if (K != 0)
+            {
+                for (int k = 0; k < anzx2; k++)
+                {
+                    for (int l = 0; l < ywerte[k]; l++)
+                    {
+                        delete[] K[anzx2 - 1 - k][ywerte[k] + l];
+                        delete[] K[anzx2 + k][ywerte[k] + l];
+                        delete[] K[anzx2 - 1 - k][ywerte[k] - 1 - l];
+                        delete[] K[anzx2 + k][ywerte[k] - 1 - l];
+                    }
+                    delete[] K[anzx2 - 1 - k];
+                    delete[] K[anzx2 + k];
+                    delete[] zwerte[k];
+                }
+
+                delete[] ywerte;
+                delete[] zwerte;
+
+                if (numObjs > 0)
+                    free(Obj);
+            }
+            K = 0;
+            zwerte = 0;
+            ywerte = 0;
+            numObjs = 0;
+            iscleared = true;
+        }
+    }
+
+    template <class T> void SuperArray<T>::copy(const SuperArray<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
+    {
+        for (int i = 0; i < numObjs; i++)
+            if (S.G[i] != NULL)
+            {
+                for (int ix = 0; ix < n[i][0]; ix++)
+                    for (int iy = 0; iy < n[i][1]; iy++)
+                        for (int iz = 0; iz < n[i][2]; iz++)
+                            G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
+            }
+    }
+
+    template <class T> SuperArray<T>& SuperArray<T>::operator = (const SuperArray<T>& S)
+    {
+        int i = 0;
+        int anzx, anzx2;
+
+
+        if (this == &S) return *this;
+        clear();
+        r0 = S.r0;
+        d = S.d;
+        nges = S.nges;
+        type = S.type;
+
+        anzx = nges[0]; anzx2 = nges[0] / 2;
+
+        if (type == IN_OBJECT)
+        {
+            isequal = true; addInc(S.Obj, S.numObjs, true);
+            isequal = true;
+            if (S.numObjs != 0)
+                do
+                {
+                    for (int ix = 0; ix < n[i][0]; ix++)
+                        for (int iy = 0; iy < n[i][1]; iy++)
+                            for (int iz = 0; iz < n[i][2]; iz++)
+                                G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
+                    i++;
+                } while (i < S.numObjs);
+                isequal = false;
+        }
+        else
+        {
+            allockugel();
+            isequal = true; addInc(S.Obj, S.numObjs, true);
+            isequal = true;
+            for (int k = 0; k < anzx2; k++)
+            {
+                ywerte[k] = S.ywerte[k];
+                for (int l = 0; l < S.ywerte[k]; l++)
+                {
+                    zwerte[k][l] = S.zwerte[k][l];
+                    for (int m = 0; m < S.zwerte[k][l]; m++)
+                    {
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][m] = S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][m] = S.K[anzx2 + k][ywerte[k] - 1 - l][m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][m] = S.K[anzx2 - 1 - k][ywerte[k] + l][m];
+                        K[anzx2 + k][ywerte[k] + l][m] = S.K[anzx2 + k][ywerte[k] + l][m];
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] = S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] = S.K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] = S.K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] = S.K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                    }
+                }
+            }
+        }
+        return *this;
+    }
+
+
+
+    template <class T> void SuperArray<T>::add(const SuperArray<T>& S)
+    {
+        int anzx2 = nges[0] / 2;
+        isequal = false;
+        H = S.H;
+        R = S.R;
+        if (type == IN_OBJECT)
+        {
+            for (int i = 0; i < S.numObjs; i++)
+                for (int ix = 0; ix < S.n[i][0]; ix++)
+                    for (int iy = 0; iy < S.n[i][1]; iy++)
+                        for (int iz = 0; iz < S.n[i][2]; iz++)
+                            G[i][ix][iy][iz] += S.G[i][ix][iy][iz];
+        }
+        else
+        {
+            for (int k = 0; k < anzx2; k++)
+            {
+                for (int l = 0; l < ywerte[k]; l++)
+                {
+
+                    for (int m = 0; m < zwerte[k][l]; m++)
+                    {
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][m] += S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][m] += S.K[anzx2 + k][ywerte[k] - 1 - l][m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][m] += S.K[anzx2 - 1 - k][ywerte[k] + l][m];
+                        K[anzx2 + k][ywerte[k] + l][m] += S.K[anzx2 + k][ywerte[k] + l][m];
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] += S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] += S.K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] += S.K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] += S.K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                    }
+                }
+            }
+        }
+    }
+
+    template <class T> void SuperArray<T>::sub(const SuperArray<T>& S)
+    {
+        int anzx2 = nges[0] / 2;
+
+        isequal = false;
+        if (type == IN_OBJECT)
+        {
+            for (int i = 0; i < S.numObjs; i++)
+                for (int ix = 0; ix < S.n[i][0]; ix++)
+                    for (int iy = 0; iy < S.n[i][1]; iy++)
+                        for (int iz = 0; iz < S.n[i][2]; iz++)
+                            G[i][ix][iy][iz] -= S.G[i][ix][iy][iz];
+        }
+        else
+        {
+            for (int k = 0; k < anzx2; k++)
+            {
+                for (int l = 0; l < ywerte[k]; l++)
+                {
+
+                    for (int m = 0; m < zwerte[k][l]; m++)
+                    {
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][m] -= S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][m] -= S.K[anzx2 + k][ywerte[k] - 1 - l][m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][m] -= S.K[anzx2 - 1 - k][ywerte[k] + l][m];
+                        K[anzx2 + k][ywerte[k] + l][m] -= S.K[anzx2 + k][ywerte[k] + l][m];
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] -= S.K[anzx2 - 1 - k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m] -= S.K[anzx2 + k][ywerte[k] - 1 - l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] -= S.K[anzx2 - 1 - k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                        K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m] -= S.K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] - 1 - m];
+                    }
+                }
+            }
+        }
+    }
+
+    template <class T> std::ostream& operator << (std::ostream& os, const SuperArray<T>& S)
+    {
+        os << "r0=" << S.r0 << std::endl;
+        os << "Ausdehnung:    nx=" << S.nges[0] << "  ny=" << S.nges[1] << "  nz=" << S.nges[2] << std::endl;
+        os << S.numObjs << " Einschluesse" << std::endl;
+        if (S.numObjs > 0)
+            for (int i = 0; i < S.numObjs; i++)
+            {
+                os << "====================== Einschluss Nr. " << i << " ======================" << std::endl;
+                for (int ix = 0; ix < S.n[i][0]; ix++)
+                    for (int iy = 0; iy < S.n[i][1]; iy++)
+                        for (int iz = 0; iz < S.n[i][2]; iz++)
+                            os << abs(S.G[i][ix][iy][iz]) << std::endl;
+            }
+        return os;
+    }
+
+    template <class T> void SuperArray<T>::fill(const T& x)
+    {
+        int anzx, anzx2;
+        anzx = nges[0]; anzx2 = nges[0] / 2;
+
+        if (type == IN_OBJECT)
+        {
+            for (int i = 0; i < numObjs; i++)
+                for (int ix = 0; ix < n[i][0]; ix++)
+                    for (int iy = 0; iy < n[i][1]; iy++)
+                        for (int iz = 0; iz < n[i][2]; iz++)
+                            G[i][ix][iy][iz] = x;
+        }
+        else
+        {
+            for (int k = 0; k < anzx2; k++)
+            {
+                for (int l = 0; l < ywerte[k]; l++)
+                {
+                    for (int m = 0; m < zwerte[k][l]; m++)
+                    {
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m] = x;
+                        K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m] = x;
+                        K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] - 1 - m] = x;
+                        K[anzx2 + k][ywerte[k] + l][zwerte[k][l] - 1 - m] = x;
+                        K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] + m] = x;
+                        K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] + m] = x;
+                        K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] + m] = x;
+                        K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m] = x;
+                    }
+                }
+            }
+        }
+    }
+
+
+    template <class T> void SuperArray<T>::makeReal()
+    {
+        for (int i = 0; i < numObjs; i++)
+            for (int ix = 0; ix < n[i][0]; ix++)
+                for (int iy = 0; iy < n[i][1]; iy++)
+                    for (int iz = 0; iz < n[i][2]; iz++)
+                        for (int j = 0; j < 3; j++)
+                            G[i][ix][iy][iz][j] = abs(G[i][ix][iy][iz][j]);
+    }
+
+
+    
+
+    template <class T> void SuperArray<T>::allockugel()
+    {
+        int anzx, anzx2;
+        double dx, dy, dz, hilf;
+        anzx = nges[0];
+        anzx2 = nges[0] / 2;
+        // cout << "allockugel" << std::endl;
+        ywerte = new int[anzx2];
+        zwerte = new int* [anzx2];
+
+        /*dx=d[0];
+        dy=d[1];
+        dz=d[2];*/
+        dx = 2.0 / nges[0];
+        dy = 2.0 / nges[1];
+        dz = 2.0 / nges[2];
+
+        // cout << "dx=" << dx << std::endl; 
+        for (int i = 0; i < anzx2; i++)
+        {
+            ywerte[i] = int(ceil(sqrt(1.0 - (i * dx) * (i * dx)) / dy));
+            zwerte[i] = new int[anzx2];
+            for (int j = 0; j < anzx2; j++)
+            {
+                hilf = 1.0 - (i * dx) * (i * dx) - (j * dy) * (j * dy);
+                //      cout << "hilf:" << hilf << std::endl;
+                if (hilf >= 0)
+                    //        zwerte[i][j]=int(ceil(sqrt(1.0-(i*dx)*(i*dx)-(j*dy)*(j*dy))*nges[2]/2.0));
+                    zwerte[i][j] = ceil(sqrt(hilf) / dz);
+                else
+                    zwerte[i][j] = 1;
+
+                //      cout << "zwerte[" << i << "][" << j << "]:" <<  zwerte[i][j] << std::endl;
+            }
+        }
+
+        K = new T**[anzx];
+        for (int k = 0; k < anzx2; k++)
+        {
+            K[anzx2 - 1 - k] = new T*[2 * ywerte[k]];
+            K[anzx2 + k] = new T*[2 * ywerte[k]];
+            for (int l = 0; l < ywerte[k]; l++)
+            {
+                K[anzx2 - 1 - k][ywerte[k] + l] = new T[2 * zwerte[k][l]];
+                //    cout << "K[" << anzx2-1-k << "][" << ywerte[k]+l<<"]=" << 2*zwerte[k][l] << std::endl;
+
+                K[anzx2 + k][ywerte[k] + l] = new T[2 * zwerte[k][l]];
+                //    cout << "K[" << anzx2+k << "][" << ywerte[k]+l<<"]=" << 2*zwerte[k][l] << std::endl;
+
+                K[anzx2 - 1 - k][ywerte[k] - 1 - l] = new T[2 * zwerte[k][l]];
+                //    cout << "K[" << anzx2-1-k << "][" << ywerte[k]-1-l<<"]=" << 2*zwerte[k][l] << std::endl;
+
+                K[anzx2 + k][ywerte[k] - 1 - l] = new T[2 * zwerte[k][l]];
+                //     cout << "K[" << anzx2+k << "][" << ywerte[k]-1-l<<"]=" << zwerte[k][l] << std::endl;
+            }
+        }
+    }
+
+    template <class T> maths::Vector<int> SuperArray<T>::kugelindex(maths::Vector<int> Pi)
+    {
+        int anzx, jx, jy, jz, ix, iy, iz, jxh, jyh;
+        maths::Vector<int> pk;
+        anzx = nges[0];
+        ix = Pi[0]; iy = Pi[1]; iz = Pi[2];
+        Error = NO_ERRORS;
+        jx = ix;
+        jxh = abs(int(jx - (anzx - 1) / 2.0));
+        jy = iy - (anzx / 2 - ywerte[jxh]);
+        if ((jy < 0) || (jy > (2 * ywerte[jxh] - 1)))   // Punkt ausserhalb 
+        {
+            Error = SUPERGITTER;
+            //    cout << "ix:" << ix << ", iy:" << iy << ", iz:" << iz <<  ", jx:" << jx <<
+            //             ", jxh:" << jxh << ", jy:" << jy << std::endl;
+            //    cout << "ywerte[" << jxh << "]:" << ywerte[jxh] << std::endl;
+            return maths::Vector<int>(-1, -1, -1);
+        }
+        else
+        {
+            jyh = abs(int(jy - (2 * ywerte[jxh] - 1) / 2.0));
+            jz = iz - (anzx / 2 - zwerte[jxh][jyh]);
+
+            if ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) - 1)) // Punkt ausserhalb 
+            {
+                Error = SUPERGITTER;
+                //    cout << "ix:" << ix << ", iy:" << iy << ", iz:" << iz << ", jx:" << jx << ", jy:" << jy << 
+                //             ", jxh:" << jxh << ", jyh:" << jyh << ", jz:" << jz << std::endl;
+                //    cout << "ywerte[" << jxh << "]:" << ywerte[jxh] << ", zwerte[" << jxh << "][" << jyh << "]:" <<
+                //    zwerte[jxh][jyh] << std::endl;
+                return maths::Vector<int>(-1, -1, -1);
+                return maths::Vector<int>(-1, -1, -1);
+            }
+            else
+            {
+                return  maths::Vector<int>(jx, jy, jz);
+            }
+        }
+        return pk;
+    }
+
+    template<class T> T SuperArray<T>::kugelwert(maths::Vector<int> Pi)
+    {
+        int anzx, jx, jy, jz, ix, iy, iz, jxh, jyh;
+        // maths::Vector<std::complex<double> > pc;
+        anzx = nges[0];
+        ix = Pi[0]; iy = Pi[1]; iz = Pi[2];
+        jx = ix;
+        jxh = abs(int(jx - (anzx - 1) / 2.0));
+        jy = iy - (anzx / 2 - ywerte[jxh]);
+        pc = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        if ((jy < 0) || (jy > (2 * ywerte[jxh] - 1)))
+        {
+            std::cout << "Fehler!! Index iy falsch" << std::endl;
+            return pc;
+        }
+        else
+        {
+            jyh = abs(int(jy - (2 * ywerte[jxh] - 1) / 2.0));
+            jz = iz - (anzx / 2 - zwerte[jxh][jyh]);
+
+            if ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) - 1))
+            {
+                return pc;
+            }
+            return K[jx][jy][jz];
+        }
+        return pc;
+    }
+
+    template<class T> T SuperArray<T>::kugelwert(int ix, int iy, int iz)
+    {
+        int anzx, jx, jy, jz, jxh, jyh;
+        T pc;
+        anzx = nges[0];
+
+
+        jx = ix;
+        jxh = abs(int(jx - (anzx - 1) / 2.0));
+        jy = iy - (anzx / 2 - ywerte[jxh]);
+        if ((jy < 0) || (jy > (2 * ywerte[jxh] - 1)))
+        {
+            std::cout << "Fehler!! Index iy falsch" << std::endl;
+           // pc = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+            return pc;
+        }
+        else
+        {
+            jyh = abs(int(jy - (2 * ywerte[jxh] - 1) / 2.0));
+            jz = iz - (anzx / 2 - zwerte[jxh][jyh]);
+            if ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) - 1))
+            {
+                std::cout << "Fehler!! Index iz falsch" << std::endl;
+               // pc = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+                return pc;
+            }
+            pc = K[jx][jy][jz];
+        }
+        return pc;
+    }
+
+
+    void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
+    void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
+    void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
+    void saveExPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
+    void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
+    void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
+    void saveabsE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i = 0);
+    void saveFullE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i = 0);
+    double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
+    double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
+    double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
+
    }
 }

@@ -1,9 +1,17 @@
 #include "raytrace_inel.h"
+#include "supergrid.h"
 #include <chrono>
 
 
+typedef struct test1
+{
+    double x, y;
+};
+
 int main(int argc, char* argv[])
 {
+
+    
 
     auto start = std::chrono::steady_clock::now();    
 
@@ -21,7 +29,7 @@ int main(int argc, char* argv[])
     S.addLightSource(&LS);
     S.setnS(1.0);
     S.setr0(500);
-    S.LS[0]->setNumRays(1000000);
+    S.LS[0]->setNumRays(100000);
     GOAT::raytracing::Raytrace_Inel ri(S,2500);    
     ri.setNumReflex(2);
     ri.setExcitationFieldOnly();
@@ -33,9 +41,9 @@ int main(int argc, char* argv[])
     double ms= floor((us - seconds*1E+6) / 1000.0);
     double restus = us - seconds*1E+6 - ms * 1000.0;
     std::cout << "Calculation time: "<< std::chrono::duration_cast<std::chrono::microseconds>(end-start).count() << "µs" ;
-    std::cout << "= " << seconds << "s :" << ms << "ms : " << restus << "µs : " << std::endl;
-    ri.SGE->saveabsE("test.dat");
-    ri.SGE->saveExPhase("testp.dat");
+    std::cout << "= " << seconds << "s :" << ms << "ms : " << restus << "µs" << std::endl;
+    saveabsE(*ri.SGE,"test.dat");
+    saveExPhase(*ri.SGE,"testp.dat");
     
     return 0;
 }
