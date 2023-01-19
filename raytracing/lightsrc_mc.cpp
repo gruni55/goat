@@ -98,7 +98,8 @@ namespace GOAT
 
 			r2 = S.P[0] * S.P[0] + S.P[1] * S.P[1];
 
-			S.Pow = 1.0;
+			// S.Pow = 1.0;
+			S.Pow = P0;
 
 		    S.E1 = Pol;
 			S.E2 = Pol;
@@ -175,7 +176,7 @@ namespace GOAT
 			S.n = n0;
 			
 		
-			 E0=1.0;
+			 E0=sqrt(P0);
 			maths::Vector<double> F = focuspos;
 
 			S.k = focuspos - S.P;   // Richtungsvektor auf den Fokus gerichtet
@@ -213,7 +214,7 @@ namespace GOAT
 			maths::Vector<double> P = Pos + Ph;
 			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
 			k = k / abs(k);
-			double E0 = 1.0;
+			double E0 = sqrt(P0);
 			S = tubedRay(P, density, density, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 
 			S.setN0(n0);

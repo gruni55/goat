@@ -320,7 +320,7 @@ namespace  GOAT
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S = IRay(P, Pol*sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.E1 = Pol / (N * N);
 			S.E2 = Pol2 / (N * N);
 			// S.init_Efeld(E,Pol);
@@ -342,7 +342,7 @@ namespace  GOAT
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			Pow = 1.0 / ((double)(N * N) * D * D);
+			Pow = P0 / ((double)(N * N) * D * D);
 			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 
 			S.initElectricField(E, Pol);
@@ -361,7 +361,7 @@ namespace  GOAT
 
 		int LightSrcPlane::next(tubedRay& S)
 		{
-			double Pow = 1.0 / (N * N * D * D);
+			double Pow = P0 / (N * N * D * D);
 			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.setN0(n0);

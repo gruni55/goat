@@ -104,7 +104,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			// protected :
 			maths::Vector<double> Pos; ///< position of the light source (center of the square area of the light source)
 			int type;           ///< type of the light source
-			double P0;        ///< power
+			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
 			maths::Vector<double> k;   ///< main direction of the light source   
 			int N;  ///< number of rays (per direction)

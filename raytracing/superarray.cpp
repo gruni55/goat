@@ -462,5 +462,6 @@ namespace GOAT
           Erg = abs(h);
           return Erg * Erg;
       }
+
   }
 }

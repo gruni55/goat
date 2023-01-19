@@ -8,6 +8,7 @@
 #include "objectshape.h"
 #include "ellipsoid.h"
 #include "error.h"
+#include <vector>
 
 namespace GOAT
 {
@@ -144,12 +145,13 @@ namespace GOAT
          int Error;
          ObjectShape** Obj;
          int numObjs,type;
-         int* ywerte;
-         int **zwerte;
-         T  ****G;
-         T  ***K;
+         std::vector<int> ywerte;
+         std::vector<std::vector<int> > zwerte;
+         std::vector <std::vector <std::vector <std::vector <T> > > > G;
+         std::vector < std::vector < std::vector <T> > >  K;
          T dummy;
-         maths::Vector<int>* Pul, * n, nges;
+         std::vector<maths::Vector<int>> Pul, n;
+         maths::Vector<int> nges;
 
 
 
@@ -163,6 +165,7 @@ namespace GOAT
          maths::Matrix<double> H, R;
     };
 
+   
     /*------------------------- IMPLEMENTATION --------------------------------------*/
 
     template <class T> SuperArray<T>::SuperArray()
@@ -173,24 +176,16 @@ namespace GOAT
         numObjs = 0;
         isequal = false;
 
-        type = IN_HOST;
-        ywerte = 0;
-        zwerte = 0;
-        G = 0;
-        K = 0;
+        type = IN_HOST;        
     }
 
     template <class T> SuperArray<T>::SuperArray(double r0, int nx, int ny, int nz, const int typ)
     {
         Error = NO_ERRORS;
         double b = 2.0 * r0;
-        G = 0;
         isequal = false;
         numObjs = 0;
         Obj = 0;
-        ywerte = 0;
-        zwerte = 0;
-        K = 0;
         this->r0 = r0;
 
 
@@ -209,7 +204,6 @@ namespace GOAT
         double b = 2.0 * r0;
         isequal = isAbsolute;
         numObjs = 0;
-        G = 0;
         this->r0 = r0;
         nges = maths::Vector<int>(nx, ny, nz);
         type = typ;
@@ -276,50 +270,40 @@ namespace GOAT
         {
             if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
             {                
-                G = (T****) malloc(sizeof(T***));
-                if (G == NULL) { error(MALLOC_ERR, "SuperArray::addInc G=.."); return false; }
-                Pul = (maths::Vector<int> *) malloc(sizeof(maths::Vector<int>));
-                if (Pul == NULL) { error(MALLOC_ERR, "SuperArray::addInc Pul=.."); return false; }
-                n = (maths::Vector<int> *) malloc(sizeof(maths::Vector<int>));
-                if (n == NULL) { error(MALLOC_ERR, "SuperArray::addInc n=.."); return false; }
+                G.resize(1);                        
                 Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
                 if (Obj == NULL) { error(MALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
             }
             else
             {
-                G = (T****) realloc(G, (numObjs + 1) * sizeof(T***));
-                if (G == NULL) { error(REALLOC_ERR, "SuperArray::addInc G=.."); return false; }
-                Pul = (maths::Vector<int> *) realloc(Pul, (numObjs + 1) * sizeof(maths::Vector<int>));
-                if (Pul == NULL) { error(REALLOC_ERR, "SuperArray::addInc G=.."); return false; }
-                n = (maths::Vector<int> *) realloc(n, (numObjs + 1) * sizeof(maths::Vector<int>));
-                if (n == NULL) { error(REALLOC_ERR, "SuperArray::addInc n=.."); return false; }
+                G.resize(numObjs + 1);
                 Obj = (ObjectShape**)realloc(Obj, (numObjs + 1) * sizeof(ObjectShape*));
                 if (Obj == NULL) { error(REALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
             }
         }
 
-        n[numObjs] = hn;
+        n.push_back(hn);
 
         Obj[numObjs] = E;
         h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
-        Pul[numObjs] = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]);  // ???????????
+        Pul.push_back(maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]));
+        
         Ellipsoid* H = (Ellipsoid*)E;
         if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
         {
-            G[numObjs] = (T***) malloc((n[numObjs][0] + 1) * sizeof(T**));
-            if (G[numObjs] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin] G[anzEin]=..");
+            G[numObjs].resize(n[numObjs][0] + 1);
+            
             for (int ix = 0; ix < n[numObjs][0] + 1; ix++)
             {
-                G[numObjs][ix] = (T**) malloc((n[numObjs][1] + 1) * sizeof(T*));
-                if (G[numObjs][ix] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin][ix]=..");
+                G[numObjs][ix].resize(n[numObjs][1] + 1);                
+                
                 for (int iy = 0; iy < n[numObjs][1] + 1; iy++)
                 {
-                    G[numObjs][ix][iy] = (T*) malloc((n[numObjs][2] + 1) * sizeof(T));
-                    if (G[numObjs][ix][iy] == NULL) error(MALLOC_ERR, "SuperArray::addInc G[anzEin][ix][iy]=..");                   
+                    G[numObjs][ix][iy].resize(n[numObjs][2] + 1) ;                                       
                 }
             }
         }
-        else G[numObjs] = NULL;
+        
 
         int i = 0;
         numObjs++;
@@ -437,7 +421,7 @@ namespace GOAT
         if (type == IN_OBJECT)
         {
             Pi = Pi - Pul[i];
-            if (G[i] == NULL) return dummy;
+            if (G[i].size()==0) return dummy;
             if (Pi[0] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[1] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[2] < 0) return dummy; // maths::Vector<std::complex<double> > (0,0,0);
@@ -548,56 +532,52 @@ namespace GOAT
             {
                 for (int i = numObjs - 1; i >= 0; i--)
                 {
-                    if (G[i] != NULL)
+                    if (G[i].size()>0)
                     {
                         for (int ix = n[i][0]; ix >= 0; ix--)
                         {
                             for (int iy = n[i][1]; iy >= 0; iy--)
-                                if (G[i][ix][iy] != 0)
-                                    free(G[i][ix][iy]);
-                            if (G[i][ix] != 0)
-                            {
-                                free(G[i][ix]);
-                            } // if
+                                G[i][ix][iy].clear();
+                            G[i][ix].clear();                            
                         } // for ix    
-                        free(G[i]);
+                        G[i].clear();
                     } // if (G[i]!=NULL)
                 } // for i
-                free(n);
-                free(Pul);
+                n.clear(); 
+                Pul.clear();
+                
                 free(Obj);
                 numObjs = 0;
                 iscleared = true;
-                G = 0;
+                
             }
         }
         else
         {
-            if (K != 0)
+            if (K.size()>0)
             {
                 for (int k = 0; k < anzx2; k++)
                 {
-                    for (int l = 0; l < ywerte[k]; l++)
+                    /*for (int l = 0; l < ywerte[k]; l++)
                     {
                         delete[] K[anzx2 - 1 - k][ywerte[k] + l];
                         delete[] K[anzx2 + k][ywerte[k] + l];
                         delete[] K[anzx2 - 1 - k][ywerte[k] - 1 - l];
                         delete[] K[anzx2 + k][ywerte[k] - 1 - l];
                     }
-                    delete[] K[anzx2 - 1 - k];
-                    delete[] K[anzx2 + k];
-                    delete[] zwerte[k];
+                    */
+                    //delete[] K[anzx2 - 1 - k];
+                    //delete[] K[anzx2 + k];
+                    zwerte[k].clear();                    
                 }
 
-                delete[] ywerte;
-                delete[] zwerte;
+                ywerte.clear();
+                zwerte.clear();
 
                 if (numObjs > 0)
                     free(Obj);
             }
-            K = 0;
-            zwerte = 0;
-            ywerte = 0;
+            
             numObjs = 0;
             iscleared = true;
         }
@@ -605,14 +585,16 @@ namespace GOAT
 
     template <class T> void SuperArray<T>::copy(const SuperArray<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
     {
-        for (int i = 0; i < numObjs; i++)
+        G = S.G;
+        /*for (int i = 0; i < numObjs; i++)
+            
             if (S.G[i] != NULL)
             {
                 for (int ix = 0; ix < n[i][0]; ix++)
                     for (int iy = 0; iy < n[i][1]; iy++)
                         for (int iz = 0; iz < n[i][2]; iz++)
                             G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
-            }
+            }*/
     }
 
     template <class T> SuperArray<T>& SuperArray<T>::operator = (const SuperArray<T>& S)
@@ -634,7 +616,8 @@ namespace GOAT
         {
             isequal = true; addInc(S.Obj, S.numObjs, true);
             isequal = true;
-            if (S.numObjs != 0)
+            G = S.G;
+          /*  if (S.numObjs != 0)
                 do
                 {
                     for (int ix = 0; ix < n[i][0]; ix++)
@@ -642,7 +625,7 @@ namespace GOAT
                             for (int iz = 0; iz < n[i][2]; iz++)
                                 G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
                     i++;
-                } while (i < S.numObjs);
+                } while (i < S.numObjs);*/
                 isequal = false;
         }
         else
@@ -821,8 +804,8 @@ namespace GOAT
         anzx = nges[0];
         anzx2 = nges[0] / 2;
         // cout << "allockugel" << std::endl;
-        ywerte = new int[anzx2];
-        zwerte = new int* [anzx2];
+        ywerte.resize(anzx2);
+        zwerte.resize(anzx2);
 
         /*dx=d[0];
         dy=d[1];
@@ -834,40 +817,33 @@ namespace GOAT
         // cout << "dx=" << dx << std::endl; 
         for (int i = 0; i < anzx2; i++)
         {
-            ywerte[i] = int(ceil(sqrt(1.0 - (i * dx) * (i * dx)) / dy));
-            zwerte[i] = new int[anzx2];
+            ywerte.push_back(ceil(sqrt(1.0 - (i * dx) * (i * dx)) / dy));
+            zwerte.resize(anzx2);
             for (int j = 0; j < anzx2; j++)
             {
                 hilf = 1.0 - (i * dx) * (i * dx) - (j * dy) * (j * dy);
                 //      cout << "hilf:" << hilf << std::endl;
                 if (hilf >= 0)
                     //        zwerte[i][j]=int(ceil(sqrt(1.0-(i*dx)*(i*dx)-(j*dy)*(j*dy))*nges[2]/2.0));
-                    zwerte[i][j] = ceil(sqrt(hilf) / dz);
+                    zwerte[i].push_back(ceil(sqrt(hilf) / dz));
                 else
-                    zwerte[i][j] = 1;
+                    zwerte[i].push_back(1);
 
                 //      cout << "zwerte[" << i << "][" << j << "]:" <<  zwerte[i][j] << std::endl;
             }
         }
 
-        K = new T**[anzx];
+        K.resize(anzx);
         for (int k = 0; k < anzx2; k++)
         {
-            K[anzx2 - 1 - k] = new T*[2 * ywerte[k]];
-            K[anzx2 + k] = new T*[2 * ywerte[k]];
+            K[anzx2 - 1 - k].resize(2 * ywerte[k]);
+            K[anzx2 + k].resize(2 * ywerte[k]);
             for (int l = 0; l < ywerte[k]; l++)
             {
-                K[anzx2 - 1 - k][ywerte[k] + l] = new T[2 * zwerte[k][l]];
-                //    cout << "K[" << anzx2-1-k << "][" << ywerte[k]+l<<"]=" << 2*zwerte[k][l] << std::endl;
-
-                K[anzx2 + k][ywerte[k] + l] = new T[2 * zwerte[k][l]];
-                //    cout << "K[" << anzx2+k << "][" << ywerte[k]+l<<"]=" << 2*zwerte[k][l] << std::endl;
-
-                K[anzx2 - 1 - k][ywerte[k] - 1 - l] = new T[2 * zwerte[k][l]];
-                //    cout << "K[" << anzx2-1-k << "][" << ywerte[k]-1-l<<"]=" << 2*zwerte[k][l] << std::endl;
-
-                K[anzx2 + k][ywerte[k] - 1 - l] = new T[2 * zwerte[k][l]];
-                //     cout << "K[" << anzx2+k << "][" << ywerte[k]-1-l<<"]=" << zwerte[k][l] << std::endl;
+                K[anzx2 - 1 - k][ywerte[k] + l].resize(2 * zwerte[k][l]);                
+                K[anzx2 + k][ywerte[k] + l].resize(2 * zwerte[k][l]);
+                K[anzx2 - 1 - k][ywerte[k] - 1 - l].resize(2 * zwerte[k][l]);
+                K[anzx2 + k][ywerte[k] - 1 - l].resize(2 * zwerte[k][l]);                
             }
         }
     }
