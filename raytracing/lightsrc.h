@@ -125,6 +125,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			friend class LightSrcPlane;
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
+			bool suppress_phase_progress = false;
 		};
 
 

@@ -303,6 +303,7 @@ namespace  GOAT
 
 		int LightSrcPlane::next(RayBase* ray)
 		{
+			ray->suppress_phase_progress = suppress_phase_progress;
 			switch (raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
@@ -321,6 +322,7 @@ namespace  GOAT
 			E.e2 = e2;
 			E.n = k;
 			S = IRay(P, Pol*sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.E1 = Pol / (N * N);
 			S.E2 = Pol2 / (N * N);
 			// S.init_Efeld(E,Pol);
@@ -344,7 +346,7 @@ namespace  GOAT
 			E.n = k;
 			Pow = P0 / ((double)(N * N) * D * D);
 			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.initElectricField(E, Pol);
 			S.P = P;
 			S.E1 = Pol;
@@ -364,6 +366,7 @@ namespace  GOAT
 			double Pow = P0 / (N * N * D * D);
 			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			// S.init_Efeld(Pol,1);
 			i1++;
@@ -504,6 +507,8 @@ namespace  GOAT
 			double zeta;
 			double absfp;
 
+			S.suppress_phase_progress = suppress_phase_progress;
+
 			fp = focuspos - P;  // Hier beginnt der Strahl
 			hk = fp / abs(fp);  // Normierter Richtungsvektor vom Startpunkt zum Fokus
 
@@ -586,7 +591,7 @@ namespace  GOAT
 			double g;
 			double L = 0.1;
 			double R;
-
+			
 			maths::Vector<double> h, hk;
 			maths::Matrix<double> DM;
 			maths::Vector<std::complex<double> > E;
@@ -622,6 +627,7 @@ namespace  GOAT
 
 			DM = rotMatrix(h, gamma);
 			S = Ray_pow(1, P, Pol, hk, n0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.k = k;
 			S.n = n0;
 			absfp = fp * k;
@@ -669,6 +675,7 @@ namespace  GOAT
 
 		int LightSrcGauss::next(RayBase* ray)
 		{
+			ray->suppress_phase_progress = suppress_phase_progress;
 			switch (raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
@@ -680,6 +687,7 @@ namespace  GOAT
 
 		int LightSrcGauss::next(tubedRay& S)
 		{
+
 			maths::Vector<double> Ph = (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
 			maths::Vector<double> P = Pos + Ph;
 			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
@@ -688,6 +696,7 @@ namespace  GOAT
 			double s = w0 / (2.0 * sqrt(log(2.0)));
 			double E0 = exp(-r * r / s / s);
 			S = tubedRay(P, density, density, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 
 			S.setN0(n0);
 			S.n = n0;

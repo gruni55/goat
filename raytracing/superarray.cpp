@@ -21,7 +21,7 @@ namespace GOAT
 {
   namespace raytracing 
   {
-      void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i)
+      void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -57,7 +57,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i)
+      void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -93,7 +93,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i)
+      void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -130,7 +130,7 @@ namespace GOAT
       }
 
 
-      void saveExPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i)
+      void saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -163,7 +163,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i)
+      void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -199,7 +199,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i)
+      void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
@@ -237,7 +237,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveabsE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i)
+      void saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S,  std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
@@ -278,7 +278,7 @@ namespace GOAT
           os.close();
       }
 
-      void saveFullE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i)
+      void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;
           std::ofstream os;

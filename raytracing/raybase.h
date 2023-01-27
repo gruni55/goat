@@ -26,6 +26,7 @@ namespace GOAT
             double k0; ///< wave number
             double r0, rc; ///< radius of the calculation sphere
             int iR; ///< number of reflections already done
+            bool suppress_phase_progress=false; ///< suppress phase change in next(), needed for short pulse consideration
         };
     }
 }

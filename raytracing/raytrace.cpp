@@ -331,6 +331,13 @@ namespace GOAT
 			nDet = 0;
 		}
 
+		void Scene::setPhaseProgress(bool suppress_phase_progress)
+		{
+			this->suppress_phase_progress = suppress_phase_progress;
+			for (int i = 0; i < nLS; i++)
+				LS[i]->suppress_phase_progress = suppress_phase_progress;
+		}
+
 
 		void Scene::addObject(ObjectShape* obj)
 		{

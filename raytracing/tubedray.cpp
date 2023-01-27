@@ -214,7 +214,8 @@ bool tubedRay::next()
   for (int i=0;i<5;i++)
   {
    Obj[objIndex]->next(P[i],k[i],R[i]);
-   E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
+   if (!suppress_phase_progress)
+        E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
   }
  
  }

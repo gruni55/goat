@@ -90,6 +90,7 @@ namespace GOAT
 			
 			DM = rotMatrix(h, gamma);
 			S = Ray_pow(1, P, Pol, hk, n0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.k = k;
 			S.n = n0;
 			absfp = fp * k;
@@ -172,6 +173,7 @@ namespace GOAT
 
 			DM = rotMatrix(h, gamma);
 			S = IRay(P, Pol, hk, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.k = k;
 			S.n = n0;
 			
@@ -216,7 +218,7 @@ namespace GOAT
 			k = k / abs(k);
 			double E0 = sqrt(P0);
 			S = tubedRay(P, density, density, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			S.n = n0;
 
@@ -279,6 +281,7 @@ namespace GOAT
 			E.e2 = e2;
 			E.n = k;
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.E1 = Pol / N;
 			S.E2 = Pol2 / N;
 			// S.init_Efeld(E,Pol);
@@ -300,7 +303,7 @@ namespace GOAT
 			// Pow = 1.0 / ((double)(N * N) * D * D);
 			Pow = 1.0;
 			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.initElectricField(E, Pol);
 			S.P = P;
 			S.E1 = Pol;
@@ -319,6 +322,7 @@ namespace GOAT
 			double Pow = 1.0;
 			maths::Vector<double> P = genStartingPos();
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			
 			i1++;

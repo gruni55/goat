@@ -31,10 +31,31 @@ namespace GOAT
           * @p nx, @p ny, @p nz number of cells in the x-, y-, z- direction
           * @param type describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT) 
          */
-         SuperArray(double r0,int nx,int ny,int nz, const int typ=IN_HOST); 
-         SuperArray(double r0,int nx, int ny, int nz,ObjectShape **Obj, int numObjs, const bool isAbsolute=false, const int typ=0);
-         ~SuperArray () { clear();};
-
+         SuperArray(double r0,int nx,int ny,int nz, const int typ=IN_OBJECT); 
+         SuperArray(double r0,int nx, int ny, int nz,ObjectShape **Obj, int numObjs, const bool isAbsolute=false, const int typ=IN_OBJECT);
+         SuperArray(const SuperArray& S)
+         {
+             Error = NO_ERRORS;
+             Obj = S.Obj;
+             numObjs = S.numObjs;
+             type = S.type;
+             ywerte = S.ywerte;
+             zwerte = S.zwerte;
+             G = S.G;
+             K = S.K;
+             Pul = S.Pul;
+             n = S.n;
+             nges = S.nges;
+             d = S.d;
+             r0 = S.r0;
+             isequal = S.isequal;
+             iscleared = S.iscleared;
+             pc = S.pc;
+             H = S.H;
+             R = S.R;
+         }
+         ~SuperArray () { clear();}
+         
          /**
           * @brief Copies SuperArray object
           * Here, \p S will be copied into the existing SuperArray and all elements will be overridden
@@ -91,11 +112,11 @@ namespace GOAT
           * @param i number of the object
           * @param ix 
          */
-         T& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true);
-         T& operator () (maths::Vector<int> Pi);
-         T& operator () (int i,maths::Vector<int> Pi);
-         T& operator () (maths::Vector<double> P);
-         T& operator () (int i, maths::Vector<double> P);
+         T& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true); ///< gives back the contents of the cell from the i-th object with the indices (ix,iy,iz) (faster)
+         T& operator () (maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi
+         T& operator () (int i,maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
+         T& operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
+         T& operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
          
           void makeReal ();
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
@@ -108,9 +129,9 @@ namespace GOAT
          * The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned 
          * (for internal use only)
          */
-         maths::Vector<int> kugelindex(maths::Vector<int> Pi); 
-         T kugelwert(maths::Vector<int> Pi); 
-         T kugelwert(int ix, int iy, int iz);
+         maths::Vector<int> kugelindex(maths::Vector<int> Pi); ///< for internal use only
+         T kugelwert(maths::Vector<int> Pi); ///< for internal use only
+         T kugelwert(int ix, int iy, int iz); ///< for internal use only
   //       friend std::ostream&   operator << (std::ostream &os, const SuperArray &S);
  
  /* 
@@ -142,9 +163,9 @@ namespace GOAT
          maths::Vector<int>* Pul, * n, nges;
     */     
 
-         int Error;
-         ObjectShape** Obj;
-         int numObjs,type;
+         int Error;  ///< Holds an error number 
+         ObjectShape** Obj=NULL; ///< here are the objects
+         int numObjs,type; 
          std::vector<int> ywerte;
          std::vector<std::vector<int> > zwerte;
          std::vector <std::vector <std::vector <std::vector <T> > > > G;
@@ -203,7 +224,7 @@ namespace GOAT
         Error = NO_ERRORS;
         double b = 2.0 * r0;
         isequal = isAbsolute;
-        numObjs = 0;
+        this->numObjs = 0;
         this->r0 = r0;
         nges = maths::Vector<int>(nx, ny, nz);
         type = typ;
@@ -397,11 +418,11 @@ namespace GOAT
 
     template <class T> T& SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
     {
-        dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+        T dummy;
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
         if (type == IN_OBJECT)
         {
-            if (G[i] == NULL) return dummy;
+            if (G[i].size()==0) return dummy;
             if (!isEinKoord)  Pi = Pi - Pul[i];
             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
@@ -417,7 +438,7 @@ namespace GOAT
 
     template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
     {
-      
+        T dummy;
         if (type == IN_OBJECT)
         {
             Pi = Pi - Pul[i];
@@ -525,7 +546,7 @@ namespace GOAT
         int anzx, anzx2;
         anzx = nges[0];
         anzx2 = nges[0] / 2;
-
+        if (!iscleared)
         if (type == IN_OBJECT)
         {
             if (numObjs > 0)
@@ -545,9 +566,10 @@ namespace GOAT
                 } // for i
                 n.clear(); 
                 Pul.clear();
-                
+                if (Obj!=NULL)
                 free(Obj);
                 numObjs = 0;
+                Obj = NULL;
                 iscleared = true;
                 
             }
@@ -633,9 +655,10 @@ namespace GOAT
             allockugel();
             isequal = true; addInc(S.Obj, S.numObjs, true);
             isequal = true;
+            
             for (int k = 0; k < anzx2; k++)
             {
-                ywerte[k] = S.ywerte[k];
+                ywerte[k] = S.ywerte[k];                            
                 for (int l = 0; l < S.ywerte[k]; l++)
                 {
                     zwerte[k][l] = S.zwerte[k][l];
@@ -804,9 +827,7 @@ namespace GOAT
         anzx = nges[0];
         anzx2 = nges[0] / 2;
         // cout << "allockugel" << std::endl;
-        ywerte.resize(anzx2);
-        zwerte.resize(anzx2);
-
+      
         /*dx=d[0];
         dy=d[1];
         dz=d[2];*/
@@ -814,11 +835,10 @@ namespace GOAT
         dy = 2.0 / nges[1];
         dz = 2.0 / nges[2];
 
-        // cout << "dx=" << dx << std::endl; 
+        zwerte.resize(anzx2);
         for (int i = 0; i < anzx2; i++)
         {
             ywerte.push_back(ceil(sqrt(1.0 - (i * dx) * (i * dx)) / dy));
-            zwerte.resize(anzx2);
             for (int j = 0; j < anzx2; j++)
             {
                 hilf = 1.0 - (i * dx) * (i * dx) - (j * dy) * (j * dy);
@@ -950,14 +970,14 @@ namespace GOAT
     }
 
 
-    void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
-    void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
-    void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > S, char* FName, int i = 0);
-    void saveExPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
-    void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
-    void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > S, char* FName, int i = 0);
-    void saveabsE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i = 0);
-    void saveFullE(SuperArray < maths::Vector < std::complex<double> > > S, const char* FName, int i = 0);
+    void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    void saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    void saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
+    void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
     double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);

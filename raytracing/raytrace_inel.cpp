@@ -148,7 +148,7 @@ namespace GOAT
 			calcphase = INEL_CALCPHASE_EXCITATION; 
 			Raytrace::setScene(S);	
 		}
-
+		
 		void Raytrace_Inel::exportExcitation(std::string fname, int savetype)
 		{
 			std::string full_fn;
@@ -157,8 +157,8 @@ namespace GOAT
 				full_fn = std::to_string(i) + "_" + fname;
 				switch (savetype)
 				{
-					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsE(SGE[0],full_fn.c_str(), i); break;
-					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: saveFullE(SGE[0],full_fn.c_str(), i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsE(SGE[0],full_fn, i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: saveFullE(SGE[0],full_fn, i); break;
 				}
 			}
 		}

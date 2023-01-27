@@ -29,6 +29,7 @@ namespace GOAT
 
 		void Raytrace_usp::trace()
 		{
+			init();
 			S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
 			Raytrace::trace();
 		/*	for (int i = 1; i < INEL_MAX_NREFLEX; i++)
@@ -55,7 +56,8 @@ namespace GOAT
 					s += l;
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0);
 					ge.l = l;
-					ge.matIndex = currentObj;
+					if (currentObj < 0) ge.matIndex = S.nObj;
+					else ge.matIndex = currentObj;
 					SA[iR](currentObj, cell).step.push_back(ge);
 					SA[iR](currentObj, cell).E = E;
 					P = Pnew;

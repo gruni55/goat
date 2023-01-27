@@ -42,8 +42,7 @@ int main(int argc, char* argv[])
     double restus = us - seconds*1E+6 - ms * 1000.0;
     std::cout << "Calculation time: "<< std::chrono::duration_cast<std::chrono::microseconds>(end-start).count() << "µs" ;
     std::cout << "= " << seconds << "s :" << ms << "ms : " << restus << "µs" << std::endl;
-    saveabsE(*ri.SGE,"test.dat");
-    saveExPhase(*ri.SGE,"testp.dat");
-    
+  /*  GOAT::raytracing::saveabsE(*ri.SGE, "test.dat");
+    GOAT::raytracing::saveExPhase(*ri.SGE,"testp.dat");*/
     return 0;
 }
