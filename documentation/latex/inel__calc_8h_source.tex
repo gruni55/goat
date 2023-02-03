@@ -1,0 +1,140 @@
+\hypertarget{inel__calc_8h_source}{}\doxysection{inel\+\_\+calc.\+h}
+\label{inel__calc_8h_source}\index{raytracing/inel\_calc.h@{raytracing/inel\_calc.h}}
+\mbox{\hyperlink{inel__calc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00001}00001 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <math.h>}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00004}00004 \textcolor{preprocessor}{\#ifdef WITH\_SUPERGITTER}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}superarray.h"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00006}00006 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{grid_8h}{grid.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{plane_8h}{plane.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00009}00009 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00010}00010 \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00011}00011     \textcolor{keyword}{namespace }raytracing}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00012}00012     \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00013}00013         \textcolor{comment}{// Berechnet den Punkt ix,iy eines Einstrahlgrids, welches sich im Abstand r}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00014}00014         \textcolor{comment}{// unter einem Winkel theta,phi vor dem Partikel befindet}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00015}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{00015}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{startpunkt}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy,  \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\& git, }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00016}00016                                 \textcolor{keywordtype}{double} r, \textcolor{keywordtype}{double} theta, \textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00018}00018         \textcolor{comment}{// Berechnet den Punkt ix,iy eines Einstrahlgrids, welches sich}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00019}00019         \textcolor{comment}{// unter einem Winkel theta,phi direkt vor dem Partikel befindet}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00020}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3354af56968c114ec07b65447a6b3149}{00020}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{startpunkt}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\& git,}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00021}00021                                 \textcolor{keywordtype}{double} theta, \textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00023}00023         \textcolor{comment}{// Dreht den Vektor vein um theta und um phi}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00024}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa2c10abf3567b9c6d1278d0cb230a91b}{00024}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa2c10abf3567b9c6d1278d0cb230a91b}{drehvektor}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} vein, \textcolor{keywordtype}{double} theta, \textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00026}00026         \textcolor{comment}{// Dreht den Vektor vein um phi}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00027}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aec0a6f2fbfd541c66caa3d287643e66f}{00027}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aec0a6f2fbfd541c66caa3d287643e66f}{drehphivektor}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} vein, \textcolor{keywordtype}{double} phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00029}00029         \textcolor{comment}{// Gibt den Ursprung eines Einstrahlgrids wieder, dessen Mittelpunkt um  }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00030}00030         \textcolor{comment}{// Winkel theta,phi gedreht wurde und das urspr{\ucr}nglich um dr {\ucr}ber der Ebene }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00031}00031         \textcolor{comment}{// z = git.zmax lag. Wird in der Routine startpunkt benoetigt}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00032}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a707151b319c4d4f021367442ed773518}{00032}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a707151b319c4d4f021367442ed773518}{ursprungrot}}(\textcolor{keywordtype}{double} dr, \textcolor{keywordtype}{double} theta, \textcolor{keywordtype}{double} phi, }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00033}00033                                 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \&exrot, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \&eyrot, }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00034}00034                                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00036}00036         \textcolor{comment}{// Berechnet die eigentliche Strahlverfolgung im grid git bei Einstrahlung  }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00037}00037         \textcolor{comment}{// an dem Startpunkt p0  in Richtung k0}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00040}00040 \textcolor{preprocessor}{        \#ifdef WITH\_SUPERGITTER}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00041}00041         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > > verfolgung(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > >\&git);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00044}00044        \textcolor{keyword}{template}<\textcolor{keyword}{class} T>  \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}} \&git);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00046}00046         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}} \&git, \textcolor{keywordtype}{double} eps);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00047}00047 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00048}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{00048}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0,}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00049}00049         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} d, \textcolor{keywordtype}{double} eps);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00050}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a891c32a369342b50e847a4788ff1edc6}{00050}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} E, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0s, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0s,}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00051}00051         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} d, \textcolor{keywordtype}{double} eps);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00054}00054         \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IMPLEMENTATION -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00055}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5e1d3468bd62f625f19dc50fc46e780b}{00055}}         \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& git)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00056}00056         \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00058}00058             \textcolor{keywordtype}{double} lambdax, lambday, lambdaz, lambda;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00059}00059             \textcolor{keywordtype}{double} signx, signy, signz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00061}00061             signx = copysign(1, k0[0]); signy = copysign(1, k0[1]); signz = copysign(1, k0[2]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00063}00063             lambdax = ((floor(p0[0] / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0]) + signx + (signx < 0) * (fmod(p0[0], git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0] -\/ p0[0]) / k0[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00064}00064             lambday = ((floor(p0[1] / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1]) + signy + (signy < 0) * (fmod(p0[1], git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1] -\/ p0[1]) / k0[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00065}00065             lambdaz = ((floor(p0[2] / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2]) + signz + (signz < 0) * (fmod(p0[2], git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2] -\/ p0[2]) / k0[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00067}00067             \textcolor{keywordflow}{if} (lambdax < lambday)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00068}00068                 lambda = lambdax;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00069}00069             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00070}00070                 lambda = lambday;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00072}00072             \textcolor{keywordflow}{if} (lambda > lambdaz)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00073}00073                 lambda = lambdaz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00075}00075             \textcolor{keywordflow}{return}  p0 + lambda * k0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00076}00076 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00077}00077         \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00079}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6ce5d78417be0f2273c364707a4cf253}{00079}}         \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab99827abdd4c3a279460db9df52adac1}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& git, \textcolor{keywordtype}{double} eps)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00080}00080         \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00081}00081             \textcolor{keywordtype}{double} lambdax, lambday, lambdaz, lambda;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00082}00082             \textcolor{keywordtype}{double} signx, signy, signz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00083}00083             \textcolor{keywordtype}{double} sx, sy, sz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00085}00085 \textcolor{comment}{            /***********************************************************************************************}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00086}00086 \textcolor{comment}{             * Algorithmus zur Bestimmung der Schnittpunkte des Strahls mit den gridebenen               *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00087}00087 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00088}00088 \textcolor{comment}{             * Prinzip:                                                                                    *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00089}00089 \textcolor{comment}{             * Ausgehend vom Punkt p\_0 werden die Schnittpunkte mit Ebenen x=const.,                       *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00090}00090 \textcolor{comment}{             * y=const. und z=const. gebildet. Hierzu werden zunaechst die Stuetzpunkte s\_x, s\_y und s\_z,  *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00091}00091 \textcolor{comment}{             * welche den Abstand dieser Ebenen vom Ursprung des grids angeben, berechnet. Der           *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00092}00092 \textcolor{comment}{             * Schnittpunkt mit dem kleinsten Abstand ist dann der gesuchte Punkt.                         *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00093}00093 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00094}00094 \textcolor{comment}{             * Die Stuetzpunkte s\_i bestimmen sich folgendermassen:                                        *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00095}00095 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00096}00096 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00097}00097 \textcolor{comment}{             * Die i-\/Komponente des Punktes p\_0 ist von der Form                                           *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00098}00098 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00099}00099 \textcolor{comment}{             *  p\_\{0,i\} = m*di + a,  m ganz, a >=0                                                         *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00100}00100 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00101}00101 \textcolor{comment}{             * wobei di die Schrittweite des grids in i-\/Richtung ist.                                    *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00102}00102 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00103}00103 \textcolor{comment}{             * Ist k\_i > 0 und a = 0, so ist der Stuetzpunkt s\_i gegeben durch (m+1)*di=(m+sign(k\_i)+0)*di *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00104}00104 \textcolor{comment}{             * Ist k\_i > 0 und a > 0, so ist der Stuetzpunkt s\_i gegeben durch (m+1)*di=(m+sign(k\_i)+0)*di *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00105}00105 \textcolor{comment}{             * Ist k\_i < 0 und a = 0, so ist der Stuetzpunkt s\_i gegeben durch (m-\/1)*di=(m+sign(k\_i)+0)*di *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00106}00106 \textcolor{comment}{             * Ist k\_i < 0 und a > 0, so ist der Stuetzpunkt s\_i gegeben durch   m*di  =(m+sign(k\_i)+1)*di *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00107}00107 \textcolor{comment}{             *                                                                                             *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00108}00108 \textcolor{comment}{             * Der Schnittpunkt mit dem kleinsten Abstand ist dann der gesuchte Punkt.                     *}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00109}00109 \textcolor{comment}{             ***********************************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00111}00111             signx = copysign(1.0, k0[0]); signy = copysign(1.0, k0[1]); signz = copysign(1.0, k0[2]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00113}00113             sx = (floor((p0[0] + signx * 2 * eps) / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0]) + signx + (signx < 0) * (fmod(p0[0] + signx * 2 * eps, git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00114}00114             sy = (floor((p0[1] + signy * 2 * eps) / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1]) + signy + (signy < 0) * (fmod(p0[1] + signy * 2 * eps, git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00115}00115             sz = (floor((p0[2] + signz * 2 * eps) / git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2]) + signz + (signz < 0) * (fmod(p0[2] + signz * 2 * eps, git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2]) != 0)) * git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00117}00117             lambdax = (sx -\/ p0[0]) / k0[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00118}00118             lambday = (sy -\/ p0[1]) / k0[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00119}00119             lambdaz = (sz -\/ p0[2]) / k0[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00120}00120 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00121}00121             \textcolor{keywordflow}{if} (lambdax <= lambday)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00122}00122                 lambda = lambdax;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00123}00123             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00124}00124                 lambda = lambday;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00125}00125 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00126}00126             \textcolor{keywordflow}{if} (lambda >= lambdaz)  lambda = lambdaz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00129}00129             \textcolor{keywordflow}{return}  p0 + lambda * k0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00130}00130 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00131}00131         \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00133}00133     \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00134}00134 \}}
+
+\end{DoxyCode}

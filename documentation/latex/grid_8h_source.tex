@@ -1,0 +1,77 @@
+\hypertarget{grid_8h_source}{}\doxysection{grid.\+h}
+\label{grid_8h_source}\index{raytracing/grid.h@{raytracing/grid.h}}
+\mbox{\hyperlink{grid_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00006}00006 \textcolor{preprocessor}{\#ifndef \_\_grid\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00007}00007 \textcolor{preprocessor}{\#define \_\_grid\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00009}00009 \textcolor{preprocessor}{\#include <complex>}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{resutil_8h}{resutil.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00013}00013 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00014}00014 \{}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00015}00015     \textcolor{keyword}{namespace }raytracing}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00016}00016     \{}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00022}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{00022}}         \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00023}00023         \{}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00025}00025         maths::Vector <std::complex<double> > ****gridarray;}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00026}00026         maths::Vector <std::complex<double> > ****newarray();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00027}00027         \textcolor{keywordtype}{void} delarray();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00035}00035         \textcolor{keywordtype}{int} isInside(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz,\textcolor{keywordtype}{double} x0, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{double} z0, \textcolor{keywordtype}{double} r0);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00040}00040         \textcolor{keywordtype}{int} isInside(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P, \textcolor{keywordtype}{double} r0);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00042}00042         \textcolor{keywordtype}{double} dx2, dy2, dz2; }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00044}00044         \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00046}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a3ce537789afb302bbe9623bcccca4dd5}{00046}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a3ce537789afb302bbe9623bcccca4dd5}{rP}};}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00047}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ac8b0930e221928664495c7600e39dfb1}{00047}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ac8b0930e221928664495c7600e39dfb1}{nxmax}},\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a70dba2212e164f830a27fcebbcb0b600}{nymax}},\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a6e8d2ee927d7bd0bbba9274070121eee}{nzmax}}; }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00048}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a4fd6564282fe10fda859ba0831ffd091}{00048}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}},  \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a4fd6564282fe10fda859ba0831ffd091}{dx}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a49c3aae123e173fe684bb0ba936e2b82}{dy}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ad5bf869d4950747ed0f96a826588a15d}{dz}};}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00049}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aec00c69eea937c0f6e3e2b0ab5e63a06}{00049}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} > \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aec00c69eea937c0f6e3e2b0ab5e63a06}{DUMMY}};}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a90f6089e8deb26c736c99e0386d3b9f9}{00051}}         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a90f6089e8deb26c736c99e0386d3b9f9}{grid}}();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00052}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aefc2ea221f41351b2cbffac293265364}{00052}}         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aefc2ea221f41351b2cbffac293265364}{grid}}(\textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}}, \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}});}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00053}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a78046f08ce9ab02c3a7acfa3c072d30e}{00053}}         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a78046f08ce9ab02c3a7acfa3c072d30e}{grid}}(\textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \textcolor{keywordtype}{double} r);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afcdb33e9d155bf8a2d3477ac74fa5dc0}{00055}}         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afcdb33e9d155bf8a2d3477ac74fa5dc0}{\string~grid}}();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00057}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c}{00057}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} >\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c}{operator() }}(\textcolor{keywordtype}{int}  i, \textcolor{keywordtype}{int} j, \textcolor{keywordtype}{int} k);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00058}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a72ad4f966fde60c5cb231d9d59be51a6}{00058}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} >\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c}{operator() }}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}\& P);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00060}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a8a87808b2258a72d7b877c5e46bcb93f}{00060}}                         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a8a87808b2258a72d7b877c5e46bcb93f}{operator=  }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\& g);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00062}00062         \textcolor{comment}{// Initialisiert ein grid mit anzein Einschluessen, die in ein}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00063}00063         \textcolor{comment}{// stehen}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aac4109e1fbb12864591cf4ed59abe838}{00064}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aac4109e1fbb12864591cf4ed59abe838}{init\_grid}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{objectInfo}} *ein, \textcolor{keywordtype}{int} anzein);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00066}00066         \textcolor{comment}{// Erzeugt leeres grid}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00067}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a647ade9e24e1d12d12a3ab7167c7c457}{00067}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a647ade9e24e1d12d12a3ab7167c7c457}{init\_grid}}();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00069}00069         \textcolor{comment}{// Ausgabe des grids auf Standardausgabe}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00070}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a33d3ecbf8c745b7a3a47e42a9dac0854}{00070}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a33d3ecbf8c745b7a3a47e42a9dac0854}{show\_grid}}();}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00072}00072         \textcolor{comment}{// Ausgabe des grids in Datei fname}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00073}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abf5ecf3d936ef00c6594e6a845c0a8ba}{00073}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abf5ecf3d936ef00c6594e6a845c0a8ba}{show\_grid}}(\textcolor{keywordtype}{char}* fname);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00074}00074 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00075}00075         \textcolor{comment}{// Gibt die Koordinaten der gridzelle aus, in der der Punkt mit}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00076}00076         \textcolor{comment}{// den  Koordinaten x0, y0 und z0 liegt}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00077}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abe97cd308c1bff758d005ef95d0e8d74}{00077}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abe97cd308c1bff758d005ef95d0e8d74}{gridpunkt}}(\textcolor{keywordtype}{double} x0, \textcolor{keywordtype}{double} y0, \textcolor{keywordtype}{double} z0);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00078}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a5fe2cd82087305c84113d7ea760d1399}{00078}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a5fe2cd82087305c84113d7ea760d1399}{gridpunkt}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\& P);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00079}00079         \textcolor{comment}{// Testet, ob die gridzelle ix, iy, iz innerhalb des Partikels liegt}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00080}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afa58ddce3ff94204c53275efc7bae46b}{00080}}         \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afa58ddce3ff94204c53275efc7bae46b}{in\_kugel}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00082}00082         \textcolor{comment}{// Testet, ob die gridzelle ix, iy, iz innerhalb des Einschlusses ein}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00083}00083         \textcolor{comment}{// liegt}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00084}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_acd0491a97549ce3531f0d4872fb53501}{00084}}         \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_acd0491a97549ce3531f0d4872fb53501}{inObject}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{objectInfo}} ein);}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00086}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a9f4f81afffce9f9da266df391f6d439d}{00086}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a9f4f81afffce9f9da266df391f6d439d}{set\_parms}}(\textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}});}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00087}00087         \};}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00088}00088     \}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00089}00089 \}}
+\DoxyCodeLine{\Hypertarget{grid_8h_source_l00090}00090 \textcolor{preprocessor}{\#endif }\textcolor{comment}{/*  \_\_grid\_H\_\_ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

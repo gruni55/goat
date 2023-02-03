@@ -1,0 +1,27 @@
+\hypertarget{fft_8h}{}\doxysection{raytracing/fft.h File Reference}
+\label{fft_8h}\index{raytracing/fft.h@{raytracing/fft.h}}
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}superarray.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}raytrace\+\_\+usp.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{GOAT\+::raytracing\+::\+Trafo\+Parms}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{GOAT\+::raytracing\+::\+Trafo$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em This class calculates the time dependence of a field which calculated before The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} carries all information needed for the calculation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{GOAT\+::raytracing\+::\+N\+\_\+\+INTEGRAL}} = 100
+\item 
+constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT}} = 299792458
+\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}

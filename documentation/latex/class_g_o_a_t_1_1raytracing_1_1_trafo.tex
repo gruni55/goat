@@ -1,0 +1,110 @@
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo}{}\doxysection{GOAT\+::raytracing\+::Trafo\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_trafo}\index{GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}}
+
+
+This class calculates the time dependence of a field which calculated before The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} carries all information needed for the calculation.  
+
+
+
+
+{\ttfamily \#include $<$fft.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_aa12519c0ea3be8807b940181cbfdf96d}{Trafo}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}})
+\begin{DoxyCompactList}\small\item\em Contructor for initialization ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}{calc}} (std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \&SA, double t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}{SAres}}
+\begin{DoxyCompactList}\small\item\em Container for the last result ~\newline
+ \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class GOAT\+::raytracing\+::\+Trafo$<$ T $>$}
+This class calculates the time dependence of a field which calculated before The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} carries all information needed for the calculation. 
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00046}{46}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}} 
+\index{GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}!Trafo@{Trafo}}
+\index{Trafo@{Trafo}!GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Trafo()}{Trafo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{GOAT\+::raytracing\+::\+Trafo}}$<$ T $>$\+::\+Trafo}
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00081}{81}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_aa12519c0ea3be8807b940181cbfdf96d}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_aa12519c0ea3be8807b940181cbfdf96d}} 
+\index{GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}!Trafo@{Trafo}}
+\index{Trafo@{Trafo}!GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Trafo()}{Trafo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{GOAT\+::raytracing\+::\+Trafo}}$<$ T $>$\+::\+Trafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}}}]{tp }\end{DoxyParamCaption})}
+
+
+
+Contructor for initialization ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00086}{86}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}} 
+\index{GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}!calc@{calc}}
+\index{calc@{calc}!GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{GOAT\+::raytracing\+::\+Trafo}}$<$ T $>$\+::calc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \&}]{SA,  }\item[{double}]{t }\end{DoxyParamCaption})}
+
+Perform a calculation at the time t 
+\begin{DoxyParams}{Parameters}
+{\em SA} & Array of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} elements. Contains the fields for the different wavelengths ~\newline
+ defined by the parameters in the corresponding \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} structure, given in the constructor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00125}{125}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}} 
+\index{GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}!SAres@{SAres}}
+\index{SAres@{SAres}!GOAT::raytracing::Trafo$<$ T $>$@{GOAT::raytracing::Trafo$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SAres}{SAres}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{GOAT\+::raytracing\+::\+Trafo}}$<$ T $>$\+::\+SAres}
+
+
+
+Container for the last result ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00058}{58}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{fft_8h}{fft.\+h}}\end{DoxyCompactItemize}

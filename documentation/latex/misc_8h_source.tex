@@ -1,0 +1,56 @@
+\hypertarget{misc_8h_source}{}\doxysection{misc.\+h}
+\label{misc_8h_source}\index{raytracing/misc.h@{raytracing/misc.h}}
+\mbox{\hyperlink{misc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00002}00002 \textcolor{comment}{/***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00003}00003 \textcolor{comment}{                          misc.h  -\/  description}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00004}00004 \textcolor{comment}{                             -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00005}00005 \textcolor{comment}{    begin                : Mit Mär 12 2003}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00006}00006 \textcolor{comment}{    copyright            : (C) 2003 by Thomas Weigel}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00007}00007 \textcolor{comment}{    email                : weigel@lat.ruhr-\/uni-\/bochum.de}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00008}00008 \textcolor{comment}{ ***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{surface_8h}{surface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ellipsoid_8h}{ellipsoid.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{tubedray_8h}{tubedray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00016}00016 \textcolor{preprocessor}{\#ifndef MISC\_H}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00017}00017 \textcolor{preprocessor}{\#define MISC\_H}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00018}00018 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00019}00019 \{}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00020}00020     \textcolor{keyword}{namespace }raytracing}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00021}00021     \{}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00022}00022 \textcolor{preprocessor}{\#ifndef c\_light}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00023}\mbox{\hyperlink{misc_8h_aaa394eb43d83411862c2480cca91d331}{00023}} \textcolor{preprocessor}{\#define c\_light 299792458.0   }\textcolor{comment}{// Vakuumlichtgeschwindigkeit in m/s}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00024}00024 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00026}\mbox{\hyperlink{misc_8h_a49a0a00a612635d79a06bbe9fc15c094}{00026}} \textcolor{preprocessor}{\#define Z0 376.730313461    }\textcolor{comment}{// Impedanz des Vakuums Z0=sqrt (mu\_0/epsilon\_0)=mu\_0*c\_light in Ohm }}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00027}\mbox{\hyperlink{misc_8h_a913e4feb488dce7bfeee4b0e4f886a11}{00027}} \textcolor{preprocessor}{\#define mu0 4.0*M\_PI*1E-\/7   }\textcolor{comment}{// µ0 in N/A\string^2}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00028}\mbox{\hyperlink{misc_8h_a77e87d06f5832eb1a8c064c37e301087}{00028}} \textcolor{preprocessor}{\#define eps0 8.854187817E-\/12 }\textcolor{comment}{// Epsilon\_0}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00029}\mbox{\hyperlink{misc_8h_a390d4f025a7c09f071fd3f6804669ddb}{00029}} \textcolor{preprocessor}{\#define Planck\_h 6.62606896E-\/34 }\textcolor{comment}{// Plancksches Wirkungsquantum in Js}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00030}\mbox{\hyperlink{misc_8h_a26242616de488ad628c1967a436a520c}{00030}} \textcolor{preprocessor}{\#define Planck\_hquer 1.054571628E-\/34 }\textcolor{comment}{// h/2PI in Js }}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00033}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1e2a56a7879491478cf4ba42dab27048}{00033}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1e2a56a7879491478cf4ba42dab27048}{initInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* E);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00034}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7a26d5e1f02540ef7367f5d76ca5fa2}{00034}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7a26d5e1f02540ef7367f5d76ca5fa2}{setR0}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* E, \textcolor{keywordtype}{double} r0);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00035}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2b4dedb873698843f75c9abf9fe4b4fe}{00035}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2b4dedb873698843f75c9abf9fe4b4fe}{copyFormList}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}**\& d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** s, \textcolor{keywordtype}{int} anz);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00036}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{00036}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{binWriteIncList}}(std::ofstream\& os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** E, \textcolor{keywordtype}{int} anz);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00037}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{00037}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{binWriteInc}}(std::ofstream\& os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* E);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00038}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf30bb9321fb4f42e447cbe0b255c284}{00038}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf30bb9321fb4f42e447cbe0b255c284}{binReadIncList}}(std::ifstream\& is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}**\& E, \textcolor{keywordtype}{int} anz);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00039}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{00039}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{binReadInc}}(std::ifstream\& is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*\& E, \textcolor{keywordtype}{bool} isNew);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00040}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a58fa5326b697b71fc6bb611547782000}{00040}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a58fa5326b697b71fc6bb611547782000}{copyInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*\& d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* s);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00041}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af784b943e18085be4e90bd83d2b7a499}{00041}}         \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af784b943e18085be4e90bd83d2b7a499}{deleteInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* E);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00042}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5376224e80fbb60074f60c5864a2507d}{00042}}         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5376224e80fbb60074f60c5864a2507d}{force}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} norm, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubedRay}} Se, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubedRay}} Sr, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubedRay}} St, \textcolor{keywordtype}{double} df);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00043}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7874817c58cb0f9a946cca676453a292}{00043}}         \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7874817c58cb0f9a946cca676453a292}{gaussw}}(\textcolor{keywordtype}{double} z, \textcolor{keywordtype}{double} wvl, \textcolor{keywordtype}{double} w0);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00044}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4adc45593fda60dbbf7d24415efb027f}{00044}}         std::complex<double> \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4adc45593fda60dbbf7d24415efb027f}{gaussphase}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} F, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} k, \textcolor{keywordtype}{double} w0, \textcolor{keywordtype}{double} k0);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00045}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aeb50e037d12fc6eef98ad0fe58179f0e}{00045}}         \textcolor{keywordtype}{double}  \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aeb50e037d12fc6eef98ad0fe58179f0e}{NA2w0}}(\textcolor{keywordtype}{double} lambda, \textcolor{keywordtype}{double} NA, std::complex<double> n);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00046}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abb4d508128867885d88a5acecb346908}{00046}}         \textcolor{keywordtype}{float} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abb4d508128867885d88a5acecb346908}{readLE\_float32}}(std::istream\& is);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00047}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9bf7fb662ab6211a6ff3937a6e5a41ff}{00047}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9bf7fb662ab6211a6ff3937a6e5a41ff}{readLE\_int32}}(std::istream\& is);}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00049}00049 \}}
+\DoxyCodeLine{\Hypertarget{misc_8h_source_l00050}00050 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

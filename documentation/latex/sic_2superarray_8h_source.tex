@@ -1,0 +1,937 @@
+\hypertarget{sic_2superarray_8h_source}{}\doxysection{superarray.\+h}
+\label{sic_2superarray_8h_source}\index{raytracing/sic/superarray.h@{raytracing/sic/superarray.h}}
+\mbox{\hyperlink{sic_2superarray_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00002}00002 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{resutil_8h}{resutil.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{objectshape_8h}{objectshape.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{ellipsoid_8h}{ellipsoid.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00012}00012 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00013}00013 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00014}00014    \textcolor{keyword}{namespace }raytracing }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00015}00015    \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00023}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{00023}}       \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00024}00024       \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00025}00025          public :}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00026}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{00026}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{SuperArray}} ();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00033}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4}{00033}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4}{SuperArray}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}},\textcolor{keywordtype}{int} nx,\textcolor{keywordtype}{int} ny,\textcolor{keywordtype}{int} nz, \textcolor{keyword}{const} \textcolor{keywordtype}{int} typ=\mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\_HOST}}); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00034}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049}{00034}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049}{SuperArray}}(\textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}},\textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz,\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}} **\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute=\textcolor{keyword}{false}, \textcolor{keyword}{const} \textcolor{keywordtype}{int} typ=0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00035}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}{00035}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}{\string~SuperArray}} () \{ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{clear}}();\};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00041}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}{00041}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}{copy}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} \&S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00048}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}{00048}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}{add}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}\& S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}{00055}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}{sub}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}\& S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00056}00056       \textcolor{comment}{//   friend double sumabs (const SuperArray \&S); ///< The absolute values of the cell contents are summed up}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00057}00057       \textcolor{comment}{//   friend double sumabs2 (const SuperArray \&S); ///< The squared absolute values of the cell contents are summed up}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00062}00062 \textcolor{comment}{}      \textcolor{comment}{//   friend double abs2sum (const SuperArray \&S);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00072}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{00072}} \textcolor{comment}{}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{addInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}} **\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}},\textcolor{keywordtype}{int} numObj, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute=\textcolor{keyword}{false}); \textcolor{comment}{// numObjs Einschluesse hinzufuegen}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00073}00073                                            \textcolor{comment}{// isAbsolute=true => Orts-\//Groessenangaben in absoluten Koordinaten }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00082}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a}{00082}} \textcolor{comment}{}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a}{addInc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}} *E,\textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute=\textcolor{keyword}{false});  \textcolor{comment}{// Einschluss hinzufuegen (isAbsolute s.o.) }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00083}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}{00083}}          \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}{gitterpunkt}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00084}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{00084}}          \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{inObject}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P, \textcolor{keywordtype}{int} i); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00085}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b}{00085}}          \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b}{inObject}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi, \textcolor{keywordtype}{int} i); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00086}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893}{00086}}          \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893}{inObject}} (\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \textcolor{keywordtype}{int} i); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00087}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{00087}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00093}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}{00093}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \textcolor{keywordtype}{bool} isObjectCoordinate=\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00094}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a75433aaafcb61e64a066b2eb216c8a}{00094}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00095}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7a6a007f3c6a88f5a149635aec66bef3}{00095}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\textcolor{keywordtype}{int} i,\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00096}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86cf8de40d8227c4acb2eeddf9548e91}{00096}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00097}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c1fd8e82f78a139ec4c8657d93c9e6f}{00097}}          T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator () }}(\textcolor{keywordtype}{int} i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00098}00098          }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00099}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}{00099}}           \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}{makeReal}} ();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00100}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{00100}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{fill}}(\textcolor{keyword}{const} T \&x); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00101}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542}{00101}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542}{operator = }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} \&S); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00102}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{00102}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{clear}}(); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00103}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}{00103}}          \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}{allockugel}}(); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00104}00104 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00110}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}{00110}}          \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}{kugelindex}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00111}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{00111}}          T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{kugelwert}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi); }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00112}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}{00112}}          T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}{kugelwert}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00113}00113   \textcolor{comment}{//       friend std::ostream\&   operator << (std::ostream \&os, const SuperArray \&S);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00114}00114  }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00115}00115  \textcolor{comment}{/* }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00116}00116 \textcolor{comment}{    Hier kommen die eigentlichen Daten: }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00117}00117 \textcolor{comment}{    Ein : Array mit den Einschluessen (Orte und Ausdehnungen der Einschluesse werden absolut angegeben)}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00118}00118 \textcolor{comment}{    numObjs : Anzahl Einschluesse}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00119}00119 \textcolor{comment}{    type: Verteilung der aktiven Molek{\ucr}le}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00120}00120 \textcolor{comment}{          0: nur im Einschluss}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00121}00121 \textcolor{comment}{          1: nur im Host}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00122}00122 \textcolor{comment}{          2: {\ucr}berall}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00123}00123 \textcolor{comment}{    ywerte,}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00124}00124 \textcolor{comment}{    zwerte : Arrays zur Bestimmung der Dimensionen von K}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00125}00125 \textcolor{comment}{    r0  : Radius des Host-\/Partikels=halbe Breite des Uebergitters}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00126}00126 \textcolor{comment}{    G   : Array mit den Untergittern, wird ben{\ucr}tigt falls type 0 ist; ObjectShape : G[Einschlussindex][ix][iy][iz]}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00127}00127 \textcolor{comment}{    K   : Kugelgitter, wird ben{\ucr}tigt falls type 1 oder 2 ist}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00128}00128 \textcolor{comment}{    Pul : Array mit den Basispunkten der Untergitter }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00129}00129 \textcolor{comment}{    n   : Array mit den Ausdehnungen der    "{}   n[Einschlussindex][nx][ny][nz] (nx,ny,nz sind als Vektor zusammengefasst)}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00130}00130 \textcolor{comment}{    nges : Ausdehnung des Uebergitters als Vektor (nx,ny,nz) zusammengefasst }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00131}00131 \textcolor{comment}{    d   : Gitterkonstanten als Vektor (dx,dy,dz) zusammengefasst}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00132}00132 \textcolor{comment}{ */} }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00133}00133   \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00134}00134 \textcolor{comment}{         std::vector<ObjectShape*> Obj;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00135}00135 \textcolor{comment}{         int numObjs, type;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00136}00136 \textcolor{comment}{         std::vector<int> ywerte;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00137}00137 \textcolor{comment}{         std::vector<std::vector<int> > zwerte;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00138}00138 \textcolor{comment}{         std::vector< std::vector< std::vector< std::vector<T> > > > G;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00139}00139 \textcolor{comment}{         std::vector< std::vector< std::vector<T> > > K;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00140}00140 \textcolor{comment}{         T dummy;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00141}00141 \textcolor{comment}{         maths::Vector<int>* Pul, * n, nges;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00142}00142 \textcolor{comment}{    */}     }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00144}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea3a759aa92094b6f63e}{00144}}          \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea3a759aa92094b6f63e}{Error}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00145}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{00145}}          \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00146}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{00146}}          \textcolor{keywordtype}{int} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}},\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}{type}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00147}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{00147}}          \textcolor{keywordtype}{int}* \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{ywerte}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00148}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{00148}}          \textcolor{keywordtype}{int} **\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{zwerte}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00149}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{00149}}          T  ****\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00150}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{00150}}          T  ***\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00151}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}{00151}}          T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}{dummy}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00152}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{00152}}          \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}* \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a52871e3a1a7ffc7e5b883345276512ae}{Pul}}, * \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00153}00153 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00156}00156 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00157}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{00157}}          \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}};    }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00158}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{00158}}          \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00159}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a76f72a9f5b6a57864e80eb79a114b45d}{00159}}          \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a76f72a9f5b6a57864e80eb79a114b45d}{isequal}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00160}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149efc4751474fa1974823}{00160}}          \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149efc4751474fa1974823}{iscleared}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00161}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e}{00161}}          T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e}{pc}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00162}00162          \textcolor{comment}{//  int Fehler;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00163}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}{00163}}          \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths::Matrix<double>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}{H}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}{R}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00164}00164     \};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00165}00165 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00166}00166    }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00167}00167     \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IMPLEMENTATION -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00169}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{00169}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{SuperArray<T>::SuperArray}}()}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00170}00170     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00171}00171         H = \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af4bb98f52dbc0a9ce9246ef6de25d602}{maths::unity}}();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00172}00172         R = \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af4bb98f52dbc0a9ce9246ef6de25d602}{maths::unity}}();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00173}00173         Error = \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00174}00174         numObjs = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00175}00175         isequal = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00176}00176 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00177}00177         type = \mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\_HOST}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00178}00178         ywerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00179}00179         zwerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00180}00180         G = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00181}00181         K = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00182}00182     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00184}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4}{00184}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{SuperArray<T>::SuperArray}}(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \textcolor{keyword}{const} \textcolor{keywordtype}{int} typ)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00185}00185     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00186}00186         Error = \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00187}00187         \textcolor{keywordtype}{double} b = 2.0 * r0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00188}00188         G = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00189}00189         isequal = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00190}00190         numObjs = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00191}00191         Obj = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00192}00192         ywerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00193}00193         zwerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00194}00194         K = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00195}00195         this-\/>r0 = r0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00197}00197 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00199}00199         nges = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(nx, ny, nz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00200}00200         d = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(b / nx, b / ny, b / nz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00201}00201         iscleared = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00202}00202         type = typ;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00203}00203         \textcolor{keywordflow}{if} (type \& \mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\_HOST}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00204}00204             allockugel();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00205}00205     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00206}00206 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00207}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049}{00207}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{SuperArray<T>::SuperArray}}(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** Obj, \textcolor{keywordtype}{int} numObjs, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute, \textcolor{keyword}{const} \textcolor{keywordtype}{int} typ)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00208}00208     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00209}00209         Error = \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00210}00210         \textcolor{keywordtype}{double} b = 2.0 * r0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00211}00211         isequal = isAbsolute;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00212}00212         numObjs = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00213}00213         G = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00214}00214         this-\/>r0 = r0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00215}00215         nges = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(nx, ny, nz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00216}00216         type = typ;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00217}00217         d = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(b / nx, b / ny, b / nz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00218}00218         iscleared = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00219}00219         \textcolor{keywordflow}{if} (type \& \mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\_HOST}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00220}00220         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00221}00221             allockugel();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00222}00222         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00223}00223         addInc(Obj, numObjs, isAbsolute);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00224}00224     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00225}00225 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00226}00226 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00227}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{00227}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{SuperArray<T>::addInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** Obj, \textcolor{keywordtype}{int} numObjs, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00228}00228     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00229}00229         \textcolor{keywordtype}{bool} ok = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00230}00230         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; (i < numObjs)\textcolor{comment}{/* \&\& (canCalc)*/} \&\& (ok); i++) ok = addInc(Obj[i], isAbsolute);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00231}00231         \textcolor{keywordflow}{return} ok;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00232}00232     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00233}00233 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00234}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}{00234}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}{SuperArray<T>::gitterpunkt}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00235}00235     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00236}00236         \textcolor{keywordtype}{int} ix, iy, iz, jx, jy, jz, jxh, jyh, anzx;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00237}00237         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} pi, ph;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00238}00238         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} h;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00239}00239         h = H * P + \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(r0, r0, r0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00240}00240         ph = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(floor(h[0] / d[0]), floor(h[1] / d[1]), floor(h[2] / d[2]));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00241}00241 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00242}00242         \textcolor{keywordflow}{if} (type \& \mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\_HOST}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00243}00243         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00244}00244             pi = ph;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00245}00245         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00246}00246         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00247}00247         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00248}00248             pi = ph;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00249}00249         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00250}00250         \textcolor{keywordflow}{return} pi;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00251}00251     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00252}00252 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00253}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a}{00253}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{SuperArray<T>::addInc}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}* E, \textcolor{keyword}{const} \textcolor{keywordtype}{bool} isAbsolute)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00254}00254     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00255}00255         \textcolor{keywordtype}{int} hmem, hmem2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00256}00256         \textcolor{keywordtype}{char} str[500];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00257}00257         \textcolor{comment}{//SysMemInfo smi;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00258}00258         \textcolor{comment}{//MemInfo mi;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00259}00259         \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} allocMem;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00260}00260         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} pul, por, N, hn;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00261}00261         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} h, O;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00262}00262         O = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(-\/r0, -\/r0, -\/r0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00263}00263 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00264}00264        \textcolor{comment}{/* smi = sysmem();}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00265}00265 \textcolor{comment}{        mi = memstat();}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00266}00266 \textcolor{comment}{        */}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00267}00267         h = ceil(ediv(E-\/>\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a372963153380dd68772fd0d213da1a3e}{por}}, d)) -\/ floor(ediv(E-\/>\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a7563e04424687ffa01dc559f1c487134}{pul}}, d));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00268}00268 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00269}00269         hn = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}((\textcolor{keywordtype}{int})h[0], (\textcolor{keywordtype}{int})h[1], (\textcolor{keywordtype}{int})h[2]); \textcolor{comment}{// Gr{\ucr}{\ucr}e des 3D-\/Gitters in die drei Koordinatenrichtungen}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00270}00270 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00271}00271         \textcolor{comment}{/* Berechne den tats{\ucr}chlichen Bedarf */}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00272}00272         allocMem = \textcolor{keyword}{sizeof}(T***) + 2 * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}) + \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00273}00273             + hn[0] * \textcolor{keyword}{sizeof}(T**)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00274}00274             + hn[0] * hn[1] * \textcolor{keyword}{sizeof}(T*)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00275}00275             + hn[0] * hn[1] * hn[2] * \textcolor{keyword}{sizeof}(T);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00277}00277         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00278}00278             \textcolor{keywordflow}{if} (numObjs < 1)  \textcolor{comment}{// Es ist der erste Einschluss der hinzugef{\ucr}gt wird}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00279}00279             \{                }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00280}00280                 G = (T****) malloc(\textcolor{keyword}{sizeof}(T***));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00281}00281                 \textcolor{keywordflow}{if} (G == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00282}00282                 Pul = (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} *) malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00283}00283                 \textcolor{keywordflow}{if} (Pul == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc Pul=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00284}00284                 n = (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} *) malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00285}00285                 \textcolor{keywordflow}{if} (n == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc n=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00286}00286                 Obj = (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}**)malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00287}00287                 \textcolor{keywordflow}{if} (Obj == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc Obj=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00288}00288             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00289}00289             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00290}00290             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00291}00291                 G = (T****) realloc(G, (numObjs + 1) * \textcolor{keyword}{sizeof}(T***));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00292}00292                 \textcolor{keywordflow}{if} (G == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_af75b71c8fffbbfbfd5cbf20748a50542}{REALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00293}00293                 Pul = (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} *) realloc(Pul, (numObjs + 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00294}00294                 \textcolor{keywordflow}{if} (Pul == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_af75b71c8fffbbfbfd5cbf20748a50542}{REALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00295}00295                 n = (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} *) realloc(n, (numObjs + 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00296}00296                 \textcolor{keywordflow}{if} (n == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_af75b71c8fffbbfbfd5cbf20748a50542}{REALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc n=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00297}00297                 Obj = (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}**)realloc(Obj, (numObjs + 1) * \textcolor{keyword}{sizeof}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00298}00298                 \textcolor{keywordflow}{if} (Obj == NULL) \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_af75b71c8fffbbfbfd5cbf20748a50542}{REALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc Obj=.."{}}); \textcolor{keywordflow}{return} \textcolor{keyword}{false}; \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00299}00299             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00300}00300         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00301}00301 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00302}00302         n[numObjs] = hn;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00303}00303 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00304}00304         Obj[numObjs] = E;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00305}00305         h = floor(ediv(Obj[numObjs]-\/>pul + \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(r0, r0, r0), d));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00306}00306         Pul[numObjs] = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}((\textcolor{keywordtype}{int})h[0], (\textcolor{keywordtype}{int})h[1], (\textcolor{keywordtype}{int})h[2]);  \textcolor{comment}{// ???????????}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00307}00307         \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ellipsoid}{Ellipsoid}}* H = (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ellipsoid}{Ellipsoid}}*)E;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00308}00308         \textcolor{keywordflow}{if} (E-\/>\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adca97d288a36effec8dca8bb7fc84c64}{isActive}}())  \textcolor{comment}{// Ist der Einschluss {\ucr}berhaupt inelastisch aktiv ? }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00309}00309         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00310}00310             G[numObjs] = (T***) malloc((n[numObjs][0] + 1) * \textcolor{keyword}{sizeof}(T**));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00311}00311             \textcolor{keywordflow}{if} (G[numObjs] == NULL) \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G[anzEin] G[anzEin]=.."{}});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00312}00312             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < n[numObjs][0] + 1; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00313}00313             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00314}00314                 G[numObjs][ix] = (T**) malloc((n[numObjs][1] + 1) * \textcolor{keyword}{sizeof}(T*));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00315}00315                 \textcolor{keywordflow}{if} (G[numObjs][ix] == NULL) \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G[anzEin][ix]=.."{}});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00316}00316                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < n[numObjs][1] + 1; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00317}00317                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00318}00318                     G[numObjs][ix][iy] = (T*) malloc((n[numObjs][2] + 1) * \textcolor{keyword}{sizeof}(T));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00319}00319                     \textcolor{keywordflow}{if} (G[numObjs][ix][iy] == NULL) \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af427b452af77ba2808427ef5b421f8b1}{error}}(\mbox{\hyperlink{error_8h_aa1ab001303a7dbf4e05f26804886106c}{MALLOC\_ERR}}, \textcolor{stringliteral}{"{}SuperArray::addInc G[anzEin][ix][iy]=.."{}});                   }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00320}00320                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00321}00321             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00322}00322         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00323}00323         \textcolor{keywordflow}{else} G[numObjs] = NULL;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00324}00324 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00325}00325         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00326}00326         numObjs++;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00327}00327         iscleared = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00328}00328         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00329}00329     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00330}00330 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00331}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{00331}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{SuperArray<T>::inObject}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P, \textcolor{keywordtype}{int} i) \textcolor{comment}{// da muss noch was gemacht werden}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00332}00332     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00333}00333         \textcolor{keywordflow}{return} Obj[i]-\/>isInside(P);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00334}00334     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00335}00335 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00336}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b}{00336}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{SuperArray<T>::inObject}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00337}00337     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00338}00338         \textcolor{keywordflow}{return} (Obj[i]-\/>isInside(emult(Pi, d)));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00339}00339     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00340}00340 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00341}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893}{00341}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{SuperArray<T>::inObject}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00342}00342     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00343}00343         \textcolor{keywordflow}{return} (Obj[i]-\/>isInside(emult(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(ix, iy, iz), d)));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00344}00344     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00345}00345 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00346}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{00346}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00347}00347     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00348}00348         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(ix, iy, iz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00349}00349         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00350}00350         \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00351}00351         \textcolor{comment}{// dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00352}00352         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00353}00353         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00354}00354             \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00355}00355             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00356}00356                 found = inObject(ix, iy, iz, i);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00357}00357                 i++;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00358}00358             \} \textcolor{keywordflow}{while} ((i < numObjs) \&\& (!found));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00359}00359             i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00360}00360             \textcolor{keywordflow}{if} (!found) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00361}00361             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00362}00362             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00363}00363                 Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00364}00364                 Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00365}00365                 \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00366}00366                     \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00367}00367                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00368}00368             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00369}00369         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00370}00370         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00371}00371         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00372}00372             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00373}00373             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00374}00374                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00375}00375             \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00376}00376         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00377}00377     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00378}00378 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00379}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a75433aaafcb61e64a066b2eb216c8a}{00379}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00380}00380     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00381}00381         \textcolor{comment}{// dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00382}00382         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00383}00383         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00384}00384             \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00385}00385             \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00386}00386             \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00387}00387             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00388}00388                 found = inObject(Pi, i);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00389}00389                 i++;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00390}00390             \} \textcolor{keywordflow}{while} ((i < numObjs) \&\& (!found));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00391}00391             i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00392}00392 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00393}00393             \textcolor{keywordflow}{if} (!found) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00394}00394             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00395}00395             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00396}00396                 Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00397}00397                 Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00398}00398                 \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00399}00399                     \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00400}00400                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00401}00401                     \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00402}00402             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00403}00403         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00404}00404         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00405}00405         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00406}00406             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00407}00407             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00408}00408                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00409}00409             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00410}00410                 \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00411}00411         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00412}00412     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00413}00413 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00414}00414 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00415}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}{00415}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\textcolor{keywordtype}{int} i, \textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz, \textcolor{keywordtype}{bool} isEinKoord)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00416}00416     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00417}00417         dummy = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} >(0.0, 0.0, 0.0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00418}00418         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(ix, iy, iz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00419}00419         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00420}00420         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00421}00421             \textcolor{keywordflow}{if} (G[i] == NULL) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00422}00422             \textcolor{keywordflow}{if} (!isEinKoord)  Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00423}00423             \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00424}00424         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00425}00425         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00426}00426         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00427}00427             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00428}00428             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00429}00429                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00430}00430             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00431}00431                 \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00432}00432         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00433}00433     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00434}00434 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00435}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7a6a007f3c6a88f5a149635aec66bef3}{00435}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\textcolor{keywordtype}{int} i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00436}00436     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00437}00437       }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00438}00438         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00439}00439         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00440}00440             Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00441}00441             \textcolor{keywordflow}{if} (G[i] == NULL) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00442}00442             \textcolor{keywordflow}{if} (Pi[0] < 0) \textcolor{keywordflow}{return} dummy; \textcolor{comment}{//maths::Vector<std::complex<double> > (0,0,0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00443}00443             \textcolor{keywordflow}{if} (Pi[1] < 0) \textcolor{keywordflow}{return} dummy; \textcolor{comment}{//maths::Vector<std::complex<double> > (0,0,0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00444}00444             \textcolor{keywordflow}{if} (Pi[2] < 0) \textcolor{keywordflow}{return} dummy; \textcolor{comment}{// maths::Vector<std::complex<double> > (0,0,0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00445}00445             \textcolor{keywordflow}{if} (Pi[0] > n[i][0])}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00446}00446             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00447}00447                 Error = \mbox{\hyperlink{error_8h_a01fe41f7daf244522bc4d73d3dc8d182}{SUPERGITTER}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00448}00448                 \textcolor{keywordflow}{return} dummy; \textcolor{comment}{//maths::Vector<std::complex<double> > (0,0,0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00449}00449             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00450}00450 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00451}00451             \textcolor{keywordflow}{if} (Pi[1] > n[i][1])}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00452}00452             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00453}00453                 Error = \mbox{\hyperlink{error_8h_a01fe41f7daf244522bc4d73d3dc8d182}{SUPERGITTER}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00454}00454                 \textcolor{keywordflow}{return} dummy; \textcolor{comment}{//maths::Vector<std::complex<double> > (0,0,0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00455}00455             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00456}00456 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00457}00457             \textcolor{keywordflow}{if} (Pi[2] > n[i][2])}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00458}00458             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00459}00459                 Error = \mbox{\hyperlink{error_8h_a01fe41f7daf244522bc4d73d3dc8d182}{SUPERGITTER}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00460}00460             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00461}00461 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00462}00462             Error = \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00463}00463             \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00464}00464         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00465}00465         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00466}00466         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00467}00467             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00468}00468             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00469}00469                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00470}00470             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00471}00471                 \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00472}00472         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00473}00473     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00474}00474 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00475}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86cf8de40d8227c4acb2eeddf9548e91}{00475}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00476}00476     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00477}00477         \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00478}00478         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00479}00479         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} h;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00480}00480         h = H * P -\/ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(-\/r0, -\/r0, -\/r0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00481}00481         dummy = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} >(0.0, 0.0, 0.0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00482}00482         \textcolor{keywordflow}{for} (i = 0; i < 3; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00483}00483             Pi[i] = h[i] / d[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00484}00484 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00485}00485         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00486}00486         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00487}00487             \textcolor{keywordtype}{bool} found = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00488}00488             i = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00489}00489             \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00490}00490             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00491}00491                 found = inObject(Pi, i);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00492}00492                 i++;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00493}00493             \} \textcolor{keywordflow}{while} ((i < numObjs) \&\& (!found));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00494}00494             i-\/-\/;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00495}00495             \textcolor{comment}{// if (!found) return maths::Vector<std::complex<double> > (INF,INF,INF);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00496}00496             \textcolor{keywordflow}{if} (!found) \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a45558a8b00c5072aeecb044732e6ab5f}{INFdummy}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00497}00497             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00498}00498             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00499}00499                 \textcolor{keywordflow}{if} (G[i] == NULL) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00500}00500                 Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00501}00501                 \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00502}00502             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00503}00503         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00504}00504         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00505}00505         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00506}00506             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00507}00507             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00508}00508                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00509}00509             \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00510}00510         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00511}00511     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00512}00512 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00513}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c1fd8e82f78a139ec4c8657d93c9e6f}{00513}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> T\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{SuperArray<T>::operator () }}(\textcolor{keywordtype}{int} i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} P)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00514}00514     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00515}00515         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00516}00516         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} h;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00517}00517         h = H * P -\/ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(-\/r0, -\/r0, -\/r0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00518}00518         T dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00519}00519         \textcolor{comment}{// dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00520}00520 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00521}00521         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 3; j++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00522}00522             Pi[j] = h[j] / d[j];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00523}00523 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00524}00524         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00525}00525         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00526}00526             \textcolor{keywordflow}{if} (G[i] == NULL) \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00527}00527             Pi = Pi -\/ Pul[i];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00528}00528             \textcolor{keywordflow}{return} G[i][Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00529}00529         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00530}00530         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00531}00531         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00532}00532             Pi = kugelindex(Pi);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00533}00533             \textcolor{keywordflow}{if} (Error == \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00534}00534                 \textcolor{keywordflow}{return} K[Pi[0]][Pi[1]][Pi[2]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00535}00535             \textcolor{keywordflow}{else} \textcolor{keywordflow}{return} dummy;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00536}00536         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00537}00537     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00538}00538 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00539}00539 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00540}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{00540}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{SuperArray<T>::clear}}()}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00541}00541     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00542}00542         \textcolor{keywordtype}{int} anzx, anzx2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00543}00543         anzx = nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00544}00544         anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00545}00545 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00546}00546         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00547}00547         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00548}00548             \textcolor{keywordflow}{if} (numObjs > 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00549}00549             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00550}00550                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = numObjs -\/ 1; i >= 0; i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00551}00551                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00552}00552                     \textcolor{keywordflow}{if} (G[i] != NULL)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00553}00553                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00554}00554                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = n[i][0]; ix >= 0; ix-\/-\/)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00555}00555                         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00556}00556                             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = n[i][1]; iy >= 0; iy-\/-\/)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00557}00557                                 \textcolor{keywordflow}{if} (G[i][ix][iy] != 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00558}00558                                     free(G[i][ix][iy]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00559}00559                             \textcolor{keywordflow}{if} (G[i][ix] != 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00560}00560                             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00561}00561                                 free(G[i][ix]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00562}00562                             \} \textcolor{comment}{// if}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00563}00563                         \} \textcolor{comment}{// for ix    }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00564}00564                         free(G[i]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00565}00565                     \} \textcolor{comment}{// if (G[i]!=NULL)}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00566}00566                 \} \textcolor{comment}{// for i}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00567}00567                 free(n);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00568}00568                 free(Pul);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00569}00569                 free(Obj);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00570}00570                 numObjs = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00571}00571                 iscleared = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00572}00572                 G = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00573}00573             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00574}00574         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00575}00575         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00576}00576         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00577}00577             \textcolor{keywordflow}{if} (K != 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00578}00578             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00579}00579                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00580}00580                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00581}00581                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < ywerte[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00582}00582                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00583}00583                         \textcolor{keyword}{delete}[] K[anzx2 -\/ 1 -\/ k][ywerte[k] + l];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00584}00584                         \textcolor{keyword}{delete}[] K[anzx2 + k][ywerte[k] + l];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00585}00585                         \textcolor{keyword}{delete}[] K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00586}00586                         \textcolor{keyword}{delete}[] K[anzx2 + k][ywerte[k] -\/ 1 -\/ l];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00587}00587                     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00588}00588                     \textcolor{keyword}{delete}[] K[anzx2 -\/ 1 -\/ k];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00589}00589                     \textcolor{keyword}{delete}[] K[anzx2 + k];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00590}00590                     \textcolor{keyword}{delete}[] zwerte[k];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00591}00591                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00592}00592 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00593}00593                 \textcolor{keyword}{delete}[] ywerte;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00594}00594                 \textcolor{keyword}{delete}[] zwerte;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00595}00595 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00596}00596                 \textcolor{keywordflow}{if} (numObjs > 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00597}00597                     free(Obj);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00598}00598             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00599}00599             K = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00600}00600             zwerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00601}00601             ywerte = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00602}00602             numObjs = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00603}00603             iscleared = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00604}00604         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00605}00605     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00606}00606 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00607}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}{00607}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}{SuperArray<T>::copy}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& S)  \textcolor{comment}{// MUSS DRINGEND GE{\ucr}NDERT WERDEN !}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00608}00608     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00609}00609         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < numObjs; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00610}00610             \textcolor{keywordflow}{if} (S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i] != NULL)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00611}00611             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00612}00612                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < n[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00613}00613                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < n[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00614}00614                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < n[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00615}00615                             G[i][ix][iy][iz] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i][ix][iy][iz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00616}00616             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00617}00617     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00618}00618 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00619}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542}{00619}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542}{SuperArray<T>::operator = }}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& S)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00620}00620     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00621}00621         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00622}00622         \textcolor{keywordtype}{int} anzx, anzx2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00623}00623 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00624}00624 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00625}00625         \textcolor{keywordflow}{if} (\textcolor{keyword}{this} == \&S) \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00626}00626         \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}}();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00627}00627         r0 = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00628}00628         d = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00629}00629         nges = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00630}00630         type = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}{type}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00631}00631 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00632}00632         anzx = nges[0]; anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00633}00633 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00634}00634         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00635}00635         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00636}00636             isequal = \textcolor{keyword}{true}; addInc(S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00637}00637             isequal = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00638}00638             \textcolor{keywordflow}{if} (S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}} != 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00639}00639                 \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00640}00640                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00641}00641                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < n[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00642}00642                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < n[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00643}00643                             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < n[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00644}00644                                 G[i][ix][iy][iz] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i][ix][iy][iz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00645}00645                     i++;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00646}00646                 \} \textcolor{keywordflow}{while} (i < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00647}00647                 isequal = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00648}00648         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00649}00649         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00650}00650         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00651}00651             allockugel();}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00652}00652             isequal = \textcolor{keyword}{true}; addInc(S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00653}00653             isequal = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00654}00654             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00655}00655             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00656}00656                 ywerte[k] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{ywerte}}[k];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00657}00657                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{ywerte}}[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00658}00658                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00659}00659                     zwerte[k][l] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{zwerte}}[k][l];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00660}00660                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{zwerte}}[k][l]; m++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00661}00661                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00662}00662                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00663}00663                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00664}00664                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00665}00665                         K[anzx2 + k][ywerte[k] + l][m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00666}00666                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00667}00667                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00668}00668                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00669}00669                         K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00670}00670                     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00671}00671                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00672}00672             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00673}00673         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00674}00674         \textcolor{keywordflow}{return} *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00675}00675     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00676}00676 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00677}00677 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00678}00678 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00679}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}{00679}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}{SuperArray<T>::add}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& S)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00680}00680     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00681}00681         \textcolor{keywordtype}{int} anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00682}00682         isequal = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00683}00683         H = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}{H}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00684}00684         R = S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}{R}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00685}00685         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00686}00686         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00687}00687             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00688}00688                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00689}00689                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00690}00690                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00691}00691                             G[i][ix][iy][iz] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i][ix][iy][iz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00692}00692         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00693}00693         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00694}00694         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00695}00695             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00696}00696             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00697}00697                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < ywerte[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00698}00698                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00699}00699 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00700}00700                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < zwerte[k][l]; m++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00701}00701                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00702}00702                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00703}00703                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00704}00704                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00705}00705                         K[anzx2 + k][ywerte[k] + l][m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00706}00706                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00707}00707                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00708}00708                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00709}00709                         K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] += S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00710}00710                     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00711}00711                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00712}00712             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00713}00713         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00714}00714     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00715}00715 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00716}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}{00716}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}{SuperArray<T>::sub}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& S)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00717}00717     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00718}00718         \textcolor{keywordtype}{int} anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00719}00719 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00720}00720         isequal = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00721}00721         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00722}00722         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00723}00723             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00724}00724                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00725}00725                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00726}00726                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00727}00727                             G[i][ix][iy][iz] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i][ix][iy][iz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00728}00728         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00729}00729         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00730}00730         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00731}00731             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00732}00732             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00733}00733                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < ywerte[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00734}00734                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00735}00735 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00736}00736                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < zwerte[k][l]; m++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00737}00737                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00738}00738                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00739}00739                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00740}00740                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00741}00741                         K[anzx2 + k][ywerte[k] + l][m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00742}00742                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00743}00743                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] -\/ 1 -\/ l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00744}00744                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 -\/ 1 -\/ k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00745}00745                         K[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m] -\/= S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}[anzx2 + k][ywerte[k] + l][2 * zwerte[k][l] -\/ 1 -\/ m];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00746}00746                     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00747}00747                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00748}00748             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00749}00749         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00750}00750     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00751}00751 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00752}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_grid_a8d53c400d95d9daf77b3cfd37305006b}{00752}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> std::ostream\& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae34cb15e884d76e1018160177de94068}{operator << }}(std::ostream\& os, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& S)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00753}00753     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00754}00754         os << \textcolor{stringliteral}{"{}r0="{}} << S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00755}00755         os << \textcolor{stringliteral}{"{}Ausdehnung:    nx="{}} << S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}}[0] << \textcolor{stringliteral}{"{}  ny="{}} << S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}}[1] << \textcolor{stringliteral}{"{}  nz="{}} << S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}}[2] << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00756}00756         os << S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}} << \textcolor{stringliteral}{"{} Einschluesse"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00757}00757         \textcolor{keywordflow}{if} (S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}} > 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00758}00758             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}}; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00759}00759             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00760}00760                 os << \textcolor{stringliteral}{"{}====================== Einschluss Nr. "{}} << i << \textcolor{stringliteral}{"{} ======================"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00761}00761                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00762}00762                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00763}00763                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00764}00764                             os << abs(S.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}[i][ix][iy][iz]) << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00765}00765             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00766}00766         \textcolor{keywordflow}{return} os;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00767}00767     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00768}00768 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00769}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{00769}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{SuperArray<T>::fill}}(\textcolor{keyword}{const} T\& x)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00770}00770     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00771}00771         \textcolor{keywordtype}{int} anzx, anzx2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00772}00772         anzx = nges[0]; anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00773}00773 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00774}00774         \textcolor{keywordflow}{if} (type == \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\_OBJECT}})}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00775}00775         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00776}00776             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < numObjs; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00777}00777                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < n[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00778}00778                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < n[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00779}00779                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < n[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00780}00780                             G[i][ix][iy][iz] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00781}00781         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00782}00782         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00783}00783         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00784}00784             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00785}00785             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00786}00786                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < ywerte[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00787}00787                 \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00788}00788                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} m = 0; m < zwerte[k][l]; m++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00789}00789                     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00790}00790                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][zwerte[k][l] -\/ 1 -\/ m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00791}00791                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][zwerte[k][l] -\/ 1 -\/ m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00792}00792                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][zwerte[k][l] -\/ 1 -\/ m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00793}00793                         K[anzx2 + k][ywerte[k] + l][zwerte[k][l] -\/ 1 -\/ m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00794}00794                         K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l][zwerte[k][l] + m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00795}00795                         K[anzx2 + k][ywerte[k] -\/ 1 -\/ l][zwerte[k][l] + m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00796}00796                         K[anzx2 -\/ 1 -\/ k][ywerte[k] + l][zwerte[k][l] + m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00797}00797                         K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m] = x;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00798}00798                     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00799}00799                 \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00800}00800             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00801}00801         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00802}00802     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00803}00803 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00804}00804 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00805}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}{00805}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}{SuperArray<T>::makeReal}}()}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00806}00806     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00807}00807         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < numObjs; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00808}00808             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < n[i][0]; ix++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00809}00809                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < n[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00810}00810                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < n[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00811}00811                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < 3; j++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00812}00812                             G[i][ix][iy][iz][j] = abs(G[i][ix][iy][iz][j]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00813}00813     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00814}00814 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00815}00815 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00816}00816     }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00817}00817 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00818}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}{00818}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}{SuperArray<T>::allockugel}}()}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00819}00819     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00820}00820         \textcolor{keywordtype}{int} anzx, anzx2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00821}00821         \textcolor{keywordtype}{double} dx, dy, dz, hilf;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00822}00822         anzx = nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00823}00823         anzx2 = nges[0] / 2;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00824}00824         \textcolor{comment}{// cout << "{}allockugel"{} << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00825}00825         ywerte = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[anzx2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00826}00826         zwerte = \textcolor{keyword}{new} \textcolor{keywordtype}{int}* [anzx2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00827}00827 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00828}00828         \textcolor{comment}{/*dx=d[0];}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00829}00829 \textcolor{comment}{        dy=d[1];}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00830}00830 \textcolor{comment}{        dz=d[2];*/}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00831}00831         dx = 2.0 / nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00832}00832         dy = 2.0 / nges[1];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00833}00833         dz = 2.0 / nges[2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00834}00834 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00835}00835         \textcolor{comment}{// cout << "{}dx="{} << dx << std::endl; }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00836}00836         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < anzx2; i++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00837}00837         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00838}00838             ywerte[i] = int(ceil(sqrt(1.0 -\/ (i * dx) * (i * dx)) / dy));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00839}00839             zwerte[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[anzx2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00840}00840             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < anzx2; j++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00841}00841             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00842}00842                 hilf = 1.0 -\/ (i * dx) * (i * dx) -\/ (j * dy) * (j * dy);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00843}00843                 \textcolor{comment}{//      cout << "{}hilf:"{} << hilf << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00844}00844                 \textcolor{keywordflow}{if} (hilf >= 0)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00845}00845                     \textcolor{comment}{//        zwerte[i][j]=int(ceil(sqrt(1.0-\/(i*dx)*(i*dx)-\/(j*dy)*(j*dy))*nges[2]/2.0));}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00846}00846                     zwerte[i][j] = ceil(sqrt(hilf) / dz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00847}00847                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00848}00848                     zwerte[i][j] = 1;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00849}00849 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00850}00850                 \textcolor{comment}{//      cout << "{}zwerte["{} << i << "{}]["{} << j << "{}]:"{} <<  zwerte[i][j] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00851}00851             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00852}00852         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00853}00853 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00854}00854         K = \textcolor{keyword}{new} T**[anzx];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00855}00855         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = 0; k < anzx2; k++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00856}00856         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00857}00857             K[anzx2 -\/ 1 -\/ k] = \textcolor{keyword}{new} T*[2 * ywerte[k]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00858}00858             K[anzx2 + k] = \textcolor{keyword}{new} T*[2 * ywerte[k]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00859}00859             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < ywerte[k]; l++)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00860}00860             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00861}00861                 K[anzx2 -\/ 1 -\/ k][ywerte[k] + l] = \textcolor{keyword}{new} T[2 * zwerte[k][l]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00862}00862                 \textcolor{comment}{//    cout << "{}K["{} << anzx2-\/1-\/k << "{}]["{} << ywerte[k]+l<<"{}]="{} << 2*zwerte[k][l] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00863}00863 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00864}00864                 K[anzx2 + k][ywerte[k] + l] = \textcolor{keyword}{new} T[2 * zwerte[k][l]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00865}00865                 \textcolor{comment}{//    cout << "{}K["{} << anzx2+k << "{}]["{} << ywerte[k]+l<<"{}]="{} << 2*zwerte[k][l] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00866}00866 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00867}00867                 K[anzx2 -\/ 1 -\/ k][ywerte[k] -\/ 1 -\/ l] = \textcolor{keyword}{new} T[2 * zwerte[k][l]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00868}00868                 \textcolor{comment}{//    cout << "{}K["{} << anzx2-\/1-\/k << "{}]["{} << ywerte[k]-\/1-\/l<<"{}]="{} << 2*zwerte[k][l] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00869}00869 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00870}00870                 K[anzx2 + k][ywerte[k] -\/ 1 -\/ l] = \textcolor{keyword}{new} T[2 * zwerte[k][l]];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00871}00871                 \textcolor{comment}{//     cout << "{}K["{} << anzx2+k << "{}]["{} << ywerte[k]-\/1-\/l<<"{}]="{} << zwerte[k][l] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00872}00872             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00873}00873         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00874}00874     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00875}00875 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00876}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}{00876}}     \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}{SuperArray<T>::kugelindex}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00877}00877     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00878}00878         \textcolor{keywordtype}{int} anzx, jx, jy, jz, ix, iy, iz, jxh, jyh;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00879}00879         \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} pk;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00880}00880         anzx = nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00881}00881         ix = Pi[0]; iy = Pi[1]; iz = Pi[2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00882}00882         Error = \mbox{\hyperlink{error_8h_a15218844bd3bc87e3ff485780c675998}{NO\_ERRORS}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00883}00883         jx = ix;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00884}00884         jxh = abs(\textcolor{keywordtype}{int}(jx -\/ (anzx -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00885}00885         jy = iy -\/ (anzx / 2 -\/ ywerte[jxh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00886}00886         \textcolor{keywordflow}{if} ((jy < 0) || (jy > (2 * ywerte[jxh] -\/ 1)))   \textcolor{comment}{// Punkt ausserhalb }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00887}00887         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00888}00888             Error = \mbox{\hyperlink{error_8h_a01fe41f7daf244522bc4d73d3dc8d182}{SUPERGITTER}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00889}00889             \textcolor{comment}{//    cout << "{}ix:"{} << ix << "{}, iy:"{} << iy << "{}, iz:"{} << iz <<  "{}, jx:"{} << jx <<}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00890}00890             \textcolor{comment}{//             "{}, jxh:"{} << jxh << "{}, jy:"{} << jy << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00891}00891             \textcolor{comment}{//    cout << "{}ywerte["{} << jxh << "{}]:"{} << ywerte[jxh] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00892}00892             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(-\/1, -\/1, -\/1);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00893}00893         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00894}00894         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00895}00895         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00896}00896             jyh = abs(\textcolor{keywordtype}{int}(jy -\/ (2 * ywerte[jxh] -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00897}00897             jz = iz -\/ (anzx / 2 -\/ zwerte[jxh][jyh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00898}00898 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00899}00899             \textcolor{keywordflow}{if} ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) -\/ 1)) \textcolor{comment}{// Punkt ausserhalb }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00900}00900             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00901}00901                 Error = \mbox{\hyperlink{error_8h_a01fe41f7daf244522bc4d73d3dc8d182}{SUPERGITTER}};}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00902}00902                 \textcolor{comment}{//    cout << "{}ix:"{} << ix << "{}, iy:"{} << iy << "{}, iz:"{} << iz << "{}, jx:"{} << jx << "{}, jy:"{} << jy << }}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00903}00903                 \textcolor{comment}{//             "{}, jxh:"{} << jxh << "{}, jyh:"{} << jyh << "{}, jz:"{} << jz << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00904}00904                 \textcolor{comment}{//    cout << "{}ywerte["{} << jxh << "{}]:"{} << ywerte[jxh] << "{}, zwerte["{} << jxh << "{}]["{} << jyh << "{}]:"{} <<}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00905}00905                 \textcolor{comment}{//    zwerte[jxh][jyh] << std::endl;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00906}00906                 \textcolor{keywordflow}{return} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(-\/1, -\/1, -\/1);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00907}00907                 \textcolor{keywordflow}{return} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(-\/1, -\/1, -\/1);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00908}00908             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00909}00909             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00910}00910             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00911}00911                 \textcolor{keywordflow}{return}  \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}}(jx, jy, jz);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00912}00912             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00913}00913         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00914}00914         \textcolor{keywordflow}{return} pk;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00915}00915     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00916}00916 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00917}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{00917}}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{SuperArray<T>::kugelwert}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<int>}} Pi)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00918}00918     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00919}00919         \textcolor{keywordtype}{int} anzx, jx, jy, jz, ix, iy, iz, jxh, jyh;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00920}00920         \textcolor{comment}{// maths::Vector<std::complex<double> > pc;}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00921}00921         anzx = nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00922}00922         ix = Pi[0]; iy = Pi[1]; iz = Pi[2];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00923}00923         jx = ix;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00924}00924         jxh = abs(\textcolor{keywordtype}{int}(jx -\/ (anzx -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00925}00925         jy = iy -\/ (anzx / 2 -\/ ywerte[jxh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00926}00926         pc = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} >(0.0, 0.0, 0.0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00927}00927         \textcolor{keywordflow}{if} ((jy < 0) || (jy > (2 * ywerte[jxh] -\/ 1)))}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00928}00928         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00929}00929             std::cout << \textcolor{stringliteral}{"{}Fehler!! Index iy falsch"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00930}00930             \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00931}00931         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00932}00932         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00933}00933         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00934}00934             jyh = abs(\textcolor{keywordtype}{int}(jy -\/ (2 * ywerte[jxh] -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00935}00935             jz = iz -\/ (anzx / 2 -\/ zwerte[jxh][jyh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00936}00936 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00937}00937             \textcolor{keywordflow}{if} ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) -\/ 1))}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00938}00938             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00939}00939                 \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00940}00940             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00941}00941             \textcolor{keywordflow}{return} K[jx][jy][jz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00942}00942         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00943}00943         \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00944}00944     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00945}00945 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00946}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}{00946}}     \textcolor{keyword}{template}<\textcolor{keyword}{class} T> T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{SuperArray<T>::kugelwert}}(\textcolor{keywordtype}{int} ix, \textcolor{keywordtype}{int} iy, \textcolor{keywordtype}{int} iz)}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00947}00947     \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00948}00948         \textcolor{keywordtype}{int} anzx, jx, jy, jz, jxh, jyh;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00949}00949         T pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00950}00950         anzx = nges[0];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00951}00951 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00952}00952 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00953}00953         jx = ix;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00954}00954         jxh = abs(\textcolor{keywordtype}{int}(jx -\/ (anzx -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00955}00955         jy = iy -\/ (anzx / 2 -\/ ywerte[jxh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00956}00956         \textcolor{keywordflow}{if} ((jy < 0) || (jy > (2 * ywerte[jxh] -\/ 1)))}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00957}00957         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00958}00958             std::cout << \textcolor{stringliteral}{"{}Fehler!! Index iy falsch"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00959}00959            \textcolor{comment}{// pc = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00960}00960             \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00961}00961         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00962}00962         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00963}00963         \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00964}00964             jyh = abs(\textcolor{keywordtype}{int}(jy -\/ (2 * ywerte[jxh] -\/ 1) / 2.0));}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00965}00965             jz = iz -\/ (anzx / 2 -\/ zwerte[jxh][jyh]);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00966}00966             \textcolor{keywordflow}{if} ((jz < 0) || (jz > (2 * zwerte[jxh][jyh]) -\/ 1))}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00967}00967             \{}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00968}00968                 std::cout << \textcolor{stringliteral}{"{}Fehler!! Index iz falsch"{}} << std::endl;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00969}00969                \textcolor{comment}{// pc = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00970}00970                 \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00971}00971             \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00972}00972             pc = K[jx][jy][jz];}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00973}00973         \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00974}00974         \textcolor{keywordflow}{return} pc;}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00975}00975     \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00976}00976 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00977}00977 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00978}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6b0ab5d2470431e1ac89dbdd96a9e828}{00978}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6b0ab5d2470431e1ac89dbdd96a9e828}{saveExPhase}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00979}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a890578a545789e472aaeb5999868732a}{00979}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a890578a545789e472aaeb5999868732a}{saveEyPhase}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00980}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a089ff8d626522e5d9239e4b7f11f276f}{00980}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a089ff8d626522e5d9239e4b7f11f276f}{saveEzPhase}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00981}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae4a649bf2f9437013d95b2c6fe8391b4}{00981}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae4a649bf2f9437013d95b2c6fe8391b4}{saveExPol}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} < \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}} < std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00982}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2d0ff099d8a4a5e2cedebac1b73092aa}{00982}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2d0ff099d8a4a5e2cedebac1b73092aa}{saveEyPol}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} < \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}} < std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00983}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_adda398c7583d732044e00b910db166bf}{00983}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_adda398c7583d732044e00b910db166bf}{saveEzPol}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} < \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}} < std::complex<double> > > S, \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00984}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a472204c350efcb627f9ff288ed02ab1b}{00984}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a472204c350efcb627f9ff288ed02ab1b}{saveabsE}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} < \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}} < std::complex<double> > > S, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00985}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a77c7517f5e8957e9f9f00c68ad16f7e2}{00985}}     \textcolor{keywordtype}{void} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a77c7517f5e8957e9f9f00c68ad16f7e2}{saveFullE}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} < \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}} < std::complex<double> > > S, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* FName, \textcolor{keywordtype}{int} i = 0);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00986}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{00986}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{sumabs}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > >\& S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00987}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{00987}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{sumabs2}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > >\& S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00988}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{00988}}     \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{abs2sum}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> > >\& S);}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00989}00989 }
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00990}00990    \}}
+\DoxyCodeLine{\Hypertarget{sic_2superarray_8h_source_l00991}00991 \}}
+
+\end{DoxyCode}

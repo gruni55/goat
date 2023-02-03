@@ -1,0 +1,187 @@
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{}\doxysection{GOAT\+::raytracing\+::Raytrace\+\_\+usp Class Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+
+
+This class performs ray tracing in preparation for a later calculation of short pulses This class performs ray tracing and stores the length and the refractive index as an index of each step into a \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} class named SA. This information is necessary for the calculation of the short pulses.  
+
+
+
+
+{\ttfamily \#include $<$raytrace\+\_\+usp.\+h$>$}
+
+Inheritance diagram for GOAT\+::raytracing\+::Raytrace\+\_\+usp\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ad9aa75d000a780f86c26ea28dd8f2c89}{Raytrace\+\_\+usp}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aaed839d32163440d1241d0b20fc38aaf}{Raytrace\+\_\+usp}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}{n}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aba11a6de9b020dfa46fe88b6cbf87f7a}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialises the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} grid (SA) according to the objects hold in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} S. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ae71390149d135b7d75d8483e75b84b89}{trace}} ()
+\begin{DoxyCompactList}\small\item\em Perform the raytracing process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ac28ae169ea9c3f498578b26c2d58b716}{store\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Store the data in the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5ac66e2b916abc512ebaf7769719c835}{trace\+Enter\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Function internally called when ray enters an object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7b066d52f15452897559a9da838c688f}{trace\+Leave\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Function internally called when ray leaves an object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}{SA}}
+\begin{DoxyCompactList}\small\item\em Grid, that holds the information, needed to further calculate the electric field for short pulses. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}{n}} = 0
+\begin{DoxyCompactList}\small\item\em Number of cells in one direction. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5d70bed3b9cf1ca25d70c0774a6aaf0c}{iR}} = 0
+\begin{DoxyCompactList}\small\item\em Number of reflections to consider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class performs ray tracing in preparation for a later calculation of short pulses This class performs ray tracing and stores the length and the refractive index as an index of each step into a \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} class named SA. This information is necessary for the calculation of the short pulses. 
+
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00017}{17}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ad9aa75d000a780f86c26ea28dd8f2c89}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ad9aa75d000a780f86c26ea28dd8f2c89}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!Raytrace\_usp@{Raytrace\_usp}}
+\index{Raytrace\_usp@{Raytrace\_usp}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_usp()}{Raytrace\_usp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::\+Raytrace\+\_\+usp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aaed839d32163440d1241d0b20fc38aaf}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aaed839d32163440d1241d0b20fc38aaf}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!Raytrace\_usp@{Raytrace\_usp}}
+\index{Raytrace\_usp@{Raytrace\_usp}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_usp()}{Raytrace\_usp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::\+Raytrace\+\_\+usp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em S} & \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} which holds all information about the scene (light sources, objects...) \\
+\hline
+{\em n} & Number of grid elements per coordinate across the entire width (i.\+e. 2$\ast$r0) used in the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} SA \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aba11a6de9b020dfa46fe88b6cbf87f7a}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_aba11a6de9b020dfa46fe88b6cbf87f7a}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!init@{init}}
+\index{init@{init}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} grid (SA) according to the objects hold in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} S. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ac28ae169ea9c3f498578b26c2d58b716}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ac28ae169ea9c3f498578b26c2d58b716}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!storeData@{storeData}}
+\index{storeData@{storeData}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{storeData()}{storeData()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::store\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Store the data in the grid. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ae71390149d135b7d75d8483e75b84b89}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_ae71390149d135b7d75d8483e75b84b89}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!trace@{trace}}
+\index{trace@{trace}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Perform the raytracing process. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5ac66e2b916abc512ebaf7769719c835}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5ac66e2b916abc512ebaf7769719c835}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!traceEnterObject@{traceEnterObject}}
+\index{traceEnterObject@{traceEnterObject}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{traceEnterObject()}{traceEnterObject()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::trace\+Enter\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function internally called when ray enters an object. 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7b066d52f15452897559a9da838c688f}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7b066d52f15452897559a9da838c688f}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!traceLeaveObject@{traceLeaveObject}}
+\index{traceLeaveObject@{traceLeaveObject}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{traceLeaveObject()}{traceLeaveObject()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::trace\+Leave\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Function internally called when ray leaves an object. 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5d70bed3b9cf1ca25d70c0774a6aaf0c}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5d70bed3b9cf1ca25d70c0774a6aaf0c}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!iR@{iR}}
+\index{iR@{iR}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{iR}{iR}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::iR = 0}
+
+
+
+Number of reflections to consider. 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00037}{37}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!n@{n}}
+\index{n@{n}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::n = 0}
+
+
+
+Number of cells in one direction. 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00036}{36}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!SA@{SA}}
+\index{SA@{SA}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{SA}{SA}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} $<$\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}}$>$ $>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::\+SA}
+
+
+
+Grid, that holds the information, needed to further calculate the electric field for short pulses. 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00035}{35}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{raytrace__usp_8h}{raytrace\+\_\+usp.\+h}}\end{DoxyCompactItemize}
