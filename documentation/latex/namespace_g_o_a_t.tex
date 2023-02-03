@@ -1,4 +1,4 @@
-\hypertarget{namespace_g_o_a_t}{}\doxysection{G\+O\+AT Namespace Reference}
+\hypertarget{namespace_g_o_a_t}{}\doxysection{GOAT Namespace Reference}
 \label{namespace_g_o_a_t}\index{GOAT@{GOAT}}
 
 
@@ -8,16 +8,20 @@ This class represents a threedimensional (numeric) Matrix as Template.
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{maths}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{maths}}
 \item 
- \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}
-\item 
- \mbox{\hyperlink{namespace_g_o_a_t_1_1struct}{struct}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespace_g_o_a_t_a8fd79bcc46867038b2df2f724084157b}{wavelength\+Range}}
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_ad73303c39e03720fd89f55cc303b2cdf}{operator$<$$<$}} (std\+::ostream \&os, const Super\+Array \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_af953fb8610ae73228238317793fbff3c}{sumabs}} (const Super\+Array \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_a689ecd35dafc031eecd677e73cf8317e}{sumabs2}} (const Super\+Array \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_a837ebf07a9593706c517292b9da8b7d0}{abs2sum}} (const Super\+Array \&S)
 \end{DoxyCompactItemize}
 
 
@@ -31,7 +35,7 @@ This class represents an ellipsoid, defined by its half axis a, b and c accordin
 class which represents a box (cuboid). It is derived by class Object\+Shape ~\newline
  This class is mainly used for the octree calculation.
 
-The Matrix class represents a template class for 3x3 numeric matrices. Operators for standard matrix operation are provided. This class is intended to work with the Vector template class defined in this S\+DK.
+The Matrix class represents a template class for 3x3 numeric matrices. Operators for standard matrix operation are provided. This class is intended to work with the Vector template class defined in this SDK.
 
 /file \mbox{\hyperlink{grid_8h}{grid.\+h}} Here, the grid class is declared and also some useful function around this class
 
@@ -42,14 +46,44 @@ Thomas Weigel
 \end{DoxyAuthor}
 Abstract base class for all rays used for the raytracing process. This is the parent class, from which all ray classes are derived. 
 
-\doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespace_g_o_a_t_a8fd79bcc46867038b2df2f724084157b}\label{namespace_g_o_a_t_a8fd79bcc46867038b2df2f724084157b}} 
-\index{GOAT@{GOAT}!wavelengthRange@{wavelengthRange}}
-\index{wavelengthRange@{wavelengthRange}!GOAT@{GOAT}}
-\doxysubsubsection{\texorpdfstring{wavelengthRange}{wavelengthRange}}
-{\footnotesize\ttfamily G\+O\+A\+T\+::wavelength\+Range}
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespace_g_o_a_t_a837ebf07a9593706c517292b9da8b7d0}\label{namespace_g_o_a_t_a837ebf07a9593706c517292b9da8b7d0}} 
+\index{GOAT@{GOAT}!abs2sum@{abs2sum}}
+\index{abs2sum@{abs2sum}!GOAT@{GOAT}}
+\doxysubsubsection{\texorpdfstring{abs2sum()}{abs2sum()}}
+{\footnotesize\ttfamily double GOAT\+::abs2sum (\begin{DoxyParamCaption}\item[{const Super\+Array \&}]{S }\end{DoxyParamCaption})}
 
 
 
-Definition at line 11 of file short\+\_\+pulses.\+h.
+Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l02384}{2384}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_ad73303c39e03720fd89f55cc303b2cdf}\label{namespace_g_o_a_t_ad73303c39e03720fd89f55cc303b2cdf}} 
+\index{GOAT@{GOAT}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!GOAT@{GOAT}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily std\+::ostream \& GOAT\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const Super\+Array \&}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01916}{1916}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_af953fb8610ae73228238317793fbff3c}\label{namespace_g_o_a_t_af953fb8610ae73228238317793fbff3c}} 
+\index{GOAT@{GOAT}!sumabs@{sumabs}}
+\index{sumabs@{sumabs}!GOAT@{GOAT}}
+\doxysubsubsection{\texorpdfstring{sumabs()}{sumabs()}}
+{\footnotesize\ttfamily double GOAT\+::sumabs (\begin{DoxyParamCaption}\item[{const Super\+Array \&}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l02285}{2285}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_a689ecd35dafc031eecd677e73cf8317e}\label{namespace_g_o_a_t_a689ecd35dafc031eecd677e73cf8317e}} 
+\index{GOAT@{GOAT}!sumabs2@{sumabs2}}
+\index{sumabs2@{sumabs2}!GOAT@{GOAT}}
+\doxysubsubsection{\texorpdfstring{sumabs2()}{sumabs2()}}
+{\footnotesize\ttfamily double GOAT\+::sumabs2 (\begin{DoxyParamCaption}\item[{const Super\+Array \&}]{S }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l02335}{2335}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
 

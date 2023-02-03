@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['unity_1137',['unity',['../namespace_g_o_a_t_1_1maths.html#a8b89dbaa865e76e1e4f17b537e20db05',1,'GOAT::maths']]],
-  ['unsetexcitationfieldonly_1138',['unsetExcitationFieldOnly',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a95a52b4e32ebf7cb4343788ca4303172',1,'GOAT::raytracing::Raytrace_Inel']]],
-  ['ursprungrot_1139',['ursprungrot',['../namespace_g_o_a_t_1_1raytracing.html#ac0bea97bff245e60ef7c80c236541e5c',1,'GOAT::raytracing']]]
+  ['unity_0',['unity',['../namespace_g_o_a_t_1_1maths.html#af4bb98f52dbc0a9ce9246ef6de25d602',1,'GOAT::maths']]],
+  ['unsetexcitationfieldonly_1',['unsetExcitationFieldOnly',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a95a52b4e32ebf7cb4343788ca4303172',1,'GOAT::raytracing::Raytrace_Inel']]],
+  ['ursprungrot_2',['ursprungrot',['../namespace_g_o_a_t_1_1raytracing.html#a707151b319c4d4f021367442ed773518',1,'GOAT::raytracing']]]
 ];

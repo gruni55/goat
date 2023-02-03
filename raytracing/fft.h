@@ -25,8 +25,8 @@ namespace GOAT
         typedef struct TrafoParms
         {
             int nI;
-            int nS;
-            int nR;
+            int nS=1000;
+            int nR= INEL_MAX_NREFLEX;
             double lstart;
             double lstop;
             std::vector<std::function<std::complex<double>(double) > > nList;
@@ -71,7 +71,7 @@ namespace GOAT
             int nS; ///< Number of steps per intervall
             double lstart;
             double lstop;
-            int  nR; ///< Number of reflections
+            int  nR= INEL_MAX_NREFLEX; ///< Number of reflections
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions
              
         };
@@ -80,7 +80,7 @@ namespace GOAT
 
         template<class T> Trafo<T>::Trafo()
         {
-
+            nR = INEL_MAX_NREFLEX;
         }
 
         template<class T> Trafo<T>::Trafo(TrafoParms tp)
@@ -147,23 +147,24 @@ namespace GOAT
                         for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
                         {
                             /* ----- Calculation for one place ------ */                            
-                            for (int i = 0; i < nI; i++) // loop over the subranges
+                            for (int j = 0; j < nI; j++) // loop over the subranges
                             {
-                                wvlstart = lstart + i * Dwvl;
+                                wvlstart = lstart + j * Dwvl;
                                 wvlstop = wvlstart + Dwvl;
                                 omegastart = 2.0 * M_PI * C_LIGHT / wvlstop;
                                 omegastop = 2.0 * M_PI * C_LIGHT / wvlstart;
                                 domega = (omegastop - omegastart) / (double)nS;
                                 E = SA[iR](i, ix, iy, iz).E;
+                                double h = abs(E);
                                 /* ------- Integration within one subrange ----- */
-                                for (int j = 0; j < nS; j++)
+                                for (int l = 0; l < nS; l++)
                                 {
-                                    omega = omegastart + j * domega;
+                                    omega = omegastart + l * domega;
                                     wvl = 2.0 * M_PI * C_LIGHT / omega;                                    
                                     phase = calcPhase(SA[iR](i, ix, iy, iz).step, wvl);
                                     
                                     SAres(i, ix, iy, iz) += E * exp(std::complex<double> (0.0,1.0) * phase);
-                                }
+                                 }
                                 SAres(i, ix, iy, iz) = SAres(i, ix, iy, iz) * exp(-std::complex<double>(0.0, 1.0) * omega * t);
                             }
                         }

@@ -31,6 +31,7 @@ namespace GOAT
 		{
 			init();
 			S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
+			S.suppress_phase_progress = true;
 			Raytrace::trace();
 		/*	for (int i = 1; i < INEL_MAX_NREFLEX; i++)
 				SA[0].add(SA[i]);*/
@@ -46,6 +47,7 @@ namespace GOAT
 			maths::Vector<double> Pnew;
 			maths::Vector<int> cell;
 			stepEntry ge;
+			gridEntry entry;
 
 			if (L < 2.0 * S.r0)
 			{
@@ -58,8 +60,12 @@ namespace GOAT
 					ge.l = l;
 					if (currentObj < 0) ge.matIndex = S.nObj;
 					else ge.matIndex = currentObj;
-					SA[iR](currentObj, cell).step.push_back(ge);
-					SA[iR](currentObj, cell).E = E;
+					SA[iR](currentObj, cell);
+					if (SA[iR].Error == NO_ERRORS)
+					{
+						SA[iR](currentObj, cell).step.push_back(ge);
+						SA[iR](currentObj, cell).E += E;
+					}
 					P = Pnew;
 				}
 			}

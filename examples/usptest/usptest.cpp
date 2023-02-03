@@ -10,17 +10,18 @@ std::complex<double> none(double wvl)
 
 int main (int argc, char **argv)
 {
-	int nrays = 1000000;
+	int nrays = 100000;
 	/* ---  Let's first define the Scene ----
 	    with one lightsource and one box, where the field is stored 
 	*/
 	
 	double wvl = 1.0E-6; // peak wavelength
-
-	GOAT::raytracing::LightSrcPlane_mc LS(-GOAT::maths::ex * 200, nrays, 1E-6, 100);
-	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(100, 100, 100)*1E-6, 1.0);
+	// use light source with arbitrary ray distribution 
+	GOAT::raytracing::LightSrcPlane_mc LS(-GOAT::maths::ex * 200E-6, nrays, 1E-6, 100E-6);
+	LS.setk(GOAT::maths::ex);
+	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(100E-6, 100E-6, 100E-6), 1.0);
 	GOAT::raytracing::Scene S;
-	S.setr0(500.0E-6);
+	S.setr0(500.0E-6); 
 	S.addLightSource(&LS);
 	S.addObject(&Box);
 
@@ -33,11 +34,11 @@ int main (int argc, char **argv)
 	std::vector<std::function<std::complex<double>(double) > > nList;
 	
 	std::cout << "Do raytracing...";
-	GOAT::raytracing::Raytrace_usp rt(S,10000);
+	GOAT::raytracing::Raytrace_usp rt(S,1000);
 	rt.trace();
 	std::cout << "done." << std::endl;
 
-	GOAT::raytracing::TrafoParms parms;
+	GOAT::raytracing::TrafoParms parms;	
 	parms.nI = 10;
 	parms.lstart = wvl - dwvl;
 	parms.lstop = wvl + dwvl;
@@ -45,11 +46,14 @@ int main (int argc, char **argv)
 	parms.nList.push_back(none);
 	
 	GOAT::raytracing::Trafo<GOAT::maths::Vector<double> > T(parms);
-	
+	std::string fname = "c:\\users\\weigetz9\\data\\testsa.dat";
+	save(rt.SA[0], fname);
+
+
 	
 	T.calc(rt.SA, 1.0E-9);
  	std::cout << "Calculating done." << std::endl;
-	std::string fname("test.dat");
+	fname="c:\\users\\weigetz9\\data\\test.dat";
 	GOAT::raytracing::saveabsE(T.SAres, fname);
 	
  

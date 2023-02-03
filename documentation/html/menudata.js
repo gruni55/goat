@@ -149,7 +149,6 @@ var menudata={children:[
 {text:"y",url:"functions_vars_y.html#index_y"},
 {text:"z",url:"functions_vars_z.html#index_z"}]},
 {text:"Related Functions",url:"functions_rela.html",children:[
-{text:"a",url:"functions_rela.html#index_a"},
 {text:"c",url:"functions_rela.html#index_c"},
 {text:"d",url:"functions_rela.html#index_d"},
 {text:"e",url:"functions_rela.html#index_e"},

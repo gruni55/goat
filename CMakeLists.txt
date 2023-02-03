@@ -19,7 +19,7 @@ set(LIBRARY_OUTPUT_PATH "${CMAKE_BINARY_DIR}/lib")
 set(EXECUTABLE_OUTPUT_PATH "${CMAKE_BINARY_DIR}/bin")
 message (STATUS "Library path is set to: ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
 
-add_subdirectory (maths)
+add_subdirectory (maths) 
 add_subdirectory (raytracing)
 add_subdirectory (examples/ot)
 add_subdirectory (examples/paths)

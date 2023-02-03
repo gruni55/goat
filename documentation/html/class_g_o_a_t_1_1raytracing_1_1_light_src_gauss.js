@@ -8,7 +8,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "calcNormfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae2e73bda9357091880dcf8fbd1191016", null ],
     [ "calcw", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab7c8de839cf0a111d6ffa4d23f7d118b", null ],
     [ "calcz0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a6f82182b12c7c33ac3f11b10db808e1a", null ],
-    [ "getFocuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a269723ee8292a8497b8a372a86ba255e", null ],
+    [ "getFocuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a31de914ce2cdd01a55f98174e1053275", null ],
     [ "getNA", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a5f9229ad35d701cc1c8731cccf0dcc8d", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1f91eebbb49c596d1d8ae84f96159a6a", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0", null ],

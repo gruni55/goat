@@ -5,15 +5,48 @@
 {\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}resutil.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}objectshape.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ellipsoid.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}error.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}gridentry.\+h\char`\"{}}\newline
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{G\+O\+A\+T\+::raytracing\+::\+Super\+Array}}
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array$<$ T $>$}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \mbox{\hyperlink{namespace_g_o_a_t}{G\+O\+AT}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
 \begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
- \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{G\+O\+A\+T\+::raytracing}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6c80e4a8708d6b5c43a9286e3282c2eb}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const Super\+Array$<$ T $>$ \&S)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_adcdac5b33159b2fc2b4b574c90744997}{GOAT\+::raytracing\+::save\+Ex\+Phase}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7e054e49124cc46c570a6b790914be2}{GOAT\+::raytracing\+::save\+Ey\+Phase}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd7e3c9b1563b785fb34ef10d630efb6}{GOAT\+::raytracing\+::save\+Ez\+Phase}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9a9f22c20bf6352c4bc6a365d9f04a93}{GOAT\+::raytracing\+::save\+Ex\+Pol}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0e9949e0050fc170c04de8d6912d3c94}{GOAT\+::raytracing\+::save\+Ey\+Pol}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aecc1c17edae656beb7fca84d3eefd13c}{GOAT\+::raytracing\+::save\+Ez\+Pol}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a193ab5bda21a4f48d3fbd478601b4adf}{GOAT\+::raytracing\+::saveabsE}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa091f24daa484dba2b0d497a7433b3d9}{GOAT\+::raytracing\+::save\+FullE}} (Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{GOAT\+::raytracing\+::sumabs}} (const Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{GOAT\+::raytracing\+::sumabs2}} (const Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{GOAT\+::raytracing\+::abs2sum}} (const Super\+Array$<$ maths\+::\+Vector$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a40004a122aae46de843779d1535fd4ad}{GOAT\+::raytracing\+::save}} (Super\+Array$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ S, std\+::string FName)
 \end{DoxyCompactItemize}

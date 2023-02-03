@@ -1,6 +1,6 @@
 var objectshape_8h =
 [
-    [ "ObjectShape", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html", "class_g_o_a_t_1_1raytracing_1_1_object_shape" ],
+    [ "GOAT::raytracing::ObjectShape", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html", "class_g_o_a_t_1_1raytracing_1_1_object_shape" ],
     [ "COMPOUND", "objectshape_8h.html#a03bd6f804505b7b4af1f39260a8e3d26", null ],
     [ "EPS", "objectshape_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae", null ],
     [ "ERYTHROCYTE", "objectshape_8h.html#a2995f77081acce9b5c07ed7645f484a6", null ],
@@ -22,5 +22,5 @@ var objectshape_8h =
     [ "SUPERELLIPSOID_N", "objectshape_8h.html#ab293b58743e4ec8b7f4ea230db113c1b", null ],
     [ "ZYLINDER", "objectshape_8h.html#a90722650e914ef6bb7c1ff89fd14d7a4", null ],
     [ "ZYLINDER_HEXAGONAL", "objectshape_8h.html#acdf5a8b1c8c983079c06e7d864e7c190", null ],
-    [ "computeInertia", "objectshape_8h.html#a15ba526dd5bd78ba74cb5e25561c354b", null ]
+    [ "computeInertia", "objectshape_8h.html#ad67b352e4ab64229e6e4a847e8e332aa", null ]
 ];

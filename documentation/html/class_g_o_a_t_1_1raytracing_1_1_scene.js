@@ -20,6 +20,7 @@ var class_g_o_a_t_1_1raytracing_1_1_scene =
     [ "resetLS", "class_g_o_a_t_1_1raytracing_1_1_scene.html#afafc989d7f3c91c98533756b8c43053a", null ],
     [ "setnS", "class_g_o_a_t_1_1raytracing_1_1_scene.html#ac110551c09db0c28fa60a45e3c3a01e3", null ],
     [ "setnSRRT", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a0c57718463bf070f86a3ed778fd29fa1", null ],
+    [ "setPhaseProgress", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a37af39d3058c08a3318846357058ec37", null ],
     [ "setr0", "class_g_o_a_t_1_1raytracing_1_1_scene.html#ae8eb76a00dab82c48bfb832069a02f00", null ],
     [ "setRaytype", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a8f018a93f0e2152a6c3964826b7067b8", null ],
     [ "testLS", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a50209c96b2914e30c5c076691c3bc793", null ],
@@ -33,5 +34,6 @@ var class_g_o_a_t_1_1raytracing_1_1_scene =
     [ "nSRRT", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a699c64d675596e280295b2f42b03a556", null ],
     [ "Obj", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a7bad5f4dd5d2b4061ddaf2440b50b582", null ],
     [ "r0", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a2595e0bdfd65f6f65b88919cbd4c368e", null ],
-    [ "raytype", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a3f5fb9596900399d56dc97e3e3fc874a", null ]
+    [ "raytype", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a3f5fb9596900399d56dc97e3e3fc874a", null ],
+    [ "suppress_phase_progress", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a01897cb07e176c682fcba9bc7c49ca83", null ]
 ];

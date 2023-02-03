@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['det_1376',['det',['../class_g_o_a_t_1_1maths_1_1_matrix.html#aaf64d99c408b323083c1f40a25c1a5e6',1,'GOAT::maths::Matrix']]],
-  ['detectorplane_1377',['DetectorPlane',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a799d027d06874612496853551123015e',1,'GOAT::raytracing::Detector']]]
+  ['ediv_0',['ediv',['../class_g_o_a_t_1_1maths_1_1_vector.html#adc531f5d3cedc36dd803f478654647cf',1,'GOAT::maths::Vector::ediv()'],['../class_g_o_a_t_1_1maths_1_1_vector.html#a4712b5cbb43d26736ea11b56f66a00f0',1,'GOAT::maths::Vector::ediv()']]],
+  ['emult_1',['emult',['../class_g_o_a_t_1_1maths_1_1_vector.html#a09cfdc3c1006b7e844de9a71d7818f26',1,'GOAT::maths::Vector']]],
+  ['exp_2',['exp',['../class_g_o_a_t_1_1maths_1_1_vector.html#af27d3dbc56231c1030f868d162a327e9',1,'GOAT::maths::Vector']]]
 ];

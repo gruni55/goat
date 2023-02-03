@@ -9,7 +9,7 @@
 #include "ellipsoid.h"
 #include "error.h"
 #include <vector>
-
+#include "gridentry.h"
 namespace GOAT
 {
    namespace raytracing 
@@ -383,6 +383,7 @@ namespace GOAT
     template <class T> T& SuperArray<T>::operator () (maths::Vector<int> Pi)
     {
         // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
+       
         if (type == IN_OBJECT)
         {
             int i = 0;
@@ -393,12 +394,12 @@ namespace GOAT
                 i++;
             } while ((i < numObjs) && (!found));
             i--;
-
+            
             if (!found) return dummy;
             else
             {
                 Pi = Pi - Pul[i];
-                Pi = kugelindex(Pi);
+                Pi = kugelindex(Pi);                
                 if (Error == NO_ERRORS)
                     return G[i][Pi[0]][Pi[1]][Pi[2]];
                 else
@@ -446,24 +447,26 @@ namespace GOAT
             if (Pi[0] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[1] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[2] < 0) return dummy; // maths::Vector<std::complex<double> > (0,0,0);
-            if (Pi[0] > n[i][0])
+            if (Pi[0] >= n[i][0])
             {
                 Error = SUPERGITTER;
                 return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
-            if (Pi[1] > n[i][1])
+            if (Pi[1] >= n[i][1])
             {
                 Error = SUPERGITTER;
                 return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
-            if (Pi[2] > n[i][2])
+            if (Pi[2] >= n[i][2])
             {
                 Error = SUPERGITTER;
+                return dummy;
             }
 
             Error = NO_ERRORS;
+          //  std::cout << "Pi=" << Pi << std::endl;
             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
         else
@@ -566,10 +569,10 @@ namespace GOAT
                 } // for i
                 n.clear(); 
                 Pul.clear();
-                if (Obj!=NULL)
+              /*  if (Obj != NULL)
                 free(Obj);
                 numObjs = 0;
-                Obj = NULL;
+                Obj = NULL;*/
                 iscleared = true;
                 
             }
@@ -596,11 +599,11 @@ namespace GOAT
                 ywerte.clear();
                 zwerte.clear();
 
-                if (numObjs > 0)
-                    free(Obj);
+               /* if (numObjs > 0)
+                    free(Obj);*/
             }
             
-            numObjs = 0;
+            // numObjs = 0;
             iscleared = true;
         }
     }
@@ -981,6 +984,7 @@ namespace GOAT
     double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
+    void save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName);
 
    }
 }

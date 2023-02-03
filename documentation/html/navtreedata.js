@@ -62,11 +62,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#a10fc4a380bdf92498f5a93f84ef6e8b8",
+"class_g_o_a_t_1_1raytracing_1_1_detector.html#af2da32308c1760c18c6fd53f0dab5abd",
+"class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f",
+"class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a68d5b537a0ef9ccd2a347f2383938eb6",
 "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a5bb032f629b207be44f78e3aa0bf8818",
-"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a1b02b1f56e699d2f0d0739f41a53e826",
-"mem_8h.html",
-"struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#adcdbbe84bde734347a2d0d9797aed585"
+"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a41a59001cf9cb69e5feecd136c9635e7",
+"class_g_o_a_t_1_1raytracing_1_1grid.html#a9f4f81afffce9f9da266df391f6d439d",
+"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a8267e3e562cb6c0f1bf529e8ce98c181",
+"lightsrc_8h_source.html",
+"namespace_g_o_a_t_1_1raytracing.html#a4dd897507847680da7b14f9baf245d13",
+"resutil_8h.html#a4233667962499c3d65f6eb1e5cdfa4d4",
+"supergrid__old_8h.html#a45558a8b00c5072aeecb044732e6ab5f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

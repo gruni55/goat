@@ -12,5 +12,5 @@ var class_g_o_a_t_1_1raytracing_1_1_raytrace___inel =
     [ "unsetExcitationFieldOnly", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a95a52b4e32ebf7cb4343788ca4303172", null ],
     [ "inel1", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a95fd490b1f6df01d67a7b1fa300dc4da", null ],
     [ "inel2", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a7762a5795093d649208ef6bb3a4d3bd5", null ],
-    [ "SGE", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a48a2cc1b1ecf259759a93708a715ee15", null ]
+    [ "SGE", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3b8dbb44fc4a6fb421e6bf50fb2acac4", null ]
 ];

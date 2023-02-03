@@ -1,7 +1,8 @@
 var detector_8h =
 [
-    [ "Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", "class_g_o_a_t_1_1raytracing_1_1_detector" ],
-    [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", "class_g_o_a_t_1_1raytracing_1_1_detector_plane" ],
+    [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", "class_g_o_a_t_1_1raytracing_1_1_detector" ],
+    [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", "class_g_o_a_t_1_1raytracing_1_1_detector_plane" ],
+    [ "GOAT::raytracing::thickPlaneDetector", "class_g_o_a_t_1_1raytracing_1_1thick_plane_detector.html", null ],
     [ "DETECTOR_ANGLE", "detector_8h.html#a554483989b45b7389de90e01ac5c975d", null ],
     [ "DETECTOR_PLANE", "detector_8h.html#a220cc659cd779bb2adabd0a1008f49db", null ],
     [ "SAVE_ABS", "detector_8h.html#aa68865ed300bfbc8d69145a49d3b6386", null ],

@@ -463,5 +463,36 @@ namespace GOAT
           return Erg * Erg;
       }
 
+      void save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName)
+      {
+          std::ofstream os(FName);
+          os << "% Superarray: " << S.numObjs << " objects" << std::endl;
+          int vecnumObj = S.G.size();
+          int nx, ny, nz;
+          for (int i = 0; i < vecnumObj; i++)
+          {
+              os << "% ------------ object no. " << i << " ----------------" << std::endl;
+              nx = S.G[i].size();
+              for (int ix = 0; ix < nx; ix++)
+              {
+                  ny = S.G[i][ix].size();
+                  for (int iy = 0; iy < ny; iy++)
+                  {
+                      nz = S.G[i][ix][iy].size();
+                      for (int iz = 0; iz < nz; iz++)
+                      {
+                          os << S.G[i][ix][iy][iz].E << "  ";
+                          for (auto se : S.G[i][ix][iy][iz].step)
+                              os << se.l << "  " << se.matIndex << "  ";
+                          os << std::endl;
+                      }
+                  }
+
+              }
+
+          }
+          os.close();
+      }
+
   }
 }

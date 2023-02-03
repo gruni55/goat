@@ -1,4 +1,4 @@
-\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{}\doxysection{G\+O\+AT\+::raytracing\+::Raytrace\+\_\+\+Inel Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{}\doxysection{GOAT\+::raytracing\+::Raytrace\+\_\+\+Inel Class Reference}
 \label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 
 
@@ -9,7 +9,7 @@ Class for calculating inelastic scattering (Raman)
 
 {\ttfamily \#include $<$raytrace\+\_\+inel.\+h$>$}
 
-Inheritance diagram for G\+O\+AT\+::raytracing\+::Raytrace\+\_\+\+Inel\+:\begin{figure}[H]
+Inheritance diagram for GOAT\+::raytracing\+::Raytrace\+\_\+\+Inel\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}
@@ -22,7 +22,7 @@ Inheritance diagram for G\+O\+AT\+::raytracing\+::Raytrace\+\_\+\+Inel\+:\begin{
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3547287c14732434376e6928f8813056}{Raytrace\+\_\+\+Inel}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}}, int n)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{R\+R\+T\+Parms}} D)
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} D)
 \begin{DoxyCompactList}\small\item\em Calculates inelastic scattering. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a61ddcd24edd7ee0885409d597c9345f0}{trace\+Enter\+Object}} ()
 \begin{DoxyCompactList}\small\item\em Function internally called when ray enters an object. \end{DoxyCompactList}\item 
@@ -31,12 +31,12 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaaeeaa302
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af095f9bd43cd33b03cdb17241dc95cd9}{scene\+Changed}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \begin{DoxyCompactList}\small\item\em Change \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} to S Changes the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} to S and changes the calculation phase so that the calculation starts from the beginning when the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace()}} function is called, i.\+e. the excitation field is also recalculated. ~\newline
  \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a6fdb08a7e3cb36edd11dfab70569ca0b}{export\+Excitation}} (std\+::string fname, int savetype=\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+A\+BS}})
-\begin{DoxyCompactList}\small\item\em Export excitation field to (A\+S\+C\+I\+I-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name \char`\"{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat\char`\"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+A\+BS \+: the absolute value of the electric field is stored (default value) I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+V\+E\+C\+T\+OR \+: the full \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a6fdb08a7e3cb36edd11dfab70569ca0b}{export\+Excitation}} (std\+::string fname, int savetype=\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS}})
+\begin{DoxyCompactList}\small\item\em Export excitation field to (ASCII-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name \char`\"{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat\char`\"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS \+: the absolute value of the electric field is stored (default value) INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR \+: the full \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}{reset\+Calculation}} ()
-\begin{DoxyCompactList}\small\item\em forces the calculation of the excited field when calling \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+R\+R\+T\+Parms D)}} \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em forces the calculation of the excited field when calling \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+RRTParms D)}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ac3290b4fe2afbc09cc3e46fc30e809f2}{set\+Excitation\+Field\+Only}} ()
-\begin{DoxyCompactList}\small\item\em Sets calculation phase so, that for the next call of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+R\+R\+T\+Parms D)}}, only the excitation field is calculated. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets calculation phase so, that for the next call of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+RRTParms D)}}, only the excitation field is calculated. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95a52b4e32ebf7cb4343788ca4303172}{unset\+Excitation\+Field\+Only}} ()
 \begin{DoxyCompactList}\small\item\em sets calculation phase in the way, that also the inelastic calculation will be done \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
@@ -46,14 +46,14 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95fd490
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a7762a5795093d649208ef6bb3a4d3bd5}{inel2}}
 \begin{DoxyCompactList}\small\item\em result of the inelastic scattering for the two given polarisations \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a48a2cc1b1ecf259759a93708a715ee15}{S\+GE}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4}{SGE}}
 \begin{DoxyCompactList}\small\item\em Here, the exciting field is stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Class for calculating inelastic scattering (Raman) 
 
-This class calculates the inelastic (Raman-\/) scattering of the active particles within the scene. The calculation is separated into two steps. At first, the exciting electric field is calculated and stored. In a second step the inelastic scattered field is calculated by following the rays backwards from the detector towards the scattering objects. There it is weighted by the exciting field. Also the dipole characteristic of the scattering process is considered. The scattering behaviour is described by the polarizability tensor alpha. The theoretical background is described in more detail in the articles below. Detailed information about the inelastic scattering calculation parameters are provided by the structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{R\+R\+T\+Parms}}.
+This class calculates the inelastic (Raman-\/) scattering of the active particles within the scene. The calculation is separated into two steps. At first, the exciting electric field is calculated and stored. In a second step the inelastic scattered field is calculated by following the rays backwards from the detector towards the scattering objects. There it is weighted by the exciting field. Also the dipole characteristic of the scattering process is considered. The scattering behaviour is described by the polarizability tensor alpha. The theoretical background is described in more detail in the articles below. Detailed information about the inelastic scattering calculation parameters are provided by the structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}}.
 
 
 \begin{DoxyEnumerate}
@@ -61,7 +61,7 @@ This class calculates the inelastic (Raman-\/) scattering of the active particle
 \item T. Weigel, J. Schulte, and G. Schweiger, {\ucr}\+Inelastic scattering on particles with inclusions,{\ucr} J. Opt. Soc. Am. A22, 1048{\ucr}1052 (2005) 
 \end{DoxyEnumerate}
 
-Definition at line 69 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00069}{69}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 
 
@@ -70,13 +70,13 @@ Definition at line 69 of file raytrace\+\_\+inel.\+h.
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!Raytrace\_Inel@{Raytrace\_Inel}}
 \index{Raytrace\_Inel@{Raytrace\_Inel}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{Raytrace\_Inel()}{Raytrace\_Inel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+Raytrace\+\_\+\+Inel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+Raytrace\+\_\+\+Inel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3547287c14732434376e6928f8813056}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3547287c14732434376e6928f8813056}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!Raytrace\_Inel@{Raytrace\_Inel}}
 \index{Raytrace\_Inel@{Raytrace\_Inel}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{Raytrace\_Inel()}{Raytrace\_Inel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+Raytrace\+\_\+\+Inel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S,  }\item[{int}]{n }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+Raytrace\+\_\+\+Inel (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S,  }\item[{int}]{n }\end{DoxyParamCaption})}
 
 
 
@@ -85,31 +85,31 @@ Definition at line 69 of file raytrace\+\_\+inel.\+h.
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!exportExcitation@{exportExcitation}}
 \index{exportExcitation@{exportExcitation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{exportExcitation()}{exportExcitation()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::export\+Excitation (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{int}]{savetype = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+A\+BS}}} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::export\+Excitation (\begin{DoxyParamCaption}\item[{std\+::string}]{fname,  }\item[{int}]{savetype = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS}}} }\end{DoxyParamCaption})}
 
 
 
-Export excitation field to (A\+S\+C\+I\+I-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name \char`\"{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat\char`\"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+A\+BS \+: the absolute value of the electric field is stored (default value) I\+N\+E\+L\+\_\+\+E\+X\+P\+O\+R\+T\+\_\+\+E\+X\+C\+I\+T\+A\+T\+I\+O\+N\+\_\+\+F\+I\+E\+L\+D\+\_\+\+V\+E\+C\+T\+OR \+: the full \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) 
+Export excitation field to (ASCII-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name \char`\"{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat\char`\"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS \+: the absolute value of the electric field is stored (default value) INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR \+: the full \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) 
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!resetCalculation@{resetCalculation}}
 \index{resetCalculation@{resetCalculation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{resetCalculation()}{resetCalculation()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::reset\+Calculation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::reset\+Calculation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-forces the calculation of the excited field when calling \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+R\+R\+T\+Parms D)}} 
+forces the calculation of the excited field when calling \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+RRTParms D)}} 
 
 
 
-Definition at line 107 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00107}{107}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af095f9bd43cd33b03cdb17241dc95cd9}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af095f9bd43cd33b03cdb17241dc95cd9}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!sceneChanged@{sceneChanged}}
 \index{sceneChanged@{sceneChanged}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{sceneChanged()}{sceneChanged()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::scene\+Changed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::scene\+Changed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S }\end{DoxyParamCaption})}
 
 
 
@@ -120,28 +120,28 @@ Change \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} to S (res
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!setExcitationFieldOnly@{setExcitationFieldOnly}}
 \index{setExcitationFieldOnly@{setExcitationFieldOnly}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{setExcitationFieldOnly()}{setExcitationFieldOnly()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::set\+Excitation\+Field\+Only (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::set\+Excitation\+Field\+Only (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Sets calculation phase so, that for the next call of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+R\+R\+T\+Parms D)}}, only the excitation field is calculated. 
+Sets calculation phase so, that for the next call of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+RRTParms D)}}, only the excitation field is calculated. 
 
 
 
-Definition at line 108 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00108}{108}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!trace@{trace}}
 \index{trace@{trace}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{trace()}{trace()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{R\+R\+T\+Parms}}}]{D }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}}}]{D }\end{DoxyParamCaption})}
 
 
 
 Calculates inelastic scattering. 
 
-This function is the starting point for the inelastic scattering calculation. By the first call of this function, the excited field is calculated and then the inelastic scattered field (R\+R\+T-\/field) is calculated. Here, the calculation in one direction is done. Since the calculation of the excited field is somewhat time consuming, this field is not recalculated if the function is called a second time. If the scene has changed, just call the function \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}{reset\+Calculation()}} or change the currrent scene by calling scene\+Changed(\+Scene \&\+S) to start the whole calculation together from the beginning (together with the excitation field). If only the excitation field is to be calculated in this function, then the function \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ac3290b4fe2afbc09cc3e46fc30e809f2}{set\+Excitation\+Field\+Only()}} must be called beforehand. The exciting field is stored inside the object \begin{DoxySeeAlso}{See also}
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a48a2cc1b1ecf259759a93708a715ee15}{S\+GE}} (For details refer to \#\+Super\+Array). 
+This function is the starting point for the inelastic scattering calculation. By the first call of this function, the excited field is calculated and then the inelastic scattered field (RRT-\/field) is calculated. Here, the calculation in one direction is done. Since the calculation of the excited field is somewhat time consuming, this field is not recalculated if the function is called a second time. If the scene has changed, just call the function \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}{reset\+Calculation()}} or change the currrent scene by calling scene\+Changed(\+Scene \&\+S) to start the whole calculation together from the beginning (together with the excitation field). If only the excitation field is to be calculated in this function, then the function \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ac3290b4fe2afbc09cc3e46fc30e809f2}{set\+Excitation\+Field\+Only()}} must be called beforehand. The exciting field is stored inside the object \begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4}{SGE}} (For details refer to \#\+Super\+Array). 
 \end{DoxySeeAlso}
 
 \begin{DoxyParams}{Parameters}
@@ -152,7 +152,7 @@ This function is the starting point for the inelastic scattering calculation. By
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!traceEnterObject@{traceEnterObject}}
 \index{traceEnterObject@{traceEnterObject}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{traceEnterObject()}{traceEnterObject()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+Enter\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+Enter\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -160,13 +160,13 @@ Function internally called when ray enters an object.
 
 
 
-Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{G\+O\+A\+T\+::raytracing\+::\+Raytrace}}.
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{GOAT\+::raytracing\+::\+Raytrace}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaaeeaa3027bc570cbf4e448d81256d24}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaaeeaa3027bc570cbf4e448d81256d24}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!traceLeaveObject@{traceLeaveObject}}
 \index{traceLeaveObject@{traceLeaveObject}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{traceLeaveObject()}{traceLeaveObject()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+Leave\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+Leave\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -174,13 +174,13 @@ Function internally called when ray leaves an object.
 
 
 
-Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{G\+O\+A\+T\+::raytracing\+::\+Raytrace}}.
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{GOAT\+::raytracing\+::\+Raytrace}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95a52b4e32ebf7cb4343788ca4303172}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95a52b4e32ebf7cb4343788ca4303172}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!unsetExcitationFieldOnly@{unsetExcitationFieldOnly}}
 \index{unsetExcitationFieldOnly@{unsetExcitationFieldOnly}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{unsetExcitationFieldOnly()}{unsetExcitationFieldOnly()}}
-{\footnotesize\ttfamily void G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::unset\+Excitation\+Field\+Only (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::unset\+Excitation\+Field\+Only (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -188,7 +188,7 @@ sets calculation phase in the way, that also the inelastic calculation will be d
 
 
 
-Definition at line 109 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00109}{109}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 
 
@@ -197,17 +197,17 @@ Definition at line 109 of file raytrace\+\_\+inel.\+h.
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!inel1@{inel1}}
 \index{inel1@{inel1}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{inel1}{inel1}}
-{\footnotesize\ttfamily double G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::inel1}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::inel1}
 
 
 
-Definition at line 106 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00106}{106}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a7762a5795093d649208ef6bb3a4d3bd5}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a7762a5795093d649208ef6bb3a4d3bd5}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!inel2@{inel2}}
 \index{inel2@{inel2}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{inel2}{inel2}}
-{\footnotesize\ttfamily double G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::inel2}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::inel2}
 
 
 
@@ -215,13 +215,13 @@ result of the inelastic scattering for the two given polarisations
 
 
 
-Definition at line 106 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00106}{106}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
-\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a48a2cc1b1ecf259759a93708a715ee15}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a48a2cc1b1ecf259759a93708a715ee15}} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4}} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!SGE@{SGE}}
 \index{SGE@{SGE}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
 \doxysubsubsection{\texorpdfstring{SGE}{SGE}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$\ast$ G\+O\+A\+T\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+S\+GE}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$$\ast$ GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+SGE}
 
 
 
@@ -229,7 +229,7 @@ Here, the exciting field is stored.
 
 
 
-Definition at line 110 of file raytrace\+\_\+inel.\+h.
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00110}{110}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 
 

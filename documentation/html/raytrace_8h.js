@@ -1,10 +1,10 @@
 var raytrace_8h =
 [
-    [ "Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],
-    [ "Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace" ],
-    [ "Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t" ],
-    [ "Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path" ],
-    [ "Raytrace_pure", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure" ],
+    [ "GOAT::raytracing::Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],
+    [ "GOAT::raytracing::Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace" ],
+    [ "GOAT::raytracing::Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t" ],
+    [ "GOAT::raytracing::Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path" ],
+    [ "GOAT::raytracing::Raytrace_pure", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure" ],
     [ "RAYTRACE_MAX_REFLEXIONS", "raytrace_8h.html#a634d573272f55167b178b564e96f2c2b", null ],
     [ "RAYTRACER_TYPE_NONE", "raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09", null ],
     [ "RAYTRACER_TYPE_OT", "raytrace_8h.html#a25e16a918a70b67479aceab7e4931fe2", null ],
