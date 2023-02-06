@@ -361,14 +361,22 @@ namespace GOAT
                 i++;
             } while ((i < numObjs) && (!found));
             i--;
-            if (!found) return dummy;
+            if (!found)
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
             else
             {
                 Pi = Pi - Pul[i];
                 Pi = kugelindex(Pi);
                 if (Error == NO_ERRORS)
                     return G[i][Pi[0]][Pi[1]][Pi[2]];
-                else return dummy;
+                else
+                {
+                    Error = NOT_FOUND;
+                    return dummy;
+                }
             }
         }
         else
@@ -376,7 +384,11 @@ namespace GOAT
             Pi = kugelindex(Pi);
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
-            else return dummy;
+            else
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
         }
     }
 
@@ -395,7 +407,11 @@ namespace GOAT
             } while ((i < numObjs) && (!found));
             i--;
             
-            if (!found) return dummy;
+            if (!found)
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
             else
             {
                 Pi = Pi - Pul[i];
@@ -403,7 +419,10 @@ namespace GOAT
                 if (Error == NO_ERRORS)
                     return G[i][Pi[0]][Pi[1]][Pi[2]];
                 else
+                {
+                    Error = NOT_FOUND;
                     return dummy;
+                }
             }
         }
         else
@@ -412,7 +431,10 @@ namespace GOAT
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
             else
+            {
+                Error = NOT_FOUND;
                 return dummy;
+            }
         }
     }
 
@@ -423,7 +445,11 @@ namespace GOAT
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
         if (type == IN_OBJECT)
         {
-            if (G[i].size()==0) return dummy;
+            if (G[i].size() == 0)
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
             if (!isEinKoord)  Pi = Pi - Pul[i];
             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
@@ -433,7 +459,10 @@ namespace GOAT
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
             else
+            {
+                Error = NOT_FOUND;
                 return dummy;
+            }
         }
     }
 
@@ -443,10 +472,10 @@ namespace GOAT
         if (type == IN_OBJECT)
         {
             Pi = Pi - Pul[i];
-            if (G[i].size()==0) return dummy;
-            if (Pi[0] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
-            if (Pi[1] < 0) return dummy; //maths::Vector<std::complex<double> > (0,0,0);
-            if (Pi[2] < 0) return dummy; // maths::Vector<std::complex<double> > (0,0,0);
+            if (G[i].size() == 0) { Error = NOT_FOUND; return dummy; }
+            if (Pi[0] < 0) { Error = NOT_FOUND; return dummy; }//maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[1] < 0) { Error = NOT_FOUND; return dummy; } //maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[2] < 0) { Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[0] >= n[i][0])
             {
                 Error = SUPERGITTER;
@@ -475,7 +504,9 @@ namespace GOAT
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
             else
-                return dummy;
+            {
+                Error = NOT_FOUND; return dummy;
+            }
         }
     }
 
@@ -500,10 +531,18 @@ namespace GOAT
             } while ((i < numObjs) && (!found));
             i--;
             // if (!found) return maths::Vector<std::complex<double> > (INF,INF,INF);
-            if (!found) return INFdummy;
+            if (!found)
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
             else
             {
-                if (G[i] == NULL) return dummy;
+                if (G[i] == NULL)
+                {
+                    Error = NOT_FOUND;
+                    return dummy;
+                }
                 Pi = Pi - Pul[i];
                 return G[i][Pi[0]][Pi[1]][Pi[2]];
             }
@@ -513,7 +552,11 @@ namespace GOAT
             Pi = kugelindex(Pi);
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
-            else return dummy;
+            else
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
         }
     }
 
@@ -530,7 +573,11 @@ namespace GOAT
 
         if (type == IN_OBJECT)
         {
-            if (G[i] == NULL) return dummy;
+            if (G[i] == NULL)
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
             Pi = Pi - Pul[i];
             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
@@ -539,7 +586,11 @@ namespace GOAT
             Pi = kugelindex(Pi);
             if (Error == NO_ERRORS)
                 return K[Pi[0]][Pi[1]][Pi[2]];
-            else return dummy;
+            else
+            {
+                Error = NOT_FOUND;
+                return dummy;
+            }
         }
     }
 
