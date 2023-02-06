@@ -471,17 +471,19 @@ namespace GOAT
           int nx, ny, nz;
           for (int i = 0; i < vecnumObj; i++)
           {
-              os << "% ------------ object no. " << i << " ----------------" << std::endl;
-              nx = S.G[i].size();
+              os << "% ------------ object no. " << i << " ----------------" << std::endl;              
+              nx = S.G[i].size();              
               for (int ix = 0; ix < nx; ix++)
               {
                   ny = S.G[i][ix].size();
                   for (int iy = 0; iy < ny; iy++)
                   {
                       nz = S.G[i][ix][iy].size();
+                      os << "% " << nx << " x " << ny << " x " << nz << std::endl;
                       for (int iz = 0; iz < nz; iz++)
                       {
                           os << S.G[i][ix][iy][iz].E << "  ";
+                          os << "% steps: " << S.G[i][ix][iy][iz].step.size() << std::endl;
                           for (auto se : S.G[i][ix][iy][iz].step)
                               os << se.l << "  " << se.matIndex << "  ";
                           os << std::endl;
@@ -494,5 +496,6 @@ namespace GOAT
           os.close();
       }
 
+  
   }
 }

@@ -324,7 +324,6 @@ namespace GOAT
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
-			
 			i1++;
 			rayCounter++;
 			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;

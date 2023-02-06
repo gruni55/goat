@@ -96,16 +96,16 @@ namespace GOAT
 				int oldObjIndex = ray->objectIndex();
 
 				EStart = ray->getE();
-				PStart = ray->getP();
-
+				PStart = ray->getP();			
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
 				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
 				Abbruch = !ray->next();
+				Abbruch = Abbruch || abs(EStart) < 10.0 * std::numeric_limits<double>::min(); // Stop, if absolute value of the electric field is smaller than 10*smallest number
 				objIndex = ray->objectIndex();
 				EStop = ray->getE();
 				PStop = ray->getP();
-
+				
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
