@@ -1,12 +1,7 @@
 #include "raytrace_inel.h"
-#include "supergrid.h"
 #include <chrono>
 
 
-typedef struct test1
-{
-    double x, y;
-};
 
 int main(int argc, char* argv[])
 {

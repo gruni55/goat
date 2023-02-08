@@ -106,17 +106,17 @@ namespace GOAT
          bool inObject (maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
          bool inObject (maths::Vector<int> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
          bool inObject (int ix, int iy, int iz, int i); ///< checks if a point indicated by its indices (\p ix, \p iy, \p iz) is inside the \p i -th object
-         T& operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
+         T operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
          /**
           * @brief returns the content of the i-th object, with the grid-coordinates ix,iy,iz
           * @param i number of the object
           * @param ix 
          */
-         T& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true); ///< gives back the contents of the cell from the i-th object with the indices (ix,iy,iz) (faster)
-         T& operator () (maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi
-         T& operator () (int i,maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
-         T& operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
-         T& operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
+         T operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true); ///< gives back the contents of the cell from the i-th object with the indices (ix,iy,iz) (faster)
+         T operator () (maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi
+         T operator () (int i,maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
+         T operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
+         T operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
          
           void makeReal ();
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
@@ -347,7 +347,7 @@ namespace GOAT
         return (Obj[i]->isInside(emult(maths::Vector<double>(ix, iy, iz), d)));
     }
 
-    template <class T> T& SuperArray<T>::operator () (int ix, int iy, int iz)
+    template <class T> T SuperArray<T>::operator () (int ix, int iy, int iz)
     {
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
         int i = 0;
@@ -392,7 +392,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T& SuperArray<T>::operator () (maths::Vector<int> Pi)
+    template <class T> T SuperArray<T>::operator () (maths::Vector<int> Pi)
     {
         // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
        
@@ -439,7 +439,7 @@ namespace GOAT
     }
 
 
-    template <class T> T& SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
+    template <class T> T SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
     {
         T dummy;
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
@@ -466,7 +466,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
+    template <class T> T SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
     {
         T dummy;
         if (type == IN_OBJECT)
@@ -510,7 +510,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T& SuperArray<T>::operator () (maths::Vector<double> P)
+    template <class T> T SuperArray<T>::operator () (maths::Vector<double> P)
     {
         int i;
         maths::Vector<int> Pi;
@@ -560,7 +560,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<double> P)
+    template <class T> T SuperArray<T>::operator () (int i, maths::Vector<double> P)
     {
         maths::Vector<int> Pi;
         maths::Vector<double> h;

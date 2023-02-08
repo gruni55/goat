@@ -14,7 +14,7 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-
+#include <string>
 namespace GOAT
  {
    namespace raytracing
@@ -31,7 +31,7 @@ namespace GOAT
  
  #ifndef ERROR_H
  #define ERROR_H
- void error (int nerr, char *msg);
+ void error (int nerr, std::string msg);
  #endif
    }
  }

@@ -15,8 +15,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "error.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include <iostream>
 namespace GOAT
 {
    namespace raytracing
@@ -27,10 +26,10 @@ namespace GOAT
                                     "Speicherzuordnungsfehler (REALLOC)",
                                     "allg. Fehler in SuperArray"
                                   };
-      void error (int nerr, char *msg)
+      void error (int nerr, std::string msg)
       {
-         fprintf (stderr,"Programmabbruch !!!!!n");
-         fprintf (stderr,"Fehler: %s Info:%s\n",error_type[nerr],msg);
+         std::cerr << "Programmabbruch !!!!!n" << std::endl;
+         std::cerr << "Fehler: " << error_type[nerr] << "  Info: " << msg << std::endl;
          exit (1);
       }
    }
