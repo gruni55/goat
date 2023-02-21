@@ -201,22 +201,22 @@ namespace GOAT
 			return exp(-I * k0 * r * r / 2.0 / R) * exp(I * (zeta - k0 * z));
 		}
 
+		
 		float readLE_float32(std::istream& is)
 		{
 			char* d;
-			char h;
 			float f;
 			d = (char*)&f;
 			is.read(d, 4);
-			/*h=d[3];
-			d[3]=d[0];
-			d[0]=h;
-			h=d[1];
-			d[1]=d[2];
-			d[2]=h;*/
+			//h=d[3];
+			//d[3]=d[0];
+			//d[0]=h;
+			//h=d[1];
+			//d[1]=d[2];
+			//d[2]=h;
 			return f;
 		}
-
+		
 		int readLE_int32(std::istream& is)
 		{
 			unsigned char d[4];

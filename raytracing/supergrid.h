@@ -104,7 +104,7 @@ namespace GOAT
             maths::Vector<int> kugelindex(maths::Vector<int> Pi);
             T kugelwert(maths::Vector<int> Pi);
             T kugelwert(int ix, int iy, int iz);
-            friend std::ostream& operator << (std::ostream& os, const SuperArray& S);
+            friend std::ostream& operator << (std::ostream& os, const SuperGrid& S);
 
             /*
                Hier kommen die eigentlichen Daten:
@@ -252,7 +252,7 @@ namespace GOAT
 
             if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
             {
-                G = std::vector < std::vector < std:vector <std::vector> > >(1);
+                G = std::vector < std::vector < std::vector <std::vector> > >(1);
                 Pul = std::vector < GOAT::maths::Vector<int> >(1);
                 n = std::vector < GOAT::maths::Vector<int> >(1);
                 Obj = std::vector <ObjectShape*>(1);

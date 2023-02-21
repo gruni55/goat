@@ -132,24 +132,21 @@ namespace GOAT
         int LightSrcGauss_mc::next (IRay& S)
         {
             maths::Vector<double> fp, P = genStartingPos();
-			double x1, x2, x3;
+			double x1, x2;
 			x1 = P * e1;
 			x2 = P * e2;
 			double r2 = x1 * x1 + x2 * x2;
 
 			double s2 = w0 * w0 / log(2.0);
 			double g;
-			double L = 0.1;
-			double R;
+			double L = 0.1;			
 
 			maths::Vector<double> h, hk;
 			maths::Matrix<double> DM;
 			maths::Vector<std::complex<double> > E;
 			std::complex<double> E0;
 			double absh, gamma;
-			double zeta;
-			double absfp;
-
+		
 			fp = focuspos - P;  // Hier beginnt der Strahl
 			hk = fp / abs(fp);  // Normierter Richtungsvektor vom Startpunkt zum Fokus
 

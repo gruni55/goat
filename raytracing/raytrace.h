@@ -107,13 +107,13 @@ namespace GOAT
 			bool useRRTParms; ///< Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation
 			int type=RAYTRACER_TYPE_NONE; ///< Flag which shows which type of raytracer is selected
 
-		private:
+		
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
 				This parameter is needed to stop calculation after the maximal number of reflexions  @param recur: counter which will be set to the current recursion depth*/
 			void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
 			void copyRay(RayBase*& dest, RayBase* src);
 			RayBase* ray; ///< current ray 
-			RayBase* tray; ///< transmitted ray
+			RayBase* tray; ///< transmitted ray		
 			bool Abbruch; ///< flag to stop calculation
 			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
 		};

@@ -58,6 +58,8 @@ namespace GOAT
 						Reflexions = 0;
 						statusLS = S.LS[i]->next(ray);
 						recursions = 0;
+						ray->status = RAYBASE_STATUS_FIRST_STEP;
+						ray->suppress_phase_progress = S.suppress_phase_progress;
 						traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
 					} while (statusLS != LIGHTSRC_IS_LAST_RAY);
 					//	delete ray;
@@ -72,6 +74,7 @@ namespace GOAT
 					Abbruch = false;
 					Reflexions = 0;
 					statusLS = S.LSRRT->next(ray);
+					ray->suppress_phase_progress = S.suppress_phase_progress;
 					recursions = 0;
 					traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
 				} while (statusLS != LIGHTSRC_IS_LAST_RAY);
@@ -93,23 +96,25 @@ namespace GOAT
 			while ((Reflexions <= numReflex) && (!Abbruch))
 			{
 
+				// save first the infos at the beginning of the next step
 				int oldObjIndex = ray->objectIndex();
-
 				EStart = ray->getE();
 				PStart = ray->getP();			
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
 				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
-				Abbruch = !ray->next();
-				Abbruch = Abbruch || abs(EStart) < 10.0 * std::numeric_limits<double>::min(); // Stop, if absolute value of the electric field is smaller than 10*smallest number
-				objIndex = ray->objectIndex();
-				EStop = ray->getE();
-				PStop = ray->getP();
-				
 
+				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
+				Abbruch = Abbruch || abs(EStart) < 10.0 * std::numeric_limits<double>::min(); // Stop, if absolute value of the electric field is smaller than 10*smallest number
+								
+				// save now the infos about the state after the step
+				objIndex = ray->objectIndex();				
+				EStop = ray->getE();
+				PStop = ray->getP();			
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
+				// search a hit with a detector within the last step
 				if (S.nDet > 0)
 				{
 					int i1, i2;
@@ -122,13 +127,12 @@ namespace GOAT
 					{
 						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{
-							// std::cout << "i=" << i << "  i1="  << i1 << "  i2="<< i2 << "   Estart=" << EStart << std::endl;
 							if ((l <= stepSize) && (l > 0)) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
 						}
 					}
 				}
 
-				if (abs(PStart - PStop) / S.r0 < 1E-10)
+				if (abs(PStart - PStop) / S.r0 < 1E-10) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
 				{
 					Abbruch = true;
 					lost++;
@@ -136,14 +140,16 @@ namespace GOAT
 
 				if (!Abbruch)
 				{
-					if (ray->isInObject()) // Strahl befindet sich im Objekt
+					if (ray->isInObject()) // Is the ray inside an object ?
 					{
 						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
 						else
 						{
+							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 						}
+
 						kref = ray->getk();
 						ktrans = tray->getk();
 						if (S.raytype == LIGHTSRC_RAYTYPE_PRAY)
@@ -160,7 +166,7 @@ namespace GOAT
 						//delete tray;
 					}
 					else
-						if (objIndex > -1)
+						if (objIndex > -1) // an object was hit
 						{
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
 							if (useRRTParms)
@@ -173,6 +179,7 @@ namespace GOAT
 								copyRay(tray, ray);
 								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
 							}
+
 							kref = ray->getk();
 							ktrans = tray->getk();
 							currentObj = objIndex;
@@ -182,9 +189,10 @@ namespace GOAT
 								PowTrans = ((Ray_pow*)tray)->Pow;
 							}
 							traceEnterObject();
+							ray->status = RAYBASE_STATUS_NONE;
+							tray->status = RAYBASE_STATUS_NONE;
 							int tReflexions = 0;
 							traceOneRay(tray, Reflexions, recur);
-							//delete tray;
 							Reflexions++;
 							Abbruch = true;
 						}
@@ -194,7 +202,7 @@ namespace GOAT
 							Abbruch = true;
 						}
 				}
-				if (tray != 0) { delete tray; tray = 0; }
+				if (tray != 0) { delete tray; tray = 0; }				
 			}
 		}
 
@@ -399,6 +407,7 @@ namespace GOAT
 			LS[nLS]->raytype = raytype;
 			LS[nLS]->setR0(r0);
 			LS[nLS]->setN0(nS);
+			LS[nLS]->suppress_phase_progress = suppress_phase_progress;
 			nLS++;
 		}
 

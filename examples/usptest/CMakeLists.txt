@@ -15,10 +15,11 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 
 message (STATUS "LIB Library: ${LIBDIR}")
-add_executable (usptest usptest.cpp)
+
 find_library (NAMES goat_maths PATHS ../../lib)
 find_library (NAMES goat_raytracing PATHS ../../lib)
 
+add_executable (usptest usptest.cpp )
 target_include_directories (usptest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (usptest goat_raytracing goat_maths)
 
@@ -27,4 +28,12 @@ install(TARGETS usptest
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
     )
+add_executable (pnexttest pnexttest.cpp "pnexttest.cpp")
+target_include_directories (pnexttest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (pnexttest goat_raytracing goat_maths)
 
+install(TARGETS pnexttest
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    )

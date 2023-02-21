@@ -106,17 +106,17 @@ namespace GOAT
          bool inObject (maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
          bool inObject (maths::Vector<int> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
          bool inObject (int ix, int iy, int iz, int i); ///< checks if a point indicated by its indices (\p ix, \p iy, \p iz) is inside the \p i -th object
-         T operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
+         T& operator () (int ix, int iy, int iz); ///< gives the content of the cell[ix][iy][iz]
          /**
           * @brief returns the content of the i-th object, with the grid-coordinates ix,iy,iz
           * @param i number of the object
           * @param ix 
          */
-         T operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true); ///< gives back the contents of the cell from the i-th object with the indices (ix,iy,iz) (faster)
-         T operator () (maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi
-         T operator () (int i,maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
-         T operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
-         T operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
+         T& operator () (int i, int ix, int iy, int iz, bool isObjectCoordinate=true); ///< gives back the contents of the cell from the i-th object with the indices (ix,iy,iz) (faster)
+         T& operator () (maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi
+         T& operator () (int i,maths::Vector<int> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
+         T& operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
+         T& operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
          
           void makeReal ();
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
@@ -212,7 +212,7 @@ namespace GOAT
 
 
         nges = maths::Vector<int>(nx, ny, nz);
-        d = maths::Vector<double>(b / nx, b / ny, b / nz);
+        d = maths::Vector<double>(b / (double)nx, b / (double)ny, b / (double)nz);
         iscleared = true;
         type = typ;
         if (type & IN_HOST)
@@ -247,27 +247,26 @@ namespace GOAT
 
     template <class T> maths::Vector<int> SuperArray<T>::gitterpunkt(maths::Vector<double> P)
     {
-        int ix, iy, iz, jx, jy, jz, jxh, jyh, anzx;
         maths::Vector<int> pi, ph;
         maths::Vector<double> h;
         h = H * P + maths::Vector<double>(r0, r0, r0);
-        ph = maths::Vector<int>(floor(h[0] / d[0]), floor(h[1] / d[1]), floor(h[2] / d[2]));
+        pi = maths::Vector<int>(floor(h[0] / d[0]), floor(h[1] / d[1]), floor(h[2] / d[2]));
 
-        if (type & IN_HOST)
+        /*
+        if (type & IN_HOST) //????????
         {
             pi = ph;
         }
         else
         {
             pi = ph;
-        }
+        }*/
         return pi;
     }
 
     template <class T> bool SuperArray<T>::addInc(ObjectShape* E, const bool isAbsolute)
     {
-        int hmem, hmem2;
-        char str[500];
+       
         //SysMemInfo smi;
         //MemInfo mi;
         long int allocMem;
@@ -347,7 +346,7 @@ namespace GOAT
         return (Obj[i]->isInside(emult(maths::Vector<double>(ix, iy, iz), d)));
     }
 
-    template <class T> T SuperArray<T>::operator () (int ix, int iy, int iz)
+    template <class T> T& SuperArray<T>::operator () (int ix, int iy, int iz)
     {
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
         int i = 0;
@@ -392,7 +391,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T SuperArray<T>::operator () (maths::Vector<int> Pi)
+    template <class T> T& SuperArray<T>::operator () (maths::Vector<int> Pi)
     {
         // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
        
@@ -439,7 +438,7 @@ namespace GOAT
     }
 
 
-    template <class T> T SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
+    template <class T> T& SuperArray<T>::operator () (int i, int ix, int iy, int iz, bool isEinKoord)
     {
         T dummy;
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
@@ -466,7 +465,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
+    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<int> Pi)
     {
         T dummy;
         if (type == IN_OBJECT)
@@ -495,7 +494,7 @@ namespace GOAT
             }
 
             Error = NO_ERRORS;
-          //  std::cout << "Pi=" << Pi << std::endl;
+          //  std::cout << i << "," << Pi << std::endl;
             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
         else
@@ -510,7 +509,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T SuperArray<T>::operator () (maths::Vector<double> P)
+    template <class T> T& SuperArray<T>::operator () (maths::Vector<double> P)
     {
         int i;
         maths::Vector<int> Pi;
@@ -560,7 +559,7 @@ namespace GOAT
         }
     }
 
-    template <class T> T SuperArray<T>::operator () (int i, maths::Vector<double> P)
+    template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<double> P)
     {
         maths::Vector<int> Pi;
         maths::Vector<double> h;
@@ -1036,5 +1035,6 @@ namespace GOAT
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
     void save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName);
+    void save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName);
       }
 }

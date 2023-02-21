@@ -8,6 +8,8 @@ namespace GOAT
 {
     namespace raytracing
     {
+#define RAYBASE_STATUS_NONE       0
+#define RAYBASE_STATUS_FIRST_STEP 1
         class RayBase {
         public:
             virtual bool next() = 0;
@@ -27,6 +29,7 @@ namespace GOAT
             double r0, rc; ///< radius of the calculation sphere
             int iR; ///< number of reflections already done
             bool suppress_phase_progress=false; ///< suppress phase change in next(), needed for short pulse consideration
+            int status = RAYBASE_STATUS_NONE;
         };
     }
 }

@@ -284,7 +284,7 @@ namespace GOAT
           std::ofstream os;
           os.open(FName);
           maths::Vector<int> Pi;
-          double x;
+          
           if (S.type == IN_OBJECT)
           {
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
@@ -482,11 +482,10 @@ namespace GOAT
                       os << "% " << nx << " x " << ny << " x " << nz << std::endl;
                       for (int iz = 0; iz < nz; iz++)
                       {
-                          os << S.G[i][ix][iy][iz].E << "  ";
+                          os << "% " << S.G[i][ix][iy][iz].E << "  ";
                           os << "% steps: " << S.G[i][ix][iy][iz].step.size() << std::endl;
                           for (auto se : S.G[i][ix][iy][iz].step)
-                              os << se.l << "  " << se.matIndex << "  ";
-                          os << std::endl;
+                              os << ix << "\t" << iy << "\t" << iz << "\t" << se.l << "\t" << se.matIndex << std::endl;                          
                       }
                   }
 
@@ -496,6 +495,39 @@ namespace GOAT
           os.close();
       }
 
+      void save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName)
+      {
+          std::ofstream os(FName);
+          os << "% Superarray: " << S.numObjs << " objects" << std::endl;
+          int vecnumObj = S.G.size();
+          int nx, ny, nz;
+          for (int i = 0; i < vecnumObj; i++)
+          {
+              os << "% ------------ object no. " << i << " ----------------" << std::endl;
+              nx = S.G[i].size();
+              for (int ix = 0; ix < nx; ix++)
+              {
+                  ny = S.G[i][ix].size();
+                  for (int iy = 0; iy < ny; iy++)
+                  {
+                      nz = S.G[i][ix][iy].size();                      
+                      for (int iz = 0; iz < nz; iz++)
+                      {
+                          os << "% Array entry " << ix << "," << iy << "," << iz << std::endl;
+                          for (auto ge : S.G[i][ix][iy][iz])
+                          {
+                              os << "% E=" << ge.E << "\t" << ge.step.size() << " steps." << std::endl;
+                              for (auto se : ge.step)
+                                  os << se.l << "\t" << se.matIndex << std::endl;
+                              
+                          }
+                      }
+                  }
+              }
+              os.close();
+          }
+
+      }
   
   }
 }

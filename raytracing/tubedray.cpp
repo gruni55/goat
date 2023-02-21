@@ -50,6 +50,8 @@ tubedRay::tubedRay(const tubedRay& ray)
     inObject = ray.inObject;
     isValid = ray.isValid;   
     getunnelt = false;
+    status = ray.status;
+    suppress_phase_progress=ray.suppress_phase_progress;
 }
 
 tubedRay::~tubedRay(){
@@ -524,8 +526,8 @@ GOAT::maths::Matrix<std::complex<double> > tubedRay::Fresnel_reflect (double alp
  double  n12;
  double  beta;
  n12=real(n2)/real(n1);
- int l;
- double x;
+
+
  beta=real(asin((std::complex<double> ) sin(alpha) / n12));
   
  
@@ -600,13 +602,9 @@ void tubedRay::initElectricField (const maths::Vector<std::complex<double> >& Po
 AnzRays, double dx, Plane Eb)
 {
   double dx2=dx/2.0;
-  char Str[255];
-  double w2,R,b,w02,z;
-  double l,r,r2;
+  char Str[255]; 
   maths::Vector<double> h,hr;
-  bool found;
-  isValid=true;
-  double x1,x2,xn,p;
+  isValid=true;  
   maths::Vector<double> rh;
   int i;
   if (!getunnelt)

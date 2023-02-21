@@ -31,10 +31,10 @@ namespace GOAT
             void traceEnterObject(); ///< Function internally called when ray enters an object
             void traceLeaveObject(); ///< Function internally called when ray leaves an object
             
-
-            std::vector<SuperArray <gridEntry> > SA; ///< Grid, that holds the information, needed to further calculate the electric field for short pulses
+            std::vector<SuperArray <std::vector<gridEntry> > > SA; ///< Grid, that holds the information, needed to further calculate the electric field for short pulses
             int n = 0; ///< Number of cells in one direction
             int iR = 0; ///< Number of reflections to consider
+            gridEntry stack; ///< here, the information from the light source until the region of interest (=box) is reached
         };
     }
 }

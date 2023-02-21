@@ -59,6 +59,7 @@ namespace  GOAT
 			n0 = 1.0;
 			N = L.N;
 			Pall = 0;
+			suppress_phase_progress = L.suppress_phase_progress;
 		}
 
 		void LightSrc::setk(const maths::Vector<double>& k)
@@ -271,7 +272,7 @@ namespace  GOAT
 			this->wvl = wvl;
 			this->D = D;
 			this->N = N;
-			this->n0 = 1.0;
+			this->n0 = 1.0;			
 			numObjs = 0;
 			Obj = 0;
 			reset();
@@ -298,6 +299,7 @@ namespace  GOAT
 			this->Obj = LS.Obj;
 			this->polType = LS.polType;
 			this->numObjs = LS.numObjs;
+			suppress_phase_progress = LS.suppress_phase_progress;
 			Pall = 0;
 		}
 
@@ -464,6 +466,7 @@ namespace  GOAT
 			this->w0 = w0;
 			this->N = N;
 			this->P0 = P0;
+			this->suppress_phase_progress = suppress_phase_progress;
 			f = abs(Pos - focuspos);
 			z0 = M_PI * w0 * w0 / wvl;
 			numObjs = 0;

@@ -15,7 +15,7 @@ namespace GOAT
 		void addTriangleToTriangle(Octree<triangle>* O, triangle D, int rek)
 		{
 			maths::Vector<double> P, d;
-			int sx, sy, sz;
+			 
 			if (rek < O->MAX_RECURSIONS) // maximale Rekursionstiefe nicht erreicht 
 			{
 				if (checkTriangleBoxIntersection(O->BBox, D))

@@ -43,7 +43,7 @@ namespace GOAT
         double gaussw(double z, double wvl, double w0);
         std::complex<double> gaussphase(maths::Vector<double> P, maths::Vector<double> F, maths::Vector<double> k, double w0, double k0);
         double  NA2w0(double lambda, double NA, std::complex<double> n);
-        float readLE_float32(std::istream& is);
+         float readLE_float32(std::istream& is); 
         int readLE_int32(std::istream& is);
     }
 }

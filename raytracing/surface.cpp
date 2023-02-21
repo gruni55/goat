@@ -244,10 +244,8 @@ maths::Vector<double> por, pul;
 int surface::importBinSTL(std::string FName)
 {
 	std::ifstream is;
-	int dummy;
 	int i,j;
 	int anz;
-	float data;
 	char str[255];
 	maths::Vector<double> P1,P2,P3,n;
 	maths::Vector<double> cm;

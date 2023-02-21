@@ -69,6 +69,7 @@ namespace GOAT
 				this->OK = r.OK;
 				this->P = r.P;
 				this->r0 = r.r0;
+				this->status = r.status;
 			}
 
 

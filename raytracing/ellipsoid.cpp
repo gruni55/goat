@@ -58,8 +58,7 @@ namespace GOAT
 
         bool Ellipsoid::next(const GOAT::maths::Vector<double>& Ps, const GOAT::maths::Vector<double>& K,
             GOAT::maths::Vector<double>& pout)
-        {
-            bool innen;
+        {            
             double A, B, C;
             double l1, l2, l;
             GOAT::maths::Vector<double> n, k, p = Ps - P;
