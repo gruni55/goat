@@ -48,15 +48,18 @@ namespace GOAT
 			maths::Vector<int> cell;
 			stepEntry ge;
 			gridEntry gridStack;		
+			bool cancel = false;
 			
 			if (L < 2.0 * S.r0)
 			{			
 				gridStack.step.insert(gridStack.step.end(), stack.step.begin(), stack.step.end());
-				while (s < L)
+				while ( (s < L) && (!cancel) )
 				{
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
 					l = abs(Pnew - P);
-
+					cancel = (l < 1E-15);
+					if (cancel) std::cout << "ABBRUCH !!!!  " << P << "," << l << std::endl;
+					
 					
 					s += l;
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index

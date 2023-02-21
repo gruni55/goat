@@ -110,7 +110,8 @@ namespace GOAT
 
        template<class T> void Trafo<T>::initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs)
         {
-            SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
+           SAres.clear();
+           SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
         }
         
        

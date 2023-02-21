@@ -680,6 +680,13 @@ namespace GOAT
 
         if (this == &S) return *this;
         clear();
+        if (this->numObjs > 0)
+        {
+        /*  for (int i = 0; i < this->numObjs; i++)
+                delete this->Obj[i];*/
+            delete[] this->Obj;
+            this->numObjs = 0;
+        }
         r0 = S.r0;
         d = S.d;
         nges = S.nges;

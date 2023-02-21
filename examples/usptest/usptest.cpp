@@ -2,6 +2,7 @@
 #include "fft.h"
 #include <complex>
 #include <functional>
+#include <sstream>
 
 std::complex<double> none(double wvl)
 {
@@ -10,7 +11,7 @@ std::complex<double> none(double wvl)
 
 int main (int argc, char **argv)
 {
-	int nrays = 10;
+	int nrays = 1000;
 	/* ---  Let's first define the Scene ----
 	    with one lightsource and one box, where the field is stored 
 	*/
@@ -25,12 +26,13 @@ int main (int argc, char **argv)
 	LS.setk(k);
 	
 	// Region of interest
-	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(100E-6, 100E-6, 100E-6), 1.0);
+	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(2E-6, 2E-6, 2E-6), 1.0);
 	GOAT::raytracing::Scene S;
 	
 	S.setr0(1000.0E-6); 
 	S.addLightSource(&LS);
 	S.addObject(&Box);
+	S.setnS(1.0);
 
 	double dt = 1E-12;  // width of the pulse (in seconds)
 	double sigma = dt / (2.0 * M_LN2);
@@ -41,7 +43,7 @@ int main (int argc, char **argv)
 	std::vector<std::function<std::complex<double>(double) > > nList;
     
 	std::cout << "Do raytracing...";
-	GOAT::raytracing::Raytrace_usp rt(S,100);
+	GOAT::raytracing::Raytrace_usp rt(S,1000);
 	rt.setNumReflex(0);
 	rt.trace();
 	std::cout << "done." << std::endl;
@@ -59,11 +61,22 @@ int main (int argc, char **argv)
 	std::string fname = "H:\\testsa.dat";
 	// save(rt.SA[0], fname);
 
-	T.calc(rt.SA, 1.0E-9);
- 	std::cout << "Calculating done." << std::endl;
-	fname="h:\\test.dat";
-	GOAT::raytracing::saveabsE(T.SAres, fname);
-	
+    
+	dt = 1E-13;
+	std::string numStr;
+	std::stringstream sstr;
+	double t;
+
+	for (int i = 0; i < 20; i++)
+	{
+		t = i * dt;
+		T.calc(rt.SA, t);
+		sstr  << "h:\\data\\test" << i << ".dat";
+		fname = sstr.str();		
+		sstr.str("");
+		std::cout << "  current filename:" << fname <<  "   t=" << t << std::endl;
+		GOAT::raytracing::saveabsE(T.SAres, fname);
+	}
  
   return 0;
 }
