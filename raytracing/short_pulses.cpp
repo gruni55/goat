@@ -35,7 +35,7 @@ namespace GOAT
 				{
 					// -------  make raytracing for the mid wavelength ------
 					midWvl = (range.wvlStart + range.wvlStop) / 2.0;
-					omega = 2.0 * M_PI * c_light / (midWvl*1E-6);
+					omega = 2.0 * M_PI * C_LIGHT_MU / (midWvl*1E-6);
 
 					// set all light sources to this wavelength and set the wavelength dependent power
 					for (int i = 0; i < S.nLS; i++)

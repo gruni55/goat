@@ -283,8 +283,8 @@ namespace GOAT
 				L[j] = maths::dzero;
 				for (int i = 0; i < S.nLS; i++)
 				{
-					F[j] += f[i][j] / I * S.LS[i]->P0 * real(S.nS) / c_light;
-					L[j] += l[i][j] * 1E-6 / I * S.LS[i]->P0 * real(S.nS) / c_light;
+					F[j] += f[i][j] / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
+					L[j] += l[i][j] * 1E-6 / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
 				}
 			}
 			for (int i = 0; i < S.nLS; i++)

@@ -16,7 +16,7 @@ set (
 		     triangle_box_intersection.h  superarray.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h inel_calc.h 
 		     refractive_index_functions.h plane.h  fft.h gridentry.h
-    )
+     "constants.h")
 
 add_compile_definitions (WITH_SUPERGITTER)
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )

@@ -52,7 +52,7 @@ namespace GOAT
 
         /* ------------------------------ IMPLEMENTATION ---------------------------- */
 
-#define NUM_EPS 1E-15
+#define NUM_EPS 1E-10
 
         template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git)
         {
@@ -65,9 +65,9 @@ namespace GOAT
             signy = SGN(k0[1]);
             signz = SGN(k0[2]);
 
-            int nx = floor((p0[0] + git.r0 + NUM_EPS) / git.d[0]) + signx;
-            int ny = floor((p0[1] + git.r0 + NUM_EPS) / git.d[1]) + signy;
-            int nz = floor((p0[2] + git.r0 + NUM_EPS) / git.d[2]) + signz;
+            int nx = floor((p0[0] + git.r0) / git.d[0]) + signx;
+            int ny = floor((p0[1] + git.r0) / git.d[1]) + signy;
+            int nz = floor((p0[2] + git.r0) / git.d[2]) + signz;
 
             lambdax = (nx  * git.d[0] - p0[0] - git.r0) / k0[0];
             lambday = (ny  * git.d[1] - p0[1] - git.r0) / k0[1];
@@ -93,9 +93,9 @@ namespace GOAT
             signy = SGN(k0[1]);
             signz = SGN(k0[2]);
 
-            int nx = floor((p0[0] + git.r0 + NUM_EPS) / git.d[0]) + signx;
-            int ny = floor((p0[1] + git.r0 + NUM_EPS) / git.d[1]) + signy;
-            int nz = floor((p0[2] + git.r0 + NUM_EPS) / git.d[2]) + signz;
+            int nx = floor((p0[0] + git.r0) / git.d[0]) + signx;
+            int ny = floor((p0[1] + git.r0) / git.d[1]) + signy;
+            int nz = floor((p0[2] + git.r0) / git.d[2]) + signz;
 
             lambdax = (nx * git.d[0] - p0[0] - git.r0) / k0[0];
             lambday = (ny * git.d[1] - p0[1] - git.r0) / k0[1];
