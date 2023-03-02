@@ -162,7 +162,7 @@ namespace GOAT
 
         template<class T> std::complex<double> Trafo<T>::calcPhase(std::vector<stepEntry> steps, double k0)
         {
-            std::complex<double> sum = 0;            
+            std::complex<double> sum = 0;  
             for (stepEntry se : steps)
                 sum += k0 * tp.nList[se.matIndex](2.0*M_PI/k0) * se.l;
             return sum;

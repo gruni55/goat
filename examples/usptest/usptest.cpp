@@ -22,7 +22,7 @@ std::complex<double> nGlass_BK7(double wvl)
 
 std::complex<double> nGlass(double wvl)
 {
-	return 1.5;
+	return 1.5075;
 }
 
 int main (int argc, char **argv)
@@ -69,10 +69,11 @@ int main (int argc, char **argv)
 	GOAT::raytracing::TrafoParms parms;	
 	parms.nI = 2;
 	parms.nR = 1;
-	parms.nS = 1000;
+	parms.nS = 5000;
 	parms.lstart = wvl - 20.0*dwvl;
 	parms.lstop = wvl + 20.0*dwvl;
-	/*parms.nList.push_back(nGlass);
+	/*
+	parms.nList.push_back(nGlass);
 	parms.nList.push_back(nGlass);
 	*/
     parms.nList.push_back(nGlass_BK7);
@@ -94,25 +95,31 @@ int main (int argc, char **argv)
 	std::string numStr;
 	std::stringstream sstr;
 	double t;
-	int n = 2000;
+	int n = 20000;
 	std::ifstream is;
 	double h;
 	std::string str;
+	std::ofstream os ("h:\\data\\timeb.dat");
+ 
 	for (int i = 0; i < n; i++)
 	{
-		t =  4.4615e-9-(double)n/2.0*dt/10.0+i * dt/10.0;
+		t = 4.464e-9- i * dt / 10.0;
+		os.precision(7);
+		os << t*1E+9 << std::endl;
+		// t =  4.4615e-9-(double)n/2.0*dt/10.0+i * dt/10.0;
 		T.calc(rt.SA, t);
-		sstr  << "h:\\data\\test" << i << ".dat";
+		sstr  << "h:\\data\\testb" << i << ".dat";
 		fname = sstr.str();		
 		sstr.str("");
-		std::cout << "current filename:" << fname << "\t t=" << t;
+		std::cout << "current filename:" << fname << "\t t=" << t*1E+9;
 		GOAT::raytracing::saveabsE(T.SAres, fname);
 		is.open(fname);
 		std::getline(is, str);
 		is >> h;
 		is.close();
+		std::cout.precision(7);
 		std::cout << "\t" << h << std::endl;
 	}
- 
+	os.close();
   return 0;
 }
