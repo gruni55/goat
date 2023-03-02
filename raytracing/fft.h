@@ -86,7 +86,7 @@ namespace GOAT
 
         template<class T> Trafo<T>::Trafo()
         {
-            nR = INEL_MAX_NREFLEX;
+            tp.nR = INEL_MAX_NREFLEX;
         }
 
         template<class T> Trafo<T>::Trafo(TrafoParms tp)
@@ -155,7 +155,7 @@ namespace GOAT
             double l;
             for (int i = 0; i < N; i++)
             {
-                l = lstart + i * dl;
+                l = tp.lstart + i * dl;
                 freq.push_back(2.0 * M_PI * C_LIGHT_MU / l);                
             }                
         }

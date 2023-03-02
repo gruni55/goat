@@ -52,7 +52,7 @@ int main (int argc, char **argv)
 	S.addObject(&Box);
 	S.setnS(1.0);
 
-	double dt = 1E-14;  // width of the pulse (in seconds)
+	double dt = 1E-13;  // width of the pulse (in seconds)
 	double sigma = dt / (2.0 * M_LN2);
 	
 
