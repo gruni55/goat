@@ -51,26 +51,30 @@ namespace GOAT
 			bool cancel = false;
 			
 			if (L < 2.0 * S.r0)
-			{			
+			{	
+				// each cell entry consists of the stack, i.e. all steps until the detector was hidden and the 
+				// length of the step from the surface to the cell (last crossing point)
 				gridStack.step.insert(gridStack.step.end(), stack.step.begin(), stack.step.end());
+				gridStack.step.push_back(ge);
+
 				while ( (s < L) && (!cancel) )
 				{
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
-					l = abs(Pnew - P);
-					cancel = (l < 1E-15);
+					l = abs(Pnew - P); // length of the last step  
+					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "ABBRUCH !!!!  " << P << "," << l << std::endl;
-					
-					
-					s += l;
-					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index
+										
+					s += l;               // path inside the detector
+					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
-					// prepare next cell entry
-					ge.l = l;            
+					// prepare cell entry
+					ge.l = abs(PStart-Pnew); 
+
+					// set the right material index 
 					if (currentObj < 0) ge.matIndex = S.nObj;
 					else ge.matIndex = currentObj;
-					gridStack.step.push_back(ge);
-					gridStack.E = E;
-
+					
+					// put everything in the Array
 					SA[iR](currentObj, cell);
 					if (SA[iR].Error == NO_ERRORS)
 					{
