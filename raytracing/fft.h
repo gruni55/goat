@@ -150,7 +150,7 @@ namespace GOAT
 
         template<class T> void Trafo<T>::createLTexpo()
         {
-            double dl = (lstop - lstart) / (double) (tp.nS-tp.nI-1);
+            double dl = (tp.lstop - tp.lstart) / (double) (tp.nS-tp.nI-1);
             int N = tp.nS * tp.nI;
             double l;
             for (int i = 0; i < N; i++)
