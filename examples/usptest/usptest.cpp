@@ -27,7 +27,7 @@ std::complex<double> nGlass(double wvl)
 
 int main (int argc, char **argv)
 {
-	int nrays = 1000;
+	int nrays = 500;
 	double r0 = 1E+6;
 	int nCells = 1000000;
 	/* ---  Let's first define the Scene ----
@@ -37,7 +37,7 @@ int main (int argc, char **argv)
 	double wvl = 1.0; // peak wavelength
 	
 	// use light source with arbitrary ray distribution 
-	GOAT::maths::Vector<double> P(-0.8E+6, 0, 0); // Position of the light source
+	GOAT::maths::Vector<double> P(-0.8E+6, 0, 0);          // Position of the light source
 	GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 50); // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
 	GOAT::maths::Vector<double> k(1, 0, 0); // direction of the wave
 	k = k / abs(k); 
@@ -72,13 +72,14 @@ int main (int argc, char **argv)
 	parms.nS = 5000;
 	parms.lstart = wvl - 20.0*dwvl;
 	parms.lstop = wvl + 20.0*dwvl;
+	
+	parms.nList.push_back(nGlass);
+	parms.nList.push_back(nGlass);
+	
 	/*
-	parms.nList.push_back(nGlass);
-	parms.nList.push_back(nGlass);
-	*/
     parms.nList.push_back(nGlass_BK7);
 	parms.nList.push_back(nGlass_BK7);
-	
+	*/
 	parms.dt = dt;
 	parms.wvl = wvl;
 	/*
@@ -87,7 +88,7 @@ int main (int argc, char **argv)
 	*/
 	
 	GOAT::raytracing::Trafo<GOAT::maths::Vector<double> > T(parms);
-	std::string fname = "H:\\testsa.dat";
+	std::string fname = "H:\\testsc.dat";
 	// save(rt.SA[0], fname);
 
     
@@ -99,16 +100,16 @@ int main (int argc, char **argv)
 	std::ifstream is;
 	double h;
 	std::string str;
-	std::ofstream os ("h:\\data\\timeb.dat");
+	std::ofstream os ("h:\\data\\timec.dat");
  
 	for (int i = 0; i < n; i++)
 	{
-		t = 4.464e-9- i * dt / 10.0;
+		// t = 4.464e-9- i * dt / 10.0;
 		os.precision(7);
 		os << t*1E+9 << std::endl;
 		// t =  4.4615e-9-(double)n/2.0*dt/10.0+i * dt/10.0;
 		T.calc(rt.SA, t);
-		sstr  << "h:\\data\\testb" << i << ".dat";
+		sstr  << "h:\\data\\testc" << i << ".dat";
 		fname = sstr.str();		
 		sstr.str("");
 		std::cout << "current filename:" << fname << "\t t=" << t*1E+9;

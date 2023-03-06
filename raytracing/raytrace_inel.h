@@ -71,7 +71,7 @@ namespace GOAT
         {
         public:
             Raytrace_Inel();
-            Raytrace_Inel(const Scene &S, int n);
+            Raytrace_Inel(const Scene &S, int n); ///< Constructor for the inelastic scattering raytracer. @param S contains the scene and @param is the number of subdivisions per direction of the virtual array used to store the data (electric field distributiion)
             /**
             * @brief Calculates inelastic scattering
             * 

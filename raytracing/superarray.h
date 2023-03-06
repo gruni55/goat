@@ -165,25 +165,27 @@ namespace GOAT
 
          int Error;  ///< Holds an error number 
          ObjectShape** Obj=NULL; ///< here are the objects
-         int numObjs,type; 
+         int numObjs; ///< Number of objects
+         int type; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
          std::vector<int> ywerte;
          std::vector<std::vector<int> > zwerte;
-         std::vector <std::vector <std::vector <std::vector <T> > > > G;
+         std::vector <std::vector <std::vector <std::vector <T> > > > G; ///< Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i
          std::vector < std::vector < std::vector <T> > >  K;
          T dummy;
-         std::vector<maths::Vector<int>> Pul, n;
-         maths::Vector<int> nges;
+         std::vector<maths::Vector<int>> Pul;
+         std::vector<maths::Vector<int>> n; ///< n[i]: Dimensions, i.e. number of subdivision in x-, y- and z-direction
+         maths::Vector<int> nges; ///< Vector which contains the number of subdivisions in x-, y- and z-direction for the whole (virtual) array
 
 
 
 
-         maths::Vector<double> d;    
-         double r0;
+         maths::Vector<double> d;  ///<  Edge length of one cell in x-, y- and z-direction
+         double r0; ///< Radius of the calculation sphere
          bool isequal;
-         bool iscleared;
+         bool iscleared; ///< Array was just cleared 
          T pc;
          //  int Fehler;
-         maths::Matrix<double> H, R;
+         maths::Matrix<double> H, R; ///< Transformation matrices in the local array coordinate system and backwards
     };
 
    
@@ -301,7 +303,7 @@ namespace GOAT
                 if (Obj == NULL) { error(REALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
             }
         }
-
+        std::cout << "n=" << hn << std::endl;
         n.push_back(hn);
 
         Obj[numObjs] = E;

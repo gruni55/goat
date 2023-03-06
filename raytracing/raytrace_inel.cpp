@@ -77,18 +77,26 @@ namespace GOAT
 			// Das anregende Feld muss nur einmal berechnet werden
 			if ((calcphase == INEL_CALCPHASE_EXCITATION) || (calcphase == INEL_CALCPHASE_EXCITATION_ONLY))
 			{
+				std::cout << "starting calculation excitation field" << std::endl;
+				std::cout << "start initialization...";
 				initExcitation();
+				std::cout << "done." << std::endl;
 				S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
+				std::cout << "start raytracing...";
 				Raytrace::trace();
+				std::cout << "done." << std::endl;
 				S.resetLS();
+				std::cout << "adding fields...";
 				for (int i = 1; i < INEL_MAX_NREFLEX; i++)
 					SGE[0].add(SGE[i]);
+				std::cout << "done." << std::endl;
 				if (calcphase == INEL_CALCPHASE_EXCITATION) calcphase = INEL_CALCPHASE_RRT;
 			}
 			
 			// Jetzt folgt die Berechnung des R�ckverfolgten (inelastischen) Felds
 			if (calcphase != INEL_CALCPHASE_EXCITATION_ONLY)
 			{
+				std::cout << "starting inelastic calculation..." << std::endl;
 				LightSrcPlane LSRRT(-D.n * S.r0, n*2.0, D.wvlinel, 2.0 * S.r0);
 				LSRRT.setk(D.n);
 				S.addLightSourceRRT(&LSRRT, maths::Vector<std::complex<double> >(D.e1[0], D.e1[1], D.e1[2]), maths::Vector<std::complex<double> >(D.e2[0], D.e2[1], D.e2[2]));
