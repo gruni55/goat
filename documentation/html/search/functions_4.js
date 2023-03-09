@@ -7,7 +7,7 @@ var searchData=
   ['ephi_4',['ephi',['../namespace_g_o_a_t_1_1maths.html#af03be5d22ae30b333703ea139a03733c',1,'GOAT::maths']]],
   ['er_5',['er',['../namespace_g_o_a_t_1_1maths.html#a7a1d7802d09920f66e92bdb732ca269a',1,'GOAT::maths']]],
   ['errmsg_6',['errmsg',['../namespace_g_o_a_t_1_1maths.html#acc8bbefb34bf57531024f09d47252d02',1,'GOAT::maths']]],
-  ['error_7',['error',['../namespace_g_o_a_t_1_1raytracing.html#af427b452af77ba2808427ef5b421f8b1',1,'GOAT::raytracing']]],
+  ['error_7',['error',['../namespace_g_o_a_t_1_1raytracing.html#a2efae30d20027e8582eb3353eaa57508',1,'GOAT::raytracing']]],
   ['etheta_8',['etheta',['../namespace_g_o_a_t_1_1maths.html#a0b3b39eded5ee894cd1451263648d6ee',1,'GOAT::maths']]],
   ['exportexcitation_9',['exportExcitation',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a6fdb08a7e3cb36edd11dfab70569ca0b',1,'GOAT::raytracing::Raytrace_Inel']]],
   ['exportsrf_10',['exportSRF',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867',1,'GOAT::raytracing::surface']]]

@@ -7,242 +7,251 @@
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{raytrace__usp_8h}{raytrace\_usp.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00006}00006 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00007}00007 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00008}00008 \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00009}00009     \textcolor{keyword}{namespace }raytracing}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00010}00010     \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00011}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{00011}}         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\_INTEGRAL}} = 100;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00025}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{00025}}         \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00026}00026         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00027}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{00027}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{nI}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00028}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{00028}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{nS}}=1000;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00029}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{00029}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{nR}}= \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00030}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{00030}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{lstart}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00031}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{00031}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{lstop}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00032}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{00032}}             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{nList}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00033}00033         \};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00034}00034 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00035}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{00035}}         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\_LIGHT}} = 299792458; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00046}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{00046}}         \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00047}00047         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00048}00048         \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00049}00049             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo}}();}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00050}00050             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}});  }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00051}00051           \textcolor{comment}{//  \string~Trafo();}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00057}00057 \textcolor{comment}{}            \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}{calc}}(std::vector<SuperArray <gridEntry> >\& SA, \textcolor{keywordtype}{double} t); }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00058}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}{00058}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > >\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}{SAres}}; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00059}00059 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00060}00060 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00061}00061         \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00062}00062             \textcolor{keywordtype}{void} initResult(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& SA);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00063}00063             \textcolor{keywordtype}{void} initResult(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** Obj, \textcolor{keywordtype}{int} numObjs);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00064}00064             \textcolor{keywordtype}{void} createLTexpo();}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00065}00065             std::complex<double> calcPhase(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} wvl);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00066}00066             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > calcOne(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} t);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00009}00009 \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00010}00010     \textcolor{keyword}{namespace }raytracing}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00012}00012 \textcolor{preprocessor}{\#ifndef I }}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00013}00013 \textcolor{preprocessor}{\#define I std::complex<double> (0.0,1.0)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00014}00014 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00015}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{00015}}         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\_INTEGRAL}} = 1000;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00032}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{00032}}         \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00033}00033         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00034}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{00034}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{nI}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00035}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{00035}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{nS}}=1000;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00036}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{00036}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{nR}}= \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00037}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{00037}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{lstart}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00038}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{00038}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{lstop}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00039}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a534679307d01f8d8f07ed47f34051586}{00039}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a534679307d01f8d8f07ed47f34051586}{wvl}}; }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00040}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{00040}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00041}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{00041}}             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{nList}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00042}00042         \};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00044}00044         }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{00055}}         \textcolor{keyword}{template} <\textcolor{keyword}{class} T> \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00056}00056         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00057}00057         \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00058}00058             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo}}();}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00059}00059             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}});  }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00060}00060           \textcolor{comment}{//  \string~Trafo();}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00066}00066 \textcolor{comment}{}            \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a163035ed66481b05f2c923a9d2e63328}{calc}}(std::vector<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} <std::vector<gridEntry> > >\& SA, \textcolor{keywordtype}{double} t); }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00067}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}{00067}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > >\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_abfe68e42598670cb773dab906d994e71}{SAres}}; }
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00068}00068 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00069}00069             std::vector<double> freq;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00070}00070             \textcolor{keywordtype}{int} nI; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00071}00071             \textcolor{keywordtype}{int} nS; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00072}00072             \textcolor{keywordtype}{double} lstart;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00073}00073             \textcolor{keywordtype}{double} lstop;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00074}00074             \textcolor{keywordtype}{int}  nR= \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}}; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00075}00075             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > nList; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00076}00076              }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00077}00077         \};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00078}00078 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00079}00079 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IMPLEMENTATION -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ */}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00080}00080 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00081}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{00081}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo<T>::Trafo}}()}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00082}00082         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00083}00083             nR = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00084}00084         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00085}00085 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00086}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_aa12519c0ea3be8807b940181cbfdf96d}{00086}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo<T>::Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} tp)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00087}00087         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00088}00088             nI = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{nI}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00089}00089             nS = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{nS}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00090}00090             nR = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{nR}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00091}00091             lstart = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{lstart}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00092}00092             lstop = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{lstop}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00093}00093             nList = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{nList}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00094}00094         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00095}00095 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00096}00096         \textcolor{comment}{/*template <class T> Trafo<T>::\string~Trafo()}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00097}00097 \textcolor{comment}{        \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00098}00098 \textcolor{comment}{        \}        }}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00099}00099 \textcolor{comment}{        */}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00100}00100         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo<T>::initResult}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& SA)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00101}00101         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00102}00102             SAres = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > >(SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, SA.nx, SA.ny, SA.nz, SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}});}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00103}00103         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00104}00104 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00105}00105        \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} Trafo<T>::initResult(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, ObjectShape** Obj, \textcolor{keywordtype}{int} numObjs)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00106}00106         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00107}00107             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00108}00108         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00109}00109         }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00110}00110         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> std::complex<double> Trafo<T>::calcPhase(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} wvl)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00111}00111         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00112}00112             std::complex<double> sum = 0;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00113}00113             \textcolor{keywordtype}{double} k0 = 2.0 * M\_PI / wvl;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00114}00114             \textcolor{keywordflow}{for} (stepEntry se : steps)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00115}00115                 sum += k0 * nList[se.matIndex](wvl) * se.l;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00116}00116             \textcolor{keywordflow}{return} sum;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00117}00117         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00118}00118 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00119}00119         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > Trafo<T>::calcOne(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} t)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00120}00120         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00121}00121             }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00122}00122         \} }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00123}00123         }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00124}00124 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00125}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}{00125}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a182e24e0265acacab29145b757257eda}{Trafo<T>::calc}}(std::vector<SuperArray <gridEntry> >\& SA, \textcolor{keywordtype}{double} t)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00126}00126         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00127}00127             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} > E;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00128}00128             std::complex<double> phase;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00129}00129             \textcolor{keywordtype}{int} nsteps;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00130}00130             \textcolor{keywordtype}{double} omegastart, omegastop; \textcolor{comment}{// Start and end values for the angular frequency, which define one single subrange}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00131}00131             \textcolor{keywordtype}{double} wvlstart, wvlstop; \textcolor{comment}{// Start and end wavelength, which define one single subrange}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00132}00132             \textcolor{keywordtype}{double} dwvl; \textcolor{comment}{// step size for the integration inside the subrange in wavelength}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00133}00133             \textcolor{keywordtype}{double} Dwvl; \textcolor{comment}{// width of one subrange}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00134}00134             \textcolor{keywordtype}{double} domega; \textcolor{comment}{// step size for the integration inside the subrange in angular frequency}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00135}00135             \textcolor{keywordtype}{double} omega; \textcolor{comment}{// angular frequency}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00136}00136             \textcolor{keywordtype}{double} wvl;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00137}00137             }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00138}00138             initResult(SA[0].r0,SA[0].nges[0], SA[0].nges[1], SA[0].nges[2],SA[0].Obj,SA[0].numObjs);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00139}00139           }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00140}00140             SAres.fill(maths::czero); \textcolor{comment}{// empty the whole result array}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00141}00141             Dwvl = (lstop -\/ lstart) / (\textcolor{keywordtype}{double})nI; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00142}00142             \textcolor{comment}{/* -\/-\/-\/-\/-\/  Loops over positions -\/-\/-\/-\/-\/-\/ */}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00143}00143             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iR = 0; iR < nR; iR++) \textcolor{comment}{// loop over reflection order}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00144}00144             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < SA[iR].numObjs; i++) \textcolor{comment}{// loop over object number (i.e. over Sub-\/Array in SuperArray)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00145}00145                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < SA[iR].n[i][0]; ix++) \textcolor{comment}{// loops over x-\/,y-\/ and z-\/ indices}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00146}00146                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < SA[iR].n[i][1]; iy++)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00147}00147                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < SA[iR].n[i][2]; iz++)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00148}00148                         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00149}00149                             \textcolor{comment}{/* -\/-\/-\/-\/-\/ Calculation for one place -\/-\/-\/-\/-\/-\/ */}                            }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00150}00150                             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < nI; j++) \textcolor{comment}{// loop over the subranges}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00151}00151                             \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00152}00152                                 wvlstart = lstart + j * Dwvl;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00153}00153                                 wvlstop = wvlstart + Dwvl;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00154}00154                                 omegastart = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\_LIGHT}} / wvlstop;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00155}00155                                 omegastop = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\_LIGHT}} / wvlstart;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00156}00156                                 domega = (omegastop -\/ omegastart) / (\textcolor{keywordtype}{double})nS;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00157}00157                                 E = SA[iR](i, ix, iy, iz).E;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00158}00158                                 \textcolor{keywordtype}{double} h = abs(E);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00159}00159                                 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/ Integration within one subrange -\/-\/-\/-\/-\/ */}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00160}00160                                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} l = 0; l < nS; l++)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00161}00161                                 \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00162}00162                                     omega = omegastart + l * domega;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00163}00163                                     wvl = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\_LIGHT}} / omega;                                    }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00164}00164                                     phase = calcPhase(SA[iR](i, ix, iy, iz).step, wvl);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00165}00165                                     }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00166}00166                                     SAres(i, ix, iy, iz) += E * exp(std::complex<double> (0.0,1.0) * phase);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00167}00167                                  \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00168}00168                                 SAres(i, ix, iy, iz) = SAres(i, ix, iy, iz) * exp(-\/std::complex<double>(0.0, 1.0) * omega * t);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00169}00169                             \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00170}00170                         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00171}00171  }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00069}00069 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00070}00070         \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00071}00071             \textcolor{keywordtype}{void} initResult(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& SA);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00072}00072             \textcolor{keywordtype}{void} initResult(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** Obj, \textcolor{keywordtype}{int} numObjs);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00073}00073             \textcolor{keywordtype}{double} pulseWeight(\textcolor{keywordtype}{double} omega);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00074}00074             \textcolor{keywordtype}{void} createLTexpo();}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00075}00075             std::complex<double> calcPhase(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} k0);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00076}00076             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > calcOne(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} t);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00077}00077             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > integrate(\textcolor{keywordtype}{double} t, std::vector<gridEntry> ge, \textcolor{keywordtype}{double} omegastart, \textcolor{keywordtype}{double} omegastop,  \textcolor{keywordtype}{int} nsteps=100);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00078}00078             \textcolor{keywordtype}{double} twoSigma2; }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00079}00079             \textcolor{keywordtype}{double} omegastart, omegastop;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00080}00080             std::vector<double> freq;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00081}00081             \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} tp;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00082}00082             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > nList; }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00083}00083         \};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00085}00085 \textcolor{comment}{/* -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ IMPLEMENTATION -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00087}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{00087}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo<T>::Trafo}}()}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00088}00088         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00089}00089             tp.nR = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00090}00090         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00092}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_aa12519c0ea3be8807b940181cbfdf96d}{00092}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_af3bb30f2fb0da5824493063713caf632}{Trafo<T>::Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} tp)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00093}00093         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00094}00094             this-\/>tp = tp;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00095}00095             omegastart = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\_LIGHT\_MU}} / tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{lstop}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00096}00096             omegastop = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\_LIGHT\_MU}} / tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{lstart}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00097}00097             twoSigma2 = tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}} * tp.\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}} / (4.0 * M\_LN2);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00098}00098         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00100}00100         \textcolor{comment}{/*template <class T> Trafo<T>::\string~Trafo()}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00101}00101 \textcolor{comment}{        \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00102}00102 \textcolor{comment}{        \}        }}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00103}00103 \textcolor{comment}{        */}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00104}00104         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo<T>::initResult}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\& SA)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00105}00105         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00106}00106             SAres = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > >(SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, SA.nx, SA.ny, SA.nz, SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, SA.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{numObjs}});}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00107}00107         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00109}00109        \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} Trafo<T>::initResult(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, ObjectShape** Obj, \textcolor{keywordtype}{int} numObjs)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00110}00110         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00111}00111            SAres.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{clear}}();}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00112}00112            SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00113}00113         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00114}00114         }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00115}00115        }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00117}00117         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > Trafo<T>::calcOne(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} t)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00118}00118         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00119}00119             }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00120}00120         \} }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00121}00121         }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00123}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a163035ed66481b05f2c923a9d2e63328}{00123}}         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a163035ed66481b05f2c923a9d2e63328}{Trafo<T>::calc}}(std::vector<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} <std::vector<gridEntry> > >\& SA, \textcolor{keywordtype}{double} t)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00124}00124         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00125}00125             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<std::complex<double>}} > E;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00126}00126             std::complex<double> phase;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00127}00127             \textcolor{keywordtype}{int} nsteps;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00128}00128             \textcolor{keywordtype}{double} dwvl; \textcolor{comment}{// step size for the integration inside the subrange in wavelength}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00129}00129             \textcolor{keywordtype}{double} Dwvl; \textcolor{comment}{// width of one subrange}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00130}00130             \textcolor{keywordtype}{double} domega; \textcolor{comment}{// step size for the integration inside the subrange in angular frequency}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00131}00131             \textcolor{keywordtype}{double} omega; \textcolor{comment}{// angular frequency}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00132}00132             \textcolor{keywordtype}{double} wvl;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00133}00133             }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00134}00134             initResult(SA[0].r0,SA[0].nges[0], SA[0].nges[1], SA[0].nges[2],SA[0].Obj,SA[0].numObjs);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00135}00135             }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00136}00136             SAres.fill(maths::czero); \textcolor{comment}{// empty the whole result array}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00137}00137             Dwvl = (tp.lstop -\/ tp.lstart) / (\textcolor{keywordtype}{double})tp.nI; }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00138}00138             \textcolor{comment}{/* -\/-\/-\/-\/-\/  Loops over positions -\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00139}00139              \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iR = 0; iR < tp.nR; iR++) \textcolor{comment}{// loop over reflection order}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00140}00140             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < SA[iR].numObjs; i++) \textcolor{comment}{// loop over object number (i.e. over Sub-\/Array in SuperArray)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00141}00141                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} ix = 0; ix < SA[iR].n[i][0]; ix++) \textcolor{comment}{// loops over x-\/,y-\/ and z-\/ indices}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00142}00142                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iy = 0; iy < SA[iR].n[i][1]; iy++)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00143}00143                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iz = 0; iz < SA[iR].n[i][2]; iz++)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00144}00144                         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00145}00145                             SAres.G[i][ix][iy][iz] = integrate(t, SA[iR].G[i][ix][iy][iz], omegastart, omegastop,tp.nS);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00146}00146                         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00147}00147  }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00149}00149         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00151}00151         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo<T>::createLTexpo}}()}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00152}00152         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00153}00153             \textcolor{keywordtype}{double} dl = (tp.lstop -\/ tp.lstart) / (\textcolor{keywordtype}{double}) (tp.nS-\/tp.nI-\/1);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00154}00154             \textcolor{keywordtype}{int} N = tp.nS * tp.nI;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00155}00155             \textcolor{keywordtype}{double} l;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00156}00156             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N; i++)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00157}00157             \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00158}00158                 l = tp.lstart + i * dl;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00159}00159                 freq.push\_back(2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\_LIGHT\_MU}} / l);                }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00160}00160             \}                }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00161}00161         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00162}00162 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00163}00163         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> std::complex<double> Trafo<T>::calcPhase(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} k0)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00164}00164         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00165}00165             std::complex<double> sum = 0;  }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00166}00166             \textcolor{keywordflow}{for} (stepEntry se : steps)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00167}00167                 sum += k0 * tp.nList[se.matIndex](2.0*M\_PI/k0) * se.l;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00168}00168             \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00169}00169         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00171}00171         }
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00172}00172 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00173}00173         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00174}00174 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00175}00175         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo<T>::createLTexpo}}()}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00176}00176         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00177}00177             \textcolor{keywordtype}{double} dl = (lstop -\/ lstart) / (\textcolor{keywordtype}{double}) (nS-\/nI-\/1);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00178}00178             N = nS * nI;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00179}00179             \textcolor{keywordtype}{double} l;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00180}00180             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < N; i++)}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00181}00181             \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00182}00182                 l = lstart + i * dl;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00183}00183                 freq.push\_back(2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\_LIGHT}} / l);                }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00184}00184             \}                }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00185}00185         \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00186}00186 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00187}00187 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00188}00188 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00189}00189         \textcolor{comment}{/*}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00190}00190 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00191}00191 \textcolor{comment}{        unsigned int bitReverse(unsigned int x, int log2n)  ///< function used for FFT algorithm}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00192}00192 \textcolor{comment}{        \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00193}00193 \textcolor{comment}{            int n = 0;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00194}00194 \textcolor{comment}{            int mask = 0x1;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00195}00195 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00196}00196 \textcolor{comment}{            for (int i = 0; i < log2n; i++) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00197}00197 \textcolor{comment}{                n <<= 1;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00198}00198 \textcolor{comment}{                n |= (x \& 1);}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00199}00199 \textcolor{comment}{                x >>= 1;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00200}00200 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00201}00201 \textcolor{comment}{            return n;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00202}00202 \textcolor{comment}{        \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00203}00203 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00204}00204 \textcolor{comment}{        std::vector<unsigned int> bitReverseLT(int log2n)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00205}00205 \textcolor{comment}{        \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00206}00206 \textcolor{comment}{            std::vector<unsigned int> LT;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00207}00207 \textcolor{comment}{            int n = 1 << log2n;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00208}00208 \textcolor{comment}{            for (int x = 0; x < n; x++)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00209}00209 \textcolor{comment}{            \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00210}00210 \textcolor{comment}{                LT.push\_back(bitReverse(x, log2n));}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00173}00173         \textcolor{keyword}{template}<\textcolor{keyword}{class} T> \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} >  Trafo<T>::integrate(\textcolor{keywordtype}{double} t, std::vector<gridEntry> vge, \textcolor{keywordtype}{double} omegastart, \textcolor{keywordtype}{double} omegastop, \textcolor{keywordtype}{int} nsteps)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00174}00174         \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00175}00175             \textcolor{keywordtype}{double} k0;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00176}00176             \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}:maths::Vector<std::complex<double> > E;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00177}00177             std::complex<double> phase;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00178}00178             \textcolor{keywordtype}{double} omega0 = 2.0 * M\_PI * \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\_LIGHT\_MU}} / tp.wvl;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00179}00179             \textcolor{keywordtype}{double} omega;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00180}00180             \textcolor{keywordtype}{double} domega = (omegastop -\/ omegastart) / ((\textcolor{keywordtype}{double})nsteps -\/ 1.0);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00181}00181             \textcolor{keywordtype}{double} weight;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00182}00182             \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} ge : vge) \textcolor{comment}{// Loop over all rays which hit the cell}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00183}00183             \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00184}00184                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} iomega = 0; iomega < nsteps; iomega++)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00185}00185                 \{                    }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00186}00186                     omega = omegastart + iomega * domega;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00187}00187                     k0 = omega / \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\_LIGHT\_MU}};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00188}00188                     phase = exp(\mbox{\hyperlink{resutil_8h_a60ef6e1bcfabb95cfeb300e1d03ce470}{I}} * calcPhase(ge.step, k0));}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00189}00189                     phase *= exp(-\/\mbox{\hyperlink{resutil_8h_a60ef6e1bcfabb95cfeb300e1d03ce470}{I}} * omega * t);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00190}00190                     weight = exp(-\/twoSigma2 * (omega -\/ omega0) * (omega -\/ omega0));}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00191}00191                     E += weight * ge.E * phase;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00192}00192                 \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00193}00193             \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00194}00194             \textcolor{keywordflow}{return} E;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00195}00195         \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00196}00196 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00197}00197        }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00200}00200         \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00201}00201 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00202}00202 \textcolor{comment}{        unsigned int bitReverse(unsigned int x, int log2n)  ///< function used for FFT algorithm}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00203}00203 \textcolor{comment}{        \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00204}00204 \textcolor{comment}{            int n = 0;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00205}00205 \textcolor{comment}{            int mask = 0x1;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00206}00206 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00207}00207 \textcolor{comment}{            for (int i = 0; i < log2n; i++) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00208}00208 \textcolor{comment}{                n <<= 1;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00209}00209 \textcolor{comment}{                n |= (x \& 1);}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00210}00210 \textcolor{comment}{                x >>= 1;}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00211}00211 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00212}00212 \textcolor{comment}{            return LT;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00212}00212 \textcolor{comment}{            return n;}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00213}00213 \textcolor{comment}{        \}}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00214}00214 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00215}00215 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00216}00216 \textcolor{comment}{        template<class Iter\_T>}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00217}00217 \textcolor{comment}{        void fft(Iter\_T a, Iter\_T b, int log2n)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00218}00218 \textcolor{comment}{        \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00219}00219 \textcolor{comment}{            typedef typename iterator\_traits<Iter\_T>::value\_type complex;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00220}00220 \textcolor{comment}{            const complex J(0, 1);}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00221}00221 \textcolor{comment}{            int n = 1 << log2n;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00222}00222 \textcolor{comment}{            for (unsigned int i = 0; i < n; ++i) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00223}00223 \textcolor{comment}{                b[bitReverse(i, log2n)] = a[i];}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00224}00224 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00225}00225 \textcolor{comment}{            for (int s = 1; s <= log2n; ++s) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00226}00226 \textcolor{comment}{                int m = 1 << s;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00227}00227 \textcolor{comment}{                int m2 = m >> 1;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00228}00228 \textcolor{comment}{                complex w(1, 0);}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00229}00229 \textcolor{comment}{                complex wm = exp(-\/J * (M\_PI / m2));}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00230}00230 \textcolor{comment}{                for (int j = 0; j < m2; ++j) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00231}00231 \textcolor{comment}{                    for (int k = j; k < n; k += m) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00232}00232 \textcolor{comment}{                        complex t = w * b[k + m2];}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00233}00233 \textcolor{comment}{                        complex u = b[k];}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00234}00234 \textcolor{comment}{                        b[k] = u + t;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00235}00235 \textcolor{comment}{                        b[k + m2] = u -\/ t;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00236}00236 \textcolor{comment}{                    \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00237}00237 \textcolor{comment}{                    w *= wm;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00238}00238 \textcolor{comment}{                \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00239}00239 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00240}00240 \textcolor{comment}{        \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00241}00241 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00242}00242 \textcolor{comment}{        template<class Iter\_T>}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00243}00243 \textcolor{comment}{        void fft(Iter\_T a, Iter\_T b, int log2n, std::vector<unsigned int> LT)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00244}00244 \textcolor{comment}{        \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00245}00245 \textcolor{comment}{            typedef typename iterator\_traits<Iter\_T>::value\_type complex;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00246}00246 \textcolor{comment}{            const complex J(0, 1);}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00247}00247 \textcolor{comment}{            int n = 1 << log2n;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00248}00248 \textcolor{comment}{            for (unsigned int i = 0; i < n; ++i) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00249}00249 \textcolor{comment}{                b[LT[i]] = a[i];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00215}00215 \textcolor{comment}{        std::vector<unsigned int> bitReverseLT(int log2n)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00216}00216 \textcolor{comment}{        \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00217}00217 \textcolor{comment}{            std::vector<unsigned int> LT;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00218}00218 \textcolor{comment}{            int n = 1 << log2n;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00219}00219 \textcolor{comment}{            for (int x = 0; x < n; x++)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00220}00220 \textcolor{comment}{            \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00221}00221 \textcolor{comment}{                LT.push\_back(bitReverse(x, log2n));}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00222}00222 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00223}00223 \textcolor{comment}{            return LT;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00224}00224 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00225}00225 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00226}00226 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00227}00227 \textcolor{comment}{        template<class Iter\_T>}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00228}00228 \textcolor{comment}{        void fft(Iter\_T a, Iter\_T b, int log2n)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00229}00229 \textcolor{comment}{        \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00230}00230 \textcolor{comment}{            typedef typename iterator\_traits<Iter\_T>::value\_type complex;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00231}00231 \textcolor{comment}{            const complex J(0, 1);}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00232}00232 \textcolor{comment}{            int n = 1 << log2n;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00233}00233 \textcolor{comment}{            for (unsigned int i = 0; i < n; ++i) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00234}00234 \textcolor{comment}{                b[bitReverse(i, log2n)] = a[i];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00235}00235 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00236}00236 \textcolor{comment}{            for (int s = 1; s <= log2n; ++s) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00237}00237 \textcolor{comment}{                int m = 1 << s;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00238}00238 \textcolor{comment}{                int m2 = m >> 1;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00239}00239 \textcolor{comment}{                complex w(1, 0);}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00240}00240 \textcolor{comment}{                complex wm = exp(-\/J * (M\_PI / m2));}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00241}00241 \textcolor{comment}{                for (int j = 0; j < m2; ++j) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00242}00242 \textcolor{comment}{                    for (int k = j; k < n; k += m) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00243}00243 \textcolor{comment}{                        complex t = w * b[k + m2];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00244}00244 \textcolor{comment}{                        complex u = b[k];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00245}00245 \textcolor{comment}{                        b[k] = u + t;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00246}00246 \textcolor{comment}{                        b[k + m2] = u -\/ t;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00247}00247 \textcolor{comment}{                    \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00248}00248 \textcolor{comment}{                    w *= wm;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00249}00249 \textcolor{comment}{                \}}}
 \DoxyCodeLine{\Hypertarget{fft_8h_source_l00250}00250 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00251}00251 \textcolor{comment}{            for (int s = 1; s <= log2n; ++s) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00252}00252 \textcolor{comment}{                int m = 1 << s;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00253}00253 \textcolor{comment}{                int m2 = m >> 1;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00254}00254 \textcolor{comment}{                complex w(1, 0);}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00255}00255 \textcolor{comment}{                complex wm = exp(-\/J * (M\_PI / m2));}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00256}00256 \textcolor{comment}{                for (int j = 0; j < m2; ++j) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00257}00257 \textcolor{comment}{                    for (int k = j; k < n; k += m) \{}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00258}00258 \textcolor{comment}{                        complex t = w * b[k + m2];}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00259}00259 \textcolor{comment}{                        complex u = b[k];}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00260}00260 \textcolor{comment}{                        b[k] = u + t;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00261}00261 \textcolor{comment}{                        b[k + m2] = u -\/ t;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00262}00262 \textcolor{comment}{                    \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00263}00263 \textcolor{comment}{                    w *= wm;}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00264}00264 \textcolor{comment}{                \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00265}00265 \textcolor{comment}{            \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00266}00266 \textcolor{comment}{        \}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00267}00267 \textcolor{comment}{        */}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00268}00268 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00269}00269     \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00270}00270 \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00251}00251 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00252}00252 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00253}00253 \textcolor{comment}{        template<class Iter\_T>}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00254}00254 \textcolor{comment}{        void fft(Iter\_T a, Iter\_T b, int log2n, std::vector<unsigned int> LT)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00255}00255 \textcolor{comment}{        \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00256}00256 \textcolor{comment}{            typedef typename iterator\_traits<Iter\_T>::value\_type complex;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00257}00257 \textcolor{comment}{            const complex J(0, 1);}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00258}00258 \textcolor{comment}{            int n = 1 << log2n;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00259}00259 \textcolor{comment}{            for (unsigned int i = 0; i < n; ++i) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00260}00260 \textcolor{comment}{                b[LT[i]] = a[i];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00261}00261 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00262}00262 \textcolor{comment}{            for (int s = 1; s <= log2n; ++s) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00263}00263 \textcolor{comment}{                int m = 1 << s;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00264}00264 \textcolor{comment}{                int m2 = m >> 1;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00265}00265 \textcolor{comment}{                complex w(1, 0);}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00266}00266 \textcolor{comment}{                complex wm = exp(-\/J * (M\_PI / m2));}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00267}00267 \textcolor{comment}{                for (int j = 0; j < m2; ++j) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00268}00268 \textcolor{comment}{                    for (int k = j; k < n; k += m) \{}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00269}00269 \textcolor{comment}{                        complex t = w * b[k + m2];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00270}00270 \textcolor{comment}{                        complex u = b[k];}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00271}00271 \textcolor{comment}{                        b[k] = u + t;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00272}00272 \textcolor{comment}{                        b[k + m2] = u -\/ t;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00273}00273 \textcolor{comment}{                    \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00274}00274 \textcolor{comment}{                    w *= wm;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00275}00275 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00276}00276 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00277}00277 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00278}00278 \textcolor{comment}{        */}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00279}00279 }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00280}00280     \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00281}00281 \}}
 
 \end{DoxyCode}

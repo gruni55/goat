@@ -48,7 +48,6 @@ var annotated_dup =
         [ "SuperGrid", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html", "class_g_o_a_t_1_1raytracing_1_1_super_grid" ],
         [ "surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", "class_g_o_a_t_1_1raytracing_1_1surface" ],
         [ "SysMemInfo", "struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html", "struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info" ],
-        [ "thickPlaneDetector", "class_g_o_a_t_1_1raytracing_1_1thick_plane_detector.html", null ],
         [ "Trafo", "class_g_o_a_t_1_1raytracing_1_1_trafo.html", "class_g_o_a_t_1_1raytracing_1_1_trafo" ],
         [ "TrafoParms", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms" ],
         [ "triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", "class_g_o_a_t_1_1raytracing_1_1triangle" ],

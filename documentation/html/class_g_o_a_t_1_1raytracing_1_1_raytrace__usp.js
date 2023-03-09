@@ -9,5 +9,6 @@ var class_g_o_a_t_1_1raytracing_1_1_raytrace__usp =
     [ "traceLeaveObject", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7b066d52f15452897559a9da838c688f", null ],
     [ "iR", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a5d70bed3b9cf1ca25d70c0774a6aaf0c", null ],
     [ "n", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a2a4d5a53f651798aeb303d2b4814e876", null ],
-    [ "SA", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a302d1132dfede7497a8c6e1b445d65d0", null ]
+    [ "SA", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#afa38ca8840a2ec44262fbc23d802fc97", null ],
+    [ "stack", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7fb8c40bb671d29a6f3fe69d5f7c60c2", null ]
 ];

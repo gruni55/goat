@@ -2,6 +2,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
 [
     [ "sic", "dir_5466f186b356e453581a3aa4a9b56c79.html", "dir_5466f186b356e453581a3aa4a9b56c79" ],
     [ "box.h", "box_8h.html", "box_8h" ],
+    [ "constants.h", "constants_8h.html", "constants_8h" ],
     [ "detector.h", "detector_8h.html", "detector_8h" ],
     [ "ellipsoid.h", "ellipsoid_8h.html", "ellipsoid_8h" ],
     [ "error.h", "error_8h.html", "error_8h" ],

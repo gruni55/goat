@@ -17,6 +17,6 @@ var searchData=
   ['min3_14',['min3',['../namespace_g_o_a_t_1_1raytracing.html#abfc811755668dfce2bde8cdb2afc5f94',1,'GOAT::raytracing']]],
   ['minmax_15',['minmax',['../namespace_g_o_a_t_1_1raytracing.html#ab897ab2ef20c4648f524c0a62433fa36',1,'GOAT::raytracing::minmax(double a, double b)'],['../namespace_g_o_a_t_1_1raytracing.html#ac826726a7d875427f756221ffa734599',1,'GOAT::raytracing::minmax(double x, double dx, int &amp;min, int &amp;max)']]],
   ['misc_2eh_16',['misc.h',['../misc_8h.html',1,'']]],
-  ['mu0_17',['mu0',['../misc_8h.html#a913e4feb488dce7bfeee4b0e4f886a11',1,'misc.h']]],
+  ['mu0_17',['mu0',['../constants_8h.html#a913e4feb488dce7bfeee4b0e4f886a11',1,'constants.h']]],
   ['multi_18',['MULTI',['../resutil_8h.html#ac7b4d7c5e5a25aeee8c5b6b37f1d2ba6',1,'resutil.h']]]
 ];

@@ -17,6 +17,7 @@ var class_g_o_a_t_1_1raytracing_1_1_ray_base =
     [ "objIndex", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a0229592b2f60c7b8e5c438933ad278a8", null ],
     [ "r0", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef88aaaaab2b96b59536ecc69a29c178", null ],
     [ "rc", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad9467a1f9f00f2ed842e2a5c79f3cd9b", null ],
+    [ "status", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ab912e8cad9cba442b05c10449eba59ae", null ],
     [ "suppress_phase_progress", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a8a8bbc046f2b0531f62dda7af5a684a9", null ],
     [ "tray", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ac85e485b0b855edcd4dd299bf82783cb", null ]
 ];

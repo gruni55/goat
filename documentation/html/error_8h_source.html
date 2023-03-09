@@ -108,12 +108,12 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> *   (at your option) any later version.                                   *</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *                                                                         *</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> ***************************************************************************/</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_g_o_a_t.html">GOAT</a></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   <span class="keyword">namespace </span>raytracing</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="error_8h.html#a02bab355d02f4e3a3ed48f5094489c59">   22</a></span><span class="preprocessor"> #define N_ERRORS 7</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="error_8h.html#a02bab355d02f4e3a3ed48f5094489c59">   22</a></span><span class="preprocessor"> #define N_ERRORS 8</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="error_8h.html#a15218844bd3bc87e3ff485780c675998">   23</a></span><span class="preprocessor"> #define NO_ERRORS  0</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="error_8h.html#aa1ab001303a7dbf4e05f26804886106c">   24</a></span><span class="preprocessor"> #define MALLOC_ERR 1</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="error_8h.html#adb77f46a31b51411b794576326b1a925">   25</a></span><span class="preprocessor"> #define CALLOC_ERR 2</span></div>
@@ -121,14 +121,15 @@ $(document).ready(function(){initNavTree('error_8h_source.html',''); initResizab
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="error_8h.html#a01fe41f7daf244522bc4d73d3dc8d182">   27</a></span><span class="preprocessor"> #define SUPERGITTER 4</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="error_8h.html#a0d4b2b09e52533e1923dff2f70dc9696">   28</a></span><span class="preprocessor"> #define IMHOST 5</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="error_8h.html#a90815b44d28504c3e3265574947b5bee">   29</a></span><span class="preprocessor"> #define KUGELGITTER_K 6</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor"> #ifndef ERROR_H</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="error_8h.html#a02d916799f77b7caacdabd7fefe5c31f">   32</a></span><span class="preprocessor"> #define ERROR_H</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespace_g_o_a_t_1_1raytracing.html#af427b452af77ba2808427ef5b421f8b1">   33</a></span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_g_o_a_t_1_1raytracing.html#af427b452af77ba2808427ef5b421f8b1">error</a> (<span class="keywordtype">int</span> nerr, <span class="keywordtype">char</span> *msg);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor"> #endif</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>   }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> }</div>
-<div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_af427b452af77ba2808427ef5b421f8b1"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#af427b452af77ba2808427ef5b421f8b1">GOAT::raytracing::error</a></div><div class="ttdeci">void error(int nerr, char *msg)</div></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="error_8h.html#a33bfc1f995233887a0414369c36936b8">   30</a></span><span class="preprocessor"> #define NOT_FOUND 7</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor"> #ifndef ERROR_H</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="error_8h.html#a02d916799f77b7caacdabd7fefe5c31f">   33</a></span><span class="preprocessor"> #define ERROR_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespace_g_o_a_t_1_1raytracing.html#a2efae30d20027e8582eb3353eaa57508">   34</a></span> <span class="keywordtype">void</span> <a class="code hl_function" href="namespace_g_o_a_t_1_1raytracing.html#a2efae30d20027e8582eb3353eaa57508">error</a> (<span class="keywordtype">int</span> nerr, std::string msg);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor"> #endif</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> }</div>
+<div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_a2efae30d20027e8582eb3353eaa57508"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#a2efae30d20027e8582eb3353eaa57508">GOAT::raytracing::error</a></div><div class="ttdeci">void error(int nerr, std::string msg)</div></div>
 <div class="ttc" id="anamespace_g_o_a_t_html"><div class="ttname"><a href="namespace_g_o_a_t.html">GOAT</a></div><div class="ttdoc">This class represents a threedimensional (numeric) Matrix as Template.</div><div class="ttdef"><b>Definition:</b> <a href="fresnel_8h_source.html#l00006">fresnel.h:7</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

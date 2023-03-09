@@ -125,9 +125,9 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}} =NULL
 \begin{DoxyCompactList}\small\item\em here are the objects \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{num\+Objs}}
-\item 
+\begin{DoxyCompactList}\small\item\em Number of objects. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}{type}}
-\item 
+\begin{DoxyCompactList}\small\item\em Mainly used for inelastic scattering. type=IN\+\_\+\+HOST means the grid is stored in the whole volume, type=IN\+\_\+\+OBJECT means grid is only used in the (active) objects. \end{DoxyCompactList}\item 
 int $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{ywerte}}
 \item 
 int $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{zwerte}}
@@ -143,39 +143,41 @@ T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526ada
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}}
-\item 
+\begin{DoxyCompactList}\small\item\em Vector which contains the number of subdivisions in x-\/, y-\/ and z-\/direction for the whole (virtual) array. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}
-\item 
+\begin{DoxyCompactList}\small\item\em Edge length of one cell in x-\/, y-\/ and z-\/direction. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}
-\item 
+\begin{DoxyCompactList}\small\item\em Radius of the calculation sphere. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a76f72a9f5b6a57864e80eb79a114b45d}{isequal}}
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149efc4751474fa1974823}{iscleared}}
-\item 
+\begin{DoxyCompactList}\small\item\em Array was just cleared. \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e}{pc}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}{H}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}{R}}
-\item 
+\begin{DoxyCompactList}\small\item\em Transformation matrices in the local array coordinate system and backwards. \end{DoxyCompactList}\item 
 std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a9c86faf7df0c5ff9226ff1dd863f6c6c}{ywerte}}
 \item 
 std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a44d9d186b9b1038806de6a9c09e89609}{zwerte}}
 \item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a25137cb8f912660c9a71a0cc56341b1b}{G}}
-\item 
+\begin{DoxyCompactList}\small\item\em Here, the data is stored. G\mbox{[}i\mbox{]}\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]}, whereas i\+: index of the object, ix,iy,iz\+: indices of the grid around object i. \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af20814acb049093586f43f895ab03083}{K}}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a03842005a8d5a9fe38c20275bd96e9ce}{Pul}}
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abf26f590b0f5801e25ba474a07ef8e2f}{n}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em n\mbox{[}i\mbox{]}\+: Dimensions, i.\+e. number of subdivision in x-\/, y-\/ and z-\/direction \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class GOAT\+::raytracing\+::\+Super\+Array$<$ T $>$}
-This class provides a virtual 3D-\/grid of complex vectors which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments 
+This class provides a virtual 3D-\/grid of complex vectors which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments
+
+This template class provides a virtual 3D-\/grid of complex vectors which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments 
 
 Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00023}{23}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
 
@@ -986,6 +988,10 @@ Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00630}{630}} of fi
 
 
 
+Edge length of one cell in x-\/, y-\/ and z-\/direction. 
+
+
+
 Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00157}{157}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}} 
@@ -1034,7 +1040,11 @@ std\+::vector$<$std\+::vector $<$std\+::vector $<$std\+::vector $<$T$>$ $>$ $>$ 
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00171}{171}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Here, the data is stored. G\mbox{[}i\mbox{]}\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]}, whereas i\+: index of the object, ix,iy,iz\+: indices of the grid around object i. 
+
+
+
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00172}{172}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!H@{H}}
@@ -1053,6 +1063,10 @@ Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00163}{163}} of f
 \doxysubsubsection{\texorpdfstring{iscleared}{iscleared}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::iscleared}
+
+
+
+Array was just cleared. 
 
 
 
@@ -1089,7 +1103,7 @@ std\+::vector$<$ std\+::vector $<$ std\+::vector $<$T$>$ $>$ $>$ \mbox{\hyperlin
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00172}{172}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00173}{173}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!n@{n}}
@@ -1111,7 +1125,11 @@ std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+V
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00174}{174}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+n\mbox{[}i\mbox{]}\+: Dimensions, i.\+e. number of subdivision in x-\/, y-\/ and z-\/direction 
+
+
+
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00176}{176}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!nges@{nges}}
@@ -1119,6 +1137,10 @@ Definition at line \mbox{\hyperlink{superarray_8h_source_l00174}{174}} of file \
 \doxysubsubsection{\texorpdfstring{nges}{nges}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::nges}
+
+
+
+Vector which contains the number of subdivisions in x-\/, y-\/ and z-\/direction for the whole (virtual) array. 
 
 
 
@@ -1130,6 +1152,10 @@ Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00152}{152}} of f
 \doxysubsubsection{\texorpdfstring{numObjs}{numObjs}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::num\+Objs}
+
+
+
+Number of objects. 
 
 
 
@@ -1181,7 +1207,7 @@ std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+V
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00174}{174}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00175}{175}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!R@{R}}
@@ -1189,6 +1215,10 @@ Definition at line \mbox{\hyperlink{superarray_8h_source_l00174}{174}} of file \
 \doxysubsubsection{\texorpdfstring{R}{R}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::R}
+
+
+
+Transformation matrices in the local array coordinate system and backwards. 
 
 
 
@@ -1203,6 +1233,10 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::ray
 
 
 
+Radius of the calculation sphere. 
+
+
+
 Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00158}{158}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}} 
@@ -1211,6 +1245,10 @@ Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00158}{158}} of f
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::type}
+
+
+
+Mainly used for inelastic scattering. type=IN\+\_\+\+HOST means the grid is stored in the whole volume, type=IN\+\_\+\+OBJECT means grid is only used in the (active) objects. 
 
 
 
@@ -1236,7 +1274,7 @@ std\+::vector$<$int$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_ar
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00169}{169}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00170}{170}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!zwerte@{zwerte}}
@@ -1258,7 +1296,7 @@ std\+::vector$<$std\+::vector$<$int$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1ray
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00170}{170}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00171}{171}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 
 

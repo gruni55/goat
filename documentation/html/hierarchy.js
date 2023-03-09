@@ -1,8 +1,7 @@
 var hierarchy =
 [
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
-      [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", null ],
-      [ "GOAT::raytracing::thickPlaneDetector", "class_g_o_a_t_1_1raytracing_1_1thick_plane_detector.html", null ]
+      [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", null ]
     ] ],
     [ "GOAT::raytracing::Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", null ],
     [ "GOAT::raytracing::GlobalParms", "class_g_o_a_t_1_1raytracing_1_1_global_parms.html", null ],

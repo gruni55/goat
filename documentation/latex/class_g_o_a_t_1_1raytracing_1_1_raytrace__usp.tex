@@ -35,12 +35,14 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7b066d52f15
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}{SA}}
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_afa38ca8840a2ec44262fbc23d802fc97}{SA}}
 \begin{DoxyCompactList}\small\item\em Grid, that holds the information, needed to further calculate the electric field for short pulses. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}{n}} = 0
 \begin{DoxyCompactList}\small\item\em Number of cells in one direction. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a5d70bed3b9cf1ca25d70c0774a6aaf0c}{iR}} = 0
-\begin{DoxyCompactList}\small\item\em Number of reflections to consider. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Number of reflections to consider. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7fb8c40bb671d29a6f3fe69d5f7c60c2}{stack}}
+\begin{DoxyCompactList}\small\item\em here, the information from the light source until the region of interest (=box) is reached \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -150,7 +152,7 @@ Number of reflections to consider.
 
 
 
-Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00037}{37}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00036}{36}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a2a4d5a53f651798aeb303d2b4814e876}} 
 \index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!n@{n}}
@@ -164,13 +166,13 @@ Number of cells in one direction.
 
 
 
-Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00036}{36}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00035}{35}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
 
-\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a302d1132dfede7497a8c6e1b445d65d0}} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_afa38ca8840a2ec44262fbc23d802fc97}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_afa38ca8840a2ec44262fbc23d802fc97}} 
 \index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!SA@{SA}}
 \index{SA@{SA}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
 \doxysubsubsection{\texorpdfstring{SA}{SA}}
-{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} $<$\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}}$>$ $>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::\+SA}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} $<$std\+::vector$<$\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}}$>$ $>$ $>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::\+SA}
 
 
 
@@ -178,7 +180,21 @@ Grid, that holds the information, needed to further calculate the electric field
 
 
 
-Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00035}{35}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00034}{34}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7fb8c40bb671d29a6f3fe69d5f7c60c2}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp_a7fb8c40bb671d29a6f3fe69d5f7c60c2}} 
+\index{GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}!stack@{stack}}
+\index{stack@{stack}!GOAT::raytracing::Raytrace\_usp@{GOAT::raytracing::Raytrace\_usp}}
+\doxysubsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} GOAT\+::raytracing\+::\+Raytrace\+\_\+usp\+::stack}
+
+
+
+here, the information from the light source until the region of interest (=box) is reached 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__usp_8h_source_l00037}{37}} of file \mbox{\hyperlink{raytrace__usp_8h_source}{raytrace\+\_\+usp.\+h}}.
 
 
 
