@@ -1039,6 +1039,7 @@ namespace GOAT
     void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
     void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
     void saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
+    void saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i = 0);
     void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
     double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);

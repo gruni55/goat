@@ -278,6 +278,46 @@ namespace GOAT
           os.close();
       }
 
+      void saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i)
+      {
+          maths::Vector<std::complex<double> > E;
+          std::ofstream os;
+          os.open(FName,std::ios_base::binary);
+          maths::Vector<int> Pi;
+          double x;
+          double erg;
+          if (S.type == IN_OBJECT)
+          {              
+               for (int ix = 0; ix < S.n[i][0]; ix++)
+                  for (int iy = 0; iy < S.n[i][1]; iy++)
+                      for (int iz = 0; iz < S.n[i][2]; iz++)
+                      {
+                          x = real(S.G[i][ix][iy][iz][0] * conj(S.G[i][ix][iy][iz][0]));
+                          x += real(S.G[i][ix][iy][iz][1] * conj(S.G[i][ix][iy][iz][1]));
+                          x += real(S.G[i][ix][iy][iz][2] * conj(S.G[i][ix][iy][iz][2]));
+                          os.write((char*)&x, sizeof(x));                          
+                      }
+          }
+          else
+          {
+              for (int ix = 0; ix < S.nges[0]; ix++)
+                  for (int iy = 0; iy < S.nges[1]; iy++)
+                      for (int iz = 0; iz < S.nges[2]; iz++)
+                      {
+                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
+                          else
+                          {
+                              E = S.K[Pi[0]][Pi[1]][Pi[2]];
+                              erg = real(E * conj(E));
+                              os.write((char*)&erg, sizeof(erg));                              
+                          }
+                      }
+          }
+
+          os.close();
+      }
+
       void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;

@@ -162,10 +162,10 @@ namespace GOAT
 			std::string full_fn;
 			for (int i = 0; i < S.nObj; i++)
 			{
-				full_fn = std::to_string(i) + "_" + fname;
+				full_fn =  fname + "_" + std::to_string(i) + ".dat";
 				switch (savetype)
 				{
-					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsE(SGE[0],full_fn, i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsEbin(SGE[0],full_fn, i); break;
 					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: saveFullE(SGE[0],full_fn, i); break;
 				}
 			}
