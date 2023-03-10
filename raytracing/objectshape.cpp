@@ -24,7 +24,7 @@ namespace GOAT
             Ealpha = 0;
             Ebeta = 0;
             Egamma = 0;
-            inelactive = true;
+            Active = true;
         }
 
         ObjectShape::ObjectShape(const maths::Vector<double>& P,
@@ -39,7 +39,7 @@ namespace GOAT
             Ebeta = 0.0;
             Egamma = 0.0;
 
-            inelactive = true;
+            Active = true;
             sf = 1.0;
             r0 = 1.0;
             this->type = type;
@@ -61,7 +61,7 @@ namespace GOAT
 
         ObjectShape::ObjectShape(const ObjectShape& F)
         {
-            inelactive = true;
+            Active = true;
             sf = 1.0;
             type = F.type;
             P = F.P;

@@ -112,7 +112,9 @@ namespace GOAT
 
         template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git, double eps)
         {
-            double lambdax, lambday, lambdaz, lambda;
+            double lambdax = DBL_MAX; 
+            double lambday = DBL_MAX; 
+            double lambdaz = DBL_MAX, lambda;
            // double signx, signy, signz;
             double sx, sy, sz;
             GOAT::maths::Vector<int> index;
@@ -134,26 +136,27 @@ namespace GOAT
                 index[1] = currentIndex[1] + signy;
                 index[2] = currentIndex[2] + signz;
 
-                lambdax = (index[0] * git.d[0] - p0[0] - git.r0) / k0[0];
-                lambday = (index[1] * git.d[1] - p0[1] - git.r0) / k0[1];
-                lambdaz = (index[2] * git.d[2] - p0[2] - git.r0) / k0[2];
+                if (k0[0] != 0) lambdax = ((double)index[0] * git.d[0] - p0[0] - git.r0) / k0[0];
+                if (k0[1] != 0) lambday = ((double)index[1] * git.d[1] - p0[1] - git.r0) / k0[1];
+                if (k0[2] != 0) lambdaz = ((double)index[2] * git.d[2] - p0[2] - git.r0) / k0[2];
             
-            // fabs avoids question after k0[i]=0 which can result into -inf !
+              //  std::cout << "pnext: " << p0<< ":" << k0 << "/" << lambdax << "," << lambday << "," << lambdaz << std::endl;
             int i = 0;
-            if (fabs(lambdax) < fabs(lambday))
+            if (lambdax < lambday)
                 lambda = lambdax;
             else
             {
                 lambda = lambday;
                 i = 1;
             }
-            if (fabs(lambdaz) < lambda)
+            if (lambdaz < lambda)
             {
                 lambda = lambdaz;
                 i = 2;
                
             }
              currentIndex[i] = index[i];    
+             //std::cout << "currentIndex=" << currentIndex << std::endl;
             return  p0 + lambda * k0;
         }
         /*

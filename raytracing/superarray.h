@@ -132,37 +132,7 @@ namespace GOAT
          maths::Vector<int> kugelindex(maths::Vector<int> Pi); ///< for internal use only
          T kugelwert(maths::Vector<int> Pi); ///< for internal use only
          T kugelwert(int ix, int iy, int iz); ///< for internal use only
-  //       friend std::ostream&   operator << (std::ostream &os, const SuperArray &S);
  
- /* 
-    Hier kommen die eigentlichen Daten: 
-    Ein : Array mit den Einschluessen (Orte und Ausdehnungen der Einschluesse werden absolut angegeben)
-    numObjs : Anzahl Einschluesse
-    type: Verteilung der aktiven Molek�le
-          0: nur im Einschluss
-          1: nur im Host
-          2: �berall
-    ywerte,
-    zwerte : Arrays zur Bestimmung der Dimensionen von K
-    r0  : Radius des Host-Partikels=halbe Breite des Uebergitters
-    G   : Array mit den Untergittern, wird ben�tigt falls type 0 ist; ObjectShape : G[Einschlussindex][ix][iy][iz]
-    K   : Kugelgitter, wird ben�tigt falls type 1 oder 2 ist
-    Pul : Array mit den Basispunkten der Untergitter 
-    n   : Array mit den Ausdehnungen der    "   n[Einschlussindex][nx][ny][nz] (nx,ny,nz sind als Vektor zusammengefasst)
-    nges : Ausdehnung des Uebergitters als Vektor (nx,ny,nz) zusammengefasst 
-    d   : Gitterkonstanten als Vektor (dx,dy,dz) zusammengefasst
- */ 
-  /*
-         std::vector<ObjectShape*> Obj;
-         int numObjs, type;
-         std::vector<int> ywerte;
-         std::vector<std::vector<int> > zwerte;
-         std::vector< std::vector< std::vector< std::vector<T> > > > G;
-         std::vector< std::vector< std::vector<T> > > K;
-         T dummy;
-         maths::Vector<int>* Pul, * n, nges;
-    */     
-
          int Error;  ///< Holds an error number 
          ObjectShape** Obj=NULL; ///< here are the objects
          int numObjs; ///< Number of objects
@@ -176,15 +146,11 @@ namespace GOAT
          std::vector<maths::Vector<int>> n; ///< n[i]: Dimensions, i.e. number of subdivision in x-, y- and z-direction
          maths::Vector<int> nges; ///< Vector which contains the number of subdivisions in x-, y- and z-direction for the whole (virtual) array
 
-
-
-
          maths::Vector<double> d;  ///<  Edge length of one cell in x-, y- and z-direction
          double r0; ///< Radius of the calculation sphere
          bool isequal;
-         bool iscleared; ///< Array was just cleared 
-         T pc;
-         //  int Fehler;
+         bool iscleared = true; ///< Array is cleared (needed by the clear() function)
+         T pc;        
          maths::Matrix<double> H, R; ///< Transformation matrices in the local array coordinate system and backwards
     };
 
@@ -281,7 +247,7 @@ namespace GOAT
         */
         h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
 
-        hn = maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+        hn = maths::Vector<int>((int)h[0]+1, (int)h[1]+1, (int)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
 
         /* Berechne den tats�chlichen Bedarf */
         allocMem = sizeof(T***) + 2 * sizeof(maths::Vector<int>) + sizeof(ObjectShape*)
@@ -480,24 +446,24 @@ namespace GOAT
             if (Pi[0] >= n[i][0])
             {
                 Error = SUPERGITTER;
-                return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+                 return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[1] >= n[i][1])
             {
                 Error = SUPERGITTER;
-                return dummy; //maths::Vector<std::complex<double> > (0,0,0);
+                 return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[2] >= n[i][2])
             {
                 Error = SUPERGITTER;
-                return dummy;
+                 return dummy;
             }
 
             Error = NO_ERRORS;
-          //  std::cout << i << "," << Pi << std::endl;
-            return G[i][Pi[0]][Pi[1]][Pi[2]];
+            std::cout << "PIS:" << Pi << std::endl;
+             return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
         else
         {
@@ -545,6 +511,7 @@ namespace GOAT
                     return dummy;
                 }
                 Pi = Pi - Pul[i];
+                std::cout << "PI:" << Pi << std::endl;
                 return G[i][Pi[0]][Pi[1]][Pi[2]];
             }
         }

@@ -92,7 +92,7 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-
+			
 			while ((Reflexions <= numReflex) && (!Abbruch))
 			{
 

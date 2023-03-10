@@ -227,7 +227,7 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<int> cell;
 			double k0 = 2.0*M_PI/S.LS[currentLS]->wvl;
-			if ((S.Obj[currentObj]->inelactive) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
 			{
 				while (s < L)
 				{
@@ -263,7 +263,7 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<int> cell;
 			double k0 = 2.0 * M_PI / parms.wvlinel;
-			if ((S.Obj[currentObj]->inelactive) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
 			{
 				while (s < L)
 				{

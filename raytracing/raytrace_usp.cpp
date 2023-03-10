@@ -15,6 +15,7 @@ namespace GOAT
 
 		void Raytrace_usp::init()
 		{
+			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
 			if (S.nObj > 0)
 			{			
 				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);
@@ -49,18 +50,18 @@ namespace GOAT
 			stepEntry ge;
 			gridEntry gridStack;		
 			bool cancel = false;
-			
+			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
+			// std::cout << PStart << "/" << PStop << std::endl;
 			if (L < 2.0 * S.r0)
 			{	
 				// each cell entry consists of the stack, i.e. all steps until the detector was hidden and the 
 				// length of the step from the surface to the cell (last crossing point)
 				gridStack.step.insert(gridStack.step.end(), stack.step.begin(), stack.step.end());
-				gridStack.step.push_back(ge);
-
+						
 				while ( (s < L) && (!cancel) )
 				{
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
-					l = abs(Pnew - P); // length of the last step  
+					l = abs(Pnew - P); // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "ABBRUCH !!!!  " << P << "," << l << std::endl;
 										
@@ -76,12 +77,17 @@ namespace GOAT
 					
 					// put everything in the Array
 					SA[iR](currentObj, cell);
-					if (SA[iR].Error == NO_ERRORS)
-					{
-						SA[iR](currentObj, cell).push_back(gridStack);			
+				    if (SA[iR].Error == NO_ERRORS)
+					{						
+						SA[iR](currentObj, cell).push_back(gridStack);							
 						SA[iR](currentObj, cell).back().E = E;
+ 						gridStack.step.push_back(ge);
 					}		
-					else SA[iR].Error = NO_ERRORS;
+					else
+					{
+						SA[iR].Error = NO_ERRORS;
+						std::cout << "ERROR" << std::endl;
+					}
 					P = Pnew;					
 				}
 			}

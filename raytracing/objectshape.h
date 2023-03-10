@@ -101,8 +101,8 @@ namespace GOAT {
             std::complex<double> getninel() { return ninel; }                      ///< returns refractive index
             std::complex<double> getn() { return n; }                              ///< returns refractive index for inelastic (RRT) calculation
             void setPolMatrix(maths::Matrix<std::complex<double> >alpha) { this->alpha = alpha; }   ///< sets polarisability matrix
-            bool isActive() { return inelactive; }                                 ///< returns true if the object should be considered for inelastic calculation
-            void setActive(bool active) { inelactive = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
+            bool isActive() { return Active; }                                 ///< returns true if the object should be considered for inelastic calculation
+            void setActive(bool active) { Active = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
             void setAlpha(double Alpha) { setMatrix(Alpha, Ebeta, Egamma); }   ///< sets rotation angle around x-axis
             void setBeta(double Beta) { setMatrix(Ealpha, Beta, Egamma); }     ///< sets rotation angle around y-axis 
             void setGamma(double Gamma) { setMatrix(Ealpha, Ebeta, Gamma); }   ///< sets rotation angle around z-axis
@@ -117,7 +117,7 @@ namespace GOAT {
             double Ealpha, Ebeta, Egamma; ///< angles through which the object was rotated (around the x- (Ealpha), then the y- (Ebeta) and finally the z-axis (Egamma))
             double r0;                  ///< radius of the calculation sphere 
             double sf;         ///< scaling factor, it is used to scale the shape of the object     
-            bool inelactive;   ///< should the object be considered for inelastic (RRT) calculations?
+            bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
             double rho;        ///< mass density in \f$ kg/m^3 \f$
         };
 
