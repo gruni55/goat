@@ -31,7 +31,7 @@ var searchData=
   ['lost_28',['lost',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#aa786bfc19ad940359021636be54bacf3',1,'GOAT::raytracing::Raytrace']]],
   ['ls_29',['LS',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a3f5e225bb8ceb652d8377c503149102a',1,'GOAT::raytracing::Scene']]],
   ['lsrrt_30',['LSRRT',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a0a8b063fc17e73bbc8fb464bf955f8d0',1,'GOAT::raytracing::Scene']]],
-  ['lstart_31',['lstart',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#af025b037aff2afa99ea4008b07b54fdf',1,'GOAT::raytracing::TrafoParms']]],
-  ['lstop_32',['lstop',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a4306b5ccc069539ee3ef55697b3e33ef',1,'GOAT::raytracing::TrafoParms']]],
+  ['lstart_31',['lstart',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a2051c00bb2b589ae7236dcfa84cc4f8a',1,'GOAT::raytracing::TrafoParms']]],
+  ['lstop_32',['lstop',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a4add5c9770ef8ea31474ebb2e7e87f5b',1,'GOAT::raytracing::TrafoParms']]],
   ['lswidth_33',['LSwidth',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#aaa07d911730cc39588da85577fe032f3',1,'GOAT::raytracing::shortPulse']]]
 ];

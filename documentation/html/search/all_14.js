@@ -6,7 +6,7 @@ var searchData=
   ['wavelengthrange_3',['wavelengthRange',['../struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html',1,'GOAT::raytracing']]],
   ['writerrtparms_4',['writeRRTParms',['../namespace_g_o_a_t_1_1raytracing.html#aa37458b1e92451c6fd35c55417d1a088',1,'GOAT::raytracing']]],
   ['writetriangleoctree_5',['writeTriangleOctree',['../namespace_g_o_a_t_1_1raytracing.html#a6826cb534cf0319351a923a72ce00d73',1,'GOAT::raytracing']]],
-  ['wvl_6',['wvl',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a534679307d01f8d8f07ed47f34051586',1,'GOAT::raytracing::TrafoParms::wvl()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117',1,'GOAT::raytracing::LightSrc::wvl()']]],
+  ['wvl_6',['wvl',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a5bab2f801a7df2c21670c331501bb986',1,'GOAT::raytracing::TrafoParms::wvl()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117',1,'GOAT::raytracing::LightSrc::wvl()']]],
   ['wvlinel_7',['wvlinel',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#af462e5457e46225f6c5619f5e9529d34',1,'GOAT::raytracing::RRTParms']]],
   ['wvlranges_8',['wvlRanges',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#a0bb93cad8825da7cea0fd95a256eb769',1,'GOAT::raytracing::shortPulse']]],
   ['wvlstart_9',['wvlStart',['../struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html#a785002e1477c70c6b510cbc797c26a09',1,'GOAT::raytracing::wavelengthRange']]],

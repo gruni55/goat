@@ -97,7 +97,7 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_trafo.
 </div><!--header-->
 <div class="contents">
 
-<p>This class calculates the time dependence of a field which calculated before The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html">TrafoParms</a> carries all information needed for the calculation.  
+<p>This class calculates the time dependence of a field which calculated before.  
  <a href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="fft_8h_source.html">fft.h</a>&gt;</code></p>
@@ -122,9 +122,10 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
-class GOAT::raytracing::Trafo&lt; T &gt;</div><p >This class calculates the time dependence of a field which calculated before The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html">TrafoParms</a> carries all information needed for the calculation. </p>
+class GOAT::raytracing::Trafo&lt; T &gt;</div><p >This class calculates the time dependence of a field which calculated before. </p>
+<p >The calculation of the time dependence is made in two steps. In the first step, the fields are calculate for different wavelengths. In this class, the second step will be made. Here the time dependence is calculated with a kind of Fourier transformation. The class requires an array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements which contain the fields for the different wavelengths. The process assumes, that the wavelength range can be subdivided into subranges where the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, only the phase change within this subranges is considered. The structure <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> carries all information needed for the calculation </p>
 
-<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00055">55</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00047">47</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af3bb30f2fb0da5824493063713caf632" name="af3bb30f2fb0da5824493063713caf632"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3bb30f2fb0da5824493063713caf632">&#9670;&#160;</a></span>Trafo() <span class="overload">[1/2]</span></h2>
@@ -140,7 +141,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00087">87</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00079">79</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 
 </div>
 </div>
@@ -165,7 +166,7 @@ template&lt;class T &gt; </div>
 <p>Contructor for initialization <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00092">92</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00084">84</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 
 </div>
 </div>
@@ -200,12 +201,12 @@ template&lt;class T &gt; </div>
 <p >Perform a calculation at the time t </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">SA</td><td>Array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements. Contains the fields for the different wavelengths <br  />
- defined by the parameters in the corresponding <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html">TrafoParms</a> structure, given in the constructor </td></tr>
+ defined by the parameters in the corresponding <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> structure, given in the constructor </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00123">123</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00115">115</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +228,7 @@ template&lt;class T &gt; </div>
 <p>Container for the last result <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00067">67</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00059">59</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 
 </div>
 </div>

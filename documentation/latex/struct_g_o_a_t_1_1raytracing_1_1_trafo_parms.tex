@@ -2,33 +2,44 @@
 \label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}\index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 
 
+Structure, which acts as a container for all informations needed to process the calculation. ~\newline
+  
+
+
+
+
 {\ttfamily \#include $<$fft.\+h$>$}
 
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}{nI}}
-\item 
-int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}{nS}} =1000
-\item 
-int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}{nR}} = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}
-\item 
-double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}{lstart}}
-\item 
-double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}{lstop}}
-\item 
-double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a534679307d01f8d8f07ed47f34051586}{wvl}}
-\item 
+int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}{nI}}
+\begin{DoxyCompactList}\small\item\em defines the start of the integration range \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}{nS}} =1000
+\begin{DoxyCompactList}\small\item\em number of subdivision in the spectral range ~\newline
+ \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}{nR}} = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}
+\begin{DoxyCompactList}\small\item\em number of reflections considered in the raytracing part \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2051c00bb2b589ae7236dcfa84cc4f8a}{lstart}}
+\begin{DoxyCompactList}\small\item\em lowest wavelength considered in the calculation \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4add5c9770ef8ea31474ebb2e7e87f5b}{lstop}}
+\begin{DoxyCompactList}\small\item\em highest wavelength considered in the calculation \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}{wvl}}
+\begin{DoxyCompactList}\small\item\em main wavelength ~\newline
+ \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}}
-\item 
+\begin{DoxyCompactList}\small\item\em width of the pulse (in seconds) \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{n\+List}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Structure, which acts as a container for all informations needed to process the calculation. ~\newline
+ 
 
+This structure is needed for the Fourier transformation which is used to calculate the temporal development of the electric field in space. Since dispersion is considered, for all objects and also for the surrounding medium functions are necessary which calculate the complex-\/valued refractive index from the wavelength. These functions are stored in the element n\+List. 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00032}{32}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+Definition at line \mbox{\hyperlink{fft_8h_source_l00024}{24}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
 
 
@@ -41,39 +52,53 @@ Definition at line \mbox{\hyperlink{fft_8h_source_l00032}{32}} of file \mbox{\hy
 
 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00040}{40}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+width of the pulse (in seconds) 
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_af025b037aff2afa99ea4008b07b54fdf}} 
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00032}{32}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2051c00bb2b589ae7236dcfa84cc4f8a}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2051c00bb2b589ae7236dcfa84cc4f8a}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!lstart@{lstart}}
 \index{lstart@{lstart}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{lstart}{lstart}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::lstart}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Trafo\+Parms\+::lstart}
 
-Structure, which acts as a container for all informations needed to process the calculation
 
-defines the start of the integration range 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00037}{37}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+lowest wavelength considered in the calculation 
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4306b5ccc069539ee3ef55697b3e33ef}} 
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00029}{29}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4add5c9770ef8ea31474ebb2e7e87f5b}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a4add5c9770ef8ea31474ebb2e7e87f5b}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!lstop@{lstop}}
 \index{lstop@{lstop}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{lstop}{lstop}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::lstop}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Trafo\+Parms\+::lstop}
 
-defines end of the integration range 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00038}{38}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acb4c3340650c14100e38e9d1c59650a7}} 
+highest wavelength considered in the calculation 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00030}{30}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!nI@{nI}}
 \index{nI@{nI}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{nI}{nI}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::nI}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Trafo\+Parms\+::nI}
 
-number of subranges 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00034}{34}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+defines the start of the integration range 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00026}{26}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
 \mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!nList@{nList}}
@@ -83,38 +108,55 @@ Definition at line \mbox{\hyperlink{fft_8h_source_l00034}{34}} of file \mbox{\hy
 
 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00041}{41}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium 
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_acc38e720f6f2591d0ffcc9f79038e00d}} 
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00033}{33}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!nR@{nR}}
 \index{nR@{nR}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{nR}{nR}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::nR = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Trafo\+Parms\+::nR = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}}
 
-number of reflections considered in each \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00036}{36}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a2ce65269b2b5f5baab6bef651d42cb86}} 
+number of reflections considered in the raytracing part 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00028}{28}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!nS@{nS}}
 \index{nS@{nS}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{nS}{nS}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::nS =1000}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Trafo\+Parms\+::nS =1000}
 
-number of steps to consider within a subrange 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00035}{35}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
-\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a534679307d01f8d8f07ed47f34051586}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a534679307d01f8d8f07ed47f34051586}} 
+number of subdivision in the spectral range ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00027}{27}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+\mbox{\Hypertarget{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}\label{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}} 
 \index{GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}!wvl@{wvl}}
 \index{wvl@{wvl}!GOAT::raytracing::TrafoParms@{GOAT::raytracing::TrafoParms}}
 \doxysubsubsection{\texorpdfstring{wvl}{wvl}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Trafo\+Parms\+::wvl}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Trafo\+Parms\+::wvl}
 
-mid wavelength ~\newline
+
+
+main wavelength ~\newline
  
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00039}{39}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+
+
+Definition at line \mbox{\hyperlink{fft_8h_source_l00031}{31}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
 
 
