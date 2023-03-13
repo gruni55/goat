@@ -12,7 +12,7 @@ namespace GOAT
 #ifndef I 
 #define I std::complex<double> (0.0,1.0)
 #endif
-        constexpr int N_INTEGRAL = 1000;
+        constexpr int N_INTEGRAL = 500;
 
         /*! \brief Structure, which acts as a container for all informations needed to process the calculation.       
         * 
@@ -55,7 +55,7 @@ namespace GOAT
             * @param SA Array of SuperArray elements. Contains the fields for the different wavelengths  
             * defined by the parameters in the corresponding TrafoParms structure, given in the constructor
             */
-            void calc(std::vector<SuperArray <std::vector<gridEntry> > >& SA, double t); 
+            void calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t);
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
             void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList);
 

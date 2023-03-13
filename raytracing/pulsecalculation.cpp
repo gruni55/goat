@@ -1,6 +1,7 @@
 #include "pulsecalculation.h"
 #include "fft.h"
 
+
 namespace GOAT
 {
 	namespace raytracing
@@ -20,10 +21,10 @@ namespace GOAT
 			{
 				for (int ls = 0; ls < S.nLS; ls++)
 					S.LS[ls]->wvl = trafoparms.lstart + i * dRWvl;
-				rt = Raytrace_usp(S, nn);				
-				rt.trace();
-				save(rt.SA[0], "H:\\data\\data2.log");
-				SA.push_back(rt.SA);				
+				rt = Raytrace_usp(S, nn);	
+				rt.trace();				
+				// save(rt.SA[0], "H:\\data\\data2.log");
+				SA.push_back(rt.SA);
 			}			
 		}
 
@@ -32,9 +33,15 @@ namespace GOAT
 			
 			if (trafoparms.nList.size() == S.nObj + 1) // process calculation only, if all necessary refractive index functions are given
 			{
-				if (!raytracingDone) fieldCalculation(); // raytracing is necessary only once
+				if (!raytracingDone)
+				{
+					std::cout << "Start raytracing...";
+					fieldCalculation(); // raytracing is necessary only once
+					std::cout << "done." << std:: endl;
+				}
 				save(rt.SA[0], "H:\\data\\data.log");
-				trafo.calc(rt.SA,t);
+				trafo.calc(SA,t);
+				raytracingDone = true;
 			}
 		}
 

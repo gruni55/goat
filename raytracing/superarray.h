@@ -36,11 +36,12 @@ namespace GOAT
          SuperArray(const SuperArray& S)
          {
              Error = NO_ERRORS;
-             Obj = S.Obj;
-             numObjs = S.numObjs;
+             
              type = S.type;
              ywerte = S.ywerte;
              zwerte = S.zwerte;
+             numObjs = S.numObjs;
+             Obj = S.Obj;
              G = S.G;
              K = S.K;
              Pul = S.Pul;
@@ -65,7 +66,7 @@ namespace GOAT
           * 
           *  @brief Adds another SuperArray object. 
           * In this function, all array elements from \p S are added to the existing array elements.
-          *
+          *           *
           */ 
          void add (const SuperArray& S);
          /**
@@ -462,8 +463,7 @@ namespace GOAT
             }
 
             Error = NO_ERRORS;
-            std::cout << "PIS:" << Pi << std::endl;
-             return G[i][Pi[0]][Pi[1]][Pi[2]];
+           return G[i][Pi[0]][Pi[1]][Pi[2]];
         }
         else
         {
@@ -629,16 +629,26 @@ namespace GOAT
 
     template <class T> void SuperArray<T>::copy(const SuperArray<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
     {
-        G = S.G;
-        /*for (int i = 0; i < numObjs; i++)
-            
-            if (S.G[i] != NULL)
-            {
+        clear();
+        addInc(S.Obj, S.numObjs);
+        for (int i = 0; i < numObjs; i++)
+            if (Obj[i]->isActive())
                 for (int ix = 0; ix < n[i][0]; ix++)
                     for (int iy = 0; iy < n[i][1]; iy++)
                         for (int iz = 0; iz < n[i][2]; iz++)
                             G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
-            }*/
+        K = S.K;
+        Pul = S.Pul;
+        n = S.n;
+        nges = S.nges;
+        d = S.d;
+        r0 = S.r0;
+        isequal = S.isequal;
+        iscleared = S.iscleared;
+        pc = S.pc;
+        H = S.H;
+        R = S.R;
+        
     }
 
     template <class T> SuperArray<T>& SuperArray<T>::operator = (const SuperArray<T>& S)

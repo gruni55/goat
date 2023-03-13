@@ -37,9 +37,9 @@ namespace GOAT
 				std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
 				
 				Raytrace_usp rt;
-				double dWvl; // spectral width of the light
+				double dWvl;  // spectral width of the light
 				double dRWvl; // spectral width of one subdivision
-				int nn; // number of cells over the whole width of the calculation space (i.e. 2*r0)
+				int nn;       // number of cells over the whole width of the calculation space (i.e. 2*r0)
 				Scene S;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
 				bool raytracingDone = false; ///< If true, the raytracing part was done and the field calculation starts directly				

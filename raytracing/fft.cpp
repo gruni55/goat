@@ -1,4 +1,5 @@
 #include "fft.h"
+#include <chrono>
 namespace GOAT
 {
     namespace raytracing
@@ -31,8 +32,9 @@ namespace GOAT
 
 
       
-        void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > >& SA, double t)
+        void Trafo::calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t)
         {
+            
             maths::Vector<std::complex<double> > E;
             std::complex<double> phase;
             int nsteps;
@@ -41,19 +43,23 @@ namespace GOAT
             double domega; // step size for the integration inside the subrange in angular frequency
             double omega; // angular frequency
             double wvl;
-
-            initResult(SA[0].r0, SA[0].nges[0], SA[0].nges[1], SA[0].nges[2], SA[0].Obj, SA[0].numObjs);
+            
+            initResult(SA[0][0].r0, SA[0][0].nges[0], SA[0][0].nges[1], SA[0][0].nges[2], SA[0][0].Obj, SA[0][0].numObjs);
 
             SAres.fill(maths::czero); // empty the whole result array
             Dwvl = (tp.lstop - tp.lstart) / (double)tp.nI;
             /* -----  Loops over positions ------ */
+            for (int iWvl=0; iWvl<tp.nI; iWvl++)
             for (int iR = 0; iR < tp.nR; iR++) // loop over reflection order
-                for (int i = 0; i < SA[iR].numObjs; i++) // loop over object number (i.e. over Sub-Array in SuperArray)
-                    for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
-                        for (int iy = 0; iy < SA[iR].n[i][1]; iy++)
-                            for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
+                for (int i = 0; i < SA[iWvl][iR].numObjs; i++) // loop over object number (i.e. over Sub-Array in SuperArray)
+                    for (int ix = 0; ix < SA[iWvl][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                        for (int iy = 0; iy < SA[iWvl][iR].n[i][1]; iy++)
+                            for (int iz = 0; iz < SA[iWvl][iR].n[i][2]; iz++)
                             {
-                                SAres.G[i][ix][iy][iz] = integrate(t, SA[iR].G[i][ix][iy][iz], omegastart, omegastop, tp.nS);
+                                auto start = std::chrono::high_resolution_clock::now();
+                                SAres.G[i][ix][iy][iz] += integrate(t, SA[iWvl][iR].G[i][ix][iy][iz], omegastart, omegastop, tp.nS);
+                                auto end = std::chrono::high_resolution_clock::now();
+                                std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " ms" << std::endl;
                             }
 
 
@@ -95,17 +101,17 @@ namespace GOAT
             double omega;
             double domega = (omegastop - omegastart) / ((double)nsteps - 1.0);
             double weight;
-            for (auto ge : vge) // Loop over all rays which hit the cell
+            for (int iomega = 0; iomega < nsteps; iomega++)           
             {
-                for (int iomega = 0; iomega < nsteps; iomega++)
+                omega = omegastart + iomega * domega;
+                weight = exp(-twoSigma2 * (omega - omega0) * (omega - omega0));
+                k0 = C_LIGHT_MU / omega;
+                for (auto ge : vge) // Loop over all rays which hit the cell
                 {
-                    omega = omegastart + iomega * domega;
-                    k0 = omega / C_LIGHT_MU;
                     phase = exp(I * calcPhase(ge.step, k0));
                     phase *= exp(-I * omega * t);
-                    weight = exp(-twoSigma2 * (omega - omega0) * (omega - omega0));
                     E += weight * ge.E * phase;
-                }
+                }                                     
             }
             return E;
         }

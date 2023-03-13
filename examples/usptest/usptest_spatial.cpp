@@ -1,11 +1,5 @@
-#include "raytrace_usp.h"
-#include "raytrace_inel.h"
-#include "fft.h"
-#include <complex>
-#include <functional>
-#include <sstream>
-#include "raytrace_inel.h"
 #include <chrono>
+#include "pulsecalculation.h"
 
 std::complex<double> none(double wvl)
 {
@@ -28,7 +22,40 @@ std::complex<double> nGlass(double wvl)
 	return 1.5075;
 }
 
-int main (int argc, char **argv)
+
+
+int main(int argc, char** argv)
+{
+	GOAT::maths::Vector<double> LSPos(-5000, 0, 0);
+	int numRays = 100;
+	double LSSize = 100;
+	GOAT::maths::Vector<double> LSDir(1.0, 0.0, 0.0);
+	GOAT::raytracing::LightSrcPlane LS(LSPos, numRays, 1.0, LSSize);
+	LS.setk(LSDir);
+	
+
+	GOAT::maths::Vector<double> ObjPos = GOAT::maths::dzero;
+	GOAT::maths::Vector<double> ObjDim(2, 100, 100);
+	GOAT::raytracing::Box Obj(ObjPos, ObjDim, 1.0);
+
+	GOAT::raytracing::Scene S;
+	S.setnS(1.0);
+	S.setr0(10000.0);
+	S.addLightSource(&LS);
+	S.addObject(&Obj);
+
+	std::vector<std::function<std::complex<double>(double) > > nList;
+	nList.push_back(none);
+	nList.push_back(none);
+
+	GOAT::raytracing::pulseCalculation pc(S);
+	pc.setPulseWidth(1E-15);
+	pc.setRefractiveIndexFunctions(nList);
+	pc.field(0.0);
+	saveabsEbin(pc.trafo.SAres, "H:\\data\\field.dat");
+	return 0;
+}
+/*int main(int argc, char** argv)
 {
 	// Define light source 
 	GOAT::maths::Vector<double> LSPos = -300 * GOAT::maths::ex;
@@ -66,3 +93,4 @@ int main (int argc, char **argv)
 	rt.exportExcitation("h:\\data\\usptest_bin");
   return 0;
 }
+*/

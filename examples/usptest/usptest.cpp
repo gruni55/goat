@@ -3,6 +3,7 @@
 #include <complex>
 #include <functional>
 #include <sstream>
+#include "pulsecalculation.h"
 
 std::complex<double> none(double wvl)
 {
@@ -38,7 +39,7 @@ int main (int argc, char **argv)
 	
 	// use light source with arbitrary ray distribution 
 	GOAT::maths::Vector<double> P(-0.8E+6, 0, 0);          // Position of the light source
-	GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 50); // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
+	GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 2); // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
 	GOAT::maths::Vector<double> k(1, 0, 0); // direction of the wave
 	k = k / abs(k); 
 	LS.setk(k);
@@ -58,12 +59,12 @@ int main (int argc, char **argv)
 
 	double dwvl= wvl * wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU * dt);// spectral FWHM
 	std::cout << "dwvl=" << dwvl*1E+3 << "nm" << std::endl;
-	std::vector<std::function<std::complex<double>(double) > > nList;
+	
     
 	std::cout << "Do raytracing...";
 	GOAT::raytracing::Raytrace_usp rt(S,nCells);
 	rt.setNumReflex(0);
-	rt.trace();
+	//rt.trace();
 	std::cout << "done." << std::endl;
 	
 	GOAT::raytracing::TrafoParms parms;	
@@ -87,12 +88,14 @@ int main (int argc, char **argv)
 	parms.nList.push_back(none);
 	*/
 	
-	GOAT::raytracing::Trafo<GOAT::maths::Vector<double> > T(parms);
+	//GOAT::raytracing::Trafo T(parms);
 	std::string fname = "H:\\testsc.dat";
 	// save(rt.SA[0], fname);
 
     
-	
+	std::vector<std::function<std::complex<double>(double) > > nList;
+	nList.push_back(none);
+	nList.push_back(none);
 	std::string numStr;
 	std::stringstream sstr;
 	double t;
@@ -101,19 +104,20 @@ int main (int argc, char **argv)
 	double h;
 	std::string str;
 	std::ofstream os ("h:\\data\\timec.dat");
- 
+	GOAT::raytracing::pulseCalculation pc(S);
+	pc.setRefractiveIndexFunctions(nList);
+	pc.setPulseWidth(100E-15);
 	for (int i = 0; i < n; i++)
 	{
-		// t = 4.464e-9- i * dt / 10.0;
+		 t = 2.5E-9+i*1E-13;
 		os.precision(7);
 		os << t*1E+9 << std::endl;
-		// t =  4.4615e-9-(double)n/2.0*dt/10.0+i * dt/10.0;
-		T.calc(rt.SA, t);
+		pc.field(t);
 		sstr  << "h:\\data\\testc" << i << ".dat";
 		fname = sstr.str();		
 		sstr.str("");
 		std::cout << "current filename:" << fname << "\t t=" << t*1E+9;
-		GOAT::raytracing::saveabsE(T.SAres, fname);
+		GOAT::raytracing::saveabsE(pc.trafo.SAres, fname);
 		is.open(fname);
 		std::getline(is, str);
 		is >> h;
