@@ -1,5 +1,7 @@
 #include "fft.h"
 #include <chrono>
+#include <math.h>
+
 namespace GOAT
 {
     namespace raytracing
@@ -12,10 +14,12 @@ namespace GOAT
 
         Trafo::Trafo(TrafoParms tp)
         {
-            this->tp = tp;
-            omegastart = 2.0 * M_PI * C_LIGHT_MU / tp.lstop;
-            omegastop = 2.0 * M_PI * C_LIGHT_MU / tp.lstart;
+            this->tp = tp;            
             twoSigma2 = tp.dt * tp.dt / (4.0 * M_LN2);
+            double sigma = tp.dt / 2.3548;
+            sigma2 = sigma * sigma;
+            // sigma2 = tp.dt * tp.dt / (8.0 * M_LN2);
+            prefactor = 1.0 / sqrt(twoSigma2 * 2.0 * M_PI);
         }
 
         void Trafo::initResult(SuperArray<maths::Vector<std::complex<double> >>& SA)
@@ -31,37 +35,87 @@ namespace GOAT
         }
 
 
+        GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop)
+        {
+            double k0;
+        GOAT:maths::Vector<std::complex<double> > E;
+            std::complex<double> phase;
+
+           
+            double omega;
+            double domega = 2.0 * M_PI / fabs(tref - t);
+            double Domega = tp.omegaEnd - tp.omegaStart;
+            double dw;
+            int nsteps = Domega / domega + 1;
+            if (nsteps < tp.nS)
+            {
+                nsteps = tp.nS;
+                domega = Domega / ((double)(nsteps - 1));
+            }
+    
+            double weight;
+            std::ofstream os("h:\\data\\blubb.dat");
+            for (int iomega = 0; iomega < nsteps; iomega++)
+            {
+                omega = tp.omegaStart + iomega * domega;
+                dw = (omega - tp.omega0);
+                double ws = dw * dw * sigma2 / 2.0;                
+                weight = exp(-ws);                             
+                k0 = C_LIGHT_MU / omega;
+                for (auto ge : vge) // Loop over all rays which hit the cell
+                {
+                    phase = exp(I * calcPhase(ge.step, k0));
+                    phase *= exp(I * omega * (t - tref));                                              
+                    os << tp.omega0 << "\t" << omega - tp.omega0 << "\t" << weight << std::endl;
+                    E += weight  * phase * domega * GOAT::maths::ex;
+                }
+            }
+            os.close();
+            return E;
+        }
+
       
         void Trafo::calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t)
         {
             
-            maths::Vector<std::complex<double> > E;
+            maths::Vector<std::complex<double> > E; 
             std::complex<double> phase;
             int nsteps;
-            double dwvl; // step size for the integration inside the subrange in wavelength
-            double Dwvl; // width of one subrange
+            double dwvl;   // step size for the integration inside the subrange in wavelength
+            double Dwvl;   // width of one subrange
             double domega; // step size for the integration inside the subrange in angular frequency
-            double omega; // angular frequency
+            double omega;  // angular frequency
+            double omegaStart, omegaEnd;
             double wvl;
-            
+            double lambda;
+            double omega0 = 2.0 * M_PI * C_LIGHT_MU / tp.wvl;
             initResult(SA[0][0].r0, SA[0][0].nges[0], SA[0][0].nges[1], SA[0][0].nges[2], SA[0][0].Obj, SA[0][0].numObjs);
+            double Sigma = 2.3548 / tp.dt;
+            double Domega = 2.0 * Sigma;
+            
 
             SAres.fill(maths::czero); // empty the whole result array
-            Dwvl = (tp.lstop - tp.lstart) / (double)tp.nI;
-            /* -----  Loops over positions ------ */
-            for (int iWvl=0; iWvl<tp.nI; iWvl++)
-            for (int iR = 0; iR < tp.nR; iR++) // loop over reflection order
-                for (int i = 0; i < SA[iWvl][iR].numObjs; i++) // loop over object number (i.e. over Sub-Array in SuperArray)
-                    for (int ix = 0; ix < SA[iWvl][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
-                        for (int iy = 0; iy < SA[iWvl][iR].n[i][1]; iy++)
-                            for (int iz = 0; iz < SA[iWvl][iR].n[i][2]; iz++)
-                            {
-                                auto start = std::chrono::high_resolution_clock::now();
-                                SAres.G[i][ix][iy][iz] += integrate(t, SA[iWvl][iR].G[i][ix][iy][iz], omegastart, omegastop, tp.nS);
-                                auto end = std::chrono::high_resolution_clock::now();
-                                std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() << " ms" << std::endl;
-                            }
-
+            domega = Domega / (double)tp.nI;
+            
+            
+            
+             for (int iOmega = 0; iOmega < tp.nI; iOmega++) // loop over the spectral ranges
+            {               
+                 omega = tp.omegaStart + iOmega * domega - domega / 2.0;
+                omegaStart = omega - domega / 2.0;
+                omegaEnd = omega + domega / 2.0;
+                for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
+                    for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
+                        for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                            for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
+                                for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)
+                                {
+                                    // auto start = std::chrono::high_resolution_clock::now();
+                                    SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
+                                    //auto end = std::chrono::high_resolution_clock::now();
+                                   // std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()/1000000 << " s" << std::endl;
+                                }
+            }
 
         }
 
@@ -70,6 +124,14 @@ namespace GOAT
             tp.nList = nList;
         }
 
+
+        void Trafo::setTrafoParms(TrafoParms trafoparms)
+        {
+            tp = trafoparms;
+            double sigma = tp.dt / 2.3548;
+            sigma2 = sigma * sigma;
+        }
+/*
         void Trafo::createLTexpo()
         {
             double dl = (tp.lstop - tp.lstart) / (double)(tp.nS - tp.nI - 1);
@@ -81,43 +143,25 @@ namespace GOAT
                 freq.push_back(2.0 * M_PI * C_LIGHT_MU / l);
             }
         }
-
+        */
         std::complex<double> Trafo::calcPhase(std::vector<stepEntry> steps, double k0)
         {
+            double L = 0;
             std::complex<double> sum = 0;
+            
             for (stepEntry se : steps)
+            {
                 sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;
+            }
+           
             return sum;
         }
 
 
 
-        GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop, int nsteps)
-        {
-            double k0;
-        GOAT:maths::Vector<std::complex<double> > E;
-            std::complex<double> phase;
-            double omega0 = 2.0 * M_PI * C_LIGHT_MU / tp.wvl;
-            double omega;
-            double domega = (omegastop - omegastart) / ((double)nsteps - 1.0);
-            double weight;
-            for (int iomega = 0; iomega < nsteps; iomega++)           
-            {
-                omega = omegastart + iomega * domega;
-                weight = exp(-twoSigma2 * (omega - omega0) * (omega - omega0));
-                k0 = C_LIGHT_MU / omega;
-                for (auto ge : vge) // Loop over all rays which hit the cell
-                {
-                    phase = exp(I * calcPhase(ge.step, k0));
-                    phase *= exp(-I * omega * t);
-                    E += weight * ge.E * phase;
-                }                                     
-            }
-            return E;
-        }
 
 
-
+        void Trafo::setReferenceTime(double tref) { this->tref = tref; }
 
         /*
 

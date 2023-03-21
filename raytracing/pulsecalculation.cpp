@@ -9,18 +9,30 @@ namespace GOAT
 		pulseCalculation::pulseCalculation(Scene S)
 		{
 			this->S = S;
-			setPulseWidth(10E-15);
+			setDefaults();
+			setPulseWidth(40E-15);
 			setSpatialResolution(1.0);
 			trafo = Trafo(trafoparms);			
+		}
+
+		void pulseCalculation::setReferenceTime(double tref)
+		{
+			this->tref = tref;
+			trafo.setReferenceTime(tref);
 		}
 
 
 		void pulseCalculation::fieldCalculation()
 		{			
+			double Sigma = 2.3548 / trafoparms.dt;
+			double Domega = 2.0 * Sigma;			
+			double domega = Domega / (double)trafoparms.nI;
+			double omega;
 			for (int i = 0; i < trafoparms.nI; i++)
 			{
+				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
 				for (int ls = 0; ls < S.nLS; ls++)
-					S.LS[ls]->wvl = trafoparms.lstart + i * dRWvl;
+					S.LS[ls]->wvl = 2.0 * M_PI * C_LIGHT_MU / omega;
 				rt = Raytrace_usp(S, nn);	
 				rt.trace();				
 				// save(rt.SA[0], "H:\\data\\data2.log");
@@ -39,7 +51,7 @@ namespace GOAT
 					fieldCalculation(); // raytracing is necessary only once
 					std::cout << "done." << std:: endl;
 				}
-				save(rt.SA[0], "H:\\data\\data.log");
+				 //save(rt.SA[0], "H:\\data\\data.log");
 				trafo.calc(SA,t);
 				raytracingDone = true;
 			}
@@ -62,20 +74,22 @@ namespace GOAT
 
 		void pulseCalculation::setPulseWidth(double dt)
 		{
-			dWvl = trafoparms.wvl * trafoparms.wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU * dt);	// FWHM
+			// dWvl = trafoparms.wvl * trafoparms.wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU * dt);	// FWHM
 			trafoparms.dt = dt;
-			trafoparms.lstart = trafoparms.wvl - dWvl / 2.0;
-			trafoparms.lstop = trafoparms.wvl + dWvl / 2.0;
-			dRWvl = dWvl / trafoparms.nI;
+			trafoparms.omega0 = C_LIGHT_MU * 2.0 * M_PI / trafoparms.wvl;			
+			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / dt; // Spectral sigma
+			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
+			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;			
+			trafo.setTrafoParms(trafoparms);
 		}
 
 		void pulseCalculation::setDefaults()
 		{
-			trafoparms.dt = 10E-15;
+			trafoparms.dt = 1E-15;
 			trafoparms.wvl = 1.0;
-			trafoparms.nI = 4;
-			trafoparms.nR = 2;
-			trafoparms.nS = 1.0;
+			trafoparms.nI = 1;
+			trafoparms.nR = 1;
+			trafoparms.nS = 50;			
 			setPulseWidth(trafoparms.dt);
 		}
 
@@ -89,8 +103,7 @@ namespace GOAT
 		void pulseCalculation::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)
 		{
 			trafoparms.nList = nList;	
-			trafo.setRefractiveIndexFunctions(nList);
-			
+			trafo.setRefractiveIndexFunctions(nList);			
 		}
 	}
 }

@@ -24,12 +24,13 @@ namespace GOAT
         typedef struct TrafoParms
         {
             int nI=4;                     ///< defines the start of the integration range
-            int nS=1000;                ///< number of subdivision in the spectral range   
+            int nS=200;                ///< number of subdivision in the spectral range   
             int nR= INEL_MAX_NREFLEX;   ///< number of reflections considered in the raytracing part
-            double lstart;              ///< lowest wavelength considered in the calculation 
-            double lstop;               ///< highest wavelength considered in the calculation 
+            double omegaStart;              ///< lowest wavelength considered in the calculation 
+            double omegaEnd;               ///< highest wavelength considered in the calculation 
+            double omega0;
             double wvl=1.0;                 ///< main wavelength   
-            double dt=100E-15;                  ///< width of the pulse (in seconds) 
+            double dt=1E-15;                  ///< width of the pulse (in seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
         };
 
@@ -43,6 +44,9 @@ namespace GOAT
         * wavelength range can be subdivided into subranges in which the paths of the rays remain nearly the same. 
         * Since the phase is much more sensitive to changes of the refractive index, the phase change within these 
         * subranges is considered. The structure TrafoParms carries all information needed for the calculation.
+        * The spectral resolution, needed to prevent "ghost" peaks is a function of the time difference dt to a certain 
+        * reference time tref: dt=|tref-t|. By default tref is set to 0, but if you are interested of a range around 
+        * a certain time, set tref to this time to reduce the amount of needed frequencies
         */
         class Trafo
         {
@@ -58,26 +62,25 @@ namespace GOAT
             void calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t);
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
             void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList);
-
+            void setReferenceTime(double tref);
+            void setTrafoParms(TrafoParms trafoparms); 
 
         private:
             void initResult(SuperArray<maths::Vector<std::complex<double> >>& SA);
             void initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs);
             double pulseWeight(double omega);
-            void createLTexpo();
+        //    void createLTexpo();
             std::complex<double> calcPhase(std::vector<stepEntry> steps, double k0);
             GOAT::maths::Vector<std::complex<double> > calcOne(std::vector<stepEntry> steps, double t);
-            GOAT::maths::Vector<std::complex<double> > integrate(double t, std::vector<gridEntry> ge, double omegastart, double omegastop,  int nsteps=100);
+            GOAT::maths::Vector<std::complex<double> > integrate(double t, std::vector<gridEntry> ge, double omegastart, double omegastop);
             double twoSigma2; 
+            double sigma2;
+            double prefactor; // 1/(sigma * sqrt (2pi))
             double omegastart, omegastop;
             std::vector<double> freq;
+            double tref = 0.0;
             TrafoParms tp;
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
         };
-
-
-
-     
-
 	}
 }

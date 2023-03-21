@@ -69,7 +69,7 @@ namespace GOAT
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
 					// prepare cell entry
-					ge.l = abs(PStart-Pnew); 
+					ge.l = abs(P-Pnew); 
 
 					// set the right material index 
 					if (currentObj < 0) ge.matIndex = S.nObj;

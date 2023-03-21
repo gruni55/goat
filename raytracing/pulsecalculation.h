@@ -29,10 +29,17 @@ namespace GOAT
 				void setSpatialResolution(double dx); ///< sets the spatial resolution to a value near to dx
 				void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList); ///< sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1)
 				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
-				void reset(); ///< Clears all arrays 				
+				void reset(); ///< Clears all arrays 		
+				void setReferenceTime(double tref);
 				Trafo trafo;
 
 			private:	
+				/* In this function the default values (trafoparms) for the calculations are set as follows:
+				* dt  : 1E-14s
+				* wvl : 1.0µm
+				* nI  : 1
+				* 
+				*/
 				void setDefaults();				
 				std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
 				
@@ -45,6 +52,7 @@ namespace GOAT
 				bool raytracingDone = false; ///< If true, the raytracing part was done and the field calculation starts directly				
 
 				TrafoParms trafoparms;
+				double tref = 0.0; 
 				
 				
 
