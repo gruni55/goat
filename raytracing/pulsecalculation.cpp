@@ -28,11 +28,14 @@ namespace GOAT
 			double Domega = 2.0 * Sigma;			
 			double domega = Domega / (double)trafoparms.nI;
 			double omega;
+			trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
+			trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
+			trafo.setTrafoParms(trafoparms);
 			for (int i = 0; i < trafoparms.nI; i++)
 			{
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
 				for (int ls = 0; ls < S.nLS; ls++)
-					S.LS[ls]->wvl = 2.0 * M_PI * C_LIGHT_MU / omega;
+					S.LS[ls]->wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
 				rt = Raytrace_usp(S, nn);	
 				rt.trace();				
 				// save(rt.SA[0], "H:\\data\\data2.log");
@@ -50,8 +53,8 @@ namespace GOAT
 					std::cout << "Start raytracing...";
 					fieldCalculation(); // raytracing is necessary only once
 					std::cout << "done." << std:: endl;
-				}
-				 //save(rt.SA[0], "H:\\data\\data.log");
+					save(rt.SA[0], "H:\\data\\data.log");
+				}				
 				trafo.calc(SA,t);
 				raytracingDone = true;
 			}
@@ -74,9 +77,9 @@ namespace GOAT
 
 		void pulseCalculation::setPulseWidth(double dt)
 		{
-			// dWvl = trafoparms.wvl * trafoparms.wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU * dt);	// FWHM
+			// dWvl = trafoparms.wvl * trafoparms.wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU_FS * dt);	// FWHM
 			trafoparms.dt = dt;
-			trafoparms.omega0 = C_LIGHT_MU * 2.0 * M_PI / trafoparms.wvl;			
+			trafoparms.omega0 = C_LIGHT_MU_FS * 2.0 * M_PI / trafoparms.wvl;			
 			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / dt; // Spectral sigma
 			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
 			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;			
@@ -89,7 +92,7 @@ namespace GOAT
 			trafoparms.wvl = 1.0;
 			trafoparms.nI = 1;
 			trafoparms.nR = 1;
-			trafoparms.nS = 50;			
+			trafoparms.nS = 5000;			
 			setPulseWidth(trafoparms.dt);
 		}
 

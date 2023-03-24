@@ -13,6 +13,8 @@ namespace GOAT
 #define Planck_h 6.62606896E-34 // Plancksches Wirkungsquantum in Js
 #define Planck_hquer 1.054571628E-34 // h/2PI in Js 
 		constexpr double C_LIGHT = 299792458; ///< speed of light in m*s^-1
+		constexpr double C_LIGHT_MU_FS = 0.299792458; ///< speed of light in m*fs^-1
 		constexpr double C_LIGHT_MU = 299792458E+6; ///< speed of light in mum*s^-1
+
 	}
 }

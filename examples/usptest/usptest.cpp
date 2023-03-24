@@ -26,9 +26,15 @@ std::complex<double> nGlass(double wvl)
 	return 1.5075;
 } 
 
+std::complex<double> nTest(double wvl)
+{
+	return 1.5065;
+}
+
+
 int main (int argc, char **argv)
 {
-	int nrays = 3;  
+	int nrays = 1;  
 	double r0 = 2E+6;      // Radius 2m
 	int nCells = 200000;  // resolution 1µm
 	/* ---  Let's first define the Scene ----
@@ -38,7 +44,7 @@ int main (int argc, char **argv)
 	double wvl = 1.0; // peak wavelength
 	
 	// use light source with arbitrary ray distribution 
-	GOAT::maths::Vector<double> P(-50-1.0, 0, 0);          // Position of the light source
+	GOAT::maths::Vector<double> P(-(1E6+1.0), -1.0, -1.0);          // Position of the light source
 	GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 1);      // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
 	GOAT::maths::Vector<double> k(1, 0, 0);					   // direction of the wave
 	k = k / abs(k); 
@@ -53,17 +59,16 @@ int main (int argc, char **argv)
 	S.addObject(&Box);
 	S.setnS(1.0);
 
-	double dt = 1E-15;									    	// width of the pulse (in seconds)
-	double sigma = dt / (2.0*sqrt(2.0 * M_LN2));                      
-
-	double dwvl= wvl * wvl * 8.0 * M_LN2 / (M_PI *  GOAT::raytracing::C_LIGHT_MU * dt);  // spectral FWHM
-	std::cout << "dwvl=" << dwvl << "µm" << std::endl;
 	std::string fname;
 
     
 	std::vector<std::function<std::complex<double>(double) > > nList; // List of the refractive index functions
+	/* nList.push_back(none);
 	nList.push_back(none);
-	nList.push_back(none);
+	*/
+
+	nList.push_back(nGlass_BK7);
+	nList.push_back(nGlass_BK7);
 
 	std::string numStr;
 	std::stringstream sstr;
@@ -73,23 +78,31 @@ int main (int argc, char **argv)
 	double h;
 	std::string str;
 	std::ofstream os ("h:\\data\\timec.dat");     // here, the time is stored
+
+	double dt = 100.0;									    	// width of the pulse (in femtoseconds)
+	double sigma = dt / (2.0 * sqrt(2.0 * M_LN2));
+
+	double dwvl = wvl * wvl * 8.0 * M_LN2 / (M_PI * GOAT::raytracing::C_LIGHT_MU_FS * dt);  // spectral FWHM
+	std::cout << "dwvl=" << dwvl << "µm" << std::endl;
 	GOAT::raytracing::pulseCalculation pc(S);     // The calculation class
 	pc.setRefractiveIndexFunctions(nList);         
-	pc.setPulseWidth(2E-15);
-    double tref = 0.0;
+	pc.setPulseWidth(dt);
+	pc.setSpatialResolution(2.0);
+    double tref =5E5;
 	pc.setReferenceTime(tref);
 		
 	int l = 0;
-	for (double t=-2E-14; t<=2E-14;t+=1E-16+1E-17)
+	//for (double t=50E5+10000; t<=50E5+20000;t+=1)
+	for (double t=5.06E+6; t<=5.1E+6; t+=10)
 	{		
 		os.precision(12);
-		os << std::scientific << (t-tref)*1E+9 << std::endl;		
+		os << std::scientific << t << std::endl;		
 		pc.field(t); // calculate fields at time t 
 		sstr  << "h:\\data\\testc" << l << ".dat";
 		fname = sstr.str();		
 		sstr.str("");
 		os.precision(12);
-		std::cout << "current filename:" << fname << "\t t=" << std::scientific << (t-tref)*1E+9;
+		std::cout << "current filename:" << fname << "\t t=" << std::scientific << t-5E5;
 		GOAT::raytracing::saveabsE(pc.trafo.SAres, fname);
 		
 		is.open(fname);

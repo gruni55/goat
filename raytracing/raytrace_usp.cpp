@@ -61,7 +61,7 @@ namespace GOAT
 				while ( (s < L) && (!cancel) )
 				{
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
-					l = abs(Pnew - P); // length of the last step  					
+					l = abs(Pnew - P);					  // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "ABBRUCH !!!!  " << P << "," << l << std::endl;
 										

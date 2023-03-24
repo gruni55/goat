@@ -40,37 +40,45 @@ namespace GOAT
             double k0;
         GOAT:maths::Vector<std::complex<double> > E;
             std::complex<double> phase;
-
+            std::complex<double> phase1;
+            std::complex<double> phase2;
            
             double omega;
             double domega = 2.0 * M_PI / fabs(tref - t);
             double Domega = tp.omegaEnd - tp.omegaStart;
             double dw;
-            int nsteps = Domega / domega + 1;
+            int nsteps;
+            nsteps = Domega / domega + 1;
             if (nsteps < tp.nS)
             {
                 nsteps = tp.nS;
                 domega = Domega / ((double)(nsteps - 1));
             }
-    
+            std::cout << "steps:" << nsteps << std::endl;
             double weight;
-            std::ofstream os("h:\\data\\blubb.dat");
+            // std::ofstream os("h:\\data\\blubb.dat");
             for (int iomega = 0; iomega < nsteps; iomega++)
             {
                 omega = tp.omegaStart + iomega * domega;
                 dw = (omega - tp.omega0);
                 double ws = dw * dw * sigma2 / 2.0;                
-                weight = exp(-ws);                             
-                k0 = C_LIGHT_MU / omega;
+                weight = exp(-ws);                                             
+                k0 = omega / C_LIGHT_MU_FS;
+                
+             //   std::cout << "--------- START ---------- " <<  vge.size() << std::endl;
                 for (auto ge : vge) // Loop over all rays which hit the cell
                 {
-                    phase = exp(I * calcPhase(ge.step, k0));
-                    phase *= exp(I * omega * (t - tref));                                              
-                    os << tp.omega0 << "\t" << omega - tp.omega0 << "\t" << weight << std::endl;
-                    E += weight  * phase * domega * GOAT::maths::ex;
+                    phase1 = exp (I*calcPhase(ge.step, k0));                    
+                    
+                    phase = phase1 * exp(I * (- omega * t));                                              
+                    
+                 //   std::cout << "phase1=" << phase1 << "\tphase2=" << phase2 << "\ttref=" << tref << std::endl;
+                  //  std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
+                    E += weight  * phase * domega * ge.E;
                 }
-            }
-            os.close();
+              //  std::cout << "--------- STOP ----------" << std::endl;
+            } 
+           // os.close();
             return E;
         }
 
@@ -88,7 +96,7 @@ namespace GOAT
             double omegaStart, omegaEnd;
             double wvl;
             double lambda;
-            double omega0 = 2.0 * M_PI * C_LIGHT_MU / tp.wvl;
+            double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / tp.wvl;
             initResult(SA[0][0].r0, SA[0][0].nges[0], SA[0][0].nges[1], SA[0][0].nges[2], SA[0][0].Obj, SA[0][0].numObjs);
             double Sigma = 2.3548 / tp.dt;
             double Domega = 2.0 * Sigma;
@@ -106,10 +114,14 @@ namespace GOAT
                 omegaEnd = omega + domega / 2.0;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
-                        for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
-                            for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
-                                for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)
+                        /*   for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                               for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
+                                   for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)*/
                                 {
+                        int ix = 0;
+                        int iy = 0;
+                        int iz = 0;
+
                                     // auto start = std::chrono::high_resolution_clock::now();
                                     SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
                                     //auto end = std::chrono::high_resolution_clock::now();
@@ -136,11 +148,11 @@ namespace GOAT
         {
             double dl = (tp.lstop - tp.lstart) / (double)(tp.nS - tp.nI - 1);
             int N = tp.nS * tp.nI;
-            double l;
+            double l;s
             for (int i = 0; i < N; i++)
             {
                 l = tp.lstart + i * dl;
-                freq.push_back(2.0 * M_PI * C_LIGHT_MU / l);
+                freq.push_back(2.0 * M_PI * C_LIGHT_MU_FS / l);
             }
         }
         */
@@ -148,12 +160,16 @@ namespace GOAT
         {
             double L = 0;
             std::complex<double> sum = 0;
+
+            
             
             for (stepEntry se : steps)
             {
-                sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;
+               //  std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  <<std:: endl;
+                sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;                              
             }
            
+      //    std::cout << "sum=" << sum << std::endl;
             return sum;
         }
 
