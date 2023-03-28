@@ -270,7 +270,7 @@ namespace GOAT
                 if (Obj == NULL) { error(REALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
             }
         }
-        std::cout << "n=" << hn << std::endl;
+        // std::cout << "n=" << hn << std::endl;
         n.push_back(hn);
 
         Obj[numObjs] = E;

@@ -54,7 +54,7 @@ namespace GOAT
                 nsteps = tp.nS;
                 domega = Domega / ((double)(nsteps - 1));
             }
-            std::cout << "steps:" << nsteps << std::endl;
+           // std::cout << "steps:" << nsteps << std::endl;
             double weight;
             // std::ofstream os("h:\\data\\blubb.dat");
             for (int iomega = 0; iomega < nsteps; iomega++)
@@ -114,16 +114,17 @@ namespace GOAT
                 omegaEnd = omega + domega / 2.0;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
-                        /*   for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                           for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                                for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
-                                   for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)*/
+                                   for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)
                                 {
-                        int ix = 0;
+                        /*int ix = 0;
                         int iy = 0;
-                        int iz = 0;
+                        int iz = 0;*/
 
                                     // auto start = std::chrono::high_resolution_clock::now();
                                     SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
+                                    std::cout << ix << "," << iy << "," << iz << std::endl;
                                     //auto end = std::chrono::high_resolution_clock::now();
                                    // std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()/1000000 << " s" << std::endl;
                                 }

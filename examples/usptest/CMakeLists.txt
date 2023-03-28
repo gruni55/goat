@@ -29,7 +29,7 @@ install(TARGETS usptest
     ARCHIVE DESTINATION lib
     )
 
-add_executable (usptest_spatial usptest_spatial.cpp )
+add_executable (usptest_spatial usptest_spatial.cpp)
 target_include_directories (usptest_spatial PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (usptest_spatial goat_raytracing goat_maths)
 
