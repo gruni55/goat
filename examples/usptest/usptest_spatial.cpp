@@ -27,11 +27,11 @@ std::complex<double> nGlass(double wvl)
 int main(int argc, char** argv)
 {
 	GOAT::maths::Vector<double> LSPos(-5000, 0, 0);
-	int numRays = 100;
+	int numRays = 1000000;
 	double LSSize = 100;
 	GOAT::maths::Vector<double> LSDir(1.0, 0.0, 0.0);
 	// GOAT::raytracing::LightSrcGauss LS(LSPos, numRays, 1.0, 0.1, GOAT::maths::dzero);
-	 GOAT::raytracing::LightSrcPlane LS(LSPos, numRays, 1.0, LSSize);
+	 GOAT::raytracing::LightSrcPlane_mc LS(LSPos, numRays, 1.0, LSSize);
 	LS.setk(LSDir);
 	//LS.setNA(0.7);
 
