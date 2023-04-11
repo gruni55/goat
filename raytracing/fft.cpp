@@ -106,9 +106,9 @@ namespace GOAT
             domega = Domega / (double)tp.nI;
             
             
-            
              for (int iOmega = 0; iOmega < tp.nI; iOmega++) // loop over the spectral ranges
             {               
+                 auto start = std::chrono::high_resolution_clock::now();
                  omega = tp.omegaStart + iOmega * domega - domega / 2.0;
                 omegaStart = omega - domega / 2.0;
                 omegaEnd = omega + domega / 2.0;
@@ -122,12 +122,13 @@ namespace GOAT
                         int iy = 0;
                         int iz = 0;*/
 
-                                    // auto start = std::chrono::high_resolution_clock::now();
+                                     
                                     SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
                                    // std::cout << ix << "," << iy << "," << iz << std::endl;
-                                    //auto end = std::chrono::high_resolution_clock::now();
-                                   // std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count()/1000000 << " s" << std::endl;
+                                   
                                 }
+                auto end = std::chrono::high_resolution_clock::now();
+                std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
             }
 
         }

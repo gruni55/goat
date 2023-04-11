@@ -55,6 +55,9 @@ namespace  GOAT
 			Obj = L.Obj;
 			// copyFormList(Ein,L.Ein,numObjs);
 			D = L.D;
+			D1 = L.D1;
+			D2 = L.D2;
+
 			raytype = L.raytype;
 			n0 = 1.0;
 			N = L.N;
@@ -88,6 +91,8 @@ namespace  GOAT
 			is.read((char*)&nim, (char)sizeof(nim));
 			n0 = std::complex<double>(nre, nim);
 			is.read((char*)&D, (char)sizeof(D));
+			is.read((char*)&D1, (char)sizeof(D1));
+			is.read((char*)&D2, (char)sizeof(D2));
 			e1.binRead(is);
 			e2.binRead(is);
 			is.read((char*)&raytype, (char)sizeof(raytype));
@@ -164,6 +169,8 @@ namespace  GOAT
 			os.write((char*)&nre, (char)sizeof(nre));
 			os.write((char*)&nim, (char)sizeof(nim));
 			os.write((char*)&D, (char)sizeof(D));
+			os.write((char*)&D1, (char)sizeof(D1));
+			os.write((char*)&D2, (char)sizeof(D2));
 			e1.binWrite(os);
 			e2.binWrite(os);
 			os.write((char*)&raytype, (char)sizeof(raytype));
@@ -271,6 +278,8 @@ namespace  GOAT
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
+			this->D1 = D1;
+			this->D2 = D2;
 			this->N = N;
 			this->n0 = 1.0;			
 			numObjs = 0;
@@ -293,6 +302,8 @@ namespace  GOAT
 			this->r0 = LS.r0;
 			this->wvl = LS.wvl;
 			this->D = LS.D;
+			this->D1 = LS.D1;
+			this->D2 = LS.D2;
 			this->N = LS.N;
 			this->n0 = LS.n0;
 			// copyFormList(this->Ein, LS.Ein, LS.numObjs);
@@ -458,6 +469,8 @@ namespace  GOAT
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
+			this->D1 = D1;
+			this->D2 = D2;
 			this->focuspos = focuspos;
 			Pol = maths::Vector<std::complex<double> >(0, 1.0, 0);
 			polType = LIGHTSRC_POL_Y;

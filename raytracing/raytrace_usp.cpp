@@ -57,7 +57,7 @@ namespace GOAT
 				// each cell entry consists of the stack, i.e. all steps until the detector was hidden and the 
 				// length of the step from the surface to the cell (last crossing point)
 				gridStack.step.insert(gridStack.step.end(), stack.step.begin(), stack.step.end());
-						
+				gridStack.step.push_back(ge);
 				while ( (s < L) && (!cancel) )
 				{
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
@@ -69,7 +69,8 @@ namespace GOAT
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
 					// prepare cell entry
-					ge.l = abs(P-Pnew); 
+					// ge.l = abs(P-Pnew); 
+					ge.l = abs(PStart - P);
 
 					// set the right material index 
 					if (currentObj < 0) ge.matIndex = S.nObj;
@@ -78,10 +79,12 @@ namespace GOAT
 					// put everything in the Array
 					SA[iR](currentObj, cell);
 				    if (SA[iR].Error == NO_ERRORS)
-					{						
+					{	
+						gridStack.step.back() = ge;
 						SA[iR](currentObj, cell).push_back(gridStack);							
 						SA[iR](currentObj, cell).back().E = E;
- 						gridStack.step.push_back(ge);
+ 						// gridStack.step.push_back(ge);
+						
 					}		
 					else
 					{

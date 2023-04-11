@@ -16,12 +16,12 @@ namespace GOAT
             do 
             {
                x=nd(gen);
-            } while ((x<-D/2.0) || (x>D/2.0));
+            } while ((x<-D1/2.0) || (x>D1/2.0));
 
             do 
             {
                y=nd(gen);
-            } while ((y<-D/2.0) || (y>D/2.0));
+            } while ((y<-D2/2.0) || (y>D2/2.0));
 
             GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
@@ -32,12 +32,16 @@ namespace GOAT
             double z=abs(Pos-focuspos); 
             double w=calcw(z);
             stddev=w*M_SQRT1_2;
+			D1 = L.D1;
+			D2 = L.D2;
         }
 
         LightSrcGauss_mc::LightSrcGauss_mc(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) 
                                        : LightSrcGauss(Pos,N,wvl,w0,focuspos,D,Pol,raytype,r0)
         {
           stddev=w*M_SQRT1_2;
+		  D1 = D;
+		  D2 = D;
         }
 
         int LightSrcGauss_mc::next(Ray_pow& S)
@@ -256,12 +260,15 @@ namespace GOAT
 
 		LightSrcPlane_mc::LightSrcPlane_mc(const LightSrcPlane_mc &L) : LightSrcPlane(L)
 		{
+			D1 = L.D1;
+			D2 = L.D2;
 		}
 
 		LightSrcPlane_mc::LightSrcPlane_mc(maths::Vector<double> Pos, int N, double wvl, double D, 
                                   maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrcPlane(Pos,N,wvl,D,Pol,raytype,r0)
 		{
-
+			D1 = D;
+			D2 = D;
 		}
 
 		void LightSrcPlane_mc::reset()
@@ -333,12 +340,13 @@ namespace GOAT
 		{
 			std::random_device rd;
             std::mt19937 gen(rd());
-            std::uniform_real_distribution<double> ud (-D/2.0,D/2.0);
+			std::uniform_real_distribution<double> udx(-D1 / 2.0, D1 / 2.0);
+			std::uniform_real_distribution<double> udy(-D2 / 2.0, D2 / 2.0);
 
             double x,y;
 
-               x=ud(gen);
-			   y=ud(gen);            
+               x=udx(gen);
+			   y=udy(gen);            
             GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
 		}

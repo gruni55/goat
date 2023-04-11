@@ -85,8 +85,22 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			{
 				this->density = D / ((double)N);
 				this->D = D;
+				D1 = D;
+				D2 = D;
 				reset();
 			} ///< sets the width of the light source (this resets also the ray counter)
+
+			void setD(double D1, double D2) ///< sets the width of the light source
+			{
+				// this->density = D / ((double)N);
+				//this->D = D;
+				this->D1 = D1;
+				this->D2 = D2;
+				reset();
+			}
+
+
+
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
 			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
@@ -118,6 +132,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			std::complex<double> n0; ///< refractive index of the intermediate medium
 
 			double D;           ///< width of the square light source area 
+			double D1, D2;      ///< width in the e1- and the e2-direction (used only for _mc versions of LightSrc)
 			maths::Vector<double> e1, e2;  ///< unit vectors that span the light source area 
 			int raytype;        ///< Strahltyp : ray oder ISTRAHL (=RAY oder IRAY)
 			int polType;        ///< Polarisationsrichtung (s.o.)  
