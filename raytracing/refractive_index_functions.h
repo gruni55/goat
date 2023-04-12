@@ -35,5 +35,27 @@ namespace GOAT
 		{
 			return 1.0;
 		}
+
+		/**
+* @brief refractive index formula used for glasses from Schott
+*/
+		std::complex<double> n_Sellmeier(double lambda, double C[3], double B[3])
+		{
+			std::complex<double> n;
+			double l2 = lambda * lambda;
+			n = sqrt(B[1] * l2 / (l2 - C[1]) + B[2] * l2 / (l2 - C[2]) + B[3] * l2 / (l2 - C[3]) + 1.0);
+			return n;
+		}
+
+		/**
+		* @brief refractive index of LASF55-glass from Schott (coefficients according taken from www.schott.com)
+		*/
+		std::complex<double> n_LASF55(double wvl)
+		{
+			double B[3] = { 2.30861228,0.354736638,1.922271250 };
+			double C[3] = { 0.01304469950,0.0557524221,133.1968690 };
+			return n_Sellmeier(wvl, C, B);
+		}
+
 	}
 }
