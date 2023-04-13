@@ -94,6 +94,8 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			{
 				// this->density = D / ((double)N);
 				//this->D = D;
+				if (D1<D2) density= D1 / ((double)N);
+				else density = D2 / ((double)N);
 				this->D1 = D1;
 				this->D2 = D2;
 				reset();

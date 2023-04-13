@@ -69,8 +69,8 @@ namespace GOAT
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
 					// prepare cell entry
-					// ge.l = abs(P-Pnew); 
-					ge.l = abs(PStart - P);
+					ge.l = s; 
+					
 
 					// set the right material index 
 					if (currentObj < 0) ge.matIndex = S.nObj;
@@ -83,8 +83,7 @@ namespace GOAT
 						gridStack.step.back() = ge;
 						SA[iR](currentObj, cell).push_back(gridStack);							
 						SA[iR](currentObj, cell).back().E = E;
- 						// gridStack.step.push_back(ge);
-						
+ 						// gridStack.step.push_back(ge);						
 					}		
 					else
 					{

@@ -88,7 +88,7 @@ namespace GOAT
 
 		void pulseCalculation::setDefaults()
 		{
-			trafoparms.dt = 1E-15;
+			trafoparms.dt = 100;
 			trafoparms.wvl = 1.0;
 			trafoparms.nI = 1;
 			trafoparms.nR = 1;

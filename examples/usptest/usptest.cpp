@@ -34,7 +34,7 @@ std::complex<double> nTest(double wvl)
 
 int main (int argc, char **argv)
 {
-	int nrays = 10000;  
+	int nrays = 10;  
 	double r0 = 2E+6;      // Radius 2m
 	int nCells = 2000000;  // resolution 1µm
 	/* ---  Let's first define the Scene ----
@@ -44,8 +44,8 @@ int main (int argc, char **argv)
 	double wvl = 1.0; // peak wavelength
 	
 	// use light source with arbitrary ray distribution 
-	GOAT::maths::Vector<double> P(-(0.5E+6+1.0), -1.0, -1.0);          // Position of the light source
-	//GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 1);      // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
+	GOAT::maths::Vector<double> P(-(0.5E+6+1.0), 0.0, 0.0);          // Position of the light source
+	// GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 1);      // define Plane wave at P with nrays rays wavelength 1E-6 and size 50E-6
 	GOAT::raytracing::LightSrcPlane_mc LS(P, nrays, 1.0, 1);
 	GOAT::maths::Vector<double> k(1, 0, 0);					   // direction of the wave
 	k = k / abs(k); 

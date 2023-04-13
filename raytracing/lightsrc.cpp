@@ -330,7 +330,7 @@ namespace  GOAT
 		{
 
 			Plane E;
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
@@ -341,8 +341,8 @@ namespace  GOAT
 			// S.init_Efeld(E,Pol);
 			i1++;
 
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) { return LIGHTSRC_IS_LAST_RAY; }
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
@@ -352,12 +352,12 @@ namespace  GOAT
 			Plane E;
 			double Pow;
 
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			// maths::Vector<double> P=Pos+(i1*density-D/2.0)*e1; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			Pow = P0 / ((double)(N * N) * D * D);
+			Pow = P0 / ((double)(N * N) * D1 * D2);
 			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.initElectricField(E, Pol);
@@ -368,23 +368,23 @@ namespace  GOAT
 			i1++;
 			Pall += abs2(S.E2);
 			// if (i1*density>D) return LIGHTSRC_IS_LAST_RAY; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) { return LIGHTSRC_IS_LAST_RAY; }
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
 
 		int LightSrcPlane::next(tubedRay& S)
 		{
-			double Pow = P0 / (N * N * D * D);
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			double Pow = P0 / (N * N * D2 * D1);
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			// S.init_Efeld(Pol,1);
 			i1++;
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) return LIGHTSRC_IS_LAST_RAY;
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) return LIGHTSRC_IS_LAST_RAY;
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 

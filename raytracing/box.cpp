@@ -41,8 +41,11 @@ namespace GOAT
 			const maths::Vector<double> Ey,
 			const maths::Vector<double> Ez) : ObjectShape(P, n, alpha, Ex, Ey, Ez)
 		{
-			bounds[0] = P - d / 2.0;
-			bounds[1] = P + d / 2.0;
+		//	bounds[0] = P - d / 2.0;
+		//	bounds[1] = P + d / 2.0;
+
+			bounds[0] = -1.0 * d / 2.0;
+			bounds[1] =  d / 2.0;
 			this->d = d;
 			this->r0 = r0;
 			type = OBJECTSHAPE_BOX;
