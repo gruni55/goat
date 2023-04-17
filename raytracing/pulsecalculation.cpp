@@ -28,14 +28,19 @@ namespace GOAT
 			double Domega = 2.0 * Sigma;			
 			double domega = Domega / (double)trafoparms.nI;
 			double omega;
+			double wvl;
 			trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 			trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 			trafo.setTrafoParms(trafoparms);
 			for (int i = 0; i < trafoparms.nI; i++)
 			{
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
+				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
 				for (int ls = 0; ls < S.nLS; ls++)
-					S.LS[ls]->wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
+					S.LS[ls]->wvl = wvl;
+				for (int lobj = 0; lobj < S.nObj; lobj++)
+					S.Obj[lobj]->setn(trafoparms.nList[lobj](wvl));
+				S.setnS(trafoparms.nList[S.nObj](wvl));
 				rt = Raytrace_usp(S, nn);	
 				rt.trace();				
 				// save(rt.SA[0], "H:\\data\\data2.log");

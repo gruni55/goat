@@ -325,7 +325,7 @@ namespace GOAT
 		{
 			double Pow = 1.0;
 			maths::Vector<double> P = genStartingPos();
-			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);			
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			i1++;

@@ -169,7 +169,7 @@ namespace GOAT
             
             for (stepEntry se : steps)
             {
-               //  std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  <<std:: endl;
+              //  std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  << "\t" << 2.0 * M_PI / k0 << std::endl;
                 sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;                              
             }
            
