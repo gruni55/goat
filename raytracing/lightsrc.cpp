@@ -278,8 +278,8 @@ namespace  GOAT
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
-			this->D1 = D1;
-			this->D2 = D2;
+			this->D1 = D;
+			this->D2 = D;
 			this->N = N;
 			this->n0 = 1.0;			
 			numObjs = 0;

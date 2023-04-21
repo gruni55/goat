@@ -49,7 +49,8 @@ int main (int argc, char **argv)
 	GOAT::raytracing::LightSrcPlane LS(P, nrays, 1.0, 1);
 	GOAT::maths::Vector<double> k(1, 0, 0);					   // direction of the wave
 	LS.setk(k);
-	
+	LS.setD(5.0, 5.0);
+
 	// Region of interest
 	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(2.0, 2.0, 2.0), 1.0); // distance light source <-> "box" (edge) 1m
 	GOAT::raytracing::Scene S;
@@ -67,11 +68,11 @@ int main (int argc, char **argv)
 	nList.push_back(none);
 	*/
 
-/*	nList.push_back(nGlass_BK7);
 	nList.push_back(nGlass_BK7);
-*/
-	nList.push_back(GOAT::raytracing::n_lin);
-	nList.push_back(GOAT::raytracing::n_lin);
+	nList.push_back(nGlass_BK7);
+
+	/* nList.push_back(GOAT::raytracing::n_lin);
+	nList.push_back(GOAT::raytracing::n_lin);*/
 
     
 	std::string numStr;
@@ -94,7 +95,8 @@ int main (int argc, char **argv)
 	pc.setReferenceTime(tref);
 		
 	int l = 0;
-	for (double t = 2.535E+6; t <= 2.54E+6; t += 10)
+	double t0 = 5E+5 / (GOAT::raytracing::C_LIGHT_MU_FS / 1.50745) +25000 ;
+	for (double t = t0-2500; t <= t0+2500; t += 10)
 	{		
 		pc.field(t); // calculate fields at time t 
 		std::cout << std::scientific << t;

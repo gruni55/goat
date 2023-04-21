@@ -60,7 +60,7 @@ namespace GOAT
                 std::complex<double> n_lin(double wvl)
 		{
 			double n0 = 1.5;
-			double m = -0.0;
+			double m = -0.1;
 			double c = n0 - m;
 			return m * wvl + c;
 		}

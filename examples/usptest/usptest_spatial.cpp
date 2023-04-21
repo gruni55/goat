@@ -36,8 +36,8 @@ int main(int argc, char** argv)
 	/*nList.push_back(GOAT::raytracing::n_Vacuum);
 	nList.push_back(GOAT::raytracing::n_Vacuum);*/
 
-	nList.push_back(GOAT::raytracing::n_lin);
-	nList.push_back(GOAT::raytracing::n_lin);
+	nList.push_back(GOAT::raytracing::n_BK7);
+	nList.push_back(GOAT::raytracing::n_BK7);
 
 /*
 	nList.push_back(n_test);
@@ -46,13 +46,13 @@ int main(int argc, char** argv)
 	GOAT::raytracing::pulseCalculation pc(S);
 	pc.setPulseWidth(100);
 	pc.setRefractiveIndexFunctions(nList);
-	double tref = 0.0;
+	double tref = 1.0E6;
 	pc.setReferenceTime(tref);
 	pc.setSpatialResolution(1.0);
 
 	double t = (5E+5+33300)/GOAT::raytracing::C_LIGHT_MU_FS*1.5;
 	pc.field(t);
-	GOAT::raytracing::saveEyPol (pc.trafo.SAres, "field.dat");
-	GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");
+//	GOAT::raytracing::saveEyPol (pc.trafo.SAres, "field.dat");
+//	GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");
 	return 0;
 }
