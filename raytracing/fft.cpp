@@ -68,11 +68,12 @@ namespace GOAT
              //   std::cout << "--------- START ---------- " <<  vge.size() << std::endl;
                 for (auto ge : vge) // Loop over all rays which hit the cell
                 {
-                    phase1 = exp (I*calcPhase(ge.step, k0));                    
+                   phase1 = exp (I*calcPhase(ge.step, k0));                    
                     
                     phase =  phase1 *  exp(I * (-omega * t));
                     
-                 //   std::cout << "phase1=" << phase1 << "\tphase2=" << phase2 << "\ttref=" << tref << std::endl;
+                    
+//                    std::cout << "phase1=" << phase1 << "\tphase=" << phase << "\ttref=" << tref << std::endl;
                   //  std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
                     E += weight  * phase * domega * ge.E;
                 }
@@ -127,10 +128,10 @@ namespace GOAT
                                     SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
                                     // std::cout << ix << "," << iy << "," << iz << std::endl;                                   
                                 }
-                            std::cout << "ix=" << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+                            std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
                         }
                 auto end = std::chrono::high_resolution_clock::now();
-                std::cout << "integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
+                std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
             }
 
         }
@@ -169,7 +170,7 @@ namespace GOAT
             
             for (stepEntry se : steps)
             {
-              //  std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  << "\t" << 2.0 * M_PI / k0 << std::endl;
+//                std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  << "\t" << 2.0 * M_PI / k0 << "\t" << se.l << std::endl;
                 sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;                              
             }
            

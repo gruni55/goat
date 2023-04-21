@@ -56,6 +56,20 @@ namespace GOAT
 			double C[3] = { 0.01304469950,0.0557524221,133.1968690 };
 			return n_Sellmeier(wvl, C, B);
 		}
+                
+                std::complex<double> n_lin(double wvl)
+		{
+			double n0 = 1.5;
+			double m = -0.0;
+			double c = n0 - m;
+			return m * wvl + c;
+		}
+
+		std::complex<double> n_test (double wvl)
+		{
+			if (fabs(wvl-1.0)<0.001) return 1.5;
+			return 1.4;      
+		}
 
 	}
 }

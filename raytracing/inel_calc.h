@@ -6,6 +6,7 @@
 #endif
 #include "grid.h"
 #include "plane.h"
+#include <cfloat>
 namespace GOAT
 {
     namespace raytracing

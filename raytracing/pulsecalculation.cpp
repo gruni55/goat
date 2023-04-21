@@ -55,10 +55,10 @@ namespace GOAT
 			{
 				if (!raytracingDone)
 				{
-					std::cout << "Start raytracing...";
+				//	std::cout << "Start raytracing...";
 					fieldCalculation(); // raytracing is necessary only once
-					std::cout << "done." << std:: endl;
-					save(rt.SA[0], "H:\\data\\data.log");
+				//	std::cout << "done." << std:: endl;
+					save(rt.SA[0], "data.log");
 				}				
 				trafo.calc(SA,t);
 				raytracingDone = true;
@@ -87,7 +87,11 @@ namespace GOAT
 			trafoparms.omega0 = C_LIGHT_MU_FS * 2.0 * M_PI / trafoparms.wvl;			
 			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / dt; // Spectral sigma
 			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
-			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;			
+			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
+                        double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
+                        double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
+
+                        std::cout << "% wvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
 			trafo.setTrafoParms(trafoparms);
 		}
 
