@@ -50,7 +50,8 @@ int main(int argc, char** argv)
 	pc.setReferenceTime(tref);
 	pc.setSpatialResolution(1.0);
 
-	double t = (5E+5+33300)/GOAT::raytracing::C_LIGHT_MU_FS*1.5;
+ //	double t = (5E+5+33300)/GOAT::raytracing::C_LIGHT_MU_FS*1.5;
+        double t = 2539156-1500;
 	pc.field(t);
 //	GOAT::raytracing::saveEyPol (pc.trafo.SAres, "field.dat");
 //	GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");

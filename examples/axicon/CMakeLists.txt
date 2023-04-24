@@ -16,6 +16,8 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 message (STATUS "LIB Library: ${LIBDIR}")
 add_executable (axicon "axicon.cpp")
+add_executable (axicon2 "axicon2.cpp")
+
 find_library (NAMES goat_maths PATHS ../../lib)
 find_library (NAMES goat_raytracing PATHS ../../lib)
 
@@ -23,8 +25,11 @@ find_library (NAMES goat_raytracing PATHS ../../lib)
 target_include_directories (axicon PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (axicon goat_raytracing goat_maths)
 
+target_include_directories (axicon2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (axicon2 goat_raytracing goat_maths)
 
-install(TARGETS axicon
+
+install(TARGETS axicon axicon2
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
