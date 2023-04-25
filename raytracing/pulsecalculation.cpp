@@ -10,7 +10,7 @@ namespace GOAT
 		{
 			this->S = S;
 			setDefaults();
-			setPulseWidth(40E-15);
+			setPulseWidth(40);
 			setSpatialResolution(1.0);
 			trafo = Trafo(trafoparms);			
 		}
@@ -88,8 +88,8 @@ namespace GOAT
 			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / dt; // Spectral sigma
 			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
 			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
-                        double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
-                        double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
+            double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
+            double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
 
                         std::cout << "% wvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
 			trafo.setTrafoParms(trafoparms);

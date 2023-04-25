@@ -17,12 +17,11 @@ int main(int argc, char** argv)
         double r0=50000.0; 
 	GOAT::maths::Vector<double> LSPos = -1000.0 * GOAT::maths::ex;      // Position of the light source
 	int numRays = 1000000;                       // number of rays (per direction)  
-	double wvl = 1.0;                        // wavelength
-	double LSsize = 20000.0;                  // size of the light source in µm 
-
-//	GOAT::raytracing::LightSrcGauss_mc LS(LSPos, numRays, wvl,waist,focusPos,LSsize); // initialize gaussian light source
-        GOAT::raytracing::LightSrcPlane_mc LS (LSPos, numRays, wvl, LSsize);
-        LS.setk(GOAT::maths::ex);  
+	double wvl = 1.0;							 // wavelength
+	double LSsize = 20000.0;                     // size of the light source in µm 
+    
+	GOAT::raytracing::LightSrcPlane_mc LS (LSPos, numRays, wvl, LSsize);
+    LS.setk(GOAT::maths::ex);  
 	LS.setPol(GOAT::maths::Vector<std::complex<double> >(1.0, 0.0, 0.0));
 
 	// Object (axicon) definitions
@@ -30,6 +29,12 @@ int main(int argc, char** argv)
 	std::complex<double> nObj = 1.5;         // Refractive index 
 	GOAT::raytracing::surface surf(objPos, nObj);
 	surf.importBinSTL("axicon_10.stl");           
+	surf.setActive(false);
+
+	GOAT::maths::Vector<double> boxPos(247.7, 0, 0);
+	GOAT::maths::Vector<double> boxDim(500, 500, 500);
+	GOAT::raytracing::Box box(boxPos, boxDim, 1.0);
+	box.setActive(true);
 
 
 	// Scene definition 
@@ -38,20 +43,31 @@ int main(int argc, char** argv)
 	S.setr0(r0);                           // radius of the calculation sphere (in µm) 
 	S.addLightSource(&LS);                   // add light source to scene
 	S.addObject(&surf);                      // add object (axicon) to scene
+	S.addObject(&box);
 
         // Set the refractive index functions
        std::vector<std::function<std::complex<double>(double) > > nList;
        nList.push_back(GOAT::raytracing::n_BK7);
        nList.push_back(GOAT::raytracing::n_Air);
+	   nList.push_back(GOAT::raytracing::n_Air);
        
        GOAT::raytracing::pulseCalculation pc(S);
        pc.setPulseWidth (100);
        pc.setRefractiveIndexFunctions(nList);
        pc.setSpatialResolution(1.0);
        pc.setReferenceTime(0.0);
-       pc.field(3500);
-   GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");
+   
+   
 
-	
+   double alpha = 10.0 / 180.0 * M_PI;
+   double h = 20.0;
+   double D = 20.0;
+   double beta = asin(1.5 * sin(alpha));
+   double d = h * sin(alpha);
+   double l = h / tan(beta - alpha);
+   double f = D + d + l;
+   double t = (f + 250) * GOAT::raytracing::C_LIGHT_MU_FS;
+   pc.field(t);
+   GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat",1);
 	return 0;
 }
