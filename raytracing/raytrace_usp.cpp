@@ -88,7 +88,7 @@ namespace GOAT
 					else
 					{
 						SA[iR].Error = NO_ERRORS;
-						std::cout << "ERROR" << std::endl;
+						//std::cout << "ERROR" << std::endl;
 					}
 					P = Pnew;					
 				}

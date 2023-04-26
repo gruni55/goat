@@ -68,6 +68,6 @@ int main(int argc, char** argv)
    double f = D + d + l;
    double t = (f + 250) * GOAT::raytracing::C_LIGHT_MU_FS;
    pc.field(t);
-   GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat",1);
+   GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");
 	return 0;
 }
