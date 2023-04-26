@@ -818,6 +818,7 @@ namespace GOAT
         if (type == IN_OBJECT)
         {
             for (int i = 0; i < numObjs; i++)
+                if (Obj[i]->isActive())
                 for (int ix = 0; ix < n[i][0]; ix++)
                     for (int iy = 0; iy < n[i][1]; iy++)
                         for (int iz = 0; iz < n[i][2]; iz++)
