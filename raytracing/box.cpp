@@ -41,11 +41,13 @@ namespace GOAT
 			const maths::Vector<double> Ey,
 			const maths::Vector<double> Ez) : ObjectShape(P, n, alpha, Ex, Ey, Ez)
 		{
-		//	bounds[0] = P - d / 2.0;
-		//	bounds[1] = P + d / 2.0;
+			bounds[0] = P - d / 2.0;
+			bounds[1] = P + d / 2.0;
+			pul = bounds[0];
+			por = bounds[1];
 
-			bounds[0] = -1.0 * d / 2.0;
-			bounds[1] =  d / 2.0;
+			// bounds[0] = -1.0 * d / 2.0;   // Hä ????
+			// bounds[1] =  d / 2.0;
 			this->d = d;
 			this->r0 = r0;
 			type = OBJECTSHAPE_BOX;
@@ -77,6 +79,8 @@ namespace GOAT
 			d.binWrite(os);
 			bounds[0].binWrite(os);
 			bounds[1].binWrite(os);
+			pul = bounds[0];
+			por = bounds[1];
 		}
 
 		void Box::binRead(std::ifstream& is)
@@ -494,6 +498,7 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 			this->r0 = r0;
 		}
 
+		
 		std::ostream& operator<< (std::ostream& os, Box B)
 		{
 			os << B.P << "  " << B.d << std::endl;

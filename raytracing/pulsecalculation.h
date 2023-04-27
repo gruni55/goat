@@ -18,7 +18,8 @@ namespace GOAT
 		*  functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. 
 		*  Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the
 		*  pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0µm 
-		*  and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. 
+		*  and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a SuperArray SAres, 
+		*  which holds the electric field at a certain time t which was given to the class by calling the function field
 		*/
 		class pulseCalculation
 		{
@@ -33,6 +34,7 @@ namespace GOAT
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;
+				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
 
 			private:	
 				/* In this function the default values (trafoparms) for the calculations are set as follows:
@@ -49,7 +51,7 @@ namespace GOAT
 				double dRWvl; // spectral width of one subdivision
 				int nn;       // number of cells over the whole width of the calculation space (i.e. 2*r0)
 				Scene S;
-				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
+				
 				bool raytracingDone = false; ///< If true, the raytracing part was done and the field calculation starts directly				
 
 				TrafoParms trafoparms;

@@ -115,6 +115,7 @@ namespace GOAT
                 omegaEnd = omega + domega / 2.0;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
+                        if (SAres.Obj[i]->isActive())
                         for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                         {                            
                             for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
