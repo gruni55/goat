@@ -80,9 +80,9 @@ namespace GOAT
             l2 = (-B + sqrt(l1)) / (2.0 * A);
             l1 = (-B - sqrt(l1)) / (2.0 * A);
             //  cout << "l1=" << l1 << "   l2=" << l2;
-            if (l1 / r0 <= 1E-10) l = l2; else l = l1;
+            if (l1 <= 10.0 * DBL_MIN ) l = l2; else l = l1;
             //    cout << "    l=" << l << endl;
-            if (l <= 1E-6 * r0) { /*cout << "NICHT genommen" << endl;*/   return false; }
+            if (l <= 10.0 * DBL_MIN ) { /*cout << "NICHT genommen" << endl;*/   return false; }
             pout = Ps + l * K;
             //  cout << "GENOMMEN: pout=" << pout << endl;
             return true;

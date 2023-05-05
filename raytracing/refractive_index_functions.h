@@ -16,6 +16,11 @@ namespace GOAT
 			return n;
 		}
 
+
+		std::complex<double> n_Glass(double wvl)
+		{
+			return 1.5;
+		}
 		/**
 		* @brief refractive index of air according to refractiveindex.info
 		* @param wvl wavelength (in um)

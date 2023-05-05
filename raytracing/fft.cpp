@@ -45,7 +45,7 @@ namespace GOAT
            
             double omega;
             double domega = 2.0 * M_PI / fabs(tref - t);
-            double Domega = tp.omegaEnd - tp.omegaStart;
+            double Domega = omegastop - omegastart;
             double dw;
             int nsteps;
             nsteps = Domega / domega + 1;
@@ -59,7 +59,7 @@ namespace GOAT
             // std::ofstream os("h:\\data\\blubb.dat");
             for (int iomega = 0; iomega < nsteps; iomega++)
             {
-                omega = tp.omegaStart + iomega * domega;
+                omega = omegastart + iomega * domega;
                 dw = (omega - tp.omega0);
                 double ws = dw * dw * sigma2 / 2.0;                
                 weight = exp(-ws);                                             
@@ -100,7 +100,7 @@ namespace GOAT
             double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / tp.wvl;
             initResult(SA[0][0].r0, SA[0][0].nges[0], SA[0][0].nges[1], SA[0][0].nges[2], SA[0][0].Obj, SA[0][0].numObjs);
             double Sigma = 2.3548 / tp.dt;
-            double Domega = 2.0 * Sigma;
+            double Domega = 4.0 * Sigma;
             
 
             SAres.fill(maths::czero); // empty the whole result array
@@ -124,12 +124,11 @@ namespace GOAT
                                     /*int ix = 0;
                                     int iy = 0;
                                     int iz = 0;*/
-
-
-                                    SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegastart, omegastop);
+                                    
+                                    SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
                                     // std::cout << ix << "," << iy << "," << iz << std::endl;                                   
                                 }
-                            std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+                           // std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
                         }
                 auto end = std::chrono::high_resolution_clock::now();
                 std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;

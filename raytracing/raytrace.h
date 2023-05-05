@@ -59,7 +59,7 @@ namespace GOAT
 			int nDet = 0; ///< Number of detectors
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
-			double r0=100.0; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
+			double r0=1E+100; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
 			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 		};

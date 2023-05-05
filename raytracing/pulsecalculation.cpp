@@ -58,7 +58,7 @@ namespace GOAT
 				//	std::cout << "Start raytracing...";
 					fieldCalculation(); // raytracing is necessary only once
 				//	std::cout << "done." << std:: endl;
-					save(rt.SA[0], "data.log");
+			    // save(rt.SA[0], "data.log");
 				}				
 				trafo.calc(SA,t);
 				raytracingDone = true;

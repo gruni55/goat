@@ -331,8 +331,7 @@ namespace GOAT
 			nLS = 0;
 			LS = 0;
 			nObj = 0;
-			Obj = 0;
-			r0 = DBL_MAX;
+			Obj = 0;			
 			nS = 1.0;			
 			LS = 0;
 			LSRRT = 0;
