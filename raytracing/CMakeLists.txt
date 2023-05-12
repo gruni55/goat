@@ -13,7 +13,7 @@ set (
 	RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
                      lightsrc.h lightsrc_mc.h misc.h objectshape.h octree.h 
 		     raybase.h raytrace.h ray_pow.h resutil.h surface.h triangle.h tubedray.h 
-		     triangle_box_intersection.h  superarray.h
+		     triangle_box_intersection.h  superarray.h supergrid.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h inel_calc.h 
 		     refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h
      "constants.h")

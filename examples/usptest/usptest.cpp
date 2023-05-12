@@ -52,7 +52,7 @@ int main (int argc, char **argv)
 	LS.setD(5.0, 5.0);
 
 	// Region of interest
-	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(2.0, 2.0, 2.0), 1.0); // distance light source <-> "box" (edge) 1m
+	GOAT::raytracing::Box Box(GOAT::maths::dzero, GOAT::maths::Vector<double>(20.0, 20.0, 20.0), 1.0); // distance light source <-> "box" (edge) 1m
 	GOAT::raytracing::Scene S;
 	
 	S.setr0(r0); 
@@ -91,7 +91,7 @@ int main (int argc, char **argv)
 	pc.setRefractiveIndexFunctions(nList);         
 	pc.setPulseWidth(dt);
 	pc.setSpatialResolution(1.0);
-    double tref =0.0;
+    double tref =2.5E6;
 	pc.setReferenceTime(tref);
 		
 	int l = 0;
@@ -100,7 +100,7 @@ int main (int argc, char **argv)
 	{		
 		pc.field(t); // calculate fields at time t 
 		std::cout << std::scientific << t;
-		std::cout << "\t" << abs(pc.trafo.SAres.G[0][1][1][1]) << std::endl;
+		std::cout << "\t" << abs(pc.trafo.SAres.G[0][10][10][10]) << std::endl;
 		l++;
 	}
   return 0;

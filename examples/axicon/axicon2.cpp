@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 	// Light source definitions
         double r0=50000.0; 
 	GOAT::maths::Vector<double> LSPos = -1000.0 * GOAT::maths::ex;      // Position of the light source
-	int numRays = 1000000;                       // number of rays (per direction)  
+	int numRays = 10;                       // number of rays (per direction)  
 	double wvl = 1.0;							 // wavelength
 	double LSsize = 20000.0;                     // size of the light source in µm 
     
@@ -32,7 +32,7 @@ int main(int argc, char** argv)
 	surf.setActive(false);
 
 	GOAT::maths::Vector<double> boxPos(247.7, 0, 0);
-	GOAT::maths::Vector<double> boxDim(500, 500, 500);
+	GOAT::maths::Vector<double> boxDim(100, 100, 10);
 	GOAT::raytracing::Box box(boxPos, boxDim, 1.0);
 	box.setActive(true);
 
@@ -67,7 +67,9 @@ int main(int argc, char** argv)
    double l = h / tan(beta - alpha);
    double f = D + d + l;
    double t = (f + 250) * GOAT::raytracing::C_LIGHT_MU_FS;
+   std::cout << "The electric field will be stored in " << argv[1] << std::endl;
+   
    pc.field(t);
-   GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat");
+   GOAT::raytracing::saveabsE(pc.trafo.SAres, argv[1],1);
 	return 0;
 }

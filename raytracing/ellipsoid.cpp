@@ -1,5 +1,6 @@
 #include "ellipsoid.h"
 #include "matrix.h"
+#include <cfloat>
 
 namespace GOAT
 {

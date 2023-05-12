@@ -26,6 +26,7 @@ namespace GOAT
 		{			
 			double Sigma = 2.3548 / trafoparms.dt;
 			double Domega = 2.0 * Sigma;			
+			std::cout << "nI=" << trafoparms.nI << std::endl;
 			double domega = Domega / (double)trafoparms.nI;
 			double omega;
 			double wvl;
