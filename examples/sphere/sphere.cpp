@@ -11,14 +11,14 @@ int main(int argc, char** argv)
         /* Setup of the spherical object */
 	double r = 100.0; 				        // radius of the sphere
 	GOAT::maths::Vector<double> Pos(0, 0, 0);   		// Position of the sphere
-	GOAT::maths::Vector<double> dim(r, r, r);		// set its dimensions
+	GOAT::maths::Vector<double> dim(r, r, r);		    // set its dimensions
 	GOAT::raytracing::Ellipsoid E(Pos, dim, 1.5, r0);
 	E.setActive(true);  // the electric field inside the sphere will be calculated
 
         /* Setup of the light source: Plane wave */
 	GOAT::maths::Vector<double> LSPos(-1.01*r, 0, 0);       // Position of the light source
 	int numRays = 300;                                      // number of rays (per direction => in total numRaysxnumRays ) 
-        double LSdim = 2.0 * r;                                 // Edge length of the light source
+        double LSdim = 1.0 * r;                             // Edge length of the light source
 
 	GOAT::raytracing::LightSrcPlane LS(LSPos, numRays, 1.0, LSdim); // it's a plane wave
 	LS.setk(GOAT::maths::ex);                               // Light source emitts in positive x-direction
@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 	GOAT::raytracing::pulseCalculation pc(S);   
 	pc.setPulseWidth(100);                                             // set pulse width to 100fs 
 	pc.setRefractiveIndexFunctions(nList);                             // set the refractive index function list 
-	pc.setSpatialResolution(100.0);                                    // set the spatial resolution of the grid to 100.0 µm 
+	pc.setSpatialResolution(1.0);                                      // set the spatial resolution of the grid to 100.0 µm 
 	pc.setReferenceTime(0.0);                                          // set the reference time to 0.0fs
 	                          
 	double t = 3400.0;                                                 // set the time (in fs) at which you want to calculate the fields

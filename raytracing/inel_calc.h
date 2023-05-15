@@ -143,14 +143,14 @@ namespace GOAT
             
               //  std::cout << "pnext: " << p0<< ":" << k0 << "/" << lambdax << "," << lambday << "," << lambdaz << std::endl;
             int i = 0;
-            if (lambdax < lambday)
+            if ((lambdax < lambday) || (lambday < 10.0*DBL_MIN))
                 lambda = lambdax;
             else
             {
                 lambda = lambday;
                 i = 1;
             }
-            if (lambdaz < lambda)
+            if ((lambdaz < lambda) && (lambdaz > 10.0 * DBL_MIN))
             {
                 lambda = lambdaz;
                 i = 2;
