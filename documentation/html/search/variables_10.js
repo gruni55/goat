@@ -2,7 +2,7 @@ var searchData=
 [
   ['s_0',['S',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a58d87a013aaec2543b6214869952c4e1',1,'GOAT::raytracing::Raytrace::S()'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html#ab60e505a6e784618c45db00b2fb679dd',1,'GOAT::raytracing::StrahlArray::S()'],['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#a04758b33a90f5f377d8b48b85f6627ae',1,'GOAT::raytracing::shortPulse::S()'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a85f2e795c6d610db9b3aa478542ef531',1,'GOAT::raytracing::surface::S()']]],
   ['sa_1',['SA',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#afa38ca8840a2ec44262fbc23d802fc97',1,'GOAT::raytracing::Raytrace_usp']]],
-  ['sares_2',['SAres',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#abfe68e42598670cb773dab906d994e71',1,'GOAT::raytracing::Trafo']]],
+  ['sares_2',['SAres',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a53b30981ac0281a2ef3f07374bb6fdc8',1,'GOAT::raytracing::Trafo::SAres()'],['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a6880d97c499cb696b3fcc788d894855d',1,'GOAT::raytracing::pulseCalculation::SAres()']]],
   ['sf_3',['sf',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a246052e0d543ff741d7e71e4d12c76b8',1,'GOAT::raytracing::ObjectShape']]],
   ['sge_4',['SGE',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3b8dbb44fc4a6fb421e6bf50fb2acac4',1,'GOAT::raytracing::Raytrace_Inel']]],
   ['shared_5',['shared',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a3817ccf2604e183a28c9c8e6f85fa1ab',1,'GOAT::raytracing::SysMemInfo']]],

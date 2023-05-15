@@ -18,6 +18,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "objectshape.h", "objectshape_8h.html", "objectshape_8h" ],
     [ "octree.h", "octree_8h.html", "octree_8h" ],
     [ "plane.h", "plane_8h.html", "plane_8h" ],
+    [ "pulsecalculation.h", "pulsecalculation_8h.html", "pulsecalculation_8h" ],
     [ "ray_pow.h", "ray__pow_8h.html", "ray__pow_8h" ],
     [ "raybase.h", "raybase_8h.html", "raybase_8h" ],
     [ "raytrace.h", "raytrace_8h.html", "raytrace_8h" ],

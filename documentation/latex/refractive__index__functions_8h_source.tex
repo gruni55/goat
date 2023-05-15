@@ -26,7 +26,37 @@
 \DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00035}00035         \{}
 \DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00036}00036             \textcolor{keywordflow}{return} 1.0;}
 \DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00037}00037         \}}
-\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00038}00038     \}}
-\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00039}00039 \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00042}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}{00042}}         std::complex<double> \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}{n\_Sellmeier}}(\textcolor{keywordtype}{double} lambda, \textcolor{keywordtype}{double} C[3], \textcolor{keywordtype}{double} B[3])}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00043}00043         \{}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00044}00044             std::complex<double> n;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00045}00045             \textcolor{keywordtype}{double} l2 = lambda * lambda;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00046}00046             n = sqrt(B[1] * l2 / (l2 -\/ C[1]) + B[2] * l2 / (l2 -\/ C[2]) + B[3] * l2 / (l2 -\/ C[3]) + 1.0);}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00047}00047             \textcolor{keywordflow}{return} n;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00048}00048         \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00053}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a97fa6cb0dca018d31ed37abd45b1d572}{00053}}         std::complex<double> \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a97fa6cb0dca018d31ed37abd45b1d572}{n\_LASF55}}(\textcolor{keywordtype}{double} wvl)}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00054}00054         \{}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00055}00055             \textcolor{keywordtype}{double} B[3] = \{ 2.30861228,0.354736638,1.922271250 \};}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00056}00056             \textcolor{keywordtype}{double} C[3] = \{ 0.01304469950,0.0557524221,133.1968690 \};}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00057}00057             \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}{n\_Sellmeier}}(wvl, C, B);}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00059}00059                 }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00060}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}{00060}}                 std::complex<double> \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}{n\_lin}}(\textcolor{keywordtype}{double} wvl)}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00061}00061         \{}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00062}00062             \textcolor{keywordtype}{double} n0 = 1.5;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00063}00063             \textcolor{keywordtype}{double} m = -\/0.1;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00064}00064             \textcolor{keywordtype}{double} c = n0 -\/ m;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00065}00065             \textcolor{keywordflow}{return} m * wvl + c;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00066}00066         \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00068}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}{00068}}         std::complex<double> \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}{n\_test}} (\textcolor{keywordtype}{double} wvl)}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00069}00069         \{}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00070}00070             \textcolor{keywordflow}{if} (fabs(wvl-\/1.0)<0.001) \textcolor{keywordflow}{return} 1.5;}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00071}00071             \textcolor{keywordflow}{return} 1.4;      }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00072}00072         \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00074}00074     \}}
+\DoxyCodeLine{\Hypertarget{refractive__index__functions_8h_source_l00075}00075 \}}
 
 \end{DoxyCode}

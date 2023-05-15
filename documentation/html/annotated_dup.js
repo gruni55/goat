@@ -28,6 +28,7 @@ var annotated_dup =
         [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
         [ "Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", "class_g_o_a_t_1_1raytracing_1_1_plane" ],
         [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
+        [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ],
         [ "Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", "class_g_o_a_t_1_1raytracing_1_1_ray__pow" ],
         [ "RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", "class_g_o_a_t_1_1raytracing_1_1_ray_base" ],
         [ "rayListEntry", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry" ],

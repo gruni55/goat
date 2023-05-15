@@ -54,6 +54,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af301e090f6069
 \begin{DoxyCompactList}\small\item\em returns the ray density, i.\+e. the number of rays per unit length (=D/N) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a664a87ff8f3114e0ac873f261f3f6e17}{setD}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab67b99826922bbd4ffd53b4fa4a4aa47}{D}})
 \begin{DoxyCompactList}\small\item\em sets the width of the light source (this resets also the ray counter) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a42fde6bad2bb23033fc1cd76027b1ec6}{setD}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad80d6efe4a75ac9421bba983a0a812e7}{D1}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a83d34f2ada9edfec7383485e39cef7e8}{D2}})
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ae90d9b704caf57bc4b51a3f4a915c802}{setk}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}})
 \begin{DoxyCompactList}\small\item\em sets the main direction of the light source \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af3adbd66f1b919014bda07ca5afd283f}{getk}} ()
@@ -118,6 +120,10 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_li
 \begin{DoxyCompactList}\small\item\em refractive index of the intermediate medium \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab67b99826922bbd4ffd53b4fa4a4aa47}{D}}
 \begin{DoxyCompactList}\small\item\em width of the square light source area \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad80d6efe4a75ac9421bba983a0a812e7}{D1}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a83d34f2ada9edfec7383485e39cef7e8}{D2}}
+\begin{DoxyCompactList}\small\item\em width in the e1-\/ and the e2-\/direction (used only for \+\_\+mc versions of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af30223158df5a947eacd53d3b2b828f5}{e1}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab61ab661cf7c228951ff86827a7eaf83}{e2}}
@@ -272,7 +278,7 @@ returns the main direction of the light source
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00091}{91}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00107}{107}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_aa6348ba59462f3601165d028dd9b5290}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_aa6348ba59462f3601165d028dd9b5290}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!getNumObjs@{getNumObjs}}
@@ -300,7 +306,7 @@ returns the number of rays (per direction in space)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00092}{92}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00108}{108}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a7d396efa44eb1422aa14ed39fe4a9435}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a7d396efa44eb1422aa14ed39fe4a9435}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!getObject@{getObject}}
@@ -328,7 +334,7 @@ returns the position of the light source. This is the center of the square area 
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00101}{101}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00117}{117}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a3f92b79918d63d832e2938d85e6a0043}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a3f92b79918d63d832e2938d85e6a0043}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!next@{next}}
@@ -413,7 +419,7 @@ Reset everything (counting starts from the beginning)
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a664a87ff8f3114e0ac873f261f3f6e17}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a664a87ff8f3114e0ac873f261f3f6e17}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setD@{setD}}
 \index{setD@{setD}!GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}}
-\doxysubsubsection{\texorpdfstring{setD()}{setD()}}
+\doxysubsubsection{\texorpdfstring{setD()}{setD()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Light\+Src\+::setD (\begin{DoxyParamCaption}\item[{double}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
@@ -428,6 +434,21 @@ sets the width of the light source (this resets also the ray counter)
 
 
 Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00084}{84}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a42fde6bad2bb23033fc1cd76027b1ec6}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a42fde6bad2bb23033fc1cd76027b1ec6}} 
+\index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setD@{setD}}
+\index{setD@{setD}!GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}}
+\doxysubsubsection{\texorpdfstring{setD()}{setD()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Light\+Src\+::setD (\begin{DoxyParamCaption}\item[{double}]{D1,  }\item[{double}]{D2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em D2} & sets the width of the light source \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00093}{93}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ae90d9b704caf57bc4b51a3f4a915c802}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ae90d9b704caf57bc4b51a3f4a915c802}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setk@{setk}}
@@ -451,7 +472,7 @@ sets the complex valued refractive index of the intermediate medium
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00102}{102}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00118}{118}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_acd94224a0ba044babc7cbe5e32694f78}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_acd94224a0ba044babc7cbe5e32694f78}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setNumRays@{setNumRays}}
@@ -466,7 +487,7 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00102}{102}} of file \mb
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00093}{93}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00109}{109}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a008f77ff635833519ad8efa145bf7511}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a008f77ff635833519ad8efa145bf7511}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setObject@{setObject}}
@@ -490,7 +511,7 @@ sets the polarisation
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00099}{99}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00115}{115}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ad956e48a8c4f6239693ee07b9897e230}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ad956e48a8c4f6239693ee07b9897e230}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!setPos@{setPos}}
@@ -523,7 +544,7 @@ sets the radius of the calculation sphere
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00126}{126}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00143}{143}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a75ebb66b6d945d9e1b469628de4b07b4}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a75ebb66b6d945d9e1b469628de4b07b4}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!LightSrcPlane@{LightSrcPlane}}
@@ -533,7 +554,7 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00126}{126}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00125}{125}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00142}{142}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_aff4821c4f9b91ce79f6c16987edb81fb}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_aff4821c4f9b91ce79f6c16987edb81fb}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!operator$<$$<$@{operator$<$$<$}}
@@ -556,7 +577,31 @@ width of the square light source area
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00120}{120}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00136}{136}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ad80d6efe4a75ac9421bba983a0a812e7}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ad80d6efe4a75ac9421bba983a0a812e7}} 
+\index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!D1@{D1}}
+\index{D1@{D1}!GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}}
+\doxysubsubsection{\texorpdfstring{D1}{D1}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Light\+Src\+::\+D1}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00137}{137}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a83d34f2ada9edfec7383485e39cef7e8}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a83d34f2ada9edfec7383485e39cef7e8}} 
+\index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!D2@{D2}}
+\index{D2@{D2}!GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}}
+\doxysubsubsection{\texorpdfstring{D2}{D2}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Light\+Src\+::\+D2}
+
+
+
+width in the e1-\/ and the e2-\/direction (used only for \+\_\+mc versions of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}) 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00137}{137}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a9fda0f2fab1dde7a34b6a41fdf970708}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a9fda0f2fab1dde7a34b6a41fdf970708}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!density@{density}}
@@ -570,7 +615,7 @@ ray density, i.\+e. distance between two neighboring rays
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00108}{108}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00124}{124}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_af30223158df5a947eacd53d3b2b828f5}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_af30223158df5a947eacd53d3b2b828f5}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!e1@{e1}}
@@ -580,7 +625,7 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00108}{108}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00121}{121}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00138}{138}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ab61ab661cf7c228951ff86827a7eaf83}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ab61ab661cf7c228951ff86827a7eaf83}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!e2@{e2}}
@@ -594,7 +639,7 @@ unit vectors that span the light source area
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00121}{121}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00138}{138}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ab76c582d1d1bef23522f629f2d89807c}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ab76c582d1d1bef23522f629f2d89807c}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!i1@{i1}}
@@ -608,7 +653,7 @@ first index of the ray inside the starting area (for internal use, -\/1 if the c
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00111}{111}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00127}{127}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_af70acad0851bf17a9fa0222c8612fc1e}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_af70acad0851bf17a9fa0222c8612fc1e}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!i2@{i2}}
@@ -622,7 +667,7 @@ second index of the ray inside the starting area (for internal use, -\/1 if the 
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00112}{112}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00128}{128}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!k@{k}}
@@ -637,7 +682,7 @@ main direction of the light source ~\newline
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00109}{109}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00125}{125}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!N@{N}}
@@ -651,7 +696,7 @@ number of rays (per direction)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00110}{110}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00126}{126}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a9ad0f4fa69efb5e7fea04588c14fa1c2}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a9ad0f4fa69efb5e7fea04588c14fa1c2}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!n0@{n0}}
@@ -665,7 +710,7 @@ refractive index of the intermediate medium
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00118}{118}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00134}{134}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a10fc4a380bdf92498f5a93f84ef6e8b8}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a10fc4a380bdf92498f5a93f84ef6e8b8}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!numObjs@{numObjs}}
@@ -679,7 +724,7 @@ number of objects
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00117}{117}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00133}{133}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a4c23d040ab6b25b2596ef6103057e6b4}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a4c23d040ab6b25b2596ef6103057e6b4}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!Obj@{Obj}}
@@ -693,7 +738,7 @@ list of all objects
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00103}{103}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00119}{119}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ad8d9ede69b546d4221185d43d53aca48}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ad8d9ede69b546d4221185d43d53aca48}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!P0@{P0}}
@@ -707,7 +752,7 @@ power
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00107}{107}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00123}{123}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a328352a0ef3a68ade8e9dfb9c4500150}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a328352a0ef3a68ade8e9dfb9c4500150}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!Pall@{Pall}}
@@ -722,7 +767,7 @@ overall Power ~\newline
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00124}{124}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00141}{141}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!Pol@{Pol}}
@@ -736,7 +781,7 @@ polarisation (default\+: (0.\+0, 1.\+0, 0.\+0)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00113}{113}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00129}{129}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a9df03bb4a1a4a76b6f249187d76b74da}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a9df03bb4a1a4a76b6f249187d76b74da}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!Pol2@{Pol2}}
@@ -750,7 +795,7 @@ second polarisation (used by \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00114}{114}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00130}{130}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ab7ec0f5da024d908eb44f8221e79465e}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ab7ec0f5da024d908eb44f8221e79465e}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!polType@{polType}}
@@ -765,7 +810,7 @@ Polarisationsrichtung (s.\+o.) ~\newline
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00123}{123}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00140}{140}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!Pos@{Pos}}
@@ -779,7 +824,7 @@ position of the light source (center of the square area of the light source)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00105}{105}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00121}{121}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!r0@{r0}}
@@ -793,7 +838,7 @@ radius of the calculation sphere
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00115}{115}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00131}{131}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!raytype@{raytype}}
@@ -807,7 +852,7 @@ Strahltyp \+: ray oder ISTRAHL (=RAY oder IRAY)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00122}{122}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00139}{139}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_aac7923883a2dd3476641264aec1dfe06}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_aac7923883a2dd3476641264aec1dfe06}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!suppress\_phase\_progress@{suppress\_phase\_progress}}
@@ -817,7 +862,7 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00122}{122}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00128}{128}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00145}{145}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1cd3872eaece0be45}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1cd3872eaece0be45}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!type@{type}}
@@ -831,7 +876,7 @@ type of the light source
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00106}{106}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00122}{122}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}} 
 \index{GOAT::raytracing::LightSrc@{GOAT::raytracing::LightSrc}!wvl@{wvl}}
@@ -845,7 +890,7 @@ wavelength
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00116}{116}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00132}{132}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 
 

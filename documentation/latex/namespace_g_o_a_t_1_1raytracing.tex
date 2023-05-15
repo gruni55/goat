@@ -52,6 +52,9 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}
 \item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}}
 \item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}
+\begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. ~\newline
+ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}
@@ -194,6 +197,14 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2
 \begin{DoxyCompactList}\small\item\em refractive index of air according to refractiveindex.\+info \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a883a7356d84cade7f08fed45b7d7a8cf}{n\+\_\+\+Vacuum}} (double wvl)
 \begin{DoxyCompactList}\small\item\em refractive index of vacuum (=1.\+0) for compatibility \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}{n\+\_\+\+Sellmeier}} (double lambda, double C\mbox{[}3\mbox{]}, double B\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em refractive index formula used for glasses from Schott \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a97fa6cb0dca018d31ed37abd45b1d572}{n\+\_\+\+LASF55}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index of LASF55-\/glass from Schott (coefficients according taken from www.\+schott.\+com) \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}{n\+\_\+lin}} (double wvl)
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}{n\+\_\+test}} (double wvl)
+\item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5e49796d66fa0df65d953e3275900d08}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
 \item 
 std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4e1de31b273c64e3e177c54016f5510}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
@@ -383,9 +394,11 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe1
 \item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\+\_\+\+LIGHT}} = 299792458
 \begin{DoxyCompactList}\small\item\em speed of light in m$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
+constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
+\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$fs$^\wedge$-\/1 \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\+\_\+\+LIGHT\+\_\+\+MU}} = 299792458E+6
 \begin{DoxyCompactList}\small\item\em speed of light in mum$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\+\_\+\+INTEGRAL}} = 1000
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\+\_\+\+INTEGRAL}} = 500
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
 \begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
@@ -926,6 +939,54 @@ refractive index
 
 Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00012}{12}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
 
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a97fa6cb0dca018d31ed37abd45b1d572}\label{namespace_g_o_a_t_1_1raytracing_a97fa6cb0dca018d31ed37abd45b1d572}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!n\_LASF55@{n\_LASF55}}
+\index{n\_LASF55@{n\_LASF55}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{n\_LASF55()}{n\_LASF55()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::n\+\_\+\+LASF55 (\begin{DoxyParamCaption}\item[{double}]{wvl }\end{DoxyParamCaption})}
+
+
+
+refractive index of LASF55-\/glass from Schott (coefficients according taken from www.\+schott.\+com) 
+
+
+
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00053}{53}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}\label{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!n\_lin@{n\_lin}}
+\index{n\_lin@{n\_lin}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{n\_lin()}{n\_lin()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::n\+\_\+lin (\begin{DoxyParamCaption}\item[{double}]{wvl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00060}{60}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}\label{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!n\_Sellmeier@{n\_Sellmeier}}
+\index{n\_Sellmeier@{n\_Sellmeier}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{n\_Sellmeier()}{n\_Sellmeier()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::n\+\_\+\+Sellmeier (\begin{DoxyParamCaption}\item[{double}]{lambda,  }\item[{double}]{C\mbox{[}3\mbox{]},  }\item[{double}]{B\mbox{[}3\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+refractive index formula used for glasses from Schott 
+
+
+
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00042}{42}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}\label{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!n\_test@{n\_test}}
+\index{n\_test@{n\_test}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{n\_test()}{n\_test()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::n\+\_\+test (\begin{DoxyParamCaption}\item[{double}]{wvl }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00068}{68}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a883a7356d84cade7f08fed45b7d7a8cf}\label{namespace_g_o_a_t_1_1raytracing_a883a7356d84cade7f08fed45b7d7a8cf}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!n\_Vacuum@{n\_Vacuum}}
 \index{n\_Vacuum@{n\_Vacuum}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1195,7 +1256,7 @@ read the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} struct
 
 
 
-Definition at line \mbox{\hyperlink{inel__calc_8h_source_l00065}{65}} of file \mbox{\hyperlink{inel__calc_8h_source}{inel\+\_\+calc.\+h}}.
+Definition at line \mbox{\hyperlink{inel__calc_8h_source_l00066}{66}} of file \mbox{\hyperlink{inel__calc_8h_source}{inel\+\_\+calc.\+h}}.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a6ce5d78417be0f2273c364707a4cf253}\label{namespace_g_o_a_t_1_1raytracing_a6ce5d78417be0f2273c364707a4cf253}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!pnext@{pnext}}
@@ -1206,7 +1267,7 @@ Definition at line \mbox{\hyperlink{inel__calc_8h_source_l00065}{65}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{inel__calc_8h_source_l00113}{113}} of file \mbox{\hyperlink{inel__calc_8h_source}{inel\+\_\+calc.\+h}}.
+Definition at line \mbox{\hyperlink{inel__calc_8h_source_l00114}{114}} of file \mbox{\hyperlink{inel__calc_8h_source}{inel\+\_\+calc.\+h}}.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a18c50570e2c4dd81964653db0aad4228}\label{namespace_g_o_a_t_1_1raytracing_a18c50570e2c4dd81964653db0aad4228}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!pnext@{pnext}}
@@ -1507,6 +1568,20 @@ speed of light in mum$\ast$s$^\wedge$-\/1
 
 
 
+Definition at line \mbox{\hyperlink{constants_8h_source_l00017}{17}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}\label{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!C\_LIGHT\_MU\_FS@{C\_LIGHT\_MU\_FS}}
+\index{C\_LIGHT\_MU\_FS@{C\_LIGHT\_MU\_FS}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{C\_LIGHT\_MU\_FS}{C\_LIGHT\_MU\_FS}}
+{\footnotesize\ttfamily constexpr double GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS = 0.\+299792458\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+speed of light in m$\ast$fs$^\wedge$-\/1 
+
+
+
 Definition at line \mbox{\hyperlink{constants_8h_source_l00016}{16}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}\label{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}} 
@@ -1729,7 +1804,7 @@ Definition at line \mbox{\hyperlink{short__pulses_8h_source_l00036}{36}} of file
 \index{GOAT::raytracing@{GOAT::raytracing}!N\_INTEGRAL@{N\_INTEGRAL}}
 \index{N\_INTEGRAL@{N\_INTEGRAL}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{N\_INTEGRAL}{N\_INTEGRAL}}
-{\footnotesize\ttfamily constexpr int GOAT\+::raytracing\+::\+N\+\_\+\+INTEGRAL = 1000\hspace{0.3cm}{\ttfamily [constexpr]}}
+{\footnotesize\ttfamily constexpr int GOAT\+::raytracing\+::\+N\+\_\+\+INTEGRAL = 500\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 

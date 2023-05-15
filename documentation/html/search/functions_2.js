@@ -1,7 +1,7 @@
 var searchData=
 [
   ['c_0',['c',['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#a5eabeaa820888e9f123ed3ed616e5bcc',1,'GOAT::raytracing::Ellipsoid']]],
-  ['calc_1',['calc',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a163035ed66481b05f2c923a9d2e63328',1,'GOAT::raytracing::Trafo']]],
+  ['calc_1',['calc',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a2084a27664352b4f9776c181d82df90f',1,'GOAT::raytracing::Trafo']]],
   ['calccom_2',['calcCoM',['../class_g_o_a_t_1_1raytracing_1_1_box.html#ad11495eee63f1845dede5d0d7ef11551',1,'GOAT::raytracing::Box::calcCoM()'],['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#a46cd1ed7a34599b68be6670e068bb3f4',1,'GOAT::raytracing::Ellipsoid::calcCoM()'],['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a6f9c3fb38ae7c01d441e8d81cdb5456b',1,'GOAT::raytracing::ObjectShape::calcCoM()'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a35a9894f1772d52cf27bff659bce170e',1,'GOAT::raytracing::surface::calcCoM()']]],
   ['calcdetdirparms_3',['calcDetDirParms',['../namespace_g_o_a_t_1_1raytracing.html#a1eadf92a6f76e3f9640a40e413a34e88',1,'GOAT::raytracing']]],
   ['calcdiag_4',['calcDiag',['../class_g_o_a_t_1_1raytracing_1_1_box.html#a632ab4515b5c2d556aaa6ac7aadd993f',1,'GOAT::raytracing::Box']]],

@@ -30,6 +30,7 @@ var hierarchy =
     [ "GOAT::raytracing::OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", null ],
     [ "GOAT::raytracing::Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", null ],
     [ "GOAT::raytracing::Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", null ],
+    [ "GOAT::raytracing::pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [
         [ "GOAT::raytracing::Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", null ]
@@ -55,7 +56,7 @@ var hierarchy =
     [ "GOAT::raytracing::SuperArray< GOAT::maths::Vector< std::complex< double > > >", "class_g_o_a_t_1_1raytracing_1_1_super_array.html", null ],
     [ "GOAT::raytracing::SuperGrid< T >", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html", null ],
     [ "GOAT::raytracing::SysMemInfo", "struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html", null ],
-    [ "GOAT::raytracing::Trafo< T >", "class_g_o_a_t_1_1raytracing_1_1_trafo.html", null ],
+    [ "GOAT::raytracing::Trafo", "class_g_o_a_t_1_1raytracing_1_1_trafo.html", null ],
     [ "GOAT::raytracing::TrafoParms", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html", null ],
     [ "GOAT::raytracing::triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", null ],
     [ "GOAT::raytracing::tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", null ],
