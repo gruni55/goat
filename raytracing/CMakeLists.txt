@@ -21,4 +21,4 @@ set (
 add_compile_definitions (WITH_SUPERGITTER)
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )
 target_compile_definitions (goat_raytracing PUBLIC WITH_OCTREE)
-target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths )
+target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
