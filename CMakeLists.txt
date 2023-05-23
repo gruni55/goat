@@ -21,7 +21,7 @@ message (STATUS "Library path is set to: ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}")
 
 add_subdirectory (maths) 
 add_subdirectory (raytracing)
-add_subdirectory (ticpp)
+add_subdirectory (tinyxml2)
 add_subdirectory (examples/ot)
 add_subdirectory (examples/paths)
 add_subdirectory (examples/layers)
