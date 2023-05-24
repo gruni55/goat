@@ -39,14 +39,8 @@ namespace GOAT
 				void readXML(std::string fname, GOAT::raytracing::Scene& S);
 
 			private:				
-	/*			int readLightSrc(ticpp::Element* ell);
-				void readLightSrcDefaults(ticpp::Element* ell, double& size, int& numRays, double& wvl, GOAT::maths::Vector<double> &Pos);
-				GOAT::maths::Vector<double> readDVector(ticpp::Element* ell);
-				int checkSceneElements(std::string);
-				int checkLSElements(std::string);
-
-				ticpp::Element* rootElement;
-				ticpp::Element* sceneElement;*/
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell);
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
 				tinyxml2::XMLElement* rootElement;
 				tinyxml2::XMLElement* sceneElement;
 				GOAT::raytracing::Scene S;
