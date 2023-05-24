@@ -4,10 +4,29 @@
     <nS real="1.2" imag="0.1"></nS>
     <LightSources>
       <LightSource Type="plane" Size="10.0" Wavelength="1.0" NumRays="300">
-        <Position x="1.2" y="2.3" z="3.4"></Position>
-        <Direction x="5.6" y="7.3" z="55.3" />
-      </LightSource>
+        <Position x="1.2" y="2.3"></Position>
+		  <Direction x="5.6" y="7.3" z="55.3"></Direction> 
+      </LightSource>e
+		<LightSource Type="gaussian" Size="10.0" Wavelength="1.0" NumRays="300" NA="0.9">
+			<Position x="-100" y="0.0" z="0.0"></Position>
+			<FocusPosition x="0.0" y="0.0" z="0.0"></FocusPosition>
+			<Direction x="5.6" y="7.3" z="55.3"></Direction>
+		</LightSource>
     </LightSources>
-    <Objects />
+    <Objects>
+		<Object Type="ellipsoid" Alpha="0.0" Beta="0.0" Gamma="0.0" IsActive="false">
+			<n real="1.5" imag="0.0"></n>
+			<Position x="1.2" y="3.4" z="5.6"></Position>
+			<Dimensions x="100.0" y="100.0" z="100.0"></Dimensions>
+		</Object>
+		<Object Type="box">			
+			<Position x="10" y="20" z="30"></Position>
+			<Dimensions x="20" y="30" z="30"></Dimensions>
+			<n real="1.2" imag="0.0"></n>
+		</Object>
+		<Object Type="surface">
+			<Position x="2" y="3" z="5"></Position>			
+		</Object>
+    </Objects>
   </Scene>
 </Root>

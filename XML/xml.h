@@ -31,19 +31,23 @@ namespace GOAT
 		const std::string LSXMLAttributes[] = { "Type","Size","Wavelength","NumRays" };
 		const std::string LSXMLTYPES[] = {"Plane","Gaussian","Plane_mc","Gaussian_mc"};
 	
-
+		/**
+		 * @brief This class provides functionality to read a XML-file 
+		 * This function reads the XML file . It can also make calculations.
+		 */
 
 		class xmlReader
 		{
 			public:
-				void readXML(std::string fname, GOAT::raytracing::Scene& S);
+				void readXML(std::string fname); ///< function to read the file
+				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here
 
 			private:				
-				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell);
-				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
+				std::complex<double> readCmplx(tinyxml2::XMLElement* ell, double defre=0.0, double defim=0.0 );
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);				
 				tinyxml2::XMLElement* rootElement;
-				tinyxml2::XMLElement* sceneElement;
-				GOAT::raytracing::Scene S;
+				tinyxml2::XMLElement* sceneElement;				
 		};
 	}
 }
