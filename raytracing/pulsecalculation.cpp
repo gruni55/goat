@@ -44,8 +44,8 @@ namespace GOAT
 				S.setnS(trafoparms.nList[S.nObj](wvl));
 				rt = Raytrace_usp(S, nn);	
 				rt.trace();				
-				// save(rt.SA[0], "H:\\data\\data2.log");
-				SA.push_back(rt.SA);
+//				save(rt.SA[1], "test.log");
+//				SA.push_back(rt.SA);
 			}			
 		}
 
@@ -56,12 +56,12 @@ namespace GOAT
 			{
 				if (!raytracingDone)
 				{
-				//	std::cout << "Start raytracing...";
+					std::cout << "Start raytracing...";
 					fieldCalculation(); // raytracing is necessary only once
-				//	std::cout << "done." << std:: endl;
-			    // save(rt.SA[0], "data.log");
+					std::cout << "done." << std:: endl;
+			     save(rt.SA[0], "data.log");
 				}				
-				trafo.calc(SA,t);
+		//		trafo.calc(SA,t);
 				raytracingDone = true;
 			}
 		}
@@ -102,7 +102,7 @@ namespace GOAT
 			trafoparms.wvl = 1.0;
 			trafoparms.nI = 1;
 			trafoparms.nR = 1;
-			trafoparms.nS = 15000;			
+			trafoparms.nS = 5000;			
 			setPulseWidth(trafoparms.dt);
 		}
 

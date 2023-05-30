@@ -36,6 +36,7 @@ namespace GOAT
 				Trafo trafo;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
 
+
 			private:	
 				/* In this function the default values (trafoparms) for the calculations are set as follows:
 				* dt  : 1E-14s

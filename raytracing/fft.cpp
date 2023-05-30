@@ -126,9 +126,9 @@ namespace GOAT
                                     int iz = 0;*/
                                     
                                     SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
-                                    // std::cout << ix << "," << iy << "," << iz << std::endl;                                   
+                                     std::cout << ix << "," << iy << "," << iz << std::endl;                                   
                                 }
-                           // std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+        //                    std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
                         }
                 auto end = std::chrono::high_resolution_clock::now();
                 std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;

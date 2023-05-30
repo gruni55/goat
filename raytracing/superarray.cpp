@@ -540,6 +540,7 @@ namespace GOAT
           std::ofstream os(FName);
           os << "% Superarray: " << S.numObjs << " objects" << std::endl;
           int vecnumObj = S.G.size();
+          std::cout << "vecnumObj=" << vecnumObj << std::endl; 
           int nx, ny, nz;
           for (int i = 0; i < vecnumObj; i++)
           {
