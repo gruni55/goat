@@ -135,6 +135,27 @@ namespace GOAT
 								GOAT::raytracing::Box *obj= new GOAT::raytracing::Box(Pos, Dimensions, n);								
 							}
 
+							if (typeStr.compare("surface") == 0)
+							{
+								GOAT::raytracing::surface* obj = new GOAT::raytracing::surface(Pos, n);
+								std::string fileTypeStr = objEll->Attribute("Filetype");
+								if (fileTypeStr.compare("stl") == 0)
+								{
+									std::string fileName = objEll->Attribute("Filename");
+									if (!fileName.empty())
+										((GOAT::raytracing::surface*)obj)->importBinSTL(fileName);
+								}
+
+								if (fileTypeStr.compare("srf") == 0)
+								{
+									std::string fileName = objEll->Attribute("Filename");
+									if (!fileName.empty())
+									{
+										((GOAT::raytracing::surface*)obj)->createsurface(fileName);
+									}
+								}
+							}
+
 							if (obj != NULL)
 							{
 								obj->setMatrix(alpha, beta, gamma);
