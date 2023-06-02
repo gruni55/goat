@@ -207,7 +207,7 @@ bool tubedRay::next()
   }
   
   objIndex=Index[4];
-  
+  if (!suppress_phase_progress)
   for (int i = 0; i < 5; i++) E[i] = E[i]  *exp(I * k0 * n * abs(R[i] - P[i]));
   
  }

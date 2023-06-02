@@ -45,7 +45,7 @@ namespace GOAT
 				rt = Raytrace_usp(S, nn);	
 				rt.trace();				
 //				save(rt.SA[1], "test.log");
-//				SA.push_back(rt.SA);
+				SA.push_back(rt.SA);
 			}			
 		}
 
@@ -61,7 +61,7 @@ namespace GOAT
 					std::cout << "done." << std:: endl;
 			     save(rt.SA[0], "data.log");
 				}				
-		//		trafo.calc(SA,t);
+				trafo.calc(SA,t);
 				raytracingDone = true;
 			}
 		}

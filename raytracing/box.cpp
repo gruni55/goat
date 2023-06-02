@@ -277,7 +277,7 @@ namespace GOAT
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> k = H * K;
-			maths::Vector<double> p = H * (ps - P);
+			maths::Vector<double> p = H * (ps-P) + P; // gefährlich, muss man nochmal überprüfen
 
 			double tmin, tmax;
 			if (k[0] >= 0)
@@ -484,8 +484,8 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> b0 = H * bounds[0];
 			maths::Vector<double> b1 = H * bounds[1];
-			por = maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2])) + P;
-			pul = maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2])) + P;
+			por = maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
+			pul = maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));
 		}
 
 		void Box::setr0(double r0)
