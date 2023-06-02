@@ -569,6 +569,148 @@ namespace GOAT
           }
 
       }
-  
+      template<> bool SuperArray<GOAT::maths::Vector<std::complex<double> > >::write(std::string fname)
+      {
+          std::ofstream os;
+          os.open(fname, std::ios::out | std::ios::binary);
+          if (os.good())
+          {
+              os.write((char*)&numObjs, sizeof(numObjs)); // number of objects (objects itself were not saved yet !)
+              os.write((char*)&type, sizeof(type)); 
+              
+              if (type == IN_OBJECT)
+              {
+                  bool active;
+                  for (int i = 0; i < numObjs; i++)
+                  {
+                      active = Obj[i]->isActive();
+                      os.write((char*)&active, sizeof(active));
+                      if (active)
+                      {
+                          os.write((char*)&n[i][0], sizeof(n[i][0]));
+                          os.write((char*)&n[i][1], sizeof(n[i][1]));
+                          os.write((char*)&n[i][2], sizeof(n[i][2]));
+                          for (int ix = 0; ix < n[i][0]; ix++)
+                              for (int iy = 0; iy < n[i][1]; iy++)
+                                  for (int iz = 0; iz < n[i][2]; iz++)
+                                      os.write((char*)&G[i][ix][iy][iz], sizeof(G[i][ix][iy][iz]));
+                      }
+
+                  }
+
+              }
+              else
+              {
+                  os.write((char*)&nges[0], sizeof(nges[0]));
+                  os.write((char*)&nges[1], sizeof(nges[1]));
+                  os.write((char*)&nges[2], sizeof(nges[2]));
+
+                  int anzx, anzx2;
+                  anzx = nges[0];
+                  anzx2 = nges[0] / 2;
+                  for (int i = 0; i < ywerte.size(); i++)
+                      os.write((char*)&ywerte[i], sizeof(ywerte[i]));
+
+                  for (int i = 0; i < zwerte.size(); i++)
+                      for (int j = 0; j < zwerte[0].size(); j++)
+                          os.write((char*)&zwerte[i][j], sizeof(zwerte[i][j]));
+
+
+                  for (int k = 0; k < anzx2; k++)
+                      for (int l = 0; l < ywerte[k]; l++)
+                          for (int m = 0; m < zwerte[k][l]; m++)
+                          {
+                              os.write((char*)&K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));
+                              os.write((char*)&K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));
+                              os.write((char*)&K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] - 1 - m]));
+                              os.write((char*)&K[anzx2 + k][ywerte[k] + l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 + k][ywerte[k] + l][zwerte[k][l] - 1 - m]));
+                              os.write((char*)&K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] + m], sizeof(K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] + m]));
+                              os.write((char*)&K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] + m], sizeof(K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] + m]));
+                              os.write((char*)&K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] + m], sizeof(K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] + m]));
+                              os.write((char*)&K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m], sizeof(K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m]));
+                          }
+              }
+              return true;
+          }
+          return false;
+      }
+
+      template<> bool SuperArray<GOAT::maths::Vector<std::complex<double> > >::read(std::string fname)
+      {
+          std::ifstream is;
+          is.open(fname, std::ios::out | std::ios::binary);
+          if (is.good())
+          {
+              is.read((char*)&numObjs, sizeof(numObjs)); // number of objects (objects itself were not saved yet !)
+              is.read((char*)&type, sizeof(type));
+
+              if (type == IN_OBJECT)
+              {
+                  GOAT::maths::Vector<int> hiv;
+                  bool active;
+                  int hi;
+                  for (int i = 0; i < numObjs; i++)
+                  {
+                      is.read((char*)&active, sizeof(active));
+                      is.read((char*)&hi, sizeof(hi));
+                      hiv[0] = hi;
+                      is.read((char*)&hi, sizeof(hi));
+                      hiv[1] = hi;
+                      is.read((char*)&hi, sizeof(hi));
+                      hiv[2] = hi;
+                      n.push_back(hiv);
+                       
+                      std::complex<double> cx, cy, cz;
+                      G.resize(numObjs);
+                      
+                      for (int ix = 0; ix < n[i][0]; ix++)
+                          for (int iy = 0; iy < n[i][1]; iy++)
+                              for (int iz = 0; iz < n[i][2]; iz++)
+                              {
+                                  is.read((char*)&cx, sizeof(cx));
+                                  is.read((char*)&cy, sizeof(cy));
+                                  is.read((char*)&cz, sizeof(cz));
+
+                                  is.read((char*)&G[i][ix][iy][iz], sizeof(G[i][ix][iy][iz]));
+                              }
+                  }
+
+              }
+              else
+              {
+                  int intx, inty, intz;
+                  is.read((char*)&intx, sizeof(intx));
+                  is.read((char*)&inty, sizeof(inty));
+                  is.read((char*)&intz, sizeof(intz));
+                  nges = GOAT::maths::Vector<int>(intx, inty, intz);
+
+                  int anzx, anzx2;
+                  anzx = nges[0];
+                  anzx2 = nges[0] / 2;
+                  for (int i = 0; i < ywerte.size(); i++)
+                      is.read((char*)&ywerte[i], sizeof(ywerte[i]));
+
+                  for (int i = 0; i < zwerte.size(); i++)
+                      for (int j = 0; j < zwerte[0].size(); j++)
+                          is.read((char*)&zwerte[i][j], sizeof(zwerte[i][j]));
+
+                  for (int k = 0; k < anzx2; k++)
+                      for (int l = 0; l < ywerte[k]; l++)
+                          for (int m = 0; m < zwerte[k][l]; m++)
+                          {
+                              is.read((char*)&K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));
+                              is.read((char*)&K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));
+                              is.read((char*)&K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] - 1 - m]));
+                              is.read((char*)&K[anzx2 + k][ywerte[k] + l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 + k][ywerte[k] + l][zwerte[k][l] - 1 - m]));
+                              is.read((char*)&K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] + m], sizeof(K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] + m]));
+                              is.read((char*)&K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] + m], sizeof(K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] + m]));
+                              is.read((char*)&K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] + m], sizeof(K[anzx2 - 1 - k][ywerte[k] + l][zwerte[k][l] + m]));
+                              is.read((char*)&K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m], sizeof(K[anzx2 + k][ywerte[k] + l][zwerte[k][l] + m]));
+                          }
+              }
+              return true;
+          }
+          return false;
+      }
   }
 }

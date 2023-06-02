@@ -153,10 +153,14 @@ namespace GOAT
          bool iscleared = true; ///< Array is cleared (needed by the clear() function)
          T pc;        
          maths::Matrix<double> H, R; ///< Transformation matrices in the local array coordinate system and backwards
+         bool write(std::string fname);
+         bool read(std::string fname);
     };
 
    
     /*------------------------- IMPLEMENTATION --------------------------------------*/
+
+    template<> bool SuperArray<GOAT::maths::Vector<std::complex<double> > >::write(std::string fname);
 
     template <class T> SuperArray<T>::SuperArray()
     {
