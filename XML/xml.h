@@ -46,7 +46,7 @@ namespace GOAT
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
 				std::complex<double> readCmplx(tinyxml2::XMLElement* ell, double defre=0.0, double defim=0.0 );
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);				
-				tinyxml2::XMLElement* rootElement;
+				tinyxml2::XMLNode* rootElement;
 				tinyxml2::XMLElement* sceneElement;				
 		};
 	}

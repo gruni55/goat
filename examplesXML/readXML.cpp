@@ -18,9 +18,15 @@ int main(int argc, char** argv)
 	doc.Clear();
 	*/
 
+	
 	GOAT::XML::xmlReader xmlr;
 	GOAT::raytracing::Scene S;
-	xmlr.readXML("C:\\Users\\weigetz9\\source\\repos\\goat\\examplesXML\\full.xml",S);
-
+	xmlr.readXML("C:\\Users\\weigetz9\\source\\repos\\goat\\examplesXML\\full.xml");
+	
+/*
+	GOAT::maths::Vector<double> Pos;
+	std::complex<double> n;
+	GOAT::raytracing::surface* S1 = new GOAT::raytracing::surface(Pos, n);
+	GOAT::raytracing::surface* S2 = new GOAT::raytracing::surface(Pos, n);*/
 	return 0;
 }
