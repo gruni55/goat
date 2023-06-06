@@ -52,7 +52,6 @@ namespace GOAT
 			bool cancel = false;
 			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
 
-			// std::cout << PStart << "/" << PStop << std::endl;
 			if ( (L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
 			{	
 				// each cell entry consists of the stack, i.e. all steps until the detector was hidden and the 

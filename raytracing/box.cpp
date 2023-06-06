@@ -41,10 +41,10 @@ namespace GOAT
 			const maths::Vector<double> Ey,
 			const maths::Vector<double> Ez) : ObjectShape(P, n, alpha, Ex, Ey, Ez)
 		{
-			bounds[0] = P - d / 2.0;
-			bounds[1] = P + d / 2.0;
-			pul = bounds[0];
-			por = bounds[1];
+			bounds[0] = -1.0 * d / 2.0;
+			bounds[1] = d / 2.0;
+			pul = P + bounds[0];
+			por = P + bounds[1];
 
 			// bounds[0] = -1.0 * d / 2.0;   // Hä ????
 			// bounds[1] =  d / 2.0;
@@ -79,8 +79,8 @@ namespace GOAT
 			d.binWrite(os);
 			bounds[0].binWrite(os);
 			bounds[1].binWrite(os);
-			pul = bounds[0];
-			por = bounds[1];
+			pul = P + bounds[0];
+			por = P + bounds[1];
 		}
 
 		void Box::binRead(std::ifstream& is)
@@ -112,8 +112,8 @@ namespace GOAT
 			double sfold = this->sf;
 			this->sf = sf;
 			d = d * sf / sfold;
-			bounds[0] = P - d / 2.0;
-			bounds[1] = P + d / 2.0;
+			bounds[0] = - d / 2.0;
+			bounds[1] = d / 2.0;
 			calcDiag();
 			initQuad();
 		}
@@ -277,8 +277,7 @@ namespace GOAT
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> k = H * K;
-			maths::Vector<double> p = H * (ps-P) + P; // gefährlich, muss man nochmal überprüfen
-
+			maths::Vector<double> p = H * (ps-P); // gefährlich, muss man nochmal überprüfen
 			double tmin, tmax;
 			if (k[0] >= 0)
 			{
@@ -325,7 +324,7 @@ namespace GOAT
 			if (tzmin > tmin) tmin = tzmin;
 			if (tzmax < tmax) tmax = tzmax;
 			if (tmin > BOX_EPS)
-			{
+			{				
 				pout = ps + K * tmin;
 				return true;
 			}
@@ -484,8 +483,8 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> b0 = H * bounds[0];
 			maths::Vector<double> b1 = H * bounds[1];
-			por = maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
-			pul = maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));
+			por = P + maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
+			pul = P + maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));
 		}
 
 		void Box::setr0(double r0)
