@@ -1,5 +1,5 @@
 #CMAKE configuration file for ray library
-
+message ("Preparing library goat_raytracing")
 set (
 	RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp  
                      lightsrc.cpp lightsrc_mc.cpp misc.cpp objectshape.cpp octree.cpp 
@@ -20,5 +20,18 @@ set (
 
 add_compile_definitions (WITH_SUPERGITTER)
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )
+
+if (WITHOUT_OPENMP) 
+	message (STATUS "OpenMP support skipped due to parameter \"WITHOUT_OPENMP\"")
+else()
+	find_package(OpenMP)
+	if (OPENMP_FOUND)
+ 		message (STATUS "OpenMP found")
+	        message ("OpenMP compiler flags:" ${OpenMP_CXX_FLAGS})
+	        target_compile_options (goat_raytracing PUBLIC ${OpenMP_CXX_FLAGS})
+	else()
+		message (WARNING "OpenMP not found - Calculation without parallelization")
+	endif()
+endif()
 target_compile_definitions (goat_raytracing PUBLIC WITH_OCTREE)
 target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
