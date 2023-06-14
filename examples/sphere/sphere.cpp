@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv)
 {
-	double r0 = 1E+5;  // radius of the calculation space
+	double r0 = 500;  // radius of the calculation space
 
         /* Setup of the spherical object */
 	double r = 100.0; 				        // radius of the sphere
@@ -27,7 +27,7 @@ int main(int argc, char** argv)
    
         /* Setup of the light source: Plane wave */
 	GOAT::maths::Vector<double> LSPos(-110, 0, 0);       // Position of the light source
- 	int numRays = 3000;                                      // number of rays (per direction => in total numRaysxnumRays ) 
+ 	int numRays = 150000;                                      // number of rays (per direction => in total numRaysxnumRays ) 
         double LSdim = 200;                             // Edge length of the light source
 
 	GOAT::raytracing::LightSrcPlane_mc LS(LSPos, numRays, 1.0, LSdim); // it's a plane wave
@@ -40,15 +40,15 @@ int main(int argc, char** argv)
   //  S.addObject(&box);
 	S.addObject(&box2);
 	S.setr0(r0);
-
+/*
 	GOAT::raytracing::Raytrace_Path rp(S);
 	rp.trace("test.dat"); 
-	/*
+	*/
 
         // Set the refractive index functions for the object and the surrounding medium 
 	std::vector<std::function<std::complex<double>(double) > > nList;  // List to store the refractive index functions
 	//nList.push_back(GOAT::raytracing::n_BK7);                          // function for the object (sphere)
-    nList.push_back(GOAT::raytracing::n_Vacuum);                       // function for the box
+    nList.push_back(GOAT::raytracing::n_BK7);                       // function for the box
 	nList.push_back(GOAT::raytracing::n_Vacuum);                       // function for the surroundings
 	nList.push_back(GOAT::raytracing::n_Vacuum);
 
@@ -62,6 +62,6 @@ int main(int argc, char** argv)
 	double t = 1200.0;                                                 // set the time (in fs) at which you want to calculate the fields
 	pc.field(t); 	                                                   // make calculation
 	// GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs.dat", 0);     // store absolute values of the electric field inside the sphere (object number 0)  
-	GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs1.dat", 1);*/
+	GOAT::raytracing::saveabsE(pc.trafo.SAres, "fieldabs1.dat", 1);
 	return 0; 
 }

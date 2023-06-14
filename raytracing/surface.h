@@ -11,6 +11,7 @@
 #include "objectshape.h"
 #include <string.h>
 #include "triangle.h"
+
 #ifdef WITH_OCTREE
 #include "octree.h"
 #endif
@@ -103,7 +104,7 @@ namespace GOAT
              * @param max largest edge length
              */
             void getMinMax(double& min, double& max);
-            triangle* S = 0; ///< list of all triangles
+            triangle* S ; ///< list of all triangles
             int numTriangles = 0; ///< number of triangles 
 
             // Erzeugen der Dreiecksliste

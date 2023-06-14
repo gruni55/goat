@@ -98,9 +98,9 @@ surface::surface(const maths::Vector<double> &P,
           const maths::Vector<double> &Ey,
           const maths::Vector<double> &Ez
          )
-: ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
+ : ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
 {
- r0=1.0;
+ r0 = 1.0;
   sf=1.0;
   numTriangles=0;
   S=NULL;
@@ -120,7 +120,7 @@ surface::surface(const maths::Vector<double> &P,
           const maths::Vector<double> &Ez)
 : ObjectShape (P, n, alpha, Ex, Ey, Ez,OBJECTSHAPE_SURFACE)
 {
- trafo (Ex,Ey,Ez,H,R);
+ trafo(Ex, Ey, Ez, H, R);
  this->P=P;
  this->numTriangles=anz;
  S=new triangle[numTriangles];
@@ -140,12 +140,8 @@ surface::surface(const maths::Vector<double> &P,
  for (int i = 0; i < numTriangles; i++)
 	 addTriangleToTriangle(Tree, S[i]);
  // Tree.trimOctree();
- /*cube = Octree<triangle>::Section(P, d, 1.0, h);
- cout << "bounds:" << cube.bounds[0] << "    " << cube.bounds[1] << endl; 
- Tree.setRootSection(cube);
- Tree.build(S, numTriangles);*/
 #endif 
-
+	
 }
 /*
 surface::~surface()
@@ -349,7 +345,7 @@ bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &
 
 #ifndef WITH_OCTREE
   double thilf,t;
-  Vector<double> rhilf, philf, khilf;
+  GOAT::maths::Vector<double> rhilf, philf, khilf;
   bool found=false;
   rhilf = H*(r - P);
   khilf = H*k;

@@ -13,7 +13,7 @@ namespace GOAT
 			this->n = n;
 		}
 
-		void Raytrace_usp::init()
+		void Raytrace_usp::init() 
 		{
 			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
 			if (S.nObj > 0)

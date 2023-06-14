@@ -4,7 +4,6 @@
 #include "vector.h"
 #include <iostream>
 
-
 namespace GOAT
 {
 	namespace raytracing
@@ -30,10 +29,10 @@ namespace GOAT
 			bool isLeaf; ///< Sign wether the Octree is a leaf or not. 
 			Octree()
 			{
-				parent = 0;
-				child = 0;
+				/*parent = 0;
+				child = 0;*/
 				nChilds = 0;
-				Element = 0;
+	//			Element = 0;
 				nElements = 0;
 				isLeaf = false;
 				MAX_RECURSIONS = 3;

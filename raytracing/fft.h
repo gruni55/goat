@@ -28,7 +28,7 @@ namespace GOAT
             int nR= INEL_MAX_NREFLEX;   ///< number of reflections considered in the raytracing part
             double omegaStart;              ///< lowest wavelength considered in the calculation 
             double omegaEnd;               ///< highest wavelength considered in the calculation 
-            double omega0;
+            double omega0;                 ///< main frequency (corresponds to wvl)
             double wvl=1.0;                 ///< main wavelength   
             double dt=1E-15;                  ///< width of the pulse (in seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
@@ -76,7 +76,7 @@ namespace GOAT
             double twoSigma2; 
             double sigma2;
             double prefactor; // 1/(sigma * sqrt (2pi))
-            double omegastart, omegastop;
+          //  double omegastart, omegastop;
             std::vector<double> freq;
             double tref = 0.0;
             TrafoParms tp;

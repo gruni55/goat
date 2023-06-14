@@ -1,6 +1,7 @@
 #include "fft.h"
 #include <chrono>
 #include <math.h>
+#include <omp.h>
 
 namespace GOAT
 {
@@ -113,22 +114,27 @@ namespace GOAT
                  omega = tp.omegaStart + iOmega * domega - domega / 2.0;
                 omegaStart = omega - domega / 2.0;
                 omegaEnd = omega + domega / 2.0;
+                
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
-                        for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
-                        {                            
-                            for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
-                                for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)
-                                {
-                                    /*int ix = 0;
-                                    int iy = 0;
-                                    int iz = 0;*/
-                                    
-                                    SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
-                                     std::cout << i << "," << ix << "," << iy << "," << iz << std::endl;
-                                }
-        //                    std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+                        {
+                            #pragma omp parallel for
+                            for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                            {
+                                std::cout << ix << std::endl << std::flush;
+                                for (int iy = 0; iy < SA[iOmega][iR].n[i][1]; iy++)
+                                    for (int iz = 0; iz < SA[iOmega][iR].n[i][2]; iz++)
+                                    {
+                                        /*int ix = 0;
+                                        int iy = 0;
+                                        int iz = 0;*/
+
+                                        SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                       
+                                    }
+                                //                    std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+                            }
                         }
                 auto end = std::chrono::high_resolution_clock::now();
                 std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
