@@ -304,7 +304,7 @@ namespace GOAT
 
 			//        cout << ps << "    " << tmin << "  " << tymax << "   " << tymax << "   " << tymin << "   " << tmax << endl; 
 
-			if ((tmin > tymax) || (tymin > tmax)) { pout = ps; return false; }
+			if (((tmin > tymax) || (tymin > tmax)) && (k[1]!=0)) { pout = ps; return false; }
 
 			if (tymin > tmin) tmin = tymin;
 			if (tymax < tmax) tmax = tymax;
@@ -320,9 +320,12 @@ namespace GOAT
 				tzmin = (bounds[1][2] - p[2]) / k[2];
 				tzmax = (bounds[0][2] - p[2]) / k[2];
 			}
-			if ((tmin > tzmax) || (tzmin > tmax)) { pout = ps; return false; }
-			if (tzmin > tmin) tmin = tzmin;
-			if (tzmax < tmax) tmax = tzmax;
+			if (((tmin > tzmax) || (tzmin > tmax)) && (k[2]!=0)) { pout = ps; return false; }
+			if (k[2] != 0)
+			{
+				if (tzmin > tmin) tmin = tzmin;
+				if (tzmax < tmax) tmax = tzmax;
+			}
 			if (tmin > BOX_EPS)
 			{				
 				pout = ps + K * tmin;

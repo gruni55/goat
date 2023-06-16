@@ -71,9 +71,9 @@ namespace GOAT
             surface(const maths::Vector<double>& P,
                 std::complex<double>  n,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez
+                const maths::Vector<double> Ex = GOAT::maths::ex,
+                const maths::Vector<double> Ey = GOAT::maths::ey,
+                const maths::Vector<double> Ez = GOAT::maths::ez
             );
 
             /**
@@ -92,9 +92,9 @@ namespace GOAT
                 std::complex<double>  n,
                 int num, triangle* list,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez);
+                const maths::Vector<double> Ex = maths::ex,
+                const maths::Vector<double> Ey = maths::ey,
+                const maths::Vector<double> Ez = maths::ez);
 
             // ~surface();
             maths::Vector<double> calcCoM(); /// calculates center of mass

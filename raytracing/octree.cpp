@@ -33,7 +33,7 @@ namespace GOAT
 				{
 					if (O->nElements == 0) O->Element = (triangle*)malloc(sizeof(triangle));
 					else O->Element = (triangle*)realloc(O->Element, sizeof(triangle) * (O->nElements + 1));
-					O->Element[O->nElements] = D;
+					O->Element[O->nElements] = D;					
 					O->nElements++;
 				}
 			}
