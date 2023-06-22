@@ -228,7 +228,7 @@ maths::Vector<double> por, pul;
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
-		Tree.BBox = Box(maths::dzero, d, this->n);
+		Tree.BBox = Box(Ph, d, this->n);
 		Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
@@ -311,7 +311,7 @@ int surface::importBinSTL(std::string FName)
 	maths::Vector<double> hd(h,h,h);
 		// hd = (pul + por) / 2.0;
 //		Tree.BBox = Box(dzero, Vector<double>(20,20,20), this->n);
-		Tree.BBox = Box(maths::dzero, d, this->n);
+		Tree.BBox = Box((pul+por)/2.0, d, this->n);
     	Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
