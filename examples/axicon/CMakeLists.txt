@@ -23,13 +23,19 @@ find_library (NAMES goat_raytracing PATHS ../../lib)
 
 
 target_include_directories (axicon PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (axicon goat_raytracing goat_maths)
-
 target_include_directories (axicon2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (axicon2 goat_raytracing goat_maths)
-
 target_include_directories (axicon_with_box PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (axicon_with_box goat_raytracing goat_maths)
+
+find_package(OpenMP)
+if ((NOT OPENMP_FOUND) OR (WITHOUT_OPENMP))
+   target_link_libraries (axicon goat_raytracing goat_maths)	
+   target_link_libraries (axicon2 goat_raytracing goat_maths)
+   target_link_libraries (axicon_with_box goat_raytracing goat_maths)
+else()
+   target_link_libraries (axicon goat_raytracing_mp goat_maths)	
+   target_link_libraries (axicon2 goat_raytracing_mp goat_maths)
+   target_link_libraries (axicon_with_box goat_raytracing_mp goat_maths)
+endif()
 
 install(TARGETS axicon axicon2 axicon_with_box
     RUNTIME DESTINATION bin
