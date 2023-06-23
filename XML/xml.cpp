@@ -7,12 +7,13 @@ namespace GOAT
 {
 	namespace XML
 	{
-		void xmlReader::readXML(std::string fname)
+		void xmlReader::readXML(const char* fname)
 		{
 			tinyxml2::XMLElement* ell;
 			tinyxml2::XMLDocument doc;
 			double dv;
-			doc.LoadFile(fname.c_str());
+			doc.LoadFile(fname);
+			
 			rootElement = doc.RootElement();
 			if (rootElement != NULL)
 			{
@@ -54,14 +55,14 @@ namespace GOAT
 							
 							if (typeStr.compare("plane") == 0)
 							{
-								ls = new GOAT::raytracing::LightSrcPlane(Pos, numRays, size, wavelength);
+								ls = new GOAT::raytracing::LightSrcPlane(Pos, numRays, wavelength, size);
 								GOAT::maths::Vector<double> k=readVector(lsEll->FirstChildElement("Direction"));
 								ls->setk(k);								
 							}
 
 							if (typeStr.compare("plane_mc") == 0)
 							{
-								ls = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, size, wavelength);
+								ls = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, wavelength, size);
 								GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 								ls->setk(k);								
 							}
@@ -104,8 +105,11 @@ namespace GOAT
 					ell = sceneElement->FirstChildElement("Objects");
 					if (ell != NULL)
 					{
+						GOAT::raytracing::surface objS;
 						GOAT::maths::Vector<double> Pos;
 						std::string typeStr;
+						std::string fileTypeStr;
+						std::string fileName;
 						std::complex<double> n;
 						bool isActive;
 						double alpha = 0;
@@ -135,33 +139,39 @@ namespace GOAT
 								GOAT::raytracing::Box *obj= new GOAT::raytracing::Box(Pos, Dimensions, n);								
 							}
 
+
+							//GOAT::raytracing::ObjectShape* obj;
 							if (typeStr.compare("surface") == 0)
 							{
-								GOAT::raytracing::surface* obj = new GOAT::raytracing::surface(Pos, n);
-								std::string fileTypeStr = objEll->Attribute("Filetype");
-								if (fileTypeStr.compare("stl") == 0)
-								{
-									std::string fileName = objEll->Attribute("Filename");
-									if (!fileName.empty())
-										((GOAT::raytracing::surface*)obj)->importBinSTL(fileName);
-								}
+								 objS= GOAT::raytracing::surface(Pos, n);
+								fileTypeStr = objEll->Attribute("Filetype");
 
 								if (fileTypeStr.compare("srf") == 0)
 								{
-									std::string fileName = objEll->Attribute("Filename");
-									if (!fileName.empty())
-									{
-										((GOAT::raytracing::surface*)obj)->createsurface(fileName);
-									}
+									fileName=objEll->Attribute("Filename");
+									if (!fileName.empty()) objS.createsurface(fileName);
 								}
+
+								if (fileTypeStr.compare("stl") == 0)
+								{
+									 fileName=objEll->Attribute("Filename");
+									if (!fileName.empty())
+										objS.importBinSTL(fileName);
+								}
+
+								
+
+								if (objS.numTriangles > 0)
+										S.addObject(&objS);
+								
 							}
 
-							if (obj != NULL)
+							/*if (obj != NULL)
 							{
 								obj->setMatrix(alpha, beta, gamma);
 								obj->setActive(isActive);
 								S.addObject(obj);
-							}
+							}*/
 
 						} // while loop
 					}
