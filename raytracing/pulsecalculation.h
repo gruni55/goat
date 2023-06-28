@@ -26,6 +26,7 @@ namespace GOAT
 			public:
 				pulseCalculation(Scene S);
 				void fieldCalculation(); ///< This function makes the raytracing (normally only used internally)
+				void fieldCalculation(double omega); ///< This function makes one raytracing step at frequency omega
 				void setPulseWidth(double dt); ///< Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions				
 				void setSpatialResolution(double dx); ///< sets the spatial resolution to a value near to dx
 				void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList); ///< sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1)
@@ -35,7 +36,7 @@ namespace GOAT
 				void setReferenceTime(double tref);
 				Trafo trafo;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
-
+				
 
 			private:	
 				/* In this function the default values (trafoparms) for the calculations are set as follows:
@@ -45,8 +46,9 @@ namespace GOAT
 				* 
 				*/
 				void setDefaults();				
-				std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
-				
+				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
+				std::vector<SuperArray<std::vector<gridEntry> > >  SA;
+
 				Raytrace_usp rt;
 				double dWvl;  // spectral width of the light
 				double dRWvl; // spectral width of one subdivision

@@ -25,6 +25,7 @@ namespace GOAT
             * @param n: Number of grid elements per coordinate across the entire width (i.e. 2*r0) used in the SuperArray SA
             */
             Raytrace_usp(const Scene& S, int n); 
+            void clear(); ///< Clears the SuperArray grid (SA) 
             void init(); ///< Initialises the SuperArray grid (SA) according to the objects hold in Scene S
             void trace(); ///< Perform the raytracing process
             void storeData(); ///< Store the data in the grid

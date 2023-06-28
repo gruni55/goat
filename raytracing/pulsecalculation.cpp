@@ -13,6 +13,7 @@ namespace GOAT
 			setPulseWidth(40);
 			setSpatialResolution(1.0);
 			trafo = Trafo(trafoparms);			
+			rt = Raytrace_usp(S, nn);
 		}
 
 		void pulseCalculation::setReferenceTime(double tref)
@@ -42,14 +43,55 @@ namespace GOAT
 				for (int lobj = 0; lobj < S.nObj; lobj++)
 					S.Obj[lobj]->setn(trafoparms.nList[lobj](wvl));
 				S.setnS(trafoparms.nList[S.nObj](wvl));
-				rt = Raytrace_usp(S, nn);	
+				
 				rt.trace();				
 //				save(rt.SA[1], "test.log");
-				SA.push_back(rt.SA);
+	//			SA.push_back(rt.SA);
 			}			
 		}
 
+		void pulseCalculation::fieldCalculation(double omega)
+		{
+			double wavelength = 2.0 * M_PI / omega * C_LIGHT_MU_FS;
+
+			// clear the old raytracing results
+			rt.clear();
+		
+			// now, set the new refractive indices 
+			for (int iObj = 0; iObj < S.nObj; iObj++)
+				S.Obj[iObj]->setn(trafoparms.nList[0](wavelength));
+			S.setnS(trafoparms.nList[S.nObj](wavelength));
+
+			// set the wavelength for all light sources
+			for (int ls = 0; ls < S.nLS; ls++)
+				S.LS[ls]->wvl = wavelength;
+
+			// do the raytracing
+			rt.trace();
+		}
+
+
 		void pulseCalculation::field(double t)
+		{
+			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
+			double Sigma = 2.3548 / trafoparms.dt;
+			double Domega = 4.0 * Sigma;
+			double domega = Domega / (double)trafoparms.nI;
+			double omegaStart = omega0 - Domega;
+			double omegaEnd = omegaStart + domega;
+			double omega;
+			double wavelength;
+			trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
+			{
+				omega = omegaStart + (double)iOmega + 0.5 * domega;
+				
+				fieldCalculation(omega); // make the raytracing
+				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
+			}
+		}
+
+	/*	void pulseCalculation::field(double t)
 		{
 			
 			if (trafoparms.nList.size() == S.nObj + 1) // process calculation only, if all necessary refractive index functions are given
@@ -59,24 +101,20 @@ namespace GOAT
 					std::cout << "Start raytracing...";
 					fieldCalculation(); // raytracing is necessary only once
 					std::cout << "done." << std:: endl;
-			     save(rt.SA[0], "data.log");
 				}				
 				trafo.calc(SA,t);
 				raytracingDone = true;
 			}
 		}
-
+		*/
 		void pulseCalculation::reset()
 		{
 			// first, let's clear the array where the ray paths and the materials are stored
-			for (std::vector < SuperArray<std::vector<gridEntry> > > SAElement : SA)
+			for ( SuperArray<std::vector<gridEntry> >  SAElement : SA)
 			{
-				for (SuperArray<std::vector<gridEntry> > SAGridElement : SAElement)
-					SAGridElement.clear();
 				SAElement.clear();
 			}
 			SA.clear();
-
 			raytracingDone = false;
 		}
 
@@ -100,9 +138,9 @@ namespace GOAT
 		{
 			trafoparms.dt = 100;
 			trafoparms.wvl = 1.0;
-			trafoparms.nI = 1;
+			trafoparms.nI = 100;
 			trafoparms.nR = 1;
-			trafoparms.nS = 5000;			
+			trafoparms.nS = 50;			
 			setPulseWidth(trafoparms.dt);
 		}
 

@@ -712,5 +712,58 @@ namespace GOAT
           }
           return false;
       }
+
+      template<> void SuperArray<std::vector<gridEntry> >::clear()
+      {
+          int anzx, anzx2;
+          anzx = nges[0];
+          anzx2 = nges[0] / 2;
+          if (!iscleared)
+              if (type == IN_OBJECT)
+              {
+                  if (numObjs > 0)
+                  {
+                      for (int i = numObjs - 1; i >= 0; i--)
+                      {
+                          if (G[i].size() > 0)
+                          {
+                              for (int ix = n[i][0]; ix >= 0; ix--)
+                              {
+                                  for (int iy = n[i][1]; iy >= 0; iy--)
+                                  {
+                                      // for Superarray<std::vector<gridEntry> > we have to clear each element separately 
+                                      for (int iz = n[i][2]; iz >= 0; iz--)
+                                          for (auto& element : G[i][ix][iy][iz])
+                                              element.step.clear();
+
+                                      G[i][ix][iy].clear();
+                                  }
+                                  G[i][ix].clear();
+                              } // for ix    
+                              G[i].clear();
+                          } // if (G[i]!=NULL)
+                      } // for i
+                      n.clear();
+                      Pul.clear();
+
+                      iscleared = true;
+
+                  }
+              }
+              else
+              {
+                  if (K.size() > 0)
+                  {
+                      for (int k = 0; k < anzx2; k++)
+                      {
+                          zwerte[k].clear();
+                      }
+
+                      ywerte.clear();
+                      zwerte.clear();
+                  }
+                  iscleared = true;
+              }
+      }
   }
 }

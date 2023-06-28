@@ -60,14 +60,16 @@ namespace GOAT
             * defined by the parameters in the corresponding TrafoParms structure, given in the constructor
             */
             void calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t);
+            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t);
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
             void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList);
             void setReferenceTime(double tref);
             void setTrafoParms(TrafoParms trafoparms); 
-
-        private:
+            void clear();
             void initResult(SuperArray<maths::Vector<std::complex<double> >>& SA);
             void initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs);
+
+        private:
             double pulseWeight(double omega);
         //    void createLTexpo();
             std::complex<double> calcPhase(std::vector<stepEntry> steps, double k0);

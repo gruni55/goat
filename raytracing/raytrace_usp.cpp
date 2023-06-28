@@ -11,6 +11,12 @@ namespace GOAT
 		Raytrace_usp::Raytrace_usp(const Scene& S, int n) : Raytrace(S)
 		{
 			this->n = n;
+			init();
+		}
+
+		void Raytrace_usp::clear()
+		{
+			SA.clear();
 		}
 
 		void Raytrace_usp::init() 

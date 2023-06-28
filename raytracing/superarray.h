@@ -157,6 +157,8 @@ namespace GOAT
          bool read(std::string fname);
     };
 
+    /* Specialization of Superarray for use together with std::vector<gridEntry> */
+    template<> void SuperArray<std::vector<GOAT::raytracing::gridEntry> >::clear();
    
     /*------------------------- IMPLEMENTATION --------------------------------------*/
 

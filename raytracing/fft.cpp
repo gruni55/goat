@@ -23,15 +23,20 @@ namespace GOAT
             prefactor = 1.0 / sqrt(twoSigma2 * 2.0 * M_PI);
         }
 
-        void Trafo::initResult(SuperArray<maths::Vector<std::complex<double> >>& SA)
+        void Trafo::clear()
         {
             SAres.clear();
+        }
+
+        void Trafo::initResult(SuperArray<maths::Vector<std::complex<double> >>& SA)
+        {           
+            clear();
             SAres = SuperArray<maths::Vector<std::complex<double> > >(SA.r0, SA.nges[0], SA.nges[1], SA.nges[2], SA.Obj, SA.numObjs);
         }
 
         void Trafo::initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs)
         {
-            SAres.clear();
+            clear();
             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
         }
 
@@ -140,6 +145,29 @@ namespace GOAT
                 std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
             }
 
+        }
+
+        void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t)
+        {
+                auto start = std::chrono::high_resolution_clock::now();
+         
+                for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
+                    for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
+                        if (SAres.Obj[i]->isActive())
+                        {
+#pragma omp parallel for
+                            for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                            {
+                                std::cout << ix << std::endl << std::flush;
+                                for (int iy = 0; iy < SA[iR].n[i][1]; iy++)
+                                    for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
+                                    {
+                                        SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                    }
+                             }
+                        }
+                auto end = std::chrono::high_resolution_clock::now();
+                std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
         }
 
         void Trafo::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)

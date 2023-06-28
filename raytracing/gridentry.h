@@ -1,4 +1,6 @@
 #pragma once
+#include<vector>
+#include"vector.h"
 namespace GOAT
 {
 	namespace raytracing
@@ -17,7 +19,6 @@ namespace GOAT
         {
             std::vector<stepEntry> step; ///< holds info for one step
             maths::Vector<std::complex<double> > E; ///<electric field (without phase advance along the path) 
-        } gridEntry;
-
+        } gridEntry;             
 	}
 }

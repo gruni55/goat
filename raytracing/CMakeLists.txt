@@ -7,7 +7,7 @@ set (
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp 
 		     plane.cpp pulsecalculation.cpp
-     "fft.cpp")  
+     "fft.cpp" )  
 
 set (
 	RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
@@ -35,6 +35,6 @@ else()
 	endif()
 endif()
 
-add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )
+add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS}  )
 target_compile_definitions (goat_raytracing PUBLIC WITH_OCTREE)
 target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
