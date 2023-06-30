@@ -34,6 +34,7 @@ namespace GOAT
             stddev=w*M_SQRT1_2;
 			D1 = L.D1;
 			D2 = L.D2;
+			type = LIGHTSRC_SRCTYPE_GAUSS_MC;
         }
 
         LightSrcGauss_mc::LightSrcGauss_mc(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) 
@@ -42,6 +43,7 @@ namespace GOAT
           stddev=w*M_SQRT1_2;
 		  D1 = D;
 		  D2 = D;
+		  type = LIGHTSRC_SRCTYPE_GAUSS_MC;
         }
 
         int LightSrcGauss_mc::next(Ray_pow& S)
@@ -262,6 +264,7 @@ namespace GOAT
 		{
 			D1 = L.D1;
 			D2 = L.D2;
+			type = LIGHTSRC_SRCTYPE_PLANE_MC;
 		}
 
 		LightSrcPlane_mc::LightSrcPlane_mc(maths::Vector<double> Pos, int N, double wvl, double D, 
@@ -269,6 +272,7 @@ namespace GOAT
 		{
 			D1 = D;
 			D2 = D;
+			type = LIGHTSRC_SRCTYPE_PLANE_MC;
 		}
 
 		void LightSrcPlane_mc::reset()

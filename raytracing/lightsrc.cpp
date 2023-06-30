@@ -1,4 +1,5 @@
 #include "lightsrc.h"
+#include "lightsrc_mc.h"
 #include "ray_pow.h"
 #include "misc.h"
 
@@ -393,6 +394,11 @@ namespace  GOAT
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
+			switch (type)
+			{
+			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
+			case LIGHTSRC_SRCTYPE_GAUSS_MC: ((LightSrcGauss_mc*)this)->reset(); break;
+			}
 		}
 
 

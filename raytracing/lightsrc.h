@@ -18,6 +18,8 @@ namespace GOAT
 constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
 constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
 constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 4; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a top hat
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 

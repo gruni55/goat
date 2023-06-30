@@ -158,7 +158,7 @@ namespace GOAT
 #pragma omp parallel for
                             for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {
-                                std::cout << ix << std::endl << std::flush;
+                                // std::cout << ix << std::endl << std::flush;
                                 for (int iy = 0; iy < SA[iR].n[i][1]; iy++)
                                     for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
                                     {
