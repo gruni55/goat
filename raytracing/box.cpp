@@ -45,9 +45,6 @@ namespace GOAT
 			bounds[1] = d / 2.0;
 			pul = P + bounds[0];
 			por = P + bounds[1];
-
-			// bounds[0] = -1.0 * d / 2.0;   // Hä ????
-			// bounds[1] =  d / 2.0;
 			this->d = d;
 			this->r0 = r0;
 			type = OBJECTSHAPE_BOX;

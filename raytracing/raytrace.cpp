@@ -355,6 +355,13 @@ namespace GOAT
 			Obj[nObj] = obj;
 			obj->r0 = r0;
 			obj->initQuad();
+			int intersect = -1;
+			std::cout << "pul=" << obj->pul << "   por=" << obj->por << "  P=" << obj->P << std::endl;
+			if (obj->isOutsideWorld())
+				std::cerr << "Object " << nObj << " might be (partly) outside the calculation space, please check!" << std::endl;
+			for (int i = 0; (i < nObj) && (intersect==-1); i++)
+				if (intersectionTest(*Obj[0], *obj)) intersect = i;
+			if (intersect > -1) std::cerr << "Object " << nObj << " may intersect with object " << intersect << " - Please check !" << std::endl;
 			nObj++;
 		}
 

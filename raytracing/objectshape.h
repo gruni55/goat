@@ -85,7 +85,7 @@ namespace GOAT {
 
             void setCenter(maths::Vector<double> P);                                ///< sets Center to P (check, if function is necessary)
             void setCenter2CoM(); ///< Calculates the center of mass (CoM) and sets the object's reference point to the CoM
-
+            bool isOutsideWorld(); ///< Test if bounding box is (partly) outside the calculation space
             int Type() { return type; }                                         ///< returns the object's type
             virtual void initQuad() = 0;                                      ///< calculates the circumferent cuboid (needed e.g. for the inelastic scattering calculations)
             virtual  void setr0(double r0) = 0;                                 ///< defines the radius of the calculation sphere
@@ -122,6 +122,7 @@ namespace GOAT {
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
+        bool intersectionTest(ObjectShape& A, ObjectShape& B); ///< Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other) 
     }
 }
 
