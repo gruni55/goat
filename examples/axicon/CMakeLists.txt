@@ -31,10 +31,11 @@ if ((NOT OPENMP_FOUND) OR (WITHOUT_OPENMP))
    target_link_libraries (axicon goat_raytracing goat_maths)	
    target_link_libraries (axicon2 goat_raytracing goat_maths)
    target_link_libraries (axicon_with_box goat_raytracing goat_maths)
+
 else()
-   target_link_libraries (axicon goat_raytracing_mp goat_maths)	
-   target_link_libraries (axicon2 goat_raytracing_mp goat_maths)
-   target_link_libraries (axicon_with_box goat_raytracing_mp goat_maths)
+   target_link_libraries (axicon goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)	
+   target_link_libraries (axicon2 goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
+   target_link_libraries (axicon_with_box goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
 endif()
 
 install(TARGETS axicon axicon2 axicon_with_box
