@@ -1,5 +1,6 @@
 #include "box.h"
 #include <limits>
+#include<cfloat>
 
 constexpr double FloatInf = std::numeric_limits<double>::infinity();
 
@@ -271,6 +272,57 @@ namespace GOAT
 
 #define BOX_EPS 1E-10
 
+
+		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
+		{
+			bool inside = true;
+			char quadrant[3];
+			int i;
+			int whichPlane;
+			double lnew;
+			double lmin;
+			double candidatePlane[3];
+			maths::Vector<double> k = H * K;
+			maths::Vector<double> p = H * (ps - P); // gefährlich, muss man nochmal überprüfen
+
+			// first, find the candidate planes in the corresponding directions
+			for (i = 0; i < 3; i++)
+				if (p[i] < bounds[0][i])
+				{
+					candidatePlane[i] = bounds[0][i];
+				}
+				else
+					if (p[i] < bounds[1][i])
+					{
+						if (k[i] < 0) candidatePlane[i] = bounds[0][i];
+						else candidatePlane[i] = bounds[1][i];
+					}
+					else candidatePlane[i] = bounds[1][i];
+
+			lmin = -1;
+
+			if (k[0] != 0) lmin = (candidatePlane[0] - p[0]) / k[0];
+			if (k[1] != 0)
+			{
+				lnew = (candidatePlane[1] - p[1]) / k[1];
+				if ((lnew < lmin) || (lmin <= DBL_MIN)) lmin = lnew;
+			}
+			if (k[2] != 0)
+			{
+				lnew = (candidatePlane[2] - p[2]) / k[2];
+				if ((lnew < lmin) || (lmin <= DBL_MIN)) lmin = lnew;
+			}
+
+			if ( (lmin <= DBL_MIN) || (lmin>2.0*r0) )
+			{
+				pout = ps;
+				return false;
+			}
+		
+			pout = ps + K * lmin;
+			return true;
+		}
+		/*
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> k = H * K;
@@ -301,7 +353,7 @@ namespace GOAT
 
 			//        cout << ps << "    " << tmin << "  " << tymax << "   " << tymax << "   " << tymin << "   " << tmax << endl; 
 
-			if (((tmin > tymax) || (tymin > tmax)) && (k[1]!=0)) { pout = ps; return false; }
+			if (((tmin > tymax) || (tymin > tmax)) ) { pout = ps; return false; }
 
 			if (tymin > tmin) tmin = tymin;
 			if (tymax < tmax) tmax = tymax;
@@ -317,7 +369,7 @@ namespace GOAT
 				tzmin = (bounds[1][2] - p[2]) / k[2];
 				tzmax = (bounds[0][2] - p[2]) / k[2];
 			}
-			if (((tmin > tzmax) || (tzmin > tmax)) && (k[2]!=0)) { pout = ps; return false; }
+			if (((tmin > tzmax) || (tzmin > tmax)) ) { pout = ps; return false; }
 			if (k[2] != 0)
 			{
 				if (tzmin > tmin) tmin = tzmin;
@@ -338,7 +390,7 @@ namespace GOAT
 			pout = ps;
 			return false;
 		}
-
+		*/
 		/*
 		 double tnear=-INFINITY;
 		 double tfar = INFINITY;
