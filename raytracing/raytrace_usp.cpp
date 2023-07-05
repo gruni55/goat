@@ -69,7 +69,7 @@ namespace GOAT
 					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
-					if (cancel) std::cout << "ABBRUCH !!!!  " << P << "," << l << std::endl;
+					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;
 										
 					s += l;               // path inside the detector
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
@@ -108,6 +108,7 @@ namespace GOAT
 			se.l = abs(PStop - PStart);
 			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
 			stack.step.push_back(se);
+			std::cout << PStart << "\t" << PStop << std::endl;
 		}
 
 		void Raytrace_usp::traceLeaveObject()
@@ -117,6 +118,7 @@ namespace GOAT
 			se.matIndex = currentObj;			
 			storeData();
 			stack.step.push_back(se);			
+			std::cout << PStart << "\t" << PStop << std::endl;
 		}
 			
 	}
