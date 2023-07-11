@@ -270,9 +270,10 @@ namespace GOAT
 		}
 		*/
 
-#define BOX_EPS 1E-10
+// #define BOX_EPS 1E-10
+#define BOX_EPS DBL_MIN
 
-
+		/*
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
 			bool inside = true;
@@ -321,8 +322,8 @@ namespace GOAT
 		
 			pout = ps + K * lmin;
 			return true;
-		}
-		/*
+		}*/
+		
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> k = H * K;
@@ -390,7 +391,7 @@ namespace GOAT
 			pout = ps;
 			return false;
 		}
-		*/
+		
 		/*
 		 double tnear=-INFINITY;
 		 double tfar = INFINITY;

@@ -21,12 +21,14 @@ namespace GOAT
 {
   namespace raytracing 
   {
-      void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
+      bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           std::complex<double> phase;
           if (S.type == IN_OBJECT)
           {
@@ -55,14 +57,17 @@ namespace GOAT
                       }
           }
           os.close();
+          return true;
       }
 
-      void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
+      bool saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           std::complex<double> phase;
           if (S.type == IN_OBJECT)
           {
@@ -91,14 +96,17 @@ namespace GOAT
                       }
           }
           os.close();
+          return true;
       }
 
-      void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
+      bool saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           std::complex<double> phase;
           if (S.type == IN_OBJECT)
           {
@@ -127,15 +135,18 @@ namespace GOAT
                       }
           }
           os.close();
+          return true;
       }
 
 
-      void saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
+      bool saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           if (S.type == IN_OBJECT)
           {
               os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
@@ -161,14 +172,17 @@ namespace GOAT
                       }
           }
           os.close();
+          return true;
       }
 
-      void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
+      bool saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           if (S.type == IN_OBJECT)
           {
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
@@ -197,14 +211,17 @@ namespace GOAT
 
 
           os.close();
+          return true;
       }
 
-      void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
+      bool saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
           maths::Vector<int> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           if (S.type == IN_OBJECT)
           {
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
@@ -235,13 +252,16 @@ namespace GOAT
           }
 
           os.close();
+          return true;
       }
 
-      void saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S,  std::string FName, int i)
+      bool saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S,  std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           maths::Vector<int> Pi;
           double x;
           if (S.type == IN_OBJECT)
@@ -276,13 +296,15 @@ namespace GOAT
           }
 
           os.close();
+          return true;
       }
 
-      void saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i)
+      bool saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName,std::ios_base::binary);
+          if (!os.good() || !S.Obj[i]->isActive()) return false;
           maths::Vector<int> Pi;
           double x;
           double erg;
@@ -316,13 +338,16 @@ namespace GOAT
           }
 
           os.close();
+          return true;
       }
 
-      void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i)
+      bool saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i)
       {
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
+          if (!os.good()) return false;
+          if (!S.Obj[i]->isActive()) { os.close();  return false; }
           maths::Vector<int> Pi;
           
           if (S.type == IN_OBJECT)
@@ -358,6 +383,7 @@ namespace GOAT
           }
 
           os.close();
+          return true;
       }
 
 
@@ -503,41 +529,49 @@ namespace GOAT
           return Erg * Erg;
       }
 
-      void save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName)
+      bool save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName)
       {
           std::ofstream os(FName);
+          if (!os.good()) return false;
           os << "% Superarray: " << S.numObjs << " objects" << std::endl;
           int vecnumObj = S.G.size();
           int nx, ny, nz;
           for (int i = 0; i < vecnumObj; i++)
           {
               os << "% ------------ object no. " << i << " ----------------" << std::endl;              
-              nx = S.G[i].size();              
-              for (int ix = 0; ix < nx; ix++)
+              if (!S.Obj[i]->isActive())
+                  os << "% OBJECT NOT ACTIVE " << std::endl;
+              else
               {
-                  ny = S.G[i][ix].size();
-                  for (int iy = 0; iy < ny; iy++)
+                  nx = S.G[i].size();
+                  for (int ix = 0; ix < nx; ix++)
                   {
-                      nz = S.G[i][ix][iy].size();
-                      os << "% " << nx << " x " << ny << " x " << nz << std::endl;
-                      for (int iz = 0; iz < nz; iz++)
+                      ny = S.G[i][ix].size();
+                      for (int iy = 0; iy < ny; iy++)
                       {
-                          os << "% " << S.G[i][ix][iy][iz].E << "  ";
-                          os << "% steps: " << S.G[i][ix][iy][iz].step.size() << std::endl;
-                          for (auto se : S.G[i][ix][iy][iz].step)
-                              os << ix << "\t" << iy << "\t" << iz << "\t" << se.l << "\t" << se.matIndex << std::endl;                          
+                          nz = S.G[i][ix][iy].size();
+                          os << "% " << nx << " x " << ny << " x " << nz << std::endl;
+                          for (int iz = 0; iz < nz; iz++)
+                          {
+                              os << "% " << S.G[i][ix][iy][iz].E << "  ";
+                              os << "% steps: " << S.G[i][ix][iy][iz].step.size() << std::endl;
+                              for (auto se : S.G[i][ix][iy][iz].step)
+                                  os << ix << "\t" << iy << "\t" << iz << "\t" << se.l << "\t" << se.matIndex << std::endl;
+                          }
                       }
-                  }
 
+                  }
               }
 
           }
           os.close();
+          return true;
       }
 
-      void save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName)
+      bool save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName)
       {
           std::ofstream os(FName);
+          if (!os.good()) return false; 
           os << "% Superarray: " << S.numObjs << " objects" << std::endl;
           int vecnumObj = S.G.size();
           std::cout << "vecnumObj=" << vecnumObj << std::endl; 
@@ -545,28 +579,35 @@ namespace GOAT
           for (int i = 0; i < vecnumObj; i++)
           {
               os << "% ------------ object no. " << i << " ----------------" << std::endl;
-              nx = S.G[i].size();
-              for (int ix = 0; ix < nx; ix++)
+              if (!S.Obj[i]->isActive())
+                  os << "% OBJECT NOT ACTIVE " << std::endl;
+              else
               {
-                  ny = S.G[i][ix].size();
-                  for (int iy = 0; iy < ny; iy++)
+                  nx = S.G[i].size();
+                  for (int ix = 0; ix < nx; ix++)
                   {
-                      nz = S.G[i][ix][iy].size();                      
-                      for (int iz = 0; iz < nz; iz++)
+                      ny = S.G[i][ix].size();
+                      for (int iy = 0; iy < ny; iy++)
                       {
-                          os << "% Array entry " << ix << "," << iy << "," << iz << std::endl;
-                          for (auto ge : S.G[i][ix][iy][iz])
+                          nz = S.G[i][ix][iy].size();
+                          for (int iz = 0; iz < nz; iz++)
                           {
-                              os << "% E=" << ge.E << "\t" << ge.step.size() << " steps." << std::endl;
-                              for (auto se : ge.step)
-                                  os << se.l << "\t" << se.matIndex << std::endl;
-                              
+                              os << "% Array entry " << ix << "," << iy << "," << iz << std::endl;
+                              for (auto ge : S.G[i][ix][iy][iz])
+                              {
+                                  os << "% E=" << ge.E << "\t" << ge.step.size() << " steps." << std::endl;
+                                  for (auto se : ge.step)
+                                      os << se.l << "\t" << se.matIndex << std::endl;
+
+                              }
                           }
                       }
                   }
               }
-              os.close();
+              
           }
+          os.close();
+          return true;
 
       }
       template<> bool SuperArray<GOAT::maths::Vector<std::complex<double> > >::write(std::string fname)

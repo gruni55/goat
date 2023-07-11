@@ -1016,19 +1016,19 @@ namespace GOAT
     }
 
 
-    void saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
-    void saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
-    void saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
-    void saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
-    void saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
-    void saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
-    void saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
-    void saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i = 0);
-    void saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
+    bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+    bool saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
+    bool saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i = 0);
+    bool saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
     double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
-    void save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName);
-    void save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName);
+    bool save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName);
+    bool save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName);
       }
 }

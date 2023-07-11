@@ -37,7 +37,7 @@ namespace GOAT
 		void Raytrace_usp::trace()
 		{
 			init();
-			S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
+			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			S.suppress_phase_progress = true;
 			Raytrace::trace();
 		/*	for (int i = 1; i < INEL_MAX_NREFLEX; i++)
@@ -108,7 +108,7 @@ namespace GOAT
 			se.l = abs(PStop - PStart);
 			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
 			stack.step.push_back(se);
-			std::cout << PStart << "\t" << PStop << std::endl;
+		//	std::cout << PStart << "\t" << PStop << std::endl;
 		}
 
 		void Raytrace_usp::traceLeaveObject()
@@ -118,7 +118,7 @@ namespace GOAT
 			se.matIndex = currentObj;			
 			storeData();
 			stack.step.push_back(se);			
-			std::cout << PStart << "\t" << PStop << std::endl;
+		//	std::cout << PStart << "\t" << PStop << std::endl;
 		}
 			
 	}

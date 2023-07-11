@@ -138,7 +138,7 @@ namespace GOAT
 			trafoparms.wvl = 1.0;
 			trafoparms.nI = 100;
 			trafoparms.nR = 1;
-			trafoparms.nS = 3;			
+			trafoparms.nS = 400;			
 			setPulseWidth(trafoparms.dt);
 		}
 

@@ -23,8 +23,8 @@ namespace GOAT
         */
         typedef struct TrafoParms
         {
-            int nI=4;                     ///< defines the start of the integration range
-            int nS=200;                ///< number of subdivision in the spectral range   
+            int nI=4;                     ///< defines the number of spectral ranges
+            int nS=200;                ///< number of subdivision per spectral range   
             int nR= INEL_MAX_NREFLEX;   ///< number of reflections considered in the raytracing part
             double omegaStart;              ///< lowest wavelength considered in the calculation 
             double omegaEnd;               ///< highest wavelength considered in the calculation 
