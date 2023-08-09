@@ -78,13 +78,11 @@ namespace GOAT
 			double Domega = 4.0 * Sigma;
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
-			double omegaEnd = omegaStart + domega;
 			double omega;
-			double wavelength;
 			trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
-				omega = omegaStart + (double)iOmega + 0.5 * domega;
+				omega = omegaStart + ( (double)iOmega + 0.5) * domega;
 				
 				fieldCalculation(omega); // make the raytracing
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
@@ -140,7 +138,7 @@ namespace GOAT
 			trafoparms.wvl = 1.0;
 			trafoparms.nI = 10;
 			trafoparms.nR = 1;
-			trafoparms.nS = 50;			
+			trafoparms.nS = 400;			
 			setPulseWidth(trafoparms.dt);
 		}
 
