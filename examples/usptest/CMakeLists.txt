@@ -39,7 +39,7 @@ install(TARGETS usptest_spatial
     )
 
 
-add_executable (pnexttest pnexttest.cpp "pnexttest.cpp")
+add_executable (pnexttest pnexttest.cpp )
 target_include_directories (pnexttest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (pnexttest goat_raytracing goat_maths)
 
@@ -49,4 +49,13 @@ install(TARGETS pnexttest
     ARCHIVE DESTINATION lib
     )
 
+add_executable (boxtest boxtest.cpp )
+target_include_directories (boxtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (boxtest goat_raytracing goat_maths)
+
+install(TARGETS boxtest
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    )
 

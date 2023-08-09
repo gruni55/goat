@@ -19,8 +19,9 @@ namespace GOAT
 			SA.clear();
 		}
 
-		void Raytrace_usp::init() 
-		{
+		void Raytrace_usp::init() 			
+		{   
+			S.resetLS();
 			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
 			if (S.nObj > 0)
 			{			
@@ -35,7 +36,7 @@ namespace GOAT
 		}
 
 		void Raytrace_usp::trace()
-		{
+		{		    
 			init();
 			S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
 			S.suppress_phase_progress = true;
