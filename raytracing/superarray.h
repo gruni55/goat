@@ -1,6 +1,4 @@
-
 #pragma once
-
 #include <stdlib.h>
 #include <fstream>
 #include "vector.h"
@@ -264,7 +262,7 @@ namespace GOAT
 
         {
             if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
-            {                
+            {   
                 G.resize(1);                        
                 Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
                 if (Obj == NULL) { error(MALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
@@ -278,7 +276,7 @@ namespace GOAT
         }
         // std::cout << "n=" << hn << std::endl;
         n.push_back(hn);
-
+        std::cout << "n[" << numObjs << "]=" << n[numObjs] << std::endl;
         Obj[numObjs] = E;
         h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
         Pul.push_back(maths::Vector<int>((int)h[0], (int)h[1], (int)h[2]));

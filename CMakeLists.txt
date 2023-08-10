@@ -1,6 +1,7 @@
 cmake_minimum_required (VERSION 3.2)
 
 project (goat)
+# include (CTest)
 if(CMAKE_CXX_COMPILER_LOADED)
      message(STATUS "Compiler path: ${CMAKE_CXX_COMPILER}")
      message(STATUS "Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
