@@ -71,6 +71,11 @@ namespace GOAT
 
         private:
             double pulseWeight(double omega);
+            void setCurrNList(double wvl)
+            {
+                for (int i = 0; i < nList.size(); i++)
+                    currNList[i] = nList[i](wvl);
+            }
         //    void createLTexpo();
             std::complex<double> calcPhase(std::vector<stepEntry> steps, double k0);
             GOAT::maths::Vector<std::complex<double> > calcOne(std::vector<stepEntry> steps, double t);
@@ -82,6 +87,7 @@ namespace GOAT
             std::vector<double> freq;
             double tref = 0.0;
             TrafoParms tp;
+            std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
         };
 	}

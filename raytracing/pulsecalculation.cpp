@@ -82,9 +82,9 @@ namespace GOAT
 			trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
-				omega = omegaStart + ( (double)iOmega + 0.5) * domega;
-				
+				omega = omegaStart + ( (double)iOmega + 0.5) * domega;				
 				fieldCalculation(omega); // make the raytracing
+				std::cout << "start FFT" << std::endl << std::flush;
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
 			}
 		}
@@ -136,9 +136,9 @@ namespace GOAT
 		{
 			trafoparms.dt = 100;
 			trafoparms.wvl = 1.0;
-			trafoparms.nI = 10;
+			trafoparms.nI = 1;
 			trafoparms.nR = 1;
-			trafoparms.nS = 400;			
+			trafoparms.nS = 500;			
 			setPulseWidth(trafoparms.dt);
 		}
 
