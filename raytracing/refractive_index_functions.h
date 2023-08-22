@@ -16,11 +16,28 @@ namespace GOAT
 			return n;
 		}
 
-
+		/**
+		* @brief refractive index of 1.5 
+		* @param wvl wavelength (in um)
+		* @return refractive index
+		*/
 		std::complex<double> n_Glass(double wvl)
 		{
 			return 1.5;
 		}
+
+		/**
+		* @brief refractive index of fused silica according to refractiveindex.info
+		* @param wvl wavelength (in um)
+		* @return refractive index
+		*/
+		std::complex<double> n_fused_silica(double wvl)
+		{
+			double wvl_2 = 1.0 / (wvl * wvl);
+			std::complex<double> n = sqrt(0.6961663 * wvl_2 / (wvl_2 - 0.0684043 * 0.0684043) + 0.4079426 * wvl_2 / (wvl_2 - 0.1162414 * 0.1162414) + 0.8974794 * wvl_2 / (wvl_2 - 9.896161 * 9.896161) + 1);
+			return n;
+		}
+
 		/**
 		* @brief refractive index of air according to refractiveindex.info
 		* @param wvl wavelength (in um)

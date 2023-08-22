@@ -43,49 +43,56 @@ namespace GOAT
 
         GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop)
         {
-            double k0;
         GOAT:maths::Vector<std::complex<double> > E;
-            std::complex<double> phase;
-            std::complex<double> phase1;
-            std::complex<double> phase2;
-           
-            double omega;
-            double domega = 2.0 * M_PI / fabs(tref - t);
-            double Domega = omegastop - omegastart;
-            double dw;
-            int nsteps;
-            nsteps = Domega / domega + 1;
-            if (nsteps < tp.nS)
+            if (vge.size() > 0)
             {
-                nsteps = tp.nS;
-                domega = Domega / ((double)(nsteps - 1));
-            }
-            // std::cout << "steps:" << nsteps << std::endl;
-            double weight;
-            // std::ofstream os("h:\\data\\blubb.dat");
-            for (int iomega = 0; iomega < nsteps; iomega++)
-            {
-                omega = omegastart + iomega * domega;
-                dw = (omega - tp.omega0);
-                double ws = dw * dw * sigma2 / 2.0;                
-                weight = exp(-ws);                                             
-                k0 = omega / C_LIGHT_MU_FS;
-                
-             //   std::cout << "--------- START ---------- " <<  vge.size() << std::endl;
-                for (auto ge : vge) // Loop over all rays which hit the cell
+                double k0;
+
+                std::complex<double> phase;
+                std::complex<double> phase1;
+                std::complex<double> phase2;
+
+                double omega;
+                double domega = 2.0 * M_PI / fabs(tref - t);
+                double Domega = omegastop - omegastart;
+                double dw;
+                int nsteps;
+                nsteps = Domega / domega + 1;
+                if (nsteps < tp.nS)
                 {
-                   phase1 = exp (I*calcPhase(ge.step, k0));                    
-                    
-                    phase =  phase1 *  exp(I * (-omega * t));
-                    
-                    
-//                    std::cout << "phase1=" << phase1 << "\tphase=" << phase << "\ttref=" << tref << std::endl;
-                  //  std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
-                    E += weight  * phase * domega * ge.E;
+                    nsteps = tp.nS;
+                    domega = Domega / ((double)(nsteps - 1));
                 }
-              //  std::cout << "--------- STOP ----------" << std::endl;
-            } 
-           // os.close();
+                // std::cout << "steps:" << nsteps << std::endl;
+                double weight;
+                // std::ofstream os("h:\\data\\blubb.dat");
+                for (int iomega = 0; iomega < nsteps; iomega++)
+                {
+                    omega = omegastart + iomega * domega;
+                    
+                    dw = (omega - tp.omega0);
+                    double ws = dw * dw * sigma2 / 2.0;
+                    weight = exp(-ws);
+                    k0 = omega / C_LIGHT_MU_FS;
+                    setCurrNList(2.0 * M_PI / k0);
+
+                       // std::cout << "--------- START ---------- " <<  vge.size() << std::endl;
+
+                    for (auto ge : vge) // Loop over all rays which hit the cell
+                    {
+                        phase1 = exp(I * calcPhase(ge.step, k0));
+
+                        phase = phase1 * exp(I * (-omega * t));
+
+
+                        //                    std::cout << "phase1=" << phase1 << "\tphase=" << phase << "\ttref=" << tref << std::endl;
+                         //                   std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
+                        E += weight * phase * domega * ge.E;
+                    }
+                     // std::cout << "--------- STOP ----------" << std::endl;
+                }
+                // os.close();
+            }
             return E;
         }
 
@@ -106,8 +113,7 @@ namespace GOAT
             double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / tp.wvl;
             initResult(SA[0][0].r0, SA[0][0].nges[0], SA[0][0].nges[1], SA[0][0].nges[2], SA[0][0].Obj, SA[0][0].numObjs);
             double Sigma = 2.3548 / tp.dt;
-            double Domega = 4.0 * Sigma;
-            
+            double Domega = 4.0 * Sigma;            
 
             SAres.fill(maths::czero); // empty the whole result array
             domega = Domega / (double)tp.nI;
@@ -157,11 +163,12 @@ namespace GOAT
                         {
 #pragma omp parallel for
                             for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
-                            {
+                            {                    
                                 // std::cout << ix << std::endl << std::flush;
                                 for (int iy = 0; iy < SA[iR].n[i][1]; iy++)
                                     for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
                                     {
+                                      //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
                                         SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
                                     }
                              }
@@ -173,6 +180,8 @@ namespace GOAT
         void Trafo::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)
         {
             tp.nList = nList;
+            this->nList = nList;
+            currNList.resize(nList.size());
         }
 
 
@@ -195,20 +204,11 @@ namespace GOAT
             }
         }
         */
-        std::complex<double> Trafo::calcPhase(std::vector<stepEntry> steps, double k0)
+       inline std::complex<double> Trafo::calcPhase(std::vector<stepEntry> steps, double k0)
         {
-            double L = 0;
             std::complex<double> sum = 0;
-
-            
-            
-            for (stepEntry se : steps)
-            {
-//                std::cout << "n=" << tp.nList[se.matIndex](2.0 * M_PI / k0)  << "\t" << 2.0 * M_PI / k0 << "\t" << se.l << std::endl;
-                sum += k0 * tp.nList[se.matIndex](2.0 * M_PI / k0) * se.l;                              
-            }
-           
-      //    std::cout << "sum=" << sum << std::endl;
+            for (stepEntry se : steps)         
+                sum += k0 * currNList[se.matIndex] * se.l;                              
             return sum;
         }
 

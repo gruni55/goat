@@ -49,10 +49,17 @@ install(TARGETS pnexttest
     ARCHIVE DESTINATION lib
     )
 
-add_executable (boxtest boxtest.cpp )
-target_include_directories (boxtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (boxtest goat_raytracing goat_maths)
-
+find_package (OpenMP)
+if (WITHOUT_MP) 
+	message (STATUS "OpenMP support skipped in boxtest")
+else()
+	message (STATUS "OpenMP support for boxtest ==> boxtest will be build")
+	add_executable (boxtest boxtest.cpp)
+	target_compile_options (boxtest PUBLIC ${OpenMP_CXX_FLAGS})
+        target_compile_definitions (boxtest PUBLIC WITH_OCTREE)	
+	target_include_directories (boxtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (boxtest goat_raytracing_mp goat_maths)
+endif()
 install(TARGETS boxtest
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
