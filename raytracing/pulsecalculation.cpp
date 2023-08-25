@@ -59,7 +59,7 @@ namespace GOAT
 		
 			// now, set the new refractive indices 
 			for (int iObj = 0; iObj < S.nObj; iObj++)
-				S.Obj[iObj]->setn(trafoparms.nList[0](wavelength));
+				S.Obj[iObj]->setn(trafoparms.nList[iObj](wavelength));
 			S.setnS(trafoparms.nList[S.nObj](wavelength));
 
 			// set the wavelength for all light sources

@@ -1,7 +1,7 @@
 #include "refractive_index_functions.h"
 #include "pulsecalculation.h"
 
-void main(int)
+int main(int argc, char **argv)
 {
 	GOAT::raytracing::Scene S;
 	S.setr0(100000);
@@ -38,7 +38,7 @@ void main(int)
 
 	GOAT::raytracing::pulseCalculation pc(S);
 	double pulseWidth = 50.0;
-	double refTime = 100.0;
+	double refTime = 0.0;
 	double spatialRes = 100;
 	
 	pc.setSpatialResolution(spatialRes);
@@ -46,7 +46,9 @@ void main(int)
 	pc.setReferenceTime(refTime);
 	pc.setRefractiveIndexFunctions(nList);
 
-	double time = 450;
+	double time = 20;
 	pc.field(time);
-	GOAT::raytracing::saveabsE(pc.trafo.SAres,"h:\\data\\test.dat",1);
+	GOAT::raytracing::saveFullE(pc.trafo.SAres,"/home/weigel/data/ellipsoid.dat",0);
+  	GOAT::raytracing::saveFullE(pc.trafo.SAres,"/home/weigel/data/ellipsoid2.dat",1);
+
 }

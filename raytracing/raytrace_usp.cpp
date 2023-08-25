@@ -13,10 +13,22 @@ namespace GOAT
 			this->n = n;
 			init();
 		}
+                  
+                void Raytrace_usp::setn(int n)
+                {
+                 clear();
+                 this->n=n;
+                 init();
+                }
 
 		void Raytrace_usp::clear()
 		{
-			SA.clear();
+                        if (S.nObj > 0)
+			{			
+				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
+                                SA[i].clear();
+			  SA.clear();
+                        } 
 		}
 
 		void Raytrace_usp::init() 			
