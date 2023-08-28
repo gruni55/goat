@@ -67,8 +67,8 @@ namespace GOAT
             k = H * K;
             pout = Ps;
             n = norm(Ps);
-            /* cout.precision (10);
-             cout << "P=" << P << "   Ps=" << Ps << "  k=" << K << "   n=" << n << "  |p|=" << abs(p)  << "  phi=" << acos (fabs(K*n))/M_PI*180.0 << endl;*/
+             // std::cout.precision (10);
+            //  std::cout << "P=" << P << "   Ps=" << Ps << "  k=" << K << "   n=" << n << "  |p|=" << abs(p)  << "  phi=" << acos (fabs(K*n))/M_PI*180.0 << std::endl;
 
             GOAT::maths::Vector<double> k2 = GOAT::maths::Vector<double>(k[0] * k[0], k[1] * k[1], k[2] * k[2]);
             GOAT::maths::Vector<double> p2 = GOAT::maths::Vector<double>(p[0] * p[0], p[1] * p[1], p[2] * p[2]);
@@ -77,14 +77,15 @@ namespace GOAT
             C = p2 * r_2 - 1.0;
 
             l1 = B * B - 4.0 * A * C;
-            if (l1 <= 0.0) { /*cout << "l1=" << l1 << "  kein Schnittpunkt" << endl;*/ return false; }
+            if (l1 <= 0.0) { /* std::cout << "Ps =" << Ps << "\tl1=" << l1 << "  kein Schnittpunkt" << std::endl;*/ return false; }
             l2 = (-B + sqrt(l1)) / (2.0 * A);
             l1 = (-B - sqrt(l1)) / (2.0 * A);
-            //  cout << "l1=" << l1 << "   l2=" << l2;
-            if (l1 <= 10.0 * DBL_MIN ) l = l2; else l = l1;
+              
+            if (l1 <= 1E-10 ) l = l2; else l = l1;
             //    cout << "    l=" << l << endl;
-            if (l <= 10.0 * DBL_MIN ) { /*cout << "NICHT genommen" << endl;*/   return false; }
+            if (l <= 1E-10) {  /* std::cout << "l=" << l << "\tl1 =" << l1 << "\tl2=" << l2 << "\tNICHT genommen" << std::endl;*/   return false; }
             pout = Ps + l * K;
+          //  std::cout << "l1=" << l1 << "\tl2=" << l2 << "\tl=" << l << std::endl;
             //  cout << "GENOMMEN: pout=" << pout << endl;
             return true;
         }

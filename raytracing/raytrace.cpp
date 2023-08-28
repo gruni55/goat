@@ -105,7 +105,7 @@ namespace GOAT
 				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
 
 				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
-				Abbruch = Abbruch || abs(EStart) < 10.0 * std::numeric_limits<double>::min(); // Stop, if absolute value of the electric field is smaller than 10*smallest number
+				Abbruch = Abbruch || (abs(EStart) < 10.0 * std::numeric_limits<double>::min()); // Stop, if absolute value of the electric field is smaller than 10*smallest number
 								
 				// save now the infos about the state after the step
 				objIndex = ray->objectIndex();				
@@ -132,12 +132,12 @@ namespace GOAT
 					}
 				}
 
-				if (abs(PStart - PStop) / S.r0 < 1E-10) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
+				if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
 				{
 					Abbruch = true;
 					lost++;
 				}
-
+				
 				if (!Abbruch)
 				{
 					if (ray->isInObject()) // Is the ray inside an object ?
@@ -147,16 +147,21 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);
+							GOAT::maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+			//					std::cout << "*PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+							
 						}
 
 						kref = ray->getk();
 						ktrans = tray->getk();
+
 						if (S.raytype == LIGHTSRC_RAYTYPE_PRAY)
 						{
 							PowRef = ((Ray_pow*)ray)->Pow;
 							PowTrans = ((Ray_pow*)tray)->Pow;
 						}
+
 						traceLeaveObject();
 						int tReflexions = 0;
 						currentObj = ray->objIndex;
@@ -167,8 +172,9 @@ namespace GOAT
 					}
 					else
 						if (objIndex > -1) // an object was hit
-						{
+						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
@@ -176,8 +182,9 @@ namespace GOAT
 							}
 							else
 							{
-								copyRay(tray, ray);
+								copyRay(tray, ray);								
 								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+			//					std::cout << "*k=" << ((tubedRay*)tray)->k[4]  <<  std::endl;
 							}
 
 							kref = ray->getk();
