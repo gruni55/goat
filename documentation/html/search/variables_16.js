@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['y_0',['y',['../struct_g_o_a_t_1_1raytracing_1_1_point.html#aa7ec3f622a54f744be8ae16cf15f013c',1,'GOAT::raytracing::Point']]],
-  ['ymax_1',['ymax',['../class_g_o_a_t_1_1raytracing_1_1grid.html#ae62f766fd598fb6464fe8143485db801',1,'GOAT::raytracing::grid']]],
-  ['ywerte_2',['ywerte',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac63e8c81808d93e8d7b6bbbba303ce03',1,'GOAT::raytracing::SuperArray::ywerte()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9c86faf7df0c5ff9226ff1dd863f6c6c',1,'GOAT::raytracing::SuperArray::ywerte()'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#afd8bed2b6cc3c18390cd1c05670bdec4',1,'GOAT::raytracing::SuperGrid::ywerte()']]]
+  ['x_0',['x',['../struct_g_o_a_t_1_1raytracing_1_1_point.html#a0dc1977dc5a6161b4e50b48ba86cea22',1,'GOAT::raytracing::Point']]],
+  ['xmax_1',['xmax',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a20ded0daab5df2cf05ee78eb506c6e8a',1,'GOAT::raytracing::grid']]]
 ];

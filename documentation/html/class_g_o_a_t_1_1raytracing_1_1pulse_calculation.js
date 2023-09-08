@@ -3,6 +3,7 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation =
     [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aff5c480a97436c0ebbc240b88dc7edf3", null ],
     [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#afe27e49406c10e23fc86cbbeeb862fed", null ],
     [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aff0a0f419978b4a12349ed1eb0e1526a", null ],
+    [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9e502801803c843ed2409c6afef610c5", null ],
     [ "reset", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ae8260fb3d127a27309618710fa248826", null ],
     [ "setPulseWidth", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4fdbd4ac9d98d79d5541e6d5f7ff1233", null ],
     [ "setReferenceTime", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9263568d474aee2f456cd5efbba7a126", null ],

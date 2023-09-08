@@ -1,7 +1,20 @@
 var searchData=
 [
-  ['m_0',['m',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aa5a17528660cc5713dc16b50e35d2279',1,'GOAT::raytracing::StrahlInfo']]],
-  ['m_1',['M',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a5cfec052508138d8a22c70c8626e6437',1,'GOAT::maths::Matrix']]],
-  ['matindex_2',['matIndex',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a59758b29241d3a7887b05f92177012b5',1,'GOAT::raytracing::stepEntry']]],
-  ['max_5frecursions_3',['MAX_RECURSIONS',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#ad5a7dff08fb8ba179d4061b1131eabd9',1,'GOAT::raytracing::Octree']]]
+  ['l_0',['L',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a8e47fe7734da28cab54c67f42e5e894f',1,'GOAT::raytracing::Raytrace_OT']]],
+  ['l_1',['l',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a97b6150a09505cb739365b40c14b20b5',1,'GOAT::raytracing::stepEntry::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a798f80ed574316ba22506fe07dabc9bb',1,'GOAT::raytracing::Raytrace_OT::l']]],
+  ['l0_2',['l0',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a47a7577b4ef9a6ad56229392097d8347',1,'GOAT::raytracing::GlobalParms']]],
+  ['lightsrc_5fsrctype_5fgauss_3',['LIGHTSRC_SRCTYPE_GAUSS',['../namespace_g_o_a_t_1_1raytracing.html#a124e6652c363828bc8a67bb99cf2988f',1,'GOAT::raytracing']]],
+  ['lightsrc_5fsrctype_5fgauss_5fmc_4',['LIGHTSRC_SRCTYPE_GAUSS_MC',['../namespace_g_o_a_t_1_1raytracing.html#aaef90f92c59bfd736f8bd55a02fbf25c',1,'GOAT::raytracing']]],
+  ['lightsrc_5fsrctype_5fplane_5',['LIGHTSRC_SRCTYPE_PLANE',['../namespace_g_o_a_t_1_1raytracing.html#a6d8dbb0b949d917c58d5bc2860b65945',1,'GOAT::raytracing']]],
+  ['lightsrc_5fsrctype_5fplane_5fmc_6',['LIGHTSRC_SRCTYPE_PLANE_MC',['../namespace_g_o_a_t_1_1raytracing.html#a4966b3d5b5bfb6400cbcad696f0d1485',1,'GOAT::raytracing']]],
+  ['lightsrc_5fsrctype_5ftophat_7',['LIGHTSRC_SRCTYPE_TOPHAT',['../namespace_g_o_a_t_1_1raytracing.html#a452abd4bbc2fe2d04cf476bad00dd82d',1,'GOAT::raytracing']]],
+  ['log2n_8',['log2n',['../namespace_g_o_a_t_1_1raytracing.html#a0a867c910b71dfc7547cf14bad7a2860',1,'GOAT::raytracing']]],
+  ['logray_9',['logRay',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#aedff74a5a15c80f81f09f030fdb269a2',1,'GOAT::raytracing::tubedRay']]],
+  ['logscale_10',['logscale',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#af4d6420c7335a2fac4b7fc9f4abe5d6d',1,'GOAT::raytracing::GlobalParms']]],
+  ['lost_11',['lost',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#aa786bfc19ad940359021636be54bacf3',1,'GOAT::raytracing::Raytrace']]],
+  ['ls_12',['LS',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a3f5e225bb8ceb652d8377c503149102a',1,'GOAT::raytracing::Scene']]],
+  ['lsrrt_13',['LSRRT',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a0a8b063fc17e73bbc8fb464bf955f8d0',1,'GOAT::raytracing::Scene']]],
+  ['lswidth_14',['LSwidth',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#aaa07d911730cc39588da85577fe032f3',1,'GOAT::raytracing::shortPulse']]],
+  ['lsxmlattributes_15',['LSXMLAttributes',['../namespace_g_o_a_t_1_1_x_m_l.html#ae690560281557669e1beb895e4dc1abd',1,'GOAT::XML']]],
+  ['lsxmltypes_16',['LSXMLTYPES',['../namespace_g_o_a_t_1_1_x_m_l.html#a8ee0a4eb9a7faea1edd56b53b2dcdf8d',1,'GOAT::XML']]]
 ];

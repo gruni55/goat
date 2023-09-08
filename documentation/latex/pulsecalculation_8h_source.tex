@@ -1,61 +1,64 @@
-\hypertarget{pulsecalculation_8h_source}{}\doxysection{pulsecalculation.\+h}
-\label{pulsecalculation_8h_source}\index{raytracing/pulsecalculation.h@{raytracing/pulsecalculation.h}}
+\doxysection{pulsecalculation.\+h}
+\hypertarget{pulsecalculation_8h_source}{}\label{pulsecalculation_8h_source}\index{raytracing/pulsecalculation.h@{raytracing/pulsecalculation.h}}
 \mbox{\hyperlink{pulsecalculation_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{fft_8h}{fft.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{raytrace__usp_8h}{raytrace\_usp.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00011}00011 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00012}00012 \{}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00013}00013     \textcolor{keyword}{namespace }raytracing}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00014}00014     \{}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00024}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{00024}}         \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulseCalculation}}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00025}00025         \{}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00026}00026             \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00027}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff5c480a97436c0ebbc240b88dc7edf3}{00027}}                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff5c480a97436c0ebbc240b88dc7edf3}{pulseCalculation}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} S);}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00028}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff0a0f419978b4a12349ed1eb0e1526a}{00028}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff0a0f419978b4a12349ed1eb0e1526a}{fieldCalculation}}(); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00029}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4fdbd4ac9d98d79d5541e6d5f7ff1233}{00029}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4fdbd4ac9d98d79d5541e6d5f7ff1233}{setPulseWidth}}(\textcolor{keywordtype}{double} dt); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00030}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71}{00030}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71}{setSpatialResolution}}(\textcolor{keywordtype}{double} dx); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00031}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aef008b825a1f314b5dcdff5300ced8ea}{00031}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aef008b825a1f314b5dcdff5300ced8ea}{setRefractiveIndexFunctions}}(std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > nList); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00032}00032                 \textcolor{comment}{//void setSpectralRanges(int n); ///< Number of spectral ranges in which one raytracing calculation is made}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00033}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_afe27e49406c10e23fc86cbbeeb862fed}{00033}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_afe27e49406c10e23fc86cbbeeb862fed}{field}}(\textcolor{keywordtype}{double} t); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00034}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}{00034}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}{reset}}(); }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00035}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9263568d474aee2f456cd5efbba7a126}{00035}}                 \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9263568d474aee2f456cd5efbba7a126}{setReferenceTime}}(\textcolor{keywordtype}{double} tref);}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00036}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}{00036}}                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}{trafo}};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00037}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}{00037}}                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<GOAT::maths::Vector<std::complex<double>}} > > \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}{SAres}};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00038}00038 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00039}00039             \textcolor{keyword}{private}:    }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00040}00040                 \textcolor{comment}{/* In this function the default values (trafoparms) for the calculations are set as follows:}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00041}00041 \textcolor{comment}{                * dt  : 1E-\/14s}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00042}00042 \textcolor{comment}{                * wvl : 1.0µm}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00043}00043 \textcolor{comment}{                * nI  : 1}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00044}00044 \textcolor{comment}{                * }}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00045}00045 \textcolor{comment}{                */}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00046}00046                 \textcolor{keywordtype}{void} setDefaults();             }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00047}00047                 std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00048}00048                 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00049}00049                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\_usp}} rt;}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00050}00050                 \textcolor{keywordtype}{double} dWvl;  \textcolor{comment}{// spectral width of the light}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00051}00051                 \textcolor{keywordtype}{double} dRWvl; \textcolor{comment}{// spectral width of one subdivision}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00052}00052                 \textcolor{keywordtype}{int} nn;       \textcolor{comment}{// number of cells over the whole width of the calculation space (i.e. 2*r0)}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00053}00053                 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} S;}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00054}00054                 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00055}00055                 \textcolor{keywordtype}{bool} raytracingDone = \textcolor{keyword}{false}; }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00056}00056 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00057}00057                 \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} trafoparms;}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00058}00058                 \textcolor{keywordtype}{double} tref = 0.0; }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00059}00059                 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00060}00060                 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00061}00061 }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00062}00062         \};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00063}00063     \}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00064}00064 \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{fft_8h}{fft.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raytrace__usp_8h}{raytrace\_usp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00011}00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00012}00012\ \{}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{namespace\ }raytracing}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00014}00014\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00024}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulseCalculation}}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00027}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff5c480a97436c0ebbc240b88dc7edf3}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff5c480a97436c0ebbc240b88dc7edf3}{pulseCalculation}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ S);}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00028}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff0a0f419978b4a12349ed1eb0e1526a}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff0a0f419978b4a12349ed1eb0e1526a}{fieldCalculation}}();\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00029}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9e502801803c843ed2409c6afef610c5}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9e502801803c843ed2409c6afef610c5}{fieldCalculation}}(\textcolor{keywordtype}{double}\ omega);\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00030}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4fdbd4ac9d98d79d5541e6d5f7ff1233}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4fdbd4ac9d98d79d5541e6d5f7ff1233}{setPulseWidth}}(\textcolor{keywordtype}{double}\ dt);\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00031}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71}{00031}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71}{setSpatialResolution}}(\textcolor{keywordtype}{double}\ dx);\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00032}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aef008b825a1f314b5dcdff5300ced8ea}{00032}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aef008b825a1f314b5dcdff5300ced8ea}{setRefractiveIndexFunctions}}(std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ nList);\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//void\ setSpectralRanges(int\ n);\ ///<\ Number\ of\ spectral\ ranges\ in\ which\ one\ raytracing\ calculation\ is\ made}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00034}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_afe27e49406c10e23fc86cbbeeb862fed}{00034}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_afe27e49406c10e23fc86cbbeeb862fed}{field}}(\textcolor{keywordtype}{double}\ t);\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00035}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}{00035}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}{reset}}();\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00036}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9263568d474aee2f456cd5efbba7a126}{00036}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9263568d474aee2f456cd5efbba7a126}{setReferenceTime}}(\textcolor{keywordtype}{double}\ tref);}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00037}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}{00037}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}{trafo}};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00038}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}{00038}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<GOAT::maths::Vector<std::complex<double>}}\ >\ >\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}{SAres}};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ In\ this\ function\ the\ default\ values\ (trafoparms)\ for\ the\ calculations\ are\ set\ as\ follows:}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00043}00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ dt\ \ :\ 1E-\/14s}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00044}00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ wvl\ :\ 1.0µm}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00045}00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ nI\ \ :\ 1}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00046}00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00047}00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setDefaults();\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::vector<\ std::vector<SuperArray<std::vector<gridEntry>\ >\ >\ >\ SA;}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<SuperArray<std::vector<gridEntry>\ >\ >\ \ SA;}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\_usp}}\ rt;}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dWvl;\ \ \textcolor{comment}{//\ spectral\ width\ of\ the\ light}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dRWvl;\ \textcolor{comment}{//\ spectral\ width\ of\ one\ subdivision}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nn;\ \ \ \ \ \ \ \textcolor{comment}{//\ number\ of\ cells\ over\ the\ whole\ width\ of\ the\ calculation\ space\ (i.e.\ 2*r0)}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ S;}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ raytracingDone\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ trafoparms;}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tref\ =\ 0.0;\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00067}00067\ \}}
 
 \end{DoxyCode}

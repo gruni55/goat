@@ -2,7 +2,9 @@ var class_g_o_a_t_1_1raytracing_1_1_raytrace__usp =
 [
     [ "Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#ad9aa75d000a780f86c26ea28dd8f2c89", null ],
     [ "Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#aaed839d32163440d1241d0b20fc38aaf", null ],
+    [ "clear", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#aa7fdb3ba9217a9de3a1c7221a23d61bb", null ],
     [ "init", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#aba11a6de9b020dfa46fe88b6cbf87f7a", null ],
+    [ "setn", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#aa52afd4c81fce10317a6d58c2db592b5", null ],
     [ "storeData", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#ac28ae169ea9c3f498578b26c2d58b716", null ],
     [ "trace", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#ae71390149d135b7d75d8483e75b84b89", null ],
     [ "traceEnterObject", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a5ac66e2b916abc512ebaf7769719c835", null ],

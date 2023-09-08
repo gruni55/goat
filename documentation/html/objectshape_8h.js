@@ -13,6 +13,7 @@ var objectshape_8h =
     [ "LINSE", "objectshape_8h.html#a5f0600cba388234350102b73392bfdd4", null ],
     [ "NINCTYPES", "objectshape_8h.html#a9b8250d6aed63c8f28e3b7e60b593640", null ],
     [ "OBJECTSHAPE_BOX", "objectshape_8h.html#a8e522edc43615fed65ae2694d3228ea0", null ],
+    [ "OBJECTSHAPE_CONE", "objectshape_8h.html#a1b6fef808bca1594f552dfc2bd29ede6", null ],
     [ "OBJECTSHAPE_ELLIPSOID", "objectshape_8h.html#aa0386bf39d15c112367c446013050044", null ],
     [ "OBJECTSHAPE_NO_SHAPE", "objectshape_8h.html#a4354c0c4f01b7567b272235472cc11f0", null ],
     [ "OBJECTSHAPE_SURFACE", "objectshape_8h.html#a632af5e410ba33b2c4496eb6e23ce0f6", null ],
@@ -22,5 +23,6 @@ var objectshape_8h =
     [ "SUPERELLIPSOID_N", "objectshape_8h.html#ab293b58743e4ec8b7f4ea230db113c1b", null ],
     [ "ZYLINDER", "objectshape_8h.html#a90722650e914ef6bb7c1ff89fd14d7a4", null ],
     [ "ZYLINDER_HEXAGONAL", "objectshape_8h.html#acdf5a8b1c8c983079c06e7d864e7c190", null ],
-    [ "computeInertia", "objectshape_8h.html#ad67b352e4ab64229e6e4a847e8e332aa", null ]
+    [ "computeInertia", "objectshape_8h.html#ad67b352e4ab64229e6e4a847e8e332aa", null ],
+    [ "intersectionTest", "objectshape_8h.html#a8b8cd1de490988811ee3a543696e90b7", null ]
 ];

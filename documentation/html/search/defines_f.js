@@ -7,7 +7,7 @@ var searchData=
   ['save_5fx_4',['SAVE_X',['../detector_8h.html#a7987327e795cf45132e2c3bbe21b645e',1,'detector.h']]],
   ['save_5fy_5',['SAVE_Y',['../detector_8h.html#a962163256f7d4a46529426776695b8f4',1,'detector.h']]],
   ['save_5fz_6',['SAVE_Z',['../detector_8h.html#a30d376254460c5cbf83ee3a8ef3d32e9',1,'detector.h']]],
-  ['senkrecht_7',['SENKRECHT',['../fresnel_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT():&#160;fresnel.h'],['../resutil_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT():&#160;resutil.h']]],
+  ['senkrecht_7',['SENKRECHT',['../fresnel_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT:&#160;fresnel.h'],['../resutil_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT:&#160;resutil.h']]],
   ['spiegel_8',['SPIEGEL',['../objectshape_8h.html#a32127e210d1c5dd39d3f11dd6b894c90',1,'objectshape.h']]],
   ['sqrt3_9',['SQRT3',['../resutil_8h.html#ae42978afd835c3a1f70d409a1b5f5a39',1,'resutil.h']]],
   ['superellipsoid_10',['SUPERELLIPSOID',['../objectshape_8h.html#a71a6202eb57b8cbe37567b138f4d8bff',1,'objectshape.h']]],

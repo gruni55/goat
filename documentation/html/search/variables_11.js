@@ -1,8 +1,23 @@
 var searchData=
 [
-  ['total_0',['total',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#adcdbbe84bde734347a2d0d9797aed585',1,'GOAT::raytracing::SysMemInfo']]],
-  ['trafo_1',['trafo',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4e8b91a78d54c72e5e0fe0f2bf987531',1,'GOAT::raytracing::pulseCalculation']]],
-  ['tray_2',['tray',['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ac85e485b0b855edcd4dd299bf82783cb',1,'GOAT::raytracing::RayBase::tray()'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a164556114f2e1ab85ed27e1a1b4bfe07',1,'GOAT::raytracing::Raytrace::tray()']]],
-  ['tunneln_3',['tunneln',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#adb70a3e104396d9e105341fa1672a990',1,'GOAT::raytracing::GlobalParms']]],
-  ['type_4',['type',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a784f4d5e75a807750b96357f5f066859',1,'GOAT::raytracing::Detector::type()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#af1101fa18b0d24b1cd3872eaece0be45',1,'GOAT::raytracing::LightSrc::type()'],['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a3a94d86ef25c4b89069e46f7fa1f224d',1,'GOAT::raytracing::ObjectShape::type()'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ae229986048e795b432db50cb0ce5c857',1,'GOAT::raytracing::Raytrace::type()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a0dca0ab070540178d712c659ef69ecc0',1,'GOAT::raytracing::SuperArray::type()'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a2ea20c6e1a4d4e3ee0e4160f3939de5a',1,'GOAT::raytracing::SuperGrid::type()']]]
+  ['s_0',['S',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a58d87a013aaec2543b6214869952c4e1',1,'GOAT::raytracing::Raytrace::S'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html#ab60e505a6e784618c45db00b2fb679dd',1,'GOAT::raytracing::StrahlArray::S'],['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#a04758b33a90f5f377d8b48b85f6627ae',1,'GOAT::raytracing::shortPulse::S'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a85f2e795c6d610db9b3aa478542ef531',1,'GOAT::raytracing::surface::S'],['../class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#acfc9bdc66d97b25827afe7d299a84719',1,'GOAT::XML::xmlReader::S']]],
+  ['sa_1',['SA',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#afa38ca8840a2ec44262fbc23d802fc97',1,'GOAT::raytracing::Raytrace_usp']]],
+  ['sares_2',['SAres',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a53b30981ac0281a2ef3f07374bb6fdc8',1,'GOAT::raytracing::Trafo::SAres'],['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a6880d97c499cb696b3fcc788d894855d',1,'GOAT::raytracing::pulseCalculation::SAres']]],
+  ['scenexmlelements_3',['sceneXMLElements',['../namespace_g_o_a_t_1_1_x_m_l.html#ac52cfb942099a6337594cb58377ff299',1,'GOAT::XML']]],
+  ['sf_4',['sf',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a246052e0d543ff741d7e71e4d12c76b8',1,'GOAT::raytracing::ObjectShape']]],
+  ['sge_5',['SGE',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3b8dbb44fc4a6fb421e6bf50fb2acac4',1,'GOAT::raytracing::Raytrace_Inel']]],
+  ['shared_6',['shared',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a3817ccf2604e183a28c9c8e6f85fa1ab',1,'GOAT::raytracing::SysMemInfo']]],
+  ['stack_7',['stack',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7fb8c40bb671d29a6f3fe69d5f7c60c2',1,'GOAT::raytracing::Raytrace_usp']]],
+  ['standard_5fpulse_5fwidth_8',['standard_pulse_width',['../namespace_g_o_a_t_1_1raytracing.html#aaf5fa9b87aedaf0e11691c32e524e1a6',1,'GOAT::raytracing']]],
+  ['startindex_9',['startIndex',['../struct_g_o_a_t_1_1raytracing_1_1index_list.html#afd678fee92ad5065ac7295b89bc02c69',1,'GOAT::raytracing::indexList']]],
+  ['status_10',['status',['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ab912e8cad9cba442b05c10449eba59ae',1,'GOAT::raytracing::RayBase']]],
+  ['stddev_11',['stddev',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#ac5820b7f6cd17966e11fa9da84159326',1,'GOAT::raytracing::LightSrcGauss_mc']]],
+  ['step_12',['step',['../struct_g_o_a_t_1_1raytracing_1_1grid_entry.html#ac5ba0864bb7d803b0407afaf8696e115',1,'GOAT::raytracing::gridEntry']]],
+  ['stopindex_13',['stopIndex',['../struct_g_o_a_t_1_1raytracing_1_1index_list.html#a6e17a591c28a0fe78f183344c8f5d1f2',1,'GOAT::raytracing::indexList']]],
+  ['strahlungsart_14',['Strahlungsart',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#aaace97aa37e7f3d68aeb81d2ccbfd826',1,'GOAT::raytracing::RRTParmsInfo']]],
+  ['supergrid_5fnoerrors_15',['SUPERGRID_NOERRORS',['../namespace_g_o_a_t_1_1raytracing.html#ab6c12d15149f1db00b409730ed97c74a',1,'GOAT::raytracing']]],
+  ['suppress_5fphase_5fprogress_16',['suppress_phase_progress',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#aac7923883a2dd3476641264aec1dfe06',1,'GOAT::raytracing::LightSrc::suppress_phase_progress'],['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a8a8bbc046f2b0531f62dda7af5a684a9',1,'GOAT::raytracing::RayBase::suppress_phase_progress'],['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a01897cb07e176c682fcba9bc7c49ca83',1,'GOAT::raytracing::Scene::suppress_phase_progress']]],
+  ['swapfree_17',['swapFree',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a87f3fe1dd5975a8280f076029f07820a',1,'GOAT::raytracing::SysMemInfo']]],
+  ['swaptotal_18',['swapTotal',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#ac05fee66f3f0485a0938814cabecf806',1,'GOAT::raytracing::SysMemInfo']]],
+  ['swapused_19',['swapUsed',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#afd0b0fdf4defe84e447b9dbd937edd88',1,'GOAT::raytracing::SysMemInfo']]]
 ];

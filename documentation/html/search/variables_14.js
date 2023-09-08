@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['w_0',['w',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#addf3111fa2a80a22cfac8eeb6cd610d4',1,'GOAT::raytracing::LightSrcGauss']]],
-  ['w0_1',['w0',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae31ffb9e6a25aa2728c3566e29021fd6',1,'GOAT::raytracing::LightSrcGauss::w0()'],['../struct_g_o_a_t_1_1raytracing_1_1_gauss.html#aceaba480228a482bfc71892671db0767',1,'GOAT::raytracing::Gauss::w0()']]],
-  ['wave_2',['wave',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#a702f20a7fd3f92bc81f86a41f479ebd5',1,'GOAT::raytracing::RRTParmsInfo']]],
-  ['wvl_3',['wvl',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a5bab2f801a7df2c21670c331501bb986',1,'GOAT::raytracing::TrafoParms::wvl()'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117',1,'GOAT::raytracing::LightSrc::wvl()']]],
-  ['wvlinel_4',['wvlinel',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#af462e5457e46225f6c5619f5e9529d34',1,'GOAT::raytracing::RRTParms']]],
-  ['wvlranges_5',['wvlRanges',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#a0bb93cad8825da7cea0fd95a256eb769',1,'GOAT::raytracing::shortPulse']]],
-  ['wvlstart_6',['wvlStart',['../struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html#a785002e1477c70c6b510cbc797c26a09',1,'GOAT::raytracing::wavelengthRange']]],
-  ['wvlstop_7',['wvlStop',['../struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html#a6b61ea83d573e2b3260618d8a9750529',1,'GOAT::raytracing::wavelengthRange']]]
+  ['v_0',['v',['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a0720ecd482306a1a5d89197d291ee34f',1,'GOAT::raytracing::triangle']]],
+  ['vmdata_1',['VmData',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a924720062438cbbd41ea62ea9d35a179',1,'GOAT::raytracing::MemInfo']]],
+  ['vmexe_2',['VmExe',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a9bbb72e45f51f2e694ab8672f82ab800',1,'GOAT::raytracing::MemInfo']]],
+  ['vmlck_3',['VmLck',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a1eefe322cc55d57a9463a7e4cf707a60',1,'GOAT::raytracing::MemInfo']]],
+  ['vmlib_4',['VmLib',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a774f08683089094fdd0c5c0e55f03dd5',1,'GOAT::raytracing::MemInfo']]],
+  ['vmrss_5',['VmRSS',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#aa8cf00ff6a1f4880a014d2fbe019b9d8',1,'GOAT::raytracing::MemInfo']]],
+  ['vmsize_6',['VmSize',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a3d911b479b9eb5d2f0e95c6289a18e7e',1,'GOAT::raytracing::MemInfo']]],
+  ['vmstk_7',['VmStk',['../struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#a8cadffccb7947d1f30f2621859ca02c4',1,'GOAT::raytracing::MemInfo']]]
 ];

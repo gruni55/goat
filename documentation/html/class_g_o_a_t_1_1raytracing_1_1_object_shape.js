@@ -11,6 +11,7 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "initQuad", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#aa1478ba256f588aa0af5cb5ff7b70977", null ],
     [ "isActive", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#adca97d288a36effec8dca8bb7fc84c64", null ],
     [ "isInside", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a8338a7937b4cfe43900f975dd6bd539e", null ],
+    [ "isOutsideWorld", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a950b456e0f6ac23a28fb565950056f0a", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ae19071ea0777fc2ea1aad5ceb917c5d7", null ],
     [ "norm", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#afa28a4c4f4206fc11e0fca0e45bbbf03", null ],
     [ "rotate", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ab9982660e631c9eb95f82e850ef4ca7e", null ],

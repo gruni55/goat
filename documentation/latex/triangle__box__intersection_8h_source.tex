@@ -1,34 +1,34 @@
-\hypertarget{triangle__box__intersection_8h_source}{}\doxysection{triangle\+\_\+box\+\_\+intersection.\+h}
-\label{triangle__box__intersection_8h_source}\index{raytracing/triangle\_box\_intersection.h@{raytracing/triangle\_box\_intersection.h}}
+\doxysection{triangle\+\_\+box\+\_\+intersection.\+h}
+\hypertarget{triangle__box__intersection_8h_source}{}\label{triangle__box__intersection_8h_source}\index{raytracing/triangle\_box\_intersection.h@{raytracing/triangle\_box\_intersection.h}}
 \mbox{\hyperlink{triangle__box__intersection_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{triangle_8h}{triangle.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00004}00004 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00005}00005 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00006}00006 \{}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00007}00007     \textcolor{keyword}{namespace }raytracing}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00008}00008     \{}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00009}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{00009}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{triBoxOverlap}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} boxcenter, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} boxhalfsize, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} triverts[3]);}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00010}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a385174e09df056ce5734279c64adeb66}{00010}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{triBoxOverlap}}(\textcolor{keywordtype}{double} boxcenter[3], \textcolor{keywordtype}{double} boxhalfsize[3], \textcolor{keywordtype}{double} triverts[3][3]);}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00011}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{00011}}         \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{triangleAABBIntersection}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}\& B, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\& d);}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00012}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{00012}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{min3}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z)}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00013}00013         \{}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00014}00014             \textcolor{keywordtype}{double} erg = x;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00015}00015             \textcolor{keywordflow}{if} (erg > y) erg = y;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00016}00016             \textcolor{keywordflow}{if} (erg > z) erg = z;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00017}00017             \textcolor{keywordflow}{return} erg;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00018}00018         \}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00019}00019 }
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00020}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{00020}}         \textcolor{keyword}{inline} \textcolor{keywordtype}{double} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{max3}}(\textcolor{keywordtype}{double} x, \textcolor{keywordtype}{double} y, \textcolor{keywordtype}{double} z)}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00021}00021         \{}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00022}00022             \textcolor{keywordtype}{double} erg = x;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00023}00023             \textcolor{keywordflow}{if} (erg < y) erg = y;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00024}00024             \textcolor{keywordflow}{if} (erg < z) erg = z;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00025}00025             \textcolor{keywordflow}{return} erg;}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00026}00026         \}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00027}00027     \}}
-\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00028}00028 \}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{triangle_8h}{triangle.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00005}00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{namespace\ }raytracing}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00008}00008\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00009}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{00009}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{triBoxOverlap}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ boxcenter,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ boxhalfsize,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ triverts[3]);}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00010}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a385174e09df056ce5734279c64adeb66}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{triBoxOverlap}}(\textcolor{keywordtype}{double}\ boxcenter[3],\ \textcolor{keywordtype}{double}\ boxhalfsize[3],\ \textcolor{keywordtype}{double}\ triverts[3][3]);}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00011}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{00011}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{triangleAABBIntersection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}\&\ B,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\&\ d);}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00012}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{min3}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z)}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ erg\ =\ x;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (erg\ >\ y)\ erg\ =\ y;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (erg\ >\ z)\ erg\ =\ z;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ erg;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00020}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{00020}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{max3}}(\textcolor{keywordtype}{double}\ x,\ \textcolor{keywordtype}{double}\ y,\ \textcolor{keywordtype}{double}\ z)}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ erg\ =\ x;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (erg\ <\ y)\ erg\ =\ y;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (erg\ <\ z)\ erg\ =\ z;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ erg;}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{triangle__box__intersection_8h_source_l00028}00028\ \}}
 
 \end{DoxyCode}

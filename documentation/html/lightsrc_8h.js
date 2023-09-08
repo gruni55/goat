@@ -18,6 +18,8 @@ var lightsrc_8h =
     [ "binWriteLSList", "lightsrc_8h.html#a28736012c7ad735f26a81e61ce0e8fc9", null ],
     [ "copyLightSrcList", "lightsrc_8h.html#a1c79048f923ffb412e8f256992ec9618", null ],
     [ "LIGHTSRC_SRCTYPE_GAUSS", "lightsrc_8h.html#a124e6652c363828bc8a67bb99cf2988f", null ],
+    [ "LIGHTSRC_SRCTYPE_GAUSS_MC", "lightsrc_8h.html#aaef90f92c59bfd736f8bd55a02fbf25c", null ],
     [ "LIGHTSRC_SRCTYPE_PLANE", "lightsrc_8h.html#a6d8dbb0b949d917c58d5bc2860b65945", null ],
+    [ "LIGHTSRC_SRCTYPE_PLANE_MC", "lightsrc_8h.html#a4966b3d5b5bfb6400cbcad696f0d1485", null ],
     [ "LIGHTSRC_SRCTYPE_TOPHAT", "lightsrc_8h.html#a452abd4bbc2fe2d04cf476bad00dd82d", null ]
 ];

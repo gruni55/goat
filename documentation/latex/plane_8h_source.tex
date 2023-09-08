@@ -1,58 +1,58 @@
-\hypertarget{plane_8h_source}{}\doxysection{plane.\+h}
-\label{plane_8h_source}\index{raytracing/plane.h@{raytracing/plane.h}}
+\doxysection{plane.\+h}
+\hypertarget{plane_8h_source}{}\label{plane_8h_source}\index{raytracing/plane.h@{raytracing/plane.h}}
 \mbox{\hyperlink{plane_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00001}00001 \textcolor{comment}{/***************************************************************************}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00002}00002 \textcolor{comment}{                          plane.h  -\/  description                              }}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00003}00003 \textcolor{comment}{                             -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/                                         }}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00004}00004 \textcolor{comment}{    begin                : Sat Feb 19 2000                                           }}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00005}00005 \textcolor{comment}{    copyright            : (C) 2000 by Thomas Weigel                         }}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00006}00006 \textcolor{comment}{    email                : weigel@lat.ruhr-\/uni-\/bochum.de                                     }}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00007}00007 \textcolor{comment}{ ***************************************************************************/}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00008}00008 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00009}00009 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00010}00010 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00011}00011 \textcolor{preprocessor}{\#ifndef EBENE\_H}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00012}00012 \textcolor{preprocessor}{\#define EBENE\_H}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00013}00013 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00014}00014 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00019}00019 \textcolor{preprocessor}{\#include<iostream>}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00020}00020 \textcolor{preprocessor}{\#include<fstream>}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00021}00021 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00022}00022 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{matrix_8h}{matrix.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00027}00027 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00028}00028 \{}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00029}00029     \textcolor{keyword}{namespace }raytracing}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00030}00030     \{}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00031}00031 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00032}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{00032}}         \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \{}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00033}00033         \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00034}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a2376d3f877881bda5de679d65219f5f4}{00034}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a2376d3f877881bda5de679d65219f5f4}{Plane}}();}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00042}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a00441b2b3873ca1390c23a21cd5580ae}{00042}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a00441b2b3873ca1390c23a21cd5580ae}{Plane}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}}, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}}, \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}});}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00048}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ab86495bdeaa0ceed43f0ffa6c4dc34c8}{00048}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ab86495bdeaa0ceed43f0ffa6c4dc34c8}{intersectSphere}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} O, \textcolor{keywordtype}{double} r);}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00049}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a4aa44cd0d5d52287b15e16946036c2ff}{00049}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a4aa44cd0d5d52287b15e16946036c2ff}{norm}}(); }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00050}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_aa76ff9dfaf7476080127bbe471966ea8}{00050}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_aa76ff9dfaf7476080127bbe471966ea8}{Normalenform}}();}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a16acc5b3308fa648fba3a8395eae7664}{00051}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a16acc5b3308fa648fba3a8395eae7664}{distance}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} R); }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00052}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a3a6690f522f4ada1a509a756e34d5a30}{00052}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a3a6690f522f4ada1a509a756e34d5a30}{toString}}(\textcolor{keywordtype}{char}* S);}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00053}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a10365de6317f979fd68637b4b8424db1}{00053}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a10365de6317f979fd68637b4b8424db1}{binWrite}}(std::ofstream\& os); }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00054}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a62ba4bbd4807141e56694ffb6209d133}{00054}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a62ba4bbd4807141e56694ffb6209d133}{binRead}}(std::ifstream\& is);  }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a9114c7d9db6ce59cf2b66bc42113367d}{00055}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a9114c7d9db6ce59cf2b66bc42113367d}{rotate}}(\textcolor{keywordtype}{double} dr, \textcolor{keywordtype}{double} dtheta, \textcolor{keywordtype}{double} dphi);}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00056}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a5389aa04a6a92f4fab677a9ad740dbbd}{00056}}             \textcolor{keyword}{friend} std::ostream\& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a5389aa04a6a92f4fab677a9ad740dbbd}{operator << }}(std::ostream\& os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} E)}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00057}00057             \{}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00058}00058                 os << \textcolor{stringliteral}{"{} P="{}} << E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}} << std::endl;}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00059}00059                 os << \textcolor{stringliteral}{"{}n="{}} << E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_acfa1affc81bdc2068f278f74608ec05e}{n}} << std::endl;}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00060}00060                 os << \textcolor{stringliteral}{"{}e1="{}} << E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}} << std::endl;}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00061}00061                 os << \textcolor{stringliteral}{"{}e2="{}} << E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}} << std::endl;}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00062}00062                 \textcolor{keywordflow}{return} os;}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00063}00063             \}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a53853a5a301767d56e1fe5645bd1b74e}{00064}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a53853a5a301767d56e1fe5645bd1b74e}{\string~Plane}}();}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00065}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{00065}}             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_acfa1affc81bdc2068f278f74608ec05e}{n}};}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00066}00066         \};}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00068}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{00068}}         \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{Exz}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(0.0, 0.0, 0.0), maths::ex, maths::ez);}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00069}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{00069}}         \textcolor{keyword}{const} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{Exy}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(0.0, 0.0, 0.0), maths::ex, maths::ey);}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00070}00070     \}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00071}00071 \}}
-\DoxyCodeLine{\Hypertarget{plane_8h_source_l00072}00072 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00001}00001\ \textcolor{comment}{/***************************************************************************}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00002}00002\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ plane.h\ \ -\/\ \ description\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00003}00003\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00004}00004\ \textcolor{comment}{\ \ \ \ begin\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ Sat\ Feb\ 19\ 2000\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00005}00005\ \textcolor{comment}{\ \ \ \ copyright\ \ \ \ \ \ \ \ \ \ \ \ :\ (C)\ 2000\ by\ Thomas\ Weigel\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00006}00006\ \textcolor{comment}{\ \ \ \ email\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ weigel@lat.ruhr-\/uni-\/bochum.de\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00007}00007\ \textcolor{comment}{\ ***************************************************************************/}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00011}00011\ \textcolor{preprocessor}{\#ifndef\ EBENE\_H}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00012}00012\ \textcolor{preprocessor}{\#define\ EBENE\_H}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include<iostream>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00020}00020\ \textcolor{preprocessor}{\#include<fstream>}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00021}00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_8h}{matrix.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00027}00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00028}00028\ \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{namespace\ }raytracing}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00032}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}\ \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00034}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a2376d3f877881bda5de679d65219f5f4}{00034}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a2376d3f877881bda5de679d65219f5f4}{Plane}}();}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00042}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a00441b2b3873ca1390c23a21cd5580ae}{00042}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a00441b2b3873ca1390c23a21cd5580ae}{Plane}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\&\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\&\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\&\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}});}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00048}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ab86495bdeaa0ceed43f0ffa6c4dc34c8}{00048}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ab86495bdeaa0ceed43f0ffa6c4dc34c8}{intersectSphere}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ O,\ \textcolor{keywordtype}{double}\ r);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00049}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a4aa44cd0d5d52287b15e16946036c2ff}{00049}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a4aa44cd0d5d52287b15e16946036c2ff}{norm}}();\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00050}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_aa76ff9dfaf7476080127bbe471966ea8}{00050}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_aa76ff9dfaf7476080127bbe471966ea8}{Normalenform}}();}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a16acc5b3308fa648fba3a8395eae7664}{00051}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a16acc5b3308fa648fba3a8395eae7664}{distance}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ R);\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00052}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a3a6690f522f4ada1a509a756e34d5a30}{00052}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a3a6690f522f4ada1a509a756e34d5a30}{toString}}(\textcolor{keywordtype}{char}*\ S);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00053}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a10365de6317f979fd68637b4b8424db1}{00053}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a10365de6317f979fd68637b4b8424db1}{binWrite}}(std::ofstream\&\ os);\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00054}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a62ba4bbd4807141e56694ffb6209d133}{00054}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a62ba4bbd4807141e56694ffb6209d133}{binRead}}(std::ifstream\&\ is);\ \ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a9114c7d9db6ce59cf2b66bc42113367d}{00055}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a9114c7d9db6ce59cf2b66bc42113367d}{rotate}}(\textcolor{keywordtype}{double}\ dr,\ \textcolor{keywordtype}{double}\ dtheta,\ \textcolor{keywordtype}{double}\ dphi);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00056}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a5389aa04a6a92f4fab677a9ad740dbbd}{00056}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a5389aa04a6a92f4fab677a9ad740dbbd}{operator\ <<\ }}(std::ostream\&\ os,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}\ E)}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}\ P="{}}\ <<\ E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}n="{}}\ <<\ E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_acfa1affc81bdc2068f278f74608ec05e}{n}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}e1="{}}\ <<\ E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{}e2="{}}\ <<\ E.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}}\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a53853a5a301767d56e1fe5645bd1b74e}{00064}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a53853a5a301767d56e1fe5645bd1b74e}{\string~Plane}}();}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00065}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{00065}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_ae73ffc2fc89bac0e220a1a2aec750673}{P}},\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a683398a6723e47e78d78319b3bddfae9}{e1}},\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_a0f1f232ccd5a8e4268df26001c82c9fc}{e2}},\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane_acfa1affc81bdc2068f278f74608ec05e}{n}};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00068}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{Exz}}\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(0.0,\ 0.0,\ 0.0),\ maths::ex,\ maths::ez);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00069}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{Exy}}\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}(0.0,\ 0.0,\ 0.0),\ maths::ex,\ maths::ey);}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00071}00071\ \}}
+\DoxyCodeLine{\Hypertarget{plane_8h_source_l00072}00072\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

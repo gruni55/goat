@@ -1,67 +1,75 @@
-\hypertarget{fft_8h_source}{}\doxysection{fft.\+h}
-\label{fft_8h_source}\index{raytracing/fft.h@{raytracing/fft.h}}
+\doxysection{fft.\+h}
+\hypertarget{fft_8h_source}{}\label{fft_8h_source}\index{raytracing/fft.h@{raytracing/fft.h}}
 \mbox{\hyperlink{fft_8h}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00002}00002 \textcolor{preprocessor}{\#include <functional>}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{raytrace__usp_8h}{raytrace\_usp.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00007}00007 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00009}00009 \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00010}00010     \textcolor{keyword}{namespace }raytracing}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00011}00011     \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00012}00012 \textcolor{preprocessor}{\#ifndef I }}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00013}00013 \textcolor{preprocessor}{\#define I std::complex<double> (0.0,1.0)}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00014}00014 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00015}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{00015}}         \textcolor{keyword}{constexpr} \textcolor{keywordtype}{int} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\_INTEGRAL}} = 500;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00016}00016 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00024}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{00024}}         \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00025}00025         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00026}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}{00026}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}{nI}}=4;                     }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00027}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}{00027}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}{nS}}=200;                }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00028}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}{00028}}             \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}{nR}}= \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};   }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00029}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_ad4bab6bf1619ebca6707d8cbc32b4ce4}{00029}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_ad4bab6bf1619ebca6707d8cbc32b4ce4}{omegaStart}};              }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00030}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a66f011acb28fcf35960182f8b25b7ab0}{00030}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a66f011acb28fcf35960182f8b25b7ab0}{omegaEnd}};               }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00031}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a02d74f2155504675640aaddf0d5f96d8}{00031}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a02d74f2155504675640aaddf0d5f96d8}{omega0}};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00032}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}{00032}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}{wvl}}=1.0;                 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00033}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{00033}}             \textcolor{keywordtype}{double} \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}}=1E-\/15;                  }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00034}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{00034}}             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{nList}}; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00035}00035         \};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00036}00036 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00037}00037         }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{00051}}         \textcolor{keyword}{class }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00052}00052         \{}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00053}00053         \textcolor{keyword}{public}:}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00054}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7dafc7d113d11ca945d54002afa4adbb}{00054}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7dafc7d113d11ca945d54002afa4adbb}{Trafo}}();}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a18ada856e528e2bb6cc0ca7bd3d15e39}{00055}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a18ada856e528e2bb6cc0ca7bd3d15e39}{Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}});  }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00056}00056            }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00062}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2084a27664352b4f9776c181d82df90f}{00062}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2084a27664352b4f9776c181d82df90f}{calc}}(std::vector < std::vector<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}} <std::vector<gridEntry> > > >\& SA, \textcolor{keywordtype}{double} t);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00063}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}{00063}}             \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}} > >\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}{SAres}}; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{00064}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{setRefractiveIndexFunctions}}(std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > nList);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00065}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{00065}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{setReferenceTime}}(\textcolor{keywordtype}{double} tref);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00066}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}{00066}}             \textcolor{keywordtype}{void} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}{setTrafoParms}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} trafoparms); }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00067}00067 }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00068}00068         \textcolor{keyword}{private}:}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00069}00069             \textcolor{keywordtype}{void} initResult(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double> >>\& SA);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00070}00070             \textcolor{keywordtype}{void} initResult(\textcolor{keywordtype}{double} r0, \textcolor{keywordtype}{int} nx, \textcolor{keywordtype}{int} ny, \textcolor{keywordtype}{int} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}** Obj, \textcolor{keywordtype}{int} numObjs);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00071}00071             \textcolor{keywordtype}{double} pulseWeight(\textcolor{keywordtype}{double} omega);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00072}00072         \textcolor{comment}{//    void createLTexpo();}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00073}00073             std::complex<double> calcPhase(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} k0);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00074}00074             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > calcOne(std::vector<stepEntry> steps, \textcolor{keywordtype}{double} t);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00075}00075             \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}} > integrate(\textcolor{keywordtype}{double} t, std::vector<gridEntry> ge, \textcolor{keywordtype}{double} omegastart, \textcolor{keywordtype}{double} omegastop);}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00076}00076             \textcolor{keywordtype}{double} twoSigma2; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00077}00077             \textcolor{keywordtype}{double} sigma2;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00078}00078             \textcolor{keywordtype}{double} prefactor; \textcolor{comment}{// 1/(sigma * sqrt (2pi))}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00079}00079             \textcolor{keywordtype}{double} omegastart, omegastop;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00080}00080             std::vector<double> freq;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00081}00081             \textcolor{keywordtype}{double} tref = 0.0;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00082}00082             \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}} tp;}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00083}00083             std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double}) > > nList; }
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00084}00084         \};}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00085}00085     \}}
-\DoxyCodeLine{\Hypertarget{fft_8h_source_l00086}00086 \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raytrace__usp_8h}{raytrace\_usp.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{constants_8h}{constants.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{namespace\ }raytracing}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00012}00012\ \textcolor{preprocessor}{\#ifndef\ I\ }}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00013}00013\ \textcolor{preprocessor}{\#define\ I\ std::complex<double>\ (0.0,1.0)}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00014}00014\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00015}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{00015}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\_INTEGRAL}}\ =\ 500;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00024}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{00024}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00026}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}{00026}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a929f51b6cfacc5372eacb557a6bee194}{nI}}=4;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00027}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}{00027}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a3404b38bd06826926c0c91d772aedb23}{nS}}=200;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00028}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}{00028}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a34c47c7de67b3fbb55e071c8b8dd5abe}{nR}}=\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00029}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_ad4bab6bf1619ebca6707d8cbc32b4ce4}{00029}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_ad4bab6bf1619ebca6707d8cbc32b4ce4}{omegaStart}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00030}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a66f011acb28fcf35960182f8b25b7ab0}{00030}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a66f011acb28fcf35960182f8b25b7ab0}{omegaEnd}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00031}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a02d74f2155504675640aaddf0d5f96d8}{00031}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a02d74f2155504675640aaddf0d5f96d8}{omega0}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00032}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}{00032}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a5bab2f801a7df2c21670c331501bb986}{wvl}}=1.0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00033}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{00033}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_aa6d4153f143551f904041fa2964e060d}{dt}}=1E-\/15;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00034}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{00034}}\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms_a0b93c2217c8961f5a2b79ef043b6a45d}{nList}};\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00054}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7dafc7d113d11ca945d54002afa4adbb}{00054}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7dafc7d113d11ca945d54002afa4adbb}{Trafo}}();}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a18ada856e528e2bb6cc0ca7bd3d15e39}{00055}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a18ada856e528e2bb6cc0ca7bd3d15e39}{Trafo}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}});\ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00062}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2084a27664352b4f9776c181d82df90f}{00062}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2084a27664352b4f9776c181d82df90f}{calc}}(std::vector\ <\ std::vector<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}\ <std::vector<gridEntry>\ >\ >\ >\&\ SA,\ \textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00063}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a889e68dddc217be9a5458e1af0eda81f}{00063}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a889e68dddc217be9a5458e1af0eda81f}{calc}}(std::vector<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}\ <std::vector<gridEntry>\ >\ >\ \&\ SA,\ \textcolor{keywordtype}{double}\ omegaStart,\ \textcolor{keywordtype}{double}\ omegaEnd,\ \textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}{00064}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}}\ >\ >\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}{SAres}};\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00065}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{00065}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{setRefractiveIndexFunctions}}(std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ nList);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00066}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{00066}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{setReferenceTime}}(\textcolor{keywordtype}{double}\ tref);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00067}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}{00067}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}{setTrafoParms}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ trafoparms);\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00068}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7eefe8268de50c077fa8fe80272c823f}{00068}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7eefe8268de50c077fa8fe80272c823f}{clear}}();}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00069}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab6230a25aa11db63c71f0c91e0640156}{00069}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab6230a25aa11db63c71f0c91e0640156}{initResult}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double>\ >>\&\ SA);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00070}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fea07d111b22130}{00070}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fea07d111b22130}{initResult}}(\textcolor{keywordtype}{double}\ r0,\ \textcolor{keywordtype}{int}\ nx,\ \textcolor{keywordtype}{int}\ ny,\ \textcolor{keywordtype}{int}\ nz,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}**\ Obj,\ \textcolor{keywordtype}{int}\ numObjs);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ pulseWeight(\textcolor{keywordtype}{double}\ omega);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setCurrNList(\textcolor{keywordtype}{double}\ wvl)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nList.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currNList[i]\ =\ nList[i](wvl);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ void\ createLTexpo();}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ std::complex<double>\ calcPhase(std::vector<stepEntry>\ steps,\ \textcolor{keywordtype}{double}\ k0);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}}\ >\ calcOne(std::vector<stepEntry>\ steps,\ \textcolor{keywordtype}{double}\ t);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}}\ >\ integrate(\textcolor{keywordtype}{double}\ t,\ std::vector<gridEntry>\ ge,\ \textcolor{keywordtype}{double}\ omegastart,\ \textcolor{keywordtype}{double}\ omegastop);}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ twoSigma2;\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sigma2;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ prefactor;\ \textcolor{comment}{//\ 1/(sigma\ *\ sqrt\ (2pi))}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ double\ omegastart,\ omegastop;}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ freq;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ tref\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ tp;}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::complex<double\ >\ >\ currNList;\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ nList;\ }
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00093}00093\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fft_8h_source_l00094}00094\ \}}
 
 \end{DoxyCode}

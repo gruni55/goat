@@ -25,16 +25,16 @@
 var NAVTREE =
 [
   [ "GOAT (Geometrical optics application tool)", "index.html", [
-    [ "GOAT", "index.html", [
-      [ "Installation instructions", "index.html#autotoc_md1", null ]
-    ] ],
+    [ "GOAT", "index.html", "index" ],
     [ "changelog", "md_changelog.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", "namespacemembers_dup" ],
         [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
-        [ "Variables", "namespacemembers_vars.html", null ]
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ],
+        [ "Enumerator", "namespacemembers_eval.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -45,7 +45,9 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", "functions_vars" ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Enumerator", "functions_eval.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -62,17 +64,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_g_o_a_t_1_1raytracing_1_1_detector.html#af2da32308c1760c18c6fd53f0dab5abd",
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f",
-"class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a57dfe94c2dbc1d33009e39af2fa59774",
-"class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a408a74d9f23b319367edbc08b9f9d12a",
-"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b",
-"class_g_o_a_t_1_1raytracing_1_1grid.html#a20ded0daab5df2cf05ee78eb506c6e8a",
-"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a19599cff781923b7c1da0362bf7a046d",
-"functions_x.html",
-"namespace_g_o_a_t_1_1maths.html#af9a208d55decb30cd962bc8eb75bc645",
-"plane_8h.html#a5a279a8d429521b573b92ad894ecf6a9",
-"struct_g_o_a_t_1_1raytracing_1_1object_info.html#a407caf3cfaec3ca40c6b02bf072d0bd6"
+"class_g_o_a_t_1_1raytracing_1_1_detector.html#a4c7f44d09a8498820a320c94e4c9d023",
+"class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ab3ad13adcdada4e23c238051cde4a6c9",
+"class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html",
+"class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97",
+"class_g_o_a_t_1_1raytracing_1_1_scene.html#a9969b47aa96ac92224f33ad27c9c0c5e",
+"class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a94b33cdd195639c98bc0bd86d3e9776c",
+"class_g_o_a_t_1_1raytracing_1_1triangle.html#a081ccfafe73992a4b687f39a4c91a076",
+"classtinyxml2_1_1_mem_pool_t.html#a408ce0918e9d3d5e5e1cc4896944875f",
+"classtinyxml2_1_1_x_m_l_document.html#ac1d6e2c7fcc1a660624ac4f68e96380d",
+"classtinyxml2_1_1_x_m_l_node.html#a363b6edbd6ebd55f8387d2b89f2b0921",
+"constants_8h.html#a26242616de488ad628c1967a436a520c",
+"namespace_g_o_a_t_1_1_x_m_l.html#ac52cfb942099a6337594cb58377ff299",
+"namespace_g_o_a_t_1_1raytracing.html#aa86d6335ebd10564982d3d1a75ea77d0",
+"resutil_8h.html#a9dcc31ecbaebd3291e172a4dbee73824",
+"superarray_8h.html#ad26d2ebc2331102ae021d9ea4a78186d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,10 +1,24 @@
 var searchData=
 [
-  ['f_0',['f',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad85a71bde9dca01a088ab7f61c3c9bf8',1,'GOAT::raytracing::LightSrcGauss::f()'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a91756c37a4ca2b39de22e34ba820698a',1,'GOAT::raytracing::Raytrace_OT::f()'],['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a778e375a2c8aa07592b8661dbdfb5719',1,'GOAT::raytracing::triangle::f()']]],
-  ['f_1',['F',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a63b62cf2d772d93d31b048d5e6906327',1,'GOAT::raytracing::Raytrace_OT::F()'],['../struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a540f1b9c97170114f230a7d67a7a2709',1,'GOAT::raytracing::Gauss::F()']]],
-  ['fehler_2',['Fehler',['../supergrid__old_8h.html#ab3d73286c46166aae6217702ef9b1b5f',1,'Fehler():&#160;supergrid_old.h'],['../namespace_g_o_a_t_1_1raytracing.html#a1e711d287e774c05c289d8bb3a727325',1,'GOAT::raytracing::Fehler()']]],
-  ['field_3',['field',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#ad66e7ed4f925c5827eb69d7f5210cc6d',1,'GOAT::raytracing::shortPulse']]],
-  ['fname_4',['FName',['../class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50',1,'GOAT::raytracing::surface']]],
-  ['focuspos_5',['focuspos',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81',1,'GOAT::raytracing::LightSrcGauss']]],
-  ['free_6',['free',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c',1,'GOAT::raytracing::SysMemInfo']]]
+  ['e_0',['e',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#af3481368d551465f5538ce47fb4ec88f',1,'GOAT::raytracing::ObjectShape']]],
+  ['e_1',['E',['../struct_g_o_a_t_1_1raytracing_1_1grid_entry.html#a692fe4a9203b15fca3f0e83a30b1c72c',1,'GOAT::raytracing::gridEntry::E'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aabcd1869629d02c73383b03abedb4a71',1,'GOAT::raytracing::StrahlInfo::E'],['../struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html#acdd652913f98eaa0fc8e0070ecdc764d',1,'GOAT::raytracing::rayListEntry::E'],['../struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html#adbd27a051043fd202728a8cf57ebb6d4',1,'GOAT::raytracing::tubedRayBuffer::E'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a0f8ab0054c060335c4e47faf47590cbd',1,'GOAT::raytracing::tubedRay::E']]],
+  ['e1_2',['E1',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ac22c9cb9a841399271beccd23a895228',1,'GOAT::raytracing::IRay']]],
+  ['e1_3',['e1',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a6b1044d35d59ba1f071c5c6f369ff61e',1,'GOAT::raytracing::Detector::e1'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#af30223158df5a947eacd53d3b2b828f5',1,'GOAT::raytracing::LightSrc::e1'],['../class_g_o_a_t_1_1raytracing_1_1_plane.html#a683398a6723e47e78d78319b3bddfae9',1,'GOAT::raytracing::Plane::e1'],['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#aabab84dd4cd67c3b87786965c8ab0e98',1,'GOAT::raytracing::RRTParms::e1']]],
+  ['e2_4',['E2',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ab4090c7ad52aa3c9105da5595acd9c56',1,'GOAT::raytracing::IRay']]],
+  ['e2_5',['e2',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a69f64b412ca29d16aa3633ce54f4272c',1,'GOAT::raytracing::Detector::e2'],['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab61ab661cf7c228951ff86827a7eaf83',1,'GOAT::raytracing::LightSrc::e2'],['../class_g_o_a_t_1_1raytracing_1_1_plane.html#a0f1f232ccd5a8e4268df26001c82c9fc',1,'GOAT::raytracing::Plane::e2'],['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#afca8fbd646283a8905bfd57e75184d0f',1,'GOAT::raytracing::RRTParms::e2']]],
+  ['ealpha_6',['Ealpha',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a62a5aa80820775d3ce2b49ffb8c69e59',1,'GOAT::raytracing::ObjectShape']]],
+  ['eamp_7',['EAmp',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#af9db3aceb4ec2bc6c206fffe3abc2e57',1,'GOAT::raytracing::StrahlInfo']]],
+  ['ebene_8',['Ebene',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#a21d9c3ffdb9136290ed282562c2d2eba',1,'GOAT::raytracing::RRTParmsInfo']]],
+  ['ebeta_9',['Ebeta',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a9d92a8b0c9340c0a280d7daafb9a639d',1,'GOAT::raytracing::ObjectShape']]],
+  ['egamma_10',['Egamma',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a80352486f88244ece3187b713a0d75c2',1,'GOAT::raytracing::ObjectShape']]],
+  ['einx_11',['EinX',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aa4d2b40a63cc8993bfcb9ec90ba137c1',1,'GOAT::raytracing::GlobalParms']]],
+  ['element_12',['Element',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#aa0d5aeec879f26bffd2c58cffc0e9f7a',1,'GOAT::raytracing::Octree']]],
+  ['error_13',['Error',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac23e0ee1b8d0ea3a759aa92094b6f63e',1,'GOAT::raytracing::SuperArray::Error'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#aef0ba2bc3a4b0e745fd141e741c702e4',1,'GOAT::raytracing::SuperGrid::Error']]],
+  ['estart_14',['EStart',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ac51907766e96756f261be983b87e1557',1,'GOAT::raytracing::Raytrace']]],
+  ['estart2_15',['EStart2',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a822f3f9086967e56130e1617e02f4c3f',1,'GOAT::raytracing::Raytrace']]],
+  ['estop_16',['EStop',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ae093e9c9931526bd0dab3c0b8cec577e',1,'GOAT::raytracing::Raytrace']]],
+  ['estop2_17',['EStop2',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a14780c123bd3b8855925103123a1f987',1,'GOAT::raytracing::Raytrace']]],
+  ['evan_18',['evan',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ad9041c27a65236e8427b57f355d8c125',1,'GOAT::raytracing::GlobalParms']]],
+  ['exy_19',['Exy',['../namespace_g_o_a_t_1_1raytracing.html#a5a279a8d429521b573b92ad894ecf6a9',1,'GOAT::raytracing']]],
+  ['exz_20',['Exz',['../namespace_g_o_a_t_1_1raytracing.html#afa2eec918e945f99918a6a2b23c2b4ca',1,'GOAT::raytracing']]]
 ];
