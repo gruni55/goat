@@ -24,8 +24,11 @@
 namespace GOAT {
     namespace raytracing {
 #define OBJECTSHAPE_NO_SHAPE    -1  //F/< No shape defined
-#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is ellipsoid 
+#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is an ellipsoid 
 #define OBJECTSHAPE_SURFACE      1 ///< Shape is triangulated surface
+#define OBJECTSHAPE_CONE         2 ///< Shape is a cone
+
+
 #define FUNSURF      2  
 #define SUPERELLIPSOID_D 17 
 #define SUPERELLIPSOID   4
