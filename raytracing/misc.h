@@ -12,6 +12,7 @@
 #include "vector.h"
 #include "tubedray.h"
 #include "box.h"
+#include "cone.h"
 #include "constants.h"
 
 #ifndef MISC_H

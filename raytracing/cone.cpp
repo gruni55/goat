@@ -186,5 +186,18 @@ namespace GOAT
 			v = v / this->sf * sf;
 			init();
 		}
+                 
+               void Cone::setConeAngle (double coneAngle)
+               {
+                height=radius * tan (coneAngle);
+                init();
+                initQuad();
+               }
+                
+               double Cone::getConeAngle ()
+               {
+                return coneAngle;
+               }
+            
 	}
 }
