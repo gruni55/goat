@@ -15,7 +15,7 @@ namespace GOAT
         constexpr int INEL_CALCPHASE_RRT=2;
         constexpr int INEL_CALCPHASE_EXCITATION_ONLY=3;
 
-        constexpr int INEL_MAX_NREFLEX=5;
+        constexpr int INEL_MAX_NREFLEX=1;
         constexpr int INEL_SAVE_ABSE=1;
 
         constexpr int INEL_RADIATION_TYPE_FLOURESCENCE=1;

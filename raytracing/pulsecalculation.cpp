@@ -56,7 +56,7 @@ namespace GOAT
 
 			// clear the old raytracing results
 			rt.clear();
-		
+			rt.setNumReflex(numReflex);
 			// now, set the new refractive indices 
 			for (int iObj = 0; iObj < S.nObj; iObj++)
 				S.Obj[iObj]->setn(trafoparms.nList[iObj](wavelength));
@@ -153,6 +153,12 @@ namespace GOAT
 		{
 			trafoparms.nList = nList;	
 			trafo.setRefractiveIndexFunctions(nList);			
+		}
+
+		void pulseCalculation::setNumReflex(int numReflex)
+		{
+			this->numReflex = numReflex;
+			rt.setNumReflex(numReflex);
 		}
 	}
 }

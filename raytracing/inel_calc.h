@@ -141,16 +141,16 @@ namespace GOAT
                 if (k0[1] != 0) lambday = ((double)index[1] * git.d[1] - p0[1] - git.r0) / k0[1];
                 if (k0[2] != 0) lambdaz = ((double)index[2] * git.d[2] - p0[2] - git.r0) / k0[2];
             
-              //  std::cout << "pnext: " << p0<< ":" << k0 << "/" << lambdax << "," << lambday << "," << lambdaz << std::endl;
+//                std::cout << "pnext: " << p0<< ":" << k0 << "/" << lambdax << "," << lambday << "," << lambdaz << std::endl;
             int i = 0;
-            if ((lambdax < lambday) || (lambday < 10.0*DBL_MIN))
+            if ((lambdax < lambday) && (lambdax > 10.0*DBL_MIN))
                 lambda = lambdax;
             else
             {
                 lambda = lambday;
                 i = 1;
             }
-            if ((lambdaz < lambda) && (lambdaz > 10.0 * DBL_MIN))
+            if ((lambdaz < lambda) && (lambdaz > 10.0 * DBL_MIN) || lambda < 10.0 * DBL_MIN)
             {
                 lambda = lambdaz;
                 i = 2;

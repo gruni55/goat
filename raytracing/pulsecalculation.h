@@ -30,12 +30,14 @@ namespace GOAT
 				void setPulseWidth(double dt); ///< Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions				
 				void setSpatialResolution(double dx); ///< sets the spatial resolution to a value near to dx
 				void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList); ///< sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1)
+				void setNumReflex(int numReflex);
 				//void setSpectralRanges(int n); ///< Number of spectral ranges in which one raytracing calculation is made
 				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
+				
 				
 
 			private:	
@@ -59,9 +61,7 @@ namespace GOAT
 
 				TrafoParms trafoparms;
 				double tref = 0.0; 
-				
-				
-
+				int numReflex = INEL_MAX_NREFLEX;								
 		};
 	}
 }

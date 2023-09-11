@@ -69,6 +69,7 @@ namespace GOAT
 			stepEntry ge;
 			gridEntry gridStack;		
 			bool cancel = false;
+			// std::cout << PStart << "\t" << PStop << std::endl;
 			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
 
 			if ( (L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())

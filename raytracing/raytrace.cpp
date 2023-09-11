@@ -53,6 +53,7 @@ namespace GOAT
 					S.resetLS();
 					do
 					{
+//						std::cout << "%---------------------------------" << std::endl;
 						currentLS = i;
 						Abbruch = false;
 						Reflexions = 0;
@@ -111,6 +112,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
+//				std::cout << PStart << "\t" << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -148,6 +150,7 @@ namespace GOAT
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);
 							GOAT::maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+							// std::cout << PStop << "\t" << n << std::endl;
 			//					std::cout << "*PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 							
@@ -174,6 +177,7 @@ namespace GOAT
 						if (objIndex > -1) // an object was hit
 						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+						//    std::cout << PStop << "\t" << n << std::endl;
 			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)
 							{
