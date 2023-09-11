@@ -7,6 +7,9 @@ namespace GOAT
 	{
 		/**
 		 * @brief This class represents a cone.
+		 * The cone is defined by the reference point (position), the height and the radius
+		 * \image html cone.png
+		 * \image latex cone.png "Cone" width=\textwidth
 		 * 
 		 */
 		class Cone : public ObjectShape
@@ -14,7 +17,7 @@ namespace GOAT
 		public:
 			Cone();
 			/**
-			 * @brief Constructor which defines the cone by the the reference point, radius and height
+			 * @brief Constructor which defines the cone by the the reference point, radius and height			 
 			 * @param Pos: Reference point in the center of the base (acts as position of the cone)
 			 * @param radius: Radius of the base area
 			 * @param height: Height of the cone

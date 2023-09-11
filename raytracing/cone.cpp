@@ -35,7 +35,7 @@ namespace GOAT
 
 			maths::Vector<double> p = H * ps;
 			maths::Vector<double> k = H * ks;
-			double lC = nextCone(ps, ks, poutC);
+			double lC = nextCone(p, k, poutC);
 
 			// std::cout << poutC << std::endl;
 
@@ -133,17 +133,21 @@ namespace GOAT
 
 		void Cone::initQuad()
 		{
-			// todo
+			pul = maths::Vector<double>(P[0] - radius, P[1] - radius, P[2]);
+			por = maths::Vector<double>(P[0] + radius, P[1] + radius, P[2] + height);
 		}
 
 		void Cone::setPos(maths::Vector<double> r)
 		{
-			// todo
+			P = r;
+			init();
+			initQuad();
 		}
 
 		void Cone::setPos(double x, double y, double z)
 		{
-			// todo
+			maths::Vector<double> r(x, y, z);
+			setPos(r);
 		}
 
 		void Cone::setr0(double r0)
@@ -159,19 +163,28 @@ namespace GOAT
 		
 		void Cone::binWrite(std::ofstream& os)
 		{
-			// todo
+			P.binWrite(os);
+			H.binWrite(os);
+			R.binWrite(os);
+			os.write((char*)&height, (char)sizeof(height));
+			os.write((char*)&radius, (char)sizeof(radius));
+
+			
 		}
 		void Cone::binRead(std::ifstream& os)
 		{
-			// todo
+			P.binRead(os);
+			H.binRead(os);
+			R.binRead(os);
+			os.read((char*)&height, (char)sizeof(height));
+			os.read((char*)&radius, (char)sizeof(radius));
 		}
 		void Cone::scale(double sf)
 		{
 			height = height / this->sf * sf;
 			radius = radius / this->sf * sf;
 			v = v / this->sf * sf;
-			V = P - v;
-			normv = GOAT::maths::norm(v);
+			init();
 		}
 	}
 }
