@@ -13,7 +13,6 @@ namespace GOAT
 			setPulseWidth(40);
 			setSpatialResolution(1.0);
 			trafo = Trafo(trafoparms);			
-			rt = Raytrace_usp(S, nn);
 		}
 
 		void pulseCalculation::setReferenceTime(double tref)
@@ -79,6 +78,7 @@ namespace GOAT
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
 			double omega;
+			rt = Raytrace_usp(S, nn);
 			trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
