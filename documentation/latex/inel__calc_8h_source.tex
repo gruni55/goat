@@ -140,16 +140,16 @@
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k0[1]\ !=\ 0)\ lambday\ =\ ((double)index[1]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[1]\ -\/\ p0[1]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[1];}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k0[2]\ !=\ 0)\ lambdaz\ =\ ((double)index[2]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}[2]\ -\/\ p0[2]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[2];}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ std::cout\ <<\ "{}pnext:\ "{}\ <<\ p0<<\ "{}:"{}\ <<\ k0\ <<\ "{}/"{}\ <<\ lambdax\ <<\ "{},"{}\ <<\ lambday\ <<\ "{},"{}\ <<\ lambdaz\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00144}00144\ \textcolor{comment}{//\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}pnext:\ "{}\ <<\ p0<<\ "{}:"{}\ <<\ k0\ <<\ "{}/"{}\ <<\ lambdax\ <<\ "{},"{}\ <<\ lambday\ <<\ "{},"{}\ <<\ lambdaz\ <<\ std::endl;}}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
-\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdax\ <\ lambday)\ ||\ (lambday\ <\ 10.0*DBL\_MIN))}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdax\ <\ lambday)\ \&\&\ (lambdax\ >\ 10.0*DBL\_MIN))}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdax;}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambday;}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 1;}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdaz\ <\ lambda)\ \&\&\ (lambdaz\ >\ 10.0\ *\ DBL\_MIN))}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdaz\ <\ lambda)\ \&\&\ (lambdaz\ >\ 10.0\ *\ DBL\_MIN)\ ||\ lambda\ <\ 10.0\ *\ DBL\_MIN)}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdaz;}
 \DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 2;}

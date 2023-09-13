@@ -15,24 +15,25 @@ This class calculates the time dependence of a field which calculated before.
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7dafc7d113d11ca945d54002afa4adbb}{Trafo}} ()
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a18ada856e528e2bb6cc0ca7bd3d15e39}{Trafo}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}})
-\begin{DoxyCompactList}\small\item\em Constructor for initialization ~\newline
- \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Constructor for initialization Perform a calculation at the time t. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2084a27664352b4f9776c181d82df90f}{calc}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ $>$ \&SA, double t)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a889e68dddc217be9a5458e1af0eda81f}{calc}} (std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \&SA, double omega\+Start, double omega\+End, double t)
-\item 
+\begin{DoxyCompactList}\small\item\em calculation of the Fourier transformation. The calculation of the Fourier transformation is made in a certain frequency intervall at the time t \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{set\+Refractive\+Index\+Functions}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ n\+List)
-\item 
+\begin{DoxyCompactList}\small\item\em Set the refractive index functions. Here, the refractive index functions were given with help of a std\+::vector. Each function must return a complex number (the refractive index) and has a double value (the wavelength) as argument. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{set\+Reference\+Time}} (double tref)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the reference time (in fs). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}{set\+Trafo\+Parms}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} trafoparms)
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the parameters used in the calculation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a7eefe8268de50c077fa8fe80272c823f}{clear}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Deletes all arrays. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2092d697818f11c0833c9ab56557636f}{empty}} ()
+\begin{DoxyCompactList}\small\item\em fills the entire result array with zero vectors \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab6230a25aa11db63c71f0c91e0640156}{init\+Result}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&SA)
-\item 
+\begin{DoxyCompactList}\small\item\em Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} SA. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fea07d111b22130}{init\+Result}} (double r0, int nx, int ny, int nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}Obj, int num\+Objs)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Resets and initialize the result array. The result array will be cleared and renewed according to the parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -44,9 +45,9 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fe
 \doxysubsection{Detailed Description}
 This class calculates the time dependence of a field which calculated before. 
 
-The calculation of the time dependence is made in two steps. In the first step, the fields are calculated for different wavelengths. In this class, the second step will be made. Here, the time dependence is calculated with a kind of Fourier transformation. The class requires an array of \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} elements which contain the the information over all steps for every ray (length of the step and material). The process assumes, that the wavelength range can be subdivided into subranges in which the paths of the rays remain nearly the same. Since the phase is much more sensitive to changes of the refractive index, the phase change within these subranges is considered. The structure \doxylink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms} carries all information needed for the calculation. The spectral resolution, needed to prevent \"{}ghost\"{} peaks is a function of the time difference dt to a certain reference time tref\+: dt=\texorpdfstring{$\vert$}{|}tref-\/t\texorpdfstring{$\vert$}{|}. By default tref is set to 0, but if you are interested of a range around a certain time, set tref to this time to reduce the amount of needed frequencies 
+The calculation of the time dependence is made in two steps. In the first step, the fields are calculated with help of raytracing. This class uses the information from the raytracing (path of the rays) to make the concrete calculation of the electric field for different wavelength equivalent to a Fourier transform. The class requires an array of \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} elements which contain the the information over all steps for every ray (length of the step and material). The structure \doxylink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms} carries all information needed for the calculation. The spectral resolution, needed to prevent \"{}ghost\"{} peaks is a function of the time difference dt to a certain reference time tref\+: dt=\texorpdfstring{$\vert$}{|}tref-\/t\texorpdfstring{$\vert$}{|}. By default tref is set to 0, but if you are interested of a range around time, set tref to an approbriate time to reduce the amount of needed frequencies 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00051}{51}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+Definition at line \mbox{\hyperlink{fft_8h_source_l00048}{48}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
 
 
@@ -65,9 +66,13 @@ Definition at line \mbox{\hyperlink{fft_8h_source_l00051}{51}} of file \mbox{\hy
 
 
 
-Constructor for initialization ~\newline
- 
+Constructor for initialization Perform a calculation at the time t. 
 
+
+\begin{DoxyParams}{Parameters}
+{\em SA} & Array of \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} elements. Contains the fields for the different wavelengths defined by the parameters in the corresponding \doxylink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms} structure, given in the constructor \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -77,23 +82,44 @@ Constructor for initialization ~\newline
 \doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::calc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ $>$ \&}]{SA,  }\item[{double}]{t }\end{DoxyParamCaption})}
 
-Perform a calculation at the time t 
-\begin{DoxyParams}{Parameters}
-{\em SA} & Array of \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} elements. Contains the fields for the different wavelengths ~\newline
- defined by the parameters in the corresponding \doxylink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms} structure, given in the constructor \\
-\hline
-\end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a889e68dddc217be9a5458e1af0eda81f}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a889e68dddc217be9a5458e1af0eda81f} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!calc@{calc}}
 \index{calc@{calc}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
 \doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::calc (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \&}]{SA,  }\item[{double}]{omega\+Start,  }\item[{double}]{omega\+End,  }\item[{double}]{t }\end{DoxyParamCaption})}
 
+
+
+calculation of the Fourier transformation. The calculation of the Fourier transformation is made in a certain frequency intervall at the time t 
+
+
+\begin{DoxyParams}{Parameters}
+{\em SA} & this \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} structure contains the information gathered in the raytracing part. \\
+\hline
+{\em omega\+Start} & Start frequency (in fs\texorpdfstring{$^\wedge$}{\string^}-\/1) of the frequency intervall \\
+\hline
+{\em omega\+Stop} & End frequency (in fs\texorpdfstring{$^\wedge$}{\string^}-\/1) of the frequency intervall \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a7eefe8268de50c077fa8fe80272c823f}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a7eefe8268de50c077fa8fe80272c823f} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!clear@{clear}}
 \index{clear@{clear}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
 \doxysubsubsection{\texorpdfstring{clear()}{clear()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Deletes all arrays. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a2092d697818f11c0833c9ab56557636f}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a2092d697818f11c0833c9ab56557636f} 
+\index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!empty@{empty}}
+\index{empty@{empty}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fills the entire result array with zero vectors 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fea07d111b22130}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_ab9a9d33ce79018e55fea07d111b22130} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!initResult@{initResult}}
@@ -101,11 +127,34 @@ Perform a calculation at the time t
 \doxysubsubsection{\texorpdfstring{initResult()}{initResult()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::init\+Result (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Objs }\end{DoxyParamCaption})}
 
+
+
+Resets and initialize the result array. The result array will be cleared and renewed according to the parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r0} & Radius of the calculation space \\
+\hline
+{\em nx} & Number of grid elements in x-\/direction \\
+\hline
+{\em ny} & Number of grid elements in y-\/direction \\
+\hline
+{\em nz} & Number of grid elements in z-\/direction \\
+\hline
+{\em Obj} & List of all objects in the scene \\
+\hline
+{\em num\+Objs} & Numnber of objects in List \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_ab6230a25aa11db63c71f0c91e0640156}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_ab6230a25aa11db63c71f0c91e0640156} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!initResult@{initResult}}
 \index{initResult@{initResult}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
 \doxysubsubsection{\texorpdfstring{initResult()}{initResult()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::init\+Result (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&}]{SA }\end{DoxyParamCaption})}
+
+
+
+Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} SA. 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!setReferenceTime@{setReferenceTime}}
@@ -113,17 +162,29 @@ Perform a calculation at the time t
 \doxysubsubsection{\texorpdfstring{setReferenceTime()}{setReferenceTime()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::set\+Reference\+Time (\begin{DoxyParamCaption}\item[{double}]{tref }\end{DoxyParamCaption})}
 
+
+
+Sets the reference time (in fs). 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!setRefractiveIndexFunctions@{setRefractiveIndexFunctions}}
 \index{setRefractiveIndexFunctions@{setRefractiveIndexFunctions}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
 \doxysubsubsection{\texorpdfstring{setRefractiveIndexFunctions()}{setRefractiveIndexFunctions()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::set\+Refractive\+Index\+Functions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$}]{n\+List }\end{DoxyParamCaption})}
 
+
+
+Set the refractive index functions. Here, the refractive index functions were given with help of a std\+::vector. Each function must return a complex number (the refractive index) and has a double value (the wavelength) as argument. 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a296559bf434ee4990ccc709cfdcd4704} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!setTrafoParms@{setTrafoParms}}
 \index{setTrafoParms@{setTrafoParms}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
 \doxysubsubsection{\texorpdfstring{setTrafoParms()}{setTrafoParms()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::set\+Trafo\+Parms (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}}}]{trafoparms }\end{DoxyParamCaption})}
+
+
+
+Sets the parameters used in the calculation. 
 
 
 
@@ -141,7 +202,7 @@ Container for the last result ~\newline
 
 
 
-Definition at line \mbox{\hyperlink{fft_8h_source_l00064}{64}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
+Definition at line \mbox{\hyperlink{fft_8h_source_l00068}{68}} of file \mbox{\hyperlink{fft_8h_source}{fft.\+h}}.
 
 
 

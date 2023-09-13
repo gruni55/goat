@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['f_0',['F',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a63b62cf2d772d93d31b048d5e6906327',1,'GOAT::raytracing::Raytrace_OT']]],
-  ['f_1',['f',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad85a71bde9dca01a088ab7f61c3c9bf8',1,'GOAT::raytracing::LightSrcGauss::f'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a91756c37a4ca2b39de22e34ba820698a',1,'GOAT::raytracing::Raytrace_OT::f'],['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a778e375a2c8aa07592b8661dbdfb5719',1,'GOAT::raytracing::triangle::f']]],
-  ['f_2',['F',['../struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a540f1b9c97170114f230a7d67a7a2709',1,'GOAT::raytracing::Gauss']]],
+  ['f_0',['f',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a91756c37a4ca2b39de22e34ba820698a',1,'GOAT::raytracing::Raytrace_OT']]],
+  ['f_1',['F',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a63b62cf2d772d93d31b048d5e6906327',1,'GOAT::raytracing::Raytrace_OT::F'],['../struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a540f1b9c97170114f230a7d67a7a2709',1,'GOAT::raytracing::Gauss::F']]],
+  ['f_2',['f',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad85a71bde9dca01a088ab7f61c3c9bf8',1,'GOAT::raytracing::LightSrcGauss::f'],['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a778e375a2c8aa07592b8661dbdfb5719',1,'GOAT::raytracing::triangle::f']]],
   ['fehler_3',['Fehler',['../supergrid__old_8h.html#ab3d73286c46166aae6217702ef9b1b5f',1,'Fehler:&#160;supergrid_old.h'],['../namespace_g_o_a_t_1_1raytracing.html#a1e711d287e774c05c289d8bb3a727325',1,'GOAT::raytracing::Fehler']]],
   ['fft_2eh_4',['fft.h',['../fft_8h.html',1,'']]],
   ['field_5',['field',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#ad66e7ed4f925c5827eb69d7f5210cc6d',1,'GOAT::raytracing::shortPulse::field'],['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#afe27e49406c10e23fc86cbbeeb862fed',1,'GOAT::raytracing::pulseCalculation::field(double t)']]],
@@ -21,8 +21,8 @@ var searchData=
   ['fname_18',['FName',['../class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50',1,'GOAT::raytracing::surface']]],
   ['focuspos_19',['focuspos',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81',1,'GOAT::raytracing::LightSrcGauss']]],
   ['force_20',['force',['../namespace_g_o_a_t_1_1raytracing.html#a5376224e80fbb60074f60c5864a2507d',1,'GOAT::raytracing']]],
-  ['free_21',['free',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c',1,'GOAT::raytracing::SysMemInfo']]],
-  ['free_22',['Free',['../classtinyxml2_1_1_mem_pool.html#a49e3bfac2cba2ebd6776b31e571f64f7',1,'tinyxml2::MemPool::Free()'],['../classtinyxml2_1_1_mem_pool_t.html#a408ce0918e9d3d5e5e1cc4896944875f',1,'tinyxml2::MemPoolT::Free()']]],
+  ['free_21',['Free',['../classtinyxml2_1_1_mem_pool.html#a49e3bfac2cba2ebd6776b31e571f64f7',1,'tinyxml2::MemPool::Free()'],['../classtinyxml2_1_1_mem_pool_t.html#a408ce0918e9d3d5e5e1cc4896944875f',1,'tinyxml2::MemPoolT::Free()']]],
+  ['free_22',['free',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c',1,'GOAT::raytracing::SysMemInfo']]],
   ['freflect_23',['freflect',['../namespace_g_o_a_t_1_1maths.html#a6bd1067e0d2604f34f098926094a4aa2',1,'GOAT::maths']]],
   ['fresnel_2eh_24',['fresnel.h',['../fresnel_8h.html',1,'']]],
   ['fresnel_5freflect_25',['Fresnel_reflect',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a8278e3c1937e3a1ffdb6a383b9d894ca',1,'GOAT::raytracing::IRay::Fresnel_reflect()'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#adaddd2cd5aa7fa4eeee751097c3e4e3b',1,'GOAT::raytracing::tubedRay::Fresnel_reflect()'],['../namespace_g_o_a_t_1_1maths.html#a043bda31e22b22d068e7585eda8903ab',1,'GOAT::maths::Fresnel_reflect()']]],

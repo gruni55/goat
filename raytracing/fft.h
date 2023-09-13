@@ -29,44 +29,74 @@ namespace GOAT
             double omegaStart;              ///< lowest wavelength considered in the calculation 
             double omegaEnd;               ///< highest wavelength considered in the calculation 
             double omega0;                 ///< main frequency (corresponds to wvl)
-            double wvl=1.0;                 ///< main wavelength   
-            double dt=1E-15;                  ///< width of the pulse (in seconds) 
+            double wvl=1.0;                 ///< main wavelength (in µm)  
+            double dt=100;                  ///< width of the pulse (in femto seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
         };
 
         
         /*! \brief This class calculates the time dependence of a field which calculated before.
         * 
-        * The calculation of the time dependence is made in two steps. In the first step, the fields are calculated 
-        * for different wavelengths. In this class, the second step will be made. Here, the time dependence is calculated
-        * with a kind of Fourier transformation. The class requires an array of SuperArray elements which contain the 
-        * the information over all steps for every ray (length of the step and material). The process assumes, that the 
-        * wavelength range can be subdivided into subranges in which the paths of the rays remain nearly the same. 
-        * Since the phase is much more sensitive to changes of the refractive index, the phase change within these 
-        * subranges is considered. The structure TrafoParms carries all information needed for the calculation.
-        * The spectral resolution, needed to prevent "ghost" peaks is a function of the time difference dt to a certain 
+        * The calculation of the time dependence is made in two steps. In the first step, the fields are calculated with help of 
+        * raytracing. This class uses the information from the raytracing (path of the rays) to make the concrete calculation of the electric field 
+        * for different wavelength equivalent to a Fourier transform. The class requires an array of SuperArray elements which contain the 
+        * the information over all steps for every ray (length of the step and material).  The structure TrafoParms carries all information needed 
+        * for the calculation. The spectral resolution, needed to prevent "ghost" peaks is a function of the time difference dt to a certain 
         * reference time tref: dt=|tref-t|. By default tref is set to 0, but if you are interested of a range around 
-        * a certain time, set tref to this time to reduce the amount of needed frequencies
+        * time, set tref to an approbriate time to reduce the amount of needed frequencies
         */
         class Trafo
         {
         public:
             Trafo();
-            Trafo(TrafoParms);  ///< Constructor for initialization          
-           
             /**
+            * @brief Constructor for initialization
             * Perform a calculation at the time t
-            * @param SA Array of SuperArray elements. Contains the fields for the different wavelengths  
+            * @param SA Array of SuperArray elements. Contains the fields for the different wavelengths
             * defined by the parameters in the corresponding TrafoParms structure, given in the constructor
             */
-            void calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t);
-            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t);
+            Trafo(TrafoParms);  
+            void calc(std::vector < std::vector<SuperArray <std::vector<gridEntry> > > >& SA, double t); 
+            /**
+             * @brief calculation of the Fourier transformation.
+             * The calculation of the Fourier transformation is made in a certain frequency intervall at the time t
+             * @param SA this SuperArray structure contains the information gathered in the raytracing part. 
+             * @param omegaStart Start frequency (in fs^-1) of the frequency intervall 
+             * @param omegaStop End frequency (in fs^-1) of the frequency intervall 
+             */
+            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t); 
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
-            void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList);
+            /**
+             * @brief Set the refractive index functions.
+             * Here, the refractive index functions were given with help of a std::vector. Each function must return a complex number 
+             * (the refractive index) and has a double value (the wavelength) as argument
+             */
+            void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList); 
+            /**
+             * @brief Sets the reference time (in fs).
+             */
             void setReferenceTime(double tref);
-            void setTrafoParms(TrafoParms trafoparms); 
-            void clear();
-            void initResult(SuperArray<maths::Vector<std::complex<double> >>& SA);
+            /**
+             * @brief Sets the parameters used in the calculation.
+             */
+            void setTrafoParms(TrafoParms trafoparms);  
+            void clear(); ///< Deletes all arrays 
+            void empty(); ///< fills the entire result array with zero vectors 
+            /**
+             * @brief Resets and initialize the result array.
+             * The result array will be cleared and renewed according to the settings of the SuperArray SA
+             */
+            void initResult(SuperArray<maths::Vector<std::complex<double> >>& SA); 
+            /**
+             * @brief Resets and initialize the result array.
+             * The result array will be cleared and renewed according to the parameters
+             * @param r0 Radius of the calculation space
+             * @param nx Number of grid elements in x-direction
+             * @param ny Number of grid elements in y-direction
+             * @param nz Number of grid elements in z-direction
+             * @param Obj List of all objects in the scene
+             * @param numObjs Numnber of objects in List
+             */
             void initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs);
 
         private:
@@ -83,7 +113,6 @@ namespace GOAT
             double twoSigma2; 
             double sigma2;
             double prefactor; // 1/(sigma * sqrt (2pi))
-          //  double omegastart, omegastop;
             std::vector<double> freq;
             double tref = 0.0;
             TrafoParms tp;

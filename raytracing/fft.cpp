@@ -28,6 +28,12 @@ namespace GOAT
             SAres.clear();
         }
 
+        void Trafo::empty()
+        {
+
+            SAres.fill(maths::czero); // empty the whole result array
+        }
+
         void Trafo::initResult(SuperArray<maths::Vector<std::complex<double> >>& SA)
         {           
             clear();
@@ -115,7 +121,6 @@ namespace GOAT
             double Sigma = 2.3548 / tp.dt;
             double Domega = 4.0 * Sigma;            
 
-            SAres.fill(maths::czero); // empty the whole result array
             domega = Domega / (double)tp.nI;
             
             
@@ -161,7 +166,7 @@ namespace GOAT
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-#pragma omp parallel for
+ #pragma omp parallel for
                             for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;

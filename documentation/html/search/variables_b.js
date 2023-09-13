@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['l_0',['L',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a8e47fe7734da28cab54c67f42e5e894f',1,'GOAT::raytracing::Raytrace_OT']]],
-  ['l_1',['l',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a97b6150a09505cb739365b40c14b20b5',1,'GOAT::raytracing::stepEntry::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a798f80ed574316ba22506fe07dabc9bb',1,'GOAT::raytracing::Raytrace_OT::l']]],
+  ['l_0',['l',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a97b6150a09505cb739365b40c14b20b5',1,'GOAT::raytracing::stepEntry::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a798f80ed574316ba22506fe07dabc9bb',1,'GOAT::raytracing::Raytrace_OT::l']]],
+  ['l_1',['L',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a8e47fe7734da28cab54c67f42e5e894f',1,'GOAT::raytracing::Raytrace_OT']]],
   ['l0_2',['l0',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a47a7577b4ef9a6ad56229392097d8347',1,'GOAT::raytracing::GlobalParms']]],
   ['lightsrc_5fsrctype_5fgauss_3',['LIGHTSRC_SRCTYPE_GAUSS',['../namespace_g_o_a_t_1_1raytracing.html#a124e6652c363828bc8a67bb99cf2988f',1,'GOAT::raytracing']]],
   ['lightsrc_5fsrctype_5fgauss_5fmc_4',['LIGHTSRC_SRCTYPE_GAUSS_MC',['../namespace_g_o_a_t_1_1raytracing.html#aaef90f92c59bfd736f8bd55a02fbf25c',1,'GOAT::raytracing']]],
