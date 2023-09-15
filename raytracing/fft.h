@@ -79,8 +79,8 @@ namespace GOAT
             /**
              * @brief Sets the parameters used in the calculation.
              */
-            void setTrafoParms(TrafoParms trafoparms);  
-            void clear(); ///< Deletes all arrays 
+            void setTrafoParms(TrafoParms trafoparms);  ///< set the current transformation parameters (for details see: TrafoParms)
+            void clear(); ///< Deletes all arrays (frees the memory)
             void empty(); ///< fills the entire result array with zero vectors 
             /**
              * @brief Resets and initialize the result array.

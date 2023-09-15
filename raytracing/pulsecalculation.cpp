@@ -142,7 +142,18 @@ namespace GOAT
 			setPulseWidth(trafoparms.dt);
 		}
 
-		
+		void pulseCalculation::setSpectralRanges(int nI)
+		{
+			trafoparms.nI = nI;
+			trafo.setTrafoParms(trafoparms);
+		}
+
+		void pulseCalculation::setNumWavelengthsPerRange(int nS)
+		{
+			trafoparms.nS = nS;
+			trafo.setTrafoParms(trafoparms);
+		}
+
 
 		void pulseCalculation::setSpatialResolution(double dx)
 		{
