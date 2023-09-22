@@ -12,7 +12,7 @@ int main(int argc, char** argv)
 
 	GOAT::maths::Vector<double> conePos(0, 0, 10);
 	double coneHeight = 3;
-	double coneRadius = 10;
+	double coneRadius = 50;
 	GOAT::raytracing::Cone ConeObj(conePos, coneRadius, coneHeight, 1.5);
 	ConeObj.setConeAngle(5.0 / 180.0 * M_PI);
 
@@ -26,7 +26,7 @@ int main(int argc, char** argv)
 	int LSnumRays = 500;
 	double LSwvl = 1.0;
 	// GOAT::raytracing::LightSrcPlane_mc LS(LSPos, LSnumRays, LSwvl, LSD);
-	GOAT::raytracing::LightSrcRing_mc LS(LSPos, LSnumRays, LSwvl, 5.0, 6.0);
+	GOAT::raytracing::LightSrcRing_mc LS(LSPos, LSnumRays, LSwvl, 40.0, 45.0);
 	LS.setk(GOAT::maths::Vector<double>(0.0, 0.0, 1.0));
 	GOAT::raytracing::Scene S;
 	S.addObject(&ConeObj);
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 	//S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
 	
 	S.addLightSource(&LS);
-	S.setr0(50.0);
+	S.setr0(200.0);
 	S.setnS(1.0);
 	
 	GOAT::raytracing::Raytrace_Path rp(S);
