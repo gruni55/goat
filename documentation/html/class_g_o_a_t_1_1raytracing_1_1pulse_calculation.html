@@ -126,6 +126,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aef008b825a1f314b5dcdff5300ced8ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fee8a17c26d5aa6033e7716e41ac83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a0fee8a17c26d5aa6033e7716e41ac83c">setNumReflex</a> (int numReflex)</td></tr>
 <tr class="separator:a0fee8a17c26d5aa6033e7716e41ac83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10310c6fed906eaaf152f06f50d73dbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a10310c6fed906eaaf152f06f50d73dbc">setSpectralRanges</a> (int n)</td></tr>
+<tr class="memdesc:a10310c6fed906eaaf152f06f50d73dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of spectral ranges in which one raytracing calculation is made.  <br /></td></tr>
+<tr class="separator:a10310c6fed906eaaf152f06f50d73dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a7e22fd3bcdb1a45e1a61cf4079f45cc6">setNumWavelengthsPerRange</a> (int nS)</td></tr>
+<tr class="memdesc:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range.  <br /></td></tr>
+<tr class="separator:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe27e49406c10e23fc86cbbeeb862fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#afe27e49406c10e23fc86cbbeeb862fed">field</a> (double t)</td></tr>
 <tr class="memdesc:afe27e49406c10e23fc86cbbeeb862fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions.  <br /></td></tr>
 <tr class="separator:afe27e49406c10e23fc86cbbeeb862fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -266,6 +272,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7e22fd3bcdb1a45e1a61cf4079f45cc6" name="a7e22fd3bcdb1a45e1a61cf4079f45cc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e22fd3bcdb1a45e1a61cf4079f45cc6">&#9670;&#160;</a></span>setNumWavelengthsPerRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::pulseCalculation::setNumWavelengthsPerRange </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nS</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. </p>
+
+</div>
+</div>
 <a id="a4fdbd4ac9d98d79d5541e6d5f7ff1233" name="a4fdbd4ac9d98d79d5541e6d5f7ff1233"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4fdbd4ac9d98d79d5541e6d5f7ff1233">&#9670;&#160;</a></span>setPulseWidth()</h2>
 
@@ -345,6 +371,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a10310c6fed906eaaf152f06f50d73dbc" name="a10310c6fed906eaaf152f06f50d73dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10310c6fed906eaaf152f06f50d73dbc">&#9670;&#160;</a></span>setSpectralRanges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::pulseCalculation::setSpectralRanges </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of spectral ranges in which one raytracing calculation is made. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a6880d97c499cb696b3fcc788d894855d" name="a6880d97c499cb696b3fcc788d894855d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6880d97c499cb696b3fcc788d894855d">&#9670;&#160;</a></span>SAres</h2>
@@ -358,7 +404,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00039">39</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00046">46</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 
 </div>
 </div>
@@ -374,7 +420,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00038">38</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00045">45</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 
 </div>
 </div>

@@ -18,8 +18,9 @@ namespace GOAT
 constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
 constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
 constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
-constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 4; ///< Light source is a top hat
-constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 4; ///< Light source is a plane wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a gaussian wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_RING_MC = 6; ///< Light source is a ring (random distribution)
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -27,10 +28,10 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a top hat
 #define LIGHTSRC_ERROR -1        ///< Error occurs within the ray creation
 #define Z0 376.730313461         ///< Wave impedance of free space
 
-#define LIGHTSRC_POL_X 0
-#define LIGHTSRC_POL_Y 1
-#define LIGHTSRC_POL_Z 2
-#define LIGHTSRC_POL_USER_DEFINED 0 
+#define LIGHTSRC_POL_X 0 ///< Light source is polarized in x-direction
+#define LIGHTSRC_POL_Y 1 ///< Light source is polarized in y-direction
+#define LIGHTSRC_POL_Z 2 ///< Light source is polarized in z-direction
+#define LIGHTSRC_POL_USER_DEFINED 0 ///< Light source is user defined
 
 
 
@@ -93,9 +94,7 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a top hat
 			} ///< sets the width of the light source (this resets also the ray counter)
 
 			void setD(double D1, double D2) ///< sets the width of the light source
-			{
-				// this->density = D / ((double)N);
-				//this->D = D;
+			{				
 				if (D1<D2) density= D1 / ((double)N);
 				else density = D2 / ((double)N);
 				this->D1 = D1;
@@ -265,6 +264,7 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 5; ///< Light source is a top hat
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
 		};
 
+		
 		/**
 		 * @brief Writes a list of light sources into a binary file.
 		 * @param os Output file stream to write the data

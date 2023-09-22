@@ -343,7 +343,7 @@ namespace GOAT
 		GOAT::maths::Vector<double>  LightSrcPlane_mc::genStartingPos ()
 		{
 			std::random_device rd;
-            std::mt19937 gen(rd());
+            std::mt19937_64 gen(rd());
 			std::uniform_real_distribution<double> udx(-D1 / 2.0, D1 / 2.0);
 			std::uniform_real_distribution<double> udy(-D2 / 2.0, D2 / 2.0);
 
@@ -353,6 +353,94 @@ namespace GOAT
 			   y=udy(gen);            
             GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
+		}
+
+		LightSrcRing_mc::LightSrcRing_mc(const LightSrcRing_mc& L) : LightSrcPlane(L)
+		{
+			rmin = L.rmin;
+			rmax = L.rmax;
+			type = LIGHTSRC_SRCTYPE_RING_MC;
+		}
+
+		LightSrcRing_mc::LightSrcRing_mc( maths::Vector<double> Pos, int N, double wvl,double rmin, double rmax,
+			maths::Vector<std::complex<double> > Pol , int raytype, double r0) : LightSrcPlane (Pos,N,wvl,rmax,Pol,raytype,r0)
+		{
+			this->rmin = rmin;
+			this->rmax = rmax;
+			type = LIGHTSRC_SRCTYPE_RING_MC;
+		}
+
+		GOAT::maths::Vector<double> LightSrcRing_mc::genStartingPos()
+		{
+			std::random_device rd;
+			std::mt19937_64 gen(rd());
+			std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
+			std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
+			double r = std::sqrt(ur(gen));
+			double phi = uphi(gen);
+			double x, y;
+			x = r * cos(phi);
+			y = r * sin(phi);
+			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
+			return P;
+		}
+
+		int LightSrcRing_mc::next(IRay& S)
+		{
+			Plane E;
+
+			maths::Vector<double> P = genStartingPos();
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.E1 = Pol / N;
+			S.E2 = Pol2 / N;
+			// S.init_Efeld(E,Pol);
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+		int LightSrcRing_mc::next(Ray_pow& S)
+		{
+
+			Plane E;
+			double Pow;
+
+			maths::Vector<double> P = genStartingPos();
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			// Pow = 1.0 / ((double)(N * N) * D * D);
+			Pow = 1.0;
+			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.initElectricField(E, Pol);
+			S.P = P;
+			S.E1 = Pol;
+			S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+			S.k = k;
+			i1++;
+			Pall += abs2(S.E2);
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+
+		int LightSrcRing_mc::next(tubedRay& S)
+		{
+			double Pow = 1.0;
+			maths::Vector<double> P = genStartingPos();
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.setN0(n0);
+			i1++;
+			rayCounter++;
+			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
 		}
     }
 }

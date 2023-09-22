@@ -14,6 +14,7 @@ int main(int argc, char** argv)
 	double coneHeight = 3;
 	double coneRadius = 10;
 	GOAT::raytracing::Cone ConeObj(conePos, coneRadius, coneHeight, 1.5);
+	ConeObj.setConeAngle(5.0 / 180.0 * M_PI);
 
 	GOAT::maths::Vector<double> DetBoxPos(60, 0, 0);
 	GOAT::maths::Vector<double> DetBoxDim(100, 50, 50);
@@ -24,7 +25,8 @@ int main(int argc, char** argv)
 	double LSD =10.0;
 	int LSnumRays = 500;
 	double LSwvl = 1.0;
-	GOAT::raytracing::LightSrcPlane_mc LS(LSPos, LSnumRays, LSwvl, LSD);
+	// GOAT::raytracing::LightSrcPlane_mc LS(LSPos, LSnumRays, LSwvl, LSD);
+	GOAT::raytracing::LightSrcRing_mc LS(LSPos, LSnumRays, LSwvl, 5.0, 6.0);
 	LS.setk(GOAT::maths::Vector<double>(0.0, 0.0, 1.0));
 	GOAT::raytracing::Scene S;
 	S.addObject(&ConeObj);
@@ -39,7 +41,8 @@ int main(int argc, char** argv)
 	
 	GOAT::raytracing::Raytrace_Path rp(S);
 	rp.setNumReflex(0);
-	rp.trace("/home/weigel/data/rays.dat");
+	// rp.trace("/home/weigel/data/rays.dat");
+	rp.trace("H:\\data\\rays.dat");
 
 
 	return 0;

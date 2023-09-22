@@ -145,6 +145,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class derived from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>. It represents a plane wave described by the electric field <picture><source srcset="form_21_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $" src="form_21.png"/></picture>  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html">LightSrcPlane_mc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a> wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html">LightSrcRing_mc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring shaped light source. This class provides a ring shaped light source with arbitrary, uniform distributed rays within the light source area.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_mem_info.html">MemInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -575,11 +579,14 @@ Variables</h2></td></tr>
 <tr class="memdesc:a452abd4bbc2fe2d04cf476bad00dd82d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a top hat.  <br /></td></tr>
 <tr class="separator:a452abd4bbc2fe2d04cf476bad00dd82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a4966b3d5b5bfb6400cbcad696f0d1485">LIGHTSRC_SRCTYPE_PLANE_MC</a> = 4</td></tr>
-<tr class="memdesc:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a top hat.  <br /></td></tr>
+<tr class="memdesc:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a plane wave (random distribution)  <br /></td></tr>
 <tr class="separator:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#aaef90f92c59bfd736f8bd55a02fbf25c">LIGHTSRC_SRCTYPE_GAUSS_MC</a> = 5</td></tr>
-<tr class="memdesc:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a top hat.  <br /></td></tr>
+<tr class="memdesc:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a gaussian wave (random distribution)  <br /></td></tr>
 <tr class="separator:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a1ac81c890408a9d1309dfc7932d6c8"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8a1ac81c890408a9d1309dfc7932d6c8">LIGHTSRC_SRCTYPE_RING_MC</a> = 6</td></tr>
+<tr class="memdesc:a8a1ac81c890408a9d1309dfc7932d6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring (random distribution)  <br /></td></tr>
+<tr class="separator:a8a1ac81c890408a9d1309dfc7932d6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa2eec918e945f99918a6a2b23c2b4ca"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#afa2eec918e945f99918a6a2b23c2b4ca">Exz</a> = <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a>(<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt;(0.0, 0.0, 0.0), maths::ex, maths::ez)</td></tr>
 <tr class="separator:afa2eec918e945f99918a6a2b23c2b4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a279a8d429521b573b92ad894ecf6a9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5a279a8d429521b573b92ad894ecf6a9">Exy</a> = <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a>(<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt;(0.0, 0.0, 0.0), maths::ex, maths::ey)</td></tr>
@@ -5617,7 +5624,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Light source is a top hat. </p>
+<p>Light source is a gaussian wave (random distribution) </p>
 
 <p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00022">22</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
@@ -5669,9 +5676,35 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Light source is a top hat. </p>
+<p>Light source is a plane wave (random distribution) </p>
 
 <p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00021">21</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a8a1ac81c890408a9d1309dfc7932d6c8" name="a8a1ac81c890408a9d1309dfc7932d6c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a1ac81c890408a9d1309dfc7932d6c8">&#9670;&#160;</a></span>LIGHTSRC_SRCTYPE_RING_MC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr int GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_MC = 6</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Light source is a ring (random distribution) </p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00023">23</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

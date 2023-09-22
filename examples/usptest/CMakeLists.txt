@@ -60,15 +60,21 @@ else()
 	target_include_directories (boxtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (boxtest OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
-	add_executable (usp_ellipsoid usp_ellipsoid.cpp)
+    add_executable (usp_ellipsoid usp_ellipsoid.cpp)
 	target_compile_options (usp_ellipsoid PUBLIC ${OpenMP_CXX_FLAGS})
         target_compile_definitions (usp_ellipsoid PUBLIC WITH_OCTREE)	
 	target_include_directories (usp_ellipsoid PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usp_ellipsoid OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
 
-      endif()
-install(TARGETS boxtest
+ endif()
+
+add_executable (usp_raytest usp_raytest.cpp)
+target_include_directories (usp_raytest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (usp_raytest goat_raytracing goat_maths)
+
+
+install(TARGETS boxtest usp_raytest
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
@@ -81,4 +87,9 @@ install(TARGETS usptest
     ARCHIVE DESTINATION lib
     )
 
+    install(TARGETS usptest
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    )
 

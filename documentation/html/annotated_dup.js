@@ -22,6 +22,7 @@ var annotated_dup =
         [ "LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc" ],
         [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane" ],
         [ "LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc" ],
+        [ "LightSrcRing_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc" ],
         [ "MemInfo", "struct_g_o_a_t_1_1raytracing_1_1_mem_info.html", "struct_g_o_a_t_1_1raytracing_1_1_mem_info" ],
         [ "objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", "struct_g_o_a_t_1_1raytracing_1_1object_info" ],
         [ "ObjectShape", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html", "class_g_o_a_t_1_1raytracing_1_1_object_shape" ],

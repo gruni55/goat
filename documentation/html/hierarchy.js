@@ -18,7 +18,8 @@ var hierarchy =
         [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]
       ] ],
       [ "GOAT::raytracing::LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", [
-        [ "GOAT::raytracing::LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", null ]
+        [ "GOAT::raytracing::LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", null ],
+        [ "GOAT::raytracing::LightSrcRing_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html", null ]
       ] ]
     ] ],
     [ "GOAT::maths::Matrix< T >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],

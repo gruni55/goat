@@ -41,10 +41,24 @@ namespace GOAT
                 int rayCounter=0;
         };
 
+        /**
+         * @brief Plane wave with random ray distribution.
+         * This class provides a plane (square sized) wave with a given width.
+         * The rays are arbitrarily but uniformly distributed inside the light source area. 
+         */
         class LightSrcPlane_mc : public LightSrcPlane
         {
             public:
                 LightSrcPlane_mc (const LightSrcPlane_mc & L);
+                /**
+                 * Constructor for arbitrary distributed plane wave.
+                 * @param Pos Position of the source (center)
+                 * @param N Total number of rays 
+                 * @param wvl Wavelength
+                 * @param Pol Direction of the polarization
+                 * @param raytype Type of ray used for the raytracing process
+                 * @param r0 Radius of the calculation space 
+                 */
                 LightSrcPlane_mc (maths::Vector<double> Pos, int N, double wvl, double D = 100.0, 
                                   maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), 
                                   int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
@@ -56,6 +70,26 @@ namespace GOAT
                 void reset();
         };
 
-        
+        /**
+         * @brief  Ring shaped light source.
+         * This class provides a ring shaped light source with arbitrary, uniform 
+         * distributed rays within the light source area. 
+         */
+
+        class LightSrcRing_mc : public LightSrcPlane
+        {
+          public:
+            LightSrcRing_mc(const LightSrcRing_mc& L);
+            LightSrcRing_mc( maths::Vector<double> Pos, int N, double wvl,double rmin, double rmax,
+                maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0),
+                int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+            int next(IRay& S);
+            int next(tubedRay& S);
+            int next(Ray_pow& S);
+            double rmin = 0.0; ///< inner radius of the ring
+            double rmax = 1.0; ///< outer radius of the ring          
+            int rayCounter = 0;
+            GOAT::maths::Vector<double> genStartingPos();
+        };       
     }    
 }
