@@ -112,7 +112,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-//				std::cout << PStart << "\t" << PStop << std::endl;
+		//		std::cout << PStart << "\t" << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -148,10 +148,8 @@ namespace GOAT
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
-							copyRay(tray, ray);
-							GOAT::maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
-							// std::cout << PStop << "\t" << n << std::endl;
-			//					std::cout << "*PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
+							copyRay(tray, ray);			
+							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 							
 						}
@@ -177,7 +175,7 @@ namespace GOAT
 						if (objIndex > -1) // an object was hit
 						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
-						//    std::cout << PStop << "\t" << n << std::endl;
+						    // std::cout << PStop << "\t" << n << std::endl;
 			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)
 							{
@@ -367,7 +365,7 @@ namespace GOAT
 			obj->r0 = r0;
 			obj->initQuad();
 			int intersect = -1;
-			std::cout << "pul=" << obj->pul << "   por=" << obj->por << "  P=" << obj->P << std::endl;
+		//	std::cout << "pul=" << obj->pul << "   por=" << obj->por << "  P=" << obj->P << std::endl;
 			if (obj->isOutsideWorld())
 				std::cerr << "Object " << nObj << " might be (partly) outside the calculation space, please check!" << std::endl;
 			for (int i = 0; (i < nObj) && (intersect==-1); i++)

@@ -389,6 +389,173 @@ namespace  GOAT
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
+
+		LightSrcRing::LightSrcRing() : LightSrc()
+		{
+			type = LIGHTSRC_SRCTYPE_RING;
+			k = maths::ez;
+			density = 2.0 * rmax / ((double)N);
+			raytype = LIGHTSRC_RAYTYPE_IRAY;
+			numObjs = 0;
+			Obj = 0;
+			e1 = maths::ex;
+			e2 = maths::ey;
+			reset();
+		}
+
+		LightSrcRing::LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin, double rmax, maths::Vector<std::complex<double> > Pol, int raytype , double r0) : LightSrc()
+		{
+			e1 = maths::ex;
+			e2 = maths::ey;
+
+			this->Pos = Pos;
+			this->density = 2.0 * rmax / ((double)N);
+			this->type = LIGHTSRC_SRCTYPE_RING;
+			D1 = 2.0 * rmax;
+			D2 = 2.0 * rmax;
+			this->k = maths::ez;
+			this->raytype = raytype;
+			this->Pol = Pol;
+			this->r0 = r0;
+			this->wvl = wvl;
+			this->rmin = rmin;
+			this->rmax = rmax;			
+			this->N = N;
+			this->n0 = 1.0;
+			numObjs = 0;
+			Obj = 0;
+			reset();
+		}
+
+		int LightSrcRing::next(RayBase* ray)
+		{
+			ray->suppress_phase_progress = suppress_phase_progress;
+			switch (raytype)
+			{
+			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
+			case LIGHTSRC_RAYTYPE_PRAY: return next(*(Ray_pow*)ray); break;
+			case LIGHTSRC_RAYTYPE_RAY:
+			default: return next(*(tubedRay*)ray);
+			}
+		}
+
+		int LightSrcRing::next(IRay& S)
+		{
+
+			Plane E;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				else found = true;
+			} 
+			while (!found);
+			P = Pos + P;
+
+				E.e1 = e1;
+				E.e2 = e2;
+				E.n = k;
+				S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+				S.suppress_phase_progress = suppress_phase_progress;
+				S.E1 = Pol / (N * N);
+				S.E2 = Pol2 / (N * N);
+				// S.init_Efeld(E,Pol);
+				i1++;
+
+				if (i1 * density > D1) {
+					i1 = 0; i2++; std::cout << "% i2=" << i2 << std::endl;
+				}
+				if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+			
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+		int LightSrcRing::next(Ray_pow& S)
+		{
+
+			Plane E;
+			double Pow;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				P = Pos + P;
+			} while (!found);
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			Pow = P0 / ((double)(N * N) * D1 * D2);
+			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.initElectricField(E, Pol);
+			S.P = P;
+			S.E1 = Pol;
+			S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+			S.k = k;
+			i1++;
+			Pall += abs2(S.E2);
+			// if (i1*density>D) return LIGHTSRC_IS_LAST_RAY; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+
+		int LightSrcRing::next(tubedRay& S)
+		{
+			double Pow = P0 / (N * N * D2 * D1);
+
+			Plane E;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				P = Pos + P;
+			} while (!found);
+			
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.setN0(n0);
+			// S.init_Efeld(Pol,1);
+			i1++;
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+
+
+
+
 		void LightSrc::reset()
 		{
 			i1 = 0;

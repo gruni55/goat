@@ -87,9 +87,4 @@ install(TARGETS usptest
     ARCHIVE DESTINATION lib
     )
 
-    install(TARGETS usptest
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    )
-
+ 

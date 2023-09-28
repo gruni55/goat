@@ -28,6 +28,97 @@ namespace GOAT
 			sideLen = height / cosCA;
 		}
 
+#define EPS 1E-30
+
+		bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
+		{
+			maths::Vector<double> n,n1, e1, e2;
+			maths::Vector<double> p = H * (ps - P);
+			maths::Vector<double> k = H * ks;
+			double l1, l2;
+
+			e2 = maths::ez;
+			n = maths::norm(p % e2);
+			e1 = maths::norm(n % e2);
+
+			maths::Vector<double> Ph = e2 * height;
+			maths::Vector<double> Psh = (Ph-p);
+			maths::Vector<double> u, v;
+			u =   -radius * e1 - Ph;
+			v =   radius * e1 - Ph;
+			double ku = k * u;
+			double kv = k * v;
+			double s2 = sideLen * sideLen;
+			double lambda1, lambda2, lambdaB, lambda;
+			lambda = -1;
+			if (fabs(k[2]) > EPS)
+			{
+				l1 = (Psh * (e2 * ku - k[2] * u)) / (s2 * k[2] + height * ku);
+				l2 = (Psh * (e2 * kv - k[2] * v)) / (s2 * k[2] + height * kv);
+				// testing intersection with "left" side:
+				lambda1 = -1;
+				if ((EPS <= l1) && (l1 <= 1.0))
+				{
+					lambda1 = (Psh[2] - height * l1) / k[2];
+	//				std::cout << "%-> " << Ph + l1 * u << "\t" << ps + lambda1 * ks << "\t" << k << std::endl;
+				}
+				// testing intersection with "right" side:
+				lambda2 = -1;
+				if ((EPS <= l2) && (l2 <= 1.0))
+				{
+					lambda2 = (Psh[2] - height * l2) / k[2];
+			//		std::cout << "%->> " << Ph + l2 * v << "\t" << ps + lambda2 * ks <<  "\t" << k << std::endl;
+				}
+				
+				// now testing intersection with bottom area
+				lambdaB = -p[2] / k[2];
+
+				maths::Vector<double> Pt = p + lambdaB * k;
+				if (Pt[0] * Pt[0] + P[1] * Pt[1] > radius * radius) lambdaB = -1;
+
+				
+				if ((lambda1 < lambda2) && (lambda1 > EPS) || (lambda2<0)) lambda = lambda1;
+				else if (lambda2 > EPS) lambda = lambda2;
+
+				if ((lambdaB < lambda) && (lambdaB > EPS) || ((lambda < EPS) && (lambdaB > EPS)))
+				{
+					pout = ps + lambdaB * ks;
+					return true;
+				}
+				else
+					if (lambda > EPS)
+					{
+						pout = ps + lambda * ks;
+ 						return true;
+					}				
+			}
+			else
+			{
+				l1 = Psh[2] / height;
+				l2 = l1;
+				lambda = -1;
+				if ((EPS <= l1) && (l1 <= 1.0))
+				{
+					lambda1 = (Psh * u + s2 * l1) / ku;
+					lambda2 = (Psh * v + s2 * l2) / kv;
+		//			std::cout << "% " << Ph + l1 * u << "\t" << ps + lambda1 * ks << "\t" << k << std::endl;
+					if ((lambda1 <= lambda2) && (lambda1 > 0)) lambda = lambda1;
+					else  lambda = lambda2;
+
+					if (lambda > EPS)
+					{
+						pout = ps + lambda * ks;
+						return true;
+					}
+
+				}
+			}
+			pout = ps;
+			return false;
+
+		}
+
+		/*
 		bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
 		{
 			// test with lateral surface 
@@ -55,7 +146,7 @@ namespace GOAT
 			return true;
 		}
 
-
+		*/
 		double Cone::nextCone(const maths::Vector<double>& p, const maths::Vector<double>& k, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> n = GOAT::maths::norm(k % (V - p));
@@ -99,7 +190,21 @@ namespace GOAT
 			return -1;
 		}
 
-		maths::Vector<double> Cone::norm(const maths::Vector<double>& p)
+		maths::Vector<double> Cone::norm(const maths::Vector<double>& ps)
+		{
+			maths::Vector<double> p = H * (ps - P);
+			
+			
+			if (fabs(p[2]) > 0)
+			{
+				maths::Vector<double> e2 = maths::ez;
+				maths::Vector<double> e1 = maths::norm(p - p[2] * e2);				
+				return cos(coneAngle) * e1 + sin(coneAngle) * e2;
+			}
+			return -R * maths::ez;
+		}
+
+	/*	maths::Vector<double> Cone::norm(const maths::Vector<double>& p)
 		{
 			maths::Vector<double> Ps = H * p;	
 			double dv = (Ps - P) * v;
@@ -114,7 +219,7 @@ namespace GOAT
 			}
 			return normv;
 		}
-
+		*/
 		bool Cone::isInside(const maths::Vector<double>& p)
 		{
 			maths::Vector<double> Ps = H * p;
