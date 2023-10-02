@@ -90,6 +90,26 @@ namespace GOAT
             double rmax = 1.0; ///< outer radius of the ring          
             int rayCounter = 0;
             GOAT::maths::Vector<double> genStartingPos();
+            void reset();
         };       
+
+       class LightSrcRingGauss_mc : public LightSrcPlane
+        {
+          public:
+            LightSrcRingGauss_mc(const LightSrcRingGauss_mc& L);
+            LightSrcRingGauss_mc( maths::Vector<double> Pos, int N, double wvl,double rmin, double rmax,
+                maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0),
+                int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+            int next(IRay& S);
+            int next(tubedRay& S);
+            int next(Ray_pow& S);
+            void setFWHM (double r);
+            double rmin = 0.0; ///< inner radius of the ring
+            double rmax = 1.0; ///< outer radius of the ring          
+            int rayCounter = 0;
+            GOAT::maths::Vector<double> genStartingPos();
+            void reset();
+            double sigma2;
+        }; 
     }    
 }

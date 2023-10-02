@@ -28,7 +28,7 @@ namespace GOAT
 			sideLen = height / cosCA;
 		}
 
-#define EPS 1E-30
+#define EPS 1E-10
 
 		bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
 		{

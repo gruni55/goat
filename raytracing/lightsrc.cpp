@@ -281,7 +281,7 @@ namespace  GOAT
 			this->D = D;
 			this->D1 = D;
 			this->D2 = D;
-			this->N = N;
+			this->N = N; 
 			this->n0 = 1.0;			
 			numObjs = 0;
 			Obj = 0;
