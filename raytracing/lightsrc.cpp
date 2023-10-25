@@ -539,6 +539,7 @@ namespace  GOAT
 					if (i1 * density > D1) { i1 = 0; i2++; }
 					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 				}
+				else found = true;
 				P = Pos + P;
 			} while (!found);
 			

@@ -199,9 +199,32 @@ namespace GOAT
 			{
 				maths::Vector<double> e2 = maths::ez;
 				maths::Vector<double> e1 = maths::norm(p - p[2] * e2);				
-				return cos(coneAngle) * e1 + sin(coneAngle) * e2;
+				return maths::norm(cos(coneAngle) * e1 + sin(coneAngle) * e2);
 			}
 			return -R * maths::ez;
+		}
+
+
+		void Cone::setRadius(double radius)
+		{
+			this->radius = radius;
+			initQuad();
+		}
+
+		double Cone::getRadius()
+		{
+			return radius;
+		}
+
+		void Cone::setHeight(double height)
+		{
+			this->height = height;
+			initQuad();
+		}
+
+		double Cone::getHeight()
+		{
+			return height;
 		}
 
 	/*	maths::Vector<double> Cone::norm(const maths::Vector<double>& p)

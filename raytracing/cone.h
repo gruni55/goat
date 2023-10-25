@@ -70,6 +70,10 @@ namespace GOAT
 			maths::Vector<double> calcCoM();
                         void setConeAngle (double coneAngle); ///< Set the cone angle
                         double getConeAngle (); ///< Returns the cone angle
+						void setRadius(double radius); ///< Set the radius of the cone
+						double getRadius(); ///< Returns the radius of the cone
+						void setHeight(double height); ///< Set the height of the cone
+						double getHeight(); ///< Returns the height of the cone
 
 		private:
 			maths::Vector<double> V; ///< Position of the tip of the cone
