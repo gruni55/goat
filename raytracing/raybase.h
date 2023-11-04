@@ -19,15 +19,15 @@ namespace GOAT
             virtual bool isInObject() = 0; ///< true if ray is in an object otherwise false
             virtual int objectIndex() = 0; ///< index of the current object or -1
             virtual void reflectRay(RayBase*& tray, maths::Vector<double> n, std::complex<double> n1, std::complex<double> n2) = 0; ///< reflects ray
-            RayBase* tray; ///< transmitted ray (used by the raytracer, for internal use only)
-            bool inObject; ///< is in an object
-            ObjectShape** Obj; ///< list of all objects
-            int numObj; ///< number of objects
-            int objIndex; ///< index of the current object
+            RayBase* tray=0; ///< transmitted ray (used by the raytracer, for internal use only)
+            bool inObject=false; ///< is in an object
+            ObjectShape** Obj=0; ///< list of all objects
+            int numObj=0; ///< number of objects
+            int objIndex=0; ///< index of the current object
             std::complex<double>  n, n0; ///< current refractive index and refractive index of the host material
-            double k0; ///< wave number
-            double r0, rc; ///< radius of the calculation sphere
-            int iR; ///< number of reflections already done
+            double k0=2.0*M_PI; ///< wave number
+            double r0=1.0, rc=1.0; ///< radius of the calculation sphere
+            int iR=0; ///< number of reflections already done
             bool suppress_phase_progress=false; ///< suppress phase change in next(), needed for short pulse consideration
             int status = RAYBASE_STATUS_NONE;
         };

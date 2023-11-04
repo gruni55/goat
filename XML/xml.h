@@ -27,6 +27,8 @@ namespace GOAT
 		#define XML_LS_TYPE_GAUSS_MC 3
 
 
+
+
 		const std::string sceneXMLElements[] = { "r0","nS","LightSources","Objects","Detectors" };
 		const std::string LSXMLAttributes[] = { "Type","Size","Wavelength","NumRays" };
 		const std::string LSXMLTYPES[] = {"Plane","Gaussian","Plane_mc","Gaussian_mc"};
@@ -40,14 +42,24 @@ namespace GOAT
 		{
 			public:
 				void readXML(const char* fname); ///< function to read the file
-				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here
+				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
 
 			private:				
+				void readScene();
+				void readLightSources();
+				void readCommands();
+				void readObjects();
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
 				std::complex<double> readCmplx(tinyxml2::XMLElement* ell, double defre=0.0, double defim=0.0 );
-				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);				
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);						
 				tinyxml2::XMLNode* rootElement;
 				tinyxml2::XMLElement* sceneElement;				
+				tinyxml2::XMLElement* calculationElement;
+				GOAT::raytracing::ObjectShape** Obj=0;
+				GOAT::raytracing::LightSrc** LS=0;
+				int numObj = 0;
+				int numLS = 0;
+
 		};
 	}
 }
