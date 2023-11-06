@@ -73,8 +73,13 @@ add_executable (usp_raytest usp_raytest.cpp)
 target_include_directories (usp_raytest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (usp_raytest goat_raytracing goat_maths)
 
+add_executable (usp_compress usp_compress.cpp)
+target_include_directories (usp_compress PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (usp_compress goat_raytracing goat_maths)
 
-install(TARGETS boxtest usp_raytest
+
+
+install(TARGETS boxtest usp_raytest usp_compress
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib

@@ -44,7 +44,10 @@ namespace GOAT
 				void setReferenceTime(double tref);
 				Trafo trafo;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
-				
+					std::vector<SuperArray<std::vector<gridEntry> > >  SA;
+					Raytrace_usp rt;
+
+		
 				
 
 			private:	
@@ -56,9 +59,7 @@ namespace GOAT
 				*/
 				void setDefaults();				
 				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
-				std::vector<SuperArray<std::vector<gridEntry> > >  SA;
 
-				Raytrace_usp rt;
 				double dWvl;  // spectral width of the light
 				double dRWvl; // spectral width of one subdivision
 				int nn;       // number of cells over the whole width of the calculation space (i.e. 2*r0)

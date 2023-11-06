@@ -61,7 +61,7 @@ namespace GOAT
 
         ObjectShape::ObjectShape(const ObjectShape& F)
         {
-            Active = true;
+            Active = F.Active;
             sf = 1.0;
             type = F.type;
             P = F.P;

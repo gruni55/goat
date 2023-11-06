@@ -811,7 +811,10 @@ namespace GOAT
                             os << abs(S.G[i][ix][iy][iz]) << std::endl;
             }
         return os;
-    }
+    } 
+  
+    std::ostream& operator << (std::ostream& os, const SuperArray<std::vector<gridEntry> >& S);
+    
 
     template <class T> void SuperArray<T>::fill(const T& x)
     {
@@ -1012,6 +1015,7 @@ namespace GOAT
         return pc;
     }
 
+    
 
     bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
     bool saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
