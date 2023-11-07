@@ -25,7 +25,7 @@ namespace GOAT
 		void pulseCalculation::fieldCalculation()
 		{			
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 2.0 * Sigma;			
+			double Domega = 4.0 * Sigma;			
 			std::cout << "nI=" << trafoparms.nI << std::endl;
 			double domega = Domega / (double)trafoparms.nI;
 			double omega;
@@ -74,17 +74,19 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 4.0 * Sigma;
+			double Domega = 15.0 * Sigma;
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
 			double omega;
 			rt = Raytrace_usp(S, nn);
+			double wvl;
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
 				omega = omegaStart + ( (double)iOmega + 0.5) * domega;				
+				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
 				fieldCalculation(omega); // make the raytracing
-				std::cout << "start FFT" << std::endl << std::flush;
+				std::cout << iOmega << ":start FFT (" << wvl << "µm)" << std::endl << std::flush;
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
 			}
 		}
