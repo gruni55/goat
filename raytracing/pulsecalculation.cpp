@@ -79,7 +79,7 @@ namespace GOAT
 			double omegaStart = omega0 - Domega;
 			double omega;
 			rt = Raytrace_usp(S, nn);
-			trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
 				omega = omegaStart + ( (double)iOmega + 0.5) * domega;				

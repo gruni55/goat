@@ -806,5 +806,24 @@ namespace GOAT
                   iscleared = true;
               }
       }
+       
+      std::ostream& operator << (std::ostream& os, const SuperArray<std::vector <gridEntry> >& S)
+    {
+        os << "% r0=" << S.r0 << std::endl;
+        os << "% Ausdehnung:    nx=" << S.nges[0] << "  ny=" << S.nges[1] << "  nz=" << S.nges[2] << std::endl;
+        os << S.numObjs << "%  Einschluesse" << std::endl;
+        if (S.numObjs > 0)
+            for (int i = 0; i < S.numObjs; i++)
+            {
+                os << "% ====================== Einschluss Nr. " << i << " ======================" << std::endl;
+                if (S.Obj[i]->isActive())
+                for (int ix = 0; ix < S.n[i][0]; ix++)
+                    for (int iy = 0; iy < S.n[i][1]; iy++)
+                        for (int iz = 0; iz < S.n[i][2]; iz++)
+                           for (gridEntry ge : S.G[i][ix][iy][iz])
+                            os << ge << std::endl;
+            }
+        return os;
+    }
   }
 }

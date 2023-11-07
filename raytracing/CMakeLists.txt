@@ -6,7 +6,7 @@ set (
 		     raytrace.cpp ray_pow.cpp resutil.cpp surface.cpp triangle.cpp tubedray.cpp 
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp 
-		     plane.cpp pulsecalculation.cpp
+		     plane.cpp pulsecalculation.cpp gridentry.cpp
      "fft.cpp"  "cone.cpp")  
 
 set (
