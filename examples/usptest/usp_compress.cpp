@@ -5,15 +5,20 @@
 int main (int argc, char **argv)
 {
 	std::string prismFName;
-	// prismFName = "/home/weigel/data/prism.srf";
-	prismFName = "H:\\data\\prism.srf";
+	prismFName = "/home/weigel/data/prism.srf";
+	// prismFName = "H:\\data\\prism.srf";
+        std::string ergFName;
+       	ergFName = "/home/weigel/data/test.dat";
+	// ergFName = "H:\\data\\test.dat";
+
 
  double sf=10000;
  double r0=10000*sf;
+ double wvl=0.5;
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,-5*sf,0);
  int nRays=3;
- GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,1,2);
+ GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,2);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (1.0,0.0,0.0));
  LS.setk(GOAT::maths::ey);
 
@@ -87,12 +92,13 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
   pc.setRefractiveIndexFunctions(nList);
   pc.setSpectralRanges (100);
   pc.setNumWavelengthsPerRange(100);
+  pc.setCenterWavelength(wvl);
 
 // ------------ pulse calculation --------------
 double time=120000.0; 
 pc.field (time);
 
-GOAT::raytracing::saveFullE(pc.trafo.SAres,"C:\\Users\\Thomas\\data\\test1.dat",4); 
+GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
 // std::ofstream os("/home/weigel/data/lengths.dat");
 
 /*

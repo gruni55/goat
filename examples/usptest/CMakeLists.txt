@@ -66,16 +66,20 @@ else()
 	target_include_directories (usp_ellipsoid PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usp_ellipsoid OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
+  add_executable (usp_compress usp_compress.cpp)
+	target_compile_options (usp_compress PUBLIC ${OpenMP_CXX_FLAGS})
+        target_compile_definitions (usp_compress PUBLIC WITH_OCTREE)	
+	target_include_directories (usp_compress PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (usp_compress goat_raytracing goat_maths)
+
+
+
 
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)
 target_include_directories (usp_raytest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (usp_raytest goat_raytracing goat_maths)
-
-add_executable (usp_compress usp_compress.cpp)
-target_include_directories (usp_compress PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (usp_compress goat_raytracing goat_maths)
 
 
 
