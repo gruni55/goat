@@ -38,6 +38,7 @@ namespace GOAT
 				 * number of wavelength steps per spectral range.
 				 */
 				void setNumWavelengthsPerRange(int nS);
+				void setCenterWavelength(double wvl); ///< Set center wavelength of the pulse
 
 				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		

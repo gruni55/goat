@@ -21,6 +21,12 @@ namespace GOAT
 			trafo.setReferenceTime(tref);
 		}
 
+		void pulseCalculation::setCenterWavelength(double wvl)
+		{
+			trafoparms.wvl = wvl;
+			trafoparms.omega0 = C_LIGHT_MU_FS / wvl * 2.0 * M_PI;
+		}
+
 
 		void pulseCalculation::fieldCalculation()
 		{			
