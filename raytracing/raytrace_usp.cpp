@@ -48,7 +48,9 @@ namespace GOAT
 		}
 
 		void Raytrace_usp::trace()
-		{		    
+		{	
+std::cout << "% new wavelength -------------------------------" << std::endl;
+std::cout << "% wvl=" << S.LS[0]->wvl << std::endl;      	     
 			init();
 			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			S.suppress_phase_progress = true;

@@ -20,19 +20,33 @@ namespace GOAT
 			this->tref = tref;
 			trafo.setReferenceTime(tref);
 		}
+      
+                void pulseCalculation::calcTrafoParms()
+                {
+ 			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / trafoparms.dt; // Spectral sigma
+			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
+			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
+	                double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
+            		double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
+
+                        std::cout << "% wvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
+			trafo.setTrafoParms(trafoparms);
+
+                }
 
 		void pulseCalculation::setCenterWavelength(double wvl)
 		{
 			trafoparms.wvl = wvl;
 			trafoparms.omega0 = C_LIGHT_MU_FS / wvl * 2.0 * M_PI;
+                        calcTrafoParms();
 		}
 
 
 		void pulseCalculation::fieldCalculation()
 		{			
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 4.0 * Sigma;			
-			std::cout << "nI=" << trafoparms.nI << std::endl;
+			double Domega = 20.0 * Sigma;			
+			std::cout << "% nI=" << trafoparms.nI << std::endl;
 			double domega = Domega / (double)trafoparms.nI;
 			double omega;
 			double wvl;
@@ -80,10 +94,11 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 15.0 * Sigma;
+			double Domega = 4.0 * Sigma;
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
 			double omega;
+                        double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
 			double wvl;
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
@@ -91,8 +106,10 @@ namespace GOAT
 			{
 				omega = omegaStart + ( (double)iOmega + 0.5) * domega;				
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
+                                wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega);
+                                wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
 				fieldCalculation(omega); // make the raytracing
-				std::cout << iOmega << ":start FFT (" << wvl << "µm)" << std::endl << std::flush;
+				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" <<  "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << std::endl << std::flush;
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
 			}
 		}
@@ -127,17 +144,8 @@ namespace GOAT
 
 		void pulseCalculation::setPulseWidth(double dt)
 		{
-			// dWvl = trafoparms.wvl * trafoparms.wvl * M_LN2 / (M_PI * M_PI * GOAT::raytracing::C_LIGHT_MU_FS * dt);	// FWHM
 			trafoparms.dt = dt;
-			trafoparms.omega0 = C_LIGHT_MU_FS * 2.0 * M_PI / trafoparms.wvl;			
-			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / dt; // Spectral sigma
-			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
-			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
-            double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
-            double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
-
-                        std::cout << "% wvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
-			trafo.setTrafoParms(trafoparms);
+                        calcTrafoParms();	 
 		}
 
 		void pulseCalculation::setDefaults()

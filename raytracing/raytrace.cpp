@@ -111,7 +111,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-				//std::cout << PStart << "\t" << PStop << std::endl;
+//				std::cout << PStart << "\t" << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -174,6 +174,7 @@ namespace GOAT
 						if (objIndex > -1) // an object was hit
 						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+//                                  std::cout << "n=" << S.Obj[objIndex]->n << std::endl;
 						    // std::cout << PStop << "\t" << n << std::endl;
 			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)

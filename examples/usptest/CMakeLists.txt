@@ -53,7 +53,7 @@ find_package (OpenMP)
 if (WITHOUT_MP) 
 	message (STATUS "OpenMP support skipped in boxtest")
 else()
-	message (STATUS "OpenMP support for boxtest ==> boxtest will be build")
+	message (STATUS "OpenMP support works")
 	add_executable (boxtest boxtest.cpp)
 	target_compile_options (boxtest PUBLIC ${OpenMP_CXX_FLAGS})
         target_compile_definitions (boxtest PUBLIC WITH_OCTREE)	
@@ -83,17 +83,4 @@ target_link_libraries (usp_raytest goat_raytracing goat_maths)
 
 
 
-install(TARGETS boxtest usp_raytest usp_compress
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    )
 
-
-install(TARGETS usptest
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    )
-
- 

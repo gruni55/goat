@@ -59,6 +59,7 @@ namespace GOAT
 				* 
 				*/
 				void setDefaults();				
+                                void calcTrafoParms();
 				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
 
 				double dWvl;  // spectral width of the light

@@ -64,12 +64,12 @@ namespace GOAT
                 double dw;
                 int nsteps;
                 nsteps = Domega / domega + 1;
-                if (nsteps < tp.nS)
+                // if (nsteps < tp.nS)
                 {
                     nsteps = tp.nS;
                     domega = Domega / ((double)(nsteps - 1));
                 }
-                // std::cout << "steps:" << nsteps << std::endl;
+        //         std::cout << "steps:" << nsteps << std::endl;
                 double weight;
                 // std::ofstream os("h:\\data\\blubb.dat");
                 for (int iomega = 0; iomega < nsteps; iomega++)

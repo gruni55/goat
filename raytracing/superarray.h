@@ -282,7 +282,7 @@ namespace GOAT
         
         if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
         {
-            std::cout << "n[" << numObjs << "]=" << n[numObjs] << std::endl;
+//            std::cout << "n[" << numObjs << "]=" << n[numObjs] << std::endl;
             G[numObjs].resize(n[numObjs][0] + 1);
             
             for (int ix = 0; ix < n[numObjs][0] + 1; ix++)
