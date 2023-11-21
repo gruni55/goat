@@ -29,11 +29,11 @@ namespace GOAT
 	                double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
             		double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
 
-                        std::cout << "% wvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
+                        std::cout << "% Xwvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
 			trafo.setTrafoParms(trafoparms);
 
                 }
-
+				
 		void pulseCalculation::setCenterWavelength(double wvl)
 		{
 			trafoparms.wvl = wvl;
@@ -94,11 +94,11 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 4.0 * Sigma;
+			double Domega = 60.0 * Sigma;
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
 			double omega;
-                        double wvl1, wvl2;
+            double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
 			double wvl;
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);

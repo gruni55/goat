@@ -8,13 +8,13 @@ namespace GOAT
 		{
 		}
 
-		Raytrace_usp::Raytrace_usp(const Scene& S, int n) : Raytrace(S)
+		Raytrace_usp::Raytrace_usp(const Scene& S, INDEX_TYPE n) : Raytrace(S)
 		{
 			this->n = n;
 			init();
 		}
                   
-                void Raytrace_usp::setn(int n)
+                void Raytrace_usp::setn(INDEX_TYPE n)
                 {
                  clear();
                  this->n=n;
@@ -34,13 +34,13 @@ namespace GOAT
 		void Raytrace_usp::init() 			
 		{   
 			S.resetLS();
-			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
+			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 			if (S.nObj > 0)
 			{			
-				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);
+				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);				
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
-					SA[i] = SuperArray<std::vector<gridEntry> > (S.r0, n, n, n, IN_OBJECT);
+					SA[i] = SuperArray<std::vector<gridEntry> > (S.r0, n, n, n, IN_OBJECT);					
 					for (int j = 0; j < S.nObj; j++)
 						SA[i].addInc(S.Obj[j]);
 				}
@@ -67,12 +67,12 @@ std::cout << "% wvl=" << S.LS[0]->wvl << std::endl;
 			maths::Vector < std::complex<double> >E=EStart;
 			maths::Vector<double> P = PStart;
 			maths::Vector<double> Pnew;
-			maths::Vector<int> cell;
+			maths::Vector<INDEX_TYPE> cell;
 			stepEntry ge;
 			gridEntry gridStack;		
 			bool cancel = false;
 			// std::cout << PStart << "\t" << PStop << std::endl;
-			currentIndex = GOAT::maths::Vector<int>(-1, -1, -1);
+			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
 			if ( (L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
 			{	

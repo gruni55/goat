@@ -40,7 +40,7 @@ namespace GOAT
             SAres = SuperArray<maths::Vector<std::complex<double> > >(SA.r0, SA.nges[0], SA.nges[1], SA.nges[2], SA.Obj, SA.numObjs);
         }
 
-        void Trafo::initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs)
+        void Trafo::initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs)
         {
             clear();
             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);

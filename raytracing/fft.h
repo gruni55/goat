@@ -97,7 +97,7 @@ namespace GOAT
              * @param Obj List of all objects in the scene
              * @param numObjs Numnber of objects in List
              */
-            void initResult(double r0, int nx, int ny, int nz, ObjectShape** Obj, int numObjs);
+            void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs);
 
         private:
             double pulseWeight(double omega);

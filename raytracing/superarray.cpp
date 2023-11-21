@@ -23,7 +23,7 @@ namespace GOAT
   {
       bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -34,20 +34,20 @@ namespace GOAT
           {
               os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                       {
                           os << atan2(imag(S.G[i][ix][iy][iz][0]), real(S.G[i][ix][iy][iz][0])) << std::endl;
                       }
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -62,7 +62,7 @@ namespace GOAT
 
       bool saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -73,20 +73,20 @@ namespace GOAT
           {
               os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                       {
                           os << atan2(imag(S.G[i][ix][iy][iz][1]), real(S.G[i][ix][iy][iz][1])) << std::endl;
                       }
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -101,7 +101,7 @@ namespace GOAT
 
       bool saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -112,20 +112,20 @@ namespace GOAT
           {
               os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                       {
                           os << atan2(imag(S.G[i][ix][iy][iz][2]), real(S.G[i][ix][iy][iz][2])) << std::endl;
                       }
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -141,7 +141,7 @@ namespace GOAT
 
       bool saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -151,18 +151,18 @@ namespace GOAT
           {
               os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                           os << abs(S.G[i][ix][iy][iz][0]) << std::endl;
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -177,7 +177,7 @@ namespace GOAT
 
       bool saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -186,18 +186,18 @@ namespace GOAT
           if (S.type == IN_OBJECT)
           {
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                           os << abs(S.G[i][ix][iy][iz][1]) << std::endl;
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -216,7 +216,7 @@ namespace GOAT
 
       bool saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i)
       {
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           maths::Vector<std::complex<double> > E;
           std::ofstream os;
           os.open(FName);
@@ -227,20 +227,20 @@ namespace GOAT
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                           //   os << abs(G[i][ix][iy][iz][2])/abs(G[i][ix][iy][iz]) << std::endl;
                           // os << real(G[i][ix][iy][iz][2]) << std::endl;
                           os << abs(S.G[i][ix][iy][iz][2]) << std::endl;
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -262,7 +262,7 @@ namespace GOAT
           os.open(FName);
           if (!os.good()) return false;
           if (!S.Obj[i]->isActive()) { os.close();  return false; }
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           double x;
           if (S.type == IN_OBJECT)
           {
@@ -285,7 +285,7 @@ namespace GOAT
                   for (int iy = 0; iy < S.nges[1]; iy++)
                       for (int iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -305,14 +305,14 @@ namespace GOAT
           std::ofstream os;
           os.open(FName,std::ios_base::binary);
           if (!os.good() || !S.Obj[i]->isActive()) return false;
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           double x;
           double erg;
           if (S.type == IN_OBJECT)
           {              
-               for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+               for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                       {
                           x = real(S.G[i][ix][iy][iz][0] * conj(S.G[i][ix][iy][iz][0]));
                           x += real(S.G[i][ix][iy][iz][1] * conj(S.G[i][ix][iy][iz][1]));
@@ -322,11 +322,11 @@ namespace GOAT
           }
           else
           {
-              for (int ix = 0; ix < S.nges[0]; ix++)
-                  for (int iy = 0; iy < S.nges[1]; iy++)
-                      for (int iz = 0; iz < S.nges[2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.nges[0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.nges[1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -348,16 +348,16 @@ namespace GOAT
           os.open(FName);
           if (!os.good()) return false;
           if (!S.Obj[i]->isActive()) { os.close();  return false; }
-          maths::Vector<int> Pi;
+          maths::Vector<INDEX_TYPE> Pi;
           
           if (S.type == IN_OBJECT)
           {
               os << "%Dimension " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
 
-              for (int ix = 0; ix < S.n[i][0]; ix++)
-                  for (int iy = 0; iy < S.n[i][1]; iy++)
-                      for (int iz = 0; iz < S.n[i][2]; iz++)
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
                       {
                           os << real(S.G[i][ix][iy][iz][0]) << "\t" << imag(S.G[i][ix][iy][iz][0]) << "\t";
                           os << real(S.G[i][ix][iy][iz][1]) << "\t" << imag(S.G[i][ix][iy][iz][1]) << "\t";
@@ -370,7 +370,7 @@ namespace GOAT
                   for (int iy = 0; iy < S.nges[1]; iy++)
                       for (int iz = 0; iz < S.nges[2]; iz++)
                       {
-                          Pi = S.kugelindex(maths::Vector<int>(ix, iy, iz));
+                          Pi = S.kugelindex(maths::Vector<INDEX_TYPE>(ix, iy, iz));
                           if (S.Error != NO_ERRORS) os << 0.0 << std::endl;
                           else
                           {
@@ -687,7 +687,7 @@ namespace GOAT
 
               if (type == IN_OBJECT)
               {
-                  GOAT::maths::Vector<int> hiv;
+                  GOAT::maths::Vector<INDEX_TYPE> hiv;
                   bool active;
                   int hi;
                   for (int i = 0; i < numObjs; i++)
@@ -723,21 +723,21 @@ namespace GOAT
                   is.read((char*)&intx, sizeof(intx));
                   is.read((char*)&inty, sizeof(inty));
                   is.read((char*)&intz, sizeof(intz));
-                  nges = GOAT::maths::Vector<int>(intx, inty, intz);
+                  nges = GOAT::maths::Vector<INDEX_TYPE>(intx, inty, intz);
 
                   int anzx, anzx2;
                   anzx = nges[0];
                   anzx2 = nges[0] / 2;
-                  for (int i = 0; i < ywerte.size(); i++)
+                  for (INDEX_TYPE i = 0; i < ywerte.size(); i++)
                       is.read((char*)&ywerte[i], sizeof(ywerte[i]));
 
-                  for (int i = 0; i < zwerte.size(); i++)
-                      for (int j = 0; j < zwerte[0].size(); j++)
+                  for (INDEX_TYPE i = 0; i < zwerte.size(); i++)
+                      for (INDEX_TYPE j = 0; j < zwerte[0].size(); j++)
                           is.read((char*)&zwerte[i][j], sizeof(zwerte[i][j]));
 
-                  for (int k = 0; k < anzx2; k++)
-                      for (int l = 0; l < ywerte[k]; l++)
-                          for (int m = 0; m < zwerte[k][l]; m++)
+                  for (INDEX_TYPE k = 0; k < anzx2; k++)
+                      for (INDEX_TYPE l = 0; l < ywerte[k]; l++)
+                          for (INDEX_TYPE m = 0; m < zwerte[k][l]; m++)
                           {
                               is.read((char*)&K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 - 1 - k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));
                               is.read((char*)&K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m], sizeof(K[anzx2 + k][ywerte[k] - 1 - l][zwerte[k][l] - 1 - m]));

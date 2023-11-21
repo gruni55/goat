@@ -56,7 +56,7 @@ namespace GOAT
 //						std::cout << "%---------------------------------" << std::endl;
 						currentLS = i;
 						Abbruch = false;
-						Reflexions = 0;
+						Reflexions = -1;
 						statusLS = S.LS[i]->next(ray);
 						recursions = 0;
 						ray->status = RAYBASE_STATUS_FIRST_STEP;
@@ -93,7 +93,7 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			while ((Reflexions <= numReflex) && (!Abbruch))
+			while ((Reflexions < numReflex) && (!Abbruch))
 			{
 
 				// save first the infos at the beginning of the next step
@@ -111,7 +111,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-//				std::cout << PStart << "\t" << PStop << std::endl;
+				std::cout << PStart << "\t" << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -163,10 +163,9 @@ namespace GOAT
 						}
 
 						traceLeaveObject();
-						int tReflexions = 0;
+						int tReflexions = -1;
 						currentObj = ray->objIndex;
 						traceOneRay(tray, tReflexions, recur);
-
 						Reflexions++;
 						//delete tray;
 					}
@@ -200,7 +199,7 @@ namespace GOAT
 							traceEnterObject();
 							ray->status = RAYBASE_STATUS_NONE;
 							tray->status = RAYBASE_STATUS_NONE;
-							int tReflexions = 0;
+							int tReflexions = -1;
 							traceOneRay(tray, Reflexions, recur);
 							Reflexions++;
 							Abbruch = true;
