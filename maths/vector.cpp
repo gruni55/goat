@@ -620,6 +620,22 @@ namespace GOAT
             return Erg;
         }
 
+        Vector<double> emult(const Vector<double>& r1, const Vector<long long int>& r2)
+        {
+            Vector<double> Erg;
+            for (int i = 0; i < 3; i++)
+                Erg[i] = r1[i] * r2[i];
+            return Erg;
+        }
+
+        Vector<double> emult(const Vector<long long int>& r1, const Vector<double>& r2)
+        {
+            Vector<double> Erg;
+            for (int i = 0; i < 3; i++)
+                Erg[i] = r1[i] * r2[i];
+            return Erg;
+        }
+
         Vector<double> floor(const Vector<double>& r)
         {
             return Vector<double>(std::floor(r[0]), std::floor(r[1]), std::floor(r[2]));

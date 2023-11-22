@@ -508,6 +508,8 @@ namespace GOAT
          ///@{
         Vector<double> emult(const Vector<double>& r1, const Vector<int>& r2);
         Vector<double> emult(const Vector<int>& r1, const Vector<double>& r2);
+        Vector<double> emult(const Vector<double>& r1, const Vector<long long int>& r2);
+        Vector<double> emult(const Vector<long long int>& r1, const Vector<double>& r2);
         ///@}
         Vector<double> floor(const Vector<double>& r); ///< rounding up, Component-by-component 
         Vector<int> ifloor(const Vector<double>& r);///< rounding up, component-by-component rounding

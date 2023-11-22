@@ -18,7 +18,7 @@ int main (int argc, char **argv)
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,-50*sf,0);
  int nRays=1;
- GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-3);
+ GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-10);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (1.0,0.0,0.0));
  LS.setk(GOAT::maths::ey);
 
@@ -57,7 +57,7 @@ int main (int argc, char **argv)
 
 // ----------- Detector object --------------
 GOAT::maths::Vector<double> detPos(0,2E+6,0);
-GOAT::maths::Vector<double> detDim(0.5,1000,0.5);
+GOAT::maths::Vector<double> detDim(2,1000,2);
 GOAT::raytracing::Box det(detPos,detDim,1.0);
 det.setActive(true); 
 
@@ -84,14 +84,14 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
 double pulseWidth = 1000;
-  double refTime = 0;
+  double refTime = 1.7e+6;
   double spatialRes = 0.25;
 
   GOAT::raytracing::pulseCalculation pc(S);
   pc.setPulseWidth (pulseWidth);
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
-  pc.setSpectralRanges (1);
+  pc.setSpectralRanges (100);
   pc.setNumWavelengthsPerRange(10000);
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
@@ -99,10 +99,10 @@ double pulseWidth = 1000;
 // ------------ pulse calculation --------------
 // double time=1.2E+6-1.5E+4; 
   // double time = 136930;
-  double time = 358800;
+  double time = 1718233.107;
  pc.field (time);
 
-  GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,2); 
+  GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
 
  // std::ofstream os("/home/weigel/data/lengths.dat");
  

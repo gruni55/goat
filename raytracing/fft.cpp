@@ -122,8 +122,7 @@ namespace GOAT
             double Domega = 4.0 * Sigma;            
 
             domega = Domega / (double)tp.nI;
-            
-            
+                        
              for (int iOmega = 0; iOmega < tp.nI; iOmega++) // loop over the spectral ranges
             {               
                  auto start = std::chrono::high_resolution_clock::now();
@@ -149,7 +148,7 @@ namespace GOAT
                                         SAres.G[i][ix][iy][iz] += integrate(t, SA[iOmega][iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
                                        
                                     }
-                                //                    std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
+                                                    std::cout  << ix << "  " << GOAT::maths::abs2(SAres.G[i][ix][2][2]) << std::endl;
                             }
                         }
                 auto end = std::chrono::high_resolution_clock::now();
@@ -167,11 +166,11 @@ namespace GOAT
                         if (SAres.Obj[i]->isActive())
                         {
  #pragma omp parallel for
-                            for (int ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
+                            for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
-                                for (int iy = 0; iy < SA[iR].n[i][1]; iy++)
-                                    for (int iz = 0; iz < SA[iR].n[i][2]; iz++)
+                                for (INDEX_TYPE iy = 0; iy < SA[iR].n[i][1]; iy++)
+                                    for (INDEX_TYPE iz= 0; iz < SA[iR].n[i][2]; iz++)
                                     {
                                       //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
                                         SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);

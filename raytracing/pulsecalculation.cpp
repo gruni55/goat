@@ -94,7 +94,7 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 60.0 * Sigma;
+			double Domega = 10.0 * Sigma;
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega;
 			double omega;
