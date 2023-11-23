@@ -5,11 +5,11 @@
 int main (int argc, char **argv)
 {
 	std::string prismFName;
-	//prismFName = "/home/weigel/data/prism.srf";
-	 prismFName = "H:\\data\\prism.srf";
+	prismFName = "/home/weigel/data/prism.srf";
+	// prismFName = "H:\\data\\prism.srf";
         std::string ergFName;
-       	// ergFName = "/home/weigel/data/test100.dat";
-	 ergFName = "C:\\users\\thomas\\data\\test.dat";
+       	 ergFName = "/home/weigel/data/test3b.dat";
+	// ergFName = "C:\\users\\thomas\\data\\test.dat";
 
 
  double sf=10000;
@@ -27,7 +27,7 @@ int main (int argc, char **argv)
  prism1.setn(1.5);
  prism1.createsurface (prismFName);
  prism1.setGamma(90.0/180.0*M_PI);
- prism1.setPos(12.5*sf,-1,-1*sf);
+ prism1.setPos(8*sf,-1,-1*sf);
  prism1.setActive(false);
 
 // ------------- Prism 2 -------------
@@ -52,12 +52,12 @@ int main (int argc, char **argv)
  prism4.setn(1.5);
  prism4.createsurface (prismFName);
  prism4.setGamma(90.0/180.0*M_PI);
- prism4.setPos(12.5*sf,165*sf,-1*sf);
+ prism4.setPos(8*sf,165*sf,-1*sf);
  prism4.setActive(false);
 
 // ----------- Detector object --------------
 GOAT::maths::Vector<double> detPos(0,2E+6,0);
-GOAT::maths::Vector<double> detDim(2,1000,2);
+GOAT::maths::Vector<double> detDim(2,10000,2);
 GOAT::raytracing::Box det(detPos,detDim,1.0);
 det.setActive(true); 
 
@@ -91,15 +91,15 @@ double pulseWidth = 1000;
   pc.setPulseWidth (pulseWidth);
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
-  pc.setSpectralRanges (100);
-  pc.setNumWavelengthsPerRange(10000);
+  pc.setSpectralRanges (200);
+  pc.setNumWavelengthsPerRange(100);
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
 
 // ------------ pulse calculation --------------
 // double time=1.2E+6-1.5E+4; 
   // double time = 136930;
-  double time = 1718233.107;
+  double time = 1718233.107+90000;
  pc.field (time);
 
   GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
@@ -108,7 +108,7 @@ double pulseWidth = 1000;
  
 
  std::ofstream os;
-os.open("C:\\Users\\Thomas\\data\\lengths.dat");
+os.open("C:\\Users\\Thomas\\data\\lengths1.dat");
 os << pc.rt.SA[0] << std::endl;
 os.close(); 
 

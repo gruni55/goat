@@ -26,6 +26,13 @@ namespace GOAT
             return Erg;
         }
 
+        double abs(const Vector<long long int>& r)
+        {
+            double Erg = std::sqrt((double)r[0] * r[0] + (double)r[1] * r[1] + (double)r[2] * r[2]);
+            return Erg;
+        }
+
+
         double abs(const Vector<std::complex<double> >& r)
         {
             double re, im;
@@ -69,6 +76,28 @@ namespace GOAT
             return Vector<double>(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
         }
 
+        Vector<double> operator - (const Vector<double>& r1, const Vector<long long int>& r2)
+        {
+            return Vector<double>(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
+        Vector<double> operator - (const Vector<long long int>& r1, const Vector<double>& r2)
+        {
+            return Vector<double>(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
+        Vector<long long int> operator - (const Vector<int>& r1, const Vector<long long int>& r2)
+        {
+            return Vector<long long int>(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
+        Vector<long long int> operator - (const Vector<long long int>& r1, const Vector<int>& r2)
+        {
+            return Vector<long long int>(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
+
+
         Vector<std::complex<double> > operator - (const Vector<std::complex<double> >& r1, const Vector<double>& r2)
         {
             return Vector<std::complex<double> >(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
@@ -90,6 +119,18 @@ namespace GOAT
         {
             return Vector<std::complex<double> >(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
         }
+
+
+        Vector<std::complex<double> > operator - (const Vector<std::complex<double> >& r1, const Vector<long long int>& r2)
+        {
+            return Vector<std::complex<double> >(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
+        Vector<std::complex<double> > operator - (const Vector<long long int>& r1, const Vector<std::complex<double> >& r2)
+        {
+            return Vector<std::complex<double> >(r1[0] - r2[0], r1[1] - r2[1], r1[2] - r2[2]);
+        }
+
 
         Vector<std::complex<double> > operator + (const Vector<std::complex<double> >& r1, const Vector<double>& r2)
         {
@@ -120,6 +161,27 @@ namespace GOAT
         {
             return Vector<std::complex<double> >(r1[0] + r2[0], r1[1] + r2[1], r1[2] + r2[2]);
         }
+
+        Vector<double> operator + (const Vector<long long int>& r1, const Vector<double>& r2)
+        {
+            return Vector<double>(r1[0] + r2[0], r1[1] + r2[1], r1[2] + r2[2]);
+        }
+
+        Vector<double> operator + (const Vector<double>& r1, const Vector<long long int>& r2)
+        {
+            return Vector<double>(r1[0] + r2[0], r1[1] + r2[1], r1[2] + r2[2]);
+        }
+
+        Vector<std::complex<double> > operator + (const Vector<std::complex<double> >& r1, const Vector<long long int>& r2)
+        {
+            return Vector<std::complex<double> >(r1[0] + r2[0], r1[1] + r2[1], r1[2] + r2[2]);
+        }
+
+        Vector<std::complex<double> > operator + (const Vector<long long int>& r1, const Vector<std::complex<double> >& r2)
+        {
+            return Vector<std::complex<double> >(r1[0] + r2[0], r1[1] + r2[1], r1[2] + r2[2]);
+        }
+
 
         std::complex<double>  operator * (const Vector<double>& a, const Vector<std::complex<double> >& b)
         {
@@ -167,6 +229,44 @@ namespace GOAT
             return h;
         }
 
+        double operator * (const Vector<double>& a, const Vector<long long int>& b)
+        {
+            return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        }
+
+        double operator * (const Vector<long long int>& a, const Vector<double>& b)
+        {
+            return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        }
+
+        std::complex<double>  operator * (const Vector<std::complex<double> >& a, const Vector<long long int>& b)
+        {
+            return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        }
+
+        std::complex<double>  operator * (const Vector<long long int>& a, const Vector<std::complex<double> >& b)
+        {
+            return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+        }
+
+        Vector<double> operator * (long long int x, const Vector<double>& r)
+        {
+            Vector<double> h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+        Vector<double> operator * (const Vector<double>& r, long long int x)
+        {
+            Vector<double> h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+ 
+
         Vector<std::complex<double> > operator * (double x, const Vector<std::complex<double> >& r)
         {
             Vector<std::complex<double> > h;
@@ -198,6 +298,23 @@ namespace GOAT
                 h.data[i] = r.data[i] * x;
             return h;
         }
+
+        Vector<std::complex<double> > operator * (long long int x, const Vector<std::complex<double> >& r)
+        {
+            Vector<std::complex<double> > h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+        Vector<std::complex<double> > operator * (const Vector<std::complex<double> >& r, long long int x)
+        {
+            Vector<std::complex<double> > h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
 
         Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<double>& r)
         {
@@ -247,6 +364,39 @@ namespace GOAT
             return h;
         }
 
+        Vector<double> operator * (double x, const Vector<long long int>& r)
+        {
+            Vector<double> h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+        Vector<double> operator * (const Vector<long long int>& r, double x)
+        {
+            Vector<double> h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+        Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<long long int>& r)
+        {
+            Vector<std::complex<double> > h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+        Vector<std::complex<double> > operator * (const Vector<long long int>& r, std::complex<double>  x)
+        {
+            Vector<std::complex<double> > h;
+            for (int i = 0; i < 3; i++)
+                h.data[i] = r.data[i] * x;
+            return h;
+        }
+
+
         Vector<std::complex<double> > operator / (const Vector<double>& r, std::complex<double>  x)
         {
             return Vector<std::complex<double> >(r.data[0] / x, r.data[1] / x, r.data[2] / x);
@@ -256,6 +406,12 @@ namespace GOAT
         {
             return Vector<double>(r.data[0] / (double)x, r.data[1] / (double)x, r.data[2] / (double)x);
         }
+
+        Vector<double> operator / (const Vector<double>& r, long long int x)
+        {
+            return Vector<double>(r.data[0] / (double)x, r.data[1] / (double)x, r.data[2] / (double)x);
+        }
+
 
         Vector<std::complex<double> > operator / (const Vector<std::complex<double> >& r, double x)
         {
@@ -267,6 +423,12 @@ namespace GOAT
             return Vector<std::complex<double> >(r.data[0] / (double)x, r.data[1] / (double)x, r.data[2] / (double)x);
         }
 
+        Vector<std::complex<double> > operator / (const Vector<std::complex<double> >& r, long long int x)
+        {
+            return Vector<std::complex<double> >(r.data[0] / (double)x, r.data[1] / (double)x, r.data[2] / (double)x);
+        }
+
+
         Vector<double> operator / (const Vector<int>& r, double x)
         {
             return Vector<double>(r.data[0] / x, r.data[1] / x, r.data[2] / x);
@@ -276,6 +438,17 @@ namespace GOAT
         {
             return Vector<std::complex<double> >(r.data[0] / x, r.data[1] / x, r.data[2] / x);
         }
+
+        Vector<double> operator / (const Vector<long long int>& r, double x)
+        {
+            return Vector<double>(r.data[0] / x, r.data[1] / x, r.data[2] / x);
+        }
+
+        Vector<std::complex<double> > operator / (const Vector<long long int>& r, std::complex<double>  x)
+        {
+            return Vector<std::complex<double> >(r.data[0] / x, r.data[1] / x, r.data[2] / x);
+        }
+
 
         double* conv2double(int numV, Vector<std::complex<double> >* r)
         {
