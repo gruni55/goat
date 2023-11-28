@@ -44,6 +44,13 @@ namespace GOAT
 				const maths::Vector<double> Ex = maths::ex,
 				const maths::Vector<double> Ey = maths::ey,
 				const maths::Vector<double> Ez = maths::ez);
+			/**
+			* This constructor is mainly intented for internal use in the octree algorithm, therefore the refractive index is not set (it keeps on the default value). The Box is defined by two opposite corners (minimal and maximal x,y and z coordinates) stored 
+			* in the vectors bound0 and bound1. Location vector p is set to zero. isOctree will be set to true
+			* \param bound0 corner with the lowest x,y and z coordinates
+			* \param bound1 corner with the highest x,y and z coordinates
+			*/
+			Box(const maths::Vector<double> bound0, const maths::Vector<double> bound1); 
 			~Box(); ///< destructor
 			void binWrite(std::ofstream& os);  ///< writes object to a binary file
 			void binRead(std::ifstream& is);   ///< reads object from a binary file

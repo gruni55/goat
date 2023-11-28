@@ -52,6 +52,16 @@ namespace GOAT
 			calcDiag();
 		}
 
+		Box::Box(const maths::Vector<double> bound0, const maths::Vector<double> bound1)
+		{
+			bounds[0] = bound0;
+			bounds[1] = bound1;
+			this->isOctree = true;
+			d = maths::Vector<double>(fabs(bound1[0] - bound0[0]), fabs(bound1[1] - bound0[1]), fabs(bound1[2] - bound0[2]));
+			calcDiag();
+			type = OBJECTSHAPE_BOX;
+		}
+
 
 
 		Box::~Box()
