@@ -43,8 +43,8 @@ namespace GOAT
 			@param eps accuracy (optional)
 			@return 0: no intersection found  1: intersection point found
 			*/
-			int calcIntersectionPoint(maths::Vector<double> r, maths::Vector<double> k, maths::Vector<double>& p, double  eps = 1E-5);
-			int calcIntersectionPoint(maths::Vector<double> r, maths::Vector<double> k, double& t, maths::Vector<double>& p, double  eps = 1E-5);
+			int calcIntersectionPoint(maths::Vector<double> r, maths::Vector<double> k, maths::Vector<double>& p, double  eps = 1E-10);
+			int calcIntersectionPoint(maths::Vector<double> r, maths::Vector<double> k, double& t, maths::Vector<double>& p, double  eps = 1E-10);
 			void setnorm(void);   ///< calculates the surface normal n with help of the corner points  
 			void setnorm(maths::Vector<double> n) { this->n = n; } ///< sets the surface normal n to the given value
 			maths::Vector<double>  getnorm(void); ///< returns the surface normal n
