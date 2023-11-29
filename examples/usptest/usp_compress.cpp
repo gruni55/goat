@@ -8,7 +8,7 @@ int main (int argc, char **argv)
 	prismFName = "/home/weigel/data/prism.srf";
 	// prismFName = "H:\\data\\prism.srf";
         std::string ergFName;
-       	 ergFName = "/home/weigel/data/test3b.dat";
+       	 ergFName = "/home/weigel/data/test2.dat";
 	// ergFName = "C:\\users\\thomas\\data\\test.dat";
 
 
@@ -18,32 +18,35 @@ int main (int argc, char **argv)
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,-50*sf,0);
  int nRays=1;
- GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-10);
+ GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-5);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (1.0,0.0,0.0));
  LS.setk(GOAT::maths::ey);
+
+double alpha=44.3;
 
  // ------------ Prism 1 -------------
  GOAT::raytracing::surface prism1;
  prism1.setn(1.5);
  prism1.createsurface (prismFName);
- prism1.setGamma(90.0/180.0*M_PI);
- prism1.setPos(8*sf,-1,-1*sf);
+ prism1.setGamma((90.0-alpha)/180.0*M_PI);
+ prism1.setPos(3*sf,-1,-1*sf);
  prism1.setActive(false);
+//  std::cout << "%->"<<  prism1.Tree.BBox << std::endl;
 
 // ------------- Prism 2 -------------
  GOAT::raytracing::surface prism2;
  prism2.setn(1.5);
  prism2.createsurface (prismFName);
- prism2.setGamma(270.0/180.0*M_PI);
- prism2.setPos(20*sf,65*sf,-1*sf);
+ prism2.setGamma((270.0-alpha)/180.0*M_PI);
+ prism2.setPos(35.0*sf,65*sf,-1*sf);
  prism2.setActive(false);
 
 // ------------- Prism 3 -------------
  GOAT::raytracing::surface prism3;
  prism3.setn(1.5);
  prism3.createsurface (prismFName);
- prism3.setGamma(270.0/180.0*M_PI);
- prism3.setPos(20*sf,100*sf,-1*sf);
+ prism3.setGamma((270.0+alpha)/180.0*M_PI);
+ prism3.setPos(35.0*sf,100*sf,-1*sf);
  prism3.setActive(false);
 
 // ------------- Prism 4 -------------
@@ -51,8 +54,8 @@ int main (int argc, char **argv)
  GOAT::raytracing::surface prism4;
  prism4.setn(1.5);
  prism4.createsurface (prismFName);
- prism4.setGamma(90.0/180.0*M_PI);
- prism4.setPos(8*sf,165*sf,-1*sf);
+ prism4.setGamma((90.0+alpha)/180.0*M_PI);
+ prism4.setPos(3*sf,165*sf,-1*sf);
  prism4.setActive(false);
 
 // ----------- Detector object --------------
@@ -84,22 +87,25 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
 double pulseWidth = 1000;
-  double refTime = 1.7e+6;
+  double refTime = 9e+6;
   double spatialRes = 0.25;
 
   GOAT::raytracing::pulseCalculation pc(S);
   pc.setPulseWidth (pulseWidth);
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
-  pc.setSpectralRanges (200);
-  pc.setNumWavelengthsPerRange(100);
+  pc.setSpectralRanges (1);
+  pc.setNumWavelengthsPerRange(1);
+/*  pc.setSpectralRanges (400);
+  pc.setNumWavelengthsPerRange(100);*/
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
 
 // ------------ pulse calculation --------------
 // double time=1.2E+6-1.5E+4; 
   // double time = 136930;
-  double time = 1718233.107+90000;
+ // double time = 1718233.107+120000;
+ double time = 9098230+30000;
  pc.field (time);
 
   GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
@@ -108,7 +114,8 @@ double pulseWidth = 1000;
  
 
  std::ofstream os;
-os.open("C:\\Users\\Thomas\\data\\lengths1.dat");
+// os.open("C:\\Users\\Thomas\\data\\lengths1.dat");
+os.open("/home/weigel/data/lengths2.dat");
 os << pc.rt.SA[0] << std::endl;
 os.close(); 
 
