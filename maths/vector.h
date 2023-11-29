@@ -36,6 +36,17 @@ namespace GOAT
         inline std::complex<double> operator / (std::complex<double> x, int y) { return x / (double)y; }
         inline std::complex<double> operator / (int y, std::complex<double> x) { return (double)y / x; }
 
+        inline std::complex<double> operator + (std::complex<double> x, long long int y) { return x + (double)y; }
+        inline std::complex<double> operator + (long long int y, std::complex<double> x) { return (double)y + x; }
+        inline std::complex<double> operator - (std::complex<double> x, long long int y) { return x - (double)y; }
+        inline std::complex<double> operator - (long long int y, std::complex<double> x) { return (double)y - x; }
+
+        inline std::complex<double> operator * (std::complex<double> x, long long int y) { return x * (double)y; }
+        inline std::complex<double> operator * (long long int y, std::complex<double> x) { return (double)y * x; }
+        inline std::complex<double> operator / (std::complex<double> x, long long int y) { return x / (double)y; }
+        inline std::complex<double> operator / (long long int y, std::complex<double> x) { return (double)y / x; }
+
+
         /** @brief Template class for threedimensional vectors
         *
         * This class provides standard operations and functions for threedimensional vectors. It is intended for use with int, double and complex<double> based vectors.
@@ -433,6 +444,7 @@ namespace GOAT
         double abs(const Vector<double>& r); ///< Calculates the absolute value of a double vector
         double abs(const Vector<std::complex<double> >& r); ///< Calculates the absolute value of a complex vector \f$ (abs(\vec{r})=\sqrt{\vec{r} \cdot \vec{r} }) \f$
         double abs(const Vector<int>& r); ///< Calculates the absolute value of an integer vector 
+        double abs(const Vector<long long int>& r); ///< Calculates the absolute value of an integer vector 
         double abs2(const Vector<double>& r); ///< Calculates the squared absolute value of double vector
         double abs2(const Vector<std::complex<double> >& r);///< Calculates the squared absolute value of double vector \f$ (abs2(\vec{r})=\vec{r} \cdot \vec{r} ) \f$
         double abs2(std::complex<double>  x); ///< Absolute value of the complex number x \f$ abs(x)=\sqrt{x \cdot x} \f$ 
@@ -444,10 +456,19 @@ namespace GOAT
          ///@{
         Vector<double> operator - (const Vector<double>& r1, const Vector<int>& r2);
         Vector<double> operator - (const Vector<int>& r1, const Vector<double>& r2);
+        Vector<double> operator - (const Vector<double>& r1, const Vector<long long int>& r2);
+        Vector<double> operator - (const Vector<long long int>& r1, const Vector<double>& r2);
+        Vector<long long int> operator - (const Vector<int>& r1, const Vector<long long int>& r2);
+        Vector<long long int> operator - (const Vector<long long int>& r1, const Vector<int>& r2);
+ 
+           
+ 
         Vector<std::complex<double> > operator - (const Vector<double>& r1, const Vector<std::complex<double> >& r2);
         Vector<std::complex<double> > operator - (const Vector<std::complex<double> >& r1, const Vector<double>& r2);
         Vector<std::complex<double> > operator - (const Vector<std::complex<double> >& r1, const Vector<int>& r2);
         Vector<std::complex<double> > operator - (const Vector<int>& r1, const Vector<std::complex<double> >& r2);
+        Vector<std::complex<double> > operator - (const Vector<std::complex<double> >& r1, const Vector<long long int>& r2);
+        Vector<std::complex<double> > operator - (const Vector<long long int>& r1, const Vector<std::complex<double> >& r2);
 
         Vector<std::complex<double> > operator + (const Vector<double>& r1, const Vector<std::complex<double> >& r2);
         Vector<std::complex<double> > operator + (const Vector<std::complex<double> >& r1, const Vector<double>& r2);
@@ -455,21 +476,41 @@ namespace GOAT
         Vector<double> operator + (const Vector<double>& r1, const Vector<int>& r2);
         Vector<std::complex<double> > operator + (const Vector<std::complex<double> >& r1, const Vector<int>& r2);
         Vector<std::complex<double> > operator + (const Vector<int>& r1, const Vector<std::complex<double> >& r2);
+
+        Vector<double> operator + (const Vector<long long int>& r1, const Vector<double>& r2);
+        Vector<double> operator + (const Vector<double>& r1, const Vector<long long int>& r2);
+        Vector<std::complex<double> > operator + (const Vector<std::complex<double> >& r1, const Vector<long long int>& r2);
+        Vector<std::complex<double> > operator + (const Vector<long long int>& r1, const Vector<std::complex<double> >& r2);
+
         Vector<double> operator * (int x, const Vector<double>& r);
         Vector<double> operator * (const Vector<double>& r, int x);
         Vector<double> operator * (double x, const Vector<int>& r);
         Vector<double> operator * (const Vector<int>& r, double x);
+
+        Vector<double> operator * (long long int x, const Vector<double>& r);
+        Vector<double> operator * (const Vector<double>& r, long long int x);
+        Vector<double> operator * (double x, const Vector<long long int>& r);
+        Vector<double> operator * (const Vector<long long int>& r, double x);
+
         Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<double>& r);
         Vector<std::complex<double> > operator * (const Vector<double>& r, std::complex<double>  x);
         Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<int>& r);
         Vector<std::complex<double> > operator * (const Vector<int>& r, std::complex<double>  x);
+        Vector<std::complex<double> > operator * (std::complex<double>  x, const Vector<long long int>& r);
+        Vector<std::complex<double> > operator * (const Vector<long long int>& r, std::complex<double>  x);
+
 
         Vector<std::complex<double> > operator / (const Vector<double>& r, std::complex<double>  x);
         Vector<double> operator / (const Vector<double>& r, int x);
+        Vector<double> operator / (const Vector<double>& r, long long int x);
+
         Vector<std::complex<double> > operator / (const Vector<std::complex<double> >& r, double x);
         Vector<std::complex<double> > operator / (const Vector<std::complex<double> >& r, int x);
-        Vector<double> operator / (const Vector<int>& r, double x);
+        Vector<std::complex<double> > operator / (const Vector<std::complex<double> >& r, long long int x);
+	Vector<double> operator / (const Vector<int>& r, double x);
+	Vector<double> operator / (const Vector<long long int>& r, double x);
         Vector<std::complex<double> > operator / (const Vector<int>& r, std::complex<double>  x);
+	Vector<std::complex<double> > operator / (const Vector<long long int>& r, std::complex<double>  x);
 
 
         std::complex<double>  operator * (const Vector<double>& a, const Vector<std::complex<double> >& b);
@@ -508,6 +549,8 @@ namespace GOAT
          ///@{
         Vector<double> emult(const Vector<double>& r1, const Vector<int>& r2);
         Vector<double> emult(const Vector<int>& r1, const Vector<double>& r2);
+        Vector<double> emult(const Vector<double>& r1, const Vector<long long int>& r2);
+        Vector<double> emult(const Vector<long long int>& r1, const Vector<double>& r2);
         ///@}
         Vector<double> floor(const Vector<double>& r); ///< rounding up, Component-by-component 
         Vector<int> ifloor(const Vector<double>& r);///< rounding up, component-by-component rounding
@@ -520,6 +563,7 @@ namespace GOAT
         {
             return Vector<int>((int)std::ceil(r[0]), (int)std::ceil(r[1]), (int)std::ceil(r[2]));
         }
+
 
         inline double sign(double x) ///< returns -1 if x<0, 0 if x equals to 0 and 1 if x>0
         {
