@@ -111,7 +111,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-			//	std::cout << PStart << "\t" << PStop << std::endl;
+				std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 

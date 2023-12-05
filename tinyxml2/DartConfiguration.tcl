@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.38.33129/bin/Hostx64/x64/cl.exe
-CompilerVersion: 19.38.33129.0
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.39.33218/bin/Hostx64/x64/cl.exe
+CompilerVersion: 19.39.33218.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
