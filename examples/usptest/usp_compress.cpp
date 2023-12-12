@@ -6,7 +6,7 @@ int main (int argc, char **argv)
 {
 	std::string prismFName;
 	// prismFName = "/home/weigel/data/prism.srf";
-	prismFName = "C:\\users\\thomas\\data\\prism.srf";
+	prismFName = "C:\\users\\thomas\\data\\prism_60.srf";
         std::string ergFName;
      //  	 ergFName = "/home/weigel/data/test3b.dat";
 	ergFName = "C:\\users\\thomas\\data\\test2.dat";
@@ -15,7 +15,7 @@ int main (int argc, char **argv)
  double sf=10000;
  double r0=1E+10;
  double wvl=0.5;
- double alpha = 56.7; // Brewster-Winkel
+ double alpha = 10.0; // Brewster-Winkel
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,-50*sf,0);
  int nRays=1;
@@ -43,7 +43,7 @@ int main (int argc, char **argv)
  GOAT::raytracing::surface prism2;
  prism2.setn(1.5);
  prism2.createsurface (prismFName);
- prism2.setGamma((270.0-alpha)/180.0*M_PI);
+ prism2.setGamma((30-alpha)/180.0*M_PI);
  prism2.setPos(P2);
  prism2.setActive(false);
 
@@ -51,7 +51,7 @@ int main (int argc, char **argv)
  GOAT::raytracing::surface prism3;
  prism3.setn(1.5);
  prism3.createsurface (prismFName);
- prism3.setGamma((270.0+alpha)/180.0*M_PI);
+ prism3.setGamma((30+alpha)/180.0*M_PI);
  prism3.setPos(P3);
  prism3.setActive(false);
 
@@ -97,20 +97,21 @@ double pulseWidth = 1000;
   double spatialRes = 0.25;
 
   GOAT::raytracing::pulseCalculation pc(S);
-  pc.setPulseWidth (pulseWidth);
+  // pc.setPulseWidth (pulseWidth);
+  pc.setBandwidth(0.02);
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
   pc.setSpectralRanges(1);
   pc.setNumWavelengthsPerRange(1);
-  /*pc.setSpectralRanges(200);
-  pc.setNumWavelengthsPerRange(100);*/
+/*  pc.setSpectralRanges(1000);
+  pc.setNumWavelengthsPerRange(10);*/
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
 
 // ------------ pulse calculation --------------
 // double time=1.2E+6-1.5E+4; 
   // double time = 136930;
-  double time = 9392863+30000;
+  double time = 9392863+40000;
  pc.field (time);
 
   GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 

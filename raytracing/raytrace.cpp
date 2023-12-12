@@ -148,9 +148,8 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);			
-							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
-							
+							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
 
 						kref = ray->getk();

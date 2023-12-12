@@ -39,6 +39,7 @@ namespace GOAT
 				 */
 				void setNumWavelengthsPerRange(int nS);
 				void setCenterWavelength(double wvl); ///< Set center wavelength of the pulse
+				void setBandwidth(double dWvl); ///< Set Bandwith of the light source(s)
 
 				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
@@ -62,7 +63,7 @@ namespace GOAT
                                 void calcTrafoParms();
 				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
 
-				double dWvl;  // spectral width of the light
+				double dWvl=0.02;  // spectral width of the light (default 20nm)
 				double dRWvl; // spectral width of one subdivision
 				INDEX_TYPE  nn;       // number of cells over the whole width of the calculation space (i.e. 2*r0)
 				Scene S;
