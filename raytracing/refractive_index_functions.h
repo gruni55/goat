@@ -87,6 +87,15 @@ namespace GOAT
 			return m * wvl + c;
 		}
 
+		/** 
+		* @brief refractive index function for highly absorbing medium with real part 1.0
+		*/
+
+		std::complex<double> n_ABS(double wvl)
+		{
+			return std::complex<double>(1.0, std::numeric_limits<double>::max());
+		}
+
 		std::complex<double> n_test (double wvl)
 		{
 			if (fabs(wvl-1.0)<0.001) return 1.5;
