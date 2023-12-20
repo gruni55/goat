@@ -78,7 +78,8 @@ namespace GOAT
                     
                     dw = (omega - tp.omega0);
                     double ws = dw * dw * sigma2 / 2.0;
-                    weight = exp(-ws);
+                    // weight = exp(-ws); 
+                    weight = 1.0;
                     k0 = omega / C_LIGHT_MU_FS;
                     setCurrNList(2.0 * M_PI / k0);
 
@@ -211,8 +212,8 @@ namespace GOAT
        inline std::complex<double> Trafo::calcPhase(std::vector<stepEntry> steps, double k0)
         {
             std::complex<double> sum = 0;
-            for (stepEntry se : steps)         
-                sum += k0 * currNList[se.matIndex] * se.l;                              
+            for (stepEntry se : steps)
+               sum += k0 * currNList[se.matIndex] * se.l;
             return sum;
         }
 

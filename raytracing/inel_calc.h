@@ -68,14 +68,14 @@ namespace GOAT
             double lambdax, lambday, lambdaz, lambda;
             // double signx, signy, signz;
             double sx, sy, sz;
-            GOAT::maths::Vector<int> index;
+            GOAT::maths::Vector<INDEX_TYPE> index;
 
             if (currentIndex[0] == -1)
             {
 
-                int nx = (p0[0] + git.r0) / git.d[0];
-                int ny = (p0[1] + git.r0) / git.d[1];
-                int nz = (p0[2] + git.r0) / git.d[2];
+                INDEX_TYPE nx = (p0[0] + git.r0) / git.d[0];
+                INDEX_TYPE ny = (p0[1] + git.r0) / git.d[1];
+                INDEX_TYPE nz = (p0[2] + git.r0) / git.d[2];
 
                 currentIndex = GOAT::maths::Vector<int>(nx, ny, nz);
             }

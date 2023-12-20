@@ -41,6 +41,11 @@ namespace GOAT
                         calcTrafoParms();
 		}
 
+		void pulseCalculation::setBandwidth(double dWvl)
+		{
+			this->dWvl = dWvl;
+		}
+
 
 		void pulseCalculation::fieldCalculation()
 		{			
@@ -94,9 +99,10 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Sigma = 2.3548 / trafoparms.dt;
-			double Domega = 10.0 * Sigma;
+			// double Domega = 10.0 * Sigma;
+			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
 			double domega = Domega / (double)trafoparms.nI;
-			double omegaStart = omega0 - Domega;
+			double omegaStart = omega0 - Domega/2.0;
 			double omega;
             double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
@@ -104,7 +110,7 @@ namespace GOAT
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
-				omega = omegaStart + ( (double)iOmega + 0.5) * domega;				
+				omega = omegaStart + (double)iOmega * domega;				
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
                                 wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega);
                                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
