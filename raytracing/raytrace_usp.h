@@ -32,8 +32,12 @@ namespace GOAT
             void traceEnterObject(); ///< Function internally called when ray enters an object
             void traceLeaveObject(); ///< Function internally called when ray leaves an object
             void setn(INDEX_TYPE n); ///< changes the number of (virtual) cells in the calculation space
-            
-            std::vector<SuperArray <std::vector<gridEntry> > > SA; ///< Grid, that holds the information, needed to further calculate the electric field for short pulses
+            /**
+            * @brief Grid, that holds the information, needed to further calculate the electric field for short pulses
+            * The vector holds the arrays for the different reflection orders (each reflection order is stored in a separate array)
+            * In each element of the SuperArray, the steps to this point are stored (step length, index of the material)
+            */
+            std::vector<SuperArray <std::vector<gridEntry> > > SA; 
             INDEX_TYPE n = 1; ///< Number of cells in one direction
             int iR = 0; ///< Number of reflections to consider
             gridEntry stack; ///< here, the information from the light source until the region of interest (=box) is reached

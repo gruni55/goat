@@ -15,6 +15,38 @@ namespace GOAT
 			trafo = Trafo(trafoparms);			
 		}
 
+		double pulseCalculation::findHitTime(int ObjNo)
+		{			
+			int nI = trafoparms.nI;
+			int nS = trafoparms.nS;
+			setSpectralRanges(1);
+			setNumWavelengthsPerRange(1);
+
+			field(0);
+
+			// find the first element which was hit by a ray
+			bool found = false;
+			INDEX_TYPE fix, fiy, fiz;
+			for (INDEX_TYPE ix=0; (ix<=rt.SA[0].n[ObjNo][0]) && (!found); ix++)
+				for (INDEX_TYPE iy = 0; (iy <= rt.SA[0].n[ObjNo][1]) && (!found); iy++)
+					for (INDEX_TYPE iz = 0; (iz <= rt.SA[0].n[ObjNo][2]) && (!found); iz++)
+					{
+						found = !rt.SA[0].G[ObjNo][ix][iy][iz].empty();
+						if (found) { fix = ix; fiy = iy; fiz = iz; }
+					}
+			
+			
+			
+			double time = 0.0;
+			for (auto se=rt.SA[0].G[ObjNo][fix][fiy][fiz][0].step.begin(); se!=rt.SA[0].G[ObjNo][fix][fiy][fiz][0].step.end(); se++)
+			{
+				time += se->l * real(trafo.nList[se->matIndex](trafoparms.wvl)) / C_LIGHT_MU_FS;
+			}
+			setSpectralRanges(nI);
+			setNumWavelengthsPerRange(nS);
+			return time;
+		}
+
 		void pulseCalculation::setReferenceTime(double tref)
 		{
 			this->tref = tref;

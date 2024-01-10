@@ -25,6 +25,13 @@ namespace GOAT
 		{
 			public:
 				pulseCalculation(Scene S);
+				/**
+				* @brief Make an estimation, when the pulse hits the object the first time
+				* Often it is a problem, to find the pulse in the time domain, especially for very short pulses. 
+				* This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by
+				* a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
+				*/
+				double findHitTime(int ObjNo); 
 				void fieldCalculation(); ///< This function makes the raytracing (normally only used internally)
 				void fieldCalculation(double omega); ///< This function makes one raytracing step at frequency omega
 				void setPulseWidth(double dt); ///< Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions				
@@ -46,7 +53,7 @@ namespace GOAT
 				void setReferenceTime(double tref);
 				Trafo trafo;
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
-					std::vector<SuperArray<std::vector<gridEntry> > >  SA;
+					std::vector<SuperArray<std::vector<gridEntry> > >  SA; ///< Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.)
 					Raytrace_usp rt;
 
 		
