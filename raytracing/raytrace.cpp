@@ -111,7 +111,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-			//	std::cout << PStart << "\t" << PStop << std::endl;
+				std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -148,9 +148,8 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);			
-							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
-							
+							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
 
 						kref = ray->getk();
