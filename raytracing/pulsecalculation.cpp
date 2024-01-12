@@ -38,6 +38,7 @@ namespace GOAT
 			
 			
 			double time = 0.0;
+			if (found)
 			for (auto se=rt.SA[0].G[ObjNo][fix][fiy][fiz][0].step.begin(); se!=rt.SA[0].G[ObjNo][fix][fiy][fiz][0].step.end(); se++)
 			{
 				time += se->l * real(trafo.nList[se->matIndex](trafoparms.wvl)) / C_LIGHT_MU_FS;
@@ -55,7 +56,7 @@ namespace GOAT
       
                 void pulseCalculation::calcTrafoParms()
                 {
- 			double Sigma= (2.0 * sqrt(2.0 * M_LN2)) / trafoparms.dt; // Spectral sigma
+ 			double Sigma= (2.0 * sqrt(M_LN2)) / trafoparms.dt; // Spectral sigma
 			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
 			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
 	                double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
@@ -113,6 +114,7 @@ namespace GOAT
 			// clear the old raytracing results
 			rt.clear();
 			rt.setNumReflex(numReflex);
+
 			// now, set the new refractive indices 
 			for (int iObj = 0; iObj < S.nObj; iObj++)
 				S.Obj[iObj]->setn(trafoparms.nList[iObj](wavelength));
@@ -130,8 +132,7 @@ namespace GOAT
 		void pulseCalculation::field(double t)
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Sigma = 2.3548 / trafoparms.dt;
-			// double Domega = 10.0 * Sigma;
+			double Sigma = 2.3548 / trafoparms.dt;			
 			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega/2.0;
@@ -140,14 +141,18 @@ namespace GOAT
 			rt = Raytrace_usp(S, nn);
 			double wvl;
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
 				omega = omegaStart + (double)iOmega * domega;				
-				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
-                                wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega);
-                                wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
-				fieldCalculation(omega); // make the raytracing
-				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" <<  "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << std::endl << std::flush;
+				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega; // center wavelength of the current range
+
+                // ------ for output only ------
+                wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega); 
+                wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
+				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << std::endl << std::flush;
+
+				fieldCalculation(omega); // do the raytracing				
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
 			}
 		}

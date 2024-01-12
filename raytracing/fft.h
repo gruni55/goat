@@ -61,8 +61,8 @@ namespace GOAT
              * @brief calculation of the Fourier transformation.
              * The calculation of the Fourier transformation is made in a certain frequency intervall at the time t
              * @param SA this SuperArray structure contains the information gathered in the raytracing part. 
-             * @param omegaStart Start frequency (in fs^-1) of the frequency intervall 
-             * @param omegaStop End frequency (in fs^-1) of the frequency intervall 
+             * @param omegaStart Start frequency (in \f$fs^{-1}\f$) of the frequency intervall 
+             * @param omegaStop End frequency (in \f$fs^{-1}\f$) of the frequency intervall 
              */
             void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t); 
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
@@ -111,7 +111,7 @@ namespace GOAT
             GOAT::maths::Vector<std::complex<double> > calcOne(std::vector<stepEntry> steps, double t);
             GOAT::maths::Vector<std::complex<double> > integrate(double t, std::vector<gridEntry> ge, double omegastart, double omegastop);
             double twoSigma2; 
-            double sigma2;
+            double sigma2; ///< for a gaussian pulse, the electric field, the temporal behavior is: \f$E(t)=E0 \cdot e^{-t^2/(2*\sigma^2)}\f$
             double prefactor; // 1/(sigma * sqrt (2pi))
             std::vector<double> freq;
             double tref = 0.0;

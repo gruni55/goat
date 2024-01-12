@@ -17,9 +17,8 @@ namespace GOAT
         {
             this->tp = tp;            
             twoSigma2 = tp.dt * tp.dt / (4.0 * M_LN2);
-            double sigma = tp.dt / 2.3548;
-            sigma2 = sigma * sigma;
-            // sigma2 = tp.dt * tp.dt / (8.0 * M_LN2);
+            
+            sigma2 = tp.dt * tp.dt / (4.0 * M_LN2);
             prefactor = 1.0 / sqrt(twoSigma2 * 2.0 * M_PI);
         }
 
@@ -78,8 +77,8 @@ namespace GOAT
                     
                     dw = (omega - tp.omega0);
                     double ws = dw * dw * sigma2 / 2.0;
-                    // weight = exp(-ws); 
-                    weight = 1.0;
+                    weight = exp(-ws); // this weighting is due to the Fourier transform of the gaussian (temporal) pulse shape
+                    // weight = 1.0;
                     k0 = omega / C_LIGHT_MU_FS;
                     setCurrNList(2.0 * M_PI / k0);
 
@@ -193,8 +192,9 @@ namespace GOAT
         void Trafo::setTrafoParms(TrafoParms trafoparms)
         {
             tp = trafoparms;
-            double sigma = tp.dt / 2.3548;
-            sigma2 = sigma * sigma;
+            
+            //double sigma = 2.0 * sqrt(M_LN2) / tp.dt;
+            sigma2 = tp.dt*tp.dt/(4.0*M_LN2);            
         }
 /*
         void Trafo::createLTexpo()
