@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/Thomas/source/repos/goat/tinyxml2
-BuildDirectory: C:/Users/Thomas/source/repos/goat/tinyxml2
+SourceDirectory: C:/Users/weigetz9/source/repos/goat/tinyxml2
+BuildDirectory: C:/Users/weigetz9/source/repos/goat/tinyxml2
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: Sky
+Site: zeus-windows2
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Win32-MSBuild
@@ -27,7 +27,7 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/Thomas/source/repos/goat/tinyxml2"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/weigetz9/source/repos/goat/tinyxml2"
 MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -63,8 +63,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/Program Files/Microsoft Visual Studio/2022/Preview/VC/Tools/MSVC/14.38.33129/bin/Hostx64/x64/cl.exe
-CompilerVersion: 19.38.33129.0
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe
+CompilerVersion: 19.37.32825.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

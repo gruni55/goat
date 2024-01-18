@@ -2,11 +2,14 @@
 #include "refractive_index_functions.h"
 #include <fstream>
 
+/**
+* This program provides a calculation of 
+*/
 int main (int argc, char **argv)
 {
 	std::string prismFName;
 //	 prismFName = "/home/weigel/data/prism.srf";
-    prismFName = "H:\\data\\prism.srf";
+    prismFName = "H:\\data\\prism_60.srf";
 //	prismFName = "C:\\users\\thomas\\data\\prism.srf";
      std::string ergFName;
      ergFName = "C:\\users\\weigetz9\\data\\test.dat";
@@ -14,10 +17,10 @@ int main (int argc, char **argv)
 //	ergFName = "C:\\users\\thomas\\data\\test2.dat";
 
 
- double sf=10000;
+ double sf=10000; // scaling factor (to convert µm into cm)
  double r0=1E+10;
  double wvl=0.5;
- double alpha = 0.0; // Brewster-Winkel
+ double alpha = 30.0; // Brewster-Winkel
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (-20*sf,-2*sf,0);
  int nRays=1;
@@ -25,9 +28,9 @@ int main (int argc, char **argv)
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (0.0,1.0,0.0));
  LS.setk(GOAT::maths::ex);
  GOAT::maths::Vector<double> P1(30  * sf,  -4 * sf, -1 * sf);         // Position prism 1
- GOAT::maths::Vector<double> P2(20 * sf,  -7 * sf, -1 * sf);  // Position prism 2
- GOAT::maths::Vector<double> P3(30 * sf,  -7 * sf, -1 * sf); // Position prism 3
- GOAT::maths::Vector<double> P4(50  * sf, -4 * sf, -1 * sf);  // Position prism 4
+ GOAT::maths::Vector<double> P2(60 * sf,  -23 * sf, -1 * sf);  // Position prism 2
+ GOAT::maths::Vector<double> P3(90 * sf,  -23 * sf, -1 * sf); // Position prism 3
+ GOAT::maths::Vector<double> P4(120  * sf, -4 * sf, -1 * sf);  // Position prism 4
  GOAT::maths::Vector<double> k1 = norm(P2 - P1);
  GOAT::maths::Vector<double> k2 = norm(P3 - P4);
  /*P2 = P2 - 5 * sf * k1;
@@ -62,12 +65,12 @@ int main (int argc, char **argv)
  GOAT::raytracing::surface prism4;
  prism4.setn(1.5);
  prism4.createsurface (prismFName);
- prism4.setGamma((0.0+alpha)/180.0*M_PI);
+ prism4.setGamma((alpha)/180.0*M_PI);
  prism4.setPos(P4);
  prism4.setActive(false);
 
 // ----------- Detector object --------------
-GOAT::maths::Vector<double> detPos(60.5*sf,0,0);
+GOAT::maths::Vector<double> detPos(150*sf,-2*sf,0);
 GOAT::maths::Vector<double> detDim(1*sf,2,2);
 GOAT::raytracing::Box det(detPos,detDim,1.0);
 det.setActive(true); 
@@ -86,27 +89,26 @@ S.addObject(&det);
 
 // ------- refractive index list ------
 std::vector< std::function< std::complex< double >(double) > > nList;
-
+/*
 nList.push_back(GOAT::raytracing::n_Vacuum);
 nList.push_back(GOAT::raytracing::n_Vacuum);
 nList.push_back(GOAT::raytracing::n_Vacuum);
 nList.push_back(GOAT::raytracing::n_Vacuum);
-
-/*nList.push_back(GOAT::raytracing::n_BK7);
+*/
+nList.push_back (GOAT::raytracing::n_BK7);
 nList.push_back (GOAT::raytracing::n_BK7); 
 nList.push_back (GOAT::raytracing::n_BK7);
-nList.push_back (GOAT::raytracing::n_BK7); */
+nList.push_back (GOAT::raytracing::n_BK7); 
 nList.push_back (GOAT::raytracing::n_Vacuum);
 nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
-double pulseWidth = 1000;
+double pulseWidth = 300;
   double refTime = 1.7e+6;
   double spatialRes = 0.25;
 
   GOAT::raytracing::pulseCalculation pc(S);  
-  // pc.setPulseWidth (pulseWidth);
-  pc.setBandwidth(0.05);
+  pc.setPulseWidth (pulseWidth);  
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
  
@@ -116,20 +118,36 @@ double pulseWidth = 1000;
   pc.setNumReflex(0);  
 
 // ------------ pulse calculation --------------
-// double time=1.2E+6-1.5E+4; 
-  // double time = 136930;
-  double time = 2893340+40000;
-  time = pc.findHitTime(4);
-  std::cout << "estimated time:" << time << std::endl;
- pc.field (time+40000);
 
-  GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
+  double time = 136930;
+  std::ofstream os;
+  double fwhm;
+  std::size_t fwhms;
+  os.open("C:\\users\\weigetz9\\data\\data2.dat");
+  for (alpha = 25; alpha < 40.5; alpha += 0.25)
+  {
+      prism1.setGamma((0.0 - alpha) / 180.0 * M_PI);
+      prism2.setGamma((180 - alpha) / 180.0 * M_PI);
+      prism3.setGamma((180 + alpha) / 180.0 * M_PI);
+      prism4.setGamma((alpha) / 180.0 * M_PI);
+      time = pc.findHitTime(4);
+      std::cout << "estimated time:" << time << std::endl;
+      pc.field(time + 40000);
 
- std::ofstream os;
-// os.open("C:\\Users\\Thomas\\data\\lengths.dat");
-/* os.open("/home/weigel/data/lengths.dat"); 
- os.open("C:\\Users\\weigetz9\\data\\lengths.dat");
-os << pc.rt.SA[0] << std::endl;
-os.close(); */
+      //  GOAT::raytracing::saveFullE(pc.trafo.SAres,ergFName,4); 
 
+      std::vector<double> d;
+      std::vector<double> avgd;
+      for (int i = 0; i < 40000; i++)
+          d.push_back(abs2(pc.trafo.SAres.G[4][i][4][4]));
+
+      avgd = GOAT::maths::movingAvg(d, 50);
+      std::size_t maxIndex;
+      GOAT::maths::findmax(avgd, maxIndex);
+      fwhms = GOAT::maths::FWHM(avgd, maxIndex);
+      fwhm = fwhms * 0.25 / 0.3;
+      os << alpha << "\t" << fwhm << "\t" << fwhms << std::endl;
+      std::cout << "alpha: " << alpha << "°\tFWHM: " << fwhm << std::endl; 
+  }
+  os.close();
 }
