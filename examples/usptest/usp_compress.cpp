@@ -123,8 +123,34 @@ double pulseWidth = 300;
   std::ofstream os;
   double fwhm;
   std::size_t fwhms;
-  os.open("C:\\users\\weigetz9\\data\\data2.dat");
-  for (alpha = 25; alpha < 40.5; alpha += 0.25)
+ /*
+  os.open("C:\\users\\weigetz9\\data\\data_wvl.dat");
+  std::vector<double> d;
+  std::vector<double> avgd;
+  for (double wvl = 0.4; wvl <= 1.0; wvl += 0.05)
+  {
+      pc.setCenterWavelength(wvl);
+      time = pc.findHitTime(4);
+      std::cout << "estimated time:" << time << std::endl;
+      pc.field(time + 40000);
+      
+      for (int i = 0; i < 40000; i++)
+          d.push_back(abs2(pc.trafo.SAres.G[4][i][4][4]));
+
+      avgd = GOAT::maths::movingAvg(d, 50);
+      std::size_t maxIndex;
+      GOAT::maths::findmax(avgd, maxIndex);
+      fwhms = GOAT::maths::FWHM(avgd, maxIndex);
+      fwhm = fwhms * 0.25 / 0.3;
+      os << wvl << "\t" << fwhm << "\t" << fwhms << std::endl;
+      std::cout << "wvl: " << wvl << "µm\tFWHM: " << fwhm << std::endl;
+      d.clear();
+      avgd.clear();
+  }
+  os.close();
+  */
+  /*os.open("C:\\users\\weigetz9\\data\\data3.dat");
+  for (alpha = 26; alpha < 27; alpha += 0.05)
   {
       prism1.setGamma((0.0 - alpha) / 180.0 * M_PI);
       prism2.setGamma((180 - alpha) / 180.0 * M_PI);
@@ -148,6 +174,25 @@ double pulseWidth = 300;
       fwhm = fwhms * 0.25 / 0.3;
       os << alpha << "\t" << fwhm << "\t" << fwhms << std::endl;
       std::cout << "alpha: " << alpha << "°\tFWHM: " << fwhm << std::endl; 
-  }
+  }*/
   os.close();
+  /*
+  alpha = 26.45;
+  prism1.setGamma((0.0 - alpha) / 180.0 * M_PI);
+  prism2.setGamma((180 - alpha) / 180.0 * M_PI);
+  prism3.setGamma((180 + alpha) / 180.0 * M_PI);
+  prism4.setGamma((alpha) / 180.0 * M_PI);*/
+  time = pc.findHitTime(4);
+  std::cout << "estimated time:" << time << std::endl;
+  pc.field(time);
+  std::vector<double> d;
+  std::vector<double> avgd;
+  for (int i = 0; i < 40000; i++)
+      d.push_back(abs2(pc.trafo.SAres.G[4][i][4][4]));
+  avgd = GOAT::maths::movingAvg(d, 50);
+  os.open("C:\\users\\weigetz9\\data\\data3.dat");
+  for (int i = 0; i < 40000; i++)
+      os << d[i] << "\t" << avgd[i] << std::endl;
+  os.close();
+  
 }
