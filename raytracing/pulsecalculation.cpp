@@ -10,8 +10,7 @@ namespace GOAT
 		{
 			this->S = S;
 			setDefaults();
-			setPulseWidth(40);
-			setSpatialResolution(1.0);
+			
 			trafo = Trafo(trafoparms);			
 		}
 
@@ -56,15 +55,15 @@ namespace GOAT
       
                 void pulseCalculation::calcTrafoParms()
                 {
- 			double Sigma= (2.0 * sqrt(M_LN2)) / trafoparms.dt; // Spectral sigma
-			trafoparms.omegaStart = trafoparms.omega0 -  Sigma;
-			trafoparms.omegaEnd = trafoparms.omega0 + Sigma;
+ 			// double Sigma= (2.0 * sqrt(M_LN2)) / trafoparms.dt; // Spectral sigma
+					double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
+					double Domega = 8.0 * Sigma;					
+			        trafoparms.omegaStart = trafoparms.omega0 -  Domega/2.0;
+			        trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 	                double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
             		double lambdaEnd=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaStart; 
-
-                        std::cout << "% Xwvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
+                    std::cout << "% Xwvl-range:" << lambdaStart << "\t" << lambdaEnd << std::endl;		
 			trafo.setTrafoParms(trafoparms);
-
                 }
 				
 		void pulseCalculation::setCenterWavelength(double wvl)
@@ -77,6 +76,9 @@ namespace GOAT
 		void pulseCalculation::setBandwidth(double dWvl)
 		{
 			this->dWvl = dWvl;
+			double Domega = 2.0 * M_PI * C_LIGHT_MU_FS * dWvl / (trafoparms.wvl * trafoparms.wvl);
+			trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
+			trafoparms.omegaStart = trafoparms.omega0 + Domega / 2.0;
 		}
 
 
@@ -128,6 +130,12 @@ namespace GOAT
 			rt.trace();
 		}
 
+
+		void pulseCalculation::setRepetitionRate(double rep)
+		{
+			double Domega = trafoparms.omegaEnd - trafoparms.omegaStart;
+			trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));			
+		}
 
 		void pulseCalculation::field(double t)
 		{
@@ -188,7 +196,7 @@ namespace GOAT
 		void pulseCalculation::setPulseWidth(double dt)
 		{
 			trafoparms.dt = dt;
-                        calcTrafoParms();	 
+            calcTrafoParms();	 
 		}
 
 		void pulseCalculation::setDefaults()
@@ -198,7 +206,8 @@ namespace GOAT
 			trafoparms.nI = 10;
 			trafoparms.nR = 1;
 			trafoparms.nS = 50;			
-			setPulseWidth(trafoparms.dt);
+			setPulseWidth(trafoparms.dt);			
+			setSpatialResolution(1.0);
 		}
 
 		void pulseCalculation::setSpectralRanges(int nI)
