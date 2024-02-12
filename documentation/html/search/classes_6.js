@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['matrix_324',['Matrix',['../class_matrix.html',1,'']]],
-  ['matrix_3c_20double_20_3e_325',['Matrix&lt; double &gt;',['../class_matrix.html',1,'']]],
-  ['matrix_3c_20std_3a_3acomplex_3c_20double_20_3e_20_3e_326',['Matrix&lt; std::complex&lt; double &gt; &gt;',['../class_matrix.html',1,'']]]
+  ['lightsrc_0',['LightSrc',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html',1,'GOAT::raytracing']]],
+  ['lightsrcgauss_1',['LightSrcGauss',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html',1,'GOAT::raytracing']]],
+  ['lightsrcgauss_5fmc_2',['LightSrcGauss_mc',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html',1,'GOAT::raytracing']]],
+  ['lightsrcplane_3',['LightSrcPlane',['../class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html',1,'GOAT::raytracing']]],
+  ['lightsrcplane_5fmc_4',['LightSrcPlane_mc',['../class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html',1,'GOAT::raytracing']]],
+  ['lightsrcring_5fmc_5',['LightSrcRing_mc',['../class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html',1,'GOAT::raytracing']]]
 ];

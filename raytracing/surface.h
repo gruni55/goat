@@ -11,6 +11,7 @@
 #include "objectshape.h"
 #include <string.h>
 #include "triangle.h"
+
 #ifdef WITH_OCTREE
 #include "octree.h"
 #endif
@@ -70,9 +71,9 @@ namespace GOAT
             surface(const maths::Vector<double>& P,
                 std::complex<double>  n,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez
+                const maths::Vector<double> Ex = GOAT::maths::ex,
+                const maths::Vector<double> Ey = GOAT::maths::ey,
+                const maths::Vector<double> Ez = GOAT::maths::ez
             );
 
             /**
@@ -91,9 +92,9 @@ namespace GOAT
                 std::complex<double>  n,
                 int num, triangle* list,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez);
+                const maths::Vector<double> Ex = maths::ex,
+                const maths::Vector<double> Ey = maths::ey,
+                const maths::Vector<double> Ez = maths::ez);
 
             // ~surface();
             maths::Vector<double> calcCoM(); /// calculates center of mass
@@ -103,7 +104,7 @@ namespace GOAT
              * @param max largest edge length
              */
             void getMinMax(double& min, double& max);
-            triangle* S = 0; ///< list of all triangles
+            triangle* S ; ///< list of all triangles
             int numTriangles = 0; ///< number of triangles 
 
             // Erzeugen der Dreiecksliste
@@ -250,7 +251,7 @@ namespace GOAT
          * @return min shortest side length
          * @return max longest side length
          */
-        void getMinMax(int numTriangles, triangle* S, double& min, double& max);
+        void getMinMax(int numTriangles, triangle *S, double& min, double& max);
     }
 }
 #endif

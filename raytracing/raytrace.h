@@ -28,6 +28,7 @@ namespace GOAT
 		public:
 			Scene();  ///< Standard constructor 
 			Scene(const Scene& S); ///< Copy constructor
+			void setPhaseProgress(bool suppress_phase_progress);
 			void addObject(ObjectShape* Obj); ///< add single object to scene
 			void addObjectList(int nobj, ObjectShape** obj); ///< add a list of objects to scene, nobj: number of objects
 			void removeObject(int index); ///< removes object with index "index" from object list
@@ -58,8 +59,9 @@ namespace GOAT
 			int nDet = 0; ///< Number of detectors
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
-			double r0; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
-			int raytype; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			double r0=1E+100; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
+			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 		};
 
 
@@ -105,13 +107,13 @@ namespace GOAT
 			bool useRRTParms; ///< Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation
 			int type=RAYTRACER_TYPE_NONE; ///< Flag which shows which type of raytracer is selected
 
-		private:
+		
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
 				This parameter is needed to stop calculation after the maximal number of reflexions  @param recur: counter which will be set to the current recursion depth*/
 			void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
 			void copyRay(RayBase*& dest, RayBase* src);
 			RayBase* ray; ///< current ray 
-			RayBase* tray; ///< transmitted ray
+			RayBase* tray; ///< transmitted ray		
 			bool Abbruch; ///< flag to stop calculation
 			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
 		};

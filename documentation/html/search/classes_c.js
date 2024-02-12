@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['vector_346',['Vector',['../class_vector.html',1,'']]],
-  ['vector_3c_20double_20_3e_347',['Vector&lt; double &gt;',['../class_vector.html',1,'']]],
-  ['vector_3c_20std_3a_3acomplex_3c_20double_20_3e_20_3e_348',['Vector&lt; std::complex&lt; double &gt; &gt;',['../class_vector.html',1,'']]]
+  ['trafo_0',['Trafo',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html',1,'GOAT::raytracing']]],
+  ['trafoparms_1',['TrafoParms',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html',1,'GOAT::raytracing']]],
+  ['triangle_2',['triangle',['../class_g_o_a_t_1_1raytracing_1_1triangle.html',1,'GOAT::raytracing']]],
+  ['tubedray_3',['tubedRay',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html',1,'GOAT::raytracing']]],
+  ['tubedraybuffer_4',['tubedRayBuffer',['../struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html',1,'GOAT::raytracing']]]
 ];

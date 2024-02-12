@@ -2,9 +2,11 @@
 #define DETECTOR_H
 
 #include "vector.h"
+#include "box.h"
 #define DETECTOR_ANGLE 1
 #define DETECTOR_PLANE 2
 #include <iostream>
+#include <vector>
 
 namespace GOAT
 {
@@ -87,6 +89,15 @@ namespace GOAT
 		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector
 	};
 
+	/*class DetectorBox : public Detector
+	{
+	public:
+		DetectorBox(maths::Vector<double> P, maths::Vector<double> d, maths::Vector<int> n);
+		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);
+	     
+		std::vector<std::vector<std::vector<std::complex<double> > > > data;
+		Box box;
+	};*/
 #define SAVE_X 0
 #define SAVE_Y 1
 #define SAVE_Z 2

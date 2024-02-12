@@ -17,7 +17,12 @@ namespace GOAT
 #define LIGHTSRC_RAYTYPE_PRAY 3   ///< Ray class : Pow_Ray
 constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
 constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
-constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_RING = 3;  ///< Light source is a ring shaped wave
+constexpr int LIGHTSRC_SRCTYPE_TOPHAT=4; ///< Light source is a top hat
+
+constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 11; ///< Light source is a plane wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -25,10 +30,10 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 #define LIGHTSRC_ERROR -1        ///< Error occurs within the ray creation
 #define Z0 376.730313461         ///< Wave impedance of free space
 
-#define LIGHTSRC_POL_X 0
-#define LIGHTSRC_POL_Y 1
-#define LIGHTSRC_POL_Z 2
-#define LIGHTSRC_POL_USER_DEFINED 0 
+#define LIGHTSRC_POL_X 0 ///< Light source is polarized in x-direction
+#define LIGHTSRC_POL_Y 1 ///< Light source is polarized in y-direction
+#define LIGHTSRC_POL_Z 2 ///< Light source is polarized in z-direction
+#define LIGHTSRC_POL_USER_DEFINED 0 ///< Light source is user defined
 
 
 
@@ -85,8 +90,22 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			{
 				this->density = D / ((double)N);
 				this->D = D;
+				D1 = D;
+				D2 = D;
 				reset();
 			} ///< sets the width of the light source (this resets also the ray counter)
+
+			void setD(double D1, double D2) ///< sets the width of the light source
+			{				
+				if (D1<D2) density= D1 / ((double)N);
+				else density = D2 / ((double)N);
+				this->D1 = D1;
+				this->D2 = D2;
+				reset();
+			}
+
+
+
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
 			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
@@ -104,10 +123,10 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			// protected :
 			maths::Vector<double> Pos; ///< position of the light source (center of the square area of the light source)
 			int type;           ///< type of the light source
-			double P0;        ///< power
+			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
 			maths::Vector<double> k;   ///< main direction of the light source   
-			int N;  ///< number of rays (per direction)
+			int N=100;  ///< number of rays (per direction)
 			int i1; ///< first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
@@ -118,6 +137,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			std::complex<double> n0; ///< refractive index of the intermediate medium
 
 			double D;           ///< width of the square light source area 
+			double D1, D2;      ///< width in the e1- and the e2-direction (used only for _mc versions of LightSrc)
 			maths::Vector<double> e1, e2;  ///< unit vectors that span the light source area 
 			int raytype;        ///< Strahltyp : ray oder ISTRAHL (=RAY oder IRAY)
 			int polType;        ///< Polarisationsrichtung (s.o.)  
@@ -125,6 +145,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			friend class LightSrcPlane;
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
+			bool suppress_phase_progress = false;
 		};
 
 
@@ -158,6 +179,24 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 
 
 			// void turnSrc // to be done !!!
+		};
+
+
+		class LightSrcRing : public LightSrc
+		{
+		public:
+			LightSrcRing();
+			LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin=0.0, double rmax=100.0, maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+			int next(RayBase* ray);
+			int next(IRay& S);
+			int next(Ray_pow& S);
+			int next(tubedRay& S);
+			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
+			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
+
+		private:
+			double rmin = 0.0;
+			double rmax = 100.0;
 		};
 
 		/**
@@ -245,6 +284,7 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
 		};
 
+		
 		/**
 		 * @brief Writes a list of light sources into a binary file.
 		 * @param os Output file stream to write the data

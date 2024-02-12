@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['gauss_318',['Gauss',['../struct_gauss.html',1,'']]],
-  ['globalparms_319',['GlobalParms',['../class_global_parms.html',1,'']]]
+  ['ellipsoid_0',['Ellipsoid',['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html',1,'GOAT::raytracing']]]
 ];

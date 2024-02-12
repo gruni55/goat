@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['lightsrc_321',['LightSrc',['../class_light_src.html',1,'']]],
-  ['lightsrcgauss_322',['LightSrcGauss',['../class_light_src_gauss.html',1,'']]],
-  ['lightsrcplane_323',['LightSrcPlane',['../class_light_src_plane.html',1,'']]]
+  ['indexlist_0',['indexList',['../struct_g_o_a_t_1_1raytracing_1_1index_list.html',1,'GOAT::raytracing']]],
+  ['iray_1',['IRay',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html',1,'GOAT::raytracing']]]
 ];

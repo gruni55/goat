@@ -24,8 +24,11 @@
 namespace GOAT {
     namespace raytracing {
 #define OBJECTSHAPE_NO_SHAPE    -1  //F/< No shape defined
-#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is ellipsoid 
+#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is an ellipsoid 
 #define OBJECTSHAPE_SURFACE      1 ///< Shape is triangulated surface
+#define OBJECTSHAPE_CONE         2 ///< Shape is a cone
+
+
 #define FUNSURF      2  
 #define SUPERELLIPSOID_D 17 
 #define SUPERELLIPSOID   4
@@ -85,7 +88,7 @@ namespace GOAT {
 
             void setCenter(maths::Vector<double> P);                                ///< sets Center to P (check, if function is necessary)
             void setCenter2CoM(); ///< Calculates the center of mass (CoM) and sets the object's reference point to the CoM
-
+            bool isOutsideWorld(); ///< Test if bounding box is (partly) outside the calculation space
             int Type() { return type; }                                         ///< returns the object's type
             virtual void initQuad() = 0;                                      ///< calculates the circumferent cuboid (needed e.g. for the inelastic scattering calculations)
             virtual  void setr0(double r0) = 0;                                 ///< defines the radius of the calculation sphere
@@ -101,8 +104,8 @@ namespace GOAT {
             std::complex<double> getninel() { return ninel; }                      ///< returns refractive index
             std::complex<double> getn() { return n; }                              ///< returns refractive index for inelastic (RRT) calculation
             void setPolMatrix(maths::Matrix<std::complex<double> >alpha) { this->alpha = alpha; }   ///< sets polarisability matrix
-            bool isActive() { return inelactive; }                                 ///< returns true if the object should be considered for inelastic calculation
-            void setActive(bool active) { inelactive = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
+            bool isActive() { return Active; }                                 ///< returns true if the object should be considered for inelastic calculation
+            void setActive(bool active) { Active = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
             void setAlpha(double Alpha) { setMatrix(Alpha, Ebeta, Egamma); }   ///< sets rotation angle around x-axis
             void setBeta(double Beta) { setMatrix(Ealpha, Beta, Egamma); }     ///< sets rotation angle around y-axis 
             void setGamma(double Gamma) { setMatrix(Ealpha, Ebeta, Gamma); }   ///< sets rotation angle around z-axis
@@ -117,11 +120,12 @@ namespace GOAT {
             double Ealpha, Ebeta, Egamma; ///< angles through which the object was rotated (around the x- (Ealpha), then the y- (Ebeta) and finally the z-axis (Egamma))
             double r0;                  ///< radius of the calculation sphere 
             double sf;         ///< scaling factor, it is used to scale the shape of the object     
-            bool inelactive;   ///< should the object be considered for inelastic (RRT) calculations?
+            bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
             double rho;        ///< mass density in \f$ kg/m^3 \f$
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
+        bool intersectionTest(ObjectShape& A, ObjectShape& B); ///< Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other) 
     }
 }
 

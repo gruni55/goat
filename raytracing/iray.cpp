@@ -138,15 +138,21 @@ namespace GOAT
                 }
 
                 objIndex = Index;
-                E1 = E1 * exp(I * k0 * n * abs(R - P));
-                E2 = E2 * exp(I * k0 * n * abs(R - P));
+                if (!suppress_phase_progress)
+                {
+                    E1 = E1 * exp(I * k0 * n * abs(R - P));
+                    E2 = E2 * exp(I * k0 * n * abs(R - P));
+                }
                 //  this->P=R;
             }
             else
             {
                 found = Obj[objIndex]->next(P, k, R);
-                E1 = E1 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
-                E2 = E2 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                if (!suppress_phase_progress)
+                {
+                    E1 = E1 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                    E2 = E2 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                }
             }
 
             this->P = R;

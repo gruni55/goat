@@ -94,13 +94,13 @@ surface::surface(maths::Vector<double> Oh) : ObjectShape()
 surface::surface(const maths::Vector<double> &P,
                 std::complex<double>  n,
           const maths::Matrix<std::complex<double> > alpha,
-          const maths::Vector<double> &Ex,
-          const maths::Vector<double> &Ey,
-          const maths::Vector<double> &Ez
+          const maths::Vector<double> Ex,
+          const maths::Vector<double> Ey,
+          const maths::Vector<double> Ez
          )
-: ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
+ : ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
 {
- r0=1.0;
+ r0 = 1.0;
   sf=1.0;
   numTriangles=0;
   S=NULL;
@@ -115,12 +115,12 @@ surface::surface(const maths::Vector<double> &P,
                 std::complex<double>  n,
           int anz, triangle* list,
           const maths::Matrix<std::complex<double> > alpha,
-          const maths::Vector<double> &Ex,
-          const maths::Vector<double> &Ey,
-          const maths::Vector<double> &Ez)
+          const maths::Vector<double> Ex,
+          const maths::Vector<double> Ey,
+          const maths::Vector<double> Ez)
 : ObjectShape (P, n, alpha, Ex, Ey, Ez,OBJECTSHAPE_SURFACE)
 {
- trafo (Ex,Ey,Ez,H,R);
+ trafo(Ex, Ey, Ez, H, R);
  this->P=P;
  this->numTriangles=anz;
  S=new triangle[numTriangles];
@@ -140,12 +140,8 @@ surface::surface(const maths::Vector<double> &P,
  for (int i = 0; i < numTriangles; i++)
 	 addTriangleToTriangle(Tree, S[i]);
  // Tree.trimOctree();
- /*cube = Octree<triangle>::Section(P, d, 1.0, h);
- cout << "bounds:" << cube.bounds[0] << "    " << cube.bounds[1] << endl; 
- Tree.setRootSection(cube);
- Tree.build(S, numTriangles);*/
 #endif 
-
+	
 }
 /*
 surface::~surface()
@@ -232,7 +228,7 @@ maths::Vector<double> por, pul;
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
-		Tree.BBox = Box(Ph, 1.05 * d, this->n);
+		Tree.BBox = Box(Ph, d, this->n);
 		Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
@@ -244,10 +240,8 @@ maths::Vector<double> por, pul;
 int surface::importBinSTL(std::string FName)
 {
 	std::ifstream is;
-	int dummy;
 	int i,j;
 	int anz;
-	float data;
 	char str[255];
 	maths::Vector<double> P1,P2,P3,n;
 	maths::Vector<double> cm;
@@ -295,19 +289,15 @@ int surface::importBinSTL(std::string FName)
 		 P3[j]=readLE_float32(is);
 		 cm[j]+=P3[j];
 		}
-
-		cm=cm/anz/3.0;
+	    cm=cm/anz/3.0;
 		is.read(str,2);
-		S[i]=triangle(P1,P2,P3);
+		S[i]=triangle(P1,P2,P3);		
 		S[i].setnorm(n); // Glauben wir mal, dass die Oberfl�chennormale im STL-File richtig ist !
 	}
 	
-	initQuad();
+	initQuad();	
 	std::cout << "% por=" << por << "    pul=" << pul << std::endl;
 	is.close();
-/*	setCenter2CoM();
-	setCenter(P); */
-	P = maths::dzero;
 	setCenter(P);
 	std::cout << "% P=" << P << std::endl;
         initQuad();
@@ -321,11 +311,14 @@ int surface::importBinSTL(std::string FName)
 	maths::Vector<double> hd(h,h,h);
 		// hd = (pul + por) / 2.0;
 //		Tree.BBox = Box(dzero, Vector<double>(20,20,20), this->n);
-		Tree.BBox = Box(P, d, this->n);
+		Tree.BBox = Box((pul+por)/2.0, d, this->n);
     	Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
+		{
+			
 			addTriangleToTriangle(Tree, S[i]);
+		}		
 	
 #endif 
 	std::cout <<  "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
@@ -351,7 +344,7 @@ bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &
 
 #ifndef WITH_OCTREE
   double thilf,t;
-  Vector<double> rhilf, philf, khilf;
+  GOAT::maths::Vector<double> rhilf, philf, khilf;
   bool found=false;
   rhilf = H*(r - P);
   khilf = H*k;
@@ -439,10 +432,6 @@ bool surface::isInside(const maths::Vector<double> &p)
   {
     hilf2 = S[i].P[2]-p;
     hilf = (S[i].n*hilf2);
-  /*  std::cout << "Dreieck" << i << ": " << S[i] << std::endl;
-    std::cout << "n:" << S[i].n << std::endl;
-    std::cout << "hilf2:" << hilf2 << std::endl;
-    std::cout << "hilf:" << hilf << std::endl;*/
     if(hilf<0.0)
       return false;
   }
@@ -786,8 +775,7 @@ void surface::binWrite (std::ofstream &os)
  char c;
  for (int i=0; i<=FName.length(); i++)
  {
-  c=FName[i];
-  // std::cout << "c=" << c << std::endl;
+  c=FName[i];  
  os.write ((char *) &c, 1);
  }
  for (int i=0; i<numTriangles; i++)
@@ -821,7 +809,6 @@ void surface::binRead (std::ifstream &is)
   is.read ((char *) &c, 1);
   FName=FName + c;
  } 
-//  cout << "FName=" << FName << endl; 
  S=new triangle[numTriangles];
  for (int i=0; i<numTriangles; i++)
  {
@@ -908,20 +895,19 @@ maths::Vector<double> surface::calcCoM()
 		int_z+=F*Fz*n;
 //                cout << "i=" << i << "   F=" << F << "   Fx=" << Fx << "   Fy=" << Fy << "   Fz=" << Fz << "   n=" << n << endl;
 	}
-	// std::cout << "% Gesamtfl�che :" << Fges << std::endl;
 	maths::Vector<double> P= maths::Vector<double>(int_x,int_y,int_z)/V;
 	return P;
 }
 
 void surface::setCenter(maths::Vector<double> P)
 {
-	// std::cout << "% P= " << P << "     anzp=" << numTriangles << std::endl;
-	for (int i=0; i<numTriangles; i++)
+	this->P = P;
+	/*for (int i = 0; i<numTriangles; i++)
 	{
 		S[i].P[0]=S[i].P[0]-P;
 		S[i].P[1]=S[i].P[1]-P;
 		S[i].P[2]=S[i].P[2]-P;
-	}
+	}*/
 }
 
 inline void Subexpressions (double w0,double w1, double w2, double &f1, double &f2, double &f3, double &g0, double &g1, double &g2)

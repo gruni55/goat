@@ -1,5 +1,4 @@
 # build examples for axicon calculation
-cmake_minimum_required (VERSION 2.8.11)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/release)
@@ -16,15 +15,30 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 message (STATUS "LIB Library: ${LIBDIR}")
 add_executable (axicon "axicon.cpp")
+add_executable (axicon2 "axicon2.cpp")
+add_executable (axicon_with_box "axicon_with_box.cpp")
+
 find_library (NAMES goat_maths PATHS ../../lib)
 find_library (NAMES goat_raytracing PATHS ../../lib)
 
 
 target_include_directories (axicon PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (axicon goat_raytracing goat_maths)
+target_include_directories (axicon2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_include_directories (axicon_with_box PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 
+find_package(OpenMP)
+if ((NOT OPENMP_FOUND) OR (WITHOUT_OPENMP))
+   target_link_libraries (axicon goat_raytracing goat_maths)	
+   target_link_libraries (axicon2 goat_raytracing goat_maths)
+   target_link_libraries (axicon_with_box goat_raytracing goat_maths)
 
-install(TARGETS axicon
+else()
+   target_link_libraries (axicon goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)	
+   target_link_libraries (axicon2 goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
+   target_link_libraries (axicon_with_box goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
+endif()
+
+install(TARGETS axicon axicon2 axicon_with_box
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
