@@ -101,6 +101,13 @@ namespace GOAT
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
         private:
             double pulseWeight(double omega);
+            /**
+             * @brief sets current values for the refractive indices
+             * This method calculates the refractive indices of the different objects for a
+             * given wavelength.
+             * @param wvl current wavelength
+             *
+             */
             void setCurrNList(double wvl)
             {
                 for (int i = 0; i < nList.size(); i++)

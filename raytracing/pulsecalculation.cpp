@@ -114,7 +114,7 @@ namespace GOAT
 			double wavelength = 2.0 * M_PI / omega * C_LIGHT_MU_FS;
 
 			// clear the old raytracing results
-			rt.clear();
+		    // rt.clear();
 			rt.setNumReflex(numReflex);
 
 			// now, set the new refractive indices 
@@ -140,8 +140,12 @@ namespace GOAT
 		void pulseCalculation::field(double t)
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Sigma = 2.3548 / trafoparms.dt;			
-			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
+			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+std::cout << "Domega=" << Domega << std::endl;
+
+
+//			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
+//                        double Domega = 2.0 * M_PI * C_LIGHT_MU_FS dWvl / (trafoparms.wvl * trafoparms.wvl);
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega/2.0;
 			double omega;
@@ -158,7 +162,7 @@ namespace GOAT
                 // ------ for output only ------
                 wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega); 
                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
-				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << std::endl << std::flush;
+				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "Âµm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
 
 				fieldCalculation(omega); // do the raytracing				
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform

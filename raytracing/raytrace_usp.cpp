@@ -23,16 +23,19 @@ namespace GOAT
 
 		void Raytrace_usp::clear()
 		{
-                        if (S.nObj > 0)
+			if (S.nObj > 0)
 			{			
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
                                 SA[i].clear();
 			  SA.clear();
-                        } 
+            }
 		}
 
 		void Raytrace_usp::init() 			
 		{   
+ //                       clear();
+			stack.step.clear();
+                        stack.E=GOAT::maths::Vector<std::complex<double> >(0,0,0);
 			S.resetLS();
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 			if (S.nObj > 0)

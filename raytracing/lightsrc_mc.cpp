@@ -255,7 +255,6 @@ namespace GOAT
 
         void LightSrcGauss_mc::reset() 
         {
-            LightSrc::reset();
             rayCounter=0;
         }
 

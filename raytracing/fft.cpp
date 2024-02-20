@@ -68,7 +68,7 @@ namespace GOAT
                     nsteps = tp.nS;
                     domega = Domega / ((double)(nsteps - 1));
                 }
-        //         std::cout << "steps:" << nsteps << std::endl;
+//                 std::cout << "steps:" << nsteps << std::endl;
                 double weight;
                 // std::ofstream os("h:\\data\\blubb.dat");
                 for (int iomega = 0; iomega < nsteps; iomega++)
@@ -76,6 +76,7 @@ namespace GOAT
                     omega = omegastart + iomega * domega;
                     
                     dw = (omega - tp.omega0);
+        //            std::cout << "dw=" << dw << "\tomega=" << omega << "\tomega0=" << tp.omega0 << std::endl << std::flush;
                     double ws = dw * dw * sigma2 / 2.0;
                     weight = exp(-ws); // this weighting is due to the Fourier transform of the gaussian (temporal) pulse shape
                     // weight = 1.0;
@@ -93,7 +94,7 @@ namespace GOAT
 
                         //                    std::cout << "phase1=" << phase1 << "\tphase=" << phase << "\ttref=" << tref << std::endl;
                          //                   std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
-                        E += weight * phase * domega * ge.E;
+                        E += weight * phase * ge.E;
                     }
                      // std::cout << "--------- STOP ----------" << std::endl;
                 }
@@ -134,7 +135,7 @@ namespace GOAT
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-                            #pragma omp parallel for
+                         //   #pragma omp parallel for num_threads (4)
                             for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {
                                 std::cout << ix << std::endl << std::flush;
@@ -165,7 +166,7 @@ namespace GOAT
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
- #pragma omp parallel for
+ // #pragma omp parallel for num_threads(4)
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
