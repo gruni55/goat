@@ -70,6 +70,7 @@ namespace GOAT
 				this->P = r.P;
 				this->r0 = r.r0;
 				this->status = r.status;
+				this->suppress_phase_progress = r.suppress_phase_progress;
 			}
 
 

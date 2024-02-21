@@ -57,13 +57,7 @@ namespace GOAT
                 }
             }
             found = (a > 0);
-            return found;
-            /*found=true;
-            for (int j=0; (j<=3) && found; j++)
-             for (int i=j+1; (i<=4) && found; i++)
-              found=found && (Index[j]==Index[i]);*/
-              //    isValid=found; 
-
+            return found;           
         }
 
 
@@ -118,6 +112,7 @@ namespace GOAT
             objIndex = -1;
             OK = maths::dzero;
             isValid = true;
+            suppress_phase_progress = false;
         }
 
 
@@ -242,11 +237,13 @@ namespace GOAT
                     Erg.OK = Obj[objIndex]->P;
                     Erg.objIndex = objIndex;
                     Erg.refract(n, n1, n2);
+                    Erg.suppress_phase_progress = suppress_phase_progress;
                     objIndex = -1;
                 } // if objIndex!=-1
                 else // Reflexion an der Partikeloberfläche
                 {
                     Erg = *this;
+                    Erg.suppress_phase_progress = suppress_phase_progress;
                     Erg.inObject = false;
                     Erg.objIndex = -1;
                     Erg.n = n2;

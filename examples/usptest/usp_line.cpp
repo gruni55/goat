@@ -36,22 +36,23 @@ int main (int argc, char ** argv)
 	// --------------- Wavelength dependent 
 	std::vector< std::function< std::complex< double >(double) > > nList;
 
-	nList.push_back(GOAT::raytracing::n_Vacuum);    // Glass box
+	nList.push_back(GOAT::raytracing::n_BK7);    // Glass box
 	nList.push_back(GOAT::raytracing::n_Vacuum); // Detector
 	nList.push_back(GOAT::raytracing::n_Vacuum); // Intermediate medium
 
-	double pulseWidth = 100;
+	double pulseWidth = 50;
 	double spatialRes = 0.1;
 	
 	GOAT::raytracing::pulseCalculation pc(S);
 	pc.setPulseWidth(pulseWidth);
 	pc.setSpatialResolution(spatialRes);
 	pc.setRefractiveIndexFunctions(nList);
-	pc.setSpectralRanges(400);
+	pc.setSpectralRanges(300);
 	pc.setNumWavelengthsPerRange(2);
 
 //	std::string FName = "C:\\users\\thomas\\data\\glasbox.dat";
-	std::string FName = "/home/weigel/data/glasbox.dat";
+    std::string FName = "H:\\data\\glasbox.dat";
+//	std::string FName = "/home/weigel/data/glasbox.dat";
 
 	double time;
 	std::ofstream os;
@@ -71,7 +72,8 @@ int main (int argc, char ** argv)
 		pc.field(time);
 
 //	    GOAT::raytracing::saveabsE(pc.trafo.SAres, "C:\\users\\thomas\\data\\glasbox_field.dat", 1);
-		GOAT::raytracing::saveabsE(pc.trafo.SAres, "/home/weigel/data/glasbox_field_50.dat", 1);
+		GOAT::raytracing::saveabsE(pc.trafo.SAres, "H:\\data\\glasbox_field.dat", 1);
+		//GOAT::raytracing::saveabsE(pc.trafo.SAres, "/home/weigel/data/glasbox_field_50.dat", 1);
 /*
 		for (int i = 0; i < pc.trafo.SAres.n[1][0]; i++)
 			d.push_back(abs2(pc.trafo.SAres.G[0][i][1][1]));
