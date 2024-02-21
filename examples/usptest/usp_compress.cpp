@@ -1,7 +1,7 @@
 #include "pulsecalculation.h"
 #include "refractive_index_functions.h"
 #include <fstream>
-
+#include <strstream>
 /**
 * This program provides a calculation of 
 */
@@ -22,7 +22,7 @@ int main (int argc, char **argv)
  double wvl=0.5;
  double alpha = 30.0; // Brewster-Winkel
  // ------------ Light source ------------
- GOAT::maths::Vector<double> LSPos (-20*sf,-2*sf,0);
+ GOAT::maths::Vector<double> LSPos (0,-2*sf,0);
  int nRays=1;
  GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-10);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (0.0,1.0,0.0));
@@ -70,7 +70,7 @@ int main (int argc, char **argv)
  prism4.setActive(false);
 
 // ----------- Detector object --------------
-GOAT::maths::Vector<double> detPos(150*sf,-2*sf,0);
+GOAT::maths::Vector<double> detPos(150 * sf,-2*sf,0);
 GOAT::maths::Vector<double> detDim(1*sf,2,2);
 GOAT::raytracing::Box det(detPos,detDim,1.0);
 det.setActive(true); 
@@ -80,6 +80,7 @@ det.setActive(true);
 GOAT::raytracing::Scene S;
 S.setr0(r0);
 S.addLightSource(&LS);
+
 S.addObject(&prism1);
 S.addObject(&prism2);
 S.addObject(&prism3);
@@ -95,6 +96,7 @@ nList.push_back(GOAT::raytracing::n_Vacuum);
 nList.push_back(GOAT::raytracing::n_Vacuum);
 nList.push_back(GOAT::raytracing::n_Vacuum);
 */
+
 nList.push_back (GOAT::raytracing::n_BK7);
 nList.push_back (GOAT::raytracing::n_BK7); 
 nList.push_back (GOAT::raytracing::n_BK7);
@@ -103,7 +105,7 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
-double pulseWidth = 300;
+double pulseWidth = 100;
   double refTime = 1.7e+6;
   double spatialRes = 0.25;
 
@@ -123,14 +125,21 @@ double pulseWidth = 300;
   std::ofstream os;
   double fwhm;
   std::size_t fwhms;
- /*
-  os.open("C:\\users\\weigetz9\\data\\data_wvl.dat");
+  std::string fname;
+  std::stringstream ss;
+  os.open("C:\\users\\weigetz9\\data\\data_wvl3.dat");
   std::vector<double> d;
   std::vector<double> avgd;
-  for (double wvl = 0.4; wvl <= 1.0; wvl += 0.05)
+  std::ofstream osall("C:\\users\\weigetz9\\data\\wvl3.dat");
+
+  
+  for (double wvl = 0.2; wvl <= 1.0; wvl += 0.005)
   {
+    
+
       pc.setCenterWavelength(wvl);
       time = pc.findHitTime(4);
+      pc.setReferenceTime(time);
       std::cout << "estimated time:" << time << std::endl;
       pc.field(time + 40000);
       
@@ -138,6 +147,11 @@ double pulseWidth = 300;
           d.push_back(abs2(pc.trafo.SAres.G[4][i][4][4]));
 
       avgd = GOAT::maths::movingAvg(d, 50);
+      for (int i = 0; i < 40000; i++)
+      {
+          osall << d[i] << "\t";
+      }
+      osall << std::endl << std::flush;
       std::size_t maxIndex;
       GOAT::maths::findmax(avgd, maxIndex);
       fwhms = GOAT::maths::FWHM(avgd, maxIndex);
@@ -148,7 +162,7 @@ double pulseWidth = 300;
       avgd.clear();
   }
   os.close();
-  */
+  osall.close();
   /*os.open("C:\\users\\weigetz9\\data\\data3.dat");
   for (alpha = 26; alpha < 27; alpha += 0.05)
   {
@@ -182,17 +196,24 @@ double pulseWidth = 300;
   prism2.setGamma((180 - alpha) / 180.0 * M_PI);
   prism3.setGamma((180 + alpha) / 180.0 * M_PI);
   prism4.setGamma((alpha) / 180.0 * M_PI);*/
+
+  /*
   time = pc.findHitTime(4);
+  
   std::cout << "estimated time:" << time << std::endl;
-  pc.field(time);
+  pc.field(time+20000);
   std::vector<double> d;
   std::vector<double> avgd;
+  //GOAT::raytracing::saveFullE(pc.trafo.SAres, ergFName, 0);
   for (int i = 0; i < 40000; i++)
       d.push_back(abs2(pc.trafo.SAres.G[4][i][4][4]));
   avgd = GOAT::maths::movingAvg(d, 50);
-  os.open("C:\\users\\weigetz9\\data\\data3.dat");
+  os.open("C:\\users\\weigetz9\\data\\test.dat");            
+
   for (int i = 0; i < 40000; i++)
-      os << d[i] << "\t" << avgd[i] << std::endl;
+  {
+      os << d[i] << "\t" << avgd[i] << std::endl;      
+  }
   os.close();
-  
+  */
 }
