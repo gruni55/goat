@@ -79,6 +79,7 @@ namespace GOAT {
 #endif
 
         /**
+        *  @brief This class represents a ray with a finite cross section.
         *  class tubedRay:
         *   This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore,
         *   selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is

@@ -16,10 +16,11 @@ namespace GOAT
    {
        typedef long long int INDEX_TYPE;
       /** 
-       * This template class provides a virtual 3D-grid of complex vectors which can be used to store e.g. the electric field in a volume. 
+      *  @brief Template class to store arbitrary information in a 3D-grid 
+       * This template class provides a virtual 3D-grid of arbitrary values which can be used to store e.g. the electric field in a volume. 
        *  It circumscribes a sphere with radius r0 and virtual means here, that only  the parts which are needed were allocated, 
        *  but for the programmer it seems like a whole array or grid. 
-       *  By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field 
+       *  By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field 
        * inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments 
        **/ 
       template <class T> class SuperArray

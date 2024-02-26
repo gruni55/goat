@@ -3,16 +3,16 @@
 #include <iostream>
 
 
-/**  
-* @brief class which represents a box (cuboid). It is derived by class ObjectShape    
-* This class is mainly used for the octree calculation. 
-*/
 
 
 namespace GOAT
 {
 	namespace raytracing
 	{
+		/**
+		* @brief class which represents a box (cuboid). It is derived by class ObjectShape
+		* This class is mainly used for the octree calculation.
+		*/
 		class Box :
 			public ObjectShape
 		{

@@ -104,6 +104,10 @@ namespace GOAT
 			maths::Matrix<double> alpha;
 		} objectInfo;
 
+
+		/**
+		* @brief Class used to set the parameters for inelastic scattering (may replaced later)
+		*/
 		class RRTParmsInfo
 		{
 		public:

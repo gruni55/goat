@@ -13,7 +13,7 @@ namespace GOAT
 	namespace raytracing
 	{
 		/**
-		 * The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
+		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
 		 */
 	class Detector
 	{
@@ -65,7 +65,8 @@ namespace GOAT
 
 
 	/**
-	 * This class provides a plane detector, defined by its center point and its side length. The detector plane is spanned by the vectors e1 and e2. The absolute value of the vectors
+	 * @brief This class provides a plane detector, defined by its center point and its side length.
+	 * The detector plane is spanned by the vectors e1 and e2. The absolute value of the vectors
 	 * e1 and e2 are the cell widths in the corresponding direction.
 	 */
 	class DetectorPlane : public Detector

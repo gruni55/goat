@@ -181,7 +181,9 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			// void turnSrc // to be done !!!
 		};
 
-
+		/**
+		* @brief This class describes a ring shaped
+		*/
 		class LightSrcRing : public LightSrc
 		{
 		public:

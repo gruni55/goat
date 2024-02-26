@@ -165,7 +165,11 @@ namespace GOAT
 			bool storeInFile = false;
 
 		};
-
+		/**
+		* @brief This class makes a raytracing without any output (except detectors)
+		* In this ray tracing class no reactions at the surface is included. 
+		* It is intended for calculation only with detectors
+		*/
 		class Raytrace_pure : public Raytrace
 		{
 		public:

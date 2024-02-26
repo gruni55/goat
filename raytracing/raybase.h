@@ -1,18 +1,20 @@
 #pragma once
 #include "vector.h"
 #include "objectshape.h"
-/**
- * Abstract base class for all rays used for the raytracing process. This is the parent class, from which all ray classes are derived. 
- */
+
 namespace GOAT
 {
     namespace raytracing
     {
-#define RAYBASE_STATUS_NONE       0
+#define RAYBASE_STATUS_NONE       0 
 #define RAYBASE_STATUS_FIRST_STEP 1
+        /**
+         * @brief Abstract base class for all rays used for the raytracing process. 
+         *  This abstract base class for all rays is the parent class, from which all ray classes are derived.
+         */
         class RayBase {
         public:
-            virtual bool next() = 0;
+            virtual bool next() = 0; ///< make the next step (has to include phase progress)
             virtual maths::Vector<double> getk() = 0; ///< gives back direction Vector
             virtual maths::Vector<std::complex<double> > getE() = 0; ///< gives back electric field strength
             virtual maths::Vector<double> getP() = 0; ///< gives back position

@@ -7,20 +7,22 @@
 #include "objectshape.h"
 #include <iostream>
 #include <fstream>
-/**  
-  @brief This class represents an ellipsoid, defined by its half axis a, b and c according to the formula:
-   \f$\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\f$
-*/
+
 namespace GOAT
 {
     namespace raytracing
     {
+        /**
+        * @brief This class represents an ellipsoid
+        * This class represents an ellipsoid, defined by its half axis a, b and c according to the formula:
+        * \f$\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\f$
+        */
         class Ellipsoid : public ObjectShape
         {
         public:
             // Ellipsoid &operator = (const Ellipsoid& e);
             ~Ellipsoid() {};
-            Ellipsoid();
+            Ellipsoid(); 
             Ellipsoid(const ObjectShape&);
             /**
              * @brief Copy Constructor
