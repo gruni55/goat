@@ -92,6 +92,23 @@ namespace GOAT
 			return erg;
 		}
 
+#include <iostream>
+
+		double newton_root(std::function<double(double)> f, std::function<double(double)> df, double x0, double eps)
+		{
+			double xold, xnew;
+			xold = x0;
+			double dx;
+			do
+			{
+				std::cout << "xold=" << xold << std::endl;
+				xnew = xold - f(xold) / df(xold);
+				dx = fabs(xold - xnew);
+				xold = xnew;
+			} while (dx > eps);
+			return xnew;
+		}
+
 	}
 }
 

@@ -30,6 +30,7 @@ add_subdirectory (examples/axicon)
 add_subdirectory (examples/mctest)
 add_subdirectory (examples/usptest)
 add_subdirectory (examples/sphere)
+add_subdirectory (examples/math)
 add_subdirectory (examplesXML)
 add_subdirectory (XML)
 

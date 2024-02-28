@@ -3,7 +3,8 @@
 #define GOODIES_H
 #include <complex>
 #include <vector>
-
+#include <functional>
+#include <limits>
 namespace GOAT
 {
 	namespace maths
@@ -50,6 +51,7 @@ namespace GOAT
 		* \return FWHM in indices
 		*/
 		std::size_t FWHM(std::vector<double> d, std::size_t index);
+		double newton_root(std::function<double(double)> f, std::function<double(double)> df, double x0=0, double eps=std::numeric_limits<double>::min());		
 	}
 }
 #endif
