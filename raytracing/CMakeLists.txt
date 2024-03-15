@@ -7,7 +7,7 @@ set (
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp 
 		     plane.cpp pulsecalculation.cpp gridentry.cpp asphericLens.cpp
-     "fft.cpp"  "cone.cpp")  
+		     sphericLens.cpp lens.cpp fft.cpp  cone.cpp)  
 
 set (
 	RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
@@ -16,7 +16,7 @@ set (
 		     triangle_box_intersection.h  superarray.h supergrid.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h inel_calc.h 
 		     refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h asphericLens.h
-     "constants.h" "cone.h")
+		     sphericLens.h lens.h constants.h cone.h)
 
 add_compile_definitions (WITH_SUPERGITTER)
 
