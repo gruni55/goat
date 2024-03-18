@@ -1,5 +1,7 @@
 var hierarchy =
 [
+    [ "GOAT::raytracing::asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", null ],
+    [ "GOAT::raytracing::asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", null ]
     ] ],
@@ -13,14 +15,18 @@ var hierarchy =
     [ "GOAT::raytracing::grid", "class_g_o_a_t_1_1raytracing_1_1grid.html", null ],
     [ "GOAT::raytracing::gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", null ],
     [ "GOAT::raytracing::indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", null ],
+    [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
+    [ "GOAT::raytracing::lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
       [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", [
         [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]
       ] ],
       [ "GOAT::raytracing::LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", [
         [ "GOAT::raytracing::LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", null ],
+        [ "GOAT::raytracing::LightSrcRingGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html", null ],
         [ "GOAT::raytracing::LightSrcRing_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html", null ]
-      ] ]
+      ] ],
+      [ "GOAT::raytracing::LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", null ]
     ] ],
     [ "GOAT::maths::Matrix< T >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::maths::Matrix< double >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
@@ -38,6 +44,8 @@ var hierarchy =
       [ "GOAT::raytracing::Box", "class_g_o_a_t_1_1raytracing_1_1_box.html", null ],
       [ "GOAT::raytracing::Cone", "class_g_o_a_t_1_1raytracing_1_1_cone.html", null ],
       [ "GOAT::raytracing::Ellipsoid", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html", null ],
+      [ "GOAT::raytracing::asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", null ],
+      [ "GOAT::raytracing::sphericLens", "class_g_o_a_t_1_1raytracing_1_1spheric_lens.html", null ],
       [ "GOAT::raytracing::surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", null ]
     ] ],
     [ "GOAT::raytracing::Octree< T >", "class_g_o_a_t_1_1raytracing_1_1_octree.html", null ],
@@ -77,6 +85,7 @@ var hierarchy =
     [ "GOAT::raytracing::tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", null ],
     [ "GOAT::maths::Vector< T >", "class_g_o_a_t_1_1maths_1_1_vector.html", null ],
     [ "GOAT::maths::Vector< double >", "class_g_o_a_t_1_1maths_1_1_vector.html", null ],
+    [ "GOAT::maths::Vector< INDEX_TYPE >", "class_g_o_a_t_1_1maths_1_1_vector.html", null ],
     [ "GOAT::maths::Vector< int >", "class_g_o_a_t_1_1maths_1_1_vector.html", null ],
     [ "GOAT::maths::Vector< std::complex< double > >", "class_g_o_a_t_1_1maths_1_1_vector.html", null ],
     [ "GOAT::raytracing::wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", null ],

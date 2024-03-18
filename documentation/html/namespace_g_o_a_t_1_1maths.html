@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -123,7 +122,22 @@ Functions</h2></td></tr>
 <tr class="memitem:ae2b1587f91e8f8b11c6c3b6f41527d09"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ae2b1587f91e8f8b11c6c3b6f41527d09">ftrans</a> (int pol, double alpha, std::complex&lt; double &gt; n1, std::complex&lt; double &gt; n2)</td></tr>
 <tr class="separator:ae2b1587f91e8f8b11c6c3b6f41527d09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf1de9fa5bd909a98d9e0162d5b1ca79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#acf1de9fa5bd909a98d9e0162d5b1ca79">testnan</a> (double x)</td></tr>
+<tr class="memdesc:acf1de9fa5bd909a98d9e0162d5b1ca79"><td class="mdescLeft">&#160;</td><td class="mdescRight">tests x on NaN  <br /></td></tr>
 <tr class="separator:acf1de9fa5bd909a98d9e0162d5b1ca79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac142460e9abee07ad1aa82bab55908de"><td class="memItemLeft" align="right" valign="top">std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ac142460e9abee07ad1aa82bab55908de">movingAvg</a> (std::vector&lt; double &gt; d, int n)</td></tr>
+<tr class="memdesc:ac142460e9abee07ad1aa82bab55908de"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates the moving average of the data Calculates the (unweighted) moving average over the data stored in d. The average will be calculated over n elements  <br /></td></tr>
+<tr class="separator:ac142460e9abee07ad1aa82bab55908de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713591c4a62eb4e59b7274e2f51da270"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a713591c4a62eb4e59b7274e2f51da270">mean</a> (std::vector&lt; double &gt; d)</td></tr>
+<tr class="memdesc:a713591c4a62eb4e59b7274e2f51da270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the mean of the data stored in d.  <br /></td></tr>
+<tr class="separator:a713591c4a62eb4e59b7274e2f51da270"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae212dff150480d4308ab6d0430b6521c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ae212dff150480d4308ab6d0430b6521c">findmax</a> (std::vector&lt; double &gt; d, std::size_t &amp;index)</td></tr>
+<tr class="memdesc:ae212dff150480d4308ab6d0430b6521c"><td class="mdescLeft">&#160;</td><td class="mdescRight">finds maximum in data This function finds the maximal value inside a vector  <br /></td></tr>
+<tr class="separator:ae212dff150480d4308ab6d0430b6521c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08502f966048a9ac1a3351a4560fc916"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a08502f966048a9ac1a3351a4560fc916">FWHM</a> (std::vector&lt; double &gt; d, std::size_t index)</td></tr>
+<tr class="memdesc:a08502f966048a9ac1a3351a4560fc916"><td class="mdescLeft">&#160;</td><td class="mdescRight">estimates the full width at half maximum of a peak around at the position inside a vector The function gives back the full width at half maximum (FWHM) by finding the first point with less than (or equal to) the half of the maximal value left and right from position index inside the vector d  <br /></td></tr>
+<tr class="separator:a08502f966048a9ac1a3351a4560fc916"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21e5c5b81ace492e721f4c83d3db0882"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a21e5c5b81ace492e721f4c83d3db0882">newton_root</a> (std::function&lt; double(double)&gt; f, std::function&lt; double(double)&gt; df, double x0=0, double eps=std::numeric_limits&lt; double &gt;::min())</td></tr>
+<tr class="separator:a21e5c5b81ace492e721f4c83d3db0882"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4bb98f52dbc0a9ce9246ef6de25d602"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#af4bb98f52dbc0a9ce9246ef6de25d602">unity</a> ()</td></tr>
 <tr class="memdesc:af4bb98f52dbc0a9ce9246ef6de25d602"><td class="mdescLeft">&#160;</td><td class="mdescRight">unity matrix (double precision)  <br /></td></tr>
 <tr class="separator:af4bb98f52dbc0a9ce9246ef6de25d602"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,6 +170,22 @@ Functions</h2></td></tr>
 <tr class="separator:ababe7f60139deedef6e1d89bacf0370b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5178292e4d9533a1608f7f07735062c5"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a5178292e4d9533a1608f7f07735062c5">operator/</a> (int y, std::complex&lt; double &gt; x)</td></tr>
 <tr class="separator:a5178292e4d9533a1608f7f07735062c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03676c30c6c5943738c3e4530c3d556f"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a03676c30c6c5943738c3e4530c3d556f">operator+</a> (std::complex&lt; double &gt; x, long long int y)</td></tr>
+<tr class="separator:a03676c30c6c5943738c3e4530c3d556f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea1537e2c9b96360ebd18b5ef8ce20ed"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aea1537e2c9b96360ebd18b5ef8ce20ed">operator+</a> (long long int y, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:aea1537e2c9b96360ebd18b5ef8ce20ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3920c6a5382b9d0e1f7e4ed8f77f18a"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aa3920c6a5382b9d0e1f7e4ed8f77f18a">operator-</a> (std::complex&lt; double &gt; x, long long int y)</td></tr>
+<tr class="separator:aa3920c6a5382b9d0e1f7e4ed8f77f18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803c6a9bf595d21868c2d0cf4377d1c7"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a803c6a9bf595d21868c2d0cf4377d1c7">operator-</a> (long long int y, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:a803c6a9bf595d21868c2d0cf4377d1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a775b7f27af4ab1a174592e772e02bc6e"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a775b7f27af4ab1a174592e772e02bc6e">operator*</a> (std::complex&lt; double &gt; x, long long int y)</td></tr>
+<tr class="separator:a775b7f27af4ab1a174592e772e02bc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a565522d8237e2a565a5613d97c8dbf4d"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a565522d8237e2a565a5613d97c8dbf4d">operator*</a> (long long int y, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:a565522d8237e2a565a5613d97c8dbf4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e1322e072e9b709b6b4ef7a74902ea4"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a7e1322e072e9b709b6b4ef7a74902ea4">operator/</a> (std::complex&lt; double &gt; x, long long int y)</td></tr>
+<tr class="separator:a7e1322e072e9b709b6b4ef7a74902ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3c7d463c5f66009f33710707a23a09"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a5d3c7d463c5f66009f33710707a23a09">operator/</a> (long long int y, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:a5d3c7d463c5f66009f33710707a23a09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8689bd2d6e062bec84edeb14e4ec1cc"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:af8689bd2d6e062bec84edeb14e4ec1cc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#af8689bd2d6e062bec84edeb14e4ec1cc">cart2sphere</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; T &gt; &amp;x)</td></tr>
 <tr class="memdesc:af8689bd2d6e062bec84edeb14e4ec1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation from cartesian coordinates to spherical coordinates.  <br /></td></tr>
@@ -188,6 +218,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ac3148e6b7bdd6cd173fe34255c9ddc90"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ac3148e6b7bdd6cd173fe34255c9ddc90">abs</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r)</td></tr>
 <tr class="memdesc:ac3148e6b7bdd6cd173fe34255c9ddc90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the absolute value of an integer vector.  <br /></td></tr>
 <tr class="separator:ac3148e6b7bdd6cd173fe34255c9ddc90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f27b3c46ef26a43b50843b5ed1bd15c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a7f27b3c46ef26a43b50843b5ed1bd15c">abs</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r)</td></tr>
+<tr class="memdesc:a7f27b3c46ef26a43b50843b5ed1bd15c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the absolute value of an integer vector.  <br /></td></tr>
+<tr class="separator:a7f27b3c46ef26a43b50843b5ed1bd15c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ca6210fbf996fddbe0a7c8bc2ba39c5"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a6ca6210fbf996fddbe0a7c8bc2ba39c5">abs2</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r)</td></tr>
 <tr class="memdesc:a6ca6210fbf996fddbe0a7c8bc2ba39c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the squared absolute value of double vector.  <br /></td></tr>
 <tr class="separator:a6ca6210fbf996fddbe0a7c8bc2ba39c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -353,6 +386,14 @@ Functions</h2></td></tr>
 <tr class="separator:a67c7110a198b1cc0a179476d92cec01b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a452e4afd0b1973c0a5459a7da01d15ad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a452e4afd0b1973c0a5459a7da01d15ad">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
 <tr class="separator:a452e4afd0b1973c0a5459a7da01d15ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a63c9bc9fa67edee3ac1c21481c6b06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a8a63c9bc9fa67edee3ac1c21481c6b06">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:a8a63c9bc9fa67edee3ac1c21481c6b06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52c994207c3f259baa3c16b004cad6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aa52c994207c3f259baa3c16b004cad6d">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
+<tr class="separator:aa52c994207c3f259baa3c16b004cad6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebfe6550355f007a91191afcf452bf6d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aebfe6550355f007a91191afcf452bf6d">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:aebfe6550355f007a91191afcf452bf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed918a4f13d73681a469e1cdae2c5f98"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aed918a4f13d73681a469e1cdae2c5f98">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r2)</td></tr>
+<tr class="separator:aed918a4f13d73681a469e1cdae2c5f98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9c14e340aa27d2c003a76f8479b3249"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aa9c14e340aa27d2c003a76f8479b3249">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
 <tr class="separator:aa9c14e340aa27d2c003a76f8479b3249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32e4a201ed60803f01c0d16eba863755"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a32e4a201ed60803f01c0d16eba863755">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
@@ -361,6 +402,10 @@ Functions</h2></td></tr>
 <tr class="separator:aac10fa542096b6e9c5b886760564391d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a27985adb474afa93dcda23883edae4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a8a27985adb474afa93dcda23883edae4">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
 <tr class="separator:a8a27985adb474afa93dcda23883edae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bf36b515ad43854caa69d3a37f6d1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a12bf36b515ad43854caa69d3a37f6d1d">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:a12bf36b515ad43854caa69d3a37f6d1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8e4e435fd8e5ebcf6231593609cbc83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ac8e4e435fd8e5ebcf6231593609cbc83">operator-</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
+<tr class="separator:ac8e4e435fd8e5ebcf6231593609cbc83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fe653f7781f997c19f2f8b4c762b18e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a7fe653f7781f997c19f2f8b4c762b18e">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
 <tr class="separator:a7fe653f7781f997c19f2f8b4c762b18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f15495c326eb594af5b410da8d69580"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a6f15495c326eb594af5b410da8d69580">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
@@ -373,6 +418,14 @@ Functions</h2></td></tr>
 <tr class="separator:ab8098b565d3b08bcb4e76c7e84c6137f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37d26a243d25f223d3c79455abc93092"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a37d26a243d25f223d3c79455abc93092">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
 <tr class="separator:a37d26a243d25f223d3c79455abc93092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f97bd26a15e2bb4c937ed16e98571b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ac3f97bd26a15e2bb4c937ed16e98571b">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
+<tr class="separator:ac3f97bd26a15e2bb4c937ed16e98571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21785da385051594f5e1194daab63301"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a21785da385051594f5e1194daab63301">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:a21785da385051594f5e1194daab63301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b446a3cf84a767ab089acebd08eb94c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a9b446a3cf84a767ab089acebd08eb94c">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:a9b446a3cf84a767ab089acebd08eb94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab23e27114d5dd07e01f35dca6189de42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ab23e27114d5dd07e01f35dca6189de42">operator+</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r2)</td></tr>
+<tr class="separator:ab23e27114d5dd07e01f35dca6189de42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acda777fd81b3f0c5da11765b1040e19b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#acda777fd81b3f0c5da11765b1040e19b">operator*</a> (int x, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r)</td></tr>
 <tr class="separator:acda777fd81b3f0c5da11765b1040e19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aec6ab756845ca76c80203eec46b5f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a9aec6ab756845ca76c80203eec46b5f4">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r, int x)</td></tr>
@@ -381,6 +434,14 @@ Functions</h2></td></tr>
 <tr class="separator:ac6499f1433fb73811ec4769ff6ee5f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcdae0005db85bffb3f76267483f7367"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#abcdae0005db85bffb3f76267483f7367">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r, double x)</td></tr>
 <tr class="separator:abcdae0005db85bffb3f76267483f7367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a155df0d14c2607897caa386a034d24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a0a155df0d14c2607897caa386a034d24">operator*</a> (long long int x, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r)</td></tr>
+<tr class="separator:a0a155df0d14c2607897caa386a034d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e15264c31d15466f78ba1b8fa3c55ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a2e15264c31d15466f78ba1b8fa3c55ae">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r, long long int x)</td></tr>
+<tr class="separator:a2e15264c31d15466f78ba1b8fa3c55ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c8d8c1758eaee09c2b5d0806d8b095d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a7c8d8c1758eaee09c2b5d0806d8b095d">operator*</a> (double x, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r)</td></tr>
+<tr class="separator:a7c8d8c1758eaee09c2b5d0806d8b095d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11cc76eae8c4d40a7e2cb1b8e5c14dc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a11cc76eae8c4d40a7e2cb1b8e5c14dc3">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r, double x)</td></tr>
+<tr class="separator:a11cc76eae8c4d40a7e2cb1b8e5c14dc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab902d95f300d49876d9d8a0a4fee56da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ab902d95f300d49876d9d8a0a4fee56da">operator*</a> (std::complex&lt; double &gt; x, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r)</td></tr>
 <tr class="memdesc:ab902d95f300d49876d9d8a0a4fee56da"><td class="mdescLeft">&#160;</td><td class="mdescRight">multiplication between a complex valued scalar and a double valued vector  <br /></td></tr>
 <tr class="separator:ab902d95f300d49876d9d8a0a4fee56da"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -391,18 +452,30 @@ Functions</h2></td></tr>
 <tr class="separator:a62a7150d0e5b0151abdf88572fea10e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a700bff7cb4275f540cbbda1f057ad1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a0a700bff7cb4275f540cbbda1f057ad1">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r, std::complex&lt; double &gt; x)</td></tr>
 <tr class="separator:a0a700bff7cb4275f540cbbda1f057ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28455445d7bd291c47df3c1f5df2fbf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a28455445d7bd291c47df3c1f5df2fbf7">operator*</a> (std::complex&lt; double &gt; x, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r)</td></tr>
+<tr class="separator:a28455445d7bd291c47df3c1f5df2fbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27568da985349ce6b04333edef68fb75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a27568da985349ce6b04333edef68fb75">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:a27568da985349ce6b04333edef68fb75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab770caa3bb4626861b07a31d90aa71b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ab770caa3bb4626861b07a31d90aa71b6">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r, std::complex&lt; double &gt; x)</td></tr>
 <tr class="separator:ab770caa3bb4626861b07a31d90aa71b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a701016d688ff5105c19a30386b7e058a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a701016d688ff5105c19a30386b7e058a">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r, int x)</td></tr>
 <tr class="separator:a701016d688ff5105c19a30386b7e058a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13060d266b854c16ab23e29347e47d35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a13060d266b854c16ab23e29347e47d35">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r, long long int x)</td></tr>
+<tr class="separator:a13060d266b854c16ab23e29347e47d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae00d3885085e7bdd3c53e2bea6f0f97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aae00d3885085e7bdd3c53e2bea6f0f97">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r, double x)</td></tr>
 <tr class="separator:aae00d3885085e7bdd3c53e2bea6f0f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a60876eb8277f90c33ada4ce2c21e924a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a60876eb8277f90c33ada4ce2c21e924a">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r, int x)</td></tr>
 <tr class="separator:a60876eb8277f90c33ada4ce2c21e924a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ea289057fa1058f18fbc094861cc5b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a7ea289057fa1058f18fbc094861cc5b1">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;r, long long int x)</td></tr>
+<tr class="separator:a7ea289057fa1058f18fbc094861cc5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaeaacc53f9a53557a7a4c48a75544e19"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aaeaacc53f9a53557a7a4c48a75544e19">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r, double x)</td></tr>
 <tr class="separator:aaeaacc53f9a53557a7a4c48a75544e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19484c2a94c680b39ade368e80d5eddf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a19484c2a94c680b39ade368e80d5eddf">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r, double x)</td></tr>
+<tr class="separator:a19484c2a94c680b39ade368e80d5eddf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917df636d2980aa174f0e62e08e4bb65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a917df636d2980aa174f0e62e08e4bb65">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r, std::complex&lt; double &gt; x)</td></tr>
 <tr class="separator:a917df636d2980aa174f0e62e08e4bb65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f472517c94f2c92efe4c259710f6478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a8f472517c94f2c92efe4c259710f6478">operator/</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r, std::complex&lt; double &gt; x)</td></tr>
+<tr class="separator:a8f472517c94f2c92efe4c259710f6478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad784b54733481bcdef9c71c9e3a91052"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ad784b54733481bcdef9c71c9e3a91052">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;a, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;b)</td></tr>
 <tr class="separator:ad784b54733481bcdef9c71c9e3a91052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a243636877d5cc63df0c4dc7b8b5cc831"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a243636877d5cc63df0c4dc7b8b5cc831">operator*</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;a, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;b)</td></tr>
@@ -434,6 +507,10 @@ Functions</h2></td></tr>
 <tr class="separator:a1a9cdad1b364b22bb401b6173df970e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a673bd66c826c944536c9becef9ce04c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a673bd66c826c944536c9becef9ce04c2">emult</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
 <tr class="separator:a673bd66c826c944536c9becef9ce04c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86084ddb56925aa78a51ce265366b795"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a86084ddb56925aa78a51ce265366b795">emult</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r2)</td></tr>
+<tr class="separator:a86084ddb56925aa78a51ce265366b795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92c4347d98284e4e83109f9347de7b51"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a92c4347d98284e4e83109f9347de7b51">emult</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;r1, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;r2)</td></tr>
+<tr class="separator:a92c4347d98284e4e83109f9347de7b51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -449,7 +526,7 @@ Variables</h2></td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a7ecc2cf89285b9ea7ddc4f9a18238d98" name="a7ecc2cf89285b9ea7ddc4f9a18238d98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7ecc2cf89285b9ea7ddc4f9a18238d98">&#9670;&#160;</a></span>abs() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ecc2cf89285b9ea7ddc4f9a18238d98">&#9670;&#160;</a></span>abs() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,7 +547,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="ac3148e6b7bdd6cd173fe34255c9ddc90" name="ac3148e6b7bdd6cd173fe34255c9ddc90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3148e6b7bdd6cd173fe34255c9ddc90">&#9670;&#160;</a></span>abs() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3148e6b7bdd6cd173fe34255c9ddc90">&#9670;&#160;</a></span>abs() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -489,8 +566,28 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a7f27b3c46ef26a43b50843b5ed1bd15c" name="a7f27b3c46ef26a43b50843b5ed1bd15c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f27b3c46ef26a43b50843b5ed1bd15c">&#9670;&#160;</a></span>abs() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::maths::abs </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the absolute value of an integer vector. </p>
+
+</div>
+</div>
 <a id="ac0bbe0864f5259342d6ad34cf367a4c1" name="ac0bbe0864f5259342d6ad34cf367a4c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0bbe0864f5259342d6ad34cf367a4c1">&#9670;&#160;</a></span>abs() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0bbe0864f5259342d6ad34cf367a4c1">&#9670;&#160;</a></span>abs() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -510,7 +607,7 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a id="a0042b79a72458da973662aa6aed15536" name="a0042b79a72458da973662aa6aed15536"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0042b79a72458da973662aa6aed15536">&#9670;&#160;</a></span>abs() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0042b79a72458da973662aa6aed15536">&#9670;&#160;</a></span>abs() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,6 +623,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>absolute value of the complex valued variable x </p>
+<p>absolute value of x (sqrt (re(x)^2+im(x)+^2) </p>
 
 </div>
 </div>
@@ -700,7 +798,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html" title="Template class for threedimensional vectors.">Vector</a> in spherical coordinates <picture><source srcset="form_0_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$(r,\vartheta,\varphi)$" src="form_0.png"/></picture> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00362">362</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00373">373</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -778,7 +876,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00514">514</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00557">557</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -1039,7 +1137,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a1a9cdad1b364b22bb401b6173df970e0" name="a1a9cdad1b364b22bb401b6173df970e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9cdad1b364b22bb401b6173df970e0">&#9670;&#160;</a></span>emult() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a9cdad1b364b22bb401b6173df970e0">&#9670;&#160;</a></span>emult() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1066,8 +1164,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a86084ddb56925aa78a51ce265366b795" name="a86084ddb56925aa78a51ce265366b795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86084ddb56925aa78a51ce265366b795">&#9670;&#160;</a></span>emult() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::emult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a673bd66c826c944536c9becef9ce04c2" name="a673bd66c826c944536c9becef9ce04c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a673bd66c826c944536c9becef9ce04c2">&#9670;&#160;</a></span>emult() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a673bd66c826c944536c9becef9ce04c2">&#9670;&#160;</a></span>emult() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1076,6 +1202,34 @@ template&lt;class T &gt; </div>
           <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::emult </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92c4347d98284e4e83109f9347de7b51" name="a92c4347d98284e4e83109f9347de7b51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92c4347d98284e4e83109f9347de7b51">&#9670;&#160;</a></span>emult() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::emult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
           <td class="paramname"><em>r1</em>, </td>
         </tr>
         <tr>
@@ -1199,6 +1353,49 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>returns a normalized vector in theta-direction on a unit sphere with spherical coordinates /p theta and /p phi </p>
+
+</div>
+</div>
+<a id="ae212dff150480d4308ab6d0430b6521c" name="ae212dff150480d4308ab6d0430b6521c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae212dff150480d4308ab6d0430b6521c">&#9670;&#160;</a></span>findmax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::maths::findmax </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t &amp;&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>finds maximum in data This function finds the maximal value inside a vector </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">d</td><td>vector with the data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the highest value in d </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">Index</td><td>of the maximum inside d </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1394,6 +1591,44 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a08502f966048a9ac1a3351a4560fc916" name="a08502f966048a9ac1a3351a4560fc916"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08502f966048a9ac1a3351a4560fc916">&#9670;&#160;</a></span>FWHM()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t GOAT::maths::FWHM </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>estimates the full width at half maximum of a peak around at the position inside a vector The function gives back the full width at half maximum (FWHM) by finding the first point with less than (or equal to) the half of the maximal value left and right from position index inside the vector d </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>data </td></tr>
+    <tr><td class="paramname">index</td><td>position of the peak </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>FWHM in indices </dd></dl>
+
+</div>
+</div>
 <a id="a849cf0391e02bb6fd2c94a326ee96416" name="a849cf0391e02bb6fd2c94a326ee96416"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a849cf0391e02bb6fd2c94a326ee96416">&#9670;&#160;</a></span>getKSystem()</h2>
 
@@ -1503,7 +1738,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00519">519</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00562">562</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -1623,6 +1858,63 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a713591c4a62eb4e59b7274e2f51da270" name="a713591c4a62eb4e59b7274e2f51da270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713591c4a62eb4e59b7274e2f51da270">&#9670;&#160;</a></span>mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::maths::mean </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the mean of the data stored in d. </p>
+
+</div>
+</div>
+<a id="ac142460e9abee07ad1aa82bab55908de" name="ac142460e9abee07ad1aa82bab55908de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac142460e9abee07ad1aa82bab55908de">&#9670;&#160;</a></span>movingAvg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; GOAT::maths::movingAvg </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculates the moving average of the data Calculates the (unweighted) moving average over the data stored in d. The average will be calculated over n elements </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html" title="Template class for threedimensional vectors.">Vector</a> with the data </td></tr>
+    <tr><td class="paramname">n</td><td>Number of elements over which the average is calculated if n is even the n+1 elements were used for averaging </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="af9a208d55decb30cd962bc8eb75bc645" name="af9a208d55decb30cd962bc8eb75bc645"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9a208d55decb30cd962bc8eb75bc645">&#9670;&#160;</a></span>nanV()</h2>
 
@@ -1635,6 +1927,46 @@ template&lt;class T &gt; </div>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>tagp</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a21e5c5b81ace492e721f4c83d3db0882" name="a21e5c5b81ace492e721f4c83d3db0882"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21e5c5b81ace492e721f4c83d3db0882">&#9670;&#160;</a></span>newton_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::maths::newton_root </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; double(double)&gt;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::function&lt; double(double)&gt;&#160;</td>
+          <td class="paramname"><em>df</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x0</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>eps</em> = <code>std::numeric_limits&lt;&#160;double&#160;&gt;::min()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1865,7 +2197,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a2af2bd42be50b313922b9433a30d5d1e" name="a2af2bd42be50b313922b9433a30d5d1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2af2bd42be50b313922b9433a30d5d1e">&#9670;&#160;</a></span>operator*() <span class="overload">[1/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2af2bd42be50b313922b9433a30d5d1e">&#9670;&#160;</a></span>operator*() <span class="overload">[1/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1893,7 +2225,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ac5d8f08f188138b7304d3ec8599b6ccb" name="ac5d8f08f188138b7304d3ec8599b6ccb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d8f08f188138b7304d3ec8599b6ccb">&#9670;&#160;</a></span>operator*() <span class="overload">[2/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d8f08f188138b7304d3ec8599b6ccb">&#9670;&#160;</a></span>operator*() <span class="overload">[2/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1921,7 +2253,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a618130e030c10f6aaa2e543ec3351b0d" name="a618130e030c10f6aaa2e543ec3351b0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a618130e030c10f6aaa2e543ec3351b0d">&#9670;&#160;</a></span>operator*() <span class="overload">[3/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a618130e030c10f6aaa2e543ec3351b0d">&#9670;&#160;</a></span>operator*() <span class="overload">[3/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1949,7 +2281,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ad24656bab3717ff1f30d9b037b34ca63" name="ad24656bab3717ff1f30d9b037b34ca63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad24656bab3717ff1f30d9b037b34ca63">&#9670;&#160;</a></span>operator*() <span class="overload">[4/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad24656bab3717ff1f30d9b037b34ca63">&#9670;&#160;</a></span>operator*() <span class="overload">[4/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1977,7 +2309,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a94a74df9befa83e3b866b37d82227cab" name="a94a74df9befa83e3b866b37d82227cab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94a74df9befa83e3b866b37d82227cab">&#9670;&#160;</a></span>operator*() <span class="overload">[5/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a94a74df9befa83e3b866b37d82227cab">&#9670;&#160;</a></span>operator*() <span class="overload">[5/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2005,7 +2337,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a25098f208a8127bc1023d609c0911bca" name="a25098f208a8127bc1023d609c0911bca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25098f208a8127bc1023d609c0911bca">&#9670;&#160;</a></span>operator*() <span class="overload">[6/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25098f208a8127bc1023d609c0911bca">&#9670;&#160;</a></span>operator*() <span class="overload">[6/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2033,7 +2365,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ad6f1dc95baddb694940b77c58336a4ab" name="ad6f1dc95baddb694940b77c58336a4ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6f1dc95baddb694940b77c58336a4ab">&#9670;&#160;</a></span>operator*() <span class="overload">[7/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6f1dc95baddb694940b77c58336a4ab">&#9670;&#160;</a></span>operator*() <span class="overload">[7/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2061,7 +2393,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aca7dcc9cb5df86aedf7e6d69d4954f40" name="aca7dcc9cb5df86aedf7e6d69d4954f40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca7dcc9cb5df86aedf7e6d69d4954f40">&#9670;&#160;</a></span>operator*() <span class="overload">[8/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aca7dcc9cb5df86aedf7e6d69d4954f40">&#9670;&#160;</a></span>operator*() <span class="overload">[8/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2089,7 +2421,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aa620aa3105eee8cc19bca96252dd9876" name="aa620aa3105eee8cc19bca96252dd9876"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa620aa3105eee8cc19bca96252dd9876">&#9670;&#160;</a></span>operator*() <span class="overload">[9/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa620aa3105eee8cc19bca96252dd9876">&#9670;&#160;</a></span>operator*() <span class="overload">[9/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2117,7 +2449,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ad784b54733481bcdef9c71c9e3a91052" name="ad784b54733481bcdef9c71c9e3a91052"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad784b54733481bcdef9c71c9e3a91052">&#9670;&#160;</a></span>operator*() <span class="overload">[10/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad784b54733481bcdef9c71c9e3a91052">&#9670;&#160;</a></span>operator*() <span class="overload">[10/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2145,7 +2477,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a9aec6ab756845ca76c80203eec46b5f4" name="a9aec6ab756845ca76c80203eec46b5f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9aec6ab756845ca76c80203eec46b5f4">&#9670;&#160;</a></span>operator*() <span class="overload">[11/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aec6ab756845ca76c80203eec46b5f4">&#9670;&#160;</a></span>operator*() <span class="overload">[11/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2172,8 +2504,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a2e15264c31d15466f78ba1b8fa3c55ae" name="a2e15264c31d15466f78ba1b8fa3c55ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e15264c31d15466f78ba1b8fa3c55ae">&#9670;&#160;</a></span>operator*() <span class="overload">[12/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ac1e304eb39be1a8ad5e8514a17239c53" name="ac1e304eb39be1a8ad5e8514a17239c53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e304eb39be1a8ad5e8514a17239c53">&#9670;&#160;</a></span>operator*() <span class="overload">[12/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e304eb39be1a8ad5e8514a17239c53">&#9670;&#160;</a></span>operator*() <span class="overload">[13/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2203,7 +2563,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a920fdd2a701fe12703652baa343f7c34" name="a920fdd2a701fe12703652baa343f7c34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a920fdd2a701fe12703652baa343f7c34">&#9670;&#160;</a></span>operator*() <span class="overload">[13/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a920fdd2a701fe12703652baa343f7c34">&#9670;&#160;</a></span>operator*() <span class="overload">[14/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2231,7 +2591,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a42b1bbbde995c48a79219d21d69b876f" name="a42b1bbbde995c48a79219d21d69b876f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42b1bbbde995c48a79219d21d69b876f">&#9670;&#160;</a></span>operator*() <span class="overload">[14/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b1bbbde995c48a79219d21d69b876f">&#9670;&#160;</a></span>operator*() <span class="overload">[15/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2259,7 +2619,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="abcdae0005db85bffb3f76267483f7367" name="abcdae0005db85bffb3f76267483f7367"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcdae0005db85bffb3f76267483f7367">&#9670;&#160;</a></span>operator*() <span class="overload">[15/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abcdae0005db85bffb3f76267483f7367">&#9670;&#160;</a></span>operator*() <span class="overload">[16/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2287,7 +2647,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a0a700bff7cb4275f540cbbda1f057ad1" name="a0a700bff7cb4275f540cbbda1f057ad1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a700bff7cb4275f540cbbda1f057ad1">&#9670;&#160;</a></span>operator*() <span class="overload">[16/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a700bff7cb4275f540cbbda1f057ad1">&#9670;&#160;</a></span>operator*() <span class="overload">[17/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2314,8 +2674,64 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a11cc76eae8c4d40a7e2cb1b8e5c14dc3" name="a11cc76eae8c4d40a7e2cb1b8e5c14dc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11cc76eae8c4d40a7e2cb1b8e5c14dc3">&#9670;&#160;</a></span>operator*() <span class="overload">[18/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27568da985349ce6b04333edef68fb75" name="a27568da985349ce6b04333edef68fb75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27568da985349ce6b04333edef68fb75">&#9670;&#160;</a></span>operator*() <span class="overload">[19/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a243636877d5cc63df0c4dc7b8b5cc831" name="a243636877d5cc63df0c4dc7b8b5cc831"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a243636877d5cc63df0c4dc7b8b5cc831">&#9670;&#160;</a></span>operator*() <span class="overload">[17/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a243636877d5cc63df0c4dc7b8b5cc831">&#9670;&#160;</a></span>operator*() <span class="overload">[20/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2343,7 +2759,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ab2276b018649c2275b73788ff265874b" name="ab2276b018649c2275b73788ff265874b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2276b018649c2275b73788ff265874b">&#9670;&#160;</a></span>operator*() <span class="overload">[18/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2276b018649c2275b73788ff265874b">&#9670;&#160;</a></span>operator*() <span class="overload">[21/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2371,7 +2787,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ac6499f1433fb73811ec4769ff6ee5f60" name="ac6499f1433fb73811ec4769ff6ee5f60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6499f1433fb73811ec4769ff6ee5f60">&#9670;&#160;</a></span>operator*() <span class="overload">[19/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6499f1433fb73811ec4769ff6ee5f60">&#9670;&#160;</a></span>operator*() <span class="overload">[22/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2398,8 +2814,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a7c8d8c1758eaee09c2b5d0806d8b095d" name="a7c8d8c1758eaee09c2b5d0806d8b095d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8d8c1758eaee09c2b5d0806d8b095d">&#9670;&#160;</a></span>operator*() <span class="overload">[23/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acda777fd81b3f0c5da11765b1040e19b" name="acda777fd81b3f0c5da11765b1040e19b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acda777fd81b3f0c5da11765b1040e19b">&#9670;&#160;</a></span>operator*() <span class="overload">[20/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acda777fd81b3f0c5da11765b1040e19b">&#9670;&#160;</a></span>operator*() <span class="overload">[24/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2427,7 +2871,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a4e47150f80166b45082cf2a7f83e76b4" name="a4e47150f80166b45082cf2a7f83e76b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e47150f80166b45082cf2a7f83e76b4">&#9670;&#160;</a></span>operator*() <span class="overload">[21/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e47150f80166b45082cf2a7f83e76b4">&#9670;&#160;</a></span>operator*() <span class="overload">[25/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2464,8 +2908,74 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a0a155df0d14c2607897caa386a034d24" name="a0a155df0d14c2607897caa386a034d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a155df0d14c2607897caa386a034d24">&#9670;&#160;</a></span>operator*() <span class="overload">[26/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a565522d8237e2a565a5613d97c8dbf4d" name="a565522d8237e2a565a5613d97c8dbf4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a565522d8237e2a565a5613d97c8dbf4d">&#9670;&#160;</a></span>operator*() <span class="overload">[27/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00045">45</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="ab902d95f300d49876d9d8a0a4fee56da" name="ab902d95f300d49876d9d8a0a4fee56da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab902d95f300d49876d9d8a0a4fee56da">&#9670;&#160;</a></span>operator*() <span class="overload">[22/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab902d95f300d49876d9d8a0a4fee56da">&#9670;&#160;</a></span>operator*() <span class="overload">[28/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2495,7 +3005,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a62a7150d0e5b0151abdf88572fea10e3" name="a62a7150d0e5b0151abdf88572fea10e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62a7150d0e5b0151abdf88572fea10e3">&#9670;&#160;</a></span>operator*() <span class="overload">[23/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a62a7150d0e5b0151abdf88572fea10e3">&#9670;&#160;</a></span>operator*() <span class="overload">[29/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2522,8 +3032,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a28455445d7bd291c47df3c1f5df2fbf7" name="a28455445d7bd291c47df3c1f5df2fbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28455445d7bd291c47df3c1f5df2fbf7">&#9670;&#160;</a></span>operator*() <span class="overload">[30/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="acc3fbdd22f05dca18c1ccf8572320286" name="acc3fbdd22f05dca18c1ccf8572320286"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc3fbdd22f05dca18c1ccf8572320286">&#9670;&#160;</a></span>operator*() <span class="overload">[24/24]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc3fbdd22f05dca18c1ccf8572320286">&#9670;&#160;</a></span>operator*() <span class="overload">[31/32]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2560,8 +3098,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a775b7f27af4ab1a174592e772e02bc6e" name="a775b7f27af4ab1a174592e772e02bc6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a775b7f27af4ab1a174592e772e02bc6e">&#9670;&#160;</a></span>operator*() <span class="overload">[32/32]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator* </td>
+          <td>(</td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00044">44</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="acf19315f44c95221104fc2722778bf6a" name="acf19315f44c95221104fc2722778bf6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf19315f44c95221104fc2722778bf6a">&#9670;&#160;</a></span>operator+() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acf19315f44c95221104fc2722778bf6a">&#9670;&#160;</a></span>operator+() <span class="overload">[1/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2589,7 +3165,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a7c91d6572622419c7f15d6475f51e536" name="a7c91d6572622419c7f15d6475f51e536"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c91d6572622419c7f15d6475f51e536">&#9670;&#160;</a></span>operator+() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c91d6572622419c7f15d6475f51e536">&#9670;&#160;</a></span>operator+() <span class="overload">[2/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2617,7 +3193,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a48b9fc5f1224f657e4a64b0e999a81fd" name="a48b9fc5f1224f657e4a64b0e999a81fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48b9fc5f1224f657e4a64b0e999a81fd">&#9670;&#160;</a></span>operator+() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a48b9fc5f1224f657e4a64b0e999a81fd">&#9670;&#160;</a></span>operator+() <span class="overload">[3/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2644,8 +3220,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a21785da385051594f5e1194daab63301" name="a21785da385051594f5e1194daab63301"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21785da385051594f5e1194daab63301">&#9670;&#160;</a></span>operator+() <span class="overload">[4/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7fe653f7781f997c19f2f8b4c762b18e" name="a7fe653f7781f997c19f2f8b4c762b18e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe653f7781f997c19f2f8b4c762b18e">&#9670;&#160;</a></span>operator+() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe653f7781f997c19f2f8b4c762b18e">&#9670;&#160;</a></span>operator+() <span class="overload">[5/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2673,7 +3277,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="af923b1283d67a20c07aedec0f62cb811" name="af923b1283d67a20c07aedec0f62cb811"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af923b1283d67a20c07aedec0f62cb811">&#9670;&#160;</a></span>operator+() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af923b1283d67a20c07aedec0f62cb811">&#9670;&#160;</a></span>operator+() <span class="overload">[6/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2701,7 +3305,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a37d26a243d25f223d3c79455abc93092" name="a37d26a243d25f223d3c79455abc93092"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37d26a243d25f223d3c79455abc93092">&#9670;&#160;</a></span>operator+() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d26a243d25f223d3c79455abc93092">&#9670;&#160;</a></span>operator+() <span class="overload">[7/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2728,8 +3332,64 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="ac3f97bd26a15e2bb4c937ed16e98571b" name="ac3f97bd26a15e2bb4c937ed16e98571b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3f97bd26a15e2bb4c937ed16e98571b">&#9670;&#160;</a></span>operator+() <span class="overload">[8/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab23e27114d5dd07e01f35dca6189de42" name="ab23e27114d5dd07e01f35dca6189de42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab23e27114d5dd07e01f35dca6189de42">&#9670;&#160;</a></span>operator+() <span class="overload">[9/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6f15495c326eb594af5b410da8d69580" name="a6f15495c326eb594af5b410da8d69580"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f15495c326eb594af5b410da8d69580">&#9670;&#160;</a></span>operator+() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f15495c326eb594af5b410da8d69580">&#9670;&#160;</a></span>operator+() <span class="overload">[10/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2757,7 +3417,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="ab8098b565d3b08bcb4e76c7e84c6137f" name="ab8098b565d3b08bcb4e76c7e84c6137f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab8098b565d3b08bcb4e76c7e84c6137f">&#9670;&#160;</a></span>operator+() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8098b565d3b08bcb4e76c7e84c6137f">&#9670;&#160;</a></span>operator+() <span class="overload">[11/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2784,8 +3444,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a9b446a3cf84a767ab089acebd08eb94c" name="a9b446a3cf84a767ab089acebd08eb94c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b446a3cf84a767ab089acebd08eb94c">&#9670;&#160;</a></span>operator+() <span class="overload">[12/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="add13fe0a21c5d7a5c327f2083a33946d" name="add13fe0a21c5d7a5c327f2083a33946d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add13fe0a21c5d7a5c327f2083a33946d">&#9670;&#160;</a></span>operator+() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#add13fe0a21c5d7a5c327f2083a33946d">&#9670;&#160;</a></span>operator+() <span class="overload">[13/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2822,8 +3510,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aea1537e2c9b96360ebd18b5ef8ce20ed" name="aea1537e2c9b96360ebd18b5ef8ce20ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea1537e2c9b96360ebd18b5ef8ce20ed">&#9670;&#160;</a></span>operator+() <span class="overload">[14/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00040">40</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="aeb6fe99a2e13b61b5e67fa10a09bb84b" name="aeb6fe99a2e13b61b5e67fa10a09bb84b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb6fe99a2e13b61b5e67fa10a09bb84b">&#9670;&#160;</a></span>operator+() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb6fe99a2e13b61b5e67fa10a09bb84b">&#9670;&#160;</a></span>operator+() <span class="overload">[15/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2860,8 +3586,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a03676c30c6c5943738c3e4530c3d556f" name="a03676c30c6c5943738c3e4530c3d556f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03676c30c6c5943738c3e4530c3d556f">&#9670;&#160;</a></span>operator+() <span class="overload">[16/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00039">39</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="aab38eb0305f25fa1bdefc9ce00b89e49" name="aab38eb0305f25fa1bdefc9ce00b89e49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab38eb0305f25fa1bdefc9ce00b89e49">&#9670;&#160;</a></span>operator-() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab38eb0305f25fa1bdefc9ce00b89e49">&#9670;&#160;</a></span>operator-() <span class="overload">[1/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2889,7 +3653,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="abf733bc02cc16d0f04573660a692ff83" name="abf733bc02cc16d0f04573660a692ff83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf733bc02cc16d0f04573660a692ff83">&#9670;&#160;</a></span>operator-() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abf733bc02cc16d0f04573660a692ff83">&#9670;&#160;</a></span>operator-() <span class="overload">[2/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2917,7 +3681,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a67c7110a198b1cc0a179476d92cec01b" name="a67c7110a198b1cc0a179476d92cec01b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67c7110a198b1cc0a179476d92cec01b">&#9670;&#160;</a></span>operator-() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c7110a198b1cc0a179476d92cec01b">&#9670;&#160;</a></span>operator-() <span class="overload">[3/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2944,8 +3708,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a8a63c9bc9fa67edee3ac1c21481c6b06" name="a8a63c9bc9fa67edee3ac1c21481c6b06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a63c9bc9fa67edee3ac1c21481c6b06">&#9670;&#160;</a></span>operator-() <span class="overload">[4/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aa9c14e340aa27d2c003a76f8479b3249" name="aa9c14e340aa27d2c003a76f8479b3249"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9c14e340aa27d2c003a76f8479b3249">&#9670;&#160;</a></span>operator-() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c14e340aa27d2c003a76f8479b3249">&#9670;&#160;</a></span>operator-() <span class="overload">[5/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2973,7 +3765,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a452e4afd0b1973c0a5459a7da01d15ad" name="a452e4afd0b1973c0a5459a7da01d15ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a452e4afd0b1973c0a5459a7da01d15ad">&#9670;&#160;</a></span>operator-() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a452e4afd0b1973c0a5459a7da01d15ad">&#9670;&#160;</a></span>operator-() <span class="overload">[6/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3000,8 +3792,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aebfe6550355f007a91191afcf452bf6d" name="aebfe6550355f007a91191afcf452bf6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebfe6550355f007a91191afcf452bf6d">&#9670;&#160;</a></span>operator-() <span class="overload">[7/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8a27985adb474afa93dcda23883edae4" name="a8a27985adb474afa93dcda23883edae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a27985adb474afa93dcda23883edae4">&#9670;&#160;</a></span>operator-() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a27985adb474afa93dcda23883edae4">&#9670;&#160;</a></span>operator-() <span class="overload">[8/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3028,8 +3848,92 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aa52c994207c3f259baa3c16b004cad6d" name="aa52c994207c3f259baa3c16b004cad6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa52c994207c3f259baa3c16b004cad6d">&#9670;&#160;</a></span>operator-() <span class="overload">[9/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aed918a4f13d73681a469e1cdae2c5f98" name="aed918a4f13d73681a469e1cdae2c5f98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed918a4f13d73681a469e1cdae2c5f98">&#9670;&#160;</a></span>operator-() <span class="overload">[10/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac8e4e435fd8e5ebcf6231593609cbc83" name="ac8e4e435fd8e5ebcf6231593609cbc83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e4e435fd8e5ebcf6231593609cbc83">&#9670;&#160;</a></span>operator-() <span class="overload">[11/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a32e4a201ed60803f01c0d16eba863755" name="a32e4a201ed60803f01c0d16eba863755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32e4a201ed60803f01c0d16eba863755">&#9670;&#160;</a></span>operator-() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a32e4a201ed60803f01c0d16eba863755">&#9670;&#160;</a></span>operator-() <span class="overload">[12/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3057,7 +3961,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aac10fa542096b6e9c5b886760564391d" name="aac10fa542096b6e9c5b886760564391d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac10fa542096b6e9c5b886760564391d">&#9670;&#160;</a></span>operator-() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aac10fa542096b6e9c5b886760564391d">&#9670;&#160;</a></span>operator-() <span class="overload">[13/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3084,8 +3988,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a12bf36b515ad43854caa69d3a37f6d1d" name="a12bf36b515ad43854caa69d3a37f6d1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bf36b515ad43854caa69d3a37f6d1d">&#9670;&#160;</a></span>operator-() <span class="overload">[14/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae4a585e3e8bd49baa6b3f4ea2b86bf7f" name="ae4a585e3e8bd49baa6b3f4ea2b86bf7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4a585e3e8bd49baa6b3f4ea2b86bf7f">&#9670;&#160;</a></span>operator-() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4a585e3e8bd49baa6b3f4ea2b86bf7f">&#9670;&#160;</a></span>operator-() <span class="overload">[15/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3122,8 +4054,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a803c6a9bf595d21868c2d0cf4377d1c7" name="a803c6a9bf595d21868c2d0cf4377d1c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803c6a9bf595d21868c2d0cf4377d1c7">&#9670;&#160;</a></span>operator-() <span class="overload">[16/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00042">42</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="a4c060183b10561015ca41886f2555b5e" name="a4c060183b10561015ca41886f2555b5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c060183b10561015ca41886f2555b5e">&#9670;&#160;</a></span>operator-() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c060183b10561015ca41886f2555b5e">&#9670;&#160;</a></span>operator-() <span class="overload">[17/18]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3160,8 +4130,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="aa3920c6a5382b9d0e1f7e4ed8f77f18a" name="aa3920c6a5382b9d0e1f7e4ed8f77f18a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3920c6a5382b9d0e1f7e4ed8f77f18a">&#9670;&#160;</a></span>operator-() <span class="overload">[18/18]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator- </td>
+          <td>(</td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00041">41</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="ab028137c4b12e5527578c690627adc12" name="ab028137c4b12e5527578c690627adc12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab028137c4b12e5527578c690627adc12">&#9670;&#160;</a></span>operator/() <span class="overload">[1/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab028137c4b12e5527578c690627adc12">&#9670;&#160;</a></span>operator/() <span class="overload">[1/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3189,7 +4197,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="abc210e1fbd300f7683b949a3f84ad74a" name="abc210e1fbd300f7683b949a3f84ad74a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc210e1fbd300f7683b949a3f84ad74a">&#9670;&#160;</a></span>operator/() <span class="overload">[2/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abc210e1fbd300f7683b949a3f84ad74a">&#9670;&#160;</a></span>operator/() <span class="overload">[2/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3217,7 +4225,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a701016d688ff5105c19a30386b7e058a" name="a701016d688ff5105c19a30386b7e058a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a701016d688ff5105c19a30386b7e058a">&#9670;&#160;</a></span>operator/() <span class="overload">[3/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a701016d688ff5105c19a30386b7e058a">&#9670;&#160;</a></span>operator/() <span class="overload">[3/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3244,8 +4252,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a13060d266b854c16ab23e29347e47d35" name="a13060d266b854c16ab23e29347e47d35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13060d266b854c16ab23e29347e47d35">&#9670;&#160;</a></span>operator/() <span class="overload">[4/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab770caa3bb4626861b07a31d90aa71b6" name="ab770caa3bb4626861b07a31d90aa71b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab770caa3bb4626861b07a31d90aa71b6">&#9670;&#160;</a></span>operator/() <span class="overload">[4/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab770caa3bb4626861b07a31d90aa71b6">&#9670;&#160;</a></span>operator/() <span class="overload">[5/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3273,7 +4309,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="aaeaacc53f9a53557a7a4c48a75544e19" name="aaeaacc53f9a53557a7a4c48a75544e19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaeaacc53f9a53557a7a4c48a75544e19">&#9670;&#160;</a></span>operator/() <span class="overload">[5/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeaacc53f9a53557a7a4c48a75544e19">&#9670;&#160;</a></span>operator/() <span class="overload">[6/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3301,7 +4337,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a917df636d2980aa174f0e62e08e4bb65" name="a917df636d2980aa174f0e62e08e4bb65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a917df636d2980aa174f0e62e08e4bb65">&#9670;&#160;</a></span>operator/() <span class="overload">[6/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a917df636d2980aa174f0e62e08e4bb65">&#9670;&#160;</a></span>operator/() <span class="overload">[7/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3328,8 +4364,64 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a19484c2a94c680b39ade368e80d5eddf" name="a19484c2a94c680b39ade368e80d5eddf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19484c2a94c680b39ade368e80d5eddf">&#9670;&#160;</a></span>operator/() <span class="overload">[8/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; double &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8f472517c94f2c92efe4c259710f6478" name="a8f472517c94f2c92efe4c259710f6478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f472517c94f2c92efe4c259710f6478">&#9670;&#160;</a></span>operator/() <span class="overload">[9/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; long long int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aae00d3885085e7bdd3c53e2bea6f0f97" name="aae00d3885085e7bdd3c53e2bea6f0f97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae00d3885085e7bdd3c53e2bea6f0f97">&#9670;&#160;</a></span>operator/() <span class="overload">[7/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aae00d3885085e7bdd3c53e2bea6f0f97">&#9670;&#160;</a></span>operator/() <span class="overload">[10/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3357,7 +4449,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a60876eb8277f90c33ada4ce2c21e924a" name="a60876eb8277f90c33ada4ce2c21e924a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60876eb8277f90c33ada4ce2c21e924a">&#9670;&#160;</a></span>operator/() <span class="overload">[8/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a60876eb8277f90c33ada4ce2c21e924a">&#9670;&#160;</a></span>operator/() <span class="overload">[11/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3384,8 +4476,36 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a7ea289057fa1058f18fbc094861cc5b1" name="a7ea289057fa1058f18fbc094861cc5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ea289057fa1058f18fbc094861cc5b1">&#9670;&#160;</a></span>operator/() <span class="overload">[12/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5178292e4d9533a1608f7f07735062c5" name="a5178292e4d9533a1608f7f07735062c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5178292e4d9533a1608f7f07735062c5">&#9670;&#160;</a></span>operator/() <span class="overload">[9/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5178292e4d9533a1608f7f07735062c5">&#9670;&#160;</a></span>operator/() <span class="overload">[13/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3422,8 +4542,46 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
+<a id="a5d3c7d463c5f66009f33710707a23a09" name="a5d3c7d463c5f66009f33710707a23a09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3c7d463c5f66009f33710707a23a09">&#9670;&#160;</a></span>operator/() <span class="overload">[14/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00047">47</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
 <a id="ababe7f60139deedef6e1d89bacf0370b" name="ababe7f60139deedef6e1d89bacf0370b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ababe7f60139deedef6e1d89bacf0370b">&#9670;&#160;</a></span>operator/() <span class="overload">[10/10]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ababe7f60139deedef6e1d89bacf0370b">&#9670;&#160;</a></span>operator/() <span class="overload">[15/16]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3457,6 +4615,44 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00036">36</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+
+</div>
+</div>
+<a id="a7e1322e072e9b709b6b4ef7a74902ea4" name="a7e1322e072e9b709b6b4ef7a74902ea4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e1322e072e9b709b6b4ef7a74902ea4">&#9670;&#160;</a></span>operator/() <span class="overload">[16/16]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::complex&lt; double &gt; GOAT::maths::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">std::complex&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00046">46</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -3931,7 +5127,7 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00524">524</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00568">568</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -3962,7 +5158,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html" title="Template class for threedimensional vectors.">Vector</a> in cartesian coordinates </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00406">406</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00417">417</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>
@@ -4067,6 +5263,7 @@ template&lt;class T &gt; </div>
 </div><div class="memdoc">
 
 <p>square of x </p>
+<p>square of x (i.e. x^2) </p>
 
 </div>
 </div>
@@ -4143,6 +5340,8 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>tests x on NaN </p>
 
 </div>
 </div>
@@ -4349,7 +5548,7 @@ R transformation matrix from local system into laboratory coordinate system </dd
 
 <p>double valued vector with all components set to 1 </p>
 
-<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00585">585</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vector_8h_source.html#l00629">629</a> of file <a class="el" href="vector_8h_source.html">vector.h</a>.</p>
 
 </div>
 </div>

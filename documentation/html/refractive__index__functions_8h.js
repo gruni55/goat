@@ -1,5 +1,6 @@
 var refractive__index__functions_8h =
 [
+    [ "n_ABS", "refractive__index__functions_8h.html#ae4a60c62727d0f5c2c9bc11d3b72c844", null ],
     [ "n_Air", "refractive__index__functions_8h.html#a2be4834db583c1407765a36a7fe4e1bc", null ],
     [ "n_BK7", "refractive__index__functions_8h.html#a41e9823fd74c815082ed6de0958f8c14", null ],
     [ "n_fused_silica", "refractive__index__functions_8h.html#a22dda21b57d70ab625bfea168dbf1e5f", null ],

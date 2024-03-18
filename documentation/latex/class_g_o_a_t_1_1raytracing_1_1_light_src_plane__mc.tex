@@ -2,6 +2,11 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}{}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}\index{GOAT::raytracing::LightSrcPlane\_mc@{GOAT::raytracing::LightSrcPlane\_mc}}
 
 
+\doxylink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane} wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area.  
+
+
+
+
 {\ttfamily \#include $<$lightsrc\+\_\+mc.\+h$>$}
 
 Inheritance diagram for GOAT\+::raytracing\+::Light\+Src\+Plane\+\_\+mc\+:\begin{figure}[H]
@@ -128,7 +133,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a9fda0f2fab1dd
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}}
 \begin{DoxyCompactList}\small\item\em main direction of the light source ~\newline
  \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}} =100
 \begin{DoxyCompactList}\small\item\em number of rays (per direction) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab76c582d1d1bef23522f629f2d89807c}{i1}}
 \begin{DoxyCompactList}\small\item\em first index of the ray inside the starting area (for internal use, -\/1 if the calculation has not yet been started) \end{DoxyCompactList}\item 
@@ -169,9 +174,9 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aac7923883a2dd34
 
 
 \doxysubsection{Detailed Description}
+\doxylink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane} wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area. 
 
-
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00044}{44}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00049}{49}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 
@@ -188,6 +193,21 @@ Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00044}{44}} of file 
 \doxysubsubsection{\texorpdfstring{LightSrcPlane\_mc()}{LightSrcPlane\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily GOAT\+::raytracing\+::\+Light\+Src\+Plane\+\_\+mc\+::\+Light\+Src\+Plane\+\_\+mc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Pos,  }\item[{int}]{N,  }\item[{double}]{wvl,  }\item[{double}]{D = {\ttfamily 100.0},  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol = {\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$~std\+:\+:complex$<$~double~$>$~$>$(0.0,~1.0,~0.0)},  }\item[{int}]{raytype = {\ttfamily \mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}},  }\item[{double}]{r0 = {\ttfamily 100.0} }\end{DoxyParamCaption})}
 
+Constructor for arbitrary distributed plane wave. 
+\begin{DoxyParams}{Parameters}
+{\em Pos} & Position of the source (center) \\
+\hline
+{\em N} & Total number of rays \\
+\hline
+{\em wvl} & Wavelength \\
+\hline
+{\em Pol} & Direction of the polarization \\
+\hline
+{\em raytype} & Type of ray used for the raytracing process \\
+\hline
+{\em r0} & Radius of the calculation space \\
+\hline
+\end{DoxyParams}
 
 
 \doxysubsection{Member Function Documentation}
@@ -256,7 +276,7 @@ Reimplemented from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_pl
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00055}{55}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00069}{69}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 

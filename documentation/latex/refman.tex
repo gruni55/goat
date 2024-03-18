@@ -157,7 +157,7 @@
       citecolor=blue,%
       unicode,%
       pdftitle={GOAT (\+Geometrical optics application tool)},%
-      pdfsubject={Geometrical optics based scientific library}%
+      pdfsubject={}%
     }
   % Custom commands used by the header
   % Custom commands
@@ -221,11 +221,12 @@
 \input{namespace_g_o_a_t}
 \input{namespace_g_o_a_t_1_1maths}
 \input{namespace_g_o_a_t_1_1raytracing}
-\input{namespace_g_o_a_t_1_1raytracing_1_1_g_o_a_t}
-\input{namespace_g_o_a_t_1_1raytracing_1_1_g_o_a_t_1_1raytracing}
 \input{namespace_g_o_a_t_1_1_x_m_l}
 \input{namespacetinyxml2}
 \chapter{Class Documentation}
+\input{class_g_o_a_t_1_1raytracing_1_1aspheric_lens}
+\input{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms}
+\input{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side}
 \input{class_g_o_a_t_1_1raytracing_1_1_box}
 \input{class_g_o_a_t_1_1raytracing_1_1_cone}
 \input{class_g_o_a_t_1_1raytracing_1_1_detector}
@@ -238,11 +239,16 @@
 \input{struct_g_o_a_t_1_1raytracing_1_1grid_entry}
 \input{struct_g_o_a_t_1_1raytracing_1_1index_list}
 \input{class_g_o_a_t_1_1raytracing_1_1_i_ray}
+\input{struct_g_o_a_t_1_1raytracing_1_1lens_parms}
+\input{struct_g_o_a_t_1_1raytracing_1_1lens_side}
 \input{class_g_o_a_t_1_1raytracing_1_1_light_src}
 \input{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}
 \input{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}
 \input{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}
 \input{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}
+\input{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}
+\input{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc}
+\input{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}
 \input{class_g_o_a_t_1_1maths_1_1_matrix}
 \input{struct_g_o_a_t_1_1raytracing_1_1_mem_info}
 \input{classtinyxml2_1_1_mem_pool}
@@ -267,6 +273,7 @@
 \input{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}
 \input{class_g_o_a_t_1_1raytracing_1_1_scene}
 \input{class_g_o_a_t_1_1raytracing_1_1short_pulse}
+\input{class_g_o_a_t_1_1raytracing_1_1spheric_lens}
 \input{struct_g_o_a_t_1_1raytracing_1_1step_entry}
 \input{struct_g_o_a_t_1_1raytracing_1_1_strahl_array}
 \input{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}
@@ -307,6 +314,8 @@
 \input{matrix_8h_source}
 \input{vector_8h}
 \input{vector_8h_source}
+\input{aspheric_lens_8h}
+\input{aspheric_lens_8h_source}
 \input{box_8h}
 \input{box_8h_source}
 \input{cone_8h}
@@ -329,6 +338,8 @@
 \input{inel__calc_8h_source}
 \input{iray_8h}
 \input{iray_8h_source}
+\input{lens_8h}
+\input{lens_8h_source}
 \input{lightsrc_8h}
 \input{lightsrc_8h_source}
 \input{lightsrc__mc_8h}
@@ -361,14 +372,12 @@
 \input{resutil_8h_source}
 \input{short__pulses_8h}
 \input{short__pulses_8h_source}
-\input{sic_2superarray_8h}
-\input{sic_2superarray_8h_source}
+\input{spheric_lens_8h}
+\input{spheric_lens_8h_source}
 \input{superarray_8h}
 \input{superarray_8h_source}
 \input{supergrid_8h}
 \input{supergrid_8h_source}
-\input{supergrid__old_8h}
-\input{supergrid__old_8h_source}
 \input{surface_8h}
 \input{surface_8h_source}
 \input{triangle_8h}
@@ -379,8 +388,6 @@
 \input{tubedray_8h_source}
 \input{tinyxml2_8h}
 \input{tinyxml2_8h_source}
-\input{sic_2xml_8h}
-\input{sic_2xml_8h_source}
 \input{xml_8h}
 \input{xml_8h_source}
 %--- End generated contents ---

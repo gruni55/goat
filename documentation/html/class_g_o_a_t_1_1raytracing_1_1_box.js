@@ -4,6 +4,7 @@ var class_g_o_a_t_1_1raytracing_1_1_box =
     [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html#a838ee9852f0eb2d13a7a2599c029f4f0", null ],
     [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html#a14e730dc927b0bc770637470480b2415", null ],
     [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html#a448022e1cfcf691be9805e62c424dd78", null ],
+    [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html#aa294d14e2f644d878bb48dff9a1d7259", null ],
     [ "~Box", "class_g_o_a_t_1_1raytracing_1_1_box.html#a265d02b00384f2985a91101aa0315740", null ],
     [ "binRead", "class_g_o_a_t_1_1raytracing_1_1_box.html#a5bcb0938544105d00b5bc39ce2a1b37d", null ],
     [ "binWrite", "class_g_o_a_t_1_1raytracing_1_1_box.html#a0e93f79a4102c28a1cb6fdc8f373edd6", null ],

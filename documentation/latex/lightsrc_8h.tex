@@ -13,6 +13,8 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytra
 \begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{GOAT\+::raytracing\+::\+Light\+Src\+Plane}}
 \begin{DoxyCompactList}\small\item\em class derived from \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{GOAT\+::raytracing\+::\+Light\+Src\+Ring}}
+\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::raytracing\+::\+Light\+Src\+Gauss}}
 \begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
@@ -40,13 +42,13 @@ namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \#define \mbox{\hyperlink{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
 \begin{DoxyCompactList}\small\item\em Wave impedance of free space. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}{LIGHTSRC\+\_\+\+POL\+\_\+X}}~0
-\item 
+\begin{DoxyCompactList}\small\item\em Light source is polarized in x-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}{LIGHTSRC\+\_\+\+POL\+\_\+Y}}~1
-\item 
+\begin{DoxyCompactList}\small\item\em Light source is polarized in y-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}{LIGHTSRC\+\_\+\+POL\+\_\+Z}}~2
-\item 
+\begin{DoxyCompactList}\small\item\em Light source is polarized in z-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}{LIGHTSRC\+\_\+\+POL\+\_\+\+USER\+\_\+\+DEFINED}}~0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Light source is user defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -63,12 +65,16 @@ constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c
 \begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828bc8a67bb99cf2988f}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS}} =2
 \begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =3
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
+\begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
 \begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 4
-\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 5
-\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\end{DoxyCompactItemize}
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 12
+\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+MC}} = 13
+\begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -84,7 +90,7 @@ Error occurs within the ray creation.
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00027}{27}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00030}{30}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}\label{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_IS\_LAST\_RAY@{LIGHTSRC\_IS\_LAST\_RAY}}
@@ -98,7 +104,7 @@ Created ray is the last ray.
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00026}{26}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00029}{29}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}\label{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_NOT\_LAST\_RAY@{LIGHTSRC\_NOT\_LAST\_RAY}}
@@ -112,7 +118,7 @@ Created ray is not the last ray.
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00025}{25}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00028}{28}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}\label{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_USER\_DEFINED@{LIGHTSRC\_POL\_USER\_DEFINED}}
@@ -122,7 +128,11 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00025}{25}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00033}{33}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Light source is user defined. 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00036}{36}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}\label{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_X@{LIGHTSRC\_POL\_X}}
@@ -132,7 +142,11 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00033}{33}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00030}{30}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Light source is polarized in x-\/direction. 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00033}{33}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}\label{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_Y@{LIGHTSRC\_POL\_Y}}
@@ -142,7 +156,11 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00030}{30}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00031}{31}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Light source is polarized in y-\/direction. 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00034}{34}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}\label{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_POL\_Z@{LIGHTSRC\_POL\_Z}}
@@ -152,7 +170,11 @@ Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00031}{31}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00032}{32}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Light source is polarized in z-\/direction. 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00035}{35}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}\label{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4} 
 \index{lightsrc.h@{lightsrc.h}!LIGHTSRC\_RAYTYPE\_IRAY@{LIGHTSRC\_RAYTYPE\_IRAY}}
@@ -208,5 +230,5 @@ Wave impedance of free space.
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00028}{28}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00031}{31}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 

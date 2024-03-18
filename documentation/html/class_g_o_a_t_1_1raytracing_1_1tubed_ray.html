@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -99,6 +98,9 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1tubed_r
 </div><!--header-->
 <div class="contents">
 
+<p>This class represents a ray with a finite cross section. class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html" title="This class represents a ray with a finite cross section. class tubedRay: This class represents a ray ...">tubedRay</a>: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not.  
+ <a href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="tubedray_8h_source.html">tubedray.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GOAT::raytracing::tubedRay:</div>
@@ -106,7 +108,7 @@ Inheritance diagram for GOAT::raytracing::tubedRay:</div>
  <div class="center">
   <img src="class_g_o_a_t_1_1raytracing_1_1tubed_ray.png" usemap="#GOAT::raytracing::tubedRay_map" alt=""/>
   <map id="GOAT::raytracing::tubedRay_map" name="GOAT::raytracing::tubedRay_map">
-<area href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html" alt="GOAT::raytracing::RayBase" shape="rect" coords="0,0,170,24"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html" title="Abstract base class for all rays used for the raytracing process. This abstract base class for all ra..." alt="GOAT::raytracing::RayBase" shape="rect" coords="0,0,170,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -125,6 +127,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a37c2ec1442986ebb6e6824180e7fc52f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a37c2ec1442986ebb6e6824180e7fc52f">setGauss</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a> <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abaabb88f73cfd7bd8a2721a1c7a269ca">g</a>)</td></tr>
 <tr class="separator:a37c2ec1442986ebb6e6824180e7fc52f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac37a0a3e0bac73560cd07add96a2524a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#ac37a0a3e0bac73560cd07add96a2524a">next</a> ()</td></tr>
+<tr class="memdesc:ac37a0a3e0bac73560cd07add96a2524a"><td class="mdescLeft">&#160;</td><td class="mdescRight">make the next step (has to include phase progress)  <br /></td></tr>
 <tr class="separator:ac37a0a3e0bac73560cd07add96a2524a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affbb616ef2de85614b110ee2f34b1f78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#affbb616ef2de85614b110ee2f34b1f78">getE</a> ()</td></tr>
 <tr class="memdesc:affbb616ef2de85614b110ee2f34b1f78"><td class="mdescLeft">&#160;</td><td class="mdescRight">naechster Schritt  <br /></td></tr>
@@ -244,6 +247,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a14d5f97b79daafbb68d2e6087bbd3af5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a14d5f97b79daafbb68d2e6087bbd3af5">operator=</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a> &amp;S)</td></tr>
 <tr class="separator:a14d5f97b79daafbb68d2e6087bbd3af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54453ba99657a55bd4e9dd57dc4e1b97"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97">next</a> ()=0</td></tr>
+<tr class="memdesc:a54453ba99657a55bd4e9dd57dc4e1b97"><td class="mdescLeft">&#160;</td><td class="mdescRight">make the next step (has to include phase progress)  <br /></td></tr>
 <tr class="separator:a54453ba99657a55bd4e9dd57dc4e1b97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10971cdc663deed5684c6641840e5485"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a10971cdc663deed5684c6641840e5485">getk</a> ()=0</td></tr>
 <tr class="memdesc:a10971cdc663deed5684c6641840e5485"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back direction Vector  <br /></td></tr>
@@ -293,19 +297,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a75eb498a7c5e12252f625b12ee558f0c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a75eb498a7c5e12252f625b12ee558f0c">KORR</a></td></tr>
 <tr class="separator:a75eb498a7c5e12252f625b12ee558f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">GOAT::raytracing::RayBase</a></td></tr>
-<tr class="memitem:ac85e485b0b855edcd4dd299bf82783cb inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ac85e485b0b855edcd4dd299bf82783cb">tray</a></td></tr>
+<tr class="memitem:ac85e485b0b855edcd4dd299bf82783cb inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ac85e485b0b855edcd4dd299bf82783cb">tray</a> =0</td></tr>
 <tr class="memdesc:ac85e485b0b855edcd4dd299bf82783cb inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">transmitted ray (used by the raytracer, for internal use only)  <br /></td></tr>
 <tr class="separator:ac85e485b0b855edcd4dd299bf82783cb inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388e89c0bdee8ce7b53855fc9ed32f9c inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a388e89c0bdee8ce7b53855fc9ed32f9c">inObject</a></td></tr>
+<tr class="memitem:a388e89c0bdee8ce7b53855fc9ed32f9c inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a388e89c0bdee8ce7b53855fc9ed32f9c">inObject</a> =false</td></tr>
 <tr class="memdesc:a388e89c0bdee8ce7b53855fc9ed32f9c inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">is in an object  <br /></td></tr>
 <tr class="separator:a388e89c0bdee8ce7b53855fc9ed32f9c inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45f8c538909522d5e505a3f90d997363 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a45f8c538909522d5e505a3f90d997363">Obj</a></td></tr>
+<tr class="memitem:a45f8c538909522d5e505a3f90d997363 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a45f8c538909522d5e505a3f90d997363">Obj</a> =0</td></tr>
 <tr class="memdesc:a45f8c538909522d5e505a3f90d997363 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of all objects  <br /></td></tr>
 <tr class="separator:a45f8c538909522d5e505a3f90d997363 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555d734b8aac9dd5f3688414ba32c9c1 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a555d734b8aac9dd5f3688414ba32c9c1">numObj</a></td></tr>
+<tr class="memitem:a555d734b8aac9dd5f3688414ba32c9c1 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a555d734b8aac9dd5f3688414ba32c9c1">numObj</a> =0</td></tr>
 <tr class="memdesc:a555d734b8aac9dd5f3688414ba32c9c1 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of objects  <br /></td></tr>
 <tr class="separator:a555d734b8aac9dd5f3688414ba32c9c1 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0229592b2f60c7b8e5c438933ad278a8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a0229592b2f60c7b8e5c438933ad278a8">objIndex</a></td></tr>
+<tr class="memitem:a0229592b2f60c7b8e5c438933ad278a8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a0229592b2f60c7b8e5c438933ad278a8">objIndex</a> =0</td></tr>
 <tr class="memdesc:a0229592b2f60c7b8e5c438933ad278a8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of the current object  <br /></td></tr>
 <tr class="separator:a0229592b2f60c7b8e5c438933ad278a8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a43f5b4b3cde5d1795b2a5e02c7800677 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a43f5b4b3cde5d1795b2a5e02c7800677">n</a></td></tr>
@@ -313,19 +317,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a234b67d6c1eb5da7c8fd1cbec4c1de58 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a234b67d6c1eb5da7c8fd1cbec4c1de58">n0</a></td></tr>
 <tr class="memdesc:a234b67d6c1eb5da7c8fd1cbec4c1de58 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">current refractive index and refractive index of the host material  <br /></td></tr>
 <tr class="separator:a234b67d6c1eb5da7c8fd1cbec4c1de58 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad029d56061469a0b98d4aa06c2956eb8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad029d56061469a0b98d4aa06c2956eb8">k0</a></td></tr>
+<tr class="memitem:ad029d56061469a0b98d4aa06c2956eb8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad029d56061469a0b98d4aa06c2956eb8">k0</a> =2.0*M_PI</td></tr>
 <tr class="memdesc:ad029d56061469a0b98d4aa06c2956eb8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">wave number  <br /></td></tr>
 <tr class="separator:ad029d56061469a0b98d4aa06c2956eb8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef88aaaaab2b96b59536ecc69a29c178 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef88aaaaab2b96b59536ecc69a29c178">r0</a></td></tr>
+<tr class="memitem:aef88aaaaab2b96b59536ecc69a29c178 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef88aaaaab2b96b59536ecc69a29c178">r0</a> =1.0</td></tr>
 <tr class="separator:aef88aaaaab2b96b59536ecc69a29c178 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9467a1f9f00f2ed842e2a5c79f3cd9b inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad9467a1f9f00f2ed842e2a5c79f3cd9b">rc</a></td></tr>
+<tr class="memitem:ad9467a1f9f00f2ed842e2a5c79f3cd9b inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad9467a1f9f00f2ed842e2a5c79f3cd9b">rc</a> =1.0</td></tr>
 <tr class="memdesc:ad9467a1f9f00f2ed842e2a5c79f3cd9b inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius of the calculation sphere  <br /></td></tr>
 <tr class="separator:ad9467a1f9f00f2ed842e2a5c79f3cd9b inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcb50609feb8561020ce61a6fda5981e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#afcb50609feb8561020ce61a6fda5981e">iR</a></td></tr>
+<tr class="memitem:afcb50609feb8561020ce61a6fda5981e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#afcb50609feb8561020ce61a6fda5981e">iR</a> =0</td></tr>
 <tr class="memdesc:afcb50609feb8561020ce61a6fda5981e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of reflections already done  <br /></td></tr>
 <tr class="separator:afcb50609feb8561020ce61a6fda5981e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a8bbc046f2b0531f62dda7af5a684a9 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a8a8bbc046f2b0531f62dda7af5a684a9">suppress_phase_progress</a> =false</td></tr>
-<tr class="memdesc:a8a8bbc046f2b0531f62dda7af5a684a9 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">suppress phase change in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97">next()</a>, needed for short pulse consideration  <br /></td></tr>
+<tr class="memdesc:a8a8bbc046f2b0531f62dda7af5a684a9 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">suppress phase change in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97" title="make the next step (has to include phase progress)">next()</a>, needed for short pulse consideration  <br /></td></tr>
 <tr class="separator:a8a8bbc046f2b0531f62dda7af5a684a9 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab912e8cad9cba442b05c10449eba59ae inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ab912e8cad9cba442b05c10449eba59ae">status</a> = <a class="el" href="raybase_8h.html#a183c8f9e50782ac6d4a0fee16d79f969">RAYBASE_STATUS_NONE</a></td></tr>
 <tr class="separator:ab912e8cad9cba442b05c10449eba59ae inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_ray_base"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -336,9 +340,9 @@ Friends</h2></td></tr>
 <tr class="separator:af448b54234b55ea6460e008e70d1d0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a>: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. </p>
+<div class="textblock"><p>This class represents a ray with a finite cross section. class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html" title="This class represents a ray with a finite cross section. class tubedRay: This class represents a ray ...">tubedRay</a>: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. </p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00087">87</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00088">88</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d59c9ec5aaba2163c9dffc91b7ce5da" name="a0d59c9ec5aaba2163c9dffc91b7ce5da"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d59c9ec5aaba2163c9dffc91b7ce5da">&#9670;&#160;</a></span>tubedRay() <span class="overload">[1/5]</span></h2>
@@ -472,7 +476,7 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a> which is described by the</p>
+<p>Constructor of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html" title="This class represents a ray with a finite cross section. class tubedRay: This class represents a ray ...">tubedRay</a> which is described by the</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">g</td><td></td></tr>
@@ -735,7 +739,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00135">135</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00136">136</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -762,7 +766,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00129">129</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00130">130</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -790,7 +794,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00127">127</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00128">128</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -911,7 +915,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00125">125</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00126">126</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -942,7 +946,7 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#abd660a304594f532ce921f2929c58c66">GOAT::raytracing::RayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00103">103</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00104">104</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -973,7 +977,7 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a10971cdc663deed5684c6641840e5485">GOAT::raytracing::RayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00120">120</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00121">121</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1001,7 +1005,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00119">119</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00120">120</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1032,7 +1036,7 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aa9e3b2cbd60dc59c1b4401728a29ac0f">GOAT::raytracing::RayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00122">122</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00123">123</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1060,7 +1064,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00121">121</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00122">122</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1088,7 +1092,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00124">124</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00125">125</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1116,7 +1120,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00123">123</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00124">124</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1145,7 +1149,7 @@ Friends</h2></td></tr>
 
 <p>Momentanen Brechungsindex setzen. </p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00112">112</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00113">113</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1172,7 +1176,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00134">134</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00135">135</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1302,7 +1306,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00136">136</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00137">137</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1333,7 +1337,7 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a44c52198ec69ded8a637d0a74c1b7e2e">GOAT::raytracing::RayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00130">130</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00131">131</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1359,6 +1363,8 @@ Friends</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>make the next step (has to include phase progress) </p>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97">GOAT::raytracing::RayBase</a>.</p>
 
@@ -1443,7 +1449,7 @@ Friends</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a9661d889c4d7d1290440b1412515074e">GOAT::raytracing::RayBase</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00104">104</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00105">105</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1650,7 +1656,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00138">138</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00139">139</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1916,7 +1922,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00126">126</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00127">127</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1944,7 +1950,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00101">101</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00102">102</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -1972,7 +1978,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00117">117</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00118">118</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2000,7 +2006,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00116">116</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00117">117</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2040,7 +2046,7 @@ Friends</h2></td></tr>
 
 <p>Gibt Brechungsindex zurueck. </p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00113">113</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00114">114</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2068,7 +2074,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00118">118</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00119">119</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2106,7 +2112,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00115">115</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00116">116</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2144,7 +2150,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00114">114</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00115">115</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2174,7 +2180,7 @@ Friends</h2></td></tr>
 
 <p>Flaeche zwischen den Randstrahlen. </p>
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00111">111</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00112">112</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2304,7 +2310,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00180">180</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00181">181</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2320,7 +2326,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00189">189</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00190">190</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2336,7 +2342,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00186">186</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00187">187</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2352,7 +2358,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00184">184</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00185">185</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2368,7 +2374,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00188">188</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00189">189</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2384,7 +2390,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00179">179</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00180">180</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2400,7 +2406,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00190">190</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00191">191</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2416,7 +2422,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00191">191</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00192">192</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2432,7 +2438,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00187">187</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00188">188</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2448,7 +2454,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00177">177</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00178">178</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2464,7 +2470,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00178">178</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00179">179</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2480,7 +2486,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00182">182</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00183">183</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>
@@ -2496,7 +2502,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00185">185</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="tubedray_8h_source.html#l00186">186</a> of file <a class="el" href="tubedray_8h_source.html">tubedray.h</a>.</p>
 
 </div>
 </div>

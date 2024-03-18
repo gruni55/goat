@@ -1,6 +1,6 @@
 var dir_19446fe9a19298740000c181fd65b800 =
 [
-    [ "sic", "dir_5466f186b356e453581a3aa4a9b56c79.html", "dir_5466f186b356e453581a3aa4a9b56c79" ],
+    [ "asphericLens.h", "aspheric_lens_8h.html", "aspheric_lens_8h" ],
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "cone.h", "cone_8h.html", "cone_8h" ],
     [ "constants.h", "constants_8h.html", "constants_8h" ],
@@ -12,6 +12,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "gridentry.h", "gridentry_8h.html", "gridentry_8h" ],
     [ "inel_calc.h", "inel__calc_8h.html", "inel__calc_8h" ],
     [ "iray.h", "iray_8h.html", "iray_8h" ],
+    [ "lens.h", "lens_8h.html", "lens_8h" ],
     [ "lightsrc.h", "lightsrc_8h.html", "lightsrc_8h" ],
     [ "lightsrc_mc.h", "lightsrc__mc_8h.html", "lightsrc__mc_8h" ],
     [ "mem.h", "mem_8h.html", "mem_8h" ],
@@ -28,9 +29,9 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "refractive_index_functions.h", "refractive__index__functions_8h.html", "refractive__index__functions_8h" ],
     [ "resutil.h", "resutil_8h.html", "resutil_8h" ],
     [ "short_pulses.h", "short__pulses_8h.html", "short__pulses_8h" ],
+    [ "sphericLens.h", "spheric_lens_8h.html", "spheric_lens_8h" ],
     [ "superarray.h", "superarray_8h.html", "superarray_8h" ],
     [ "supergrid.h", "supergrid_8h.html", "supergrid_8h" ],
-    [ "supergrid_old.h", "supergrid__old_8h.html", "supergrid__old_8h" ],
     [ "surface.h", "surface_8h.html", "surface_8h" ],
     [ "triangle.h", "triangle_8h.html", "triangle_8h" ],
     [ "triangle_box_intersection.h", "triangle__box__intersection_8h.html", "triangle__box__intersection_8h" ],

@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -93,6 +92,7 @@ $(document).ready(function(){initNavTree('superarray_8h.html',''); initResizable
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">superarray.h File Reference</div></div>
 </div><!--header-->
@@ -112,6 +112,7 @@ $(document).ready(function(){initNavTree('superarray_8h.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-grid of arbitrary values which can be used to store e.g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments.  <a href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -122,11 +123,18 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_g_o_a_t_1_1raytracing"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html">GOAT::raytracing</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a8b2f76584ad23aadae31780237b45e73"><td class="memItemLeft" align="right" valign="top">typedef long long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">GOAT::raytracing::INDEX_TYPE</a></td></tr>
+<tr class="separator:a8b2f76584ad23aadae31780237b45e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6c80e4a8708d6b5c43a9286e3282c2eb"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a6c80e4a8708d6b5c43a9286e3282c2eb"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a6c80e4a8708d6b5c43a9286e3282c2eb">GOAT::raytracing::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; T &gt; &amp;S)</td></tr>
 <tr class="separator:a6c80e4a8708d6b5c43a9286e3282c2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a914ad0024a3ca3954ddd16d3b32e34e7"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a914ad0024a3ca3954ddd16d3b32e34e7">GOAT::raytracing::operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a> &gt; &gt; &amp;S)</td></tr>
+<tr class="separator:a914ad0024a3ca3954ddd16d3b32e34e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d351fab5051aa7174ee5514f2b0861d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a0d351fab5051aa7174ee5514f2b0861d">GOAT::raytracing::saveExPhase</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &gt; &amp;S, char *FName, int i=0)</td></tr>
 <tr class="separator:a0d351fab5051aa7174ee5514f2b0861d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad26d2ebc2331102ae021d9ea4a78186d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#ad26d2ebc2331102ae021d9ea4a78186d">GOAT::raytracing::saveEyPhase</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &gt; &amp;S, char *FName, int i=0)</td></tr>

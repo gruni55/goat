@@ -2,6 +2,11 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array}{}\label{class_g_o_a_t_1_1raytracing_1_1_super_array}\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 
 
+Template class to store arbitrary information in a 3D-\/grid This template class provides a virtual 3D-\/grid of arbitrary values which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments.  
+
+
+
+
 {\ttfamily \#include $<$superarray.\+h$>$}
 
 \doxysubsubsection*{Public Member Functions}
@@ -9,42 +14,44 @@
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{Super\+Array}} ()
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, int nx, int ny, int nz, const int typ=\mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\+\_\+\+HOST}})
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a600535d65fd5bba19a99955fe5534b57}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nx, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nz, const int typ=\mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}})
 \begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, int nx, int ny, int nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{num\+Objs}}, const bool is\+Absolute=false, const int typ=0)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f8d78b08dbc8ad638915fc89ac04c7}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nx, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19061fc2ecb1782db1ec4636b871ec22}{Obj}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{num\+Objs}}, const bool is\+Absolute=false, const int typ=\mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a01b5f6dc9edf03c069badd96767b6a4e}{Super\+Array}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}{\texorpdfstring{$\sim$}{\string~}\+Super\+Array}} ()
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}{copy}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
 \begin{DoxyCompactList}\small\item\em Copies \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object Here, {\ttfamily S} will be copied into the existing \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and all elements will be overridden. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}{add}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\begin{DoxyCompactList}\small\item\em Adds another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are added to the existing array elements. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Adds another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are added to the existing array elements. \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}{sub}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
 \begin{DoxyCompactList}\small\item\em Subtract another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are subtracted from the existing array elements. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{add\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, int num\+Obj, const bool is\+Absolute=false)
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{add\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19061fc2ecb1782db1ec4636b871ec22}{Obj}}, int num\+Obj, const bool is\+Absolute=false)
 \begin{DoxyCompactList}\small\item\em Summing up \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Here, all cell contents are first added up. The absolute value is taken from the result and squared. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a}{add\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}E, const bool is\+Absolute=false)
 \begin{DoxyCompactList}\small\item\em Add object to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Add one objects to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. An object is added to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} by allocating memory that corresponds to the volume of the circumscribing cuboid. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}{gitterpunkt}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d3c8f7fd8d44873e82bafa31b0f7a4e}{gitterpunkt}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}{in\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, int i)
 \begin{DoxyCompactList}\small\item\em checks if {\ttfamily P} is inside the i-\/th object (p in real coordinates) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b}{in\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi, int i)
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_aa8b5dbd7629d4bde4f8c9feb5832058d}{in\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ Pi, int i)
 \begin{DoxyCompactList}\small\item\em checks if {\ttfamily Pi} is inside the i-\/th object (pi in indices) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893}{in\+Object}} (int ix, int iy, int iz, int i)
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1c9876836d1e292358fd70bb162bea4e}{in\+Object}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ix, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iy, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iz, int i)
 \begin{DoxyCompactList}\small\item\em checks if a point indicated by its indices ({\ttfamily ix}, {\ttfamily iy}, {\ttfamily iz}) is inside the {\ttfamily i} -\/th object \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}{operator()}} (int ix, int iy, int iz)
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_afab5c979b30499a02aa9191fa490140a}{operator()}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ix, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iy, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iz)
 \begin{DoxyCompactList}\small\item\em gives the content of the cell\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]} \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}{operator()}} (int i, int ix, int iy, int iz, bool is\+Object\+Coordinate=true)
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acb76b67db5bc46acd07c257331335162}{operator()}} (int i, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ix, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iy, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iz, bool is\+Object\+Coordinate=true)
 \begin{DoxyCompactList}\small\item\em returns the content of the i-\/th object, with the grid-\/coordinates ix,iy,iz \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a75433aaafcb61e64a066b2eb216c8a}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7a6a007f3c6a88f5a149635aec66bef3}{operator()}} (int i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\item 
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a9b663700a801647baa583bf27e463b02}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ Pi)
+\begin{DoxyCompactList}\small\item\em gives back the contents of the cell with indices stored in Pi \end{DoxyCompactList}\item 
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2cc8624d448dea4108a0d7f8d0c0d1bd}{operator()}} (int i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ Pi)
+\begin{DoxyCompactList}\small\item\em gives back the contents of the cell with indices stored in Pi from the i-\/th object (faster) \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86cf8de40d8227c4acb2eeddf9548e91}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\item 
+\begin{DoxyCompactList}\small\item\em gives back the contents of the cell at P \end{DoxyCompactList}\item 
 T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c1fd8e82f78a139ec4c8657d93c9e6f}{operator()}} (int i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\item 
+\begin{DoxyCompactList}\small\item\em gives back the contents of the cell at P from the i-\/th object (faster) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}{make\+Real}} ()
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{fill}} (const T \&x)
@@ -55,73 +62,17 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2
 \begin{DoxyCompactList}\small\item\em Clear the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and release the allocated memory. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}{allockugel}} ()
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}{kugelindex}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d8cf39c5b9a6d162ad5478edb0ab890}{kugelindex}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ Pi)
 \begin{DoxyCompactList}\small\item\em Checks if the point {\ttfamily Pi} (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-\/1,-\/1,-\/1) is returned (for internal use only) \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}{kugelwert}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\item 
-T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}{kugelwert}} (int ix, int iy, int iz)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}{Super\+Array}} ()
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5306dc4c24a6e4edf6b497712144bdfc}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, int nx, int ny, int nz, const int typ=\mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}})
-\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a03e449f523acffa68b12fd23011508c0}{Super\+Array}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}, int nx, int ny, int nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{num\+Objs}}, const bool is\+Absolute=false, const int typ=\mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}})
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a01b5f6dc9edf03c069badd96767b6a4e}{Super\+Array}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}{\texorpdfstring{$\sim$}{\string~}\+Super\+Array}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a95803de3ef8700b7c99d476a6bf1e26f}{copy}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\begin{DoxyCompactList}\small\item\em Copies \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object Here, {\ttfamily S} will be copied into the existing \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and all elements will be overridden. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d1c995f89b772c3d6702950ac4f64d}{add}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\begin{DoxyCompactList}\small\item\em Adds another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are added to the existing array elements. \texorpdfstring{$\ast$}{*}. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acb44a6867cddb032ec3feffdd6e3c357}{sub}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\begin{DoxyCompactList}\small\item\em Subtract another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are subtracted from the existing array elements. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}{add\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}}, int num\+Obj, const bool is\+Absolute=false)
-\begin{DoxyCompactList}\small\item\em Summing up \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Here, all cell contents are first added up. The absolute value is taken from the result and squared. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae5bbf431169509b816c85e99bd10ee79}{add\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}E, const bool is\+Absolute=false)
-\begin{DoxyCompactList}\small\item\em Add object to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Add one objects to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. An object is added to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} by allocating memory that corresponds to the volume of the circumscribing cuboid. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a346e46105e02e4ff5624dbaf4293404f}{gitterpunkt}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab329d28df3ea500b1250cfae734f0eeb}{in\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, int i)
-\begin{DoxyCompactList}\small\item\em checks if {\ttfamily P} is inside the i-\/th object (p in real coordinates) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a608a8def0d2139038bfdc9b2767c1305}{in\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi, int i)
-\begin{DoxyCompactList}\small\item\em checks if {\ttfamily Pi} is inside the i-\/th object (pi in indices) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a292b0aad8cf6d7ec7792bc7e593f99fa}{in\+Object}} (int ix, int iy, int iz, int i)
-\begin{DoxyCompactList}\small\item\em checks if a point indicated by its indices ({\ttfamily ix}, {\ttfamily iy}, {\ttfamily iz}) is inside the {\ttfamily i} -\/th object \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_aa24565196f67a54120e12394e38e01f9}{operator()}} (int ix, int iy, int iz)
-\begin{DoxyCompactList}\small\item\em gives the content of the cell\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]} \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}{operator()}} (int i, int ix, int iy, int iz, bool is\+Object\+Coordinate=true)
-\begin{DoxyCompactList}\small\item\em returns the content of the i-\/th object, with the grid-\/coordinates ix,iy,iz \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acddd4316fedf0dc56c6cff0f17882bec}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\begin{DoxyCompactList}\small\item\em gives back the contents of the cell with indices stored in Pi \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a6f8fef8315fbe6bc0a0dba131825a89d}{operator()}} (int i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\begin{DoxyCompactList}\small\item\em gives back the contents of the cell with indices stored in Pi from the i-\/th object (faster) \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d4780e185de5056ccd60ecc316823d}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\begin{DoxyCompactList}\small\item\em gives back the contents of the cell at P \end{DoxyCompactList}\item 
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c6a41e0025a4106b72bde099377e8eb}{operator()}} (int i, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\begin{DoxyCompactList}\small\item\em gives back the contents of the cell at P from the i-\/th object (faster) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a4b0c04e4985d7385f8fbc54f2b586ef8}{make\+Real}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}{fill}} (const T \&x)
-\begin{DoxyCompactList}\small\item\em Fill the whole \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} with value {\ttfamily x}. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ad76330c21a2f67db3cb2ac7d45f6dbce}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \&S)
-\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{clear}} ()
-\begin{DoxyCompactList}\small\item\em Clear the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and release the allocated memory. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac0683336cd5801226275125a5bc8d03f}{allockugel}} ()
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a509ba5b455b59eeed7f71f52ead016a4}{kugelindex}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
-\begin{DoxyCompactList}\small\item\em Checks if the point {\ttfamily Pi} (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-\/1,-\/1,-\/1) is returned (for internal use only) \end{DoxyCompactList}\item 
-T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab83408422aa679652a0ff068057d4d5e}{kugelwert}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ Pi)
 \begin{DoxyCompactList}\small\item\em for internal use only \end{DoxyCompactList}\item 
-T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac4195ed1887f90126f90fffb6d96f095}{kugelwert}} (int ix, int iy, int iz)
+T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}{kugelwert}} (int ix, int iy, int iz)
 \begin{DoxyCompactList}\small\item\em for internal use only \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a631531d4962d08fabfef3c8b7b0e9f3d}{write}} (std\+::string fname)
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a53aba69636ea336d8bf9b5c428ca906c}{read}} (std\+::string fname)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a45f40d22d36ab5dcead0be3b260c2f42}{clear}} ()
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_aa5780955f3b63fbe7b15814869620d56}{clear}} ()
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a252dfb34ba8512f0e7298041a5b0fafe}{write}} (std\+::string fname)
 \end{DoxyCompactItemize}
@@ -130,29 +81,29 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a252dfb34ba851
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea3a759aa92094b6f63e}{Error}}
 \begin{DoxyCompactList}\small\item\em Holds an error number. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}{Obj}} =NULL
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a19061fc2ecb1782db1ec4636b871ec22}{Obj}} =NULL
 \begin{DoxyCompactList}\small\item\em here are the objects \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}{num\+Objs}}
 \begin{DoxyCompactList}\small\item\em Number of objects. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}{type}}
 \begin{DoxyCompactList}\small\item\em Mainly used for inelastic scattering. type=IN\+\_\+\+HOST means the grid is stored in the whole volume, type=IN\+\_\+\+OBJECT means grid is only used in the (active) objects. \end{DoxyCompactList}\item 
-int \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}{ywerte}}
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a9c86faf7df0c5ff9226ff1dd863f6c6c}{ywerte}}
 \item 
-int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}{zwerte}}
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a44d9d186b9b1038806de6a9c09e89609}{zwerte}}
 \item 
-T \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}{G}}
-\item 
-T \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}{K}}
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a25137cb8f912660c9a71a0cc56341b1b}{G}}
+\begin{DoxyCompactList}\small\item\em Here, the data is stored. G\mbox{[}i\mbox{]}\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]}, whereas i\+: index of the object, ix,iy,iz\+: indices of the grid around object i. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af20814acb049093586f43f895ab03083}{K}}
 \item 
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}{dummy}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a52871e3a1a7ffc7e5b883345276512ae}{Pul}}
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a5e862b8542faf7eff6fc8671d4f538ae}{Pul}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}{n}}
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}{nges}}
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae945ff9ea49db7a541ae47c007199c4c}{n}}
+\begin{DoxyCompactList}\small\item\em n\mbox{[}i\mbox{]}\+: Dimensions, i.\+e. number of subdivision in x-\/, y-\/ and z-\/direction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af48703c268e4b915b0c06406d6876a12}{nges}}
 \begin{DoxyCompactList}\small\item\em Vector which contains the number of subdivisions in x-\/, y-\/ and z-\/direction for the whole (virtual) array. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}{d}}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}
 \begin{DoxyCompactList}\small\item\em Edge length of one cell in x-\/, y-\/ and z-\/direction. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}}
 \begin{DoxyCompactList}\small\item\em Radius of the calculation sphere. \end{DoxyCompactList}\item 
@@ -162,32 +113,18 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149
 \begin{DoxyCompactList}\small\item\em Array is cleared (needed by the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}{clear()} function) \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e}{pc}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}{H}}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a6ecd550fcf73453fc1df5811d7879bf3}{H}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}{R}}
-\begin{DoxyCompactList}\small\item\em Transformation matrices in the local array coordinate system and backwards. \end{DoxyCompactList}\item 
-std\+::vector$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a9c86faf7df0c5ff9226ff1dd863f6c6c}{ywerte}}
-\item 
-std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a44d9d186b9b1038806de6a9c09e89609}{zwerte}}
-\item 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a25137cb8f912660c9a71a0cc56341b1b}{G}}
-\begin{DoxyCompactList}\small\item\em Here, the data is stored. G\mbox{[}i\mbox{]}\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]}, whereas i\+: index of the object, ix,iy,iz\+: indices of the grid around object i. \end{DoxyCompactList}\item 
-std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_af20814acb049093586f43f895ab03083}{K}}
-\item 
-std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a03842005a8d5a9fe38c20275bd96e9ce}{Pul}}
-\item 
-std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abf26f590b0f5801e25ba474a07ef8e2f}{n}}
-\begin{DoxyCompactList}\small\item\em n\mbox{[}i\mbox{]}\+: Dimensions, i.\+e. number of subdivision in x-\/, y-\/ and z-\/direction \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_abbd5633f22343a776cd451da5fd40eaa}{R}}
+\begin{DoxyCompactList}\small\item\em Transformation matrices in the local array coordinate system and backwards. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class GOAT\+::raytracing\+::\+Super\+Array$<$ T $>$}
-This class provides a virtual 3D-\/grid of complex vectors which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments
+Template class to store arbitrary information in a 3D-\/grid This template class provides a virtual 3D-\/grid of arbitrary values which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments. 
 
-This template class provides a virtual 3D-\/grid of complex vectors which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments 
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00023}{23}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00026}{26}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 
 
@@ -195,20 +132,20 @@ Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00023}{23}} of fi
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
 \index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00169}{169}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00169}{169}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a19d599a905608908edeec2fb0e6bb8a4} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a600535d65fd5bba19a99955fe5534b57}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a600535d65fd5bba19a99955fe5534b57} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
 \index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{const int}]{typ = {\ttfamily \mbox{\hyperlink{resutil_8h_ad93ae5f0faa011168de4377684a89b5e}{IN\+\_\+\+HOST}}} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{nx,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ny,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{nz,  }\item[{const int}]{typ = {\ttfamily \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}}} }\end{DoxyParamCaption})}
 
 
 
@@ -223,87 +160,40 @@ Constructor for \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Ar
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00184}{184}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00180}{180}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a492dc69c461fc3c497387728c1e15049} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f8d78b08dbc8ad638915fc89ac04c7}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f8d78b08dbc8ad638915fc89ac04c7} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
 \index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Objs,  }\item[{const bool}]{is\+Absolute = {\ttfamily false},  }\item[{const int}]{typ = {\ttfamily 0} }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{nx,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ny,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{nz,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Objs,  }\item[{const bool}]{is\+Absolute = {\ttfamily false},  }\item[{const int}]{typ = {\ttfamily \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}}} }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00207}{207}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!````~SuperArray@{\texorpdfstring{$\sim$}{\string~}SuperArray}}
-\index{````~SuperArray@{\texorpdfstring{$\sim$}{\string~}SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SuperArray()}{\string~SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00035}{35}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ad28d63259dda31ff488a1e16c2aeacee} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
-\index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a5306dc4c24a6e4edf6b497712144bdfc}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a5306dc4c24a6e4edf6b497712144bdfc} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
-\index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-GOAT\+::\+Super\+Array\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{const int}]{typ = {\ttfamily \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}}} }\end{DoxyParamCaption})}
-
-
-
-Constructor for \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em r0} & Radius of the circumscribed sphere {\ttfamily nx}, {\ttfamily ny}, {\ttfamily nz} number of cells in the x-\/, y-\/, z-\/ direction \\
-\hline
-{\em type} & describes wether the whole space of the grid is allocated (IN\+\_\+\+HOST) or in the objects only (IN\+\_\+\+OBJECT) \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01347}{1347}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a03e449f523acffa68b12fd23011508c0}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a03e449f523acffa68b12fd23011508c0} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
-\index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{double}]{r0,  }\item[{int}]{nx,  }\item[{int}]{ny,  }\item[{int}]{nz,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Objs,  }\item[{const bool}]{is\+Absolute = {\ttfamily false},  }\item[{const int}]{typ = {\ttfamily \mbox{\hyperlink{resutil_8h_a34ef901b3a6cb0700948a113abb1adef}{IN\+\_\+\+OBJECT}}} }\end{DoxyParamCaption})}
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00199}{199}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a01b5f6dc9edf03c069badd96767b6a4e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a01b5f6dc9edf03c069badd96767b6a4e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!SuperArray@{SuperArray}}
 \index{SuperArray@{SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+\doxysubsubsection{\texorpdfstring{SuperArray()}{SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Super\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00034}{34}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00038}{38}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a99948b511348150d1262112a347be412} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!````~SuperArray@{\texorpdfstring{$\sim$}{\string~}SuperArray}}
 \index{````~SuperArray@{\texorpdfstring{$\sim$}{\string~}SuperArray}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SuperArray()}{\string~SuperArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SuperArray()}{\string~SuperArray()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00056}{56}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00060}{60}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 
 
@@ -311,24 +201,9 @@ Definition at line \mbox{\hyperlink{superarray_8h_source_l00056}{56}} of file \m
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a41a59001cf9cb69e5feecd136c9635e7} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!add@{add}}
 \index{add@{add}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
-
-
-
-Adds another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are added to the existing array elements. 
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00679}{679}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d1c995f89b772c3d6702950ac4f64d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d1c995f89b772c3d6702950ac4f64d} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!add@{add}}
-\index{add@{add}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{add()}{add()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void GOAT\+::\+Super\+Array\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
 
 
 
@@ -336,12 +211,12 @@ Adds another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00593}{593}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00730}{730}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!addInc@{addInc}}
 \index{addInc@{addInc}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::add\+Inc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Obj,  }\item[{const bool}]{is\+Absolute = {\ttfamily false} }\end{DoxyParamCaption})}
 
@@ -360,32 +235,12 @@ Add objects to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Arr
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00227}{227}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00218}{218}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac5ff5350b00f9e2a0896553c1d595b9e} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!addInc@{addInc}}
-\index{addInc@{addInc}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::add\+Inc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{Obj,  }\item[{int}]{num\+Obj,  }\item[{const bool}]{is\+Absolute = {\ttfamily false} }\end{DoxyParamCaption})}
-
-
-
-Summing up \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Here, all cell contents are first added up. The absolute value is taken from the result and squared. 
-
-Add objects to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Adds a list of objects to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. An object is added to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} by allocating memory that corresponds to the volume of the circumscribing cuboid. 
-\begin{DoxyParams}{Parameters}
-{\em Obj} & The object list \\
-\hline
-{\em num\+Obj} & Number of objects to add \\
-\hline
-{\em is\+Absolute} & true\+: Location/size information in absolute coordinates \\
-\hline
-\end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a4c793ac7f885bb7cad4c5af82e54ff3a} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!addInc@{addInc}}
 \index{addInc@{addInc}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::add\+Inc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{E,  }\item[{const bool}]{is\+Absolute = {\ttfamily false} }\end{DoxyParamCaption})}
 
@@ -402,56 +257,23 @@ Add object to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Arra
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00253}{253}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae5bbf431169509b816c85e99bd10ee79}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae5bbf431169509b816c85e99bd10ee79} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!addInc@{addInc}}
-\index{addInc@{addInc}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{addInc()}{addInc()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-bool GOAT\+::\+Super\+Array\+::add\+Inc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{E,  }\item[{const bool}]{is\+Absolute = {\ttfamily false} }\end{DoxyParamCaption})}
-
-
-
-Add object to \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} Add one objects to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}. An object is added to the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} by allocating memory that corresponds to the volume of the circumscribing cuboid. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em E} & The object \\
-\hline
-{\em is\+Absolute} & true\+: Location/size information in absolute coordinates \\
-\hline
-\end{DoxyParams}
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00163}{163}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00244}{244}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a052e9f2c9cb85b70ed686b19060f58f4} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!allockugel@{allockugel}}
 \index{allockugel@{allockugel}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{allockugel()}{allockugel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{allockugel()}{allockugel()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::allockugel}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00818}{818}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac0683336cd5801226275125a5bc8d03f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac0683336cd5801226275125a5bc8d03f} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!allockugel@{allockugel}}
-\index{allockugel@{allockugel}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{allockugel()}{allockugel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void GOAT\+::\+Super\+Array\+::allockugel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01175}{1175}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00873}{873}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!clear@{clear}}
 \index{clear@{clear}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::clear}
 
@@ -461,33 +283,18 @@ Clear the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} a
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00540}{540}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00573}{573}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ab1262da9785c2d2326a29fd42f6b5369} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_aa5780955f3b63fbe7b15814869620d56}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_aa5780955f3b63fbe7b15814869620d56} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!clear@{clear}}
 \index{clear@{clear}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Clear the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and release the allocated memory. 
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a45f40d22d36ab5dcead0be3b260c2f42}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a45f40d22d36ab5dcead0be3b260c2f42} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!clear@{clear}}
-\index{clear@{clear}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily void GOAT\+::\+Super\+Array\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00454}{454}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae4f3ae59dd254e03d84d441b80386c52} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!copy@{copy}}
 \index{copy@{copy}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
 
@@ -497,27 +304,12 @@ Copies \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} obje
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00607}{607}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a95803de3ef8700b7c99d476a6bf1e26f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a95803de3ef8700b7c99d476a6bf1e26f} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!copy@{copy}}
-\index{copy@{copy}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void GOAT\+::\+Super\+Array\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
-
-
-
-Copies \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object Here, {\ttfamily S} will be copied into the existing \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} and all elements will be overridden. 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00521}{521}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00637}{637}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!fill@{fill}}
 \index{fill@{fill}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{fill()}{fill()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{fill()}{fill()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::fill (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCaption})}
 
@@ -527,47 +319,25 @@ Fill the whole \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Arr
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00769}{769}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00823}{823}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_adb4ea84d63f0d3c824f498e673a71004} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!fill@{fill}}
-\index{fill@{fill}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{fill()}{fill()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::fill (\begin{DoxyParamCaption}\item[{const T \&}]{x }\end{DoxyParamCaption})}
-
-
-
-Fill the whole \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} with value {\ttfamily x}. 
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a41dfee2ca91a34760375d32065e8e665} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d3c8f7fd8d44873e82bafa31b0f7a4e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d3c8f7fd8d44873e82bafa31b0f7a4e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!gitterpunkt@{gitterpunkt}}
 \index{gitterpunkt@{gitterpunkt}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{gitterpunkt()}{gitterpunkt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{gitterpunkt()}{gitterpunkt()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::gitterpunkt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::gitterpunkt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00234}{234}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00225}{225}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a346e46105e02e4ff5624dbaf4293404f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a346e46105e02e4ff5624dbaf4293404f} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!gitterpunkt@{gitterpunkt}}
-\index{gitterpunkt@{gitterpunkt}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{gitterpunkt()}{gitterpunkt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ GOAT\+::\+Super\+Array\+::gitterpunkt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01397}{1397}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a874f0c0f1384f1c71daf8ce105ed6893} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1c9876836d1e292358fd70bb162bea4e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1c9876836d1e292358fd70bb162bea4e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
 \index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::in\+Object (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz,  }\item[{int}]{i }\end{DoxyParamCaption})}
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ix,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iy,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iz,  }\item[{int}]{i }\end{DoxyParamCaption})}
 
 
 
@@ -575,27 +345,12 @@ checks if a point indicated by its indices ({\ttfamily ix}, {\ttfamily iy}, {\tt
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00341}{341}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a292b0aad8cf6d7ec7792bc7e593f99fa}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a292b0aad8cf6d7ec7792bc7e593f99fa} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
-\index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-bool GOAT\+::\+Super\+Array\+::in\+Object (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz,  }\item[{int}]{i }\end{DoxyParamCaption})}
-
-
-
-checks if a point indicated by its indices ({\ttfamily ix}, {\ttfamily iy}, {\ttfamily iz}) is inside the {\ttfamily i} -\/th object 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00252}{252}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00320}{320}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a077f1119bb513a7b0fcf0107055d8553} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
 \index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P,  }\item[{int}]{i }\end{DoxyParamCaption})}
 
@@ -605,29 +360,14 @@ checks if {\ttfamily P} is inside the i-\/th object (p in real coordinates)
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00331}{331}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00310}{310}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ab329d28df3ea500b1250cfae734f0eeb}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ab329d28df3ea500b1250cfae734f0eeb} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_aa8b5dbd7629d4bde4f8c9feb5832058d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_aa8b5dbd7629d4bde4f8c9feb5832058d} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
 \index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-bool GOAT\+::\+Super\+Array\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P,  }\item[{int}]{i }\end{DoxyParamCaption})}
-
-
-
-checks if {\ttfamily P} is inside the i-\/th object (p in real coordinates) 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00242}{242}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a3bc2e312acddc90dfaac7e924121689b} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
-\index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi,  }\item[{int}]{i }\end{DoxyParamCaption})}
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$}]{Pi,  }\item[{int}]{i }\end{DoxyParamCaption})}
 
 
 
@@ -635,44 +375,14 @@ checks if {\ttfamily Pi} is inside the i-\/th object (pi in indices)
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00336}{336}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00315}{315}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a608a8def0d2139038bfdc9b2767c1305}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a608a8def0d2139038bfdc9b2767c1305} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!inObject@{inObject}}
-\index{inObject@{inObject}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-bool GOAT\+::\+Super\+Array\+::in\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi,  }\item[{int}]{i }\end{DoxyParamCaption})}
-
-
-
-checks if {\ttfamily Pi} is inside the i-\/th object (pi in indices) 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00247}{247}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae309270ff44d59ea06fb31a6914b8548} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d8cf39c5b9a6d162ad5478edb0ab890}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1d8cf39c5b9a6d162ad5478edb0ab890} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelindex@{kugelindex}}
 \index{kugelindex@{kugelindex}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelindex()}{kugelindex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{kugelindex()}{kugelindex()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::kugelindex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
-
-
-
-Checks if the point {\ttfamily Pi} (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-\/1,-\/1,-\/1) is returned (for internal use only) 
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00876}{876}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a509ba5b455b59eeed7f71f52ead016a4}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a509ba5b455b59eeed7f71f52ead016a4} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelindex@{kugelindex}}
-\index{kugelindex@{kugelindex}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelindex()}{kugelindex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ GOAT\+::\+Super\+Array\+::kugelindex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::kugelindex (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$}]{Pi }\end{DoxyParamCaption})}
 
 
 
@@ -680,110 +390,70 @@ Checks if the point {\ttfamily Pi} (indicated by the indices) is inside the calc
 
 for internal use only 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01231}{1231}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00921}{921}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1cf6450528d62fad161bab14a1100f0c} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelwert@{kugelwert}}
 \index{kugelwert@{kugelwert}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::kugelwert (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00946}{946}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac4195ed1887f90126f90fffb6d96f095}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac4195ed1887f90126f90fffb6d96f095} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelwert@{kugelwert}}
-\index{kugelwert@{kugelwert}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::\+Super\+Array\+::kugelwert (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz }\end{DoxyParamCaption})}
-
-
-
 for internal use only 
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01301}{1301}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00991}{991}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1bd85af32ee959e6d994a41ca237362f} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelwert@{kugelwert}}
 \index{kugelwert@{kugelwert}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::kugelwert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00917}{917}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ab83408422aa679652a0ff068057d4d5e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ab83408422aa679652a0ff068057d4d5e} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!kugelwert@{kugelwert}}
-\index{kugelwert@{kugelwert}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{kugelwert()}{kugelwert()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::\+Super\+Array\+::kugelwert (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
-
-
-
 for internal use only 
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l01272}{1272}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00962}{962}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2759899e6c83be817b38e85bbca2f242} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!makeReal@{makeReal}}
 \index{makeReal@{makeReal}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{makeReal()}{makeReal()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{makeReal()}{makeReal()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::make\+Real}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00805}{805}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00860}{860}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a4b0c04e4985d7385f8fbc54f2b586ef8}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a4b0c04e4985d7385f8fbc54f2b586ef8} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!makeReal@{makeReal}}
-\index{makeReal@{makeReal}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{makeReal()}{makeReal()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void GOAT\+::\+Super\+Array\+::make\+Real (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00719}{719}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_afab5c979b30499a02aa9191fa490140a}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_afab5c979b30499a02aa9191fa490140a} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz,  }\item[{bool}]{is\+Object\+Coordinate = {\ttfamily true} }\end{DoxyParamCaption})}
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ix,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iy,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iz }\end{DoxyParamCaption})}
 
 
 
-returns the content of the i-\/th object, with the grid-\/coordinates ix,iy,iz 
+gives the content of the cell\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]} 
 
 
-\begin{DoxyParams}{Parameters}
-{\em i} & number of the object \\
-\hline
-{\em ix} & \\
-\hline
-\end{DoxyParams}
 
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00325}{325}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00415}{415}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a86b4ff8825a3ae9cd317d828c034dd57} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_acb76b67db5bc46acd07c257331335162}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_acb76b67db5bc46acd07c257331335162} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz,  }\item[{bool}]{is\+Object\+Coordinate = {\ttfamily true} }\end{DoxyParamCaption})}
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ix,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iy,  }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iz,  }\item[{bool}]{is\+Object\+Coordinate = {\ttfamily true} }\end{DoxyParamCaption})}
 
 
 
@@ -796,23 +466,16 @@ returns the content of the i-\/th object, with the grid-\/coordinates ix,iy,iz
 {\em ix} & gives back the contents of the cell from the i-\/th object with the indices (ix,iy,iz) (faster) \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00417}{417}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c1fd8e82f78a139ec4c8657d93c9e6f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c1fd8e82f78a139ec4c8657d93c9e6f} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00513}{513}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c6a41e0025a4106b72bde099377e8eb}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2c6a41e0025a4106b72bde099377e8eb} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::\+Super\+Array\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
 
 
 
@@ -820,25 +483,14 @@ gives back the contents of the cell at P from the i-\/th object (faster)
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00428}{428}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00538}{538}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a7a6a007f3c6a88f5a149635aec66bef3}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a7a6a007f3c6a88f5a149635aec66bef3} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2cc8624d448dea4108a0d7f8d0c0d1bd}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2cc8624d448dea4108a0d7f8d0c0d1bd} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00435}{435}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a6f8fef8315fbe6bc0a0dba131825a89d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a6f8fef8315fbe6bc0a0dba131825a89d} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::\+Super\+Array\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$}]{Pi }\end{DoxyParamCaption})}
 
 
 
@@ -846,55 +498,14 @@ gives back the contents of the cell with indices stored in Pi from the i-\/th ob
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00348}{348}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a20105c6bd6de8ce4c10cc67eddec28} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [7/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz }\end{DoxyParamCaption})}
-
-
-
-gives the content of the cell\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]} 
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00346}{346}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_aa24565196f67a54120e12394e38e01f9}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_aa24565196f67a54120e12394e38e01f9} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [8/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::\+Super\+Array\+::operator() (\begin{DoxyParamCaption}\item[{int}]{ix,  }\item[{int}]{iy,  }\item[{int}]{iz }\end{DoxyParamCaption})}
-
-
-
-gives the content of the cell\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}\mbox{[}iz\mbox{]} 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00257}{257}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00444}{444}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a86cf8de40d8227c4acb2eeddf9548e91}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a86cf8de40d8227c4acb2eeddf9548e91} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [9/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00475}{475}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d4780e185de5056ccd60ecc316823d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a10d4780e185de5056ccd60ecc316823d} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [10/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::\+Super\+Array\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
 
 
 
@@ -902,25 +513,14 @@ gives back the contents of the cell at P
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00389}{389}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00487}{487}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a75433aaafcb61e64a066b2eb216c8a}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a4a75433aaafcb61e64a066b2eb216c8a} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a9b663700a801647baa583bf27e463b02}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a9b663700a801647baa583bf27e463b02} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [11/12]}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00379}{379}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_acddd4316fedf0dc56c6cff0f17882bec}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_acddd4316fedf0dc56c6cff0f17882bec} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator()@{operator()}}
-\index{operator()@{operator()}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [12/12]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::\+Super\+Array\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$}]{Pi }\end{DoxyParamCaption})}
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$}]{Pi }\end{DoxyParamCaption})}
 
 
 
@@ -928,12 +528,12 @@ gives back the contents of the cell with indices stored in Pi
 
 
 
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00291}{291}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00370}{370}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ace42b9b0389861d7a869612d1a406542} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator=@{operator=}}
 \index{operator=@{operator=}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
 
@@ -943,22 +543,7 @@ Assignment operator.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00619}{619}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ad76330c21a2f67db3cb2ac7d45f6dbce}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ad76330c21a2f67db3cb2ac7d45f6dbce} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!operator=@{operator=}}
-\index{operator=@{operator=}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} \& GOAT\+::\+Super\+Array\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
-
-
-
-Assignment operator. 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00533}{533}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00661}{661}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a53aba69636ea336d8bf9b5c428ca906c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a53aba69636ea336d8bf9b5c428ca906c} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!read@{read}}
@@ -970,7 +555,7 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytr
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2aab88f32e5f3a5eabfddb3fd7e0a02e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!sub@{sub}}
 \index{sub@{sub}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{sub()}{sub()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{sub()}{sub()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
 
@@ -980,22 +565,7 @@ Subtract another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+A
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00716}{716}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_acb44a6867cddb032ec3feffdd6e3c357}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_acb44a6867cddb032ec3feffdd6e3c357} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!sub@{sub}}
-\index{sub@{sub}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{sub()}{sub()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-void GOAT\+::\+Super\+Array\+::sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})}
-
-
-
-Subtract another \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} object. In this function, all array elements from {\ttfamily S} are subtracted from the existing array elements. 
-
-
-
-Definition at line \mbox{\hyperlink{supergrid__old_8h_source_l00630}{630}} of file \mbox{\hyperlink{supergrid__old_8h_source}{supergrid\+\_\+old.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00767}{767}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a631531d4962d08fabfef3c8b7b0e9f3d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a631531d4962d08fabfef3c8b7b0e9f3d} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!write@{write}}
@@ -1013,12 +583,12 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytr
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a61ceb0a5164752572eab3ed0f146bf2b} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!d@{d}}
 \index{d@{d}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{d}{d}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::d}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::d}
 
 
 
@@ -1026,7 +596,7 @@ Edge length of one cell in x-\/, y-\/ and z-\/direction.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00157}{157}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00152}{152}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a2899efa3a6526adaaa69e888a38ef60d} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!dummy@{dummy}}
@@ -1037,7 +607,7 @@ T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytraci
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00151}{151}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00147}{147}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea3a759aa92094b6f63e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac23e0ee1b8d0ea3a759aa92094b6f63e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!Error@{Error}}
@@ -1052,23 +622,12 @@ Holds an error number.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00144}{144}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac014d2a04ba4c51bfc9b6fd5f74f26ce} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!G@{G}}
-\index{G@{G}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{G}{G}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-T\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::G}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00149}{149}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00139}{139}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a25137cb8f912660c9a71a0cc56341b1b}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a25137cb8f912660c9a71a0cc56341b1b} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!G@{G}}
 \index{G@{G}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{G}{G}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{G}{G}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 std\+::vector$<$std\+::vector $<$std\+::vector $<$std\+::vector $<$T$>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::G}
 
@@ -1078,18 +637,18 @@ Here, the data is stored. G\mbox{[}i\mbox{]}\mbox{[}ix\mbox{]}\mbox{[}iy\mbox{]}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00141}{141}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00145}{145}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_abaf4fd8ac61aedc25e58d2a2f893a389} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a6ecd550fcf73453fc1df5811d7879bf3}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a6ecd550fcf73453fc1df5811d7879bf3} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!H@{H}}
 \index{H@{H}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{H}{H}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::H}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::H}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00163}{163}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00157}{157}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149efc4751474fa1974823}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_af9e136050a149efc4751474fa1974823} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!iscleared@{iscleared}}
@@ -1104,7 +663,7 @@ Array is cleared (needed by the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00160}{160}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00155}{155}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a76f72a9f5b6a57864e80eb79a114b45d}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a76f72a9f5b6a57864e80eb79a114b45d} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!isequal@{isequal}}
@@ -1115,47 +674,25 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytr
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00159}{159}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a7fbc16f1af3cc21908024474a81e150c} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!K@{K}}
-\index{K@{K}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{K}{K}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-T\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::K}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00150}{150}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00154}{154}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_af20814acb049093586f43f895ab03083}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_af20814acb049093586f43f895ab03083} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!K@{K}}
 \index{K@{K}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{K}{K}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{K}{K}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 std\+::vector$<$ std\+::vector $<$ std\+::vector $<$T$>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::K}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00142}{142}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00146}{146}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_acbce9e7e2fe9ab65afda9206722c3204} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae945ff9ea49db7a541ae47c007199c4c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae945ff9ea49db7a541ae47c007199c4c} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!n@{n}}
 \index{n@{n}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{n}{n}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$int$>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::n}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00152}{152}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_abf26f590b0f5801e25ba474a07ef8e2f}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_abf26f590b0f5801e25ba474a07ef8e2f} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!n@{n}}
-\index{n@{n}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{n}{n}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$int$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::n}
+std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::n}
 
 
 
@@ -1163,14 +700,14 @@ n\mbox{[}i\mbox{]}\+: Dimensions, i.\+e. number of subdivision in x-\/, y-\/ and
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00145}{145}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00149}{149}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a939bfbc1f3b3f723bcc1c84888eec4ca} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_af48703c268e4b915b0c06406d6876a12}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_af48703c268e4b915b0c06406d6876a12} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!nges@{nges}}
 \index{nges@{nges}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{nges}{nges}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::nges}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::nges}
 
 
 
@@ -1178,7 +715,7 @@ Vector which contains the number of subdivisions in x-\/, y-\/ and z-\/direction
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00152}{152}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00150}{150}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a1ab8d9a1d4538c3ed959f9f6222edf87} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!numObjs@{numObjs}}
@@ -1193,14 +730,14 @@ Number of objects.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00146}{146}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00141}{141}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a04e94a3276311aea3e529a3988f4f163} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a19061fc2ecb1782db1ec4636b871ec22}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a19061fc2ecb1782db1ec4636b871ec22} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!Obj@{Obj}}
 \index{Obj@{Obj}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Obj}{Obj}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Obj =NULL}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Obj =NULL}
 
 
 
@@ -1208,7 +745,7 @@ here are the objects
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00145}{145}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00140}{140}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a31e60cb1546dddf0e132b5994147df6e} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!pc@{pc}}
@@ -1219,36 +756,25 @@ T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytraci
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00161}{161}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00156}{156}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a52871e3a1a7ffc7e5b883345276512ae}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a52871e3a1a7ffc7e5b883345276512ae} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a5e862b8542faf7eff6fc8671d4f538ae}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a5e862b8542faf7eff6fc8671d4f538ae} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!Pul@{Pul}}
 \index{Pul@{Pul}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Pul}{Pul}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{Pul}{Pul}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$int$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Pul}
+std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Pul}
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00152}{152}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00148}{148}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a03842005a8d5a9fe38c20275bd96e9ce}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a03842005a8d5a9fe38c20275bd96e9ce} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!Pul@{Pul}}
-\index{Pul@{Pul}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{Pul}{Pul}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$int$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::\+Pul}
-
-
-
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00144}{144}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ae2e6e90f32b6c9c44b04985bd506605c} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_abbd5633f22343a776cd451da5fd40eaa}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_abbd5633f22343a776cd451da5fd40eaa} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!R@{R}}
 \index{R@{R}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{R}{R}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::R}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::R}
 
 
 
@@ -1256,7 +782,7 @@ Transformation matrices in the local array coordinate system and backwards.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00163}{163}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00157}{157}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!r0@{r0}}
@@ -1271,7 +797,7 @@ Radius of the calculation sphere.
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00158}{158}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00153}{153}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a0dca0ab070540178d712c659ef69ecc0} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!type@{type}}
@@ -1286,56 +812,32 @@ Mainly used for inelastic scattering. type=IN\+\_\+\+HOST means the grid is stor
 
 
 
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00146}{146}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_ac63e8c81808d93e8d7b6bbbba303ce03} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!ywerte@{ywerte}}
-\index{ywerte@{ywerte}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{ywerte}{ywerte}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-int\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::ywerte}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00147}{147}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00142}{142}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a9c86faf7df0c5ff9226ff1dd863f6c6c}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a9c86faf7df0c5ff9226ff1dd863f6c6c} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!ywerte@{ywerte}}
 \index{ywerte@{ywerte}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{ywerte}{ywerte}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{ywerte}{ywerte}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 std\+::vector$<$int$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::ywerte}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00139}{139}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a5d75a774dd5fd2cb4a0f491aeb22d527} 
-\index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!zwerte@{zwerte}}
-\index{zwerte@{zwerte}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{zwerte}{zwerte}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily template$<$class T $>$ \\
-int\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::zwerte}
-
-
-
-Definition at line \mbox{\hyperlink{sic_2superarray_8h_source_l00148}{148}} of file \mbox{\hyperlink{sic_2superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00143}{143}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_super_array_a44d9d186b9b1038806de6a9c09e89609}\label{class_g_o_a_t_1_1raytracing_1_1_super_array_a44d9d186b9b1038806de6a9c09e89609} 
 \index{GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}!zwerte@{zwerte}}
 \index{zwerte@{zwerte}!GOAT::raytracing::SuperArray$<$ T $>$@{GOAT::raytracing::SuperArray$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{zwerte}{zwerte}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{zwerte}{zwerte}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 std\+::vector$<$std\+::vector$<$int$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::raytracing\+::\+Super\+Array}}$<$ T $>$\+::zwerte}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00140}{140}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00144}{144}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 
 
-The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-raytracing/sic/\mbox{\hyperlink{sic_2superarray_8h}{superarray.\+h}}\item 
-raytracing/\mbox{\hyperlink{superarray_8h}{superarray.\+h}}\item 
-raytracing/\mbox{\hyperlink{supergrid__old_8h}{supergrid\+\_\+old.\+h}}\end{DoxyCompactItemize}
+raytracing/\mbox{\hyperlink{superarray_8h}{superarray.\+h}}\end{DoxyCompactItemize}

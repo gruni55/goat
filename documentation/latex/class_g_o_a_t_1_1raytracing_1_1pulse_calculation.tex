@@ -15,6 +15,8 @@ This class provides functionality to calculate field distributions for short pul
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff5c480a97436c0ebbc240b88dc7edf3}{pulse\+Calculation}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} S)
 \item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acf22cf822d48eb8a511ad66f097c3633}{find\+Hit\+Time}} (int Obj\+No)
+\begin{DoxyCompactList}\small\item\em Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aff0a0f419978b4a12349ed1eb0e1526a}{field\+Calculation}} ()
 \begin{DoxyCompactList}\small\item\em This function makes the raytracing (normally only used internally) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9e502801803c843ed2409c6afef610c5}{field\+Calculation}} (double omega)
@@ -32,6 +34,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a10310c6f
 \begin{DoxyCompactList}\small\item\em Number of spectral ranges in which one raytracing calculation is made. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7e22fd3bcdb1a45e1a61cf4079f45cc6}{set\+Num\+Wavelengths\+Per\+Range}} (int nS)
 \begin{DoxyCompactList}\small\item\em Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3ce9362a627c994ccea1404a400481e0}{set\+Center\+Wavelength}} (double wvl)
+\begin{DoxyCompactList}\small\item\em Set center wavelength of the pulse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acd516a0252c099b0ace4314688af6a1e}{set\+Bandwidth}} (double d\+Wvl)
+\begin{DoxyCompactList}\small\item\em Set Bandwith of the light source(s) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a730b75ee26efb9239357c8161e29043a}{set\+Repetition\+Rate}} (double rep)
+\begin{DoxyCompactList}\small\item\em Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) ~\newline
+ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_afe27e49406c10e23fc86cbbeeb862fed}{field}} (double t)
 \begin{DoxyCompactList}\small\item\em This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}{reset}} ()
@@ -45,6 +54,10 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9263568d
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}{trafo}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}{SAres}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adc550317fc895b9c6014a6533790a702}{SA}}
+\begin{DoxyCompactList}\small\item\em Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4575e88d9db626d840e05264535f5125}{rt}}
 \end{DoxyCompactItemize}
 
 
@@ -98,6 +111,16 @@ This function makes the raytracing (normally only used internally)
 
 This function makes one raytracing step at frequency omega. 
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acf22cf822d48eb8a511ad66f097c3633}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acf22cf822d48eb8a511ad66f097c3633} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!findHitTime@{findHitTime}}
+\index{findHitTime@{findHitTime}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{findHitTime()}{findHitTime()}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::pulse\+Calculation\+::find\+Hit\+Time (\begin{DoxyParamCaption}\item[{int}]{Obj\+No }\end{DoxyParamCaption})}
+
+
+
+Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae8260fb3d127a27309618710fa248826} 
 \index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!reset@{reset}}
 \index{reset@{reset}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
@@ -108,6 +131,26 @@ This function makes one raytracing step at frequency omega.
 
 Clears all arrays ~\newline
  
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acd516a0252c099b0ace4314688af6a1e}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acd516a0252c099b0ace4314688af6a1e} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!setBandwidth@{setBandwidth}}
+\index{setBandwidth@{setBandwidth}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{setBandwidth()}{setBandwidth()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::pulse\+Calculation\+::set\+Bandwidth (\begin{DoxyParamCaption}\item[{double}]{d\+Wvl }\end{DoxyParamCaption})}
+
+
+
+Set Bandwith of the light source(s) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3ce9362a627c994ccea1404a400481e0}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3ce9362a627c994ccea1404a400481e0} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!setCenterWavelength@{setCenterWavelength}}
+\index{setCenterWavelength@{setCenterWavelength}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{setCenterWavelength()}{setCenterWavelength()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::pulse\+Calculation\+::set\+Center\+Wavelength (\begin{DoxyParamCaption}\item[{double}]{wvl }\end{DoxyParamCaption})}
+
+
+
+Set center wavelength of the pulse. 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0fee8a17c26d5aa6033e7716e41ac83c}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0fee8a17c26d5aa6033e7716e41ac83c} 
 \index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!setNumReflex@{setNumReflex}}
@@ -152,6 +195,17 @@ Sets the spectral width according to the pulse width and adjusts the widht of th
 
 sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1) 
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a730b75ee26efb9239357c8161e29043a}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a730b75ee26efb9239357c8161e29043a} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!setRepetitionRate@{setRepetitionRate}}
+\index{setRepetitionRate@{setRepetitionRate}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{setRepetitionRate()}{setRepetitionRate()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::pulse\+Calculation\+::set\+Repetition\+Rate (\begin{DoxyParamCaption}\item[{double}]{rep }\end{DoxyParamCaption})}
+
+
+
+Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) ~\newline
+ 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a34ff04f4884e7ea541ade9d90dd53e71} 
 \index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!setSpatialResolution@{setSpatialResolution}}
 \index{setSpatialResolution@{setSpatialResolution}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
@@ -175,6 +229,30 @@ Number of spectral ranges in which one raytracing calculation is made.
 
 
 \doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4575e88d9db626d840e05264535f5125}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4575e88d9db626d840e05264535f5125} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!rt@{rt}}
+\index{rt@{rt}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{rt}{rt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}} GOAT\+::raytracing\+::pulse\+Calculation\+::rt}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00063}{63}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adc550317fc895b9c6014a6533790a702}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adc550317fc895b9c6014a6533790a702} 
+\index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!SA@{SA}}
+\index{SA@{SA}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
+\doxysubsubsection{\texorpdfstring{SA}{SA}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$std\+::vector$<$\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}}$>$ $>$ $>$ GOAT\+::raytracing\+::pulse\+Calculation\+::\+SA}
+
+
+
+Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.) 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00062}{62}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6880d97c499cb696b3fcc788d894855d} 
 \index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!SAres@{SAres}}
 \index{SAres@{SAres}!GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}}
@@ -183,7 +261,7 @@ Number of spectral ranges in which one raytracing calculation is made.
 
 
 
-Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00046}{46}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00061}{61}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4e8b91a78d54c72e5e0fe0f2bf987531} 
 \index{GOAT::raytracing::pulseCalculation@{GOAT::raytracing::pulseCalculation}!trafo@{trafo}}
@@ -193,7 +271,7 @@ Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00046}{46}} of f
 
 
 
-Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00045}{45}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00060}{60}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
 
 
 

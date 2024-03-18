@@ -12,7 +12,7 @@ var class_g_o_a_t_1_1raytracing_1_1_super_grid =
     [ "clear", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a95aca3ba742f2b482844a4ac5bfb2486", null ],
     [ "copy", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#adab68a212d4cff5ff2508046eed695cd", null ],
     [ "fill", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a22fa327f33d8f94e738776eb7e9c401f", null ],
-    [ "gitterpunkt", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#af7dd5fc22f280d04a23e9c3e40b727a4", null ],
+    [ "gitterpunkt", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#abd0c9071c88c5e3a58a5e548491edfc7", null ],
     [ "inObject", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a848da7312824b53fb2fe2b44e115a8cb", null ],
     [ "inObject", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#aff047fff8a5afb3fd8d9def36b4c31e8", null ],
     [ "inObject", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#aa0d3cc6339b2c450dab957d4067d1a57", null ],

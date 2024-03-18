@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -98,162 +97,96 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_super_
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>&gt;</code></p>
+<p>Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-grid of arbitrary values which can be used to store e.g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments.  
+ <a href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="superarray_8h_source.html">superarray.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad28d63259dda31ff488a1e16c2aeacee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ad28d63259dda31ff488a1e16c2aeacee">SuperArray</a> ()</td></tr>
 <tr class="separator:ad28d63259dda31ff488a1e16c2aeacee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19d599a905608908edeec2fb0e6bb8a4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a19d599a905608908edeec2fb0e6bb8a4">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, int nx, int ny, int nz, const int typ=<a class="el" href="resutil_8h.html#ad93ae5f0faa011168de4377684a89b5e">IN_HOST</a>)</td></tr>
-<tr class="memdesc:a19d599a905608908edeec2fb0e6bb8a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>.  <br /></td></tr>
-<tr class="separator:a19d599a905608908edeec2fb0e6bb8a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a492dc69c461fc3c497387728c1e15049"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a492dc69c461fc3c497387728c1e15049">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, int nx, int ny, int nz, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a04e94a3276311aea3e529a3988f4f163">Obj</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1ab8d9a1d4538c3ed959f9f6222edf87">numObjs</a>, const bool isAbsolute=false, const int typ=0)</td></tr>
-<tr class="separator:a492dc69c461fc3c497387728c1e15049"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600535d65fd5bba19a99955fe5534b57"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a600535d65fd5bba19a99955fe5534b57">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nx, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ny, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nz, const int typ=<a class="el" href="resutil_8h.html#a34ef901b3a6cb0700948a113abb1adef">IN_OBJECT</a>)</td></tr>
+<tr class="memdesc:a600535d65fd5bba19a99955fe5534b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a>.  <br /></td></tr>
+<tr class="separator:a600535d65fd5bba19a99955fe5534b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f8d78b08dbc8ad638915fc89ac04c7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae4f8d78b08dbc8ad638915fc89ac04c7">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nx, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ny, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nz, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a19061fc2ecb1782db1ec4636b871ec22">Obj</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1ab8d9a1d4538c3ed959f9f6222edf87">numObjs</a>, const bool isAbsolute=false, const int typ=<a class="el" href="resutil_8h.html#a34ef901b3a6cb0700948a113abb1adef">IN_OBJECT</a>)</td></tr>
+<tr class="separator:ae4f8d78b08dbc8ad638915fc89ac04c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01b5f6dc9edf03c069badd96767b6a4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a01b5f6dc9edf03c069badd96767b6a4e">SuperArray</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
+<tr class="separator:a01b5f6dc9edf03c069badd96767b6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99948b511348150d1262112a347be412"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a99948b511348150d1262112a347be412">~SuperArray</a> ()</td></tr>
 <tr class="separator:a99948b511348150d1262112a347be412"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f3ae59dd254e03d84d441b80386c52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae4f3ae59dd254e03d84d441b80386c52">copy</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:ae4f3ae59dd254e03d84d441b80386c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and all elements will be overridden.  <br /></td></tr>
+<tr class="memdesc:ae4f3ae59dd254e03d84d441b80386c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> and all elements will be overridden.  <br /></td></tr>
 <tr class="separator:ae4f3ae59dd254e03d84d441b80386c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41a59001cf9cb69e5feecd136c9635e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a41a59001cf9cb69e5feecd136c9635e7">add</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:a41a59001cf9cb69e5feecd136c9635e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements.  <br /></td></tr>
+<tr class="memdesc:a41a59001cf9cb69e5feecd136c9635e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements. *.  <br /></td></tr>
 <tr class="separator:a41a59001cf9cb69e5feecd136c9635e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aab88f32e5f3a5eabfddb3fd7e0a02e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2aab88f32e5f3a5eabfddb3fd7e0a02e">sub</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:a2aab88f32e5f3a5eabfddb3fd7e0a02e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements.  <br /></td></tr>
+<tr class="memdesc:a2aab88f32e5f3a5eabfddb3fd7e0a02e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements.  <br /></td></tr>
 <tr class="separator:a2aab88f32e5f3a5eabfddb3fd7e0a02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac5ff5350b00f9e2a0896553c1d595b9e">addInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a04e94a3276311aea3e529a3988f4f163">Obj</a>, int numObj, const bool isAbsolute=false)</td></tr>
-<tr class="memdesc:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared.  <br /></td></tr>
+<tr class="memitem:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac5ff5350b00f9e2a0896553c1d595b9e">addInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a19061fc2ecb1782db1ec4636b871ec22">Obj</a>, int numObj, const bool isAbsolute=false)</td></tr>
+<tr class="memdesc:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared.  <br /></td></tr>
 <tr class="separator:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4c793ac7f885bb7cad4c5af82e54ff3a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a4c793ac7f885bb7cad4c5af82e54ff3a">addInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *E, const bool isAbsolute=false)</td></tr>
-<tr class="memdesc:a4c793ac7f885bb7cad4c5af82e54ff3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid.  <br /></td></tr>
+<tr class="memdesc:a4c793ac7f885bb7cad4c5af82e54ff3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid.  <br /></td></tr>
 <tr class="separator:a4c793ac7f885bb7cad4c5af82e54ff3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a41dfee2ca91a34760375d32065e8e665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a41dfee2ca91a34760375d32065e8e665">gitterpunkt</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
-<tr class="separator:a41dfee2ca91a34760375d32065e8e665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d3c8f7fd8d44873e82bafa31b0f7a4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1d3c8f7fd8d44873e82bafa31b0f7a4e">gitterpunkt</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
+<tr class="separator:a1d3c8f7fd8d44873e82bafa31b0f7a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a077f1119bb513a7b0fcf0107055d8553"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a077f1119bb513a7b0fcf0107055d8553">inObject</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P, int i)</td></tr>
 <tr class="memdesc:a077f1119bb513a7b0fcf0107055d8553"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if <code>P</code> is inside the i-th object (p in real coordinates)  <br /></td></tr>
 <tr class="separator:a077f1119bb513a7b0fcf0107055d8553"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bc2e312acddc90dfaac7e924121689b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3bc2e312acddc90dfaac7e924121689b">inObject</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi, int i)</td></tr>
-<tr class="memdesc:a3bc2e312acddc90dfaac7e924121689b"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if <code>Pi</code> is inside the i-th object (pi in indices)  <br /></td></tr>
-<tr class="separator:a3bc2e312acddc90dfaac7e924121689b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a874f0c0f1384f1c71daf8ce105ed6893"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a874f0c0f1384f1c71daf8ce105ed6893">inObject</a> (int ix, int iy, int iz, int i)</td></tr>
-<tr class="memdesc:a874f0c0f1384f1c71daf8ce105ed6893"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a point indicated by its indices (<code>ix</code>, <code>iy</code>, <code>iz</code>) is inside the <code>i</code> -th object  <br /></td></tr>
-<tr class="separator:a874f0c0f1384f1c71daf8ce105ed6893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a20105c6bd6de8ce4c10cc67eddec28"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a4a20105c6bd6de8ce4c10cc67eddec28">operator()</a> (int ix, int iy, int iz)</td></tr>
-<tr class="memdesc:a4a20105c6bd6de8ce4c10cc67eddec28"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the content of the cell[ix][iy][iz]  <br /></td></tr>
-<tr class="separator:a4a20105c6bd6de8ce4c10cc67eddec28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b4ff8825a3ae9cd317d828c034dd57"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a86b4ff8825a3ae9cd317d828c034dd57">operator()</a> (int i, int ix, int iy, int iz, bool isObjectCoordinate=true)</td></tr>
-<tr class="memdesc:a86b4ff8825a3ae9cd317d828c034dd57"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the content of the i-th object, with the grid-coordinates ix,iy,iz  <br /></td></tr>
-<tr class="separator:a86b4ff8825a3ae9cd317d828c034dd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a75433aaafcb61e64a066b2eb216c8a"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a4a75433aaafcb61e64a066b2eb216c8a">operator()</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="separator:a4a75433aaafcb61e64a066b2eb216c8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a6a007f3c6a88f5a149635aec66bef3"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a7a6a007f3c6a88f5a149635aec66bef3">operator()</a> (int i, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="separator:a7a6a007f3c6a88f5a149635aec66bef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8b5dbd7629d4bde4f8c9feb5832058d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#aa8b5dbd7629d4bde4f8c9feb5832058d">inObject</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; Pi, int i)</td></tr>
+<tr class="memdesc:aa8b5dbd7629d4bde4f8c9feb5832058d"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if <code>Pi</code> is inside the i-th object (pi in indices)  <br /></td></tr>
+<tr class="separator:aa8b5dbd7629d4bde4f8c9feb5832058d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c9876836d1e292358fd70bb162bea4e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1c9876836d1e292358fd70bb162bea4e">inObject</a> (<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ix, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iy, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iz, int i)</td></tr>
+<tr class="memdesc:a1c9876836d1e292358fd70bb162bea4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a point indicated by its indices (<code>ix</code>, <code>iy</code>, <code>iz</code>) is inside the <code>i</code> -th object  <br /></td></tr>
+<tr class="separator:a1c9876836d1e292358fd70bb162bea4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afab5c979b30499a02aa9191fa490140a"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#afab5c979b30499a02aa9191fa490140a">operator()</a> (<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ix, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iy, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iz)</td></tr>
+<tr class="memdesc:afab5c979b30499a02aa9191fa490140a"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the content of the cell[ix][iy][iz]  <br /></td></tr>
+<tr class="separator:afab5c979b30499a02aa9191fa490140a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb76b67db5bc46acd07c257331335162"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#acb76b67db5bc46acd07c257331335162">operator()</a> (int i, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ix, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iy, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> iz, bool isObjectCoordinate=true)</td></tr>
+<tr class="memdesc:acb76b67db5bc46acd07c257331335162"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the content of the i-th object, with the grid-coordinates ix,iy,iz  <br /></td></tr>
+<tr class="separator:acb76b67db5bc46acd07c257331335162"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b663700a801647baa583bf27e463b02"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9b663700a801647baa583bf27e463b02">operator()</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; Pi)</td></tr>
+<tr class="memdesc:a9b663700a801647baa583bf27e463b02"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell with indices stored in Pi  <br /></td></tr>
+<tr class="separator:a9b663700a801647baa583bf27e463b02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cc8624d448dea4108a0d7f8d0c0d1bd"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2cc8624d448dea4108a0d7f8d0c0d1bd">operator()</a> (int i, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; Pi)</td></tr>
+<tr class="memdesc:a2cc8624d448dea4108a0d7f8d0c0d1bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell with indices stored in Pi from the i-th object (faster)  <br /></td></tr>
+<tr class="separator:a2cc8624d448dea4108a0d7f8d0c0d1bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86cf8de40d8227c4acb2eeddf9548e91"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a86cf8de40d8227c4acb2eeddf9548e91">operator()</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
+<tr class="memdesc:a86cf8de40d8227c4acb2eeddf9548e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell at P  <br /></td></tr>
 <tr class="separator:a86cf8de40d8227c4acb2eeddf9548e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c1fd8e82f78a139ec4c8657d93c9e6f"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2c1fd8e82f78a139ec4c8657d93c9e6f">operator()</a> (int i, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
+<tr class="memdesc:a2c1fd8e82f78a139ec4c8657d93c9e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell at P from the i-th object (faster)  <br /></td></tr>
 <tr class="separator:a2c1fd8e82f78a139ec4c8657d93c9e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2759899e6c83be817b38e85bbca2f242"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2759899e6c83be817b38e85bbca2f242">makeReal</a> ()</td></tr>
 <tr class="separator:a2759899e6c83be817b38e85bbca2f242"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4ea84d63f0d3c824f498e673a71004"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#adb4ea84d63f0d3c824f498e673a71004">fill</a> (const T &amp;x)</td></tr>
-<tr class="memdesc:adb4ea84d63f0d3c824f498e673a71004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> with value <code>x</code>.  <br /></td></tr>
+<tr class="memdesc:adb4ea84d63f0d3c824f498e673a71004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> with value <code>x</code>.  <br /></td></tr>
 <tr class="separator:adb4ea84d63f0d3c824f498e673a71004"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace42b9b0389861d7a869612d1a406542"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ace42b9b0389861d7a869612d1a406542">operator=</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
 <tr class="memdesc:ace42b9b0389861d7a869612d1a406542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <br /></td></tr>
 <tr class="separator:ace42b9b0389861d7a869612d1a406542"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab1262da9785c2d2326a29fd42f6b5369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab1262da9785c2d2326a29fd42f6b5369">clear</a> ()</td></tr>
-<tr class="memdesc:ab1262da9785c2d2326a29fd42f6b5369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and release the allocated memory.  <br /></td></tr>
+<tr class="memdesc:ab1262da9785c2d2326a29fd42f6b5369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> and release the allocated memory.  <br /></td></tr>
 <tr class="separator:ab1262da9785c2d2326a29fd42f6b5369"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a052e9f2c9cb85b70ed686b19060f58f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a052e9f2c9cb85b70ed686b19060f58f4">allockugel</a> ()</td></tr>
 <tr class="separator:a052e9f2c9cb85b70ed686b19060f58f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae309270ff44d59ea06fb31a6914b8548"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae309270ff44d59ea06fb31a6914b8548">kugelindex</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="memdesc:ae309270ff44d59ea06fb31a6914b8548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the point <code>Pi</code> (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned (for internal use only)  <br /></td></tr>
-<tr class="separator:ae309270ff44d59ea06fb31a6914b8548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d8cf39c5b9a6d162ad5478edb0ab890"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1d8cf39c5b9a6d162ad5478edb0ab890">kugelindex</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; Pi)</td></tr>
+<tr class="memdesc:a1d8cf39c5b9a6d162ad5478edb0ab890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the point <code>Pi</code> (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned (for internal use only)  <br /></td></tr>
+<tr class="separator:a1d8cf39c5b9a6d162ad5478edb0ab890"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bd85af32ee959e6d994a41ca237362f"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1bd85af32ee959e6d994a41ca237362f">kugelwert</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
+<tr class="memdesc:a1bd85af32ee959e6d994a41ca237362f"><td class="mdescLeft">&#160;</td><td class="mdescRight">for internal use only  <br /></td></tr>
 <tr class="separator:a1bd85af32ee959e6d994a41ca237362f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cf6450528d62fad161bab14a1100f0c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1cf6450528d62fad161bab14a1100f0c">kugelwert</a> (int ix, int iy, int iz)</td></tr>
+<tr class="memdesc:a1cf6450528d62fad161bab14a1100f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">for internal use only  <br /></td></tr>
 <tr class="separator:a1cf6450528d62fad161bab14a1100f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad28d63259dda31ff488a1e16c2aeacee"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ad28d63259dda31ff488a1e16c2aeacee">SuperArray</a> ()</td></tr>
-<tr class="separator:ad28d63259dda31ff488a1e16c2aeacee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5306dc4c24a6e4edf6b497712144bdfc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5306dc4c24a6e4edf6b497712144bdfc">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, int nx, int ny, int nz, const int typ=<a class="el" href="resutil_8h.html#a34ef901b3a6cb0700948a113abb1adef">IN_OBJECT</a>)</td></tr>
-<tr class="memdesc:a5306dc4c24a6e4edf6b497712144bdfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>.  <br /></td></tr>
-<tr class="separator:a5306dc4c24a6e4edf6b497712144bdfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03e449f523acffa68b12fd23011508c0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a03e449f523acffa68b12fd23011508c0">SuperArray</a> (double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a>, int nx, int ny, int nz, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a04e94a3276311aea3e529a3988f4f163">Obj</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1ab8d9a1d4538c3ed959f9f6222edf87">numObjs</a>, const bool isAbsolute=false, const int typ=<a class="el" href="resutil_8h.html#a34ef901b3a6cb0700948a113abb1adef">IN_OBJECT</a>)</td></tr>
-<tr class="separator:a03e449f523acffa68b12fd23011508c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01b5f6dc9edf03c069badd96767b6a4e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a01b5f6dc9edf03c069badd96767b6a4e">SuperArray</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="separator:a01b5f6dc9edf03c069badd96767b6a4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99948b511348150d1262112a347be412"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a99948b511348150d1262112a347be412">~SuperArray</a> ()</td></tr>
-<tr class="separator:a99948b511348150d1262112a347be412"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95803de3ef8700b7c99d476a6bf1e26f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a95803de3ef8700b7c99d476a6bf1e26f">copy</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:a95803de3ef8700b7c99d476a6bf1e26f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and all elements will be overridden.  <br /></td></tr>
-<tr class="separator:a95803de3ef8700b7c99d476a6bf1e26f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10d1c995f89b772c3d6702950ac4f64d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a10d1c995f89b772c3d6702950ac4f64d">add</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:a10d1c995f89b772c3d6702950ac4f64d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements. *.  <br /></td></tr>
-<tr class="separator:a10d1c995f89b772c3d6702950ac4f64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb44a6867cddb032ec3feffdd6e3c357"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#acb44a6867cddb032ec3feffdd6e3c357">sub</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:acb44a6867cddb032ec3feffdd6e3c357"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements.  <br /></td></tr>
-<tr class="separator:acb44a6867cddb032ec3feffdd6e3c357"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac5ff5350b00f9e2a0896553c1d595b9e">addInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a04e94a3276311aea3e529a3988f4f163">Obj</a>, int numObj, const bool isAbsolute=false)</td></tr>
-<tr class="memdesc:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared.  <br /></td></tr>
-<tr class="separator:ac5ff5350b00f9e2a0896553c1d595b9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5bbf431169509b816c85e99bd10ee79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae5bbf431169509b816c85e99bd10ee79">addInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *E, const bool isAbsolute=false)</td></tr>
-<tr class="memdesc:ae5bbf431169509b816c85e99bd10ee79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid.  <br /></td></tr>
-<tr class="separator:ae5bbf431169509b816c85e99bd10ee79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a346e46105e02e4ff5624dbaf4293404f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a346e46105e02e4ff5624dbaf4293404f">gitterpunkt</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
-<tr class="separator:a346e46105e02e4ff5624dbaf4293404f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab329d28df3ea500b1250cfae734f0eeb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab329d28df3ea500b1250cfae734f0eeb">inObject</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P, int i)</td></tr>
-<tr class="memdesc:ab329d28df3ea500b1250cfae734f0eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if <code>P</code> is inside the i-th object (p in real coordinates)  <br /></td></tr>
-<tr class="separator:ab329d28df3ea500b1250cfae734f0eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a608a8def0d2139038bfdc9b2767c1305"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a608a8def0d2139038bfdc9b2767c1305">inObject</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi, int i)</td></tr>
-<tr class="memdesc:a608a8def0d2139038bfdc9b2767c1305"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if <code>Pi</code> is inside the i-th object (pi in indices)  <br /></td></tr>
-<tr class="separator:a608a8def0d2139038bfdc9b2767c1305"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a292b0aad8cf6d7ec7792bc7e593f99fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a292b0aad8cf6d7ec7792bc7e593f99fa">inObject</a> (int ix, int iy, int iz, int i)</td></tr>
-<tr class="memdesc:a292b0aad8cf6d7ec7792bc7e593f99fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if a point indicated by its indices (<code>ix</code>, <code>iy</code>, <code>iz</code>) is inside the <code>i</code> -th object  <br /></td></tr>
-<tr class="separator:a292b0aad8cf6d7ec7792bc7e593f99fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa24565196f67a54120e12394e38e01f9"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#aa24565196f67a54120e12394e38e01f9">operator()</a> (int ix, int iy, int iz)</td></tr>
-<tr class="memdesc:aa24565196f67a54120e12394e38e01f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the content of the cell[ix][iy][iz]  <br /></td></tr>
-<tr class="separator:aa24565196f67a54120e12394e38e01f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b4ff8825a3ae9cd317d828c034dd57"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a86b4ff8825a3ae9cd317d828c034dd57">operator()</a> (int i, int ix, int iy, int iz, bool isObjectCoordinate=true)</td></tr>
-<tr class="memdesc:a86b4ff8825a3ae9cd317d828c034dd57"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the content of the i-th object, with the grid-coordinates ix,iy,iz  <br /></td></tr>
-<tr class="separator:a86b4ff8825a3ae9cd317d828c034dd57"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acddd4316fedf0dc56c6cff0f17882bec"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#acddd4316fedf0dc56c6cff0f17882bec">operator()</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="memdesc:acddd4316fedf0dc56c6cff0f17882bec"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell with indices stored in Pi  <br /></td></tr>
-<tr class="separator:acddd4316fedf0dc56c6cff0f17882bec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f8fef8315fbe6bc0a0dba131825a89d"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a6f8fef8315fbe6bc0a0dba131825a89d">operator()</a> (int i, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="memdesc:a6f8fef8315fbe6bc0a0dba131825a89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell with indices stored in Pi from the i-th object (faster)  <br /></td></tr>
-<tr class="separator:a6f8fef8315fbe6bc0a0dba131825a89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10d4780e185de5056ccd60ecc316823d"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a10d4780e185de5056ccd60ecc316823d">operator()</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
-<tr class="memdesc:a10d4780e185de5056ccd60ecc316823d"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell at P  <br /></td></tr>
-<tr class="separator:a10d4780e185de5056ccd60ecc316823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c6a41e0025a4106b72bde099377e8eb"><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2c6a41e0025a4106b72bde099377e8eb">operator()</a> (int i, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
-<tr class="memdesc:a2c6a41e0025a4106b72bde099377e8eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives back the contents of the cell at P from the i-th object (faster)  <br /></td></tr>
-<tr class="separator:a2c6a41e0025a4106b72bde099377e8eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b0c04e4985d7385f8fbc54f2b586ef8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a4b0c04e4985d7385f8fbc54f2b586ef8">makeReal</a> ()</td></tr>
-<tr class="separator:a4b0c04e4985d7385f8fbc54f2b586ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adb4ea84d63f0d3c824f498e673a71004"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#adb4ea84d63f0d3c824f498e673a71004">fill</a> (const T &amp;x)</td></tr>
-<tr class="memdesc:adb4ea84d63f0d3c824f498e673a71004"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> with value <code>x</code>.  <br /></td></tr>
-<tr class="separator:adb4ea84d63f0d3c824f498e673a71004"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad76330c21a2f67db3cb2ac7d45f6dbce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ad76330c21a2f67db3cb2ac7d45f6dbce">operator=</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp;S)</td></tr>
-<tr class="memdesc:ad76330c21a2f67db3cb2ac7d45f6dbce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator.  <br /></td></tr>
-<tr class="separator:ad76330c21a2f67db3cb2ac7d45f6dbce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1262da9785c2d2326a29fd42f6b5369"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab1262da9785c2d2326a29fd42f6b5369">clear</a> ()</td></tr>
-<tr class="memdesc:ab1262da9785c2d2326a29fd42f6b5369"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and release the allocated memory.  <br /></td></tr>
-<tr class="separator:ab1262da9785c2d2326a29fd42f6b5369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac0683336cd5801226275125a5bc8d03f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac0683336cd5801226275125a5bc8d03f">allockugel</a> ()</td></tr>
-<tr class="separator:ac0683336cd5801226275125a5bc8d03f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a509ba5b455b59eeed7f71f52ead016a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a509ba5b455b59eeed7f71f52ead016a4">kugelindex</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="memdesc:a509ba5b455b59eeed7f71f52ead016a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the point <code>Pi</code> (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned (for internal use only)  <br /></td></tr>
-<tr class="separator:a509ba5b455b59eeed7f71f52ead016a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab83408422aa679652a0ff068057d4d5e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab83408422aa679652a0ff068057d4d5e">kugelwert</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; Pi)</td></tr>
-<tr class="memdesc:ab83408422aa679652a0ff068057d4d5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">for internal use only  <br /></td></tr>
-<tr class="separator:ab83408422aa679652a0ff068057d4d5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4195ed1887f90126f90fffb6d96f095"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac4195ed1887f90126f90fffb6d96f095">kugelwert</a> (int ix, int iy, int iz)</td></tr>
-<tr class="memdesc:ac4195ed1887f90126f90fffb6d96f095"><td class="mdescLeft">&#160;</td><td class="mdescRight">for internal use only  <br /></td></tr>
-<tr class="separator:ac4195ed1887f90126f90fffb6d96f095"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a631531d4962d08fabfef3c8b7b0e9f3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a631531d4962d08fabfef3c8b7b0e9f3d">write</a> (std::string fname)</td></tr>
 <tr class="separator:a631531d4962d08fabfef3c8b7b0e9f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53aba69636ea336d8bf9b5c428ca906c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a53aba69636ea336d8bf9b5c428ca906c">read</a> (std::string fname)</td></tr>
 <tr class="separator:a53aba69636ea336d8bf9b5c428ca906c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45f40d22d36ab5dcead0be3b260c2f42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a45f40d22d36ab5dcead0be3b260c2f42">clear</a> ()</td></tr>
-<tr class="separator:a45f40d22d36ab5dcead0be3b260c2f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5780955f3b63fbe7b15814869620d56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#aa5780955f3b63fbe7b15814869620d56">clear</a> ()</td></tr>
+<tr class="separator:aa5780955f3b63fbe7b15814869620d56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a252dfb34ba8512f0e7298041a5b0fafe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a252dfb34ba8512f0e7298041a5b0fafe">write</a> (std::string fname)</td></tr>
 <tr class="separator:a252dfb34ba8512f0e7298041a5b0fafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -262,35 +195,37 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac23e0ee1b8d0ea3a759aa92094b6f63e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac23e0ee1b8d0ea3a759aa92094b6f63e">Error</a></td></tr>
 <tr class="memdesc:ac23e0ee1b8d0ea3a759aa92094b6f63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Holds an error number.  <br /></td></tr>
 <tr class="separator:ac23e0ee1b8d0ea3a759aa92094b6f63e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04e94a3276311aea3e529a3988f4f163"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a04e94a3276311aea3e529a3988f4f163">Obj</a> =NULL</td></tr>
-<tr class="memdesc:a04e94a3276311aea3e529a3988f4f163"><td class="mdescLeft">&#160;</td><td class="mdescRight">here are the objects  <br /></td></tr>
-<tr class="separator:a04e94a3276311aea3e529a3988f4f163"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19061fc2ecb1782db1ec4636b871ec22"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a19061fc2ecb1782db1ec4636b871ec22">Obj</a> =NULL</td></tr>
+<tr class="memdesc:a19061fc2ecb1782db1ec4636b871ec22"><td class="mdescLeft">&#160;</td><td class="mdescRight">here are the objects  <br /></td></tr>
+<tr class="separator:a19061fc2ecb1782db1ec4636b871ec22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ab8d9a1d4538c3ed959f9f6222edf87"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1ab8d9a1d4538c3ed959f9f6222edf87">numObjs</a></td></tr>
 <tr class="memdesc:a1ab8d9a1d4538c3ed959f9f6222edf87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of objects.  <br /></td></tr>
 <tr class="separator:a1ab8d9a1d4538c3ed959f9f6222edf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0dca0ab070540178d712c659ef69ecc0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a0dca0ab070540178d712c659ef69ecc0">type</a></td></tr>
 <tr class="memdesc:a0dca0ab070540178d712c659ef69ecc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects.  <br /></td></tr>
 <tr class="separator:a0dca0ab070540178d712c659ef69ecc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63e8c81808d93e8d7b6bbbba303ce03"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac63e8c81808d93e8d7b6bbbba303ce03">ywerte</a></td></tr>
-<tr class="separator:ac63e8c81808d93e8d7b6bbbba303ce03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d75a774dd5fd2cb4a0f491aeb22d527"><td class="memItemLeft" align="right" valign="top">int **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5d75a774dd5fd2cb4a0f491aeb22d527">zwerte</a></td></tr>
-<tr class="separator:a5d75a774dd5fd2cb4a0f491aeb22d527"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac014d2a04ba4c51bfc9b6fd5f74f26ce"><td class="memItemLeft" align="right" valign="top">T ****&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ac014d2a04ba4c51bfc9b6fd5f74f26ce">G</a></td></tr>
-<tr class="separator:ac014d2a04ba4c51bfc9b6fd5f74f26ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fbc16f1af3cc21908024474a81e150c"><td class="memItemLeft" align="right" valign="top">T ***&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a7fbc16f1af3cc21908024474a81e150c">K</a></td></tr>
-<tr class="separator:a7fbc16f1af3cc21908024474a81e150c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c86faf7df0c5ff9226ff1dd863f6c6c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9c86faf7df0c5ff9226ff1dd863f6c6c">ywerte</a></td></tr>
+<tr class="separator:a9c86faf7df0c5ff9226ff1dd863f6c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44d9d186b9b1038806de6a9c09e89609"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a44d9d186b9b1038806de6a9c09e89609">zwerte</a></td></tr>
+<tr class="separator:a44d9d186b9b1038806de6a9c09e89609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25137cb8f912660c9a71a0cc56341b1b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; T &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b">G</a></td></tr>
+<tr class="memdesc:a25137cb8f912660c9a71a0cc56341b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i.  <br /></td></tr>
+<tr class="separator:a25137cb8f912660c9a71a0cc56341b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af20814acb049093586f43f895ab03083"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#af20814acb049093586f43f895ab03083">K</a></td></tr>
+<tr class="separator:af20814acb049093586f43f895ab03083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2899efa3a6526adaaa69e888a38ef60d"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2899efa3a6526adaaa69e888a38ef60d">dummy</a></td></tr>
 <tr class="separator:a2899efa3a6526adaaa69e888a38ef60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52871e3a1a7ffc7e5b883345276512ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a52871e3a1a7ffc7e5b883345276512ae">Pul</a></td></tr>
-<tr class="separator:a52871e3a1a7ffc7e5b883345276512ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbce9e7e2fe9ab65afda9206722c3204"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#acbce9e7e2fe9ab65afda9206722c3204">n</a></td></tr>
-<tr class="separator:acbce9e7e2fe9ab65afda9206722c3204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a939bfbc1f3b3f723bcc1c84888eec4ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a939bfbc1f3b3f723bcc1c84888eec4ca">nges</a></td></tr>
-<tr class="memdesc:a939bfbc1f3b3f723bcc1c84888eec4ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector which contains the number of subdivisions in x-, y- and z-direction for the whole (virtual) array.  <br /></td></tr>
-<tr class="separator:a939bfbc1f3b3f723bcc1c84888eec4ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61ceb0a5164752572eab3ed0f146bf2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a61ceb0a5164752572eab3ed0f146bf2b">d</a></td></tr>
-<tr class="memdesc:a61ceb0a5164752572eab3ed0f146bf2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edge length of one cell in x-, y- and z-direction.  <br /></td></tr>
-<tr class="separator:a61ceb0a5164752572eab3ed0f146bf2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e862b8542faf7eff6fc8671d4f538ae"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5e862b8542faf7eff6fc8671d4f538ae">Pul</a></td></tr>
+<tr class="separator:a5e862b8542faf7eff6fc8671d4f538ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae945ff9ea49db7a541ae47c007199c4c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae945ff9ea49db7a541ae47c007199c4c">n</a></td></tr>
+<tr class="memdesc:ae945ff9ea49db7a541ae47c007199c4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">n[i]: Dimensions, i.e. number of subdivision in x-, y- and z-direction  <br /></td></tr>
+<tr class="separator:ae945ff9ea49db7a541ae47c007199c4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af48703c268e4b915b0c06406d6876a12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#af48703c268e4b915b0c06406d6876a12">nges</a></td></tr>
+<tr class="memdesc:af48703c268e4b915b0c06406d6876a12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector which contains the number of subdivisions in x-, y- and z-direction for the whole (virtual) array.  <br /></td></tr>
+<tr class="separator:af48703c268e4b915b0c06406d6876a12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81c178ce8c6973fde33a9ba9b66a5074"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a81c178ce8c6973fde33a9ba9b66a5074">d</a></td></tr>
+<tr class="memdesc:a81c178ce8c6973fde33a9ba9b66a5074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edge length of one cell in x-, y- and z-direction.  <br /></td></tr>
+<tr class="separator:a81c178ce8c6973fde33a9ba9b66a5074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3263196c671bc65be7565dd45be653b6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6">r0</a></td></tr>
 <tr class="memdesc:a3263196c671bc65be7565dd45be653b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of the calculation sphere.  <br /></td></tr>
 <tr class="separator:a3263196c671bc65be7565dd45be653b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,35 +236,20 @@ Public Attributes</h2></td></tr>
 <tr class="separator:af9e136050a149efc4751474fa1974823"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31e60cb1546dddf0e132b5994147df6e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a31e60cb1546dddf0e132b5994147df6e">pc</a></td></tr>
 <tr class="separator:a31e60cb1546dddf0e132b5994147df6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abaf4fd8ac61aedc25e58d2a2f893a389"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#abaf4fd8ac61aedc25e58d2a2f893a389">H</a></td></tr>
-<tr class="separator:abaf4fd8ac61aedc25e58d2a2f893a389"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2e6e90f32b6c9c44b04985bd506605c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae2e6e90f32b6c9c44b04985bd506605c">R</a></td></tr>
-<tr class="memdesc:ae2e6e90f32b6c9c44b04985bd506605c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation matrices in the local array coordinate system and backwards.  <br /></td></tr>
-<tr class="separator:ae2e6e90f32b6c9c44b04985bd506605c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c86faf7df0c5ff9226ff1dd863f6c6c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9c86faf7df0c5ff9226ff1dd863f6c6c">ywerte</a></td></tr>
-<tr class="separator:a9c86faf7df0c5ff9226ff1dd863f6c6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d9d186b9b1038806de6a9c09e89609"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a44d9d186b9b1038806de6a9c09e89609">zwerte</a></td></tr>
-<tr class="separator:a44d9d186b9b1038806de6a9c09e89609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25137cb8f912660c9a71a0cc56341b1b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; std::vector&lt; T &gt; &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b">G</a></td></tr>
-<tr class="memdesc:a25137cb8f912660c9a71a0cc56341b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i.  <br /></td></tr>
-<tr class="separator:a25137cb8f912660c9a71a0cc56341b1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af20814acb049093586f43f895ab03083"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; T &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#af20814acb049093586f43f895ab03083">K</a></td></tr>
-<tr class="separator:af20814acb049093586f43f895ab03083"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03842005a8d5a9fe38c20275bd96e9ce"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a03842005a8d5a9fe38c20275bd96e9ce">Pul</a></td></tr>
-<tr class="separator:a03842005a8d5a9fe38c20275bd96e9ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf26f590b0f5801e25ba474a07ef8e2f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#abf26f590b0f5801e25ba474a07ef8e2f">n</a></td></tr>
-<tr class="memdesc:abf26f590b0f5801e25ba474a07ef8e2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">n[i]: Dimensions, i.e. number of subdivision in x-, y- and z-direction  <br /></td></tr>
-<tr class="separator:abf26f590b0f5801e25ba474a07ef8e2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ecd550fcf73453fc1df5811d7879bf3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#a6ecd550fcf73453fc1df5811d7879bf3">H</a></td></tr>
+<tr class="separator:a6ecd550fcf73453fc1df5811d7879bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd5633f22343a776cd451da5fd40eaa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#abbd5633f22343a776cd451da5fd40eaa">R</a></td></tr>
+<tr class="memdesc:abbd5633f22343a776cd451da5fd40eaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transformation matrices in the local array coordinate system and backwards.  <br /></td></tr>
+<tr class="separator:abbd5633f22343a776cd451da5fd40eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
-class GOAT::raytracing::SuperArray&lt; T &gt;</div><p>This class provides a virtual 3D-grid of complex vectors which can be used to store e.g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments</p>
-<p>This template class provides a virtual 3D-grid of complex vectors which can be used to store e.g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments </p>
+class GOAT::raytracing::SuperArray&lt; T &gt;</div><p>Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-grid of arbitrary values which can be used to store e.g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-operator with different arguments. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00023">23</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00026">26</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad28d63259dda31ff488a1e16c2aeacee" name="ad28d63259dda31ff488a1e16c2aeacee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad28d63259dda31ff488a1e16c2aeacee">&#9670;&#160;</a></span>SuperArray() <span class="overload">[1/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad28d63259dda31ff488a1e16c2aeacee">&#9670;&#160;</a></span>SuperArray() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -342,12 +262,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00169">169</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00169">169</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a19d599a905608908edeec2fb0e6bb8a4" name="a19d599a905608908edeec2fb0e6bb8a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19d599a905608908edeec2fb0e6bb8a4">&#9670;&#160;</a></span>SuperArray() <span class="overload">[2/7]</span></h2>
+<a id="a600535d65fd5bba19a99955fe5534b57" name="a600535d65fd5bba19a99955fe5534b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a600535d65fd5bba19a99955fe5534b57">&#9670;&#160;</a></span>SuperArray() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,194 +283,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ny</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>typ</em> = <code><a class="el" href="resutil_8h.html#ad93ae5f0faa011168de4377684a89b5e">IN_HOST</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">r0</td><td>Radius of the circumscribed sphere <code>nx</code>, <code>ny</code>, <code>nz</code> number of cells in the x-, y-, z- direction </td></tr>
-    <tr><td class="paramname">type</td><td>describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT) </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00184">184</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a492dc69c461fc3c497387728c1e15049" name="a492dc69c461fc3c497387728c1e15049"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a492dc69c461fc3c497387728c1e15049">&#9670;&#160;</a></span>SuperArray() <span class="overload">[3/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::SuperArray </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ny</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td>
-          <td class="paramname"><em>Obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numObjs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>isAbsolute</em> = <code>false</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>typ</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00207">207</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a99948b511348150d1262112a347be412" name="a99948b511348150d1262112a347be412"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99948b511348150d1262112a347be412">&#9670;&#160;</a></span>~SuperArray() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::~<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00035">35</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ad28d63259dda31ff488a1e16c2aeacee" name="ad28d63259dda31ff488a1e16c2aeacee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad28d63259dda31ff488a1e16c2aeacee">&#9670;&#160;</a></span>SuperArray() <span class="overload">[4/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::SuperArray </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5306dc4c24a6e4edf6b497712144bdfc" name="a5306dc4c24a6e4edf6b497712144bdfc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5306dc4c24a6e4edf6b497712144bdfc">&#9670;&#160;</a></span>SuperArray() <span class="overload">[5/7]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">GOAT::SuperArray::SuperArray </td>
-          <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>r0</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ny</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nz</em>, </td>
         </tr>
         <tr>
@@ -567,7 +312,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. </p>
+<p>Constructor for <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">r0</td><td>Radius of the circumscribed sphere <code>nx</code>, <code>ny</code>, <code>nz</code> number of cells in the x-, y-, z- direction </td></tr>
@@ -576,12 +321,12 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01347">1347</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00180">180</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a03e449f523acffa68b12fd23011508c0" name="a03e449f523acffa68b12fd23011508c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03e449f523acffa68b12fd23011508c0">&#9670;&#160;</a></span>SuperArray() <span class="overload">[6/7]</span></h2>
+<a id="ae4f8d78b08dbc8ad638915fc89ac04c7" name="ae4f8d78b08dbc8ad638915fc89ac04c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f8d78b08dbc8ad638915fc89ac04c7">&#9670;&#160;</a></span>SuperArray() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -597,19 +342,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ny</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nz</em>, </td>
         </tr>
         <tr>
@@ -643,11 +388,13 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00199">199</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a01b5f6dc9edf03c069badd96767b6a4e" name="a01b5f6dc9edf03c069badd96767b6a4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01b5f6dc9edf03c069badd96767b6a4e">&#9670;&#160;</a></span>SuperArray() <span class="overload">[7/7]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a01b5f6dc9edf03c069badd96767b6a4e">&#9670;&#160;</a></span>SuperArray() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -672,12 +419,12 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00034">34</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00038">38</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a99948b511348150d1262112a347be412" name="a99948b511348150d1262112a347be412"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99948b511348150d1262112a347be412">&#9670;&#160;</a></span>~SuperArray() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a99948b511348150d1262112a347be412">&#9670;&#160;</a></span>~SuperArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -701,13 +448,13 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00056">56</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00060">60</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a41a59001cf9cb69e5feecd136c9635e7" name="a41a59001cf9cb69e5feecd136c9635e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41a59001cf9cb69e5feecd136c9635e7">&#9670;&#160;</a></span>add() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a41a59001cf9cb69e5feecd136c9635e7">&#9670;&#160;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -724,38 +471,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements. </p>
+<p>Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements. *. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00679">679</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a10d1c995f89b772c3d6702950ac4f64d" name="a10d1c995f89b772c3d6702950ac4f64d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10d1c995f89b772c3d6702950ac4f64d">&#9670;&#160;</a></span>add() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::add </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>S</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Adds another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are added to the existing array elements. *. </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00593">593</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00730">730</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="ac5ff5350b00f9e2a0896553c1d595b9e" name="ac5ff5350b00f9e2a0896553c1d595b9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5ff5350b00f9e2a0896553c1d595b9e">&#9670;&#160;</a></span>addInc() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5ff5350b00f9e2a0896553c1d595b9e">&#9670;&#160;</a></span>addInc() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -788,8 +511,8 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared. </p>
-<p>Add objects to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Adds a list of objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared. </p>
+<p>Add objects to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> Adds a list of objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">Obj</td><td>The object list </td></tr>
     <tr><td class="paramname">numObj</td><td>Number of objects to add </td></tr>
@@ -798,58 +521,12 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00227">227</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ac5ff5350b00f9e2a0896553c1d595b9e" name="ac5ff5350b00f9e2a0896553c1d595b9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5ff5350b00f9e2a0896553c1d595b9e">&#9670;&#160;</a></span>addInc() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::addInc </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td>
-          <td class="paramname"><em>Obj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>numObj</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>isAbsolute</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Summing up <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Here, all cell contents are first added up. The absolute value is taken from the result and squared. </p>
-<p>Add objects to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Adds a list of objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">Obj</td><td>The object list </td></tr>
-    <tr><td class="paramname">numObj</td><td>Number of objects to add </td></tr>
-    <tr><td class="paramname">isAbsolute</td><td>true: Location/size information in absolute coordinates </td></tr>
-  </table>
-  </dd>
-</dl>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00218">218</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a4c793ac7f885bb7cad4c5af82e54ff3a" name="a4c793ac7f885bb7cad4c5af82e54ff3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c793ac7f885bb7cad4c5af82e54ff3a">&#9670;&#160;</a></span>addInc() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c793ac7f885bb7cad4c5af82e54ff3a">&#9670;&#160;</a></span>addInc() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -876,7 +553,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p>
+<p>Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">E</td><td>The object </td></tr>
@@ -885,53 +562,12 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00253">253</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ae5bbf431169509b816c85e99bd10ee79" name="ae5bbf431169509b816c85e99bd10ee79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5bbf431169509b816c85e99bd10ee79">&#9670;&#160;</a></span>addInc() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GOAT::SuperArray::addInc </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *&#160;</td>
-          <td class="paramname"><em>E</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>isAbsolute</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Add object to <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> Add one objects to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>. An object is added to the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> by allocating memory that corresponds to the volume of the circumscribing cuboid. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">E</td><td>The object </td></tr>
-    <tr><td class="paramname">isAbsolute</td><td>true: Location/size information in absolute coordinates </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00163">163</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00244">244</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a052e9f2c9cb85b70ed686b19060f58f4" name="a052e9f2c9cb85b70ed686b19060f58f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a052e9f2c9cb85b70ed686b19060f58f4">&#9670;&#160;</a></span>allockugel() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a052e9f2c9cb85b70ed686b19060f58f4">&#9670;&#160;</a></span>allockugel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -944,33 +580,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00818">818</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ac0683336cd5801226275125a5bc8d03f" name="ac0683336cd5801226275125a5bc8d03f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0683336cd5801226275125a5bc8d03f">&#9670;&#160;</a></span>allockugel() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::allockugel </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01175">1175</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00873">873</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="ab1262da9785c2d2326a29fd42f6b5369" name="ab1262da9785c2d2326a29fd42f6b5369"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1262da9785c2d2326a29fd42f6b5369">&#9670;&#160;</a></span>clear() <span class="overload">[1/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1262da9785c2d2326a29fd42f6b5369">&#9670;&#160;</a></span>clear() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -983,54 +598,31 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and release the allocated memory. </p>
+<p>Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> and release the allocated memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00540">540</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00573">573</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="ab1262da9785c2d2326a29fd42f6b5369" name="ab1262da9785c2d2326a29fd42f6b5369"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1262da9785c2d2326a29fd42f6b5369">&#9670;&#160;</a></span>clear() <span class="overload">[2/3]</span></h2>
+<a id="aa5780955f3b63fbe7b15814869620d56" name="aa5780955f3b63fbe7b15814869620d56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5780955f3b63fbe7b15814869620d56">&#9670;&#160;</a></span>clear() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::clear </td>
+          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">GOAT::raytracing::gridEntry</a> &gt; &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Clear the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and release the allocated memory. </p>
-
-</div>
-</div>
-<a id="a45f40d22d36ab5dcead0be3b260c2f42" name="a45f40d22d36ab5dcead0be3b260c2f42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45f40d22d36ab5dcead0be3b260c2f42">&#9670;&#160;</a></span>clear() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::clear </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00454">454</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
 
 </div>
 </div>
 <a id="ae4f3ae59dd254e03d84d441b80386c52" name="ae4f3ae59dd254e03d84d441b80386c52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4f3ae59dd254e03d84d441b80386c52">&#9670;&#160;</a></span>copy() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f3ae59dd254e03d84d441b80386c52">&#9670;&#160;</a></span>copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1047,38 +639,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and all elements will be overridden. </p>
+<p>Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> and all elements will be overridden. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00607">607</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a95803de3ef8700b7c99d476a6bf1e26f" name="a95803de3ef8700b7c99d476a6bf1e26f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95803de3ef8700b7c99d476a6bf1e26f">&#9670;&#160;</a></span>copy() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::copy </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>S</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Copies <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object Here, <code>S</code> will be copied into the existing <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> and all elements will be overridden. </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00521">521</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00637">637</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="adb4ea84d63f0d3c824f498e673a71004" name="adb4ea84d63f0d3c824f498e673a71004"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb4ea84d63f0d3c824f498e673a71004">&#9670;&#160;</a></span>fill() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adb4ea84d63f0d3c824f498e673a71004">&#9670;&#160;</a></span>fill()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1095,14 +663,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> with value <code>x</code>. </p>
+<p>Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> with value <code>x</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00769">769</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00823">823</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="adb4ea84d63f0d3c824f498e673a71004" name="adb4ea84d63f0d3c824f498e673a71004"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb4ea84d63f0d3c824f498e673a71004">&#9670;&#160;</a></span>fill() <span class="overload">[2/2]</span></h2>
+<a id="a1d3c8f7fd8d44873e82bafa31b0f7a4e" name="a1d3c8f7fd8d44873e82bafa31b0f7a4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d3c8f7fd8d44873e82bafa31b0f7a4e">&#9670;&#160;</a></span>gitterpunkt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1110,29 +678,7 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::fill </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Fill the whole <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> with value <code>x</code>. </p>
-
-</div>
-</div>
-<a id="a41dfee2ca91a34760375d32065e8e665" name="a41dfee2ca91a34760375d32065e8e665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41dfee2ca91a34760375d32065e8e665">&#9670;&#160;</a></span>gitterpunkt() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::gitterpunkt </td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::gitterpunkt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
           <td class="paramname"><em>P</em></td><td>)</td>
@@ -1141,34 +687,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00234">234</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00225">225</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a346e46105e02e4ff5624dbaf4293404f" name="a346e46105e02e4ff5624dbaf4293404f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a346e46105e02e4ff5624dbaf4293404f">&#9670;&#160;</a></span>gitterpunkt() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; GOAT::SuperArray::gitterpunkt </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>P</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01397">1397</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
-
-</div>
-</div>
-<a id="a874f0c0f1384f1c71daf8ce105ed6893" name="a874f0c0f1384f1c71daf8ce105ed6893"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a874f0c0f1384f1c71daf8ce105ed6893">&#9670;&#160;</a></span>inObject() <span class="overload">[1/6]</span></h2>
+<a id="a1c9876836d1e292358fd70bb162bea4e" name="a1c9876836d1e292358fd70bb162bea4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c9876836d1e292358fd70bb162bea4e">&#9670;&#160;</a></span>inObject() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1178,19 +702,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::inObject </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ix</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>iy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>iz</em>, </td>
         </tr>
         <tr>
@@ -1209,58 +733,12 @@ template&lt;class T &gt; </div>
 
 <p>checks if a point indicated by its indices (<code>ix</code>, <code>iy</code>, <code>iz</code>) is inside the <code>i</code> -th object </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00341">341</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a292b0aad8cf6d7ec7792bc7e593f99fa" name="a292b0aad8cf6d7ec7792bc7e593f99fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a292b0aad8cf6d7ec7792bc7e593f99fa">&#9670;&#160;</a></span>inObject() <span class="overload">[2/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GOAT::SuperArray::inObject </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>checks if a point indicated by its indices (<code>ix</code>, <code>iy</code>, <code>iz</code>) is inside the <code>i</code> -th object </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00252">252</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00320">320</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a077f1119bb513a7b0fcf0107055d8553" name="a077f1119bb513a7b0fcf0107055d8553"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a077f1119bb513a7b0fcf0107055d8553">&#9670;&#160;</a></span>inObject() <span class="overload">[3/6]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a077f1119bb513a7b0fcf0107055d8553">&#9670;&#160;</a></span>inObject() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1289,46 +767,12 @@ template&lt;class T &gt; </div>
 
 <p>checks if <code>P</code> is inside the i-th object (p in real coordinates) </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00331">331</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00310">310</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="ab329d28df3ea500b1250cfae734f0eeb" name="ab329d28df3ea500b1250cfae734f0eeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab329d28df3ea500b1250cfae734f0eeb">&#9670;&#160;</a></span>inObject() <span class="overload">[4/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool GOAT::SuperArray::inObject </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>P</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>checks if <code>P</code> is inside the i-th object (p in real coordinates) </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00242">242</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
-
-</div>
-</div>
-<a id="a3bc2e312acddc90dfaac7e924121689b" name="a3bc2e312acddc90dfaac7e924121689b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bc2e312acddc90dfaac7e924121689b">&#9670;&#160;</a></span>inObject() <span class="overload">[5/6]</span></h2>
+<a id="aa8b5dbd7629d4bde4f8c9feb5832058d" name="aa8b5dbd7629d4bde4f8c9feb5832058d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8b5dbd7629d4bde4f8c9feb5832058d">&#9670;&#160;</a></span>inObject() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1338,7 +782,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">bool <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::inObject </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>Pi</em>, </td>
         </tr>
         <tr>
@@ -1357,12 +801,12 @@ template&lt;class T &gt; </div>
 
 <p>checks if <code>Pi</code> is inside the i-th object (pi in indices) </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00336">336</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00315">315</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a608a8def0d2139038bfdc9b2767c1305" name="a608a8def0d2139038bfdc9b2767c1305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a608a8def0d2139038bfdc9b2767c1305">&#9670;&#160;</a></span>inObject() <span class="overload">[6/6]</span></h2>
+<a id="a1d8cf39c5b9a6d162ad5478edb0ab890" name="a1d8cf39c5b9a6d162ad5478edb0ab890"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d8cf39c5b9a6d162ad5478edb0ab890">&#9670;&#160;</a></span>kugelindex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1370,67 +814,9 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool GOAT::SuperArray::inObject </td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::kugelindex </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>Pi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>checks if <code>Pi</code> is inside the i-th object (pi in indices) </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00247">247</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
-
-</div>
-</div>
-<a id="ae309270ff44d59ea06fb31a6914b8548" name="ae309270ff44d59ea06fb31a6914b8548"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae309270ff44d59ea06fb31a6914b8548">&#9670;&#160;</a></span>kugelindex() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::kugelindex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>Pi</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if the point <code>Pi</code> (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned (for internal use only) </p>
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00876">876</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a509ba5b455b59eeed7f71f52ead016a4" name="a509ba5b455b59eeed7f71f52ead016a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a509ba5b455b59eeed7f71f52ead016a4">&#9670;&#160;</a></span>kugelindex() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; GOAT::SuperArray::kugelindex </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>Pi</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1440,12 +826,12 @@ template&lt;class T &gt; </div>
 <p>Checks if the point <code>Pi</code> (indicated by the indices) is inside the calculation sphere The function returns the Vector Pi, if it is inside the calculation sphere otherwise a the vector (-1,-1,-1) is returned (for internal use only) </p>
 <p>for internal use only </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01231">1231</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00921">921</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a1cf6450528d62fad161bab14a1100f0c" name="a1cf6450528d62fad161bab14a1100f0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cf6450528d62fad161bab14a1100f0c">&#9670;&#160;</a></span>kugelwert() <span class="overload">[1/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf6450528d62fad161bab14a1100f0c">&#9670;&#160;</a></span>kugelwert() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1478,52 +864,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00946">946</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ac4195ed1887f90126f90fffb6d96f095" name="ac4195ed1887f90126f90fffb6d96f095"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4195ed1887f90126f90fffb6d96f095">&#9670;&#160;</a></span>kugelwert() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::SuperArray::kugelwert </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iz</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p>for internal use only </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01301">1301</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00991">991</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a1bd85af32ee959e6d994a41ca237362f" name="a1bd85af32ee959e6d994a41ca237362f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd85af32ee959e6d994a41ca237362f">&#9670;&#160;</a></span>kugelwert() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd85af32ee959e6d994a41ca237362f">&#9670;&#160;</a></span>kugelwert() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1540,36 +888,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00917">917</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ab83408422aa679652a0ff068057d4d5e" name="ab83408422aa679652a0ff068057d4d5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab83408422aa679652a0ff068057d4d5e">&#9670;&#160;</a></span>kugelwert() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::SuperArray::kugelwert </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>Pi</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
 <p>for internal use only </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l01272">1272</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00962">962</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a2759899e6c83be817b38e85bbca2f242" name="a2759899e6c83be817b38e85bbca2f242"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2759899e6c83be817b38e85bbca2f242">&#9670;&#160;</a></span>makeReal() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2759899e6c83be817b38e85bbca2f242">&#9670;&#160;</a></span>makeReal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1582,33 +908,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00805">805</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00860">860</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a4b0c04e4985d7385f8fbc54f2b586ef8" name="a4b0c04e4985d7385f8fbc54f2b586ef8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b0c04e4985d7385f8fbc54f2b586ef8">&#9670;&#160;</a></span>makeReal() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::makeReal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00719">719</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
-
-</div>
-</div>
-<a id="a86b4ff8825a3ae9cd317d828c034dd57" name="a86b4ff8825a3ae9cd317d828c034dd57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b4ff8825a3ae9cd317d828c034dd57">&#9670;&#160;</a></span>operator()() <span class="overload">[1/12]</span></h2>
+<a id="afab5c979b30499a02aa9191fa490140a" name="afab5c979b30499a02aa9191fa490140a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab5c979b30499a02aa9191fa490140a">&#9670;&#160;</a></span>operator()() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1618,32 +923,20 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ix</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>iy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>isObjectCoordinate</em> = <code>true</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
+          <td class="paramname"><em>iz</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1653,21 +946,14 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>returns the content of the i-th object, with the grid-coordinates ix,iy,iz </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">i</td><td>number of the object </td></tr>
-    <tr><td class="paramname">ix</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>gives the content of the cell[ix][iy][iz] </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00415">415</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00325">325</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a86b4ff8825a3ae9cd317d828c034dd57" name="a86b4ff8825a3ae9cd317d828c034dd57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86b4ff8825a3ae9cd317d828c034dd57">&#9670;&#160;</a></span>operator()() <span class="overload">[2/12]</span></h2>
+<a id="acb76b67db5bc46acd07c257331335162" name="acb76b67db5bc46acd07c257331335162"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb76b67db5bc46acd07c257331335162">&#9670;&#160;</a></span>operator()() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1683,19 +969,19 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ix</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>iy</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>iz</em>, </td>
         </tr>
         <tr>
@@ -1721,10 +1007,12 @@ template&lt;class T &gt; </div>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00417">417</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+
 </div>
 </div>
 <a id="a2c1fd8e82f78a139ec4c8657d93c9e6f" name="a2c1fd8e82f78a139ec4c8657d93c9e6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1fd8e82f78a139ec4c8657d93c9e6f">&#9670;&#160;</a></span>operator()() <span class="overload">[3/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1fd8e82f78a139ec4c8657d93c9e6f">&#9670;&#160;</a></span>operator()() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1733,38 +1021,6 @@ template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>P</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00513">513</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a2c6a41e0025a4106b72bde099377e8eb" name="a2c6a41e0025a4106b72bde099377e8eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c6a41e0025a4106b72bde099377e8eb">&#9670;&#160;</a></span>operator()() <span class="overload">[4/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp; GOAT::SuperArray::operator() </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>i</em>, </td>
@@ -1785,12 +1041,12 @@ template&lt;class T &gt; </div>
 
 <p>gives back the contents of the cell at P from the i-th object (faster) </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00428">428</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00538">538</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a7a6a007f3c6a88f5a149635aec66bef3" name="a7a6a007f3c6a88f5a149635aec66bef3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a6a007f3c6a88f5a149635aec66bef3">&#9670;&#160;</a></span>operator()() <span class="overload">[5/12]</span></h2>
+<a id="a2cc8624d448dea4108a0d7f8d0c0d1bd" name="a2cc8624d448dea4108a0d7f8d0c0d1bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cc8624d448dea4108a0d7f8d0c0d1bd">&#9670;&#160;</a></span>operator()() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1806,39 +1062,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>Pi</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00435">435</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a6f8fef8315fbe6bc0a0dba131825a89d" name="a6f8fef8315fbe6bc0a0dba131825a89d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f8fef8315fbe6bc0a0dba131825a89d">&#9670;&#160;</a></span>operator()() <span class="overload">[6/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp; GOAT::SuperArray::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>Pi</em>&#160;</td>
         </tr>
         <tr>
@@ -1851,92 +1075,12 @@ template&lt;class T &gt; </div>
 
 <p>gives back the contents of the cell with indices stored in Pi from the i-th object (faster) </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00348">348</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
-
-</div>
-</div>
-<a id="a4a20105c6bd6de8ce4c10cc67eddec28" name="a4a20105c6bd6de8ce4c10cc67eddec28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a20105c6bd6de8ce4c10cc67eddec28">&#9670;&#160;</a></span>operator()() <span class="overload">[7/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iz</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gives the content of the cell[ix][iy][iz] </p>
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00346">346</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="aa24565196f67a54120e12394e38e01f9" name="aa24565196f67a54120e12394e38e01f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa24565196f67a54120e12394e38e01f9">&#9670;&#160;</a></span>operator()() <span class="overload">[8/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp; GOAT::SuperArray::operator() </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>ix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iy</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iz</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>gives the content of the cell[ix][iy][iz] </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00257">257</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00444">444</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a86cf8de40d8227c4acb2eeddf9548e91" name="a86cf8de40d8227c4acb2eeddf9548e91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86cf8de40d8227c4acb2eeddf9548e91">&#9670;&#160;</a></span>operator()() <span class="overload">[9/12]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a86cf8de40d8227c4acb2eeddf9548e91">&#9670;&#160;</a></span>operator()() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1945,28 +1089,6 @@ template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::operator() </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
-          <td class="paramname"><em>P</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00475">475</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a10d4780e185de5056ccd60ecc316823d" name="a10d4780e185de5056ccd60ecc316823d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10d4780e185de5056ccd60ecc316823d">&#9670;&#160;</a></span>operator()() <span class="overload">[10/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp; GOAT::SuperArray::operator() </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td>
           <td class="paramname"><em>P</em></td><td>)</td>
@@ -1977,12 +1099,12 @@ template&lt;class T &gt; </div>
 
 <p>gives back the contents of the cell at P </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00389">389</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00487">487</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a4a75433aaafcb61e64a066b2eb216c8a" name="a4a75433aaafcb61e64a066b2eb216c8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a75433aaafcb61e64a066b2eb216c8a">&#9670;&#160;</a></span>operator()() <span class="overload">[11/12]</span></h2>
+<a id="a9b663700a801647baa583bf27e463b02" name="a9b663700a801647baa583bf27e463b02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b663700a801647baa583bf27e463b02">&#9670;&#160;</a></span>operator()() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1992,29 +1114,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="memname">T &amp; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::operator() </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
-          <td class="paramname"><em>Pi</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00379">379</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="acddd4316fedf0dc56c6cff0f17882bec" name="acddd4316fedf0dc56c6cff0f17882bec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acddd4316fedf0dc56c6cff0f17882bec">&#9670;&#160;</a></span>operator()() <span class="overload">[12/12]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp; GOAT::SuperArray::operator() </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> &gt;&#160;</td>
           <td class="paramname"><em>Pi</em></td><td>)</td>
           <td></td>
         </tr>
@@ -2023,12 +1123,12 @@ template&lt;class T &gt; </div>
 
 <p>gives back the contents of the cell with indices stored in Pi </p>
 
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00291">291</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00370">370</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="ace42b9b0389861d7a869612d1a406542" name="ace42b9b0389861d7a869612d1a406542"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace42b9b0389861d7a869612d1a406542">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ace42b9b0389861d7a869612d1a406542">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2047,31 +1147,7 @@ template&lt;class T &gt; </div>
 
 <p>Assignment operator. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00619">619</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ad76330c21a2f67db3cb2ac7d45f6dbce" name="ad76330c21a2f67db3cb2ac7d45f6dbce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad76330c21a2f67db3cb2ac7d45f6dbce">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> &amp; GOAT::SuperArray::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>S</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Assignment operator. </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00533">533</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00661">661</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2096,7 +1172,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <a id="a2aab88f32e5f3a5eabfddb3fd7e0a02e" name="a2aab88f32e5f3a5eabfddb3fd7e0a02e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2aab88f32e5f3a5eabfddb3fd7e0a02e">&#9670;&#160;</a></span>sub() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aab88f32e5f3a5eabfddb3fd7e0a02e">&#9670;&#160;</a></span>sub()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2113,33 +1189,9 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements. </p>
+<p>Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00716">716</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="acb44a6867cddb032ec3feffdd6e3c357" name="acb44a6867cddb032ec3feffdd6e3c357"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb44a6867cddb032ec3feffdd6e3c357">&#9670;&#160;</a></span>sub() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void GOAT::SuperArray::sub </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>S</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Subtract another <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> object. In this function, all array elements from <code>S</code> are subtracted from the existing array elements. </p>
-
-<p class="definition">Definition at line <a class="el" href="supergrid__old_8h_source.html#l00630">630</a> of file <a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00767">767</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2182,8 +1234,8 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a61ceb0a5164752572eab3ed0f146bf2b" name="a61ceb0a5164752572eab3ed0f146bf2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61ceb0a5164752572eab3ed0f146bf2b">&#9670;&#160;</a></span>d</h2>
+<a id="a81c178ce8c6973fde33a9ba9b66a5074" name="a81c178ce8c6973fde33a9ba9b66a5074"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c178ce8c6973fde33a9ba9b66a5074">&#9670;&#160;</a></span>d</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2191,14 +1243,14 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::d</td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::d</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Edge length of one cell in x-, y- and z-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00157">157</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00152">152</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2216,7 +1268,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00151">151</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00147">147</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2236,30 +1288,12 @@ template&lt;class T &gt; </div>
 
 <p>Holds an error number. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00144">144</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ac014d2a04ba4c51bfc9b6fd5f74f26ce" name="ac014d2a04ba4c51bfc9b6fd5f74f26ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac014d2a04ba4c51bfc9b6fd5f74f26ce">&#9670;&#160;</a></span>G <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T**** <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::G</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00149">149</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00139">139</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a25137cb8f912660c9a71a0cc56341b1b" name="a25137cb8f912660c9a71a0cc56341b1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25137cb8f912660c9a71a0cc56341b1b">&#9670;&#160;</a></span>G <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a25137cb8f912660c9a71a0cc56341b1b">&#9670;&#160;</a></span>G</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2274,12 +1308,12 @@ template&lt;class T &gt; </div>
 
 <p>Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i. </p>
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00141">141</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00145">145</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="abaf4fd8ac61aedc25e58d2a2f893a389" name="abaf4fd8ac61aedc25e58d2a2f893a389"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaf4fd8ac61aedc25e58d2a2f893a389">&#9670;&#160;</a></span>H</h2>
+<a id="a6ecd550fcf73453fc1df5811d7879bf3" name="a6ecd550fcf73453fc1df5811d7879bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ecd550fcf73453fc1df5811d7879bf3">&#9670;&#160;</a></span>H</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2287,12 +1321,12 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::H</td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::H</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00163">163</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00157">157</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2312,7 +1346,7 @@ template&lt;class T &gt; </div>
 
 <p>Array is cleared (needed by the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html#ab1262da9785c2d2326a29fd42f6b5369" title="Clear the SuperArray and release the allocated memory.">clear()</a> function) </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00160">160</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00155">155</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2330,30 +1364,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00159">159</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a7fbc16f1af3cc21908024474a81e150c" name="a7fbc16f1af3cc21908024474a81e150c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fbc16f1af3cc21908024474a81e150c">&#9670;&#160;</a></span>K <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T*** <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::K</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00150">150</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00154">154</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="af20814acb049093586f43f895ab03083" name="af20814acb049093586f43f895ab03083"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af20814acb049093586f43f895ab03083">&#9670;&#160;</a></span>K <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af20814acb049093586f43f895ab03083">&#9670;&#160;</a></span>K</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2366,12 +1382,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00142">142</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00146">146</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="acbce9e7e2fe9ab65afda9206722c3204" name="acbce9e7e2fe9ab65afda9206722c3204"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbce9e7e2fe9ab65afda9206722c3204">&#9670;&#160;</a></span>n <span class="overload">[1/2]</span></h2>
+<a id="ae945ff9ea49db7a541ae47c007199c4c" name="ae945ff9ea49db7a541ae47c007199c4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae945ff9ea49db7a541ae47c007199c4c">&#9670;&#160;</a></span>n</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2379,37 +1395,19 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;int&gt; * <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::n</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00152">152</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="abf26f590b0f5801e25ba474a07ef8e2f" name="abf26f590b0f5801e25ba474a07ef8e2f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf26f590b0f5801e25ba474a07ef8e2f">&#9670;&#160;</a></span>n <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;int&gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::n</td>
+          <td class="memname">std::vector&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::n</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>n[i]: Dimensions, i.e. number of subdivision in x-, y- and z-direction </p>
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00145">145</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00149">149</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a939bfbc1f3b3f723bcc1c84888eec4ca" name="a939bfbc1f3b3f723bcc1c84888eec4ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a939bfbc1f3b3f723bcc1c84888eec4ca">&#9670;&#160;</a></span>nges</h2>
+<a id="af48703c268e4b915b0c06406d6876a12" name="af48703c268e4b915b0c06406d6876a12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af48703c268e4b915b0c06406d6876a12">&#9670;&#160;</a></span>nges</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2417,14 +1415,14 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; int &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::nges</td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::nges</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Vector which contains the number of subdivisions in x-, y- and z-direction for the whole (virtual) array. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00152">152</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00150">150</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2444,12 +1442,12 @@ template&lt;class T &gt; </div>
 
 <p>Number of objects. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00146">146</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00141">141</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a04e94a3276311aea3e529a3988f4f163" name="a04e94a3276311aea3e529a3988f4f163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04e94a3276311aea3e529a3988f4f163">&#9670;&#160;</a></span>Obj</h2>
+<a id="a19061fc2ecb1782db1ec4636b871ec22" name="a19061fc2ecb1782db1ec4636b871ec22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19061fc2ecb1782db1ec4636b871ec22">&#9670;&#160;</a></span>Obj</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2457,14 +1455,14 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> ** <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::Obj =NULL</td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a>** <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::Obj =NULL</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>here are the objects </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00145">145</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00140">140</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2482,12 +1480,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00161">161</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00156">156</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a52871e3a1a7ffc7e5b883345276512ae" name="a52871e3a1a7ffc7e5b883345276512ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52871e3a1a7ffc7e5b883345276512ae">&#9670;&#160;</a></span>Pul <span class="overload">[1/2]</span></h2>
+<a id="a5e862b8542faf7eff6fc8671d4f538ae" name="a5e862b8542faf7eff6fc8671d4f538ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e862b8542faf7eff6fc8671d4f538ae">&#9670;&#160;</a></span>Pul</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2495,17 +1493,17 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;int&gt;* <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::Pul</td>
+          <td class="memname">std::vector&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::Pul</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00152">152</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00148">148</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<a id="a03842005a8d5a9fe38c20275bd96e9ce" name="a03842005a8d5a9fe38c20275bd96e9ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03842005a8d5a9fe38c20275bd96e9ce">&#9670;&#160;</a></span>Pul <span class="overload">[2/2]</span></h2>
+<a id="abbd5633f22343a776cd451da5fd40eaa" name="abbd5633f22343a776cd451da5fd40eaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd5633f22343a776cd451da5fd40eaa">&#9670;&#160;</a></span>R</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2513,32 +1511,14 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;int&gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::Pul</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00144">144</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ae2e6e90f32b6c9c44b04985bd506605c" name="ae2e6e90f32b6c9c44b04985bd506605c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2e6e90f32b6c9c44b04985bd506605c">&#9670;&#160;</a></span>R</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::R</td>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::R</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Transformation matrices in the local array coordinate system and backwards. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00163">163</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00157">157</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2558,7 +1538,7 @@ template&lt;class T &gt; </div>
 
 <p>Radius of the calculation sphere. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00158">158</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00153">153</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -2578,30 +1558,12 @@ template&lt;class T &gt; </div>
 
 <p>Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects. </p>
 
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00146">146</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="ac63e8c81808d93e8d7b6bbbba303ce03" name="ac63e8c81808d93e8d7b6bbbba303ce03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac63e8c81808d93e8d7b6bbbba303ce03">&#9670;&#160;</a></span>ywerte <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int* <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::ywerte</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00147">147</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00142">142</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a9c86faf7df0c5ff9226ff1dd863f6c6c" name="a9c86faf7df0c5ff9226ff1dd863f6c6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c86faf7df0c5ff9226ff1dd863f6c6c">&#9670;&#160;</a></span>ywerte <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c86faf7df0c5ff9226ff1dd863f6c6c">&#9670;&#160;</a></span>ywerte</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2614,30 +1576,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00139">139</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
-
-</div>
-</div>
-<a id="a5d75a774dd5fd2cb4a0f491aeb22d527" name="a5d75a774dd5fd2cb4a0f491aeb22d527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d75a774dd5fd2cb4a0f491aeb22d527">&#9670;&#160;</a></span>zwerte <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">int** <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">GOAT::raytracing::SuperArray</a>&lt; T &gt;::zwerte</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="sic_2superarray_8h_source.html#l00148">148</a> of file <a class="el" href="sic_2superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00143">143</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
 <a id="a44d9d186b9b1038806de6a9c09e89609" name="a44d9d186b9b1038806de6a9c09e89609"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d9d186b9b1038806de6a9c09e89609">&#9670;&#160;</a></span>zwerte <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d9d186b9b1038806de6a9c09e89609">&#9670;&#160;</a></span>zwerte</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2650,14 +1594,12 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00140">140</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00144">144</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>raytracing/sic/<a class="el" href="sic_2superarray_8h_source.html">superarray.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>raytracing/<a class="el" href="superarray_8h_source.html">superarray.h</a></li>
-<li>raytracing/<a class="el" href="supergrid__old_8h_source.html">supergrid_old.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

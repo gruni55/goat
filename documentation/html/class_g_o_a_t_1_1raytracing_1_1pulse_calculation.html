@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -108,6 +107,9 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1pulse_c
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aff5c480a97436c0ebbc240b88dc7edf3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aff5c480a97436c0ebbc240b88dc7edf3">pulseCalculation</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html">Scene</a> S)</td></tr>
 <tr class="separator:aff5c480a97436c0ebbc240b88dc7edf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf22cf822d48eb8a511ad66f097c3633"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acf22cf822d48eb8a511ad66f097c3633">findHitTime</a> (int ObjNo)</td></tr>
+<tr class="memdesc:acf22cf822d48eb8a511ad66f097c3633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated.  <br /></td></tr>
+<tr class="separator:acf22cf822d48eb8a511ad66f097c3633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff0a0f419978b4a12349ed1eb0e1526a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aff0a0f419978b4a12349ed1eb0e1526a">fieldCalculation</a> ()</td></tr>
 <tr class="memdesc:aff0a0f419978b4a12349ed1eb0e1526a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function makes the raytracing (normally only used internally)  <br /></td></tr>
 <tr class="separator:aff0a0f419978b4a12349ed1eb0e1526a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,6 +134,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a7e22fd3bcdb1a45e1a61cf4079f45cc6">setNumWavelengthsPerRange</a> (int nS)</td></tr>
 <tr class="memdesc:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range.  <br /></td></tr>
 <tr class="separator:a7e22fd3bcdb1a45e1a61cf4079f45cc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ce9362a627c994ccea1404a400481e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a3ce9362a627c994ccea1404a400481e0">setCenterWavelength</a> (double wvl)</td></tr>
+<tr class="memdesc:a3ce9362a627c994ccea1404a400481e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set center wavelength of the pulse.  <br /></td></tr>
+<tr class="separator:a3ce9362a627c994ccea1404a400481e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd516a0252c099b0ace4314688af6a1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acd516a0252c099b0ace4314688af6a1e">setBandwidth</a> (double dWvl)</td></tr>
+<tr class="memdesc:acd516a0252c099b0ace4314688af6a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Bandwith of the light source(s)  <br /></td></tr>
+<tr class="separator:acd516a0252c099b0ace4314688af6a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a730b75ee26efb9239357c8161e29043a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a730b75ee26efb9239357c8161e29043a">setRepetitionRate</a> (double rep)</td></tr>
+<tr class="memdesc:a730b75ee26efb9239357c8161e29043a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(nI*nS) <br  />
+  <br /></td></tr>
+<tr class="separator:a730b75ee26efb9239357c8161e29043a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afe27e49406c10e23fc86cbbeeb862fed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#afe27e49406c10e23fc86cbbeeb862fed">field</a> (double t)</td></tr>
 <tr class="memdesc:afe27e49406c10e23fc86cbbeeb862fed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions.  <br /></td></tr>
 <tr class="separator:afe27e49406c10e23fc86cbbeeb862fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,11 +160,16 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a4e8b91a78d54c72e5e0fe0f2bf987531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6880d97c499cb696b3fcc788d894855d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a6880d97c499cb696b3fcc788d894855d">SAres</a></td></tr>
 <tr class="separator:a6880d97c499cb696b3fcc788d894855d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc550317fc895b9c6014a6533790a702"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a> &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adc550317fc895b9c6014a6533790a702">SA</a></td></tr>
+<tr class="memdesc:adc550317fc895b9c6014a6533790a702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.)  <br /></td></tr>
+<tr class="separator:adc550317fc895b9c6014a6533790a702"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4575e88d9db626d840e05264535f5125"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html">Raytrace_usp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4575e88d9db626d840e05264535f5125">rt</a></td></tr>
+<tr class="separator:a4575e88d9db626d840e05264535f5125"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides functionality to calculate field distributions for short pulses. <br  />
  </p>
-<p>The class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0µm and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> SAres, which holds the electric field at a certain time t which was given to the class by calling the function field </p>
+<p>The class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0µm and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> SAres, which holds the electric field at a certain time t which was given to the class by calling the function field </p>
 
 <p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00024">24</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -234,6 +251,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="acf22cf822d48eb8a511ad66f097c3633" name="acf22cf822d48eb8a511ad66f097c3633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf22cf822d48eb8a511ad66f097c3633">&#9670;&#160;</a></span>findHitTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::pulseCalculation::findHitTime </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>ObjNo</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. </p>
+
+</div>
+</div>
 <a id="ae8260fb3d127a27309618710fa248826" name="ae8260fb3d127a27309618710fa248826"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae8260fb3d127a27309618710fa248826">&#9670;&#160;</a></span>reset()</h2>
 
@@ -251,6 +288,46 @@ Public Attributes</h2></td></tr>
 
 <p>Clears all arrays <br  />
  </p>
+
+</div>
+</div>
+<a id="acd516a0252c099b0ace4314688af6a1e" name="acd516a0252c099b0ace4314688af6a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd516a0252c099b0ace4314688af6a1e">&#9670;&#160;</a></span>setBandwidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::pulseCalculation::setBandwidth </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dWvl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set Bandwith of the light source(s) </p>
+
+</div>
+</div>
+<a id="a3ce9362a627c994ccea1404a400481e0" name="a3ce9362a627c994ccea1404a400481e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce9362a627c994ccea1404a400481e0">&#9670;&#160;</a></span>setCenterWavelength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::pulseCalculation::setCenterWavelength </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>wvl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set center wavelength of the pulse. </p>
 
 </div>
 </div>
@@ -351,6 +428,27 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a730b75ee26efb9239357c8161e29043a" name="a730b75ee26efb9239357c8161e29043a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a730b75ee26efb9239357c8161e29043a">&#9670;&#160;</a></span>setRepetitionRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::pulseCalculation::setRepetitionRate </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>rep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(nI*nS) <br  />
+ </p>
+
+</div>
+</div>
 <a id="a34ff04f4884e7ea541ade9d90dd53e71" name="a34ff04f4884e7ea541ade9d90dd53e71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a34ff04f4884e7ea541ade9d90dd53e71">&#9670;&#160;</a></span>setSpatialResolution()</h2>
 
@@ -392,6 +490,40 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a4575e88d9db626d840e05264535f5125" name="a4575e88d9db626d840e05264535f5125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4575e88d9db626d840e05264535f5125">&#9670;&#160;</a></span>rt</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html">Raytrace_usp</a> GOAT::raytracing::pulseCalculation::rt</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00063">63</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+
+</div>
+</div>
+<a id="adc550317fc895b9c6014a6533790a702" name="adc550317fc895b9c6014a6533790a702"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc550317fc895b9c6014a6533790a702">&#9670;&#160;</a></span>SA</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt;std::vector&lt;<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a>&gt; &gt; &gt; GOAT::raytracing::pulseCalculation::SA</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.) </p>
+
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00062">62</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+
+</div>
+</div>
 <a id="a6880d97c499cb696b3fcc788d894855d" name="a6880d97c499cb696b3fcc788d894855d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6880d97c499cb696b3fcc788d894855d">&#9670;&#160;</a></span>SAres</h2>
 
@@ -404,7 +536,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00046">46</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00061">61</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 
 </div>
 </div>
@@ -420,7 +552,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00045">45</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00060">60</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 
 </div>
 </div>

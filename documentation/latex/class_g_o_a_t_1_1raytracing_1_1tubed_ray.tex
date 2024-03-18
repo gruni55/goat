@@ -2,6 +2,11 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray}\index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 
 
+This class represents a ray with a finite cross section. class \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not.  
+
+
+
+
 {\ttfamily \#include $<$tubedray.\+h$>$}
 
 Inheritance diagram for GOAT\+::raytracing\+::tubed\+Ray\+:\begin{figure}[H]
@@ -26,7 +31,7 @@ Inheritance diagram for GOAT\+::raytracing\+::tubed\+Ray\+:\begin{figure}[H]
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a37c2ec1442986ebb6e6824180e7fc52f}{set\+Gauss}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}{g}})
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}{next}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em make the next step (has to include phase progress) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78}{getE}} ()
 \begin{DoxyCompactList}\small\item\em naechster Schritt \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a871bd154d78221713e9c48e0813041b0}{object\+Index}} ()
@@ -134,7 +139,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a717e3ded065c14
 \begin{DoxyCompactItemize}
 \item 
 virtual bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next}} ()=0
-\item 
+\begin{DoxyCompactList}\small\item\em make the next step (has to include phase progress) \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc663deed5684c6641840e5485}{getk}} ()=0
 \begin{DoxyCompactList}\small\item\em gives back direction Vector \end{DoxyCompactList}\item 
 virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a304594f532ce921f2929c58c66}{getE}} ()=0
@@ -179,27 +184,27 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{GOAT\+::raytracing\+::\+Ray\+Base}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}} =0
 \begin{DoxyCompactList}\small\item\em transmitted ray (used by the raytracer, for internal use only) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}{in\+Object}}
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}{in\+Object}} =false
 \begin{DoxyCompactList}\small\item\em is in an object \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}} =0
 \begin{DoxyCompactList}\small\item\em list of all objects \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}} =0
 \begin{DoxyCompactList}\small\item\em number of objects \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}{obj\+Index}}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}{obj\+Index}} =0
 \begin{DoxyCompactList}\small\item\em index of the current object \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}
 \item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}
 \begin{DoxyCompactList}\small\item\em current refractive index and refractive index of the host material \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}} =2.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI
 \begin{DoxyCompactList}\small\item\em wave number \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}} =1.\+0
 \item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}{rc}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}{rc}} =1.\+0
 \begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}{iR}}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}{iR}} =0
 \begin{DoxyCompactList}\small\item\em number of reflections already done \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}{suppress\+\_\+phase\+\_\+progress}} =false
 \begin{DoxyCompactList}\small\item\em suppress phase change in \doxylink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}, needed for short pulse consideration \end{DoxyCompactList}\item 
@@ -213,9 +218,9 @@ std\+::ostream \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_af44
 
 
 \doxysubsection{Detailed Description}
-class \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. 
+This class represents a ray with a finite cross section. class \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00087}{87}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00088}{88}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 
 
@@ -298,7 +303,7 @@ Constructor of \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray} w
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00135}{135}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00136}{136}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!Einschluss@{Einschluss}}
@@ -308,7 +313,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00135}{135}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00129}{129}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00130}{130}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!Einschluss@{Einschluss}}
@@ -318,7 +323,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00129}{129}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00127}{127}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00128}{128}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae374d7183bd202d3c0bd2ea55be5d161}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae374d7183bd202d3c0bd2ea55be5d161} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!flaeche@{flaeche}}
@@ -350,7 +355,7 @@ Brechung des Strahls.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00125}{125}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00126}{126}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getE@{getE}}
@@ -368,7 +373,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a3045
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00103}{103}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00104}{104}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abf70aaef3410b1081c734213a67957e6}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abf70aaef3410b1081c734213a67957e6} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getk@{getk}}
@@ -386,7 +391,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc66
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00120}{120}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00121}{121}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7eba1bf72f60a1d0b222b8ee71a50221}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7eba1bf72f60a1d0b222b8ee71a50221} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getk@{getk}}
@@ -396,7 +401,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00120}{120}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00119}{119}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00120}{120}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getP@{getP}}
@@ -414,7 +419,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aa9e3b2cbd6
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00122}{122}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00123}{123}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a910aa107b0f231b667f7198979f7c215}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a910aa107b0f231b667f7198979f7c215} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getP@{getP}}
@@ -424,7 +429,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00122}{122}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00121}{121}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00122}{122}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getP@{getP}}
@@ -434,7 +439,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00121}{121}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00124}{124}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00125}{125}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2fb010f2737399ea2dc8c37f27972e93}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2fb010f2737399ea2dc8c37f27972e93} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getphi@{getphi}}
@@ -444,7 +449,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00124}{124}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00123}{123}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00124}{124}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abfe9534749a7023ed4d7bfca9de206a0}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abfe9534749a7023ed4d7bfca9de206a0} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getRefract@{getRefract}}
@@ -458,7 +463,7 @@ Momentanen Brechungsindex setzen.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00112}{112}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00113}{113}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe09fb9e19105cf45afbd9de9ad9247d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe09fb9e19105cf45afbd9de9ad9247d} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!Getunnelt@{Getunnelt}}
@@ -468,7 +473,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00112}{112}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00134}{134}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00135}{135}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0a5b7e8f1cae9fa349b7d74728d021ce}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0a5b7e8f1cae9fa349b7d74728d021ce} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!initElectricField@{initElectricField}}
@@ -496,7 +501,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00134}{134}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00136}{136}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00137}{137}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!isInObject@{isInObject}}
@@ -514,13 +519,17 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00130}{130}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00131}{131}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!next@{next}}
 \index{next@{next}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
 {\footnotesize\ttfamily bool GOAT\+::raytracing\+::tubed\+Ray\+::next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+make the next step (has to include phase progress) 
 
 
 
@@ -554,7 +563,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00104}{104}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00105}{105}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a14d5f97b79daafbb68d2e6087bbd3af5}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a14d5f97b79daafbb68d2e6087bbd3af5} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!operator=@{operator=}}
@@ -609,7 +618,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00104}{104}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00138}{138}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00139}{139}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!reflectRay@{reflectRay}}
@@ -680,7 +689,7 @@ Strahl wird reflektiert.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00126}{126}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00127}{127}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a37c2ec1442986ebb6e6824180e7fc52f}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a37c2ec1442986ebb6e6824180e7fc52f} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setGauss@{setGauss}}
@@ -690,7 +699,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00126}{126}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00101}{101}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00102}{102}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adc1e6c16de81565d2daae63ac83a8b3d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adc1e6c16de81565d2daae63ac83a8b3d} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setGetunnelt@{setGetunnelt}}
@@ -700,7 +709,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00101}{101}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00117}{117}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00118}{118}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1b02b1f56e699d2f0d0739f41a53e826}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1b02b1f56e699d2f0d0739f41a53e826} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setiR@{setiR}}
@@ -710,7 +719,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00117}{117}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00116}{116}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00117}{117}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab8ed25b39a8607aaa58bb7948bc31d6d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab8ed25b39a8607aaa58bb7948bc31d6d} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setk@{setk}}
@@ -724,7 +733,7 @@ Gibt Brechungsindex zurueck.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00113}{113}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00114}{114}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setN0@{setN0}}
@@ -734,7 +743,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00113}{113}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00118}{118}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00119}{119}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0fdea71ef420dc417820642d027f5ef5}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0fdea71ef420dc417820642d027f5ef5} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setP@{setP}}
@@ -744,7 +753,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00118}{118}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00115}{115}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00116}{116}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0d81f36e746f4410eab8d90c45b2cdfd}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0d81f36e746f4410eab8d90c45b2cdfd} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setphi@{setphi}}
@@ -754,7 +763,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00115}{115}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00114}{114}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00115}{115}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9d4973c4c0935399a0509152c8055e09}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9d4973c4c0935399a0509152c8055e09} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!setRefract@{setRefract}}
@@ -768,7 +777,7 @@ Flaeche zwischen den Randstrahlen.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00111}{111}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00112}{112}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2865f44442f37d84f8569d4472010166}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2865f44442f37d84f8569d4472010166} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!tunnel@{tunnel}}
@@ -806,7 +815,7 @@ Strahl wird gebrochen.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00180}{180}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00181}{181}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!g@{g}}
@@ -816,7 +825,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00180}{180}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00189}{189}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00190}{190}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getunnelt@{getunnelt}}
@@ -826,7 +835,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00189}{189}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00186}{186}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00187}{187}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!iR@{iR}}
@@ -836,7 +845,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00186}{186}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00184}{184}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00185}{185}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!isValid@{isValid}}
@@ -846,7 +855,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00184}{184}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00188}{188}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00189}{189}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!k@{k}}
@@ -856,7 +865,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00188}{188}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00179}{179}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00180}{180}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!ka@{ka}}
@@ -866,7 +875,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00179}{179}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00190}{190}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00191}{191}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!KORR@{KORR}}
@@ -876,7 +885,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00190}{190}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00191}{191}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00192}{192}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!logRay@{logRay}}
@@ -886,7 +895,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00191}{191}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00187}{187}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00188}{188}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae03e2697fc97f58c892326204dd9f522}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae03e2697fc97f58c892326204dd9f522} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!OK@{OK}}
@@ -896,7 +905,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00187}{187}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00177}{177}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00178}{178}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!P@{P}}
@@ -906,7 +915,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00177}{177}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00178}{178}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00179}{179}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9c2bd14ae40f1ad4e302341da586d4ee}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9c2bd14ae40f1ad4e302341da586d4ee} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!phi@{phi}}
@@ -916,7 +925,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00178}{178}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00182}{182}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00183}{183}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a66b70096f4a0c32aee570f134f496cef}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a66b70096f4a0c32aee570f134f496cef} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!pol@{pol}}
@@ -926,7 +935,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00182}{182}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00185}{185}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00186}{186}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 
 

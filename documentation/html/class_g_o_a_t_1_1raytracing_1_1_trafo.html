@@ -27,7 +27,6 @@
   <td id="projectalign">
    <div id="projectname">GOAT (Geometrical optics application tool)<span id="projectnumber">&#160;0.1</span>
    </div>
-   <div id="projectbrief">Geometrical optics based scientific library</div>
   </td>
  </tr>
  </tbody>
@@ -115,7 +114,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a889e68dddc217be9a5458e1af0eda81f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a889e68dddc217be9a5458e1af0eda81f">calc</a> (std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a> &gt; &gt; &gt; &amp;SA, double omegaStart, double omegaEnd, double t)</td></tr>
 <tr class="memdesc:a889e68dddc217be9a5458e1af0eda81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculation of the Fourier transformation. The calculation of the Fourier transformation is made in a certain frequency intervall at the time t  <br /></td></tr>
 <tr class="separator:a889e68dddc217be9a5458e1af0eda81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86b62d774473dfc5c3a3bc6b156fdecb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a86b62d774473dfc5c3a3bc6b156fdecb">setRefractiveIndexFunctions</a> (std::vector&lt; std::function&lt; std::complex&lt; double &gt;(double) &gt; &gt; nList)</td></tr>
+<tr class="memitem:a86b62d774473dfc5c3a3bc6b156fdecb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a86b62d774473dfc5c3a3bc6b156fdecb">setRefractiveIndexFunctions</a> (std::vector&lt; std::function&lt; std::complex&lt; double &gt;(double) &gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a145b17a9537a39eea4803a76cf1ef728">nList</a>)</td></tr>
 <tr class="memdesc:a86b62d774473dfc5c3a3bc6b156fdecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the refractive index functions. Here, the refractive index functions were given with help of a std::vector. Each function must return a complex number (the refractive index) and has a double value (the wavelength) as argument.  <br /></td></tr>
 <tr class="separator:a86b62d774473dfc5c3a3bc6b156fdecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a35b9fad8cf7e801a9d7995786717e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a1a35b9fad8cf7e801a9d7995786717e5">setReferenceTime</a> (double tref)</td></tr>
@@ -131,11 +130,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a2092d697818f11c0833c9ab56557636f"><td class="mdescLeft">&#160;</td><td class="mdescRight">fills the entire result array with zero vectors  <br /></td></tr>
 <tr class="separator:a2092d697818f11c0833c9ab56557636f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6230a25aa11db63c71f0c91e0640156"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#ab6230a25aa11db63c71f0c91e0640156">initResult</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &gt; &amp;SA)</td></tr>
-<tr class="memdesc:ab6230a25aa11db63c71f0c91e0640156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> SA.  <br /></td></tr>
+<tr class="memdesc:ab6230a25aa11db63c71f0c91e0640156"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> SA.  <br /></td></tr>
 <tr class="separator:ab6230a25aa11db63c71f0c91e0640156"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9a9d33ce79018e55fea07d111b22130"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#ab9a9d33ce79018e55fea07d111b22130">initResult</a> (double r0, int nx, int ny, int nz, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **Obj, int numObjs)</td></tr>
-<tr class="memdesc:ab9a9d33ce79018e55fea07d111b22130"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets and initialize the result array. The result array will be cleared and renewed according to the parameters.  <br /></td></tr>
-<tr class="separator:ab9a9d33ce79018e55fea07d111b22130"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3d411ccdfac33a2899f3f97e41a7478"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#ad3d411ccdfac33a2899f3f97e41a7478">initResult</a> (double r0, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nx, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> ny, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a> nz, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **Obj, int numObjs)</td></tr>
+<tr class="memdesc:ad3d411ccdfac33a2899f3f97e41a7478"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets and initialize the result array. The result array will be cleared and renewed according to the parameters.  <br /></td></tr>
+<tr class="separator:ad3d411ccdfac33a2899f3f97e41a7478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -143,10 +142,14 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a53b30981ac0281a2ef3f07374bb6fdc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for the last result <br  />
   <br /></td></tr>
 <tr class="separator:a53b30981ac0281a2ef3f07374bb6fdc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145b17a9537a39eea4803a76cf1ef728"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; std::complex&lt; double &gt;(double) &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_trafo.html#a145b17a9537a39eea4803a76cf1ef728">nList</a></td></tr>
+<tr class="memdesc:a145b17a9537a39eea4803a76cf1ef728"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of the refractive index functions <br  />
+  <br /></td></tr>
+<tr class="separator:a145b17a9537a39eea4803a76cf1ef728"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class calculates the time dependence of a field which calculated before. </p>
-<p>The calculation of the time dependence is made in two steps. In the first step, the fields are calculated with help of raytracing. This class uses the information from the raytracing (path of the rays) to make the concrete calculation of the electric field for different wavelength equivalent to a Fourier transform. The class requires an array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements which contain the the information over all steps for every ray (length of the step and material). The structure <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> carries all information needed for the calculation. The spectral resolution, needed to prevent "ghost" peaks is a function of the time difference dt to a certain reference time tref: dt=|tref-t|. By default tref is set to 0, but if you are interested of a range around time, set tref to an approbriate time to reduce the amount of needed frequencies </p>
+<p>The calculation of the time dependence is made in two steps. In the first step, the fields are calculated with help of raytracing. This class uses the information from the raytracing (path of the rays) to make the concrete calculation of the electric field for different wavelength equivalent to a Fourier transform. The class requires an array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> elements which contain the the information over all steps for every ray (length of the step and material). The structure <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> carries all information needed for the calculation. The spectral resolution, needed to prevent "ghost" peaks is a function of the time difference dt to a certain reference time tref: dt=|tref-t|. By default tref is set to 0, but if you are interested of a range around time, set tref to an approbriate time to reduce the amount of needed frequencies </p>
 
 <p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00048">48</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -186,7 +189,7 @@ Public Attributes</h2></td></tr>
 <p>Constructor for initialization Perform a calculation at the time t. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">SA</td><td>Array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> elements. Contains the fields for the different wavelengths defined by the parameters in the corresponding <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> structure, given in the constructor </td></tr>
+    <tr><td class="paramname">SA</td><td>Array of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> elements. Contains the fields for the different wavelengths defined by the parameters in the corresponding <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html" title="Structure, which acts as a container for all informations needed to process the calculation.">TrafoParms</a> structure, given in the constructor </td></tr>
   </table>
   </dd>
 </dl>
@@ -263,9 +266,9 @@ Public Attributes</h2></td></tr>
 <p>calculation of the Fourier transformation. The calculation of the Fourier transformation is made in a certain frequency intervall at the time t </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">SA</td><td>this <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> structure contains the information gathered in the raytracing part. </td></tr>
-    <tr><td class="paramname">omegaStart</td><td>Start frequency (in fs^-1) of the frequency intervall </td></tr>
-    <tr><td class="paramname">omegaStop</td><td>End frequency (in fs^-1) of the frequency intervall </td></tr>
+    <tr><td class="paramname">SA</td><td>this <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> structure contains the information gathered in the raytracing part. </td></tr>
+    <tr><td class="paramname">omegaStart</td><td>Start frequency (in <picture><source srcset="form_20_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$fs^{-1}$" src="form_20.png"/></picture>) of the frequency intervall </td></tr>
+    <tr><td class="paramname">omegaStop</td><td>End frequency (in <picture><source srcset="form_20_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$fs^{-1}$" src="form_20.png"/></picture>) of the frequency intervall </td></tr>
   </table>
   </dd>
 </dl>
@@ -310,8 +313,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ab9a9d33ce79018e55fea07d111b22130" name="ab9a9d33ce79018e55fea07d111b22130"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9a9d33ce79018e55fea07d111b22130">&#9670;&#160;</a></span>initResult() <span class="overload">[1/2]</span></h2>
+<a id="ad3d411ccdfac33a2899f3f97e41a7478" name="ad3d411ccdfac33a2899f3f97e41a7478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3d411ccdfac33a2899f3f97e41a7478">&#9670;&#160;</a></span>initResult() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,19 +328,19 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>ny</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a>&#160;</td>
           <td class="paramname"><em>nz</em>, </td>
         </tr>
         <tr>
@@ -391,7 +394,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a> SA. </p>
+<p>Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> SA. </p>
 
 </div>
 </div>
@@ -457,6 +460,25 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="a145b17a9537a39eea4803a76cf1ef728" name="a145b17a9537a39eea4803a76cf1ef728"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145b17a9537a39eea4803a76cf1ef728">&#9670;&#160;</a></span>nList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;std::complex&lt;double&gt;(double) &gt; &gt; GOAT::raytracing::Trafo::nList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>List of the refractive index functions <br  />
+ </p>
+
+<p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00101">101</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+
+</div>
+</div>
 <a id="a53b30981ac0281a2ef3f07374bb6fdc8" name="a53b30981ac0281a2ef3f07374bb6fdc8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53b30981ac0281a2ef3f07374bb6fdc8">&#9670;&#160;</a></span>SAres</h2>
 
