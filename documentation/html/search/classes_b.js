@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['scene_0',['Scene',['../class_g_o_a_t_1_1raytracing_1_1_scene.html',1,'GOAT::raytracing']]],
-  ['shortpulse_1',['shortPulse',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html',1,'GOAT::raytracing']]],
-  ['stepentry_2',['stepEntry',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html',1,'GOAT::raytracing']]],
-  ['strahlarray_3',['StrahlArray',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html',1,'GOAT::raytracing']]],
-  ['strahlinfo_4',['StrahlInfo',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html',1,'GOAT::raytracing']]],
-  ['strpair_5',['StrPair',['../classtinyxml2_1_1_str_pair.html',1,'tinyxml2']]],
-  ['superarray_6',['SuperArray',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html',1,'GOAT::raytracing']]],
-  ['superarray_3c_20goat_3a_3amaths_3a_3avector_3c_20std_3a_3acomplex_3c_20double_20_3e_20_3e_20_3e_7',['SuperArray&lt; GOAT::maths::Vector&lt; std::complex&lt; double &gt; &gt; &gt;',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html',1,'GOAT::raytracing']]],
-  ['supergrid_8',['SuperGrid',['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html',1,'GOAT::raytracing']]],
-  ['surface_9',['surface',['../class_g_o_a_t_1_1raytracing_1_1surface.html',1,'GOAT::raytracing']]],
-  ['sysmeminfo_10',['SysMemInfo',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html',1,'GOAT::raytracing']]]
+  ['ray_5fpow_0',['Ray_pow',['../class_g_o_a_t_1_1raytracing_1_1_ray__pow.html',1,'GOAT::raytracing']]],
+  ['raybase_1',['RayBase',['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html',1,'GOAT::raytracing']]],
+  ['raylistentry_2',['rayListEntry',['../struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html',1,'GOAT::raytracing']]],
+  ['raytrace_3',['Raytrace',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html',1,'GOAT::raytracing']]],
+  ['raytrace_5finel_4',['Raytrace_Inel',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html',1,'GOAT::raytracing']]],
+  ['raytrace_5fot_5',['Raytrace_OT',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html',1,'GOAT::raytracing']]],
+  ['raytrace_5fpath_6',['Raytrace_Path',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html',1,'GOAT::raytracing']]],
+  ['raytrace_5fpure_7',['Raytrace_pure',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html',1,'GOAT::raytracing']]],
+  ['raytrace_5fusp_8',['Raytrace_usp',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html',1,'GOAT::raytracing']]],
+  ['rrtparms_9',['RRTParms',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html',1,'GOAT::raytracing']]],
+  ['rrtparmsinfo_10',['RRTParmsInfo',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html',1,'GOAT::raytracing']]]
 ];

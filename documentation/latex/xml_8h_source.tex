@@ -1,0 +1,60 @@
+\doxysection{xml.\+h}
+\hypertarget{xml_8h_source}{}\label{xml_8h_source}\index{XML/xml.h@{XML/xml.h}}
+\mbox{\hyperlink{xml_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tinyxml2_8h}{tinyxml2.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raytrace_8h}{raytrace.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00005}00005\ \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00013}00013\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00014}00014\ \{}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00015}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l}{00015}}\ \ \ \ \ \textcolor{keyword}{namespace\ }XML}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00016}00016\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00017}\mbox{\hyperlink{xml_8h_af0d3110eddf628bf7ec827130ea10c0c}{00017}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ numXMLRootElements\ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00018}\mbox{\hyperlink{xml_8h_aeff7905a8295cc492b98bee112eaa112}{00018}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_NONE\ \ \ \ \ \ \ \ \ -\/1\ }}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00019}\mbox{\hyperlink{xml_8h_ad11e69b29c27d5effed5ce7ea374c715}{00019}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_SCENE\_LIGHTSOURCES\ 0}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00020}\mbox{\hyperlink{xml_8h_a98b0aea49e5b3ae1565d0f38ae8a29ff}{00020}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_SCENE\_OBJECTS\ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00021}\mbox{\hyperlink{xml_8h_a129fe0365555a1805be5f3b82d3d7beb}{00021}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_SCENE\_DETECTORS\ \ \ \ 2}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00023}\mbox{\hyperlink{xml_8h_ad729ba2c20589b0e82f26dfbcf07828e}{00023}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ numXML\_LS\_TYPES\ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00024}\mbox{\hyperlink{xml_8h_ab3960f0a83bbcc04754525cba592ade1}{00024}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_LS\_TYPE\_PLANE\ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00025}\mbox{\hyperlink{xml_8h_abb55ad027dba791a5acc8635a060bf06}{00025}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_LS\_TYPE\_GAUSS\ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00026}\mbox{\hyperlink{xml_8h_ade6cc60c9321b36d487d19f5100fb245}{00026}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_LS\_TYPE\_PLANE\_MC\ 2}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00027}\mbox{\hyperlink{xml_8h_afaa7c354ae2a04e82d9bacb6bf420068}{00027}}\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ XML\_LS\_TYPE\_GAUSS\_MC\ 3}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00032}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{sceneXMLElements}}[]\ =\ \{\ \textcolor{stringliteral}{"{}r0"{}},\textcolor{stringliteral}{"{}nS"{}},\textcolor{stringliteral}{"{}LightSources"{}},\textcolor{stringliteral}{"{}Objects"{}},\textcolor{stringliteral}{"{}Detectors"{}}\ \};}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00033}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{00033}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{LSXMLAttributes}}[]\ =\ \{\ \textcolor{stringliteral}{"{}Type"{}},\textcolor{stringliteral}{"{}Size"{}},\textcolor{stringliteral}{"{}Wavelength"{}},\textcolor{stringliteral}{"{}NumRays"{}}\ \};}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00034}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{LSXMLTYPES}}[]\ =\ \{\textcolor{stringliteral}{"{}Plane"{}},\textcolor{stringliteral}{"{}Gaussian"{}},\textcolor{stringliteral}{"{}Plane\_mc"{}},\textcolor{stringliteral}{"{}Gaussian\_mc"{}}\};}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00035}00035\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00041}\mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{xmlReader}}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00044}\mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a129692742c8750f101fee9fb98e6eef0}{00044}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a129692742c8750f101fee9fb98e6eef0}{readXML}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fname);\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00045}\mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_acfc9bdc66d97b25827afe7d299a84719}{00045}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{GOAT::raytracing::Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_acfc9bdc66d97b25827afe7d299a84719}{S}};\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readScene();}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readLightSources();}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readCommands();}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ readObjects();}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<double>}}\ readVector(\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2::XMLElement}}*\ ell,\ \textcolor{keywordtype}{double}\ x\ =\ 0,\ \textcolor{keywordtype}{double}\ y\ =\ 0,\ \textcolor{keywordtype}{double}\ z\ =\ 0);}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::complex<double>\ readCmplx(\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2::XMLElement}}*\ ell,\ \textcolor{keywordtype}{double}\ defre=0.0,\ \textcolor{keywordtype}{double}\ defim=0.0\ );}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<double>}}\ readVector(\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2::XMLElement}}*\ ell,\ \textcolor{keywordtype}{int}\&\ xmlError);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{tinyxml2::XMLNode}}*\ rootElement;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2::XMLElement}}*\ sceneElement;\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2::XMLElement}}*\ calculationElement;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT::raytracing::ObjectShape}}**\ Obj=0;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT::raytracing::LightSrc}}**\ LS=0;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numObj\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numLS\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{xml_8h_source_l00065}00065\ \}}
+
+\end{DoxyCode}

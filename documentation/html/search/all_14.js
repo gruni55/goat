@@ -1,8 +1,8 @@
 var searchData=
 [
   ['u_0',['u',['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a8fa6940dbf62a810919060a470957857',1,'GOAT::raytracing::triangle']]],
-  ['unity_1',['UNITY',['../namespace_g_o_a_t_1_1maths.html#a2dd26d9f28293a8e56d97660380ab622',1,'GOAT::maths']]],
-  ['unity_2',['unity',['../namespace_g_o_a_t_1_1maths.html#af4bb98f52dbc0a9ce9246ef6de25d602',1,'GOAT::maths']]],
+  ['unity_1',['unity',['../namespace_g_o_a_t_1_1maths.html#af4bb98f52dbc0a9ce9246ef6de25d602',1,'GOAT::maths']]],
+  ['unity_2',['UNITY',['../namespace_g_o_a_t_1_1maths.html#a2dd26d9f28293a8e56d97660380ab622',1,'GOAT::maths']]],
   ['unsetexcitationfieldonly_3',['unsetExcitationFieldOnly',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a95a52b4e32ebf7cb4343788ca4303172',1,'GOAT::raytracing::Raytrace_Inel']]],
   ['unsigned64attribute_4',['Unsigned64Attribute',['../classtinyxml2_1_1_x_m_l_element.html#a226502bab8f1be7ede1fdd255398eb85',1,'tinyxml2::XMLElement']]],
   ['unsigned64text_5',['Unsigned64Text',['../classtinyxml2_1_1_x_m_l_element.html#af48c1023abbac1acdf4927c51c3a5f0c',1,'tinyxml2::XMLElement']]],

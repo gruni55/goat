@@ -11,6 +11,7 @@ var searchData=
   ['cunity_8',['CUNITY',['../namespace_g_o_a_t_1_1maths.html#af316adec18961903cfe77123f8ebe110',1,'GOAT::maths']]],
   ['currentindex_9',['currentIndex',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface']]],
   ['currentls_10',['currentLS',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a360372bc79715fdb613f8647c2385531',1,'GOAT::raytracing::Raytrace']]],
-  ['currentnorm_11',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface']]],
-  ['currentobj_12',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]]
+  ['currentnorm_11',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm']]],
+  ['currentobj_12',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
+  ['curvature_13',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a243f145815c816376166b82079dc0bf3',1,'GOAT::raytracing::lensSide']]]
 ];
