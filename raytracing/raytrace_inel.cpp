@@ -165,7 +165,7 @@ namespace GOAT
 				full_fn =  fname + "_" + std::to_string(i) + ".dat";
 				switch (savetype)
 				{
-					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsEbin(SGE[0],full_fn, i); break;
+					case INEL_EXPORT_EXCITATION_FIELD_ABS: saveabsE(SGE[0],full_fn, i); break;
 					case INEL_EXPORT_EXCITATION_FIELD_VECTOR: saveFullE(SGE[0],full_fn, i); break;
 				}
 			}
@@ -231,16 +231,25 @@ namespace GOAT
 			{
 				while (s < L)
 				{
+					SGE[iR].Error=NO_ERRORS;
 					Pnew = pnext(P, kin, SGE[iR],1E-5);
 					l = abs(Pnew - P);
 					s += l;
 					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
 					cell = SGE[iR].gitterpunkt((Pnew + P) / 2.0);
+					/*if (SGE[iR].Error==SUPERGITTER)
+					{
+						std::cout << "cell: " << cell[0] << "\t" << cell[1] << "\t" << cell[2] << "\tP:" <<  (Pnew + P) / 2.0 << std::endl;
+					}
+					else*/
+					if (SGE[iR].Error==NO_ERRORS)
+					{
 					EG = SGE[iR](currentObj, cell);
 					Ef = EStart * phase;
 					Eh = EG + Ef *sqrt(l);
 					Eh = norm(Eh);
 					SGE[iR](currentObj, cell) = sqrt(abs2(EG) + abs2(Ef) * l) * Eh;			
+					}
 					P = Pnew;
 				}
 			}

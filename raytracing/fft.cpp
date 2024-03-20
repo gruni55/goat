@@ -135,7 +135,7 @@ namespace GOAT
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-                         //   #pragma omp parallel for num_threads (4)
+                            #pragma omp parallel for num_threads (7)
                             for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {
                                 std::cout << ix << std::endl << std::flush;
@@ -166,7 +166,7 @@ namespace GOAT
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
- // #pragma omp parallel for num_threads(4)
+  #pragma omp parallel for num_threads(7)
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
