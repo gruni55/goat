@@ -216,7 +216,7 @@ namespace GOAT
 		{
 
 			maths::Vector<double> Ph = genStartingPos();
-			maths::Vector<double> P = Pos + Ph;
+			maths::Vector<double> P = Ph;
 			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
 			k = k / abs(k);
 			double E0 = sqrt(P0);
@@ -224,13 +224,21 @@ namespace GOAT
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			S.n = n0;
-
+			double r2; 
+			std::complex<double> phase; 
 			maths::Vector<double> h;
 			maths::Matrix<double> DM;
 			double absh, gamma;
+			double l;
 
 			for (int i = 0; i < 5; i++)
 			{
+				r2 = abs2(Pos - S.P[i]);
+				
+				// phase = exp(I *  (-k0 * n0 * f + zeta - k0 * r2 / (2.0 * R)));
+				R = sqrt(r2 + f * f);
+				l = R - abs(f);
+				phase = exp(-I * k0 * S.n0 * l);
 				S.k[i] = focuspos - S.P[i];   // Richtungsvektor auf den Fokus gerichtet
 				S.k[i] /= abs(S.k[i]);
 				h = k % S.k[i];
@@ -240,11 +248,11 @@ namespace GOAT
 					h /= absh;
 					gamma = std::acos(S.k[i] * k);
 					DM = rotMatrix(h, gamma);
-					S.E[i] = E0 * DM * Pol;					
+					S.E[i] = E0 * DM * Pol * phase;					
 				}
 				else
 				{
-					S.E[i] = E0 * Pol;
+					S.E[i] = E0 * Pol * phase;
 				}
 				S.n = n0;
 			}

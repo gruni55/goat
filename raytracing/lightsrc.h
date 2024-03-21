@@ -115,6 +115,10 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 				density = D / ((double)N);
 				reset();
 			}
+			void setWavelength(double wvl) { this->wvl = wvl; k0 = 2.0 * M_PI / wvl; }
+			double getWavelength() { return wvl; }
+			void setWavenumber(double k0) { this->k0 = k0; wvl = 2.0 * M_PI / k0; }
+			double getWavenumber() { return k0; }
 			void setPol(maths::Vector<std::complex<double> > pol) { Pol = pol; } ///< sets the polarisation 
 			void setPos(maths::Vector<double> P); ///< sets the position of the light source. This is the center of the square area of the light source
 			maths::Vector<double> getPos() { return Pos; }  ///< returns the position of the light source. This is the center of the square area of the light source
@@ -132,7 +136,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
 			maths::Vector<std::complex<double> > Pol2; ///< second polarisation (used by IRay)
 			double r0;          ///< radius of the calculation sphere
-			double wvl;         ///< wavelength
+			
 			int numObjs;        ///< number of objects
 			std::complex<double> n0; ///< refractive index of the intermediate medium
 
@@ -146,6 +150,9 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 			bool suppress_phase_progress = false;
+		protected:
+			double wvl;         ///< wavelength
+			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 		};
 
 
@@ -206,7 +213,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 		*
 		 Class which describes a (focused) gaussian light source. The main direction is given by the source position and
 		 the focal position. The electric field is calculated by
-		 \f$\vec E(r,z)=\vec E_0 \frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}\f$
+		 \f$\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}
 		 The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics
 		 the rays follow straight lines inside the medium.
 		*/
@@ -246,7 +253,8 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			void setk(maths::Vector<double> k) { this->k = k; reset(); }	///< sets the main direction of light source 
 			double calcz0() { z0 = M_PI * w0 * w0 / wvl; return z0; } ///< recalculates Rayleigh-length z0
 			void reset()
-			{
+			{			
+				polType = LIGHTSRC_POL_Y; // ???
 				k = focuspos - Pos;
 				k = k / abs(k);
 				e1 = k % maths::ez;
@@ -257,13 +265,27 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 
 				i1 = 0;
 				i2 = 0;
+				f = (Pos - focuspos)*k;
+				z0 = M_PI * w0 * w0 / wvl;
+				numObjs = 0;
+				Obj = 0;
+				n0 = 1.0;
+				double d = abs(Pos - focuspos);
+				calcz0();
+				calcw(d);
+				double theta = atan(wvl / (M_PI * w0));
+				NA = real(n0) * sin(theta);
 				calcNormfak();
+				zeta = atan(f / z0);
+				R = f * (1 + z0 * z0 / (f * f));
+				k0 = 2.0 * M_PI / wvl;
 			}
 			double calcw(double z) ///< calculates the beam waist of the light beam at the distance z from the focal point, returns the value and sets the corrsponding local variable w (needed for next(), only for internal use)
 			{
 				w = w0 * sqrt(1.0 + z * z / (z0 * z0));
 				return w;
 			}
+			
 
 			void calcNormfak() ///< needed for next()
 			{
@@ -284,6 +306,8 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			maths::Vector<double> k;		 ///< direction of the gaussian beam
 			double w;				 ///< radius of the beam (for internal use only)
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
+			double zeta;			 ///< Gouy phase 
+			double R;				 ///< curvature 
 		};
 
 		

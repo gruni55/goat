@@ -226,7 +226,7 @@ namespace GOAT
 			maths::Vector<double> Pnew;
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<INDEX_TYPE> cell;
-			double k0 = 2.0*M_PI/S.LS[currentLS]->wvl;
+			double k0 = S.LS[currentLS]->getWavenumber();
 			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
 			{
 				while (s < L)
