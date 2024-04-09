@@ -7,12 +7,12 @@
 
 int main(int argc, char** argv)
 {
-	int nRays = 100;
+	int nRays = 10000;
 	GOAT::raytracing::Scene S;
 
 	GOAT::maths::Vector<double> LSPos(0, 0, -50);
 	// GOAT::raytracing::LightSrcRing_mc LS(LSPos, nRays, 1.0, 0, 5);
-	 GOAT::raytracing::LightSrcPlane LS(LSPos, nRays, 1.0,20.0);
+	 GOAT::raytracing::LightSrcPlane_mc LS(LSPos, nRays, 1.0,20.0);
 	LS.setk(GOAT::maths::ez);
 
 	
@@ -31,6 +31,7 @@ int main(int argc, char** argv)
 	GOAT::maths::Vector<double> lensPos;
 	GOAT::raytracing::sphericLens Lens(lensPos,1.5,lensParms);
 	Lens.setActive(false);
+	S.addObject(&Lens);
 
 	GOAT::maths::Vector<double> boxPos(0, 0, 110);
 	GOAT::maths::Vector<double> boxDim(40, 40, 150);
@@ -40,6 +41,7 @@ int main(int argc, char** argv)
 	S.setr0(500);
 
 	std::vector< std::function< std::complex< double >(double) > > nList;
+        nList.push_back(GOAT::raytracing::n_BK7);
 	nList.push_back(GOAT::raytracing::n_Vacuum);
 	nList.push_back(GOAT::raytracing::n_Vacuum);
 
@@ -54,14 +56,14 @@ int main(int argc, char** argv)
 	pc.setSpatialResolution(spatialRes);
 	pc.setRefractiveIndexFunctions(nList);
 
-	pc.setSpectralRanges(50);
-	pc.setNumWavelengthsPerRange(100);
+	pc.setSpectralRanges(500);
+	pc.setNumWavelengthsPerRange(10);
 	pc.setCenterWavelength(wvl);
 	pc.setNumReflex(0);
 
-	double time=pc.findHitTime(0)+100;
+	double time=pc.findHitTime(1)+100;
 	pc.field(time);
-	GOAT::raytracing::saveFullE(pc.trafo.SAres, "h:\\data\\test.dat", 0);
+	GOAT::raytracing::saveFullE(pc.trafo.SAres, "/home/weigel/data/testlens.dat", 1);
 
 	/*
 	GOAT::raytracing::Raytrace_Inel rt(S, 1000);

@@ -98,7 +98,7 @@ namespace GOAT
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
 				for (int ls = 0; ls < S.nLS; ls++)
-					S.LS[ls]->wvl = wvl;
+					S.LS[ls]->setWavelength(wvl);
 				for (int lobj = 0; lobj < S.nObj; lobj++)
 					S.Obj[lobj]->setn(trafoparms.nList[lobj](wvl));
 				S.setnS(trafoparms.nList[S.nObj](wvl));
@@ -124,7 +124,7 @@ namespace GOAT
 
 			// set the wavelength for all light sources
 			for (int ls = 0; ls < S.nLS; ls++)
-				S.LS[ls]->wvl = wavelength;
+				S.LS[ls]->setWavelength(wavelength);
 
 			// do the raytracing
 			rt.trace();

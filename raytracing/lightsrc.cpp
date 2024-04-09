@@ -51,6 +51,7 @@ namespace  GOAT
 			Pol = L.Pol;
 			r0 = L.r0;
 			wvl = L.wvl;
+			k0 = L.k0;
 			P0 = L.P0;
 			numObjs = L.numObjs;
 			Obj = L.Obj;
@@ -591,6 +592,7 @@ namespace  GOAT
 		LightSrcGauss::LightSrcGauss(void)
 		{
 			type = LIGHTSRC_SRCTYPE_GAUSS;
+			reset();
 			Pall = 0.0;
 			k = maths::ez;
 			density = 1;
@@ -602,12 +604,11 @@ namespace  GOAT
 			n0 = 1.0;
 			Pol = maths::Vector<std::complex<double> >(0, 1.0, 0);
 			polType = LIGHTSRC_POL_Y;
-			reset();
 		}
 
 
 		LightSrcGauss::LightSrcGauss(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrc()
-			/**
+			/*
 			  Konstruktor für Gauss-Strahlungsquelle
 			  Strahlen laufen aus einem Rechteck am Ort Pos der Breite D in z-Richtung auf den Fokuspunkt zu
 			  Parameter:
@@ -618,7 +619,7 @@ namespace  GOAT
 			  focuspos : Position des Fokus
 			  D   : Breite der Lichtquelle
 			  r0  : Radius der "Weltkugel"
-			**/
+			*/
 		{
 			/*
 			e1=ex;
@@ -629,15 +630,7 @@ namespace  GOAT
 			Pall = 0.0;
 			this->Pos = Pos;
 			this->density = D / ((double)N);
-			this->type = LIGHTSRC_SRCTYPE_GAUSS;
-			k = focuspos - Pos;
-			k = k / abs(k);
-			e1 = k % maths::ez;
-			if (abs(e1) < 1E-10) e1 = maths::ex;
-			e2 = k % e1;
-			e1 = e1 / abs(e1);
-			e2 = e2 / abs(e2);
-
+			this->type = LIGHTSRC_SRCTYPE_GAUSS;			
 			this->raytype = raytype;
 			this->Pol = Pol;
 			this->r0 = r0;
@@ -645,25 +638,13 @@ namespace  GOAT
 			this->D = D;
 			this->D1 = D1;
 			this->D2 = D2;
-			this->focuspos = focuspos;
-			Pol = maths::Vector<std::complex<double> >(0, 1.0, 0);
-			polType = LIGHTSRC_POL_Y;
-
+			this->focuspos = focuspos;		
 			this->Pol = Pol;
 			this->w0 = w0;
 			this->N = N;
 			this->P0 = P0;
 			this->suppress_phase_progress = suppress_phase_progress;
-			f = abs(Pos - focuspos);
-			z0 = M_PI * w0 * w0 / wvl;
-			numObjs = 0;
-			Obj = 0;
-			n0 = 1.0;
-			double d = abs(Pos - focuspos);
-			calcz0();
-			calcw(d);
-			double theta = atan(wvl / (M_PI * w0));
-			NA = real(n0) * sin(theta);
+			
 			reset();
 		}
 
@@ -879,9 +860,7 @@ namespace  GOAT
 		{
 
 			maths::Vector<double> Ph = (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
-			maths::Vector<double> P = Pos + Ph;
-			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
-			k = k / abs(k);
+			maths::Vector<double> P = Pos + Ph;			
 			double r = abs(Ph);
 			double s = w0 / (2.0 * sqrt(log(2.0)));
 			double E0 = exp(-r * r / s / s);
@@ -890,7 +869,10 @@ namespace  GOAT
 
 			S.setN0(n0);
 			S.n = n0;
-			for (int i = 0; i < 5; i++) S.E[i] = Pol * E0;
+			double r2 = abs2(Pos - P);
+			std::complex<double> phase = exp(I * (-k0 * n0 * f + zeta - k0 * r2 / (2.0 * R)));
+
+			for (int i = 0; i < 5; i++) S.E[i] = Pol * E0 * phase;
 			i1++;
 			if (i1 * density > D) { i1 = 0; i2++; }
 			if (i2 * density >= D) return LIGHTSRC_IS_LAST_RAY;

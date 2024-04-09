@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['m_0',['M',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a5cfec052508138d8a22c70c8626e6437',1,'GOAT::maths::Matrix']]],
-  ['m_1',['m',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aa5a17528660cc5713dc16b50e35d2279',1,'GOAT::raytracing::StrahlInfo']]],
+  ['m_0',['m',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aa5a17528660cc5713dc16b50e35d2279',1,'GOAT::raytracing::StrahlInfo']]],
+  ['m_1',['M',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a5cfec052508138d8a22c70c8626e6437',1,'GOAT::maths::Matrix']]],
   ['makereal_2',['makeReal',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2759899e6c83be817b38e85bbca2f242',1,'GOAT::raytracing::SuperArray::makeReal()'],['../namespace_g_o_a_t_1_1maths.html#ae465a34a41caa84372abf7c267452d28',1,'GOAT::maths::makeReal()']]],
   ['malloc_5ferr_3',['MALLOC_ERR',['../error_8h.html#aa1ab001303a7dbf4e05f26804886106c',1,'error.h']]],
   ['markinuse_4',['MarkInUse',['../classtinyxml2_1_1_x_m_l_document.html#a64dadb2de12e52538d0ff8ba38f323ec',1,'tinyxml2::XMLDocument']]],

@@ -161,6 +161,7 @@ namespace GOAT
 
     /* Specialization of Superarray for use together with std::vector<gridEntry> */
     template<> void SuperArray<std::vector<GOAT::raytracing::gridEntry> >::clear();
+    template <class T> T dummy;
    
     /*------------------------- IMPLEMENTATION --------------------------------------*/
 
@@ -228,7 +229,6 @@ namespace GOAT
         maths::Vector<double> h;
         h = H * P + maths::Vector<double>(r0, r0, r0);
         pi = maths::Vector<INDEX_TYPE>((INDEX_TYPE)floor(h[0] / d[0]), (INDEX_TYPE)floor(h[1] / d[1]), (INDEX_TYPE)floor(h[2] / d[2]));
-
         /*
         if (type & IN_HOST) //????????
         {
@@ -324,10 +324,9 @@ namespace GOAT
 
     template <class T> T& SuperArray<T>::operator () (INDEX_TYPE ix, INDEX_TYPE iy, INDEX_TYPE iz)
     {
-        maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
-        int i = 0;
+        maths::Vector<INDEX_TYPE> Pi = maths::Vector<INDEX_TYPE>(ix, iy, iz);
+        INDEX_TYPE i = 0;
         bool found = false;
-        // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
         if (type == IN_OBJECT)
         {
             do
@@ -416,7 +415,6 @@ namespace GOAT
 
     template <class T> T& SuperArray<T>::operator () (int i, INDEX_TYPE ix, INDEX_TYPE iy, INDEX_TYPE iz, bool isEinKoord)
     {
-        T dummy;
         maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
         if (type == IN_OBJECT)
         {
@@ -441,9 +439,10 @@ namespace GOAT
         }
     }
 
+
     template <class T> T& SuperArray<T>::operator () (int i, maths::Vector<INDEX_TYPE> Pi)
     {
-        T dummy;
+        // T dummy;
         if (type == IN_OBJECT)
         {
             Pi = Pi - Pul[i];
@@ -453,18 +452,21 @@ namespace GOAT
             if (Pi[2] < 0) { Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[0] >= n[i][0])
             {
+                std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[1] >= n[i][1])
             {
+                std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[2] >= n[i][2])
             {
+                std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy;
             }
@@ -542,7 +544,7 @@ namespace GOAT
         h = H * P - maths::Vector<double>(-r0, -r0, -r0);
         T dummy;
         // dummy = maths::Vector<std::complex<double> >(0.0, 0.0, 0.0);
-
+        Error = NO_ERRORS;
         for (int j = 0; j < 3; j++)
             Pi[j] = h[j] / d[j];
 

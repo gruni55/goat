@@ -272,6 +272,12 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aeaebbb9ba49182ab8ae074900c5aa81d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aeaebbb9ba49182ab8ae074900c5aa81d">NA</a></td></tr>
 <tr class="memdesc:aeaebbb9ba49182ab8ae074900c5aa81d"><td class="mdescLeft">&#160;</td><td class="mdescRight">numerical aperture (normalized by the intermediate refractive index)  <br /></td></tr>
 <tr class="separator:aeaebbb9ba49182ab8ae074900c5aa81d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2338484d131ad095ebac6e351b3ba524"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a2338484d131ad095ebac6e351b3ba524">zeta</a></td></tr>
+<tr class="memdesc:a2338484d131ad095ebac6e351b3ba524"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gouy phase.  <br /></td></tr>
+<tr class="separator:a2338484d131ad095ebac6e351b3ba524"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad114232eaf11a5f5ffaa39e58c4dbe02"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad114232eaf11a5f5ffaa39e58c4dbe02">R</a></td></tr>
+<tr class="memdesc:ad114232eaf11a5f5ffaa39e58c4dbe02"><td class="mdescLeft">&#160;</td><td class="mdescRight">curvature  <br /></td></tr>
+<tr class="separator:ad114232eaf11a5f5ffaa39e58c4dbe02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a></td></tr>
 <tr class="memitem:a4c23d040ab6b25b2596ef6103057e6b4 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a4c23d040ab6b25b2596ef6103057e6b4">Obj</a></td></tr>
 <tr class="memdesc:a4c23d040ab6b25b2596ef6103057e6b4 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">list of all objects  <br /></td></tr>
@@ -348,9 +354,9 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class describes a focused gaussian beam. </p>
-<p>Class which describes a (focused) gaussian light source. The main direction is given by the source position and the focal position. The electric field is calculated by <picture><source srcset="form_26_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec E(r,z)=\vec E_0 \frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}$" src="form_26.png"/></picture> The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics the rays follow straight lines inside the medium. </p>
+<p>Class which describes a (focused) gaussian light source. The main direction is given by the source position and the focal position. The electric field is calculated by <picture><source srcset="form_26_dark.png" media="(prefers-color-scheme: dark)"/><img class="formulaInl" alt="$\vec{E}(ar,z)=\vec{E}_0$" src="form_26.png"/></picture> \frac{w_0}{<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#addf3111fa2a80a22cfac8eeb6cd610d4" title="radius of the beam (for internal use only)">w(z)</a>}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad114232eaf11a5f5ffaa39e58c4dbe02" title="curvature">R(z)</a>}}\cdot e^{i(\zeta(z)-kz)} The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics the rays follow straight lines inside the medium. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00213">213</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00214">214</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a503be630640d724d501536de7a9a97d6" name="a503be630640d724d501536de7a9a97d6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a503be630640d724d501536de7a9a97d6">&#9670;&#160;</a></span>LightSrcGauss() <span class="overload">[1/3]</span></h2>
@@ -558,7 +564,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00268">268</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00283">283</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +598,7 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00262">262</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00276">276</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -621,7 +627,7 @@ Public Attributes</h2></td></tr>
 
 <p>recalculates Rayleigh-length z0 </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00247">247</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00248">248</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -650,7 +656,7 @@ Public Attributes</h2></td></tr>
 
 <p>returns the position of the focus </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00240">240</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00241">241</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -679,7 +685,7 @@ Public Attributes</h2></td></tr>
 
 <p>returns numerical aperture </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00279">279</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00294">294</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -836,7 +842,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00248">248</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00249">249</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -866,7 +872,7 @@ Public Attributes</h2></td></tr>
 
 <p>sets the focus position to fp </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00241">241</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00242">242</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -896,7 +902,7 @@ Public Attributes</h2></td></tr>
 
 <p>sets the main direction of light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00246">246</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00247">247</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -946,7 +952,7 @@ Public Attributes</h2></td></tr>
 
 <p>sets the position of the light source to pos </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00242">242</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00243">243</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -976,7 +982,7 @@ Public Attributes</h2></td></tr>
 
 <p>sets the beam's waist </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00239">239</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00240">240</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1015,7 +1021,7 @@ Public Attributes</h2></td></tr>
 
 <p>distance between light source area and the focal point </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00278">278</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00293">293</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1034,7 +1040,7 @@ Public Attributes</h2></td></tr>
 <p>focal position <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00282">282</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00297">297</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1052,7 +1058,7 @@ Public Attributes</h2></td></tr>
 
 <p>direction of the gaussian beam </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00284">284</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00299">299</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1070,7 +1076,7 @@ Public Attributes</h2></td></tr>
 
 <p>numerical aperture (normalized by the intermediate refractive index) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00286">286</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00301">301</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1086,7 +1092,25 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00281">281</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00296">296</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="ad114232eaf11a5f5ffaa39e58c4dbe02" name="ad114232eaf11a5f5ffaa39e58c4dbe02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad114232eaf11a5f5ffaa39e58c4dbe02">&#9670;&#160;</a></span>R</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrcGauss::R</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>curvature </p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00303">303</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1104,7 +1128,7 @@ Public Attributes</h2></td></tr>
 
 <p>radius of the beam (for internal use only) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00285">285</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00300">300</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1122,7 +1146,7 @@ Public Attributes</h2></td></tr>
 
 <p>Waist diameter (fictitious !), only used for the correct calculation of the electric field distribution within the starting area. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00277">277</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00292">292</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1140,7 +1164,25 @@ Public Attributes</h2></td></tr>
 
 <p>Rayleigh length (for internal use only) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00283">283</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00298">298</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a2338484d131ad095ebac6e351b3ba524" name="a2338484d131ad095ebac6e351b3ba524"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2338484d131ad095ebac6e351b3ba524">&#9670;&#160;</a></span>zeta</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrcGauss::zeta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gouy phase. </p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00302">302</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

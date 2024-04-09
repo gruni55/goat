@@ -32,4 +32,10 @@ install(TARGETS lenses
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
-    )
+    ) 
+
+message (STATUS "LIB Library: ${LIBDIR}")
+#add_executable (testbox "testbox.cpp")
+#target_include_directories (testbox PUBLIC ${CMAKE_CURRENT_SOURCE} #../../maths ../../raytracing)
+#target_link_libraries (testbox goat_raytracing goat_maths)
+
