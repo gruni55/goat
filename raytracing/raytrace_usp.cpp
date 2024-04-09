@@ -23,7 +23,7 @@ namespace GOAT
 
 		void Raytrace_usp::clear()
 		{
-			if (S.nObj > 0)
+			if (SA.size()>0)
 			{			
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
                                 SA[i].clear();
@@ -33,7 +33,7 @@ namespace GOAT
 
 		void Raytrace_usp::init() 			
 		{   
- //                       clear();
+                        clear();
 			stack.step.clear();
                         stack.E=GOAT::maths::Vector<std::complex<double> >(0,0,0);
 			S.resetLS();
