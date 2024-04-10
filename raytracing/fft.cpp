@@ -48,7 +48,7 @@ namespace GOAT
 
         GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop)
         {
-        GOAT:maths::Vector<std::complex<double> > E;
+        GOAT:maths::Vector<std::complex<double> > E(0,0,0);
             if (vge.size() > 0)
             {
                 double k0;
@@ -61,44 +61,26 @@ namespace GOAT
                 double domega = 2.0 * M_PI / fabs(tref - t);
                 double Domega = omegastop - omegastart;
                 double dw;
-                int nsteps;
-                nsteps = Domega / domega + 1;
-                // if (nsteps < tp.nS)
-                {
-                    nsteps = tp.nS;
-                    domega = Domega / ((double)(nsteps - 1));
-                }
-//                 std::cout << "steps:" << nsteps << std::endl;
+                int nsteps = tp.nS;
+                    domega = Domega / ((double)(nsteps));
+              
                 double weight;
-                // std::ofstream os("h:\\data\\blubb.dat");
                 for (int iomega = 0; iomega < nsteps; iomega++)
                 {
                     omega = omegastart + iomega * domega;
                     
                     dw = (omega - tp.omega0);
-        //            std::cout << "dw=" << dw << "\tomega=" << omega << "\tomega0=" << tp.omega0 << std::endl << std::flush;
                     double ws = dw * dw * sigma2 / 2.0;
                     weight = exp(-ws); // this weighting is due to the Fourier transform of the gaussian (temporal) pulse shape
-                    // weight = 1.0;
                     k0 = omega / C_LIGHT_MU_FS;
                     setCurrNList(2.0 * M_PI / k0);
-
-                       // std::cout << "--------- START ---------- " <<  vge.size() << std::endl;
-
                     for (auto ge : vge) // Loop over all rays which hit the cell
                     {
                         phase1 = exp(I * calcPhase(ge.step, k0));
-
                         phase = phase1 * exp(I * (-omega * t));
-
-
-                        //                    std::cout << "phase1=" << phase1 << "\tphase=" << phase << "\ttref=" << tref << std::endl;
-                         //                   std::cout << tp.omega0 << "\t" << omega << "\t" << t << std::endl;
                         E += weight * phase * ge.E;
                     }
-                     // std::cout << "--------- STOP ----------" << std::endl;
                 }
-                // os.close();
             }
             return E;
         }
