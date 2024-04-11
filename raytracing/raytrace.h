@@ -16,7 +16,7 @@ namespace GOAT
 		#define RAYTRACER_TYPE_OT   2	
 		#define RAYTRACER_TYPE_PURE  3
 
-
+		#define MAX_RECURSIONS 20
 		#define RAYTRACE_MAX_REFLEXIONS 2
 		/**
 		 * @brief Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings.

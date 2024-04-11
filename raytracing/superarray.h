@@ -452,21 +452,21 @@ namespace GOAT
             if (Pi[2] < 0) { Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[0] >= n[i][0])
             {
-                std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
+           //     std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[1] >= n[i][1])
             {
-                std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
+            //    std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[2] >= n[i][2])
             {
-                std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
+              //  std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy;
             }

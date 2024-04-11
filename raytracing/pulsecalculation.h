@@ -46,6 +46,10 @@ namespace GOAT
 				 */
 				void setNumWavelengthsPerRange(int nS);
 				void setCenterWavelength(double wvl); ///< Set center wavelength of the pulse
+				/**
+				* @brief Set Bandwith of the light source(s)
+				* Approximately, \f[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\f]
+				*/
 				void setBandwidth(double dWvl); ///< Set Bandwith of the light source(s)
 				/**
 				* @brief Set the repetition rate (in fs)

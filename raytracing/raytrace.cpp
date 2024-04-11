@@ -5,7 +5,7 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-#define MAX_RECURSIONS 20
+
 		Raytrace::Raytrace()
 		{
 			init();

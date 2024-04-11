@@ -84,6 +84,11 @@ else()
 	target_include_directories (usp_line PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usp_line OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
+	add_executable (fieldtest2 fieldtest.cpp)
+	target_compile_options (fieldtest2 PUBLIC ${OpenMP_CXX_FLAGS})
+        target_compile_definitions (fieldtest2 PUBLIC WITH_OCTREE)	
+	target_include_directories (fieldtest2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (fieldtest2 OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)

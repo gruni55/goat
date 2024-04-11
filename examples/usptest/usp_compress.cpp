@@ -24,7 +24,7 @@ int main (int argc, char **argv)
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,-2*sf,0);
  int nRays=1;
- GOAT::raytracing::LightSrcPlane LS(LSPos, nRays,wvl,1E-10);
+ GOAT::raytracing::LightSrcPlane_mc LS(LSPos, nRays,wvl,1E-10);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (0.0,1.0,0.0));
  LS.setk(GOAT::maths::ex);
  GOAT::maths::Vector<double> P1(30  * sf,  -4 * sf, -1 * sf);         // Position prism 1
@@ -90,12 +90,6 @@ S.addObject(&det);
 
 // ------- refractive index list ------
 std::vector< std::function< std::complex< double >(double) > > nList;
-/*
-nList.push_back(GOAT::raytracing::n_Vacuum);
-nList.push_back(GOAT::raytracing::n_Vacuum);
-nList.push_back(GOAT::raytracing::n_Vacuum);
-nList.push_back(GOAT::raytracing::n_Vacuum);
-*/
 
 nList.push_back (GOAT::raytracing::n_BK7);
 nList.push_back (GOAT::raytracing::n_BK7); 
@@ -105,7 +99,7 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
-double pulseWidth = 100;
+  double pulseWidth = 100;
   double refTime = 1.7e+6;
   double spatialRes = 0.25;
 
@@ -114,14 +108,14 @@ double pulseWidth = 100;
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
  
-  pc.setSpectralRanges(500);
-  pc.setNumWavelengthsPerRange(10);
+  pc.setSpectralRanges(10);
+  pc.setNumWavelengthsPerRange(1);
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
 
 // ------------ pulse calculation --------------
 
-  double time = 136930;
+  double time;
   std::ofstream os;
   double fwhm;
   std::size_t fwhms;
@@ -131,12 +125,14 @@ double pulseWidth = 100;
   std::vector<double> d;
   std::vector<double> avgd;
   std::ofstream osall("C:\\users\\weigetz9\\data\\wvl3.dat");
+  time = pc.findHitTime(4);
+  pc.setReferenceTime(time);
+  pc.field(time + 40000);
+  GOAT::raytracing::saveFullE(pc.trafo.SAres,"c:\\users\\weigetz9\\data\\field.dat",4);
 
-  
+ /*
   for (double wvl = 0.2; wvl <= 1.0; wvl += 0.005)
-  {
-    
-
+  {    
       pc.setCenterWavelength(wvl);
       time = pc.findHitTime(4);
       pc.setReferenceTime(time);
@@ -162,7 +158,7 @@ double pulseWidth = 100;
       avgd.clear();
   }
   os.close();
-  osall.close();
+  osall.close();*/
   /*os.open("C:\\users\\weigetz9\\data\\data3.dat");
   for (alpha = 26; alpha < 27; alpha += 0.05)
   {
