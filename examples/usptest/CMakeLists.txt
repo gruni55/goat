@@ -28,17 +28,6 @@ install(TARGETS usptest
     ARCHIVE DESTINATION lib
     )
 
-add_executable (usptest_spatial usptest_spatial.cpp)
-target_include_directories (usptest_spatial PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (usptest_spatial goat_raytracing goat_maths)
-
-install(TARGETS usptest_spatial
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    )
-
-
 add_executable (pnexttest pnexttest.cpp )
 target_include_directories (pnexttest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (pnexttest goat_raytracing goat_maths)
@@ -84,11 +73,18 @@ else()
 	target_include_directories (usp_line PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usp_line OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
-	add_executable (fieldtest2 fieldtest.cpp)
-	target_compile_options (fieldtest2 PUBLIC ${OpenMP_CXX_FLAGS})
-        target_compile_definitions (fieldtest2 PUBLIC WITH_OCTREE)	
-	target_include_directories (fieldtest2 PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-	target_link_libraries (fieldtest2 OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
+	add_executable (usptest_spatial usptest_spatial.cpp)
+	target_compile_options (usptest_spatial PUBLIC ${OpenMP_CXX_FLAGS})
+        target_compile_definitions (usptest_spatial PUBLIC WITH_OCTREE)
+	target_include_directories (usptest_spatial PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (usptest_spatial OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
+
+install(TARGETS usptest_spatial
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+    ARCHIVE DESTINATION lib
+    )
+
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)
