@@ -30,7 +30,7 @@ namespace GOAT {
 				PStart = ray->getP();
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
-				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
+	//			if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
 
 				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
 				Abbruch = Abbruch || (abs(EStart) < 10.0 * std::numeric_limits<double>::min()); // Stop, if absolute value of the electric field is smaller than 10*smallest number
@@ -44,7 +44,7 @@ namespace GOAT {
 				kin = ray->getk();
 
 				// search a hit with a detector within the last step
-				if (S.nDet > 0)
+		/*	if (S.nDet > 0) 
 				{
 					int i1, i2;
 					double l;
@@ -60,7 +60,7 @@ namespace GOAT {
 						}
 					}
 				}
-			   
+			   */
 
 				if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
 				{
@@ -98,9 +98,9 @@ namespace GOAT {
 						l = abs(PStart - pDet);
 						if ( l < abs(PStart - PStop)) // the end of the box detector is inside the object
 						{
-							if (currentObj > -1) n = S.Obj[currentObj]->n;
+							if (objIndex > -1) n = S.Obj[objIndex]->n;
 							else n = S.nS;
-							storeData(PStart, pDet, EStart * exp(I * ray->k0 * n * l));
+							storeData(PStart, pDet, EStart);
 							indexCurrentDetector = -1;
 						}
 						else
@@ -108,7 +108,7 @@ namespace GOAT {
 							l = abs(PStop - PStart);
 							if (currentObj > -1) n = S.Obj[currentObj]->n;
 							else n = S.nS;
-							storeData(PStart, PStop, EStart * exp(I * ray->k0 * n * l));
+							storeData(PStart, PStop, EStart);
 						}
 					}
 					if (ray->isInObject()) // Is the ray inside an object ?
@@ -201,6 +201,8 @@ namespace GOAT {
 			double l;
 			double L = abs(PStop - PStart);
 			maths::Vector < std::complex<double> >E = EStart;
+			maths::Vector<double> k = (PStop - PStart);
+			k /= abs(k);
 			maths::Vector<double> P = PStart;
 			maths::Vector<double> Pnew;
 			maths::Vector<INDEX_TYPE> cell;
@@ -210,7 +212,7 @@ namespace GOAT {
 			bool cancel = false;
 			while ((s < L) && (!cancel))
 			{
-				Pnew = pnext(P, kin, SE, 1E-100);  // search next grid cell		
+				Pnew = pnext(P, k, SE, 1E-100);  // search next grid cell		
 				l = abs(Pnew - P);					  // length of the last step  					
 				cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 				s += l;               // path inside the detector
