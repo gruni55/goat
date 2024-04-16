@@ -2,14 +2,15 @@
 #include "refractive_index_functions.h"
 #include <fstream>
 #include <strstream>
+#include <string>
 /**
 * This program provides a calculation of 
 */
 int main (int argc, char **argv)
 {
 	std::string prismFName;
-//	 prismFName = "/home/weigel/data/prism.srf";
-    prismFName = "H:\\data\\prism_60.srf";
+	 prismFName = "/home/weigel/data/prism.srf";
+//    prismFName = "H:\\data\\prism_60.srf";
 //	prismFName = "C:\\users\\thomas\\data\\prism.srf";
      std::string ergFName;
      ergFName = "C:\\users\\weigetz9\\data\\test.dat";
@@ -22,14 +23,14 @@ int main (int argc, char **argv)
  double wvl=0.5;
  double alpha = 30.0; // Brewster-Winkel
  // ------------ Light source ------------
- GOAT::maths::Vector<double> LSPos (0,-2*sf,0);
+ GOAT::maths::Vector<double> LSPos (0,0,0);
  int nRays=1;
  GOAT::raytracing::LightSrcPlane_mc LS(LSPos, nRays,wvl,1E-10);
  LS.setPol(GOAT::maths::Vector<std::complex<double> > (0.0,1.0,0.0));
  LS.setk(GOAT::maths::ex);
  GOAT::maths::Vector<double> P1(30  * sf,  -4 * sf, -1 * sf);         // Position prism 1
- GOAT::maths::Vector<double> P2(60 * sf,  -23 * sf, -1 * sf);  // Position prism 2
- GOAT::maths::Vector<double> P3(90 * sf,  -23 * sf, -1 * sf); // Position prism 3
+ GOAT::maths::Vector<double> P2(60 * sf,  -10 * sf, -1 * sf);  // Position prism 2
+ GOAT::maths::Vector<double> P3(90 * sf,  -10 * sf, -1 * sf); // Position prism 3
  GOAT::maths::Vector<double> P4(120  * sf, -4 * sf, -1 * sf);  // Position prism 4
  GOAT::maths::Vector<double> k1 = norm(P2 - P1);
  GOAT::maths::Vector<double> k2 = norm(P3 - P4);
@@ -70,8 +71,8 @@ int main (int argc, char **argv)
  prism4.setActive(false);
 
 // ----------- Detector object --------------
-GOAT::maths::Vector<double> detPos(150 * sf,-2*sf,0);
-GOAT::maths::Vector<double> detDim(1*sf,2,2);
+GOAT::maths::Vector<double> detPos(150 * sf,0,0);
+GOAT::maths::Vector<double> detDim(1*sf,0.5,0.5);
 GOAT::raytracing::Box det(detPos,detDim,1.0);
 det.setActive(true); 
 
@@ -99,7 +100,7 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 nList.push_back (GOAT::raytracing::n_Vacuum);
 
 // ----------- parameters for pulse calculation ------------
-  double pulseWidth = 100;
+  double pulseWidth = 50;
   double refTime = 1.7e+6;
   double spatialRes = 0.25;
 
@@ -108,7 +109,7 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
   pc.setSpatialResolution (spatialRes);
   pc.setRefractiveIndexFunctions(nList);
  
-  pc.setSpectralRanges(10);
+  pc.setSpectralRanges(500);
   pc.setNumWavelengthsPerRange(1);
   pc.setCenterWavelength(wvl);
   pc.setNumReflex(0);  
@@ -119,18 +120,37 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
   std::ofstream os;
   double fwhm;
   std::size_t fwhms;
-  std::string fname;
-  std::stringstream ss;
-  os.open("C:\\users\\weigetz9\\data\\data_wvl3.dat");
   std::vector<double> d;
   std::vector<double> avgd;
-  std::ofstream osall("C:\\users\\weigetz9\\data\\wvl3.dat");
-  time = pc.findHitTime(4);
+/*  time = pc.findHitTime(4);
   pc.setReferenceTime(time);
-  pc.field(time + 40000);
-  GOAT::raytracing::saveFullE(pc.trafo.SAres,"c:\\users\\weigetz9\\data\\field.dat",4);
+  pc.field(time + 40000);*/
+
+// ------------- move prisms -----------------
+int counter=0;
+std::string fname="/home/weigel/data/pulse"; 
+std::string fullname; 
+for (double y=-10.0*sf; y>=-14*sf; y-=sf/40.0)
+{
+   fullname=fname+std::to_string(counter)+".dat";
+   P2[1]=y;  // Position prism 2
+   P3[1]=y;  // Position prism 3
+   prism2.setPos(P2);
+   prism3.setPos(P3);
+   time = pc.findHitTime(4);
+   pc.setReferenceTime(time);
+   pc.field(time+40000);
+   GOAT::raytracing::saveFullE (pc.trafo.SAres,fullname,4);
+std::cout << "% current filename: " << fullname << std::endl;
+   counter++;
+}
+
+//   GOAT::raytracing::saveFullE(pc.trafo.SAres,"c:\\users\\weigetz9\\data\\field.dat",4);
 
  /*
+  os.open("C:\\users\\weigetz9\\data\\data_wvl3.dat");
+std::ofstream osall("C:\\users\\weigetz9\\data\\wvl3.dat");
+
   for (double wvl = 0.2; wvl <= 1.0; wvl += 0.005)
   {    
       pc.setCenterWavelength(wvl);

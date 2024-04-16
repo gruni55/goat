@@ -336,6 +336,7 @@ namespace GOAT
 		
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
+
 			maths::Vector<double> k = H * K;
 			maths::Vector<double> p = H * (ps-P); // gefährlich, muss man nochmal überprüfen
 			double tmin, tmax;
