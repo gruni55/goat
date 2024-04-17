@@ -232,7 +232,7 @@ namespace GOAT
 				while (s < L)
 				{
 					SGE[iR].Error=NO_ERRORS;
-					Pnew = pnext(P, kin, SGE[iR],1E-5);
+					Pnew = pnext(P, kin, SGE[iR],currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
 					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
@@ -276,7 +276,7 @@ namespace GOAT
 			{
 				while (s < L)
 				{
-					Pnew = pnext(P, kin, SGRRT1[iR], 1E-5);
+					Pnew = pnext(P, kin, SGRRT1[iR], currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
 					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);

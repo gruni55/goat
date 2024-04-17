@@ -5,7 +5,7 @@
 #include "vector.h"
 #include "detector.h"
 #include "raybase.h"
-
+#include "superarray.h"
 
 namespace GOAT
 {
@@ -88,6 +88,7 @@ namespace GOAT
 			int lost; ///< Rays unintentionally get lost, e.g. due to total internal reflection 
 			int currentObj; ///< Number of the last object hit  (no object hit: -1)
 			int currentLS; ///< Number of the current light source, which is currently in the calculation process
+			GOAT::maths::Vector<INDEX_TYPE> currentIndex= GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 			maths::Vector<double> PStart, PStop; ///< Start and end point of the last step
 			maths::Vector<std::complex<double> > EStart, EStop; ///< Start and end value of the electric field 
 			maths::Vector<std::complex<double> > EStart2, EStop2;  ///< Start and end value of the electric field (second ray in IRay)

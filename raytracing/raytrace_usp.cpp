@@ -4,6 +4,9 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+#ifdef WITH_SUPERGITTER
+		extern GOAT::maths::Vector<INDEX_TYPE> currentIndex;
+#endif
 		Raytrace_usp::Raytrace_usp()
 		{
 		}
@@ -85,7 +88,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				gridStack.step.push_back(ge);
 				while ( (s < L) && (!cancel) )
 				{
-					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
+					Pnew = pnext(P, kin, SA[iR],currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;

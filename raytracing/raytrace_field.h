@@ -2,6 +2,8 @@
 #include "raytrace.h"
 #include "superarray.h"
 #include <vector>
+
+
 namespace GOAT
 {
     namespace raytracing
@@ -25,7 +27,6 @@ namespace GOAT
             void trace(); ///< Start the raytracing process
             void setResolution(double res); ///< set the resolution (which will be used for all detectors)
 
-        private:         
             void traceEnterObject(); 
             void traceLeaveObject();
             void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
@@ -33,7 +34,7 @@ namespace GOAT
             std::vector<Box *> BoxDetector;  
             double resolution=0.1;
             INDEX_TYPE numCellsPerDirection;
-            int indexCurrentDetector=-1;
+            int indexCurrentDetector=-1;           
         };
     }
 }

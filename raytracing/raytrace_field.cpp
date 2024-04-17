@@ -1,7 +1,12 @@
 ﻿#include "raytrace_field.h"
+#include "raytrace_field.h"
 #include "inel_calc.h"
+
 namespace GOAT {
 	namespace raytracing {
+#ifdef WITH_SUPERGITTER
+		extern GOAT::maths::Vector<INDEX_TYPE> currentIndex;
+#endif
 		Raytrace_Field::Raytrace_Field() : Raytrace()
 		{
 		}
@@ -212,7 +217,7 @@ namespace GOAT {
 			bool cancel = false;
 			while ((s < L) && (!cancel))
 			{
-				Pnew = pnext(P, k, SE, 1E-100);  // search next grid cell		
+				Pnew = pnext(P, k, SE, currentIndex, 1E-100);  // search next grid cell		
 				l = abs(Pnew - P);					  // length of the last step  					
 				cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 				s += l;               // path inside the detector
