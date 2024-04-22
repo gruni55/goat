@@ -1,4 +1,4 @@
- #include "inel_calc.h"
+﻿ #include "inel_calc.h"
 #include "raytrace_field_usp.h"
 
 
@@ -16,6 +16,14 @@ namespace GOAT
 			}
 		}
 
+		void Raytrace_Field_usp::addBoxDetectorList(std::vector<Box*> BoxDetector) 
+		{
+			this->BoxDetector = BoxDetector;
+			for (int i = 0; i < INEL_MAX_NREFLEX; i++)
+				for (int j = 0; j < BoxDetector.size(); j++)
+				SA[i].addInc(BoxDetector[j]);
+		}
+
 		void Raytrace_Field_usp::init()
 		{
 			clear();
@@ -23,14 +31,12 @@ namespace GOAT
 			stack.E = GOAT::maths::Vector<std::complex<double> >(0, 0, 0);
 			S.resetLS();
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
-			if (S.nObj > 0)
+		//	if (S.nObj > 0)
 			{
 				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
-					SA[i] = SuperArray<std::vector<gridEntry> >(S.r0, n, n, n, IN_OBJECT);
-					for (int j = 0; j < S.nObj; j++)
-						SA[i].addInc(S.Obj[j]);
+					SA[i] = SuperArray<std::vector<gridEntry> >(S.r0, n, n, n, IN_OBJECT);				
 				}
 			}
 		}
@@ -61,7 +67,7 @@ namespace GOAT
 			// std::cout << PStart << "\t" << PStop << std::endl;
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
-			if ((L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
+			if ((L < 2.0 * S.r0) )
 			{
 				// each cell entry consists of the stack, i.e. all steps until the detector was hidden and the 
 				// length of the step from the surface to the cell (last crossing point)
@@ -71,7 +77,7 @@ namespace GOAT
 				{
 					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
-					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15�m
+					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;
 
 					s += l;               // path inside the detector
@@ -86,12 +92,12 @@ namespace GOAT
 					else ge.matIndex = currentObj;
 
 					// put everything in the Array
-					SA[iR](currentObj, cell);
+					SA[iR](indexCurrentDetector, cell);
 					if (SA[iR].Error == NO_ERRORS)
 					{
 						gridStack.step.back() = ge;
-						SA[iR](currentObj, cell).push_back(gridStack);
-						SA[iR](currentObj, cell).back().E = E;
+						SA[iR](indexCurrentDetector, cell).push_back(gridStack);
+						SA[iR](indexCurrentDetector, cell).back().E = E;
 						// gridStack.step.push_back(ge);						
 					}
 					else
@@ -137,6 +143,62 @@ namespace GOAT
 		{
 			this->n = n;
 			init();
+		}
+
+		void Raytrace_Field_usp::trace()
+		{
+			/*RayBase* tray;
+			RayBase* ray;
+			*/
+			int statusLS;
+			int Reflexions = 0;
+			int recursions = 0;
+			lost = 0;
+
+			switch (S.raytype)
+			{
+			case LIGHTSRC_RAYTYPE_IRAY: ray = new IRay; tray = new IRay;  break;
+			case LIGHTSRC_RAYTYPE_PRAY: ray = new Ray_pow; tray = new Ray_pow; break;
+			case LIGHTSRC_RAYTYPE_RAY:
+			default: ray = new tubedRay;  tray = new tubedRay;
+			}
+
+			if (!useRRTParms)
+				for (int i = 0; i < S.nLS; i++) // Schleife �ber die Lichtquellen
+				{
+					S.resetLS();
+					do
+					{
+						//						std::cout << "%---------------------------------" << std::endl;
+						currentLS = i;
+						Abbruch = false;
+						Reflexions = -1;
+						statusLS = S.LS[i]->next(ray);
+						recursions = 0;
+						ray->status = RAYBASE_STATUS_FIRST_STEP;
+						ray->suppress_phase_progress = S.suppress_phase_progress;
+						indexCurrentDetector = -1;
+						traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
+					} while (statusLS != LIGHTSRC_IS_LAST_RAY);
+					//	delete ray;
+						//delete tray;
+				}
+			else
+			{
+				ray = new IRay; tray = new IRay;
+
+				do
+				{
+					Abbruch = false;
+					Reflexions = 0;
+					statusLS = S.LSRRT->next(ray);
+					ray->suppress_phase_progress = S.suppress_phase_progress;
+					recursions = 0;
+					traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
+				} while (statusLS != LIGHTSRC_IS_LAST_RAY);
+				//	delete ray;
+				//	delete tray;
+			}
 		}
 
 		void Raytrace_Field_usp::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
@@ -238,7 +300,8 @@ namespace GOAT
 */
 						{											
 							storeData(PStart, pDetStop, EStart);
-							storeStack(pDetStop, PStop);  
+							storeStack(pDetStop, PStop); 
+							indexCurrentDetector = -1;
 						}
 						else // step is full in the box detector
 						{														

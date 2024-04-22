@@ -151,6 +151,7 @@ std::cout << "Domega=" << Domega << std::endl;
 			double omega;
             double wvl1, wvl2;
 			rt = Raytrace_Field_usp(S, nn);
+			rt.addBoxDetectorList(BoxDetector);
 			double wvl;
 		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],rt.SA[0].Obj,rt.SA[0].numObjs);
 		    // loop over the frequency ranges

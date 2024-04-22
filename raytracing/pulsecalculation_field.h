@@ -65,7 +65,7 @@ namespace GOAT
 				SuperArray<GOAT::maths::Vector<std::complex<double> > > SAres;
 					std::vector<SuperArray<std::vector<gridEntry> > >  SA; ///< Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.)
 					Raytrace_Field_usp rt;
-
+					void addBoxDetector(Box* box) { BoxDetector.push_back(box); }
 		
 				
 
@@ -86,7 +86,7 @@ namespace GOAT
 				Scene S;
 				
 				bool raytracingDone = false; ///< If true, the raytracing part was done and the field calculation starts directly				
-
+				std::vector<Box*> BoxDetector;
 				TrafoParms trafoparms;
 				double tref = 0.0; 
 				int numReflex = INEL_MAX_NREFLEX;								

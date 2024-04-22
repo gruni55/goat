@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	S.setnS(1.0);
 
 	// ------------ Light source --------------
-	int numRays = 10000;
+	int numRays = 25000;
 	GOAT::raytracing::LightSrcPlane_mc LS(-100 * GOAT::maths::ex, numRays, 1.0, 120.0);
 	LS.setk(GOAT::maths::ex);
 	S.addLightSource(&LS);
@@ -18,7 +18,7 @@ int main(int argc, char** argv)
 	GOAT::maths::Vector<double> ellPos;
 	GOAT::maths::Vector<double> ellDim(50, 50, 50);
 	GOAT::raytracing::Ellipsoid ell(ellPos, ellDim, 1.5);
-	S.addObject(&ell);
+   S.addObject(&ell);
 
 	// -------------- Box detector ---------------------
 	GOAT::maths::Vector<double> boxPos(60, 0, 0);
@@ -35,14 +35,15 @@ int main(int argc, char** argv)
         GOAT::raytracing::pulseCalculation_Field pc(S);
 	pc.setPulseWidth(50);
 	pc.setSpatialResolution(1);
-	pc.setSpectralRanges(2);
+	pc.setSpectralRanges(200);
 	pc.setNumWavelengthsPerRange(1);
 	pc.setCenterWavelength(0.5);
 	pc.setNumReflex(0);
  	pc.setReferenceTime(400);
 	pc.setRefractiveIndexFunctions(nList);
+	pc.addBoxDetector(&box);
  	pc.field (450);
-        GOAT::raytracing::saveFullE (pc.trafo.SAres,"/home/weigel/data/blubb.dat",0);
+        GOAT::raytracing::saveFullE (pc.trafo.SAres,"C:\\users\\weigetz9\\data\\blubb.dat",0);
 
 
 	

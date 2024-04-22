@@ -23,10 +23,12 @@ namespace GOAT
             void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
             void clear(); ///< Clears the SuperArray grid (SA) 
             void init();
+            void trace();
             void storeStack(maths::Vector<double> PStart, maths::Vector<double> PStop);
             void traceEnterObject() {}
             void traceLeaveObject() {}
-        
+            void addBoxDetector(Box* box) { BoxDetector.push_back(box); }
+            void addBoxDetectorList(std::vector<Box*> BoxDetector);
             int indexCurrentDetector = -1;
             std::vector<Box*> BoxDetector;
             std::vector<SuperArray <std::vector<gridEntry> > > SA;       
