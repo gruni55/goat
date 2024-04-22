@@ -104,7 +104,7 @@ namespace GOAT
 				S.setnS(trafoparms.nList[S.nObj](wvl));
 				
 				rt.trace();				
-//				save(rt.SA[1], "test.log");
+				save(rt.SA[0], "test.log");
 	//			SA.push_back(rt.SA);
 			}			
 		}
@@ -152,7 +152,7 @@ std::cout << "Domega=" << Domega << std::endl;
             double wvl1, wvl2;
 			rt = Raytrace_Field_usp(S, nn);
 			double wvl;
-		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],rt.SA[0].Obj,rt.SA[0].numObjs);
 		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
