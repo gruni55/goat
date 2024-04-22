@@ -6,14 +6,7 @@ namespace GOAT
 {
 	namespace raytracing
 	{		
-#ifdef WITH_SUPERGITTER
-		extern GOAT::maths::Vector<INDEX_TYPE> currentIndex;
-#endif
-		Raytrace_field_usp::Raytrace_field_usp() : Raytrace_Field() {}
-
-		Raytrace_field_usp::Raytrace_field_usp(Scene& S) : Raytrace_Field(S) {}
-
-		void Raytrace_field_usp::clear()
+		void Raytrace_Field_usp::clear()
 		{
 			if (SA.size() > 0)
 			{
@@ -23,7 +16,7 @@ namespace GOAT
 			}
 		}
 
-		void Raytrace_field_usp::init()
+		void Raytrace_Field_usp::init()
 		{
 			clear();
 			stack.step.clear();
@@ -42,26 +35,18 @@ namespace GOAT
 			}
 		}
 
-		void Raytrace_field_usp::traceEnterObject()
+		void Raytrace_Field_usp::storeStack(maths::Vector<double> PStart, maths::Vector<double> PStop)
 		{
-			/*if (ray->status == RAYBASE_STATUS_FIRST_STEP)
+			if (ray->status == RAYBASE_STATUS_FIRST_STEP)
 				stack.step.clear();
 			stepEntry se;
 			se.l = abs(PStop - PStart);
 			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
-			stack.step.push_back(se);			*/
+			stack.step.push_back(se);
 		}
 
-		void Raytrace_field_usp::traceLeaveObject()
-		{
-	/*		stepEntry se;
-			se.l = abs(PStop - PStart);
-			se.matIndex = currentObj;
-			storeData();
-			stack.step.push_back(se);			*/
-		}
 
-		void Raytrace_field_usp::storeData(maths::Vector<double> pDet, maths::Vector<double> PStop, maths::Vector<std::complex<double>> EStart)
+		void Raytrace_Field_usp::storeData(maths::Vector<double> PStart, maths::Vector<double> PStop, maths::Vector<std::complex<double> >EStart)
 		{
 			double s = 0.0;
 			double l;
@@ -119,18 +104,222 @@ namespace GOAT
 			}
 		}
 
-		void Raytrace_field_usp::storeEntry(maths::Vector<double> PStart, maths::Vector<double> PStop)
+
+		int Raytrace_Field_usp::findBoxDetectorIntersection(maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double>& pStart, maths::Vector<double>& pStop)
 		{
-			if (ray->status == RAYBASE_STATUS_FIRST_STEP)  // is it the first entry of the ray ? -> clear stack
-				stack.step.clear(); 
-			stepEntry se;
-			se.l = abs(PStop - PStart);
-			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
-			stack.step.push_back(se);
+			double l = S.r0;
+			double lh;
+			maths::Vector<double> ph;
+			int detectorFound = -1;
+			pStart = P;
+			for (int i = 0; i < BoxDetector.size(); i++)
+			{
+				if (BoxDetector[i]->next(P, k, ph))
+				{
+					lh = abs(P - ph);
+					if (lh < l)
+					{
+						detectorFound = i;
+						pStart = ph;
+					}
+				}
+			}
+
+			if (detectorFound > -1) BoxDetector[detectorFound]->next(pStart, k, pStop);
+			return detectorFound;
 		}
 
+		Raytrace_Field_usp::Raytrace_Field_usp()
+		{
+		}
+
+		Raytrace_Field_usp::Raytrace_Field_usp(const Scene& S, INDEX_TYPE n) : Raytrace(S)
+		{
+			this->n = n;
+			init();
+		}
+
+		void Raytrace_Field_usp::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
+		{
+			double l;
+			std::complex <double> n;
+			RayBase* tray = 0;
+			double stepSize;
+			bool Abbruch = false;
+			int objIndex;
+			Abbruch = recur > MAX_RECURSIONS;
+			recur++;
+
+			while ((Reflexions < numReflex) && (!Abbruch))
+			{
+
+				// save first the infos at the beginning of the next step
+				int oldObjIndex = ray->objectIndex();
+				EStart = ray->getE();
+				PStart = ray->getP();
+
+				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
+				//			if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
+
+				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
+				Abbruch = Abbruch || (abs(EStart) < 10.0 * std::numeric_limits<double>::min()); // Stop, if absolute value of the electric field is smaller than 10*smallest number
+
+				// save now the infos about the state after the step
+				objIndex = ray->objectIndex();
+				EStop = ray->getE();
+				PStop = ray->getP();
+
+				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
+				kin = ray->getk();
+
+				// search a hit with a detector within the last step
+		/*	if (S.nDet > 0)
+				{
+					int i1, i2;
+					double l;
+					stepSize = abs(PStop - PStart);
+					std::complex<double> n;
+					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
+					else n = S.nS;
+					for (int i = 0; i < S.nDet; i++)
+					{
+						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
+						{
+							if ((l <= stepSize) && (l > 0)) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
+						}
+					}
+				}
+			   */
+
+				if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
+				{
+					Abbruch = true;
+					lost++;
+				}
 
 
+				if (!Abbruch)
+				{
+					// search for next box detector 
+					if (indexCurrentDetector < 0) // ray is not in a box detector
+					{
+						indexCurrentDetector = findBoxDetectorIntersection(PStart, kin, pDetStart, pDetStop);
+						if (indexCurrentDetector >= 0) // intersection point with box detector found
+						{
+							l = abs(PStart - pDetStart);
+							if (l < abs(PStart - PStop)) // is the first intersection point with the box detector before the intersection with the next object?
+							{
+								std::complex <double> n;
+								double l1 = abs(pDetStart - pDetStop);
+								double l2 = abs(pDetStart - PStop);
+								if (l1 > l2) pDetStop = PStop; // second intersection point with the box detector is after the next surface
+
+								if (currentObj > -1) n = S.Obj[currentObj]->n;
+								else n = S.nS;
+								storeStack(PStop, pDetStart); // store the path from the starting point to the first intersection with the box detector								
+								storeData(pDetStart, pDetStop, EStart); // Store the electric field								
+							}
+							else // intersection point with box detector is outside PStart and PStop
+							{
+								storeStack(PStart, PStop);
+								indexCurrentDetector = -1;
+							}
+						}
+
+					}
+					else // ray is already in a box detector
+					{
+						BoxDetector[indexCurrentDetector]->next(PStart, kin, pDetStop);						
+						double l1 = abs(PStart - pDetStop);
+						double l2 = abs(PStart - PStop);
+						if (l1 < l2) // the end of the box detector is full in the object or in the surrounding medium
+/**
+* ATTENTION !!!: In the moment, we can't consider more than one box detector within one step !!!!!!
+*/
+						{											
+							storeData(PStart, pDetStop, EStart);
+							storeStack(pDetStop, PStop);  
+						}
+						else // step is full in the box detector
+						{														
+/*							storeStack(P)
+							storeData(PStart, PStop, EStart);*/
+							storeData(PStart, PStop, EStart);
+							storeStack(PStart, PStop);
+						}
+					}
+
+
+					if (ray->isInObject()) // Is the ray inside an object ?
+					{
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+						else
+						{
+							ray->status = RAYBASE_STATUS_NONE;
+							copyRay(tray, ray);
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+						}
+
+						kref = ray->getk();
+						ktrans = tray->getk();
+
+						if (S.raytype == LIGHTSRC_RAYTYPE_PRAY)
+						{
+							PowRef = ((Ray_pow*)ray)->Pow;
+							PowTrans = ((Ray_pow*)tray)->Pow;
+						}
+
+						traceLeaveObject();
+						int tReflexions = -1;
+						currentObj = ray->objIndex;
+						traceOneRay(tray, tReflexions, recur);
+						Reflexions++;
+						//delete tray;
+					}
+					else
+						if (objIndex > -1) // an object was hit
+						{
+							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+							//                                  std::cout << "n=" << S.Obj[objIndex]->n << std::endl;
+														// std::cout << PStop << "\t" << n << std::endl;
+										//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
+							if (useRRTParms)
+							{
+								copyRay(tray, ray);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+							}
+							else
+							{
+								copyRay(tray, ray);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								//					std::cout << "*k=" << ((tubedRay*)tray)->k[4]  <<  std::endl;
+							}
+
+							kref = ray->getk();
+							ktrans = tray->getk();
+							currentObj = objIndex;
+							if (S.raytype == LIGHTSRC_RAYTYPE_PRAY)
+							{
+								PowRef = ((Ray_pow*)ray)->Pow;
+								PowTrans = ((Ray_pow*)tray)->Pow;
+							}
+							traceEnterObject();
+							ray->status = RAYBASE_STATUS_NONE;
+							tray->status = RAYBASE_STATUS_NONE;
+							int tReflexions = -1;
+							traceOneRay(tray, Reflexions, recur);
+							Reflexions++;
+							Abbruch = true;
+						}
+						else
+						{
+							traceStopObject();
+							Abbruch = true;
+						}
+				}
+				if (tray != 0) { delete tray; tray = 0; }
+			}
+		}
 	}
 }
 

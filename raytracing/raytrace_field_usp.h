@@ -14,24 +14,27 @@ namespace GOAT
         * @brief This class provides a raytracer to calculate the field distribution in a box detector for a ultrashort pulsed light source
         * 
         */
-        class Raytrace_field_usp :
-            public Raytrace_Field
-        {
+        class Raytrace_Field_usp :
+            public Raytrace        {
         public: 
-            Raytrace_field_usp();
-            Raytrace_field_usp(Scene &S);
-
-        protected:
-            void clear(); ///< Clears the SuperArray grid (SA) 
-            void init(); ///< Initialises the SuperArray grid (SA) according to the objects hold in Scene S
-            void traceEnterObject();
-            void traceLeaveObject();
+            Raytrace_Field_usp();
+            Raytrace_Field_usp(const Scene& S, INDEX_TYPE n);
+            void traceOneRay(RayBase* ray, int& Reflexions, int& recur);
             void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
-            void storeEntry(maths::Vector<double> PStart, maths::Vector<double> PStop);
-            std::vector<SuperArray <std::vector<gridEntry> > > SA;
+            void clear(); ///< Clears the SuperArray grid (SA) 
+            void init();
+            void storeStack(maths::Vector<double> PStart, maths::Vector<double> PStop);
+            void traceEnterObject() {}
+            void traceLeaveObject() {}
+        
+            int indexCurrentDetector = -1;
+            std::vector<Box*> BoxDetector;
+            std::vector<SuperArray <std::vector<gridEntry> > > SA;       
+            int findBoxDetectorIntersection(maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double>& pStart, maths::Vector<double>& pStop);
             INDEX_TYPE n = 1; ///< Number of cells in one direction
             int iR = 0; ///< Number of reflections to consider
             gridEntry stack; ///< here, the information from the light source until the region of interest (=box) is reached
+            maths::Vector<double> pDetStart, pDetStop;
         };
     }
 }

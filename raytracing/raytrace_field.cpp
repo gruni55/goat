@@ -25,7 +25,7 @@ namespace GOAT {
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			maths::Vector<double> pDet;
+			
 			while ((Reflexions < numReflex) && (!Abbruch))
 			{
 
@@ -254,6 +254,7 @@ namespace GOAT {
 		}
 		void Raytrace_Field::init()
 		{
+			SE.r0 = S.r0;
 			setResolution(resolution);
 			SE.clear();	
 			SE = SuperArray<maths::Vector<std::complex<double> > >(S.r0, numCellsPerDirection, numCellsPerDirection, numCellsPerDirection);
@@ -264,8 +265,7 @@ namespace GOAT {
 			}
 		}
 		void Raytrace_Field::trace()
-		{
-			SE.r0=S.r0;
+		{			
 			init();
 			int statusLS;
 			int Reflexions = 0;

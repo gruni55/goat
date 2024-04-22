@@ -24,13 +24,13 @@ int main(int argc, char** argv)
 	GOAT::raytracing::Box box(boxPos, boxDim, 1.0);
 
 	
-	GOAT::raytracing::Raytrace_field_usp rf(S);
+	/*GOAT::raytracing::Raytrace_field_usp rf(S);
 	rf.addBoxDetector(&box);
 	rf.setResolution(0.25);
 	rf.setNumReflex(2);
 	rf.trace();
-
-	GOAT::raytracing::saveFullE(rf.SE, "C:\\users\\weigetz9\\data\\field_usp.dat");
+	
+	GOAT::raytracing::saveFullE(rf.SE, "C:\\users\\weigetz9\\data\\field_usp.dat");*/
 	return 0;
 }
 
