@@ -142,7 +142,7 @@ namespace GOAT
 
         void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t)
         {
-                auto start = std::chrono::high_resolution_clock::now();
+              //  auto start = std::chrono::high_resolution_clock::now();
          
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
@@ -156,12 +156,16 @@ namespace GOAT
                                     for (INDEX_TYPE iz= 0; iz < SA[iR].n[i][2]; iz++)
                                     {
                                       //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
-                                        SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                        if (SA[iR].G[i][ix][iy][iz].size() > 0)
+                                        {
+                                            SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            SA[iR].G[i][ix][iy][iz].clear();
+                                        }
                                     }
                              }
                         }
-                auto end = std::chrono::high_resolution_clock::now();
-                std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
+              //  auto end = std::chrono::high_resolution_clock::now();
+              //  std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
         }
 
         void Trafo::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)

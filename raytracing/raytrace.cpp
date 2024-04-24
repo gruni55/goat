@@ -556,6 +556,7 @@ namespace GOAT
 			raytype = S.raytype;
 			Det = S.Det;
 			nDet = S.nDet;
+			suppress_phase_progress = S.suppress_phase_progress;
 		}
 
 		void Scene::setRaytype(int raytype)

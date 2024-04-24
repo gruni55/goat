@@ -152,7 +152,7 @@ namespace GOAT
 
 		Raytrace_Field_usp::Raytrace_Field_usp(const Scene& S, INDEX_TYPE n) : Raytrace(S)
 		{
-			this->n = n;
+			this->n = n;		
 			init();
 		}
 
@@ -167,11 +167,11 @@ namespace GOAT
 			/*RayBase* tray;
 			RayBase* ray;
 			*/
+			
 			int statusLS;
 			int Reflexions = 0;
 			int recursions = 0;
-			lost = 0;
-                        clean();
+			lost = 0;                     
 			switch (S.raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: ray = new IRay; tray = new IRay;  break;
@@ -179,7 +179,7 @@ namespace GOAT
 			case LIGHTSRC_RAYTYPE_RAY:
 			default: ray = new tubedRay;  tray = new tubedRay;
 			}
-
+			
 			if (!useRRTParms)
 				for (int i = 0; i < S.nLS; i++) // Schleife �ber die Lichtquellen
 				{
@@ -229,7 +229,7 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-
+			gridEntry hstack;
 			while ((Reflexions < numReflex) && (!Abbruch))
 			{
 
@@ -296,8 +296,9 @@ namespace GOAT
 
 								if (currentObj > -1) n = S.Obj[currentObj]->n;
 								else n = S.nS;
-								storeStack(PStop, pDetStart); // store the path from the starting point to the first intersection with the box detector								
+								storeStack(PStart, pDetStart); // store the path from the starting point to the first intersection with the box detector								
 								storeData(pDetStart, pDetStop, EStart); // Store the electric field								
+								storeStack(pDetStart, PStop);
 							}
 							else // intersection point with box detector is outside PStart and PStop
 							{
@@ -353,7 +354,9 @@ namespace GOAT
 						traceLeaveObject();
 						int tReflexions = -1;
 						currentObj = ray->objIndex;
+						hstack = stack;
 						traceOneRay(tray, tReflexions, recur);
+						stack = hstack;
 						Reflexions++;
 						//delete tray;
 					}
@@ -388,7 +391,9 @@ namespace GOAT
 							ray->status = RAYBASE_STATUS_NONE;
 							tray->status = RAYBASE_STATUS_NONE;
 							int tReflexions = -1;
+							hstack = stack;
 							traceOneRay(tray, Reflexions, recur);
+							stack = hstack;
 							Reflexions++;
 							Abbruch = true;
 						}

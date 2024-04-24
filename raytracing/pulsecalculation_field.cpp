@@ -1,6 +1,6 @@
 #include "pulsecalculation_field.h"
 #include "fft.h"
-
+#include <chrono>
 
 namespace GOAT
 {
@@ -10,7 +10,7 @@ namespace GOAT
 		{
 			this->S = S;
 			setDefaults();
-			
+			this->S.setPhaseProgress(true);
 			trafo = Trafo(trafoparms);			
 		}
 
@@ -157,6 +157,7 @@ std::cout << "Domega=" << Domega << std::endl;
 		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
+				auto start = std::chrono::high_resolution_clock::now();
 				omega = omegaStart + (double)iOmega * domega;				
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega; // center wavelength of the current range
 
@@ -167,6 +168,8 @@ std::cout << "Domega=" << Domega << std::endl;
 
 				fieldCalculation(omega); // do the raytracing				
 				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
+				auto end = std::chrono::high_resolution_clock::now();
+				std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
 			}
 		}
 
