@@ -145,6 +145,12 @@ namespace GOAT
 			init();
 		}
 
+		Raytrace_Field_usp::~Raytrace_Field_usp()
+		{
+			clear();
+			BoxDetector.clear();
+		}
+
 		void Raytrace_Field_usp::trace()
 		{
 			/*RayBase* tray;

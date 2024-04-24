@@ -19,6 +19,7 @@ namespace GOAT
         public: 
             Raytrace_Field_usp();
             Raytrace_Field_usp(const Scene& S, INDEX_TYPE n);
+            ~Raytrace_Field_usp();
             void traceOneRay(RayBase* ray, int& Reflexions, int& recur);
             void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
             void clear(); ///< Clears the SuperArray grid (SA) 
