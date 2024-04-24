@@ -16,6 +16,17 @@ namespace GOAT
 			}
 		}
 
+                void Raytrace_Field_usp::clean()
+		{
+                 if (SA.size() > 0)
+                     for (int i = 0; i < INEL_MAX_NREFLEX; i++)
+                      for (int iBox=0; BoxDetector.size(); iBox)
+			for (INDEX_TYPE ix=0; ix<SA[i].n[iBox][0]; ix++) 
+			  for (INDEX_TYPE iy=0; iy<SA[i].n[iBox][1]; iy++) 
+			    for (INDEX_TYPE iz=0; iz<SA[i].n[iBox][2]; iz++) 
+                             SA[i].G[iBox][ix][iy][iz].clear();
+		} 
+
 		void Raytrace_Field_usp::addBoxDetectorList(std::vector<Box*> BoxDetector) 
 		{
 			this->BoxDetector = BoxDetector;
@@ -160,7 +171,7 @@ namespace GOAT
 			int Reflexions = 0;
 			int recursions = 0;
 			lost = 0;
-
+                        clean();
 			switch (S.raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: ray = new IRay; tray = new IRay;  break;
@@ -184,6 +195,7 @@ namespace GOAT
 						ray->status = RAYBASE_STATUS_FIRST_STEP;
 						ray->suppress_phase_progress = S.suppress_phase_progress;
 						indexCurrentDetector = -1;
+					        stack.step.clear();
 						traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
 					} while (statusLS != LIGHTSRC_IS_LAST_RAY);
 					//	delete ray;
