@@ -84,6 +84,7 @@ install(TARGETS usptest_spatial
 	target_compile_options (fieldtest_usp PUBLIC ${OpenMP_CXX_FLAGS})
 	target_compile_definitions (fieldtest_usp PUBLIC WITH_OCTREE WITH_SUPERGITTER)	
 	target_include_directories (fieldtest_usp PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+#	target_link_libraries (fieldtest_usp goat_raytracing goat_maths)
 	target_link_libraries (fieldtest_usp OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
  	add_executable (pnexttest pnexttest.cpp )

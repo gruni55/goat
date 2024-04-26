@@ -9,20 +9,25 @@ int main(int argc, char** argv)
 	S.setnS(1.0);
 
 	// ------------ Light source --------------
-	int numRays = 25000;
-	GOAT::raytracing::LightSrcPlane_mc LS(-100 * GOAT::maths::ex, numRays, 1.0, 120.0);
+	int numRays = 11;
+	GOAT::raytracing::LightSrcPlane LS(-100 * GOAT::maths::ex+0* GOAT::maths::ey, numRays, 1.0, 1.0);
 	LS.setk(GOAT::maths::ex);
 	S.addLightSource(&LS);
 
 	// --------------- Object : sphere with 50um radius -------------
 	GOAT::maths::Vector<double> ellPos;
-	GOAT::maths::Vector<double> ellDim(50, 50, 50);
+	GOAT::maths::Vector<double> ellDim(8, 8, 30);
 	GOAT::raytracing::Ellipsoid ell(ellPos, ellDim, 1.5);
-   S.addObject(&ell);
+//   S.addObject(&ell);
+
+       	GOAT::maths::Vector<double> boxObjPos(0, 0, 0);
+	GOAT::maths::Vector<double> boxObjDim(30, 4, 4);
+	GOAT::raytracing::Box boxObj(boxObjPos, boxObjDim, 1.0);
+ S.addObject(&boxObj);
 
 	// -------------- Box detector ---------------------
-	GOAT::maths::Vector<double> boxPos(60, 0, 0);
-	GOAT::maths::Vector<double> boxDim(120, 120, 120);
+	GOAT::maths::Vector<double> boxPos(0, 0, 0);
+	GOAT::maths::Vector<double> boxDim(100, 10, 10);
 	GOAT::raytracing::Box box(boxPos, boxDim, 1.0);
 
         // ------- refractive index list ------
@@ -34,16 +39,21 @@ int main(int argc, char** argv)
 
         GOAT::raytracing::pulseCalculation_Field pc(S);
 	pc.setPulseWidth(50);
-	pc.setSpatialResolution(1);
-	pc.setSpectralRanges(200);
+	pc.setSpatialResolution(0.25);
+	pc.setSpectralRanges(1);
 	pc.setNumWavelengthsPerRange(1);
 	pc.setCenterWavelength(0.5);
 	pc.setNumReflex(0);
- 	pc.setReferenceTime(400);
+ 	pc.setReferenceTime(0);
 	pc.setRefractiveIndexFunctions(nList);
 	pc.addBoxDetector(&box);
- 	pc.field (450);
-        GOAT::raytracing::saveFullE (pc.trafo.SAres,"C:\\users\\weigetz9\\data\\blubb.dat",0);
+
+
+
+
+ 	pc.field (565);
+//        GOAT::raytracing::saveFullE (pc.trafo.SAres,"C:\\users\\weigetz9\\data\\blubb.dat",0);
+	GOAT::raytracing::saveFullE (pc.trafo.SAres,"/home/weigel/data/blubb.dat",0);
 
 
 	

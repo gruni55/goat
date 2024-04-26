@@ -129,20 +129,28 @@ namespace GOAT
 			maths::Vector<double> ph;
 			int detectorFound = -1;
 			pStart = P;
-			for (int i = 0; i < BoxDetector.size(); i++)
+			if (indexCurrentDetector > -1) 
 			{
-				if (BoxDetector[i]->next(P, k, ph))
-				{
-					lh = abs(P - ph);
-					if (lh < l)
-					{
-						detectorFound = i;
-						pStart = ph;
-					}
-				}
+                              detectorFound=indexCurrentDetector;
+                              BoxDetector[indexCurrentDetector]->next(P,k,pStop);
 			}
+                        else
+                        {
+				for (int i = 0; i < BoxDetector.size(); i++)
+				{
+					if (BoxDetector[i]->next(P, k, ph))
+					{
+						lh = abs(P - ph);
+						if (lh < l)
+						{
+							detectorFound = i;
+							pStart = ph;
+						}	
+					}	
+				}
+				if (detectorFound > -1) BoxDetector[detectorFound]->next(pStart, k, pStop);
 
-			if (detectorFound > -1) BoxDetector[detectorFound]->next(pStart, k, pStop);
+			}
 			return detectorFound;
 		}
 
@@ -294,8 +302,6 @@ namespace GOAT
 								double l2 = abs(pDetStart - PStop);
 								if (l1 > l2) pDetStop = PStop; // second intersection point with the box detector is after the next surface
 
-								if (currentObj > -1) n = S.Obj[currentObj]->n;
-								else n = S.nS;
 								storeStack(PStart, pDetStart); // store the path from the starting point to the first intersection with the box detector								
 								storeData(pDetStart, pDetStop, EStart); // Store the electric field								
 								storeStack(pDetStart, PStop);
@@ -319,7 +325,7 @@ namespace GOAT
 */
 						{											
 							storeData(PStart, pDetStop, EStart);
-							storeStack(pDetStop, PStop); 
+//							storeStack(pDetStop, PStop); 
 							indexCurrentDetector = -1;
 						}
 						else // step is full in the box detector
