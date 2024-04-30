@@ -87,6 +87,9 @@ namespace GOAT
 
 		void Raytrace::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
 		{
+			double pjump=0;
+			maths::Vector<double> CP[4];
+			tubedRay hray1, hray2;
 			RayBase* tray = 0;
 			double stepSize;
 			bool Abbruch = false;
@@ -99,7 +102,10 @@ namespace GOAT
 				// save first the infos at the beginning of the next step
 				int oldObjIndex = ray->objectIndex();
 				EStart = ray->getE();
-				PStart = ray->getP();			
+				PStart = ray->getP();		
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				 hray1=*(tubedRay *)ray;
+				
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
 				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
@@ -115,6 +121,13 @@ namespace GOAT
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
+			    // do we use tubed ray and is there a phase jump to be considered? 
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				{
+					hray2 = *(tubedRay*)ray;
+					pjump = hray2.pjump(hray1.P, hray2.P, CP);
+				}
+
 				// search a hit with a detector within the last step
 				if (S.nDet > 0)
 				{
@@ -128,9 +141,16 @@ namespace GOAT
 					{
 						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{
-							if ((l <= stepSize) && (l > 0)) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
+							if ((l <= stepSize) && (l > 0))
+							{
+								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
+							}
 						}
 					}
+				}
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				{
+					((tubedRay*)ray)->E[4] *= exp(I * pjump);
 				}
 
 				if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
