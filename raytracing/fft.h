@@ -64,7 +64,7 @@ namespace GOAT
              * @param omegaStart Start frequency (in \f$fs^{-1}\f$) of the frequency intervall 
              * @param omegaStop End frequency (in \f$fs^{-1}\f$) of the frequency intervall 
              */
-            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t); 
+            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear=true);
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
             /**
              * @brief Set the refractive index functions.

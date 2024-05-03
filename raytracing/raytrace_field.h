@@ -19,6 +19,7 @@ namespace GOAT
         public:
             Raytrace_Field();
             Raytrace_Field(Scene& S);
+            ~Raytrace_Field();
             void traceOneRay(RayBase* ray, int& Reflexions, int& recur);            
             void addBoxDetector(Box* box); ///< add a box as detector
             virtual void init(); ///< do some initialisation (e.g. clear the superarray)           

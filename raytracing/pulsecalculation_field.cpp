@@ -166,8 +166,9 @@ std::cout << "Domega=" << Domega << std::endl;
                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
 				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
 
-				fieldCalculation(omega); // do the raytracing				
-				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
+				fieldCalculation(omega); // do the raytracing								
+				if (iOmega < trafoparms.nI-1) trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform				
+				else trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t, false); // for the last step, don't clear SA --> Information is useful to calculate the intensity out of the electric field
 				auto end = std::chrono::high_resolution_clock::now();
 				std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
 			}
@@ -246,6 +247,30 @@ std::cout << "Domega=" << Domega << std::endl;
 		{
 			this->numReflex = numReflex;
 			rt.setNumReflex(numReflex);
+		}
+
+		void pulseCalculation_Field::saveIntensity(std::string FName, int i)
+		{
+			int nx = SA[0].G[i].size();
+			int ny, nz;
+			double intensity;
+			std::ofstream os(FName);
+			std::vector<std::complex<double> >n;
+			for (int i = 0; i < trafoparms.nList.size(); i++)
+				n.push_back (trafoparms.nList[i](trafoparms.wvl));
+
+			for (int ix = 0; ix < nx; ix++)
+			{
+				ny = SA[0].G[i][ix].size();
+				for (int iy = 0; iy < ny; iy++)
+				{
+					nz = SA[0].G[i][ix][iy].size();
+					for (int iz = 0; iz < nz; iz++)
+					{
+						intensity = real(n[i]) / C_LIGHT_MU_FS * abs2(SAres.G[i][ix][iy][iz]);
+					}
+				}
+			}
 		}
 	}
 }

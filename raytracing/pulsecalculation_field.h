@@ -66,7 +66,7 @@ namespace GOAT
 					std::vector<SuperArray<std::vector<gridEntry> > >  SA; ///< Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.)
 					Raytrace_Field_usp rt;
 					void addBoxDetector(Box* box) { BoxDetector.push_back(box); }
-		
+					void saveIntensity(std::string FName, int i);
 				
 
 			private:	

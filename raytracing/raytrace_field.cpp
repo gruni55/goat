@@ -15,6 +15,11 @@ namespace GOAT {
 		{
 		}
 
+		Raytrace_Field::~Raytrace_Field()
+		{
+			// -> maybe clearing of the Superarray(s) is necessary
+		}
+
 		void Raytrace_Field::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
 		{
 			double l;

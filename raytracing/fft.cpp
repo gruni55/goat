@@ -140,7 +140,7 @@ namespace GOAT
 
         }
 
-        void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t)
+        void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear)
         {
               //  auto start = std::chrono::high_resolution_clock::now();
          
@@ -159,7 +159,7 @@ namespace GOAT
                                         if (SA[iR].G[i][ix][iy][iz].size() > 0)
                                         {
                                             SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
-                                            SA[iR].G[i][ix][iy][iz].clear();
+                                            if (do_clear) SA[iR].G[i][ix][iy][iz].clear();
                                         }
                                     }
                              }
