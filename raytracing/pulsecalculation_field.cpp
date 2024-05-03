@@ -251,26 +251,36 @@ std::cout << "Domega=" << Domega << std::endl;
 
 		void pulseCalculation_Field::saveIntensity(std::string FName, int i)
 		{
-			int nx = SA[0].G[i].size();
-			int ny, nz;
+			int nx,ny, nz;
 			double intensity;
 			std::ofstream os(FName);
 			std::vector<std::complex<double> >n;
 			for (int i = 0; i < trafoparms.nList.size(); i++)
 				n.push_back (trafoparms.nList[i](trafoparms.wvl));
-
+			nx = rt.SA[0].n[0][0];
+			ny = rt.SA[0].n[0][1];
+			nz = rt.SA[0].n[0][2];
+			os << "% " << nx << "x" << ny << "x" << ny << std::endl;
+			int iObj;
+			int hsize;
 			for (int ix = 0; ix < nx; ix++)
-			{
-				ny = SA[0].G[i][ix].size();
+			{				
 				for (int iy = 0; iy < ny; iy++)
 				{
-					nz = SA[0].G[i][ix][iy].size();
 					for (int iz = 0; iz < nz; iz++)
 					{
-						intensity = real(n[i]) / C_LIGHT_MU_FS * abs2(SAres.G[i][ix][iy][iz]);
+						if (rt.SA[0].G[i][ix][iy][iz].size()>0)
+						{
+							iObj = rt.SA[0].G[i][ix][iy][iz].back().step.back().matIndex;
+							intensity = real(n[iObj]) / C_LIGHT_MU_FS * abs2(trafo.SAres.G[i][ix][iy][iz]);
+							// intensity = real(n[iObj]);
+						}
+						else intensity = 0;
+						os << intensity << std::endl;
 					}
 				}
 			}
+			os.close();
 		}
 	}
 }

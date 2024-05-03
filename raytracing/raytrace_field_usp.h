@@ -41,6 +41,7 @@ namespace GOAT
             int iR = 0; ///< Number of reflections to consider
             gridEntry stack; ///< here, the information from the light source until the region of interest (=box) is reached
             maths::Vector<double> pDetStart, pDetStop; ///< 
+            int oldObjIndex=-1;
         };
     }
 }

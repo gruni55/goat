@@ -55,10 +55,14 @@ namespace GOAT
 		void Raytrace_Field_usp::storeStack(maths::Vector<double> PStart, maths::Vector<double> PStop)
 		{
 			if (ray->status == RAYBASE_STATUS_FIRST_STEP)
+			{
 				stack.step.clear();
+				ray->status = RAYBASE_STATUS_NONE;
+			}
 			stepEntry se;
 			se.l = abs(PStop - PStart);
-			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
+			if (oldObjIndex < 0) se.matIndex = S.nObj;
+			else se.matIndex = oldObjIndex;  // We have to use the refractive index of the surrounding medium			
 			stack.step.push_back(se);
 		}
 
@@ -99,8 +103,8 @@ namespace GOAT
 
 
 					// set the right material index 
-					if (currentObj < 0) ge.matIndex = S.nObj;
-					else ge.matIndex = currentObj;
+					if (oldObjIndex < 0) ge.matIndex = S.nObj;
+					else ge.matIndex = oldObjIndex;
 
 					// put everything in the Array
 					SA[iR](indexCurrentDetector, cell);
@@ -242,7 +246,7 @@ namespace GOAT
 			{
 
 				// save first the infos at the beginning of the next step
-				int oldObjIndex = ray->objectIndex();
+				oldObjIndex = ray->objectIndex();
 				EStart = ray->getE();
 				PStart = ray->getP();
 
@@ -304,7 +308,7 @@ namespace GOAT
 
 								storeStack(PStart, pDetStart); // store the path from the starting point to the first intersection with the box detector								
 								storeData(pDetStart, pDetStop, EStart); // Store the electric field								
-								storeStack(pDetStart, PStop);
+								storeStack(pDetStart,pDetStop);
 							}
 							else // intersection point with box detector is outside PStart and PStop
 							{
@@ -338,7 +342,7 @@ namespace GOAT
 					}
 
 
-					if (ray->isInObject()) // Is the ray inside an object ?
+ 					if (ray->isInObject()) // Is the ray inside an object ?
 					{
 						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
 						else

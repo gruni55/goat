@@ -2,6 +2,8 @@
 #include "pulsecalculation_field.h"
 #include "refractive_index_functions.h"
 
+
+
 int main(int argc, char** argv)
 {
 	GOAT::raytracing::Scene S;
@@ -9,21 +11,21 @@ int main(int argc, char** argv)
 	S.setnS(1.0);
 
 	// ------------ Light source --------------
-	int numRays = 11;
-	GOAT::raytracing::LightSrcPlane LS(-100 * GOAT::maths::ex+0* GOAT::maths::ey, numRays, 1.0, 1.0);
+	int numRays = 20000;
+	GOAT::raytracing::LightSrcPlane_mc LS(-100 * GOAT::maths::ex+0* GOAT::maths::ey, numRays, 0.5, 60.0);
 	LS.setk(GOAT::maths::ex);
 	S.addLightSource(&LS);
 
 	// --------------- Object : sphere with 50um radius -------------
 	GOAT::maths::Vector<double> ellPos;
-	GOAT::maths::Vector<double> ellDim(8, 8, 30);
+	GOAT::maths::Vector<double> ellDim(30, 30, 30);
 	GOAT::raytracing::Ellipsoid ell(ellPos, ellDim, 1.5);
-//   S.addObject(&ell);
+   S.addObject(&ell);
 
        	GOAT::maths::Vector<double> boxObjPos(0, 0, 0);
 	GOAT::maths::Vector<double> boxObjDim(30, 4, 4);
 	GOAT::raytracing::Box boxObj(boxObjPos, boxObjDim, 1.0);
- S.addObject(&boxObj);
+// S.addObject(&boxObj);
 
 	// -------------- Box detector ---------------------
 	GOAT::maths::Vector<double> boxPos(0, 0, 0);
@@ -40,7 +42,7 @@ int main(int argc, char** argv)
         GOAT::raytracing::pulseCalculation_Field pc(S);
 	pc.setPulseWidth(50);
 	pc.setSpatialResolution(0.25);
-	pc.setSpectralRanges(1);
+	pc.setSpectralRanges(500);
 	pc.setNumWavelengthsPerRange(1);
 	pc.setCenterWavelength(0.5);
 	pc.setNumReflex(0);
@@ -48,13 +50,14 @@ int main(int argc, char** argv)
 	pc.setRefractiveIndexFunctions(nList);
 	pc.addBoxDetector(&box);
 
+ 	pc.field (200);
+	pc.saveIntensity("h:\\data\\field_usp.dat", 0);
+    //    GOAT::raytracing::saveFullE (pc.trafo.SAres,"H:\\data\\blubb.dat",0);
+	
 
 
-
- 	pc.field (565);
-//        GOAT::raytracing::saveFullE (pc.trafo.SAres,"C:\\users\\weigetz9\\data\\blubb.dat",0);
-	GOAT::raytracing::saveFullE (pc.trafo.SAres,"/home/weigel/data/blubb.dat",0);
-
+//	GOAT::raytracing::saveFullE (pc.trafo.SAres,"/home/weigel/data/blubb.dat",0);
+	save (pc.rt.SA[0],"C:\\users\\weigetz9\\data\\test.dat");
 
 	
 	/*GOAT::raytracing::Raytrace_field_usp rf(S);
