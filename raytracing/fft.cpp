@@ -63,7 +63,6 @@ namespace GOAT
                 double dw;
                 int nsteps = tp.nS;
                     domega = Domega / ((double)(nsteps));
-              
                 double weight;
                 for (int iomega = 0; iomega < nsteps; iomega++)
                 {

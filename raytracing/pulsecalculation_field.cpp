@@ -141,7 +141,7 @@ namespace GOAT
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
-std::cout << "Domega=" << Domega << std::endl;
+
 
 
 //			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
@@ -158,14 +158,14 @@ std::cout << "Domega=" << Domega << std::endl;
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
 				auto start = std::chrono::high_resolution_clock::now();
-				omega = omegaStart + (double)iOmega * domega;				
+				omega = omegaStart + (double)(iOmega+0.5) * domega;				
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega; // center wavelength of the current range
 
                 // ------ for output only ------
                 wvl1=  2.0 * M_PI * C_LIGHT_MU_FS / (omega-0.5*domega); 
                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
 				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
-
+				std::cout << "field: domega=" << domega << "\t" << "DOmega=" << Domega << std::endl;
 				fieldCalculation(omega); // do the raytracing								
 				if (iOmega < trafoparms.nI-1) trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform				
 				else trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t, false); // for the last step, don't clear SA --> Information is useful to calculate the intensity out of the electric field
