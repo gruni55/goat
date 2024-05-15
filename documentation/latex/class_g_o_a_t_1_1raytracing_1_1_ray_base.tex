@@ -1,5 +1,5 @@
-\doxysection{GOAT\+::raytracing\+::Ray\+Base Class Reference}
-\hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base}{}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base}\index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base}{}\doxysection{GOAT\+::raytracing\+::Ray\+Base Class Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_ray_base}\index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 
 
 Abstract base class for all rays used for the raytracing process. This abstract base class for all rays is the parent class, from which all ray classes are derived.  
@@ -15,31 +15,31 @@ Inheritance diagram for GOAT\+::raytracing\+::Ray\+Base\+:\begin{figure}[H]
 \includegraphics[height=3.000000cm]{class_g_o_a_t_1_1raytracing_1_1_ray_base}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next}} ()=0
 \begin{DoxyCompactList}\small\item\em make the next step (has to include phase progress) \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc663deed5684c6641840e5485}{getk}} ()=0
+virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a80fcbaed3e121f3fecd5d3b0e5b09e2a}{getk}} ()=0
 \begin{DoxyCompactList}\small\item\em gives back direction Vector \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a304594f532ce921f2929c58c66}{getE}} ()=0
+virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a948c013cc648112ea9d44d91ae0211f2}{getE}} ()=0
 \begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aa9e3b2cbd60dc59c1b4401728a29ac0f}{getP}} ()=0
+virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef16d541e35bf80afc480bba864e5e58}{getP}} ()=0
 \begin{DoxyCompactList}\small\item\em gives back position \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}{is\+In\+Object}} ()=0
 \begin{DoxyCompactList}\small\item\em true if ray is in an object otherwise false \end{DoxyCompactList}\item 
 virtual int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}{object\+Index}} ()=0
 \begin{DoxyCompactList}\small\item\em index of the current object or -\/1 \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)=0
+virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)=0
 \begin{DoxyCompactList}\small\item\em reflects ray \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}} =0
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}} =0
 \begin{DoxyCompactList}\small\item\em transmitted ray (used by the raytracer, for internal use only) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}{in\+Object}} =false
 \begin{DoxyCompactList}\small\item\em is in an object \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}} =0
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}} =0
 \begin{DoxyCompactList}\small\item\em list of all objects \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}} =0
 \begin{DoxyCompactList}\small\item\em number of objects \end{DoxyCompactList}\item 
@@ -49,7 +49,7 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ra
 \item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}
 \begin{DoxyCompactList}\small\item\em current refractive index and refractive index of the host material \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}} =2.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}} =2.\+0$\ast$M\+\_\+\+PI
 \begin{DoxyCompactList}\small\item\em wave number \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}} =1.\+0
 \item 
@@ -58,7 +58,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}{iR}} =0
 \begin{DoxyCompactList}\small\item\em number of reflections already done \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}{suppress\+\_\+phase\+\_\+progress}} =false
-\begin{DoxyCompactList}\small\item\em suppress phase change in \doxylink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}, needed for short pulse consideration \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em suppress phase change in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}}, needed for short pulse consideration \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}{status}} = \mbox{\hyperlink{raybase_8h_a183c8f9e50782ac6d4a0fee16d79f969}{RAYBASE\+\_\+\+STATUS\+\_\+\+NONE}}
 \end{DoxyCompactItemize}
 
@@ -66,16 +66,16 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b
 \doxysubsection{Detailed Description}
 Abstract base class for all rays used for the raytracing process. This abstract base class for all rays is the parent class, from which all ray classes are derived. 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00015}{15}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 15 of file raybase.\+h.
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a304594f532ce921f2929c58c66}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a304594f532ce921f2929c58c66} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a948c013cc648112ea9d44d91ae0211f2}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a948c013cc648112ea9d44d91ae0211f2}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!getE@{getE}}
 \index{getE@{getE}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{getE()}{getE()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getE (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -83,13 +83,13 @@ gives back electric field strength
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a5ec27cc1990cc14a708c9f61d1da52a3}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adf16a03bb24b18dc4501075e3c58c167}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_adc0686e4087c254af6d654ac626bf985}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc663deed5684c6641840e5485}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc663deed5684c6641840e5485} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a80fcbaed3e121f3fecd5d3b0e5b09e2a}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a80fcbaed3e121f3fecd5d3b0e5b09e2a}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!getk@{getk}}
 \index{getk@{getk}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{getk()}{getk()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getk (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -97,13 +97,13 @@ gives back direction Vector
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_adc80da91af24586a3588d27d417783f5}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abf70aaef3410b1081c734213a67957e6}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a33dfe4f4b6a60a7548db7a0bf8b379b5}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a3a0594d502603ae4c464e92c4f2cdf96}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_aa9e3b2cbd60dc59c1b4401728a29ac0f}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_aa9e3b2cbd60dc59c1b4401728a29ac0f} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef16d541e35bf80afc480bba864e5e58}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef16d541e35bf80afc480bba864e5e58}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!getP@{getP}}
 \index{getP@{getP}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{getP()}{getP()}}
-{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Ray\+Base\+::getP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -111,9 +111,9 @@ gives back position
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a72a4adef4d34f3efada0b2b9ebe2ac96}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf59e0570e30e13bb888f9e276fecb53}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_abcbe819e6953eab52b4df2679cd5bb17}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!isInObject@{isInObject}}
 \index{isInObject@{isInObject}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{isInObject()}{isInObject()}}
@@ -125,9 +125,9 @@ true if ray is in an object otherwise false
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac5beb6e3be67438d2f0ac89de0da7863}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ac5beb6e3be67438d2f0ac89de0da7863}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!next@{next}}
 \index{next@{next}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
@@ -139,9 +139,9 @@ make the next step (has to include phase progress)
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab2d79f1699d60fc52fd3483fadddc5cc}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab2d79f1699d60fc52fd3483fadddc5cc}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!objectIndex@{objectIndex}}
 \index{objectIndex@{objectIndex}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{objectIndex()}{objectIndex()}}
@@ -153,13 +153,13 @@ index of the current object or -\/1
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab3ad13adcdada4e23c238051cde4a6c9}{GOAT\+::raytracing\+::\+IRay}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a871bd154d78221713e9c48e0813041b0}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a871bd154d78221713e9c48e0813041b0}{GOAT\+::raytracing\+::tubed\+Ray}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_ab3ad13adcdada4e23c238051cde4a6c9}{GOAT\+::raytracing\+::\+IRay}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!reflectRay@{reflectRay}}
 \index{reflectRay@{reflectRay}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{reflectRay()}{reflectRay()}}
-{\footnotesize\ttfamily virtual void GOAT\+::raytracing\+::\+Ray\+Base\+::reflect\+Ray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\&}]{tray,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+{\footnotesize\ttfamily virtual void GOAT\+::raytracing\+::\+Ray\+Base\+::reflect\+Ray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$\&}]{tray,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
 
 
@@ -167,12 +167,12 @@ reflects ray
 
 
 
-Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1075d017e6b5d581daa545637cd15809}{GOAT\+::raytracing\+::\+IRay}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow_ade6c45d46893565559f4665df27d5bc9}{GOAT\+::raytracing\+::\+Ray\+\_\+pow}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005}{GOAT\+::raytracing\+::tubed\+Ray}}.
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005}{GOAT\+::raytracing\+::tubed\+Ray}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow_ade6c45d46893565559f4665df27d5bc9}{GOAT\+::raytracing\+::\+Ray\+\_\+pow}}, and \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray_a1075d017e6b5d581daa545637cd15809}{GOAT\+::raytracing\+::\+IRay}}.
 
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!inObject@{inObject}}
 \index{inObject@{inObject}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{inObject}{inObject}}
@@ -184,9 +184,9 @@ is in an object
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00025}{25}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 25 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!iR@{iR}}
 \index{iR@{iR}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{iR}{iR}}
@@ -198,13 +198,13 @@ number of reflections already done
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00032}{32}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 32 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!k0@{k0}}
 \index{k0@{k0}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{k0}{k0}}
-{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Ray\+Base\+::k0 =2.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Ray\+Base\+::k0 =2.\+0$\ast$M\+\_\+\+PI}
 
 
 
@@ -212,9 +212,9 @@ wave number
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00030}{30}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 30 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!n@{n}}
 \index{n@{n}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{n}{n}}
@@ -222,9 +222,9 @@ Definition at line \mbox{\hyperlink{raybase_8h_source_l00030}{30}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00029}{29}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 29 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!n0@{n0}}
 \index{n0@{n0}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{n0}{n0}}
@@ -236,9 +236,9 @@ current refractive index and refractive index of the host material
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00029}{29}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 29 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!numObj@{numObj}}
 \index{numObj@{numObj}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{numObj}{numObj}}
@@ -250,13 +250,13 @@ number of objects
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00027}{27}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 27 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!Obj@{Obj}}
 \index{Obj@{Obj}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{Obj}{Obj}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Ray\+Base\+::\+Obj =0}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}$\ast$$\ast$ GOAT\+::raytracing\+::\+Ray\+Base\+::\+Obj =0}
 
 
 
@@ -264,9 +264,9 @@ list of all objects
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00026}{26}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 26 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!objIndex@{objIndex}}
 \index{objIndex@{objIndex}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{objIndex}{objIndex}}
@@ -278,9 +278,9 @@ index of the current object
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00028}{28}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 28 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!r0@{r0}}
 \index{r0@{r0}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{r0}{r0}}
@@ -288,9 +288,9 @@ Definition at line \mbox{\hyperlink{raybase_8h_source_l00028}{28}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00031}{31}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 31 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!rc@{rc}}
 \index{rc@{rc}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{rc}{rc}}
@@ -302,9 +302,9 @@ radius of the calculation sphere
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00031}{31}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 31 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!status@{status}}
 \index{status@{status}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{status}{status}}
@@ -312,9 +312,9 @@ Definition at line \mbox{\hyperlink{raybase_8h_source_l00031}{31}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00034}{34}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 34 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!suppress\_phase\_progress@{suppress\_phase\_progress}}
 \index{suppress\_phase\_progress@{suppress\_phase\_progress}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{suppress\_phase\_progress}{suppress\_phase\_progress}}
@@ -322,17 +322,17 @@ Definition at line \mbox{\hyperlink{raybase_8h_source_l00034}{34}} of file \mbox
 
 
 
-suppress phase change in \doxylink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}, needed for short pulse consideration 
+suppress phase change in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}}, needed for short pulse consideration 
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00033}{33}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 33 of file raybase.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}\label{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}} 
 \index{GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}!tray@{tray}}
 \index{tray@{tray}!GOAT::raytracing::RayBase@{GOAT::raytracing::RayBase}}
 \doxysubsubsection{\texorpdfstring{tray}{tray}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Ray\+Base\+::tray =0}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}$\ast$ GOAT\+::raytracing\+::\+Ray\+Base\+::tray =0}
 
 
 
@@ -340,7 +340,7 @@ transmitted ray (used by the raytracer, for internal use only)
 
 
 
-Definition at line \mbox{\hyperlink{raybase_8h_source_l00024}{24}} of file \mbox{\hyperlink{raybase_8h_source}{raybase.\+h}}.
+Definition at line 24 of file raybase.\+h.
 
 
 

@@ -1,8 +1,8 @@
 var class_g_o_a_t_1_1raytracing_1_1_ray_base =
 [
-    [ "getE", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#abd660a304594f532ce921f2929c58c66", null ],
-    [ "getk", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a10971cdc663deed5684c6641840e5485", null ],
-    [ "getP", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aa9e3b2cbd60dc59c1b4401728a29ac0f", null ],
+    [ "getE", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a948c013cc648112ea9d44d91ae0211f2", null ],
+    [ "getk", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a80fcbaed3e121f3fecd5d3b0e5b09e2a", null ],
+    [ "getP", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef16d541e35bf80afc480bba864e5e58", null ],
     [ "isInObject", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a44c52198ec69ded8a637d0a74c1b7e2e", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a54453ba99657a55bd4e9dd57dc4e1b97", null ],
     [ "objectIndex", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a9661d889c4d7d1290440b1412515074e", null ],

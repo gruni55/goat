@@ -5,7 +5,7 @@ var classtinyxml2_1_1_x_m_l_printer =
     [ "ClearBuffer", "classtinyxml2_1_1_x_m_l_printer.html#a690cb140ba98b7339734ff865f56b0b3", null ],
     [ "CloseElement", "classtinyxml2_1_1_x_m_l_printer.html#ad04d29562b46fcdb23ab320f8b664240", null ],
     [ "CompactMode", "classtinyxml2_1_1_x_m_l_printer.html#a38e1ed5a779bdf63eda9e808f7a6de66", null ],
-    [ "CStr", "classtinyxml2_1_1_x_m_l_printer.html#abfa772366c44a17cdeb8aea294d57f78", null ],
+    [ "CStr", "classtinyxml2_1_1_x_m_l_printer.html#a180671d73844f159f2d4aafbc11d106e", null ],
     [ "CStrSize", "classtinyxml2_1_1_x_m_l_printer.html#a3256cf3523d4898b91abb18b924be04c", null ],
     [ "OpenElement", "classtinyxml2_1_1_x_m_l_printer.html#a20fb06c83bd13e5140d7dd13af06c010", null ],
     [ "Print", "classtinyxml2_1_1_x_m_l_printer.html#a4fefcc4003e88f63e0dfd9f77c386078", null ],

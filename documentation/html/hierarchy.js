@@ -18,9 +18,6 @@ var hierarchy =
     [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
     [ "GOAT::raytracing::lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
-      [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", [
-        [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]
-      ] ],
       [ "GOAT::raytracing::LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", [
         [ "GOAT::raytracing::LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", null ],
         [ "GOAT::raytracing::LightSrcRingGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html", null ],
@@ -28,15 +25,18 @@ var hierarchy =
       ] ],
       [ "GOAT::raytracing::LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", null ]
     ] ],
+    [ "LightSrcGauss", null, [
+      [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]
+    ] ],
     [ "GOAT::maths::Matrix< T >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::maths::Matrix< double >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::maths::Matrix< std::complex< double > >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::raytracing::MemInfo", "struct_g_o_a_t_1_1raytracing_1_1_mem_info.html", null ],
     [ "tinyxml2::MemPool", "classtinyxml2_1_1_mem_pool.html", [
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLElement) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLComment) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLElement) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< ITEM_SIZE >", "classtinyxml2_1_1_mem_pool_t.html", null ]
     ] ],
     [ "GOAT::raytracing::objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", null ],
@@ -52,7 +52,11 @@ var hierarchy =
     [ "GOAT::raytracing::OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", null ],
     [ "GOAT::raytracing::Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", null ],
     [ "GOAT::raytracing::Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", null ],
-    [ "GOAT::raytracing::pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", null ],
+    [ "GOAT::raytracing::pulseCalculation< T >", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", null ],
+    [ "GOAT::raytracing::pulseCalculation< Raytrace_field_usp >", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", [
+      [ "GOAT::raytracing::pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", null ]
+    ] ],
+    [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [
         [ "GOAT::raytracing::Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", null ]
@@ -61,6 +65,8 @@ var hierarchy =
     ] ],
     [ "GOAT::raytracing::rayListEntry", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html", null ],
     [ "GOAT::raytracing::Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", [
+      [ "GOAT::raytracing::Raytrace_Field", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html", null ],
+      [ "GOAT::raytracing::Raytrace_Field_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html", null ],
       [ "GOAT::raytracing::Raytrace_Inel", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html", null ],
       [ "GOAT::raytracing::Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", null ],
       [ "GOAT::raytracing::Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", null ],

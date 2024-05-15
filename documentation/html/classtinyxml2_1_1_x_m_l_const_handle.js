@@ -9,12 +9,12 @@ var classtinyxml2_1_1_x_m_l_const_handle =
     [ "LastChildElement", "classtinyxml2_1_1_x_m_l_const_handle.html#a9de0475ec42bd50c0e64624a250ba5b2", null ],
     [ "NextSibling", "classtinyxml2_1_1_x_m_l_const_handle.html#aec3710e455f41014026ef17fbbb0efb3", null ],
     [ "NextSiblingElement", "classtinyxml2_1_1_x_m_l_const_handle.html#a3c9e6b48b02d3d5232e1e8780753d8a5", null ],
-    [ "operator=", "classtinyxml2_1_1_x_m_l_const_handle.html#a20dc2bff68ba553081d4bd551dd251b4", null ],
+    [ "operator=", "classtinyxml2_1_1_x_m_l_const_handle.html#a2d74c91df1ff9aa5f9b57e3dceddbf94", null ],
     [ "PreviousSibling", "classtinyxml2_1_1_x_m_l_const_handle.html#acf68cc7930e4ac883e0c7e16ef2fbb66", null ],
     [ "PreviousSiblingElement", "classtinyxml2_1_1_x_m_l_const_handle.html#aef99308659f2617299ac29980769a91e", null ],
-    [ "ToDeclaration", "classtinyxml2_1_1_x_m_l_const_handle.html#a729c41ba82a7a143a749786a265fb6ff", null ],
-    [ "ToElement", "classtinyxml2_1_1_x_m_l_const_handle.html#a3e714a5153200f0d6ab5339395cb261f", null ],
-    [ "ToNode", "classtinyxml2_1_1_x_m_l_const_handle.html#acf5e56303beb69f7c31ecf8d8f93ddf8", null ],
-    [ "ToText", "classtinyxml2_1_1_x_m_l_const_handle.html#a0cc762ed67b245ed82fe035628264266", null ],
-    [ "ToUnknown", "classtinyxml2_1_1_x_m_l_const_handle.html#a64bca7dc37dadcd1da8584c97a20397e", null ]
+    [ "ToDeclaration", "classtinyxml2_1_1_x_m_l_const_handle.html#a55e306d105fa80d626041e4d3b77b716", null ],
+    [ "ToElement", "classtinyxml2_1_1_x_m_l_const_handle.html#a4dba53c6e201d412e915620feaaa56f3", null ],
+    [ "ToNode", "classtinyxml2_1_1_x_m_l_const_handle.html#a61812760cb08bc1b050e65b73a08457b", null ],
+    [ "ToText", "classtinyxml2_1_1_x_m_l_const_handle.html#a80e24d90d476005aa35602a665358e2d", null ],
+    [ "ToUnknown", "classtinyxml2_1_1_x_m_l_const_handle.html#a4395e5feaba7b456a81ca274880ea3d3", null ]
 ];

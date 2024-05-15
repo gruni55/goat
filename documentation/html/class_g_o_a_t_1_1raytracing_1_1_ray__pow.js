@@ -7,6 +7,6 @@ var class_g_o_a_t_1_1raytracing_1_1_ray__pow =
     [ "reflect", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a65d2cd77b36173d007087ea72e451275", null ],
     [ "reflectRay", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#ade6c45d46893565559f4665df27d5bc9", null ],
     [ "refract", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a2f2418b4158cb18b9dd56cee7819d486", null ],
-    [ "operator<<", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a3d3c2536dbda74e43b303223e08f9fc4", null ],
+    [ "operator<<", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#ae9df6c9ad0c36fa24715ec4f21444bdd", null ],
     [ "Pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a3125acb46197056245381d614a868a75", null ]
 ];
