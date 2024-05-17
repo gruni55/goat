@@ -38,7 +38,6 @@ namespace GOAT
                 // int next (tubedRay &S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 double stddev;
-                int rayCounter=0;
         };
 
         /**
@@ -66,7 +65,6 @@ namespace GOAT
                 int next(tubedRay& S);
                 int next(Ray_pow& S);
                 GOAT::maths::Vector<double> genStartingPos ();
-                int rayCounter=0;
                 void reset();
         };
 
@@ -86,9 +84,13 @@ namespace GOAT
             int next(IRay& S);
             int next(tubedRay& S);
             int next(Ray_pow& S);
+            double getRmin () { return rmin; }
+            double getRmax () { return rmax; }
+            void setRmin(double rmin);
+            void setRmax(double rmax); 
+         private:
             double rmin = 0.0; ///< inner radius of the ring
-            double rmax = 1.0; ///< outer radius of the ring          
-            int rayCounter = 0;
+            double rmax = 1.0; ///< outer radius of the ring
             GOAT::maths::Vector<double> genStartingPos();
             void reset();
         };       
@@ -104,9 +106,14 @@ namespace GOAT
             int next(tubedRay& S);
             int next(Ray_pow& S);
             void setFWHM (double r);
+            double getRmax() { return rmax;}
+            double getRmin() { return rmin;}
+            void setRmin(double rmin);
+            void setRmax(double rmax);
+
+        private:
             double rmin = 0.0; ///< inner radius of the ring
             double rmax = 1.0; ///< outer radius of the ring          
-            int rayCounter = 0;
             GOAT::maths::Vector<double> genStartingPos();
             void reset();
             double sigma2;

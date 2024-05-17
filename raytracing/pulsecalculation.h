@@ -58,7 +58,7 @@ namespace GOAT
 				*/
 				void setRepetitionRate(double rep);
 
-				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
+				void field(double t, bool clearSA=true); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;

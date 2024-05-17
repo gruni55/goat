@@ -150,6 +150,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 			bool suppress_phase_progress = false;
+                        int rayCounter=0;
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
@@ -202,6 +203,10 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			int next(tubedRay& S);
 			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
 			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
+			double getRmin() {return rmin; }
+			double getRmax() {return rmax; }
+			void setRmin(double rmin);
+			void setRmax(double rmax);
 
 		private:
 			double rmin = 0.0;

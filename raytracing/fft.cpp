@@ -52,7 +52,7 @@ namespace GOAT
             if (vge.size() > 0)
             {
                 double k0;
-
+                double dw;
                 std::complex<double> phase;
                 std::complex<double> phase1;
                 std::complex<double> phase2;
@@ -60,10 +60,11 @@ namespace GOAT
                 double omega;
                 double domega = 2.0 * M_PI / fabs(tref - t);
                 double Domega = omegastop - omegastart;
-                double dw;
+// //                 double dw;
                 int nsteps = tp.nS;
                     domega = Domega / ((double)(nsteps));
                 double weight;
+
                 for (int iomega = 0; iomega < nsteps; iomega++)
                 {
                     omega = omegastart + iomega * domega;

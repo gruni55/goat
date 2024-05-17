@@ -412,6 +412,7 @@ namespace  GOAT
 			this->Pos = Pos;
 			this->density = 2.0 * rmax / ((double)N);
 			this->type = LIGHTSRC_SRCTYPE_RING;
+			D = 2.0 * rmax;
 			D1 = 2.0 * rmax;
 			D2 = 2.0 * rmax;
 			this->k = maths::ez;
@@ -426,6 +427,18 @@ namespace  GOAT
 			numObjs = 0;
 			Obj = 0;
 			reset();
+		}
+
+		void LightSrcRing::setRmin(double rmin)
+		{
+			if (rmin<rmax) this->rmin=rmin;
+		}
+
+		void LightSrcRing::setRmax(double rmax)
+		{
+			this->rmax=rmax;
+			D=rmax/(double)N;
+			density = 2.0 * rmax / ((double)N);
 		}
 
 		int LightSrcRing::next(RayBase* ray)
@@ -563,6 +576,7 @@ namespace  GOAT
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
+                        rayCounter=0; 
 			switch (type)
 			{
 			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;

@@ -88,16 +88,19 @@ namespace GOAT
 				// length of the step from the surface to the cell (last crossing point)
 				gridStack.step.insert(gridStack.step.end(), stack.step.begin(), stack.step.end());
 				gridStack.step.push_back(ge);
+                                bool first_step=true;
 				while ((s < L) && (!cancel))
 				{
-					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell					
-					l = abs(Pnew - P);					  // length of the last step  					
+					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell	
+					l = abs(Pnew - P);				  // length of the last step 				  
+                                        s += l;               // path inside the detector
+                                        
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;
 
-					s += l;               // path inside the detector
-					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
+										cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
+  					                                        
 					// prepare cell entry
 					ge.l = s;
 
@@ -111,8 +114,11 @@ namespace GOAT
 					if (SA[iR].Error == NO_ERRORS)
 					{
 						gridStack.step.back() = ge;
+						if (!first_step)
+                                                {
 						SA[iR](indexCurrentDetector, cell).push_back(gridStack);
-						SA[iR](indexCurrentDetector, cell).back().E = E;
+						SA[iR](indexCurrentDetector, cell).back().E = sqrt(l) * E;
+                                                 }
 						// gridStack.step.push_back(ge);						
 					}
 					else
@@ -120,10 +126,12 @@ namespace GOAT
 						SA[iR].Error = NO_ERRORS;
 						//std::cout << "ERROR" << std::endl;
 					}
+					
+                                        first_step=false;                    
 					P = Pnew;
-				}
-			}
+		            }	
 		}
+}
 
 
 		int Raytrace_Field_usp::findBoxDetectorIntersection(maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double>& pStart, maths::Vector<double>& pStop)
@@ -405,7 +413,7 @@ namespace GOAT
 							traceOneRay(tray, Reflexions, recur);
 							stack = hstack;
 							Reflexions++;
-							Abbruch = true;
+						// 	Abbruch = true;
 						}
 						else
 						{

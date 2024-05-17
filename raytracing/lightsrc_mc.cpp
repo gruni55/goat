@@ -1,6 +1,6 @@
 #include "lightsrc_mc.h"
 #include <random>
-
+#include <iostream>
 namespace GOAT
 {
     namespace raytracing
@@ -12,18 +12,16 @@ namespace GOAT
             std::normal_distribution<double> nd (0,stddev);
 
             double x,y;
-
-            do 
+			do
             {
                x=nd(gen);
-            } while ((x<-D1/2.0) || (x>D1/2.0));
+	        } while ((x<-D1/2.0) || (x>D1/2.0));
 
-            do 
+			do
             {
                y=nd(gen);
             } while ((y<-D2/2.0) || (y>D2/2.0));
-
-            GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
+		    GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
         }
 
@@ -379,6 +377,20 @@ namespace GOAT
                         rayCounter=0;
 			type = LIGHTSRC_SRCTYPE_RING_MC;
 		}
+              
+                void LightSrcRing_mc::setRmin(double rmin)
+                {
+                 if (rmin<rmax) this->rmin=rmin;
+                } 
+
+                void LightSrcRing_mc::setRmax(double rmax)
+		{
+			this->rmax=rmax;
+			D=rmax/(double)N;
+			D1=D;
+			D2=D;
+			density = 2.0 * rmax / ((double)N);
+		} 
  
                 void LightSrcRing_mc::reset()
                 {
@@ -476,6 +488,20 @@ namespace GOAT
 			sigma2 = 2.0*rmax*rmax/log(2.0);
 			type = LIGHTSRC_SRCTYPE_RING_MC;
 		}
+
+
+		void LightSrcRingGauss_mc::setRmin(double rmin)
+		{
+			this->rmin=rmin;
+		}
+
+		void LightSrcRingGauss_mc::setRmax(double rmax)
+		{
+			this->rmax=rmax;
+			D1=2*rmax;
+			D2=D1;
+		}
+
  
                 void LightSrcRingGauss_mc::reset()
                 {
@@ -511,6 +537,7 @@ namespace GOAT
 			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
 			return P;
 		}
+
 
 		int LightSrcRingGauss_mc::next(IRay& S)
 		{

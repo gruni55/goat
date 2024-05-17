@@ -42,6 +42,13 @@ else()
 	target_include_directories (usp_compress PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usp_compress OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
+  	add_executable (usp_misalign_compress usp_misalign_compress.cpp)
+	target_compile_options (usp_misalign_compress PUBLIC ${OpenMP_CXX_FLAGS})
+        target_compile_definitions (usp_misalign_compress PUBLIC WITH_OCTREE)	
+	target_include_directories (usp_misalign_compress PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (usp_misalign_compress OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
+
+
   	add_executable (usp_lstest usp_lstest.cpp)
 	target_compile_options (usp_lstest PUBLIC ${OpenMP_CXX_FLAGS})
         target_compile_definitions (usp_lstest PUBLIC WITH_OCTREE)	
@@ -84,8 +91,14 @@ install(TARGETS usptest_spatial
 	target_compile_options (fieldtest_usp PUBLIC ${OpenMP_CXX_FLAGS})
 	target_compile_definitions (fieldtest_usp PUBLIC WITH_OCTREE WITH_SUPERGITTER)	
 	target_include_directories (fieldtest_usp PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-#	target_link_libraries (fieldtest_usp goat_raytracing goat_maths)
 	target_link_libraries (fieldtest_usp OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
+
+	add_executable (fieldtest_usp_time fieldtest_usp_time.cpp)
+	target_compile_options (fieldtest_usp_time PUBLIC ${OpenMP_CXX_FLAGS})
+	target_compile_definitions (fieldtest_usp_time PUBLIC WITH_OCTREE WITH_SUPERGITTER)	
+	target_include_directories (fieldtest_usp_time PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (fieldtest_usp_time OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
+
 
  	add_executable (pnexttest pnexttest.cpp )
 	target_include_directories (pnexttest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)

@@ -112,6 +112,7 @@ namespace GOAT
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
 				This parameter is needed to stop calculation after the maximal number of reflexions  @param recur: counter which will be set to the current recursion depth*/
 			virtual void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
+			virtual void reset();
 			void copyRay(RayBase*& dest, RayBase* src);
 			RayBase* ray; ///< current ray 
 			RayBase* tray; ///< transmitted ray		
