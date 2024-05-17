@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"class_g_o_a_t_1_1raytracing_1_1_super_array.html#af9e136050a149efc4751474fa1974823":[3,0,0,1,55,37],
 "class_g_o_a_t_1_1raytracing_1_1_super_array.html#afab5c979b30499a02aa9191fa490140a":[3,0,0,1,55,21],
 "class_g_o_a_t_1_1raytracing_1_1_super_grid.html":[3,0,0,1,56],
 "class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a0a16835d2f422b1f4f4ac77723b81abd":[3,0,0,1,56,38],
@@ -129,6 +130,7 @@ var NAVTREEINDEX3 =
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a3cd1d93f3da22bc934c4d26c1a1e76b4":[3,0,0,1,28,18],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4121f620a103dc3e7896f714f0a03d18":[3,0,0,1,28,1],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4121f620a103dc3e7896f714f0a03d18":[3,0,0,1,28,2],
+"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a441fbc5f661e1c102476546cfddee073":[3,0,0,1,28,5],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4a0b331e61bc6d67e51bc5287e665420":[3,0,0,1,28,38],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4c305f25cea330e97973e35ea91d80d7":[3,0,0,1,28,43],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a582e02cfc8f3ba1d38deb36f71f02810":[3,0,0,1,28,31],
@@ -159,7 +161,6 @@ var NAVTREEINDEX3 =
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ac864eab5a5abcbb977f1b205d757be00":[3,0,0,1,28,8],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ac864eab5a5abcbb977f1b205d757be00":[3,0,0,1,28,9],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acae13e789813041bb22e4ae78958f479":[3,0,0,1,28,4],
-"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acae13e789813041bb22e4ae78958f479":[3,0,0,1,28,5],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ad73ca4b15ae4248cdadebcfd953cd0bf":[3,0,0,1,28,48],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb33f64d20aae006b436c17ba53393cc":[3,0,0,1,28,7],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb33f64d20aae006b436c17ba53393cc":[3,0,0,1,28,6],
@@ -248,6 +249,5 @@ var NAVTREEINDEX3 =
 "class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79":[3,0,0,1,57,34],
 "class_g_o_a_t_1_1raytracing_1_1surface.html#a85f2e795c6d610db9b3aa478542ef531":[3,0,0,1,57,38],
 "class_g_o_a_t_1_1raytracing_1_1surface.html#a8b3d0047979d533291db3fa99816d8cd":[3,0,0,1,57,32],
-"class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867":[3,0,0,1,57,13],
-"class_g_o_a_t_1_1raytracing_1_1surface.html#a8fbfb1b0efa357dec4ad013174135bb8":[3,0,0,1,57,3]
+"class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867":[3,0,0,1,57,13]
 };

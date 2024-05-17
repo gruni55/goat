@@ -5,7 +5,7 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation =
     [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a4121f620a103dc3e7896f714f0a03d18", null ],
     [ "calcTrafoParms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a23f6b4a78e0d5f9fc0e3d88257464671", null ],
     [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acae13e789813041bb22e4ae78958f479", null ],
-    [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#acae13e789813041bb22e4ae78958f479", null ],
+    [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a441fbc5f661e1c102476546cfddee073", null ],
     [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb33f64d20aae006b436c17ba53393cc", null ],
     [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb33f64d20aae006b436c17ba53393cc", null ],
     [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ac864eab5a5abcbb977f1b205d757be00", null ],

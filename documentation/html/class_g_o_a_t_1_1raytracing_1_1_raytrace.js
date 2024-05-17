@@ -4,6 +4,7 @@ var class_g_o_a_t_1_1raytracing_1_1_raytrace =
     [ "Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a43782dd88b2b0131a4491a3030a078c4", null ],
     [ "copyRay", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ae577d8a38d529d73737c7040e9abe346", null ],
     [ "init", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a89da3c001411ef5bc19bfccd1a7452ae", null ],
+    [ "reset", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a6f33cfc22c680fad7a19923cfb151147", null ],
     [ "setNumReflex", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a277f54c1d155fc3f93b97f57e7e8866f", null ],
     [ "setScene", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#aa70bd1fbe01a9c83d6f5d70c431f21f0", null ],
     [ "trace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a9c67556f87b2972eddc1d96a55ab4cca", null ],

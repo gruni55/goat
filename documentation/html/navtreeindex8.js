@@ -1,5 +1,6 @@
 var NAVTREEINDEX8 =
 {
+"namespace_g_o_a_t_1_1raytracing.html#a3ef9e2366ec937cb29b4cdc2e57c4411":[2,0,0,1,182],
 "namespace_g_o_a_t_1_1raytracing.html#a3f4f4dfa58861163a6b945aa75e23ef7":[2,0,0,1,156],
 "namespace_g_o_a_t_1_1raytracing.html#a4104e01cad5e2f7add35a5df5a814f24":[2,0,0,1,110],
 "namespace_g_o_a_t_1_1raytracing.html#a44b7076efa06b706874b868c906c7437":[2,0,0,1,132],
@@ -130,8 +131,8 @@ var NAVTREEINDEX8 =
 "namespace_g_o_a_t_1_1raytracing.html#afbd405954ef29592058437c1790666a6":[2,0,0,1,96],
 "namespace_g_o_a_t_1_1raytracing.html#affab32fbbb2eb68778dd28cb3d0b4515":[2,0,0,1,69],
 "namespace_g_o_a_t_1_1raytracing.html#affda1aaf3eac151440765b961e1e0766":[2,0,0,1,155],
-"namespacemembers.html":[2,1,0],
 "namespacemembers.html":[2,1,0,0],
+"namespacemembers.html":[2,1,0],
 "namespacemembers_b.html":[2,1,0,1],
 "namespacemembers_c.html":[2,1,0,2],
 "namespacemembers_d.html":[2,1,0,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX8 =
 "pulsecalc__with__template_2pulsecalculation_8h_source.html":[4,0,1,0,0],
 "pulsecalculation_8h.html":[4,0,1,21],
 "pulsecalculation_8h_source.html":[4,0,1,21],
-"pulsecalculation__field_8h.html":[4,0,1,22],
-"pulsecalculation__field_8h_source.html":[4,0,1,22]
+"pulsecalculation__field_8h.html":[4,0,1,22]
 };

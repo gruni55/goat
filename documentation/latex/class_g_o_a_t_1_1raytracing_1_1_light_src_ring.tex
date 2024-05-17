@@ -33,14 +33,22 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_aec7b3f8ff06
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ac71cdfc8fe1835773b022ee620493f73}{bin\+Write\+Item}} (std\+::ofstream \&os)
 \begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a1d89210274e077b45591962852610584}{bin\+Read\+Item}} (std\+::ifstream \&os)
-\begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_acf58d81fe8756843515044151c260abf}{get\+Rmin}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a68212bfeac9ec2487328b3c1ed7bcda5}{get\+Rmax}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ae3346b5ffe423093b6b0e09af0fac60b}{set\+Rmin}} (double rmin)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a943e70f11ece71b03a13426eedf58c1b}{set\+Rmax}} (double rmax)
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 This class describes a ring shaped. 
 
-Definition at line 194 of file lightsrc.\+h.
+Definition at line 195 of file lightsrc.\+h.
 
 
 
@@ -76,7 +84,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a04bf6f811
 
 
 
-Definition at line 204 of file lightsrc.\+h.
+Definition at line 205 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ac71cdfc8fe1835773b022ee620493f73}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ac71cdfc8fe1835773b022ee620493f73}} 
 \index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!binWriteItem@{binWriteItem}}
@@ -94,7 +102,27 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a23997c8de
 
 
 
-Definition at line 203 of file lightsrc.\+h.
+Definition at line 204 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a68212bfeac9ec2487328b3c1ed7bcda5}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a68212bfeac9ec2487328b3c1ed7bcda5}} 
+\index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!getRmax@{getRmax}}
+\index{getRmax@{getRmax}!GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}}
+\doxysubsubsection{\texorpdfstring{getRmax()}{getRmax()}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Light\+Src\+Ring\+::get\+Rmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 207 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_acf58d81fe8756843515044151c260abf}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_acf58d81fe8756843515044151c260abf}} 
+\index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!getRmin@{getRmin}}
+\index{getRmin@{getRmin}!GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}}
+\doxysubsubsection{\texorpdfstring{getRmin()}{getRmin()}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Light\+Src\+Ring\+::get\+Rmin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 206 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_aeadc57f644ce0fa16f9623038780586d}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_aeadc57f644ce0fa16f9623038780586d}} 
 \index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!next@{next}}
@@ -145,6 +173,18 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a2d457888d
 
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aeb4acde5ce380120ba8535c7da03ad8a}{GOAT\+::raytracing\+::\+Light\+Src}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a943e70f11ece71b03a13426eedf58c1b}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_a943e70f11ece71b03a13426eedf58c1b}} 
+\index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!setRmax@{setRmax}}
+\index{setRmax@{setRmax}!GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}}
+\doxysubsubsection{\texorpdfstring{setRmax()}{setRmax()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Light\+Src\+Ring\+::set\+Rmax (\begin{DoxyParamCaption}\item[{double}]{rmax }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ae3346b5ffe423093b6b0e09af0fac60b}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_ae3346b5ffe423093b6b0e09af0fac60b}} 
+\index{GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}!setRmin@{setRmin}}
+\index{setRmin@{setRmin}!GOAT::raytracing::LightSrcRing@{GOAT::raytracing::LightSrcRing}}
+\doxysubsubsection{\texorpdfstring{setRmin()}{setRmin()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Light\+Src\+Ring\+::set\+Rmin (\begin{DoxyParamCaption}\item[{double}]{rmin }\end{DoxyParamCaption})}
 
 
 

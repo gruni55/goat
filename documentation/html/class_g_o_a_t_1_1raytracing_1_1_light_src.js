@@ -59,6 +59,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src =
     [ "polType", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab7ec0f5da024d908eb44f8221e79465e", null ],
     [ "Pos", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a22341548b53dab68f10d0fd6a55c29d4", null ],
     [ "r0", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a146ece724e84c542c18d70b04c442dbc", null ],
+    [ "rayCounter", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a8d370a6f2af33a1ef5626f97d7529a57", null ],
     [ "raytype", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6f2b403b668a8f41529e1b8d6b7b0593", null ],
     [ "suppress_phase_progress", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#aac7923883a2dd3476641264aec1dfe06", null ],
     [ "type", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#af1101fa18b0d24b1cd3872eaece0be45", null ],
