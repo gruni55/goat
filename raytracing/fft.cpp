@@ -45,6 +45,7 @@ namespace GOAT
             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
         }
 
+       
 
         GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop)
         {
@@ -143,12 +144,14 @@ namespace GOAT
         void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear)
         {
               //  auto start = std::chrono::high_resolution_clock::now();
-         
+            D=0;
+            double absold;
+            maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-  #pragma omp parallel for num_threads(7)
+ // #pragma omp parallel for num_threads(7)
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
@@ -158,7 +161,11 @@ namespace GOAT
                                       //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
                                         if (SA[iR].G[i][ix][iy][iz].size() > 0)
                                         {
-                                            SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            hint=integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            absold = abs(SAres.G[i][ix][iy][iz]);
+                                            if (absold > 1E-40) { D += abs(SAres.G[i][ix][iy][iz] - hint) / absold; }
+                                            
+                                            SAres.G[i][ix][iy][iz] += hint;
                                             if (do_clear) SA[iR].G[i][ix][iy][iz].clear();
                                         }
                                     }

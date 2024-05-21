@@ -99,6 +99,7 @@ namespace GOAT
              */
             void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs);
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
+            double getD() { return D; } ///< relative change 
         private:
             double pulseWeight(double omega);
             /**
@@ -123,7 +124,8 @@ namespace GOAT
             std::vector<double> freq;
             double tref = 0.0;
             TrafoParms tp;
-            std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)            
+            std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)      
+            double D = 0;
         };
 	}
 }

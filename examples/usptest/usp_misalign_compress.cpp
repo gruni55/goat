@@ -11,11 +11,11 @@ int main (int argc, char **argv)
 	std::string prismFName;
 	 prismFName = "/home/weigel/data/prism.srf";
 //    prismFName = "H:\\data\\prism_60.srf";
-//	prismFName = "C:\\users\\thomas\\data\\prism.srf";
+	prismFName = "C:\\users\\thomas\\data\\prism.srf";
      std::string ergFName;
-     ergFName = "C:\\users\\weigetz9\\data\\test.dat";
+//     ergFName = "C:\\users\\weigetz9\\data\\test.dat";
        	 // ergFName = "/home/weigel/data/test.dat";
-//	ergFName = "C:\\users\\thomas\\data\\test2.dat";
+	ergFName = "C:\\users\\thomas\\data\\test2.dat";
 
 
  double sf=10000; // scaling factor (to convert µm into cm)
@@ -24,7 +24,7 @@ int main (int argc, char **argv)
  double alpha = 30.0; // Brewster-Winkel
  // ------------ Light source ------------
  GOAT::maths::Vector<double> LSPos (0,0,0);
- int nRays=5000000;
+ int nRays=5000;
  double r=0.2*sf; // radius of the light source in cm
  // GOAT::raytracing::LightSrcPlane_mc LS(LSPos, nRays,wvl,1E-10);
 GOAT::raytracing::LightSrcGauss_mc LS(LSPos, nRays, wvl, r, GOAT::maths::ex * 100 * sf,2*r);
@@ -103,7 +103,7 @@ nList.push_back (GOAT::raytracing::n_Vacuum);
 // ----------- parameters for pulse calculation ------------
   double pulseWidth = 50;
   double refTime = 1.7e+6;
-  double spatialRes = 1;
+  double spatialRes = 5;
 
   GOAT::raytracing::pulseCalculation pc(S);  
   pc.setPulseWidth (pulseWidth);  
@@ -141,8 +141,14 @@ std::string fname="/home/weigel/data/misalign_hr.dat";
   LS.setD(2*r);
 
   // time=5.33925e+06;
-   pc.field(time);
-
-   GOAT::raytracing::saveFullE (pc.trafo.SAres,fname,4);
+  double D;
+  std::ofstream oserr;
+  oserr.open("c:\\users\\thomas\\data\\testerr.dat");
+  do
+  {
+	  D = pc.field(time, GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
+	  oserr <<  D << std::endl;
+	  GOAT::raytracing::saveFullE(pc.trafo.SAres, fname, 4);
+  } while (D > 0.1);
  std::cout << "% current filename: " << fname << std::endl;
 }

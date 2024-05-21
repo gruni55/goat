@@ -67,7 +67,7 @@ else()
 	target_include_directories (usptest_spatial PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usptest_spatial OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
-install(TARGETS usptest_spatial
+install(TARGETS usptest_spatial 
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib
     ARCHIVE DESTINATION lib
@@ -76,7 +76,7 @@ install(TARGETS usptest_spatial
 	target_include_directories (usptest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (usptest goat_raytracing goat_maths)
 
-	install(TARGETS usptest
+	install(TARGETS usptest usp_misalign_compress
     		RUNTIME DESTINATION bin
     		LIBRARY DESTINATION lib
     		ARCHIVE DESTINATION lib
