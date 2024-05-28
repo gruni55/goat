@@ -103,11 +103,13 @@ Inheritance diagram for GOAT::raytracing::LightSrc:</div>
  <div class="center">
   <img src="class_g_o_a_t_1_1raytracing_1_1_light_src.png" usemap="#GOAT::raytracing::LightSrc_map" alt=""/>
   <map id="GOAT::raytracing::LightSrc_map" name="GOAT::raytracing::LightSrc_map">
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html" title="class derived from LightSrc. It represents a plane wave described by the electric field" alt="GOAT::raytracing::LightSrcPlane" shape="rect" coords="257,56,504,80"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="514,56,761,80"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html" title="Plane wave with random ray distribution. This class provides a plane (square sized) wave with a given..." alt="GOAT::raytracing::LightSrcPlane_mc" shape="rect" coords="0,112,247,136"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" alt="GOAT::raytracing::LightSrcRingGauss_mc" shape="rect" coords="257,112,504,136"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html" title="Ring shaped light source. This class provides a ring shaped light source with arbitrary,..." alt="GOAT::raytracing::LightSrcRing_mc" shape="rect" coords="514,112,761,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html" title="This class describes a focused gaussian beam." alt="GOAT::raytracing::LightSrcGauss" shape="rect" coords="0,56,247,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html" title="class derived from LightSrc. It represents a plane wave described by the electric field" alt="GOAT::raytracing::LightSrcPlane" shape="rect" coords="514,56,761,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="771,56,1018,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html" title="This class provides a gaussian beam with arbitrary distributed rays." alt="GOAT::raytracing::LightSrcGauss_mc" shape="rect" coords="0,112,247,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html" title="Plane wave with random ray distribution. This class provides a plane (square sized) wave with a given..." alt="GOAT::raytracing::LightSrcPlane_mc" shape="rect" coords="257,112,504,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" alt="GOAT::raytracing::LightSrcRingGauss_mc" shape="rect" coords="514,112,761,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html" title="Ring shaped light source. This class provides a ring shaped light source with arbitrary,..." alt="GOAT::raytracing::LightSrcRing_mc" shape="rect" coords="771,112,1018,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -287,7 +289,7 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:ac336842a26e1722f9959dce29baf7117"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavelength  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">More...</a><br /></td></tr>
 <tr class="separator:ac336842a26e1722f9959dce29baf7117"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">k0</a></td></tr>
-<tr class="memdesc:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavenumber (i.e. <img class="formulaInl" alt="$ \frac{2\pi}{\lambda}$" src="form_31.png"/>  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">More...</a><br /></td></tr>
+<tr class="memdesc:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavenumber (i.e. <img class="formulaInl" alt="$ \frac{2\pi}{\lambda}$" src="form_32.png"/>  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">More...</a><br /></td></tr>
 <tr class="separator:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
@@ -427,7 +429,7 @@ Friends</h2></td></tr>
 
 <p>reads content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> from a binary file, represented by os (has to be specified by the derived classes) </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1d89210274e077b45591962852610584">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ad1c1bc9453c100fa87596429ecdcf70c">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1d89210274e077b45591962852610584">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ad1c1bc9453c100fa87596429ecdcf70c">GOAT::raytracing::LightSrcPlane</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab8e3b0c8902a3f12ad08a202bc21414d">GOAT::raytracing::LightSrcGauss</a>.</p>
 
 </div>
 </div>
@@ -477,7 +479,7 @@ Friends</h2></td></tr>
 
 <p>writes content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> in a binary file, represented by is (has to be specified by the derived classes)focuspos </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ac71cdfc8fe1835773b022ee620493f73">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ab6b176214b30f9b2dd4d373ca998a208">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ac71cdfc8fe1835773b022ee620493f73">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ab6b176214b30f9b2dd4d373ca998a208">GOAT::raytracing::LightSrcPlane</a>.</p>
 
 </div>
 </div>
@@ -753,7 +755,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a75eafa44799cd1f48a5cd99aae39dcda">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ae8a30e8a679ee303717cf295097fd81f">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#ae40adffd9b575f98c8d2b2a1b9043aca">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aeadc57f644ce0fa16f9623038780586d">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#af7534ab0741b360f5245b6f3ca88d797">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a75eafa44799cd1f48a5cd99aae39dcda">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ae8a30e8a679ee303717cf295097fd81f">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#ae40adffd9b575f98c8d2b2a1b9043aca">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a7d1d9438529c64c6dc2cd34d8fc17073">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aeadc57f644ce0fa16f9623038780586d">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#af7534ab0741b360f5245b6f3ca88d797">GOAT::raytracing::LightSrcPlane</a>.</p>
 
 </div>
 </div>
@@ -781,7 +783,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a63fcec136c4b2e3b2f720e78f3cffc2b">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#af12a3af99f30bcf3ccfcf94662869d06">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#a050a6bd8fe0ffe51310e0c335793e9d7">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a0070e2f24ddd28ec3b86fae57e605761">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a7adde40ffa33913e49715cff2c67177d">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a63fcec136c4b2e3b2f720e78f3cffc2b">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#af12a3af99f30bcf3ccfcf94662869d06">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#a050a6bd8fe0ffe51310e0c335793e9d7">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#aafba313b4066146e7bd6d75a78f31465">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a964ed0ed53173923768200fc890182fd">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a0070e2f24ddd28ec3b86fae57e605761">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a7adde40ffa33913e49715cff2c67177d">GOAT::raytracing::LightSrcPlane</a>.</p>
 
 </div>
 </div>
@@ -821,7 +823,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a043ea13f61a5fbc446c6a0d229a743c6">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a8dd935f709d519b72036b52226374457">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a043ea13f61a5fbc446c6a0d229a743c6">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1f91eebbb49c596d1d8ae84f96159a6a">GOAT::raytracing::LightSrcGauss</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a8dd935f709d519b72036b52226374457">GOAT::raytracing::LightSrcPlane</a>.</p>
 
 </div>
 </div>
@@ -849,7 +851,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a009c342503e427ed395e4d6b1efe7c39">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a1e3de68dd4f2a510e597f3e58a11d7ca">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#abe7353a84903f0d9537f09adb36ecfbd">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a44fde31dd81c2c5e9308303b78e52cb4">GOAT::raytracing::LightSrcPlane</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a009c342503e427ed395e4d6b1efe7c39">GOAT::raytracing::LightSrcRingGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a1e3de68dd4f2a510e597f3e58a11d7ca">GOAT::raytracing::LightSrcRing_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#abe7353a84903f0d9537f09adb36ecfbd">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#af7e5260b4d39051a3c1bc767409ca089">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a44fde31dd81c2c5e9308303b78e52cb4">GOAT::raytracing::LightSrcPlane</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a680615a6d031f7e2dcf95bfc60d573be">GOAT::raytracing::LightSrcGauss_mc</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1263,11 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class LightSrcGauss</td>
+          <td class="memname">friend class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">LightSrcGauss</a> </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -1519,7 +1525,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>wavenumber (i.e. <img class="formulaInl" alt="$ \frac{2\pi}{\lambda}$" src="form_31.png"/> </p>
+<p>wavenumber (i.e. <img class="formulaInl" alt="$ \frac{2\pi}{\lambda}$" src="form_32.png"/> </p>
 
 <p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00156">156</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 

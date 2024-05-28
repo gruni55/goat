@@ -42,6 +42,8 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+S
 \begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{Light\+Src\+Ring}}
 \begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+Src\+Gauss}}
+\begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}{Light\+Src\+Gauss\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em This class provides a gaussian beam with arbitrary distributed rays. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}{Light\+Src\+Plane\+\_\+mc}}
@@ -182,6 +184,12 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d09
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} structure from a binary file ~\newline
  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{bin\+Read\+LSList}} (std\+::ifstream \&is, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&ls)
+\begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{copy\+Light\+Src\+List}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$s, int n\+LS)
+\begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_mem_info}{Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7c73bcb2fb33bed3da19556841bbf64d}{memstat}} ()
 \item 
 \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a160f0c7c90279dcac4982b45ee1fbf79}{sysmem}} ()
@@ -455,6 +463,8 @@ const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyp
 \item 
 const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{Exy}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, \mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{maths\+::ey}})
 \item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}{PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+RESULT}} = 2
+\begin{DoxyCompactList}\small\item\em Flag, set when the results should not be cleared when calling field () in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a66b93943735f5cef623e1040b5f3f158}{INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION}} =1
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad069c44d8da77fb043df5b3dfc3b5796}{INEL\+\_\+\+CALCPHASE\+\_\+\+RRT}} =2
@@ -612,6 +622,25 @@ read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} 
 \doxysubsubsection{\texorpdfstring{binReadIncList()}{binReadIncList()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Read\+Inc\+List (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$\&}]{E,  }\item[{int}]{anz }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}\label{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!binReadLSList@{binReadLSList}}
+\index{binReadLSList@{binReadLSList}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{binReadLSList()}{binReadLSList()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Read\+LSList (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is,  }\item[{int}]{n\+LS,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&}]{ls }\end{DoxyParamCaption})}
+
+
+
+Reads list of light sources from a binary file and allocates the memory for the light source list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & Input file stream to read the data \\
+\hline
+{\em n\+LS} & Number of light sources to read \\
+\hline
+{\em ls} & List of the light sources read from the input file \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}\label{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!binWrite@{binWrite}}
 \index{binWrite@{binWrite}!GOAT::raytracing@{GOAT::raytracing}}
@@ -650,6 +679,25 @@ write a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}
 \doxysubsubsection{\texorpdfstring{binWriteIncList()}{binWriteIncList()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Write\+Inc\+List (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$}]{E,  }\item[{int}]{anz }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}\label{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!binWriteLSList@{binWriteLSList}}
+\index{binWriteLSList@{binWriteLSList}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{binWriteLSList()}{binWriteLSList()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Write\+LSList (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os,  }\item[{int}]{n\+LS,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$}]{ls }\end{DoxyParamCaption})}
+
+
+
+Writes a list of light sources into a binary file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & Output file stream to write the data \\
+\hline
+{\em n\+LS} & Number of light sources to write \\
+\hline
+{\em ls} & List of the light sources \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a1eadf92a6f76e3f9640a40e413a34e88}\label{namespace_g_o_a_t_1_1raytracing_a1eadf92a6f76e3f9640a40e413a34e88}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!calcDetDirParms@{calcDetDirParms}}
 \index{calcDetDirParms@{calcDetDirParms}!GOAT::raytracing@{GOAT::raytracing}}
@@ -718,6 +766,25 @@ calculates inertia matrix
 \doxysubsubsection{\texorpdfstring{copyInc()}{copyInc()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::copy\+Inc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\&}]{d,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$}]{s }\end{DoxyParamCaption})}
 
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}\label{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!copyLightSrcList@{copyLightSrcList}}
+\index{copyLightSrcList@{copyLightSrcList}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{copyLightSrcList()}{copyLightSrcList()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::copy\+Light\+Src\+List (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&}]{d,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$}]{s,  }\item[{int}]{n\+LS }\end{DoxyParamCaption})}
+
+
+
+Copy the given light source list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Destination light source list (memory will be allocated within this function) \\
+\hline
+{\em s} & Source light source list (this list will be copied) \\
+\hline
+{\em n\+LS} & Number of light sources to copy \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_af16607f3222c579004d47b7c0b6f024d}\label{namespace_g_o_a_t_1_1raytracing_af16607f3222c579004d47b7c0b6f024d}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!Delete@{Delete}}
 \index{Delete@{Delete}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1972,6 +2039,20 @@ Definition at line 15 of file fft.\+h.
 
 
 Definition at line 78 of file tubedray.\+h.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}\label{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}} 
+\index{GOAT::raytracing@{GOAT::raytracing}!PULSECALCULATION\_NOT\_CLEAR\_RESULT@{PULSECALCULATION\_NOT\_CLEAR\_RESULT}}
+\index{PULSECALCULATION\_NOT\_CLEAR\_RESULT@{PULSECALCULATION\_NOT\_CLEAR\_RESULT}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{PULSECALCULATION\_NOT\_CLEAR\_RESULT}{PULSECALCULATION\_NOT\_CLEAR\_RESULT}}
+{\footnotesize\ttfamily constexpr int GOAT\+::raytracing\+::\+PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+RESULT = 2\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Flag, set when the results should not be cleared when calling field () in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}. 
+
+
+
+Definition at line 17 of file pulsecalculation.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}\label{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!standard\_pulse\_width@{standard\_pulse\_width}}

@@ -8,7 +8,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "calcNormfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae2e73bda9357091880dcf8fbd1191016", null ],
     [ "calcw", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab7c8de839cf0a111d6ffa4d23f7d118b", null ],
     [ "calcz0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a6f82182b12c7c33ac3f11b10db808e1a", null ],
-    [ "getFocuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a31de914ce2cdd01a55f98174e1053275", null ],
+    [ "getFocuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a269723ee8292a8497b8a372a86ba255e", null ],
     [ "getNA", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a5f9229ad35d701cc1c8731cccf0dcc8d", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1f91eebbb49c596d1d8ae84f96159a6a", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0", null ],
@@ -26,7 +26,9 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "k", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae866addddafef9b9bc8ef79bcfc75d82", null ],
     [ "NA", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aeaebbb9ba49182ab8ae074900c5aa81d", null ],
     [ "Normfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a76af486df8be7443fb6012d8392bc8bd", null ],
+    [ "R", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad114232eaf11a5f5ffaa39e58c4dbe02", null ],
     [ "w", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#addf3111fa2a80a22cfac8eeb6cd610d4", null ],
     [ "w0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae31ffb9e6a25aa2728c3566e29021fd6", null ],
-    [ "z0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aa0e1709451a54b54ebfadeb214259d85", null ]
+    [ "z0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aa0e1709451a54b54ebfadeb214259d85", null ],
+    [ "zeta", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a2338484d131ad095ebac6e351b3ba524", null ]
 ];

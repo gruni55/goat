@@ -14,7 +14,9 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytra
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{GOAT\+::raytracing\+::\+Light\+Src\+Plane}}
 \begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{GOAT\+::raytracing\+::\+Light\+Src\+Ring}}
-\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::raytracing\+::\+Light\+Src\+Gauss}}
+\begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -47,6 +49,15 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{GOAT\+::r
 \begin{DoxyCompactList}\small\item\em Light source is polarized in z-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}{LIGHTSRC\+\_\+\+POL\+\_\+\+USER\+\_\+\+DEFINED}}~0
 \begin{DoxyCompactList}\small\item\em Light source is user defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{GOAT\+::raytracing\+::bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, Light\+Src $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{GOAT\+::raytracing\+::bin\+Read\+LSList}} (std\+::ifstream \&is, int n\+LS, Light\+Src $\ast$$\ast$\&ls)
+\begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{GOAT\+::raytracing\+::copy\+Light\+Src\+List}} (Light\+Src $\ast$$\ast$\&d, Light\+Src $\ast$$\ast$s, int n\+LS)
+\begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 

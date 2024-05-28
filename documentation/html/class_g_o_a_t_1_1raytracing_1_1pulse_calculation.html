@@ -192,9 +192,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8f9f4d72ca6c316bf92ff6848a20e1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(nI*nS) <br  />
   <a href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a8f9f4d72ca6c316bf92ff6848a20e1ea">More...</a><br /></td></tr>
 <tr class="separator:a8f9f4d72ca6c316bf92ff6848a20e1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a441fbc5f661e1c102476546cfddee073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a441fbc5f661e1c102476546cfddee073">field</a> (double t, bool clearSA=true)</td></tr>
-<tr class="memdesc:a441fbc5f661e1c102476546cfddee073"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions.  <a href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a441fbc5f661e1c102476546cfddee073">More...</a><br /></td></tr>
-<tr class="separator:a441fbc5f661e1c102476546cfddee073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46433b700c55130ec1dd9e8e2b8b99ed"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a46433b700c55130ec1dd9e8e2b8b99ed">field</a> (double t, int settings=0)</td></tr>
+<tr class="memdesc:a46433b700c55130ec1dd9e8e2b8b99ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions.  <a href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a46433b700c55130ec1dd9e8e2b8b99ed">More...</a><br /></td></tr>
+<tr class="separator:a46433b700c55130ec1dd9e8e2b8b99ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb7060cab84ce09b2d454603c5f2a91b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb7060cab84ce09b2d454603c5f2a91b">reset</a> ()</td></tr>
 <tr class="memdesc:adb7060cab84ce09b2d454603c5f2a91b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all arrays <br  />
   <a href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb7060cab84ce09b2d454603c5f2a91b">More...</a><br /></td></tr>
@@ -350,8 +350,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a441fbc5f661e1c102476546cfddee073"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a441fbc5f661e1c102476546cfddee073">&#9670;&nbsp;</a></span>field() <span class="overload">[2/2]</span></h2>
+<a id="a46433b700c55130ec1dd9e8e2b8b99ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46433b700c55130ec1dd9e8e2b8b99ed">&#9670;&nbsp;</a></span>field() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -359,7 +359,7 @@ template&lt;class T &gt; </div>
 template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html">GOAT::raytracing::pulseCalculation</a>&lt; T &gt;::field </td>
+          <td class="memname">double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html">GOAT::raytracing::pulseCalculation</a>&lt; T &gt;::field </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>t</em>, </td>
@@ -367,8 +367,8 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>clearSA</em> = <code>true</code>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>settings</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -576,7 +576,7 @@ template&lt;class T &gt; </div>
 
 <p>Set Bandwith of the light source(s) Approximately,. </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\]" src="form_32.png"/>
+<img class="formulaDsp" alt="\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\]" src="form_33.png"/>
 </p>
 <p> Set Bandwith of the light source(s) </p>
 
@@ -602,7 +602,7 @@ template&lt;class T &gt; </div>
 
 <p>Set Bandwith of the light source(s) Approximately,. </p>
 <p class="formulaDsp">
-<img class="formulaDsp" alt="\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\]" src="form_32.png"/>
+<img class="formulaDsp" alt="\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\]" src="form_33.png"/>
 </p>
 <p> Set Bandwith of the light source(s) </p>
 
@@ -1169,7 +1169,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00067">67</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="pulsecalculation_8h_source.html#l00071">71</a> of file <a class="el" href="pulsecalculation_8h_source.html">pulsecalculation.h</a>.</p>
 
 </div>
 </div>

@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('lightsrc_8h.html',''); initResizable()
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">lightsrc.h File Reference</div>  </div>
@@ -110,6 +111,9 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html">GOAT::raytracing::LightSrcRing</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a ring shaped.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">GOAT::raytracing::LightSrcGauss</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a focused gaussian beam.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -155,6 +159,18 @@ Macros</h2></td></tr>
 <tr class="memitem:a0767e5f4cd385e2e8ac69efc11f4db71"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="lightsrc_8h.html#a0767e5f4cd385e2e8ac69efc11f4db71">LIGHTSRC_POL_USER_DEFINED</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memdesc:a0767e5f4cd385e2e8ac69efc11f4db71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is user defined.  <a href="lightsrc_8h.html#a0767e5f4cd385e2e8ac69efc11f4db71">More...</a><br /></td></tr>
 <tr class="separator:a0767e5f4cd385e2e8ac69efc11f4db71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a28736012c7ad735f26a81e61ce0e8fc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a28736012c7ad735f26a81e61ce0e8fc9">GOAT::raytracing::binWriteLSList</a> (std::ofstream &amp;os, int nLS, LightSrc **ls)</td></tr>
+<tr class="memdesc:a28736012c7ad735f26a81e61ce0e8fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a list of light sources into a binary file.  <a href="namespace_g_o_a_t_1_1raytracing.html#a28736012c7ad735f26a81e61ce0e8fc9">More...</a><br /></td></tr>
+<tr class="separator:a28736012c7ad735f26a81e61ce0e8fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3367f7cd397470c01d0f49b6f692e6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a3367f7cd397470c01d0f49b6f692e6c8">GOAT::raytracing::binReadLSList</a> (std::ifstream &amp;is, int nLS, LightSrc **&amp;ls)</td></tr>
+<tr class="memdesc:a3367f7cd397470c01d0f49b6f692e6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads list of light sources from a binary file and allocates the memory for the light source list.  <a href="namespace_g_o_a_t_1_1raytracing.html#a3367f7cd397470c01d0f49b6f692e6c8">More...</a><br /></td></tr>
+<tr class="separator:a3367f7cd397470c01d0f49b6f692e6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c79048f923ffb412e8f256992ec9618"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a1c79048f923ffb412e8f256992ec9618">GOAT::raytracing::copyLightSrcList</a> (LightSrc **&amp;d, LightSrc **s, int nLS)</td></tr>
+<tr class="memdesc:a1c79048f923ffb412e8f256992ec9618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the given light source list.  <a href="namespace_g_o_a_t_1_1raytracing.html#a1c79048f923ffb412e8f256992ec9618">More...</a><br /></td></tr>
+<tr class="separator:a1c79048f923ffb412e8f256992ec9618"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>

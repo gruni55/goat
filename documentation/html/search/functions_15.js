@@ -1,8 +1,20 @@
 var searchData=
 [
-  ['whitespacemode_1993',['WhitespaceMode',['../classtinyxml2_1_1_x_m_l_document.html#a810ce508e6e0365497c2a9deb83c9ca7',1,'tinyxml2::XMLDocument']]],
-  ['write_1994',['Write',['../classtinyxml2_1_1_x_m_l_printer.html#a65824af90e503b850f076725ccc95cfc',1,'tinyxml2::XMLPrinter::Write(const char *data, size_t size)'],['../classtinyxml2_1_1_x_m_l_printer.html#a4bd7f0cabca77ac95c299103fa9592f1',1,'tinyxml2::XMLPrinter::Write(const char *data)']]],
-  ['write_1995',['write',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a631531d4962d08fabfef3c8b7b0e9f3d',1,'GOAT::raytracing::SuperArray::write(std::string fname)'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a252dfb34ba8512f0e7298041a5b0fafe',1,'GOAT::raytracing::SuperArray::write(std::string fname)']]],
-  ['writerrtparms_1996',['writeRRTParms',['../namespace_g_o_a_t_1_1raytracing.html#aa37458b1e92451c6fd35c55417d1a088',1,'GOAT::raytracing']]],
-  ['writetriangleoctree_1997',['writeTriangleOctree',['../namespace_g_o_a_t_1_1raytracing.html#a6826cb534cf0319351a923a72ce00d73',1,'GOAT::raytracing']]]
+  ['_7ebox_1509',['~Box',['../class_g_o_a_t_1_1raytracing_1_1_box.html#a265d02b00384f2985a91101aa0315740',1,'GOAT::raytracing::Box']]],
+  ['_7econe_1510',['~Cone',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#ad450a36eaf069447d81ef42e187b9f49',1,'GOAT::raytracing::Cone']]],
+  ['_7edetector_1511',['~Detector',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a1776c78c7dd47c518328b998dfdbe604',1,'GOAT::raytracing::Detector']]],
+  ['_7eellipsoid_1512',['~Ellipsoid',['../class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#ab8a9d81d1f5f733ba1efba7d5e4c1744',1,'GOAT::raytracing::Ellipsoid']]],
+  ['_7egrid_1513',['~grid',['../class_g_o_a_t_1_1raytracing_1_1grid.html#afcdb33e9d155bf8a2d3477ac74fa5dc0',1,'GOAT::raytracing::grid']]],
+  ['_7eiray_1514',['~IRay',['../class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ab9a6b006b06ba98ceae6e622c74af344',1,'GOAT::raytracing::IRay']]],
+  ['_7elightsrc_1515',['~LightSrc',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a1265e79b083e53f2ca0153fa640b680e',1,'GOAT::raytracing::LightSrc']]],
+  ['_7elightsrcplane_1516',['~LightSrcPlane',['../class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a5fd53e8301f7222e606eb5ea53544955',1,'GOAT::raytracing::LightSrcPlane']]],
+  ['_7eoctree_1517',['~Octree',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#ade31fa10ed86b4212da1ef41f80181da',1,'GOAT::raytracing::Octree']]],
+  ['_7eplane_1518',['~Plane',['../class_g_o_a_t_1_1raytracing_1_1_plane.html#a53853a5a301767d56e1fe5645bd1b74e',1,'GOAT::raytracing::Plane']]],
+  ['_7eray_5fpow_1519',['~Ray_pow',['../class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a8d24e5ad9a16f5843218fe6a6f0a14b0',1,'GOAT::raytracing::Ray_pow']]],
+  ['_7eraytrace_5ffield_1520',['~Raytrace_Field',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html#a58a9d602d9f8571146b3f1d5a27867df',1,'GOAT::raytracing::Raytrace_Field']]],
+  ['_7eraytrace_5ffield_5fusp_1521',['~Raytrace_Field_usp',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#a5c343450aa4b94763ac9887252c78755',1,'GOAT::raytracing::Raytrace_Field_usp']]],
+  ['_7esuperarray_1522',['~SuperArray',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a99948b511348150d1262112a347be412',1,'GOAT::raytracing::SuperArray']]],
+  ['_7esupergrid_1523',['~SuperGrid',['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a77e4d2a925b650242198671f57e045ec',1,'GOAT::raytracing::SuperGrid']]],
+  ['_7etriangle_1524',['~triangle',['../class_g_o_a_t_1_1raytracing_1_1triangle.html#a34c92da6302755ac8116eb328b646952',1,'GOAT::raytracing::triangle']]],
+  ['_7etubedray_1525',['~tubedRay',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a6506aa54bc308fada2900d6705c295db',1,'GOAT::raytracing::tubedRay']]]
 ];

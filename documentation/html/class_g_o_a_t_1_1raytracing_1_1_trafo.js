@@ -6,6 +6,7 @@ var class_g_o_a_t_1_1raytracing_1_1_trafo =
     [ "calc", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#a48b8abea363fbd494d1126c1d5c18489", null ],
     [ "clear", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#a7eefe8268de50c077fa8fe80272c823f", null ],
     [ "empty", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#a2092d697818f11c0833c9ab56557636f", null ],
+    [ "getD", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#acff5c55a707a693829bfee1b99bc1ef2", null ],
     [ "initResult", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#ad3d411ccdfac33a2899f3f97e41a7478", null ],
     [ "initResult", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#a96138901f4414de73600e9886cfbd08d", null ],
     [ "setReferenceTime", "class_g_o_a_t_1_1raytracing_1_1_trafo.html#a1a35b9fad8cf7e801a9d7995786717e5", null ],

@@ -25,6 +25,7 @@ var annotated_dup =
         [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
         [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane" ],
         [ "LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring" ],
+        [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
         [ "LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc" ],
         [ "LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc" ],
         [ "LightSrcRing_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc" ],
@@ -68,28 +69,6 @@ var annotated_dup =
         [ "tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer" ],
         [ "Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", "struct_g_o_a_t_1_1raytracing_1_1_gauss" ],
         [ "tubedRay", "class_g_o_a_t_1_1raytracing_1_1tubed_ray.html", "class_g_o_a_t_1_1raytracing_1_1tubed_ray" ]
-      ] ],
-      [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [
-        [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ]
       ] ]
-    ] ],
-    [ "tinyxml2", "namespacetinyxml2.html", [
-      [ "StrPair", "classtinyxml2_1_1_str_pair.html", "classtinyxml2_1_1_str_pair" ],
-      [ "DynArray", "classtinyxml2_1_1_dyn_array.html", "classtinyxml2_1_1_dyn_array" ],
-      [ "MemPool", "classtinyxml2_1_1_mem_pool.html", "classtinyxml2_1_1_mem_pool" ],
-      [ "MemPoolT", "classtinyxml2_1_1_mem_pool_t.html", "classtinyxml2_1_1_mem_pool_t" ],
-      [ "XMLVisitor", "classtinyxml2_1_1_x_m_l_visitor.html", "classtinyxml2_1_1_x_m_l_visitor" ],
-      [ "XMLUtil", "classtinyxml2_1_1_x_m_l_util.html", null ],
-      [ "XMLNode", "classtinyxml2_1_1_x_m_l_node.html", "classtinyxml2_1_1_x_m_l_node" ],
-      [ "XMLText", "classtinyxml2_1_1_x_m_l_text.html", "classtinyxml2_1_1_x_m_l_text" ],
-      [ "XMLComment", "classtinyxml2_1_1_x_m_l_comment.html", "classtinyxml2_1_1_x_m_l_comment" ],
-      [ "XMLDeclaration", "classtinyxml2_1_1_x_m_l_declaration.html", "classtinyxml2_1_1_x_m_l_declaration" ],
-      [ "XMLUnknown", "classtinyxml2_1_1_x_m_l_unknown.html", "classtinyxml2_1_1_x_m_l_unknown" ],
-      [ "XMLAttribute", "classtinyxml2_1_1_x_m_l_attribute.html", "classtinyxml2_1_1_x_m_l_attribute" ],
-      [ "XMLElement", "classtinyxml2_1_1_x_m_l_element.html", "classtinyxml2_1_1_x_m_l_element" ],
-      [ "XMLDocument", "classtinyxml2_1_1_x_m_l_document.html", "classtinyxml2_1_1_x_m_l_document" ],
-      [ "XMLHandle", "classtinyxml2_1_1_x_m_l_handle.html", "classtinyxml2_1_1_x_m_l_handle" ],
-      [ "XMLConstHandle", "classtinyxml2_1_1_x_m_l_const_handle.html", "classtinyxml2_1_1_x_m_l_const_handle" ],
-      [ "XMLPrinter", "classtinyxml2_1_1_x_m_l_printer.html", "classtinyxml2_1_1_x_m_l_printer" ]
     ] ]
 ];

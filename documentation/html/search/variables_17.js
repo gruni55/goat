@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['y_2343',['y',['../struct_g_o_a_t_1_1raytracing_1_1_point.html#aa7ec3f622a54f744be8ae16cf15f013c',1,'GOAT::raytracing::Point']]],
-  ['ymax_2344',['ymax',['../class_g_o_a_t_1_1raytracing_1_1grid.html#ae62f766fd598fb6464fe8143485db801',1,'GOAT::raytracing::grid']]],
-  ['ywerte_2345',['ywerte',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a9c86faf7df0c5ff9226ff1dd863f6c6c',1,'GOAT::raytracing::SuperArray::ywerte()'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#afd8bed2b6cc3c18390cd1c05670bdec4',1,'GOAT::raytracing::SuperGrid::ywerte()']]]
+  ['z0_1826',['z0',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aa0e1709451a54b54ebfadeb214259d85',1,'GOAT::raytracing::LightSrcGauss']]],
+  ['zeta_1827',['zeta',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a2338484d131ad095ebac6e351b3ba524',1,'GOAT::raytracing::LightSrcGauss']]],
+  ['zmax_1828',['zmax',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a2a3a261615c6f9f9360d0d108ff48331',1,'GOAT::raytracing::grid']]],
+  ['zwerte_1829',['zwerte',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a44d9d186b9b1038806de6a9c09e89609',1,'GOAT::raytracing::SuperArray::zwerte()'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#aaf0cddc86bdfcef022482ecbb8bd0794',1,'GOAT::raytracing::SuperGrid::zwerte()']]]
 ];

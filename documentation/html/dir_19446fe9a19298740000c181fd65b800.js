@@ -38,9 +38,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "objectshape.h", "objectshape_8h.html", "objectshape_8h" ],
     [ "octree.h", "octree_8h.html", "octree_8h" ],
     [ "plane.h", "plane_8h.html", "plane_8h" ],
-    [ "pulsecalculation.h", "pulsecalculation_8h.html", [
-      [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ]
-    ] ],
+    [ "pulsecalculation.h", "pulsecalculation_8h.html", "pulsecalculation_8h" ],
     [ "pulsecalculation_field.h", "pulsecalculation__field_8h.html", [
       [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ]
     ] ],
