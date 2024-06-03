@@ -33,7 +33,7 @@ namespace GOAT
 						if (found) { fix = ix; fiy = iy; fiz = iz; }
 					}
 			
-			
+	//		std::cout << "fix=" << fix << "\tfiy=" << fiy << "\tfiz=" << fiz << std::endl;
 			
 			double time = 0.0;
 			if (found)

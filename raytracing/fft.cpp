@@ -145,13 +145,13 @@ namespace GOAT
         {
               //  auto start = std::chrono::high_resolution_clock::now();
             D=0;
-            double absold;
+            int counter=0;
             maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
- // #pragma omp parallel for num_threads(7)
+  #pragma omp parallel for num_threads(6)
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
@@ -161,16 +161,17 @@ namespace GOAT
                                       //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
                                         if (SA[iR].G[i][ix][iy][iz].size() > 0)
                                         {
-                                            hint=integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
-                                            absold = abs(SAres.G[i][ix][iy][iz]);
-                                            if (absold > 1E-40) { D += abs(SAres.G[i][ix][iy][iz] - hint) / absold; }
-                                            
+                                            maths::Vector<std::complex<double>> hint=integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            double absold = abs(SAres.G[i][ix][iy][iz]);
+                                            if (absold > 1E-20) { D += abs(hint) / absold; }
                                             SAres.G[i][ix][iy][iz] += hint;
+                                            counter++;
                                             if (do_clear) SA[iR].G[i][ix][iy][iz].clear();
                                         }
                                     }
                              }
                         }
+                 D/=counter;
               //  auto end = std::chrono::high_resolution_clock::now();
               //  std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
         }

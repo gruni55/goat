@@ -218,7 +218,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 		*
 		 Class which describes a (focused) gaussian light source. The main direction is given by the source position and
 		 the focal position. The electric field is calculated by
-		 \f$\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}
+		 \f$\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}\f$
 		 The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics
 		 the rays follow straight lines inside the medium.
 		*/

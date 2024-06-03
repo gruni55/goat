@@ -109,7 +109,15 @@ install(TARGETS usptest_spatial
     		LIBRARY DESTINATION lib
     		ARCHIVE DESTINATION lib
     		)
+	add_executable (testusp testusp.cpp )
+	target_include_directories (testusp PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (testusp OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
+	install(TARGETS testusp
+    		RUNTIME DESTINATION bin
+    		LIBRARY DESTINATION lib
+    		ARCHIVE DESTINATION lib
+    		)
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)
