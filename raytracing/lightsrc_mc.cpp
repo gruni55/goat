@@ -110,7 +110,7 @@ namespace GOAT
 			S.E2 = Pol;
 
 			std::complex<double> I(0.0,1.0); 
-			std::complex<double> Phase=exp (I*(S.k0*S.n0*r2/(2.0*R)+S.k0*S.n0*x3-zeta)); // Phase factor
+			std::complex<double> Phase = calcStartPhase(P); // Phase factor
 			maths::Vector<double> F = focuspos;
 			S.k = fp / abs(fp);   // directional vector (normalized vector, that points in the direction of the focus)
 			h = k % S.k;
@@ -136,7 +136,7 @@ namespace GOAT
         int LightSrcGauss_mc::next (IRay& S)
         {
             maths::Vector<double> fp, P = genStartingPos();
-			double x1, x2;
+			double x1, x2, x3;
 			x1 = P * e1;
 			x2 = P * e2;
 			double r2 = x1 * x1 + x2 * x2;
@@ -151,9 +151,9 @@ namespace GOAT
 			std::complex<double> E0;
 			double absh, gamma;
 		
-			fp = focuspos - P;  // Hier beginnt der Strahl
-			hk = fp / abs(fp);  // Normierter Richtungsvektor vom Startpunkt zum Fokus
-
+			fp = focuspos - P;  
+			hk = fp / abs(fp);  // Normalized direction vector from the starting point to the focus 
+			x3 = fp * k; // projection of fp in the direction from the mid point of the source to the focus (i.e. the "z"-component of the gaussian beam) 
 
 			h = k % hk;
 			absh = abs(h);
@@ -175,17 +175,16 @@ namespace GOAT
 			DM = rotMatrix(h, gamma);
 			S = IRay(P, Pol, hk, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.k = k;
+			S.k = hk;
 			S.n = n0;
 			
 		
 			 E0=sqrt(P0);
 			maths::Vector<double> F = focuspos;
 
-			S.k = focuspos - S.P;   // Richtungsvektor auf den Fokus gerichtet
-			double z = abs(S.k);
-			S.k /= z;
-			z = -z;
+			
+			std::complex<double> phase = calcStartPhase(P);
+			S.k /= abs(S.k);
 			h = k % S.k;
 			absh = abs(h);
 			if (absh != 0)
@@ -193,14 +192,13 @@ namespace GOAT
 				h /= absh;
 				gamma = std::acos(S.k * k);
 				DM = rotMatrix(h, gamma);
-				std::complex<double> fak = exp(-std::complex<double>(0, 1) * S.k0 * (z + r2 / (2.0 * z) - M_PI_2));
-				S.E1 = E0 * DM * Pol * fak;
-				S.E2 = E0 * DM * Pol2 * fak;
+				S.E1 = E0 * DM * Pol * phase;
+				S.E2 = E0 * DM * Pol2 * phase;
 			}
 			else
 			{
-				S.E1 = E0 * Pol;
-				S.E2 = E0 * Pol2;
+				S.E1 = E0 * Pol * phase;
+				S.E2 = E0 * Pol2 * phase;
 			}
 			S.n = n0;
 
@@ -231,12 +229,8 @@ namespace GOAT
 
 			for (int i = 0; i < 5; i++)
 			{
-				r2 = abs2(Pos - S.P[i]);
 				
-				// phase = exp(I *  (-k0 * n0 * f + zeta - k0 * r2 / (2.0 * R)));
-				R = sqrt(r2 + f * f);
-				l = R - abs(f);
-				phase = exp(-I * k0 * S.n0 * l);
+				phase = calcStartPhase(S.P[i]);
 				S.k[i] = focuspos - S.P[i];   // Richtungsvektor auf den Fokus gerichtet
 				S.k[i] /= abs(S.k[i]);
 				h = k % S.k[i];
@@ -335,7 +329,7 @@ namespace GOAT
 		{
 			double Pow = 1.0;
 			maths::Vector<double> P = genStartingPos();
-			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);			
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			i1++;

@@ -149,8 +149,9 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			friend class LightSrcPlane;
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
-			bool suppress_phase_progress = false;
-                        int rayCounter=0;
+			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
+            int rayCounter=0; 
+			
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
@@ -257,6 +258,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			void setWvl(double wvl); ///< sets the vacuum wavelength
 			void setk(maths::Vector<double> k) { this->k = k; reset(); }	///< sets the main direction of light source 
 			double calcz0() { z0 = M_PI * w0 * w0 / wvl; return z0; } ///< recalculates Rayleigh-length z0
+			std::complex<double> calcStartPhase(maths::Vector<double> P); 
 			void reset()
 			{			
 				polType = LIGHTSRC_POL_Y; // ???
@@ -285,13 +287,15 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 				R = f * (1 + z0 * z0 / (f * f));
 				k0 = 2.0 * M_PI / wvl;
 			}
+
 			double calcw(double z) ///< calculates the beam waist of the light beam at the distance z from the focal point, returns the value and sets the corrsponding local variable w (needed for next(), only for internal use)
 			{
 				w = w0 * sqrt(1.0 + z * z / (z0 * z0));
 				return w;
 			}
-			
 
+			
+			
 			void calcNormfak() ///< needed for next()
 			{
 				double l = abs(Pos - focuspos);
