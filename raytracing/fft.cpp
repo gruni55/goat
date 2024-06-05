@@ -45,6 +45,7 @@ namespace GOAT
             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
         }
 
+       
 
         GOAT::maths::Vector<std::complex<double> >  Trafo::integrate(double t, std::vector<gridEntry> vge, double omegastart, double omegastop)
         {
@@ -52,7 +53,7 @@ namespace GOAT
             if (vge.size() > 0)
             {
                 double k0;
-
+                double dw;
                 std::complex<double> phase;
                 std::complex<double> phase1;
                 std::complex<double> phase2;
@@ -60,10 +61,11 @@ namespace GOAT
                 double omega;
                 double domega = 2.0 * M_PI / fabs(tref - t);
                 double Domega = omegastop - omegastart;
-                double dw;
+// //                 double dw;
                 int nsteps = tp.nS;
                     domega = Domega / ((double)(nsteps));
                 double weight;
+
                 for (int iomega = 0; iomega < nsteps; iomega++)
                 {
                     omega = omegastart + iomega * domega;
@@ -142,12 +144,14 @@ namespace GOAT
         void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear)
         {
               //  auto start = std::chrono::high_resolution_clock::now();
-         
+            D=0;
+            int counter=0;
+            maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-  #pragma omp parallel for num_threads(7)
+  #pragma omp parallel for num_threads(6)
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {                    
                                 // std::cout << ix << std::endl << std::flush;
@@ -157,12 +161,17 @@ namespace GOAT
                                       //  std::cout << ix << "\t" << iy << "\t" << iz << std::endl << std::flush;
                                         if (SA[iR].G[i][ix][iy][iz].size() > 0)
                                         {
-                                            SAres.G[i][ix][iy][iz] += integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            maths::Vector<std::complex<double>> hint=integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
+                                            double absold = abs(SAres.G[i][ix][iy][iz]);
+                                            if (absold > 1E-20) { D += abs(hint) / absold; }
+                                            SAres.G[i][ix][iy][iz] += hint;
+                                            counter++;
                                             if (do_clear) SA[iR].G[i][ix][iy][iz].clear();
                                         }
                                     }
                              }
                         }
+                 D/=counter;
               //  auto end = std::chrono::high_resolution_clock::now();
               //  std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
         }

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['var_5fxy_0',['VAR_XY',['../resutil_8h.html#a4381a9a852575ade5defdb97269fcdb3',1,'resutil.h']]],
-  ['var_5fxz_1',['VAR_XZ',['../resutil_8h.html#a3f2c8937e3e1ea713504e3d05c6e78df',1,'resutil.h']]],
-  ['var_5fyz_2',['VAR_YZ',['../resutil_8h.html#a16674acdaa6d2548e5bf636acae2b911',1,'resutil.h']]]
+  ['z0_1958',['Z0',['../constants_8h.html#a49a0a00a612635d79a06bbe9fc15c094',1,'Z0():&#160;constants.h'],['../lightsrc_8h.html#a49a0a00a612635d79a06bbe9fc15c094',1,'Z0():&#160;lightsrc.h']]],
+  ['zylinder_1959',['ZYLINDER',['../objectshape_8h.html#a90722650e914ef6bb7c1ff89fd14d7a4',1,'objectshape.h']]],
+  ['zylinder_5fhexagonal_1960',['ZYLINDER_HEXAGONAL',['../objectshape_8h.html#acdf5a8b1c8c983079c06e7d864e7c190',1,'objectshape.h']]]
 ];

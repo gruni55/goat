@@ -77,7 +77,6 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 			stepEntry ge;
 			gridEntry gridStack;		
 			bool cancel = false;
-			// std::cout << PStart << "\t" << PStop << std::endl;
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
 			if ( (L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
@@ -109,7 +108,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				    if (SA[iR].Error == NO_ERRORS)
 					{	
 						gridStack.step.back() = ge;
-						SA[iR](currentObj, cell).push_back(gridStack);							
+						SA[iR](currentObj, cell).push_back(gridStack);
 						SA[iR](currentObj, cell).back().E = E;
  						// gridStack.step.push_back(ge);						
 					}		

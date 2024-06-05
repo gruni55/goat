@@ -1,9 +1,17 @@
 var searchData=
 [
-  ['b_0',['b',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#a3fec2acf82c1b1cb2e01e249beb7a942',1,'GOAT::raytracing::StrahlInfo']]],
-  ['bbox_1',['BBox',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#a5328c8b7440f58abd52e47b783da1250',1,'GOAT::raytracing::Octree']]],
-  ['bitlt_2',['bitLT',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#aa0724719e173538ec44167f60230666b',1,'GOAT::raytracing::shortPulse']]],
-  ['bmax_3',['bmax',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a1b86b42914e33c2f7d32f144301acf0b',1,'GOAT::raytracing::GlobalParms']]],
-  ['bounds_4',['bounds',['../class_g_o_a_t_1_1raytracing_1_1_box.html#a541ad66f0847b74433d0d7abb51ee7db',1,'GOAT::raytracing::Box']]],
-  ['buffers_5',['buffers',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#ab0000d301eaf8501f1a213b4c1e8f2dc',1,'GOAT::raytracing::SysMemInfo']]]
+  ['c_5flight_1543',['C_LIGHT',['../namespace_g_o_a_t_1_1raytracing.html#a4dd897507847680da7b14f9baf245d13',1,'GOAT::raytracing']]],
+  ['c_5flight_5fmu_1544',['C_LIGHT_MU',['../namespace_g_o_a_t_1_1raytracing.html#a79d16d11be9baf6f59e4e3a730ffd11e',1,'GOAT::raytracing']]],
+  ['c_5flight_5fmu_5ffs_1545',['C_LIGHT_MU_FS',['../namespace_g_o_a_t_1_1raytracing.html#a9e09cc135264898b03c98a33e5dff300',1,'GOAT::raytracing']]],
+  ['cached_1546',['cached',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a04c53e7621859e9e304e86d51d118458',1,'GOAT::raytracing::SysMemInfo']]],
+  ['child_1547',['child',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#ae171809abd1f3356dd7f6ca7af68d19b',1,'GOAT::raytracing::Octree']]],
+  ['coherency_1548',['coherency',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#a32a0504c35266f6e4734b629109459b0',1,'GOAT::raytracing::RRTParms']]],
+  ['colmax_1549',['ColMax',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a6add09bf7dbab6d1e8c033f00017db55',1,'GOAT::raytracing::GlobalParms']]],
+  ['colmin_1550',['ColMin',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a57433777782ca236377f225d820ccc35',1,'GOAT::raytracing::GlobalParms']]],
+  ['cunity_1551',['CUNITY',['../namespace_g_o_a_t_1_1maths.html#af316adec18961903cfe77123f8ebe110',1,'GOAT::maths']]],
+  ['currentindex_1552',['currentIndex',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a29ab6dfd006421bd84fb4c4c77d24b12',1,'GOAT::raytracing::Raytrace::currentIndex()'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface::currentIndex()']]],
+  ['currentls_1553',['currentLS',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a360372bc79715fdb613f8647c2385531',1,'GOAT::raytracing::Raytrace']]],
+  ['currentnorm_1554',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm()'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm()']]],
+  ['currentobj_1555',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
+  ['curvature_1556',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a243f145815c816376166b82079dc0bf3',1,'GOAT::raytracing::lensSide']]]
 ];

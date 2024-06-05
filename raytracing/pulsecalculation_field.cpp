@@ -260,7 +260,7 @@ namespace GOAT
 			nx = rt.SA[0].n[0][0];
 			ny = rt.SA[0].n[0][1];
 			nz = rt.SA[0].n[0][2];
-			os << "% " << nx << "x" << ny << "x" << ny << std::endl;
+			os << "% " << nx << "x" << ny << "x" << nz << std::endl;
 			int iObj;
 			int hsize;
 			for (int ix = 0; ix < nx; ix++)

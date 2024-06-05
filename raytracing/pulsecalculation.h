@@ -12,6 +12,10 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+
+		#define PULSECALCULATION_NOT_CLEAR_SA     1  ///< Flag, set when the SA SuperArray should not be cleared
+		constexpr int PULSECALCULATION_NOT_CLEAR_RESULT = 2;  ///< Flag, set when the results should not be cleared when calling field () in pulseCalculation
+
 	    /*! \brief This class provides functionality to calculate field distributions for short pulses.  
 		*   
 		*  The class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of 
@@ -58,7 +62,7 @@ namespace GOAT
 				*/
 				void setRepetitionRate(double rep);
 
-				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
+				double field(double t, int settings=0); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;
@@ -70,6 +74,7 @@ namespace GOAT
 				
 
 			private:	
+				int settings=0;
 				/* In this function the default values (trafoparms) for the calculations are set as follows:
 				* dt  : 1E-14s
 				* wvl : 1.0µm
@@ -89,7 +94,8 @@ namespace GOAT
 
 				TrafoParms trafoparms;
 				double tref = 0.0; 
-				int numReflex = INEL_MAX_NREFLEX;								
+				int numReflex = INEL_MAX_NREFLEX;		
+				int fieldCalls = 0; ///< how many times was field called (after last reset)
 		};
 	}
 }

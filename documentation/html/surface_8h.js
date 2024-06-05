@@ -1,7 +1,7 @@
 var surface_8h =
 [
-    [ "GOAT::raytracing::surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", "class_g_o_a_t_1_1raytracing_1_1surface" ],
-    [ "generateBullet", "surface_8h.html#adf476c5ac64d648999ccad582e80a39c", null ],
+    [ "surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", "class_g_o_a_t_1_1raytracing_1_1surface" ],
+    [ "generateBullet", "surface_8h.html#abbdc607b61ea4ff97be86b6f21b5fd04", null ],
     [ "generateEllipsoid", "surface_8h.html#ac78d7b74c839c07fb829320096b52fd3", null ],
     [ "generateHexagonCylinder", "surface_8h.html#acd8d5b420a55ba7db37ddfb125ef873a", null ],
     [ "generateHollowHexagonalCylinder", "surface_8h.html#a54be4faf95c9d3dc3848cad776670b05", null ],
@@ -13,5 +13,5 @@ var surface_8h =
     [ "operator+", "surface_8h.html#ac7c2b09523977b858ecf36c2176e216d", null ],
     [ "operator-", "surface_8h.html#af5d210bf4c939fd91910517f84e70730", null ],
     [ "operator-", "surface_8h.html#a1bb8016b176c61c48bc2313f25cfa02b", null ],
-    [ "operator<<", "surface_8h.html#a82aabe65090ebaf61aa8514aa7139a17", null ]
+    [ "operator<<", "surface_8h.html#ad695661e64d33d269dbc65b5a13c252e", null ]
 ];

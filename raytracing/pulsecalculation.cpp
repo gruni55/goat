@@ -21,8 +21,7 @@ namespace GOAT
 			setSpectralRanges(1);
 			setNumWavelengthsPerRange(1);
 
-			field(0);
-
+			field(0,false);
 			// find the first element which was hit by a ray
 			bool found = false;
 			INDEX_TYPE fix, fiy, fiz;
@@ -34,7 +33,7 @@ namespace GOAT
 						if (found) { fix = ix; fiy = iy; fiz = iz; }
 					}
 			
-			
+	//		std::cout << "fix=" << fix << "\tfiy=" << fiy << "\tfiz=" << fiz << std::endl;
 			
 			double time = 0.0;
 			if (found)
@@ -93,6 +92,7 @@ namespace GOAT
 			trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 			trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 			trafo.setTrafoParms(trafoparms);
+
 			for (int i = 0; i < trafoparms.nI; i++)
 			{
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
@@ -137,11 +137,12 @@ namespace GOAT
 			trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));			
 		}
 
-		void pulseCalculation::field(double t)
+		double pulseCalculation::field(double t, int settings)
 		{
+			this->settings = settings;
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
-std::cout << "Domega=" << Domega << std::endl;
+std::cout << "% Domega=" << Domega << std::endl;
 
 
 //			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
@@ -152,7 +153,8 @@ std::cout << "Domega=" << Domega << std::endl;
             double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
 			double wvl;
-		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+		    if(!(settings & PULSECALCULATION_NOT_CLEAR_SA) && (fieldCalls==0)) trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+			fieldCalls++;
 		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
@@ -165,11 +167,16 @@ std::cout << "Domega=" << Domega << std::endl;
                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
 				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
 
-				fieldCalculation(omega); // do the raytracing				
-				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
+				auto startrt = std::chrono::high_resolution_clock::now();
+				fieldCalculation(omega); // do the raytracing
+				auto endrt = std::chrono::high_resolution_clock::now();
+                std::cout << "% time for raytracing " << std::chrono::duration_cast<std::chrono::microseconds>(endrt - startrt).count() / 1000000 << " s" << std::endl;
+				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t, settings & PULSECALCULATION_NOT_CLEAR_SA); // do the Fourier transform
+
 				auto end = std::chrono::high_resolution_clock::now();
-				std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
+				std::cout << "% integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
 			}
+			return trafo.getD();
 		}
 
 	/*	void pulseCalculation::field(double t)
@@ -197,6 +204,7 @@ std::cout << "Domega=" << Domega << std::endl;
 			}
 			SA.clear();
 			raytracingDone = false;
+			fieldCalls = 0;
 		}
 
 

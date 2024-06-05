@@ -1,92 +1,92 @@
-\doxysection{maths/matrix.h File Reference}
-\hypertarget{matrix_8h}{}\label{matrix_8h}\index{maths/matrix.h@{maths/matrix.h}}
+\hypertarget{matrix_8h}{}\doxysection{maths/matrix.h File Reference}
+\label{matrix_8h}\index{maths/matrix.h@{maths/matrix.h}}
 
 
 This file contains the definition of a template for 3x3 matrices, which can be used together with the Vector class, defined in this project.  
 
 
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
-\doxysubsubsection*{Classes}
+\doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix$<$ T $>$}}
-\end{DoxyCompactItemize}
-\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} as a template. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
-namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{GOAT\+::maths}}
+ \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{GOAT\+::maths}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af4bb98f52dbc0a9ce9246ef6de25d602}{GOAT\+::maths\+::unity}} ()
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a8b89dbaa865e76e1e4f17b537e20db05}{GOAT\+::maths\+::unity}} ()
 \begin{DoxyCompactList}\small\item\em unity matrix (double precision) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a89fc189ecfa6854676c7477753b001f4}{GOAT\+::maths\+::cunity}} ()
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a67cba12566b8654f7cfab99c0d7938d2}{GOAT\+::maths\+::cunity}} ()
 \begin{DoxyCompactList}\small\item\em unity matrix (complex) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a151155d7efac75db8f4d2b0f0b4c8627}{GOAT\+::maths\+::null}} ()
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a04de32a2177d147752257fd4b2e03ebe}{GOAT\+::maths\+::null}} ()
 \begin{DoxyCompactList}\small\item\em Null-\/matrix (all components are zero) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6ecc1cf8634087afaad1ab0daef979cc}{GOAT\+::maths\+::trafo}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ \&e0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ \&e1, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ \&e2, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&H, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&R)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6ecc1cf8634087afaad1ab0daef979cc}{GOAT\+::maths\+::trafo}} (const Vector$<$ double $>$ \&e0, const Vector$<$ double $>$ \&e1, const Vector$<$ double $>$ \&e2, Matrix$<$ double $>$ \&H, Matrix$<$ double $>$ \&R)
 \begin{DoxyCompactList}\small\item\em Calculates the transformation matrices from the laboratory coordinate system into a local system and vice versa. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ special operators for mixed types}\par
 {\em Operators for calculations with mixed types. }\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac5d8f08f188138b7304d3ec8599b6ccb}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2a84020a9a9976f1345d4963aa2183db}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ double $>$ \&, const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a25098f208a8127bc1023d609c0911bca}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a4e8c07cb550c94a74c322a99dc95cedc}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const Matrix$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acf19315f44c95221104fc2722778bf6a}{GOAT\+::maths\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa5b7d0e8f221b86915714fd61c0b76b3}{GOAT\+::maths\+::operator+}} (const Matrix$<$ double $>$ \&, const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7c91d6572622419c7f15d6475f51e536}{GOAT\+::maths\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af9a36ebbdfc0c96ce6b95105823a938a}{GOAT\+::maths\+::operator+}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const Matrix$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aab38eb0305f25fa1bdefc9ce00b89e49}{GOAT\+::maths\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0f0af0978206fe66401e7bcce7b905c7}{GOAT\+::maths\+::operator-\/}} (const Matrix$<$ double $>$ \&, const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_abf733bc02cc16d0f04573660a692ff83}{GOAT\+::maths\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a67bd39c5b73d502176fcc1b5fccbdd2b}{GOAT\+::maths\+::operator-\/}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const Matrix$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ad24656bab3717ff1f30d9b037b34ca63}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a05f710115bd39b512c3279fd873d4451}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ double $>$ \&, const Vector$<$ std\+::complex$<$ double $>$ $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ad6f1dc95baddb694940b77c58336a4ab}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ \&)
+Vector$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a99f0a8853fffe204e90d9929971e2431}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const Vector$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a618130e030c10f6aaa2e543ec3351b0d}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const std\+::complex$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_addf072489369e1dbc3ce1c5de7e85935}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ double $>$ \&, const std\+::complex$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a94a74df9befa83e3b866b37d82227cab}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const double \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3e59318147a47b93cf1074db0fe2ba5d}{GOAT\+::maths\+::operator$\ast$}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const double \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2af2bd42be50b313922b9433a30d5d1e}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const double \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ab9e83ca24aa5c0d11e1e122d4de21784}{GOAT\+::maths\+::operator$\ast$}} (const double \&, const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aca7dcc9cb5df86aedf7e6d69d4954f40}{GOAT\+::maths\+::operator\texorpdfstring{$\ast$}{*}}} (const std\+::complex$<$ double $>$ \&, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa87b2cb5b52b6c3cdf51d01ea571a1fa}{GOAT\+::maths\+::operator$\ast$}} (const std\+::complex$<$ double $>$ \&, const Matrix$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ab028137c4b12e5527578c690627adc12}{GOAT\+::maths\+::operator/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \&, const std\+::complex$<$ double $>$ \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa5a52d7ef342091fc9f5f553003a5b36}{GOAT\+::maths\+::operator/}} (const Matrix$<$ double $>$ \&, const std\+::complex$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_abc210e1fbd300f7683b949a3f84ad74a}{GOAT\+::maths\+::operator/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \&, const double \&)
+Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a53d60f24ec73ba22b581da1e2e2a22ca}{GOAT\+::maths\+::operator/}} (const Matrix$<$ std\+::complex$<$ double $>$ $>$ \&, const double \&)
 \end{DoxyCompactItemize}
 \end{Indent}
 \begin{Indent}\textbf{ Rotation matrices}\par
 {\em Rotation matrices around the principal axis of the cartesian coordinate system (angles are given in radiants) }\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a8ff3b630bf57b0490b8b232ad6a0ff7e}{GOAT\+::maths\+::\+Dx}} (double phi)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7dd3791de720aae4d28513991ebce273}{GOAT\+::maths\+::\+Dx}} (double phi)
 \begin{DoxyCompactList}\small\item\em Rotation around x axis. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a9b65ccebd66b8e79b2e3c0d2240fbb05}{GOAT\+::maths\+::\+Dy}} (double phi)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a53bc107219d5ecb2a68cb7c8bbfbe5d8}{GOAT\+::maths\+::\+Dy}} (double phi)
 \begin{DoxyCompactList}\small\item\em Rotation around y axis. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aca592fee1949e8f3edc9cf9bb1dcc6c1}{GOAT\+::maths\+::\+Dz}} (double phi)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3de3df74624399a2d660a81fcfbd5d96}{GOAT\+::maths\+::\+Dz}} (double phi)
 \begin{DoxyCompactList}\small\item\em Rotation around z axis. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae940162a9cdd6fbe3b31d62b729ac06a}{GOAT\+::maths\+::rot\+Matrix}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ a, double gamma)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a3beccbfc92403b4b0186271b63d073a1}{GOAT\+::maths\+::rot\+Matrix}} (const Vector$<$ double $>$ a, double gamma)
 \begin{DoxyCompactList}\small\item\em Rotation matrix for rotation around the axis a by the angle gamma. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a88968d4ecbb75a07690550baefd445ff}{GOAT\+::maths\+::rot\+Matrix}} (double alpha, double beta, double gamma)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae41a4830b0fc494032edcd71518152ad}{GOAT\+::maths\+::rot\+Matrix}} (double alpha, double beta, double gamma)
 \begin{DoxyCompactList}\small\item\em Rotation matrix calculated from rotation around x-\/axis, y-\/axis and z-\/axis. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a64596127da82d2eb1c7455ae73fceae5}{GOAT\+::maths\+::rot\+MatrixA}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ n, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ k, double gamma)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a73ae487d8926e834ffdff15bae399a3e}{GOAT\+::maths\+::rot\+MatrixA}} (Vector$<$ double $>$ n, Vector$<$ double $>$ k, double gamma)
 \begin{DoxyCompactList}\small\item\em Calculates rotation matrix for a rotation around an axis passing through a given point and pointing in a defined direction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a7fc45822b9963474000673ffafaf9704}{GOAT\+::maths\+::rot\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ P, double dtheta, double dphi)
+Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_aa0784db23dcb91195c235db556d97b06}{GOAT\+::maths\+::rot\+Matrix}} (Vector$<$ double $>$ P, double dtheta, double dphi)
 \end{DoxyCompactItemize}
 \end{Indent}
-\doxysubsubsection*{Variables}
+\doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{GOAT\+::maths\+::\+UNITY}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$double$>$(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$double$>$(1.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$double$>$(0.\+0, 1.\+0, 0.\+0), \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$double$>$(0.\+0, 0.\+0, 1.\+0))
+const Matrix$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{GOAT\+::maths\+::\+UNITY}} = Matrix$<$double$>$(Vector$<$double$>$(1.\+0, 0.\+0, 0.\+0), Vector$<$double$>$(0.\+0, 1.\+0, 0.\+0), Vector$<$double$>$(0.\+0, 0.\+0, 1.\+0))
 \begin{DoxyCompactList}\small\item\em Unity matrix (double-\/valued) \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{GOAT\+::maths\+::\+CUNITY}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$std\+::complex$<$double$>$ $>$(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$(1, 0, 0), \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$(0, 1, 0), \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$std\+::complex$<$double$>$ $>$(0, 0, 1))
-\begin{DoxyCompactList}\small\item\em (complex-\/valued) \end{DoxyCompactList}\end{DoxyCompactItemize}
+const Matrix$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{GOAT\+::maths\+::\+CUNITY}} = Matrix$<$std\+::complex$<$double$>$ $>$(Vector$<$std\+::complex$<$double$>$ $>$(1, 0, 0), Vector$<$std\+::complex$<$double$>$ $>$(0, 1, 0), Vector$<$std\+::complex$<$double$>$ $>$(0, 0, 1))
+\begin{DoxyCompactList}\small\item\em Unity matrix (complex-\/valued) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -98,7 +98,3 @@ Thomas
 \begin{DoxyDate}{Date}
 July 2021 
 \end{DoxyDate}
-
-
-Definition in file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
-

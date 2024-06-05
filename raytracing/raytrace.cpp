@@ -603,6 +603,10 @@ namespace GOAT
 			return -1;
 		}
 
+		void Raytrace::reset()
+		{
+		}
+
 		Raytrace_Path::Raytrace_Path() : Raytrace()
 		{
 			type = RAYTRACER_TYPE_PATH;

@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 38.277512
+%%BoundingBox: 0 0 500 24.009604
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 13.062500 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 20.825001 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
 /rows 2 def
-/cols 5 def
+/cols 7 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -174,6 +174,8 @@
 boxfont setfont
 1 boundaspect scale
 (GOAT::raytracing::Raytrace) cw
+(GOAT::raytracing::Raytrace_Field) cw
+(GOAT::raytracing::Raytrace_Field_usp) cw
 (GOAT::raytracing::Raytrace_Inel) cw
 (GOAT::raytracing::Raytrace_OT) cw
 (GOAT::raytracing::Raytrace_Path) cw
@@ -190,19 +192,21 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (GOAT::raytracing::Raytrace) 2.000000 1.000000 box
- (GOAT::raytracing::Raytrace_Inel) 0.000000 0.000000 box
- (GOAT::raytracing::Raytrace_OT) 1.000000 0.000000 box
- (GOAT::raytracing::Raytrace_Path) 2.000000 0.000000 box
- (GOAT::raytracing::Raytrace_pure) 3.000000 0.000000 box
- (GOAT::raytracing::Raytrace_usp) 4.000000 0.000000 box
+ (GOAT::raytracing::Raytrace) 3.000000 1.000000 box
+ (GOAT::raytracing::Raytrace_Field) 0.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_Field_usp) 1.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_Inel) 2.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_OT) 3.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_Path) 4.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_pure) 5.000000 0.000000 box
+ (GOAT::raytracing::Raytrace_usp) 6.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 2.000000 0.250000 out
+1 3.000000 0.250000 out
 solid
-0.000000 4.000000 1.000000 conn
+0.000000 6.000000 1.000000 conn
 solid
 0 0.000000 0.750000 in
 solid
@@ -213,3 +217,7 @@ solid
 0 3.000000 0.750000 in
 solid
 0 4.000000 0.750000 in
+solid
+0 5.000000 0.750000 in
+solid
+0 6.000000 0.750000 in

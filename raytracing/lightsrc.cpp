@@ -412,6 +412,7 @@ namespace  GOAT
 			this->Pos = Pos;
 			this->density = 2.0 * rmax / ((double)N);
 			this->type = LIGHTSRC_SRCTYPE_RING;
+			D = 2.0 * rmax;
 			D1 = 2.0 * rmax;
 			D2 = 2.0 * rmax;
 			this->k = maths::ez;
@@ -426,6 +427,18 @@ namespace  GOAT
 			numObjs = 0;
 			Obj = 0;
 			reset();
+		}
+
+		void LightSrcRing::setRmin(double rmin)
+		{
+			if (rmin<rmax) this->rmin=rmin;
+		}
+
+		void LightSrcRing::setRmax(double rmax)
+		{
+			this->rmax=rmax;
+			D=rmax/(double)N;
+			density = 2.0 * rmax / ((double)N);
 		}
 
 		int LightSrcRing::next(RayBase* ray)
@@ -563,6 +576,7 @@ namespace  GOAT
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
+                        rayCounter=0; 
 			switch (type)
 			{
 			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
@@ -591,8 +605,7 @@ namespace  GOAT
 
 		LightSrcGauss::LightSrcGauss(void)
 		{
-			type = LIGHTSRC_SRCTYPE_GAUSS;
-			reset();
+			type = LIGHTSRC_SRCTYPE_GAUSS;			
 			Pall = 0.0;
 			k = maths::ez;
 			density = 1;
@@ -604,6 +617,7 @@ namespace  GOAT
 			n0 = 1.0;
 			Pol = maths::Vector<std::complex<double> >(0, 1.0, 0);
 			polType = LIGHTSRC_POL_Y;
+			reset();
 		}
 
 
@@ -981,7 +995,21 @@ namespace  GOAT
 			P0 = L.P0;
 			k = L.k;
 			numObjs = L.numObjs;
+			reset();
 		}
+
+		std::complex<double> LightSrcGauss::calcStartPhase(maths::Vector<double> P)
+		{
+			std::complex<double> phase;
+			maths::Vector<double> hv = P - Pos;
+			double r2 = hv * hv;
+			double z = k * (focuspos - P);    // we don't use the absolute value of Pos-focuspos, to get the right sign of z 
+			R = z * (1 + z0 * z0 / (z * z));  // calculate the curvature of the phase front at P
+			double gouy = atan(z / z0); // Gouy phase
+			phase = exp(-I * (k0 * n0 * r2 / (2.0 * R) + (k0 * n0 * z - gouy)));
+			return phase;
+		}
+
 
 		/*
 		void LightSrcGauss::initElectricFieldGauss(maths::Vector<double> &P, maths::Vector<double> &n, maths::Vector<std::complex<double> > &E)
