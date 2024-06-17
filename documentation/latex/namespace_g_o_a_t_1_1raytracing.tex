@@ -3,12 +3,12 @@
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side}{aspheric\+Lens\+Side}}
-\begin{DoxyCompactList}\small\item\em Structure to describe one side of an aspheric lens The surface is described by $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l$. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms}{aspheric\+Lens\+Parms}}
-\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1aspheric_lens}{aspheric\+Lens}}
 \begin{DoxyCompactList}\small\item\em Representation of aspheric lens The left and the right side is described by a formula $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l \alpha_l r^l $ or the side can also be plano. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms}{aspheric\+Lens\+Parms}}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side}{aspheric\+Lens\+Side}}
+\begin{DoxyCompactList}\small\item\em Structure to describe one side of an aspheric lens The surface is described by $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}
 \begin{DoxyCompactList}\small\item\em class which represents a box (cuboid). It is derived by class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} This class is mainly used for the octree calculation. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone}{Cone}}
@@ -19,119 +19,119 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\
 \begin{DoxyCompactList}\small\item\em This class provides a plane detector, defined by its center point and its side length. The detector plane is spanned by the vectors e1 and e2. The absolute value of the vectors e1 and e2 are the cell widths in the corresponding direction. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ellipsoid}{Ellipsoid}}
 \begin{DoxyCompactList}\small\item\em This class represents an ellipsoid This class represents an ellipsoid, defined by its half axis a, b and c according to the formula\+: $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}}
-\begin{DoxyCompactList}\small\item\em Structure, which acts as a container for all informations needed to process the calculation. ~\newline
- \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}
-\begin{DoxyCompactList}\small\item\em This class calculates the time dependence of a field which calculated before. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}
 \begin{DoxyCompactList}\small\item\em This class provides a grid used for inelastic scattering calculation. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}}
-\begin{DoxyCompactList}\small\item\em Structure to store the information about one raytracing step In this structure, the information about a single raytracing step is stored. It is used within the ultrashort pulse calculation process. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}}
 \begin{DoxyCompactList}\small\item\em Structure which holds all steps from the light source to the grid point In this structure every step is stored from the light source to the grid point and additonally the electric field at the grid point. For the electric field determination, only the Fresnel matrices, which describes the interaction between the ray and the object\textquotesingle{}s surface, will be considered This structure is needed within the ultrashort pulse calculation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{index\+List}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}}
 \begin{DoxyCompactList}\small\item\em This class represents a single ray. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}
-\begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}
 \begin{DoxyCompactList}\small\item\em Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}}) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}
+\begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}
 \begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+Src\+Plane}}
-\begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{Light\+Src\+Ring}}
-\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+Src\+Gauss}}
 \begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}{Light\+Src\+Gauss\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em This class provides a gaussian beam with arbitrary distributed rays. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+Src\+Plane}}
+\begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}{Light\+Src\+Plane\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{Light\+Src\+Ring}}
+\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc}{Light\+Src\+Ring\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em Ring shaped light source. This class provides a ring shaped light source with arbitrary, uniform distributed rays within the light source area. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc}}
 \item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_mem_info}{Mem\+Info}}
 \item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}}
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}
 \begin{DoxyCompactList}\small\item\em Abstract base class for all volume objects This abstract class provides a template for all volume objects. The refractive index is complex to be able to consider absorption. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}
 \begin{DoxyCompactList}\small\item\em This template class is used for internal purposes and represents an octree. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_opt_prop}{Opt\+Prop}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. ~\newline
  \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field}{pulse\+Calculation\+\_\+field}}
-\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field}{pulse\+Calculation\+\_\+\+Field}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. ~\newline
  \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field}{pulse\+Calculation\+\_\+field}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}}
 \begin{DoxyCompactList}\small\item\em This class provides a ray which carries a special power. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}
 \begin{DoxyCompactList}\small\item\em Abstract base class for all rays used for the raytracing process. This abstract base class for all rays is the parent class, from which all ray classes are derived. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}
-\begin{DoxyCompactList}\small\item\em Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} base class. All objects are described by classes derived from the virtual class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry}{ray\+List\+Entry}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace}{Raytrace}}
 \begin{DoxyCompactList}\small\item\em This class provides all functionalities for the base raytracing code. It follows all rays from all light sources through the scene. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field}{Raytrace\+\_\+\+Field}}
+\begin{DoxyCompactList}\small\item\em Class which stores the electric field inside a box This raytracer can store the electric field even if there are objects in at least one box (we will call this box a \char`\"{}box detector\char`\"{}). The different box detectors must not interfere ! (In the moment, this will not be checked!) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp}{Raytrace\+\_\+\+Field\+\_\+usp}}
+\begin{DoxyCompactList}\small\item\em This class provides a raytracer to calculate the field distribution in a box detector for a ultrashort pulsed light source Unlike the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}}, the field in more than one object or in parts of objects can stored. As in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}}, in the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} grid the information (step length, index of the object involved in the step) for each step from the light source to the corresponding point in the grid is stored. For each reflection order one grid will be created. The field will be stored within one or more boxes (called \char`\"{}box detector\char`\"{}) \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{Raytrace\+\_\+\+Inel}}
+\begin{DoxyCompactList}\small\item\em Class for calculating inelastic scattering (Raman) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t}{Raytrace\+\_\+\+OT}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate the forces for optical tweezers. It is derived by the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace}{Raytrace}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___path}{Raytrace\+\_\+\+Path}}
 \begin{DoxyCompactList}\small\item\em Class which stores the start and end points of each step into a file. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__pure}{Raytrace\+\_\+pure}}
 \begin{DoxyCompactList}\small\item\em This class makes a raytracing without any output (except detectors) In this ray tracing class no reactions at the surface is included. It is intended for calculation only with detectors. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field}{Raytrace\+\_\+\+Field}}
-\begin{DoxyCompactList}\small\item\em Class which stores the electric field inside a box This raytracer can store the electric field even if there are objects in at least one box (we will call this box a \char`\"{}box detector\char`\"{}). The different box detectors must not interfere ! (In the moment, this will not be checked!) \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp}{Raytrace\+\_\+\+Field\+\_\+usp}}
-\begin{DoxyCompactList}\small\item\em This class provides a raytracer to calculate the field distribution in a box detector for a ultrashort pulsed light source Unlike the class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}}, the field in more than one object or in parts of objects can stored. As in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}}, in the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} grid the information (step length, index of the object involved in the step) for each step from the light source to the corresponding point in the grid is stored. For each reflection order one grid will be created. The field will be stored within one or more boxes (called \char`\"{}box detector\char`\"{}) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}}
-\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{Raytrace\+\_\+\+Inel}}
-\begin{DoxyCompactList}\small\item\em Class for calculating inelastic scattering (Raman) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}}
 \begin{DoxyCompactList}\small\item\em This class performs ray tracing in preparation for a later calculation of short pulses This class performs ray tracing and stores the length and the refractive index as an index of each step into a \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} class named SA. This information is necessary for the calculation of the short pulses. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_opt_prop}{Opt\+Prop}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_array}{Strahl\+Array}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}}
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}}
 \begin{DoxyCompactList}\small\item\em Class used to set the parameters for inelastic scattering (may replaced later) \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry}{ray\+List\+Entry}}
-\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{index\+List}}
-\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}
+\begin{DoxyCompactList}\small\item\em Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} base class. All objects are described by classes derived from the virtual class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}}. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse}{short\+Pulse}}
 \begin{DoxyCompactList}\small\item\em Class for the calculation of short pulses. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}}
 \begin{DoxyCompactList}\small\item\em This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lateral surface. The properties of the lens is described in the structure lp Each side surface can either be convex, concave or flat. The center of the lens is situate in the center between the to side surfaces. The distance between this surfaces is the offset parameter in lp. Left side (convex)\+: \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}}
+\begin{DoxyCompactList}\small\item\em Structure to store the information about one raytracing step In this structure, the information about a single raytracing step is stored. It is used within the ultrashort pulse calculation process. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_array}{Strahl\+Array}}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}
 \begin{DoxyCompactList}\small\item\em Template class to store arbitrary information in a 3D-\/grid This template class provides a virtual 3D-\/grid of arbitrary values which can be used to store e.\+g. the electric field in a volume. It circumscribes a sphere with radius r0 and virtual means here, that only the parts which are needed were allocated, but for the programmer it seems like a whole array or grid. By adding an object to the grid, the memory for the grid around the object (circumscribed box) is allocated, so one can store the electric field inside the object. The cells of the grid can be addressed with help of the bracket()-\/operator with different arguments. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_grid}{Super\+Grid}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}}
 \begin{DoxyCompactList}\small\item\em This class represents objects those surface is described by triangles. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}}
+\begin{DoxyCompactList}\small\item\em This class calculates the time dependence of a field which calculated before. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}}
+\begin{DoxyCompactList}\small\item\em Structure, which acts as a container for all informations needed to process the calculation. ~\newline
+ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}
 \begin{DoxyCompactList}\small\item\em This class describes a triangle, represented by its corner points. It is intented for internal purposes. The triangle class is mainly used in class surface. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}
+\begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{tubed\+Ray\+Buffer}}
 \item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}}
-\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}
-\begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -148,221 +148,141 @@ enum \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad73167eed6df0edcb28dcd792eff3a16}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} B)
-\begin{DoxyCompactList}\small\item\em output operator for the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} class \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2efae30d20027e8582eb3353eaa57508}{error}} (int nerr, std\+::string msg)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2298e2f2f25875138b3fdb5336d1586f}{abs2}} (double x)
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acde992e00701e6cbd5578c5ae8c106a9}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} \&se)
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{abs2sum}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a29a02b9cf4c838112987352724404055}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} \&ge)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4c83c8c922c6e340a52e295e78c64f0b}{acos}} (const std\+::complex$<$ double $>$ \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a051595d7e208fb8d78f02754996e87cf}{startpunkt}} (int ix, int iy, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git, double r, double theta, double phi)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aecc2cdce55fa5af6645dfbcc9caa74e8}{startpunkt}} (int ix, int iy, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git, double theta, double phi)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3decd373060412ef053cbf5acbed7604}{drehvektor}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ vein, double theta, double phi)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2d83d9da1e0795a4546eaf23035ac077}{drehphivektor}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ vein, double phi)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0bea97bff245e60ef7c80c236541e5c}{ursprungrot}} (double dr, double theta, double phi, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&exrot, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&eyrot, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a76241e18d8cc04cd9c8c3a6e3676c990}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ d, double eps=1E-\/50)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad4226411c6a107847de1cb70eda2a7ee}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} E, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0s, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0s, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ d, double eps=1E-\/50)
-\item 
-{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af1ec5519956e9358ac491e7ff6a50375}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&git, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \&current\+Index)
-\item 
-{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3e8baeee292d1ff71ae89dc965e12b22}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&git, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \&current\+Index, double eps)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em write a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} structure in a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em write a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} structure in a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} structure from a binary file ~\newline
- \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} structure from a binary file ~\newline
- \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ls)
-\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{bin\+Read\+LSList}} (std\+::ifstream \&is, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&ls)
-\begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{copy\+Light\+Src\+List}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$s, int n\+LS)
-\begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_mem_info}{Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7c73bcb2fb33bed3da19556841bbf64d}{memstat}} ()
-\item 
-\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a160f0c7c90279dcac4982b45ee1fbf79}{sysmem}} ()
-\item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affda1aaf3eac151440765b961e1e0766}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}} smi)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1e2a56a7879491478cf4ba42dab27048}{init\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7a26d5e1f02540ef7367f5d76ca5fa2}{set\+R0}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E, double r0)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2b4dedb873698843f75c9abf9fe4b4fe}{copy\+Form\+List}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$s, int anz)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{bin\+Write\+Inc\+List}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$E, int anz)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{bin\+Write\+Inc}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf30bb9321fb4f42e447cbe0b255c284}{bin\+Read\+Inc\+List}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$\&E, int anz)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{bin\+Read\+Inc}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\&E, bool is\+New)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a58fa5326b697b71fc6bb611547782000}{copy\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$s)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af784b943e18085be4e90bd83d2b7a499}{delete\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aadd816301b7a043d61b863299db10a92}{force}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ norm, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} Se, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} Sr, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} St, double df)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7874817c58cb0f9a946cca676453a292}{gaussw}} (double z, double wvl, double w0)
-\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afbd405954ef29592058437c1790666a6}{gaussphase}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ F, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, double w0, double k0)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aeb50e037d12fc6eef98ad0fe58179f0e}{NA2w0}} (double lambda, double NA, std\+::complex$<$ double $>$ n)
-\item 
-float \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abb4d508128867885d88a5acecb346908}{read\+LE\+\_\+float32}} (std\+::istream \&is)
-\item 
-int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9bf7fb662ab6211a6ff3937a6e5a41ff}{read\+LE\+\_\+int32}} (std\+::istream \&is)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a15ba526dd5bd78ba74cb5e25561c354b}{compute\+Inertia}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$F)
-\begin{DoxyCompactList}\small\item\em calculates inertia matrix \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b8cd1de490988811ee3a543696e90b7}{intersection\+Test}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&A, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&B)
-\begin{DoxyCompactList}\small\item\em Test if object A and object B may intersect each other (i.\+e. the bounding boxes around the objects intersect each other) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{check\+Triangle\+Box\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} B, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} D)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{add\+Triangle\+To\+Triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ $\ast$O, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} D, int rek)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaaf44b4b0dd9b3c754623eb7b0604759}{add\+\_\+\+Gitter}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Erg, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter2)
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abf3060ba1344b7513b017ef79d556557}{add\+Triangle\+To\+Triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&O, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} D)
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{ray\+Octree\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&T, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&D)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{add\+Triangle\+To\+Triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ $\ast$O, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} D, int rek)
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{write\+Triangle\+Octree}} (char $\ast$Fname, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \&Gs, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em write the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure to a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} structure from a binary file ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em read a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} structure from a binary file ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{bin\+Read\+Inc}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\&E, bool is\+New)
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8f9f6871133f006d9df9a06d30cecd}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf30bb9321fb4f42e447cbe0b255c284}{bin\+Read\+Inc\+List}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$\&E, int anz)
 \item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{bin\+Read\+LSList}} (std\+::ifstream \&is, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&ls)
+\begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs, std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em write a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} structure in a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em write a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} structure in a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{bin\+Write\+Inc}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{bin\+Write\+Inc\+List}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$E, int anz)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1eadf92a6f76e3f9640a40e413a34e88}{calc\+Det\+Dir\+Parms}} (double theta, double phi, double wvlinel)
 \begin{DoxyCompactList}\small\item\em Calculates the parameters for the detector with help of the spherical coordinates theta and phi This function generates a \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} structure for a scattering detection in the direction determined by the spherical coordinates theta and phi. \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a69be94dbbba4cf80910671c3d467799a}{n\+\_\+\+BK7}} (double wvl)
-\begin{DoxyCompactList}\small\item\em refractive index of BK7 (glass, Schott) according to refractiveindex.\+info \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a193c1081e5ff3fbc2c2ce7d7a5b2afd3}{n\+\_\+\+Glass}} (double wvl)
-\begin{DoxyCompactList}\small\item\em refractive index of 1.\+5 \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab9044dba55da7581d21c7e64c31cb5f6}{n\+\_\+fused\+\_\+silica}} (double wvl)
-\begin{DoxyCompactList}\small\item\em refractive index of fused silica according to refractiveindex.\+info \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acec4b44a72051fcf3dbc9777e93a4e72}{check\+Object\+Intersection}} (double r0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae86f896ce7365ebc5643a2c56fd67b0b}{check\+Object\+Intersection}} (double r0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&S, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8603ce594bfcc37111dc0b1fc9bd1045}{check\+Object\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&S, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{check\+Triangle\+Box\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} B, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} D)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a15ba526dd5bd78ba74cb5e25561c354b}{compute\+Inertia}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$F)
+\begin{DoxyCompactList}\small\item\em calculates inertia matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa129f530c425cdeddfbcfd9f975bc0c4}{copy}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&dest, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} src)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2b4dedb873698843f75c9abf9fe4b4fe}{copy\+Form\+List}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$s, int anz)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a58fa5326b697b71fc6bb611547782000}{copy\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$s)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{copy\+Light\+Src\+List}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$\&d, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$s, int n\+LS)
+\begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af16607f3222c579004d47b7c0b6f024d}{Delete}} (int n, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af784b943e18085be4e90bd83d2b7a499}{delete\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2d83d9da1e0795a4546eaf23035ac077}{drehphivektor}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ vein, double phi)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3decd373060412ef053cbf5acbed7604}{drehvektor}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ vein, double theta, double phi)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2efae30d20027e8582eb3353eaa57508}{error}} (int nerr, std\+::string msg)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aadd816301b7a043d61b863299db10a92}{force}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ norm, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} Se, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} Sr, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} St, double df)
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afbd405954ef29592058437c1790666a6}{gaussphase}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ F, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, double w0, double k0)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7874817c58cb0f9a946cca676453a292}{gaussw}} (double z, double wvl, double w0)
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acec6e0e2684386f9219f5ccf8ad4b0ae}{get\+\_\+grid\+\_\+point}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a54ee734329c2a8639780687e741747b9}{grad}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2ee5e0f76a9316b09130874d09c4cbe1}{init\+\_\+\+Strahl}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} Parms, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_array}{Strahl\+Array}} $\ast$Strahl)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1e2a56a7879491478cf4ba42dab27048}{init\+Inc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b8cd1de490988811ee3a543696e90b7}{intersection\+Test}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&A, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&B)
+\begin{DoxyCompactList}\small\item\em Test if object A and object B may intersect each other (i.\+e. the bounding boxes around the objects intersect each other) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4104e01cad5e2f7add35a5df5a814f24}{kart2sph}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
+\item 
+std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa053b463ed8a64a0c8e1274892835933}{loadbin\+Global\+Parms}} (std\+::istream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{max3}} (double x, double y, double z)
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_mem_info}{Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7c73bcb2fb33bed3da19556841bbf64d}{memstat}} ()
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{min3}} (double x, double y, double z)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab897ab2ef20c4648f524c0a62433fa36}{minmax}} (double a, double b)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac826726a7d875427f756221ffa734599}{minmax}} (double x, double dx, int \&min, int \&max)
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a077a99b6ab81b3decd4b36a52f405f42}{n\+\_\+\+ABS}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index function for highly absorbing medium with real part 1.\+0 \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5bf557095076395e7f5fa491fd17f546}{n\+\_\+\+Air}} (double wvl)
 \begin{DoxyCompactList}\small\item\em refractive index of air according to refractiveindex.\+info \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5272b1b5d1f6682f7fc2586bac0e251b}{n\+\_\+\+Vacuum}} (double wvl)
-\begin{DoxyCompactList}\small\item\em refractive index of vacuum (=1.\+0) for compatibility \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67fe8b5912832cb7b83fd0aab1d12972}{n\+\_\+\+Sellmeier}} (double lambda, double C\mbox{[}3\mbox{]}, double B\mbox{[}3\mbox{]})
-\begin{DoxyCompactList}\small\item\em refractive index formula used for glasses from Schott \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a69be94dbbba4cf80910671c3d467799a}{n\+\_\+\+BK7}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index of BK7 (glass, Schott) according to refractiveindex.\+info \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab9044dba55da7581d21c7e64c31cb5f6}{n\+\_\+fused\+\_\+silica}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index of fused silica according to refractiveindex.\+info \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a193c1081e5ff3fbc2c2ce7d7a5b2afd3}{n\+\_\+\+Glass}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index of 1.\+5 \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad833717174c495e6f0bb9493a547c38e}{n\+\_\+\+LASF55}} (double wvl)
 \begin{DoxyCompactList}\small\item\em refractive index of LASF55-\/glass from Schott (coefficients according taken from www.\+schott.\+com) \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6e538e252d90b341023d70a1ec73fe12}{n\+\_\+lin}} (double wvl)
 \item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a077a99b6ab81b3decd4b36a52f405f42}{n\+\_\+\+ABS}} (double wvl)
-\begin{DoxyCompactList}\small\item\em refractive index function for highly absorbing medium with real part 1.\+0 \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67fe8b5912832cb7b83fd0aab1d12972}{n\+\_\+\+Sellmeier}} (double lambda, double C\mbox{[}3\mbox{]}, double B\mbox{[}3\mbox{]})
+\begin{DoxyCompactList}\small\item\em refractive index formula used for glasses from Schott \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae110a3488c5709ba9015cfa28d8d32d5}{n\+\_\+test}} (double wvl)
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3275f629a68bdc4827e6f6316e3cc39c}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
-\item 
-std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d821599202f74a17de48362e1dcc908}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2298e2f2f25875138b3fdb5336d1586f}{abs2}} (double x)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa018b1f51379f0c4c627a4fbf205fde8}{output}} (int nx, int ny, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$G)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2ee5e0f76a9316b09130874d09c4cbe1}{init\+\_\+\+Strahl}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} Parms, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_array}{Strahl\+Array}} $\ast$Strahl)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac94c80d7272730105906a67368cb426a}{sub\+\_\+\+Gitter}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Erg, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter2)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaaf44b4b0dd9b3c754623eb7b0604759}{add\+\_\+\+Gitter}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Erg, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter2)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af16607f3222c579004d47b7c0b6f024d}{Delete}} (int n, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa129f530c425cdeddfbcfd9f975bc0c4}{copy}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&dest, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} src)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab897ab2ef20c4648f524c0a62433fa36}{minmax}} (double a, double b)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4104e01cad5e2f7add35a5df5a814f24}{kart2sph}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1ad59b79910bd85360be648623d9dc4b}{sph2kart}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
-\item 
-\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acec6e0e2684386f9219f5ccf8ad4b0ae}{get\+\_\+grid\+\_\+point}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a86096d6a65855d2e24b290241b7afe6a}{set\+\_\+grid\+\_\+point}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}} P)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a54ee734329c2a8639780687e741747b9}{grad}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P)
-\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4c83c8c922c6e340a52e295e78c64f0b}{acos}} (const std\+::complex$<$ double $>$ \&)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5272b1b5d1f6682f7fc2586bac0e251b}{n\+\_\+\+Vacuum}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index of vacuum (=1.\+0) for compatibility \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aeb50e037d12fc6eef98ad0fe58179f0e}{NA2w0}} (double lambda, double NA, std\+::complex$<$ double $>$ n)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7cf0c342380563f2d6b41c9d22c806a3}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k)
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac826726a7d875427f756221ffa734599}{minmax}} (double x, double dx, int \&min, int \&max)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8603ce594bfcc37111dc0b1fc9bd1045}{check\+Object\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&S, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae86f896ce7365ebc5643a2c56fd67b0b}{check\+Object\+Intersection}} (double r0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_strahl_info}{Strahl\+Info}} \&S, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acec4b44a72051fcf3dbc9777e93a4e72}{check\+Object\+Intersection}} (double r0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&anf, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&end, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, int num\+Obj, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$Obj, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps, int \&Index)
-\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9c3e9d6f92208b81c14305ad8d83b9c7}{nextP}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ OK, double rK, bool \&found)
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a12309d9ca0eee977878bfda5a36697b9}{to\+String}} (char $\ast$S, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$E, int i)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad73167eed6df0edcb28dcd792eff3a16}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} B)
+\begin{DoxyCompactList}\small\item\em output operator for the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} class \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a29a02b9cf4c838112987352724404055}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} \&ge)
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3570ec826881e4edced3d392bb0e5ccf}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} E)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3f4f4dfa58861163a6b945aa75e23ef7}{operator==}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} a, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} b)
-\item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a389ee3ecd19c33cea91eea27dfe15e4d}{savebin\+Global\+Parms}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms)
-\item 
-std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa053b463ed8a64a0c8e1274892835933}{loadbin\+Global\+Parms}} (std\+::istream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa86d6335ebd10564982d3d1a75ea77d0}{read\+Global\+Parms}} (bool old, std\+::ifstream \&is)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5cbd97a0ffd596ecc6f6e8f78025f940}{read\+Global\+Parms}} (bool old, std\+::ifstream $\ast$is)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa37458b1e92451c6fd35c55417d1a088}{write\+RRTParms}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} erg)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0ebe2b7bfa9c873b559d1a66270d1daf}{read\+RRTParms}} (bool old, std\+::ifstream $\ast$is)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abf4cb2ebf2c2440a33a3deba638107b5}{read\+RRTParms}} (bool old, std\+::ifstream \&is)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad3b5b9cc0e736429b5e05ae9ae0c5571}{read\+RRTParms}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \&erg)
-\item 
-{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5c57e8fdfd49a03f63d9e1c5dff1762b}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&S)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acde992e00701e6cbd5578c5ae8c106a9}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} \&se)
 \item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a57fdc0375cd9142ad7f02df65310ae27}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \&S)
 \item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0d351fab5051aa7174ee5514f2b0861d}{save\+Ex\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad26d2ebc2331102ae021d9ea4a78186d}{save\+Ey\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1444136629301616430a71add32e15c4}{save\+Ez\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10e2dcb87393ccc477d40ad877bedb9f}{save\+Ex\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a364898acb4f4eb8de085e5184d796522}{save\+Ey\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afab37450a06598aeec406c73ac7910ed}{save\+Ez\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abe8447c15a996a9ed192fec42d0781bb}{saveabsE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a85b55982d60c9bb02e025a0b519e2729}{saveabs\+Ebin}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3ef9e2366ec937cb29b4cdc2e57c4411}{save\+FullE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{sumabs}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{sumabs2}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{abs2sum}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a73f86cc4a9db4faa07903dd7bbffa010}{save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ S, std\+::string FName)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5b9ecb4ba79f1fd07b91262fa69ccaf}{save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ $>$ S, std\+::string FName)
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5c57e8fdfd49a03f63d9e1c5dff1762b}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&S)
 \item 
 {\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7d2c863ac58d8eddaadc847d547ed71}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_grid}{Super\+Grid}}$<$ T $>$ \&S)
 \item 
@@ -370,22 +290,102 @@ std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad695661e64d3
 \item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a398f21e1d8e62a82c716729aa7fab961}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
 \item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a32c73e20492b12310aad307f3a27c48a}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs)
+\begin{DoxyCompactList}\small\item\em read the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure from a binary file \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3275f629a68bdc4827e6f6316e3cc39c}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3570ec826881e4edced3d392bb0e5ccf}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} E)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8f9f6871133f006d9df9a06d30cecd}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affda1aaf3eac151440765b961e1e0766}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}} smi)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3f4f4dfa58861163a6b945aa75e23ef7}{operator==}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} a, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} b)
+\item 
+std\+::istream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d821599202f74a17de48362e1dcc908}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa018b1f51379f0c4c627a4fbf205fde8}{output}} (int nx, int ny, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$G)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a76241e18d8cc04cd9c8c3a6e3676c990}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ d, double eps=1E-\/50)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af1ec5519956e9358ac491e7ff6a50375}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&git, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \&current\+Index)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3e8baeee292d1ff71ae89dc965e12b22}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&git, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \&current\+Index, double eps)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad4226411c6a107847de1cb70eda2a7ee}{pnext}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} E, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p0s, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k0s, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ d, double eps=1E-\/50)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{ray\+Octree\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&T, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&D)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa86d6335ebd10564982d3d1a75ea77d0}{read\+Global\+Parms}} (bool old, std\+::ifstream \&is)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5cbd97a0ffd596ecc6f6e8f78025f940}{read\+Global\+Parms}} (bool old, std\+::ifstream $\ast$is)
+\item 
+float \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abb4d508128867885d88a5acecb346908}{read\+LE\+\_\+float32}} (std\+::istream \&is)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9bf7fb662ab6211a6ff3937a6e5a41ff}{read\+LE\+\_\+int32}} (std\+::istream \&is)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abf4cb2ebf2c2440a33a3deba638107b5}{read\+RRTParms}} (bool old, std\+::ifstream \&is)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0ebe2b7bfa9c873b559d1a66270d1daf}{read\+RRTParms}} (bool old, std\+::ifstream $\ast$is)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad3b5b9cc0e736429b5e05ae9ae0c5571}{read\+RRTParms}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} \&erg)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a73f86cc4a9db4faa07903dd7bbffa010}{save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ S, std\+::string FName)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5b9ecb4ba79f1fd07b91262fa69ccaf}{save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ $>$ S, std\+::string FName)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abe8447c15a996a9ed192fec42d0781bb}{saveabsE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a85b55982d60c9bb02e025a0b519e2729}{saveabs\+Ebin}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a389ee3ecd19c33cea91eea27dfe15e4d}{savebin\+Global\+Parms}} (std\+::ostream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0d351fab5051aa7174ee5514f2b0861d}{save\+Ex\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10e2dcb87393ccc477d40ad877bedb9f}{save\+Ex\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad26d2ebc2331102ae021d9ea4a78186d}{save\+Ey\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a364898acb4f4eb8de085e5184d796522}{save\+Ey\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1444136629301616430a71add32e15c4}{save\+Ez\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afab37450a06598aeec406c73ac7910ed}{save\+Ez\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char $\ast$FName, int i=0)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3ef9e2366ec937cb29b4cdc2e57c4411}{save\+FullE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a86096d6a65855d2e24b290241b7afe6a}{set\+\_\+grid\+\_\+point}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} \&parms, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}} P)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af7a26d5e1f02540ef7367f5d76ca5fa2}{set\+R0}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$E, double r0)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1ad59b79910bd85360be648623d9dc4b}{sph2kart}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a051595d7e208fb8d78f02754996e87cf}{startpunkt}} (int ix, int iy, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git, double r, double theta, double phi)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aecc2cdce55fa5af6645dfbcc9caa74e8}{startpunkt}} (int ix, int iy, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git, double theta, double phi)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac94c80d7272730105906a67368cb426a}{sub\+\_\+\+Gitter}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_global_parms}{Global\+Parms}} parms, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Erg, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $\ast$$\ast$Gitter2)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{sumabs}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{sumabs2}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info}{Sys\+Mem\+Info}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a160f0c7c90279dcac4982b45ee1fbf79}{sysmem}} ()
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a12309d9ca0eee977878bfda5a36697b9}{to\+String}} (char $\ast$S, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} $\ast$E, int i)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{triangle\+AABBIntersection}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&d)
+\item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{tri\+Box\+Overlap}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ boxcenter, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ boxhalfsize, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ triverts\mbox{[}3\mbox{]})
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a385174e09df056ce5734279c64adeb66}{tri\+Box\+Overlap}} (double boxcenter\mbox{[}3\mbox{]}, double boxhalfsize\mbox{[}3\mbox{]}, double triverts\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
 \item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{triangle\+AABBIntersection}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&d)
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0bea97bff245e60ef7c80c236541e5c}{ursprungrot}} (double dr, double theta, double phi, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&exrot, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&eyrot, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&git)
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{min3}} (double x, double y, double z)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa37458b1e92451c6fd35c55417d1a088}{write\+RRTParms}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info}{RRTParms\+Info}} erg)
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{max3}} (double x, double y, double z)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs, std\+::ofstream \&os)
-\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \&Gs, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em write the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure to a binary file \end{DoxyCompactList}\item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a32c73e20492b12310aad307f3a27c48a}{operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs)
-\begin{DoxyCompactList}\small\item\em read the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure from a binary file \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{write\+Triangle\+Octree}} (char $\ast$Fname, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $>$ \&)
+\end{DoxyCompactItemize}
 \begin{Indent}\textbf{ operators on surface}\par
 {\em Operators, which act directly on the surface class }\begin{DoxyCompactItemize}
 \item 
@@ -439,65 +439,65 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe1
 \item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\+\_\+\+LIGHT}} = 299792458
 \begin{DoxyCompactList}\small\item\em speed of light in m$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
-constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
-\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$fs$^\wedge$-\/1 \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\+\_\+\+LIGHT\+\_\+\+MU}} = 299792458E+6
 \begin{DoxyCompactList}\small\item\em speed of light in mum$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\+\_\+\+INTEGRAL}} = 500
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
-\begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828bc8a67bb99cf2988f}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS}} =2
-\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
-\begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
-\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
-\begin{DoxyCompactList}\small\item\em Light source is a plane wave (random distribution) \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 12
-\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave (random distribution) \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+MC}} = 13
-\begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{Exz}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, \mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{maths\+::ez}})
+constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
+\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$fs$^\wedge$-\/1 \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}{dummy}}
 \item 
 const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{Exy}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, \mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{maths\+::ey}})
 \item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}{PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+RESULT}} = 2
-\begin{DoxyCompactList}\small\item\em Flag, set when the results should not be cleared when calling field () in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a66b93943735f5cef623e1040b5f3f158}{INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION}} =1
+const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afa2eec918e945f99918a6a2b23c2b4ca}{Exz}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, \mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{maths\+::ez}})
 \item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad069c44d8da77fb043df5b3dfc3b5796}{INEL\+\_\+\+CALCPHASE\+\_\+\+RRT}} =2
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a66b93943735f5cef623e1040b5f3f158}{INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION}} =1
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a642a0f27308887e6f6ec0ba44e163ad3}{INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION\+\_\+\+ONLY}} =3
 \item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}} =1
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a47f9dd0afb47482398836a52768a03cb}{INEL\+\_\+\+SAVE\+\_\+\+ABSE}} =1
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac08b3979e5153d9aaaf98a5bb82a5eac}{INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+FLOURESCENCE}} =1
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a548cd54bead3903260a3bcf856a26a83}{INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+RAMAN}} =2
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa075e0ea8969172b7e13d605a0450900}{INEL\+\_\+\+RADIATION\+\_\+\+COHERENT}} =1
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a64c897376bb9ecd65abd4744d4552feb}{INEL\+\_\+\+RADIATION\+\_\+\+INCOHERENT}} =2
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad069c44d8da77fb043df5b3dfc3b5796}{INEL\+\_\+\+CALCPHASE\+\_\+\+RRT}} =2
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS}} =0
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a91d45c9c1aa31d5e0c51952fe8968b30}{INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR}} =1
 \item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa075e0ea8969172b7e13d605a0450900}{INEL\+\_\+\+RADIATION\+\_\+\+COHERENT}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a64c897376bb9ecd65abd4744d4552feb}{INEL\+\_\+\+RADIATION\+\_\+\+INCOHERENT}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac08b3979e5153d9aaaf98a5bb82a5eac}{INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+FLOURESCENCE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a548cd54bead3903260a3bcf856a26a83}{INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+RAMAN}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a47f9dd0afb47482398836a52768a03cb}{INEL\+\_\+\+SAVE\+\_\+\+ABSE}} =1
+\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6dc18e392edf790d0090995150abf25e}{INF}} = std\+::numeric\+\_\+limits$<$double$>$\+::infinity()
 \item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828bc8a67bb99cf2988f}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS}} =2
+\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 12
+\begin{DoxyCompactList}\small\item\em Light source is a gaussian wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
+\begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+MC}} = 13
+\begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
+\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0a867c910b71dfc7547cf14bad7a2860}{log2n}} =10
 \begin{DoxyCompactList}\small\item\em 2$^\wedge$log2n support points for FFT \end{DoxyCompactList}\item 
-constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}{standard\+\_\+pulse\+\_\+width}} = 1E-\/9
-\begin{DoxyCompactList}\small\item\em standard pulse width in seconds \end{DoxyCompactList}\item 
-{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}{dummy}}
-\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab6c12d15149f1db00b409730ed97c74a}{SUPERGRID\+\_\+\+NOERRORS}} = -\/1
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad1ac13235d32c99143397594e8400215}{N\+\_\+\+INTEGRAL}} = 500
 \item 
 const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7123161c2477beec6bb0171e7833655b}{ohne\+\_\+gauss}} = \{ 0,\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0,0,0),\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0,0,0),false \}
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}{PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+RESULT}} = 2
+\begin{DoxyCompactList}\small\item\em Flag, set when the results should not be cleared when calling field () in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}. \end{DoxyCompactList}\item 
+constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}{standard\+\_\+pulse\+\_\+width}} = 1E-\/9
+\begin{DoxyCompactList}\small\item\em standard pulse width in seconds \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab6c12d15149f1db00b409730ed97c74a}{SUPERGRID\+\_\+\+NOERRORS}} = -\/1
 \end{DoxyCompactItemize}
 
 

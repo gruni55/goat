@@ -11,12 +11,12 @@
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}
 \begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::raytracing\+::\+Light\+Src\+Gauss}}
+\begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{GOAT\+::raytracing\+::\+Light\+Src\+Plane}}
 \begin{DoxyCompactList}\small\item\em class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{GOAT\+::raytracing\+::\+Light\+Src\+Ring}}
-\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::raytracing\+::\+Light\+Src\+Gauss}}
-\begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class describes a ring shaped. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,54 +27,54 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+RAY}}~1
-\begin{DoxyCompactList}\small\item\em Ray class \+: tubed\+Ray. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}~2
-\begin{DoxyCompactList}\small\item\em Ray class \+: IRay. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+PRAY}}~3
-\begin{DoxyCompactList}\small\item\em Ray class \+: Pow\+\_\+\+Ray. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}{LIGHTSRC\+\_\+\+NOT\+\_\+\+LAST\+\_\+\+RAY}}~0
-\begin{DoxyCompactList}\small\item\em Created ray is not the last ray. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}{LIGHTSRC\+\_\+\+IS\+\_\+\+LAST\+\_\+\+RAY}}~1
-\begin{DoxyCompactList}\small\item\em Created ray is the last ray. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a9427e832c03d24eb45706347a7e36cb6}{LIGHTSRC\+\_\+\+ERROR}}~-\/1
 \begin{DoxyCompactList}\small\item\em Error occurs within the ray creation. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
-\begin{DoxyCompactList}\small\item\em Wave impedance of free space. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}{LIGHTSRC\+\_\+\+IS\+\_\+\+LAST\+\_\+\+RAY}}~1
+\begin{DoxyCompactList}\small\item\em Created ray is the last ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a6cece43af479ca89e1767a51e7b4bf3d}{LIGHTSRC\+\_\+\+NOT\+\_\+\+LAST\+\_\+\+RAY}}~0
+\begin{DoxyCompactList}\small\item\em Created ray is not the last ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}{LIGHTSRC\+\_\+\+POL\+\_\+\+USER\+\_\+\+DEFINED}}~0
+\begin{DoxyCompactList}\small\item\em Light source is user defined. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a3ad7523b2497f1e43795163f3c517b13}{LIGHTSRC\+\_\+\+POL\+\_\+X}}~0
 \begin{DoxyCompactList}\small\item\em Light source is polarized in x-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_a9b0d133205a03c08c678067d79e0b169}{LIGHTSRC\+\_\+\+POL\+\_\+Y}}~1
 \begin{DoxyCompactList}\small\item\em Light source is polarized in y-\/direction. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{lightsrc_8h_acb3b77ed87f4ed728d1e8f1123eed76b}{LIGHTSRC\+\_\+\+POL\+\_\+Z}}~2
 \begin{DoxyCompactList}\small\item\em Light source is polarized in z-\/direction. \end{DoxyCompactList}\item 
-\#define \mbox{\hyperlink{lightsrc_8h_a0767e5f4cd385e2e8ac69efc11f4db71}{LIGHTSRC\+\_\+\+POL\+\_\+\+USER\+\_\+\+DEFINED}}~0
-\begin{DoxyCompactList}\small\item\em Light source is user defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\#define \mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}~2
+\begin{DoxyCompactList}\small\item\em Ray class \+: IRay. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+PRAY}}~3
+\begin{DoxyCompactList}\small\item\em Ray class \+: Pow\+\_\+\+Ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+RAY}}~1
+\begin{DoxyCompactList}\small\item\em Ray class \+: tubed\+Ray. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{lightsrc_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
+\begin{DoxyCompactList}\small\item\em Wave impedance of free space. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{GOAT\+::raytracing\+::bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, Light\+Src $\ast$$\ast$ls)
-\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f692e6c8}{GOAT\+::raytracing\+::bin\+Read\+LSList}} (std\+::ifstream \&is, int n\+LS, Light\+Src $\ast$$\ast$\&ls)
 \begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a28736012c7ad735f26a81e61ce0e8fc9}{GOAT\+::raytracing\+::bin\+Write\+LSList}} (std\+::ofstream \&os, int n\+LS, Light\+Src $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em Writes a list of light sources into a binary file. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c79048f923ffb412e8f256992ec9618}{GOAT\+::raytracing\+::copy\+Light\+Src\+List}} (Light\+Src $\ast$$\ast$\&d, Light\+Src $\ast$$\ast$s, int n\+LS)
 \begin{DoxyCompactList}\small\item\em Copy the given light source list. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
-\begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828bc8a67bb99cf2988f}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS}} =2
 \begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
-\begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
-\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
-\begin{DoxyCompactList}\small\item\em Light source is a plane wave (random distribution) \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 12
 \begin{DoxyCompactList}\small\item\em Light source is a gaussian wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
+\begin{DoxyCompactList}\small\item\em Light source is a plane wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
+\begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+MC}} = 13
-\begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
+\begin{DoxyCompactList}\small\item\em Light source is a top hat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}

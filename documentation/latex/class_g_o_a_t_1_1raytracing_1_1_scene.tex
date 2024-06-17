@@ -12,75 +12,75 @@ Class defining a scene with lightsources and objects. This is a container used t
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}{Scene}} ()
-\begin{DoxyCompactList}\small\item\em Standard constructor. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}{Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&S)
-\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}{add\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$D)
+\begin{DoxyCompactList}\small\item\em add single detector to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a6b2b099e280d777d9dcabe8bd71f219d}{add\+Detector\+List}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$$\ast$D)
+\begin{DoxyCompactList}\small\item\em add a list of detectors to the scene, n\+Det\+: number of detectors to add \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls)
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene and determine ray type \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9b95a9f99b2842e99ae1ba9b9d8ddbe4}{add\+Light\+Source\+List}} (int nls, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ls)
+\begin{DoxyCompactList}\small\item\em add list of lightsources, nls\+: number of lightsources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}{add\+Light\+Source\+RRT}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol2)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59}{add\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7bad5f4dd5d2b4061ddaf2440b50b582}{Obj}})
 \begin{DoxyCompactList}\small\item\em add single object to scene \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_acbb5766e5ff50e1c82106c4bb68600e5}{add\+Object\+List}} (int nobj, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$obj)
 \begin{DoxyCompactList}\small\item\em add a list of objects to scene, nobj\+: number of objects \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}{remove\+Object}} (int index)
-\begin{DoxyCompactList}\small\item\em removes object with index \char`\"{}index\char`\"{} from object list \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}{remove\+All\+Objects}} ()
-\begin{DoxyCompactList}\small\item\em removes all objects from the scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls)
-\begin{DoxyCompactList}\small\item\em add single lightsource to scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
-\begin{DoxyCompactList}\small\item\em add single lightsource to scene and determine ray type \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}{remove\+Light\+Src}} (int index)
-\begin{DoxyCompactList}\small\item\em remove one light source from the scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}{remove\+All\+Light\+Sources}} ()
-\begin{DoxyCompactList}\small\item\em removes all light sources from the scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}{add\+Light\+Source\+RRT}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ls, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol2)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9b95a9f99b2842e99ae1ba9b9d8ddbe4}{add\+Light\+Source\+List}} (int nls, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ls)
-\begin{DoxyCompactList}\small\item\em add list of lightsources, nls\+: number of lightsources \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}{add\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$D)
-\begin{DoxyCompactList}\small\item\em add single detector to scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a6b2b099e280d777d9dcabe8bd71f219d}{add\+Detector\+List}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}}, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$$\ast$D)
-\begin{DoxyCompactList}\small\item\em add a list of detectors to the scene, n\+Det\+: number of detectors to add \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
-\begin{DoxyCompactList}\small\item\em remove all detectors from the scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}{remove\+Detector}} (int index)
-\begin{DoxyCompactList}\small\item\em remove detector \char`\"{}index\char`\"{} from detector list \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}{clean\+All\+Detectors}} ()
 \begin{DoxyCompactList}\small\item\em clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}})
-\begin{DoxyCompactList}\small\item\em set the radius of the calculation space \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em remove all detectors from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}{remove\+All\+Light\+Sources}} ()
+\begin{DoxyCompactList}\small\item\em removes all light sources from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}{remove\+All\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em removes all objects from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}{remove\+Detector}} (int index)
+\begin{DoxyCompactList}\small\item\em remove detector \char`\"{}index\char`\"{} from detector list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}{remove\+Light\+Src}} (int index)
+\begin{DoxyCompactList}\small\item\em remove one light source from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}{remove\+Object}} (int index)
+\begin{DoxyCompactList}\small\item\em removes object with index \char`\"{}index\char`\"{} from object list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}{reset\+LS}} ()
+\begin{DoxyCompactList}\small\item\em reset all light sources. That means the counters for the rays within of the light sources are set to the first ray \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}{Scene}} ()
+\begin{DoxyCompactList}\small\item\em Standard constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}{Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&S)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3}{setnS}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8262a96f0cf41ffea0393b1a770de6b0}{nS}})
 \begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1}{setn\+SRRT}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8262a96f0cf41ffea0393b1a770de6b0}{nS}})
 \begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}})
+\begin{DoxyCompactList}\small\item\em set the radius of the calculation space \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8}{set\+Raytype}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
 \begin{DoxyCompactList}\small\item\em set the ray type for all light sources \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}{reset\+LS}} ()
-\begin{DoxyCompactList}\small\item\em reset all light sources. That means the counters for the rays within of the light sources are set to the first ray \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793}{test\+LS}} ()
 \begin{DoxyCompactList}\small\item\em tests, if all lightsources are outside all objects (return value\+: -\/1, if every lightsource is outside, $>$=0\+: number of the first lightsource which is inside) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7bad5f4dd5d2b4061ddaf2440b50b582}{Obj}}
-\begin{DoxyCompactList}\small\item\em List of all objects within the scene. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac6d2321d474cd3896786799deaf10584}{Det}}
+\begin{DoxyCompactList}\small\item\em List of detectors, which are storing the electric field inside a defined area. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5e225bb8ceb652d8377c503149102a}{LS}}
 \begin{DoxyCompactList}\small\item\em List of all light sources. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0a8b063fc17e73bbc8fb464bf955f8d0}{LSRRT}}
 \begin{DoxyCompactList}\small\item\em Light source for reversed ray tracing (RRT) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac6d2321d474cd3896786799deaf10584}{Det}}
-\begin{DoxyCompactList}\small\item\em List of detectors, which are storing the electric field inside a defined area. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}{n\+Obj}} = 0
-\begin{DoxyCompactList}\small\item\em Number of objects in the scene. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}{n\+LS}} = 0
-\begin{DoxyCompactList}\small\item\em Number of light sources. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}} = 0
 \begin{DoxyCompactList}\small\item\em Number of detectors. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}{n\+LS}} = 0
+\begin{DoxyCompactList}\small\item\em Number of light sources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}{n\+Obj}} = 0
+\begin{DoxyCompactList}\small\item\em Number of objects in the scene. \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8262a96f0cf41ffea0393b1a770de6b0}{nS}}
 \begin{DoxyCompactList}\small\item\em refractive index of the surrounding medium, i.\+e. the medium between the objects \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a699c64d675596e280295b2f42b03a556}{n\+SRRT}}
 \begin{DoxyCompactList}\small\item\em refractive index of the surrounding medium (RRT), i.\+e. the medium between the objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7bad5f4dd5d2b4061ddaf2440b50b582}{Obj}}
+\begin{DoxyCompactList}\small\item\em List of all objects within the scene. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}} =1E+100
 \begin{DoxyCompactList}\small\item\em Radius of the calculation space. All rays are followed within this calculation sphere. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}} =\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}

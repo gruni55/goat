@@ -11,12 +11,12 @@
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{GOAT\+::raytracing\+::tubed\+Ray\+Buffer}}
-\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{GOAT\+::raytracing\+::\+Gauss}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{GOAT\+::raytracing\+::tubed\+Ray}}
-\begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{GOAT\+::raytracing\+::tubed\+Ray\+Buffer}}
+\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -27,23 +27,23 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{GOAT\+::raytrac
 \doxysubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}{KEIN\+\_\+\+SCHNITTPUNKT}}~-\/1
+\#define \mbox{\hyperlink{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}{EPS\+\_\+\+WINKEL}}~0
 \item 
 \#define \mbox{\hyperlink{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}{GESCHNITTEN}}~0
 \item 
 \#define \mbox{\hyperlink{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}{IN\+\_\+\+Plane}}~1
 \item 
-\#define \mbox{\hyperlink{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}{EPS\+\_\+\+WINKEL}}~0
+\#define \mbox{\hyperlink{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}{KEIN\+\_\+\+SCHNITTPUNKT}}~-\/1
 \item 
 \#define \mbox{\hyperlink{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}{OHNE\+\_\+\+GAUSS}}
 \begin{DoxyCompactList}\small\item\em output operator for the Gauss structure \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{GOAT\+::raytracing\+::bin\+Write}} (Gauss gs, std\+::ofstream \&os)
-\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{GOAT\+::raytracing\+::bin\+Read}} (Gauss \&Gs, std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em write the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure to a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{GOAT\+::raytracing\+::bin\+Write}} (Gauss gs, std\+::ofstream \&os)
+\item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a32c73e20492b12310aad307f3a27c48a}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, Gauss gs)
 \begin{DoxyCompactList}\small\item\em read the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} structure from a binary file \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}

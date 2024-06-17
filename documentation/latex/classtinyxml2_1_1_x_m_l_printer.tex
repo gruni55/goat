@@ -13,90 +13,90 @@ Inheritance diagram for tinyxml2\+::XMLPrinter\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa6d3841c069085f5b8a27bc7103c04f7}{XMLPrinter}} (FILE $\ast$file=0, bool compact=false, int depth=0)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a690cb140ba98b7339734ff865f56b0b3}{Clear\+Buffer}} (bool reset\+To\+First\+Element=true)
 \item 
-virtual \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_af4caefa48ea6436898fb1807de8d14c0}{$\sim$\+XMLPrinter}} ()
+virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ad04d29562b46fcdb23ab320f8b664240}{Close\+Element}} (bool compact\+Mode=false)
+\begin{DoxyCompactList}\small\item\em If streaming, close the Element. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a180671d73844f159f2d4aafbc11d106e}{CStr}} () const
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a178c608ce8476043d5d6513819cde903}{Push\+Header}} (bool write\+BOM, bool write\+Declaration)
+int \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a3256cf3523d4898b91abb18b924be04c}{CStr\+Size}} () const
 \item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a20fb06c83bd13e5140d7dd13af06c010}{Open\+Element}} (const char $\ast$name, bool compact\+Mode=false)
 \item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a51f7950d7b7a19f0d3a0d549a318d45f}{Push\+Attribute}} (const char $\ast$name, bool value)
+\item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a9a4e2c9348b42e147629d5a99f4af3f0}{Push\+Attribute}} (const char $\ast$name, const char $\ast$value)
 \begin{DoxyCompactList}\small\item\em If streaming, add an attribute to an open element. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a69120c82088597372d28d0a98f2ee7a1}{Push\+Attribute}} (const char $\ast$name, int value)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1714867af40e68ca404c3e84b6cac2a6}{Push\+Attribute}} (const char $\ast$name, double value)
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa41039e51990aaf5342f3e0575a692c4}{Push\+Attribute}} (const char $\ast$name, unsigned value)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a69120c82088597372d28d0a98f2ee7a1}{Push\+Attribute}} (const char $\ast$name, int value)
 \item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a9bc2fe21a83a70e6aa0415f2034ecbff}{Push\+Attribute}} (const char $\ast$name, int64\+\_\+t value)
 \item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a0cfb03811df0873faa59a12de009bf33}{Push\+Attribute}} (const char $\ast$name, uint64\+\_\+t value)
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a51f7950d7b7a19f0d3a0d549a318d45f}{Push\+Attribute}} (const char $\ast$name, bool value)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa41039e51990aaf5342f3e0575a692c4}{Push\+Attribute}} (const char $\ast$name, unsigned value)
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1714867af40e68ca404c3e84b6cac2a6}{Push\+Attribute}} (const char $\ast$name, double value)
-\item 
-virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ad04d29562b46fcdb23ab320f8b664240}{Close\+Element}} (bool compact\+Mode=false)
-\begin{DoxyCompactList}\small\item\em If streaming, close the Element. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1cc16a9362df4332012cb13cff6441b3}{Push\+Text}} (const char $\ast$text, bool cdata=false)
-\begin{DoxyCompactList}\small\item\em Add a text node. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a3e0d4d78de25d4cf081009e1431cea7e}{Push\+Text}} (int value)
-\begin{DoxyCompactList}\small\item\em Add a text node from an integer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a661fb50e7e0a4918d2d259cb0fae647e}{Push\+Text}} (unsigned value)
-\begin{DoxyCompactList}\small\item\em Add a text node from an unsigned. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a96b0a0bfe105154a0a6c37d725258f0a}{Push\+Text}} (int64\+\_\+t value)
-\begin{DoxyCompactList}\small\item\em Add a text node from a signed 64bit integer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a60b0a4cf57371ff8679c2c7556ccb708}{Push\+Text}} (uint64\+\_\+t value)
-\begin{DoxyCompactList}\small\item\em Add a text node from an unsigned 64bit integer. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a4390e5fa1ed05189a8686647345ab29f}{Push\+Text}} (bool value)
-\begin{DoxyCompactList}\small\item\em Add a text node from a bool. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1dbb1390e829d0673af66b9cd1928bd7}{Push\+Text}} (float value)
-\begin{DoxyCompactList}\small\item\em Add a text node from a float. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa715302dfc09473c77c853cbd5431965}{Push\+Text}} (double value)
-\begin{DoxyCompactList}\small\item\em Add a text node from a double. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_afc8416814219591c2fd5656e0c233140}{Push\+Comment}} (const char $\ast$comment)
 \begin{DoxyCompactList}\small\item\em Add a comment. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a2fe3565e262594efc6c0276723c83fe7}{Push\+Declaration}} (const char $\ast$value)
 \item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a178c608ce8476043d5d6513819cde903}{Push\+Header}} (bool write\+BOM, bool write\+Declaration)
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a4390e5fa1ed05189a8686647345ab29f}{Push\+Text}} (bool value)
+\begin{DoxyCompactList}\small\item\em Add a text node from a bool. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1cc16a9362df4332012cb13cff6441b3}{Push\+Text}} (const char $\ast$text, bool cdata=false)
+\begin{DoxyCompactList}\small\item\em Add a text node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa715302dfc09473c77c853cbd5431965}{Push\+Text}} (double value)
+\begin{DoxyCompactList}\small\item\em Add a text node from a double. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a1dbb1390e829d0673af66b9cd1928bd7}{Push\+Text}} (float value)
+\begin{DoxyCompactList}\small\item\em Add a text node from a float. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a3e0d4d78de25d4cf081009e1431cea7e}{Push\+Text}} (int value)
+\begin{DoxyCompactList}\small\item\em Add a text node from an integer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a96b0a0bfe105154a0a6c37d725258f0a}{Push\+Text}} (int64\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Add a text node from a signed 64bit integer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a60b0a4cf57371ff8679c2c7556ccb708}{Push\+Text}} (uint64\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Add a text node from an unsigned 64bit integer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a661fb50e7e0a4918d2d259cb0fae647e}{Push\+Text}} (unsigned value)
+\begin{DoxyCompactList}\small\item\em Add a text node from an unsigned. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ab1efc6d1548505e9984185f58f54b713}{Push\+Unknown}} (const char $\ast$value)
 \item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ae966b988a7a28c41e91c5ca17fb2054b}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} \&)
-\begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a15fc1f2b922f540917dcf52808737b29}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} \&)
-\begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a2ce2aa508c21ac91615093ddb9c282c5}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} \&element, const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_attribute}{XMLAttribute}} $\ast$attribute)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ae99e0a7086543591edfb565f24689098}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} \&element)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a275ae25544a12199ae40b6994ca6e4de}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_text}{XMLText}} \&text)
-\begin{DoxyCompactList}\small\item\em Visit a text node. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a3f16a30be1537ac141d9bd2db824ba9e}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_comment}{XMLComment}} \&comment)
 \begin{DoxyCompactList}\small\item\em Visit a comment node. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a9ceff5cd85e5db65838962174fcdcc46}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_declaration}{XMLDeclaration}} \&declaration)
 \begin{DoxyCompactList}\small\item\em Visit a declaration. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a275ae25544a12199ae40b6994ca6e4de}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_text}{XMLText}} \&text)
+\begin{DoxyCompactList}\small\item\em Visit a text node. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa15e1da81e17dea5da6499ac5b08d9d8}{Visit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_unknown}{XMLUnknown}} \&unknown)
 \begin{DoxyCompactList}\small\item\em Visit an unknown node. \end{DoxyCompactList}\item 
-const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a180671d73844f159f2d4aafbc11d106e}{CStr}} () const
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ae966b988a7a28c41e91c5ca17fb2054b}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} \&)
+\begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a2ce2aa508c21ac91615093ddb9c282c5}{Visit\+Enter}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} \&element, const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_attribute}{XMLAttribute}} $\ast$attribute)
+\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a15fc1f2b922f540917dcf52808737b29}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} \&)
+\begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ae99e0a7086543591edfb565f24689098}{Visit\+Exit}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} \&element)
+\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_aa6d3841c069085f5b8a27bc7103c04f7}{XMLPrinter}} (FILE $\ast$file=0, bool compact=false, int depth=0)
 \item 
-int \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a3256cf3523d4898b91abb18b924be04c}{CStr\+Size}} () const
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a690cb140ba98b7339734ff865f56b0b3}{Clear\+Buffer}} (bool reset\+To\+First\+Element=true)
+virtual \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_af4caefa48ea6436898fb1807de8d14c0}{$\sim$\+XMLPrinter}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a38e1ed5a779bdf63eda9e808f7a6de66}{Compact\+Mode}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} \&)
 \item 
-virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a01148e2ebe6776e38c5a3e41bc5feb74}{Print\+Space}} (int depth)
-\item 
 virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a4fefcc4003e88f63e0dfd9f77c386078}{Print}} (const char $\ast$format,...)
 \item 
-virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a65824af90e503b850f076725ccc95cfc}{Write}} (const char $\ast$data, size\+\_\+t size)
+virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a01148e2ebe6776e38c5a3e41bc5feb74}{Print\+Space}} (int depth)
 \item 
 virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a03de437ca25fbcc0d7df4bc29296e7f4}{Putc}} (char ch)
 \item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ac6e2c72c5d796f5b4de6ce81ca95e3fa}{Seal\+Element\+If\+Just\+Opened}} ()
+\item 
 void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a4bd7f0cabca77ac95c299103fa9592f1}{Write}} (const char $\ast$data)
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_ac6e2c72c5d796f5b4de6ce81ca95e3fa}{Seal\+Element\+If\+Just\+Opened}} ()
+virtual void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer_a65824af90e503b850f076725ccc95cfc}{Write}} (const char $\ast$data, size\+\_\+t size)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}

@@ -18,33 +18,33 @@ Inheritance diagram for GOAT\+::raytracing\+::Light\+Src\+Plane\+:\begin{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_aa9b5766ba6976b333fef09d9364db5bd}{Light\+Src\+Plane}} (void)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a983feb5b4dcc357e9135485399549eae}{Light\+Src\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}{Pos}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab67b99826922bbd4ffd53b4fa4a4aa47}{D}}=100.\+0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}{Pol}}=\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$(0.\+0, 1.\+0, 0.\+0), int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}{raytype}}=\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}{r0}}=100.\+0)
-\begin{DoxyCompactList}\small\item\em constructor with the following parameters \+: Pos\+: position of the light source, k \+: main direction of the light source, N \+: number of rays per direction(total number of all rays is N$\ast$ N) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ad1c1bc9453c100fa87596429ecdcf70c}{bin\+Read\+Item}} (std\+::ifstream \&os)
+\begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ab6b176214b30f9b2dd4d373ca998a208}{bin\+Write\+Item}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a1c5bb2dc95ffb347544df7f5370a0374}{Light\+Src\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+Src\+Plane}} \&)
 \begin{DoxyCompactList}\small\item\em copy Constructor \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a5fd53e8301f7222e606eb5ea53544955}{$\sim$\+Light\+Src\+Plane}} (void)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a983feb5b4dcc357e9135485399549eae}{Light\+Src\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}{Pos}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab67b99826922bbd4ffd53b4fa4a4aa47}{D}}=100.\+0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}{Pol}}=\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$(0.\+0, 1.\+0, 0.\+0), int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}{raytype}}=\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}{r0}}=100.\+0)
+\begin{DoxyCompactList}\small\item\em constructor with the following parameters \+: Pos\+: position of the light source, k \+: main direction of the light source, N \+: number of rays per direction(total number of all rays is N$\ast$ N) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_aa9b5766ba6976b333fef09d9364db5bd}{Light\+Src\+Plane}} (void)
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a8dd935f709d519b72036b52226374457}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{GOAT\+::raytracing\+::\+Ray\+Base}} $\ast$ray)
 \begin{DoxyCompactList}\small\item\em Destructor, not needed. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_af7534ab0741b360f5245b6f3ca88d797}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}} \&S)
 \begin{DoxyCompactList}\small\item\em gives the next ray for the following calculations \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a44fde31dd81c2c5e9308303b78e52cb4}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
-\begin{DoxyCompactList}\small\item\em gives the next ray for the following calculations \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a7adde40ffa33913e49715cff2c67177d}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}} \&S)
 \begin{DoxyCompactList}\small\item\em gives the next ray for the following calculations \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ab6b176214b30f9b2dd4d373ca998a208}{bin\+Write\+Item}} (std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ad1c1bc9453c100fa87596429ecdcf70c}{bin\+Read\+Item}} (std\+::ifstream \&os)
-\begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\end{DoxyCompactItemize}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a44fde31dd81c2c5e9308303b78e52cb4}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
+\begin{DoxyCompactList}\small\item\em gives the next ray for the following calculations \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a5fd53e8301f7222e606eb5ea53544955}{$\sim$\+Light\+Src\+Plane}} (void)
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
 \doxysubsection{Detailed Description}
 class derived from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ 
 
-Definition at line 165 of file lightsrc.\+h.
+Definition at line 166 of file lightsrc.\+h.
 
 
 
@@ -96,7 +96,7 @@ copy Constructor
 
 
 
-Definition at line 180 of file lightsrc.\+h.
+Definition at line 181 of file lightsrc.\+h.
 
 
 
@@ -117,7 +117,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a04bf6f811
 
 
 
-Definition at line 186 of file lightsrc.\+h.
+Definition at line 187 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ab6b176214b30f9b2dd4d373ca998a208}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_ab6b176214b30f9b2dd4d373ca998a208}} 
 \index{GOAT::raytracing::LightSrcPlane@{GOAT::raytracing::LightSrcPlane}!binWriteItem@{binWriteItem}}
@@ -135,7 +135,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a23997c8de
 
 
 
-Definition at line 185 of file lightsrc.\+h.
+Definition at line 186 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a8dd935f709d519b72036b52226374457}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a8dd935f709d519b72036b52226374457}} 
 \index{GOAT::raytracing::LightSrcPlane@{GOAT::raytracing::LightSrcPlane}!next@{next}}

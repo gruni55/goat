@@ -18,72 +18,74 @@ Inheritance diagram for GOAT\+::raytracing\+::Light\+Src\+Gauss\+:\begin{figure}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a15df2c89e3e2b341ac083465c5741fbc}{bin\+Write\+Item}} (std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab8e3b0c8902a3f12ad08a202bc21414d}{bin\+Read\+Item}} (std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em reads content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1f91eebbb49c596d1d8ae84f96159a6a}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{GOAT\+::raytracing\+::\+Ray\+Base}} $\ast$ray)
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a15df2c89e3e2b341ac083465c5741fbc}{bin\+Write\+Item}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes content of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae2e73bda9357091880dcf8fbd1191016}{calc\+Normfak}} ()
 \item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a964ed0ed53173923768200fc890182fd}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}} \&S)
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1d36ad1af89f1e4ea1318d1a8c0ee745}{calc\+Start\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P)
 \item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a09750e9ca12ccda3a1386a713f4682e0}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}} \&S)
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab7c8de839cf0a111d6ffa4d23f7d118b}{calcw}} (double z)
 \item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_af7e5260b4d39051a3c1bc767409ca089}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a503be630640d724d501536de7a9a97d6}{Light\+Src\+Gauss}} (void)
-\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a6f82182b12c7c33ac3f11b10db808e1a}{calcz0}} ()
+\begin{DoxyCompactList}\small\item\em recalculates Rayleigh-\/length z0 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a269723ee8292a8497b8a372a86ba255e}{get\+Focuspos}} ()
+\begin{DoxyCompactList}\small\item\em returns the position of the focus \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a5f9229ad35d701cc1c8731cccf0dcc8d}{get\+NA}} ()
+\begin{DoxyCompactList}\small\item\em returns numerical aperture \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a4e3e99f040ca7df802f5ab4bd84870f8}{Light\+Src\+Gauss}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+Src\+Gauss}} \&)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_af9f1eed5e442327a72efc3b314863267}{Light\+Src\+Gauss}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}{Pos}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a57ed5d6a80660afbd9b06cc9033d8e81}{focuspos}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab67b99826922bbd4ffd53b4fa4a4aa47}{D}}=1.\+0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}{Pol}}=\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$(0.\+0, 1.\+0, 0.\+0), int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}{raytype}}=\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}{r0}}=1.\+0)
 \begin{DoxyCompactList}\small\item\em Main constructor for gaussian beam light source The direction of the beam is given by the starting point and the focus position. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a814f7246413b46b3b8b90ff8f4624565}{set\+W0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}})
-\begin{DoxyCompactList}\small\item\em sets the beam\textquotesingle{}s waist \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a269723ee8292a8497b8a372a86ba255e}{get\+Focuspos}} ()
-\begin{DoxyCompactList}\small\item\em returns the position of the focus \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a826ed26e04c47e7a57ef7efcb3df17eb}{set\+Focuspos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ fp)
-\begin{DoxyCompactList}\small\item\em sets the focus position to fp \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae37df5ba65ba4e61ba8103907003129d}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ pos)
-\begin{DoxyCompactList}\small\item\em sets the position of the light source to pos \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a89f8d8d4d105b7c767fff76dd1701d12}{set\+NA}} (double na)
-\begin{DoxyCompactList}\small\item\em sets the numerical aperture NA and recalculates the width D, the focal beam waist w0 and the Rayleigh-\/length z0 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a4b4e8f320ff4b40d1d784ae5ea0caf0e}{set\+Wvl}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}})
-\begin{DoxyCompactList}\small\item\em sets the vacuum wavelength \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a589e514a78fc3d95de3c711b80d662b8}{setk}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae866addddafef9b9bc8ef79bcfc75d82}{k}})
-\begin{DoxyCompactList}\small\item\em sets the main direction of light source \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a6f82182b12c7c33ac3f11b10db808e1a}{calcz0}} ()
-\begin{DoxyCompactList}\small\item\em recalculates Rayleigh-\/length z0 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a503be630640d724d501536de7a9a97d6}{Light\+Src\+Gauss}} (void)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1f91eebbb49c596d1d8ae84f96159a6a}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{GOAT\+::raytracing\+::\+Ray\+Base}} $\ast$ray)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a09750e9ca12ccda3a1386a713f4682e0}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}} \&S)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a964ed0ed53173923768200fc890182fd}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}} \&S)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_af7e5260b4d39051a3c1bc767409ca089}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a77f3fc4b0979998480c83afc7e69690d}{reset}} ()
 \item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab7c8de839cf0a111d6ffa4d23f7d118b}{calcw}} (double z)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae2e73bda9357091880dcf8fbd1191016}{calc\+Normfak}} ()
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a5f9229ad35d701cc1c8731cccf0dcc8d}{get\+NA}} ()
-\begin{DoxyCompactList}\small\item\em returns numerical aperture \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a826ed26e04c47e7a57ef7efcb3df17eb}{set\+Focuspos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ fp)
+\begin{DoxyCompactList}\small\item\em sets the focus position to fp \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a589e514a78fc3d95de3c711b80d662b8}{setk}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae866addddafef9b9bc8ef79bcfc75d82}{k}})
+\begin{DoxyCompactList}\small\item\em sets the main direction of light source \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a89f8d8d4d105b7c767fff76dd1701d12}{set\+NA}} (double na)
+\begin{DoxyCompactList}\small\item\em sets the numerical aperture NA and recalculates the width D, the focal beam waist w0 and the Rayleigh-\/length z0 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae37df5ba65ba4e61ba8103907003129d}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ pos)
+\begin{DoxyCompactList}\small\item\em sets the position of the light source to pos \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a814f7246413b46b3b8b90ff8f4624565}{set\+W0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}})
+\begin{DoxyCompactList}\small\item\em sets the beam\textquotesingle{}s waist \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a4b4e8f320ff4b40d1d784ae5ea0caf0e}{set\+Wvl}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}})
+\begin{DoxyCompactList}\small\item\em sets the vacuum wavelength \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}}
-\begin{DoxyCompactList}\small\item\em Waist diameter (fictitious !), only used for the correct calculation of the electric field distribution within the starting area. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ad85a71bde9dca01a088ab7f61c3c9bf8}{f}}
 \begin{DoxyCompactList}\small\item\em distance between light source area and the focal point \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a76af486df8be7443fb6012d8392bc8bd}{Normfak}}
-\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a57ed5d6a80660afbd9b06cc9033d8e81}{focuspos}}
 \begin{DoxyCompactList}\small\item\em focal position ~\newline
  \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aa0e1709451a54b54ebfadeb214259d85}{z0}}
-\begin{DoxyCompactList}\small\item\em Rayleigh length (for internal use only) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae866addddafef9b9bc8ef79bcfc75d82}{k}}
 \begin{DoxyCompactList}\small\item\em direction of the gaussian beam \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_addf3111fa2a80a22cfac8eeb6cd610d4}{w}}
-\begin{DoxyCompactList}\small\item\em radius of the beam (for internal use only) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aeaebbb9ba49182ab8ae074900c5aa81d}{NA}}
 \begin{DoxyCompactList}\small\item\em numerical aperture (normalized by the intermediate refractive index) \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a2338484d131ad095ebac6e351b3ba524}{zeta}}
-\begin{DoxyCompactList}\small\item\em Gouy phase. \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a76af486df8be7443fb6012d8392bc8bd}{Normfak}}
+\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ad114232eaf11a5f5ffaa39e58c4dbe02}{R}}
-\begin{DoxyCompactList}\small\item\em curvature \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em curvature \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_addf3111fa2a80a22cfac8eeb6cd610d4}{w}}
+\begin{DoxyCompactList}\small\item\em radius of the beam (for internal use only) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}}
+\begin{DoxyCompactList}\small\item\em Waist diameter (fictitious !), only used for the correct calculation of the electric field distribution within the starting area. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aa0e1709451a54b54ebfadeb214259d85}{z0}}
+\begin{DoxyCompactList}\small\item\em Rayleigh length (for internal use only) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a2338484d131ad095ebac6e351b3ba524}{zeta}}
+\begin{DoxyCompactList}\small\item\em Gouy phase. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 
@@ -92,7 +94,7 @@ This class describes a focused gaussian beam.
 
 Class which describes a (focused) gaussian light source. The main direction is given by the source position and the focal position. The electric field is calculated by $\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}$ The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics the rays follow straight lines inside the medium. 
 
-Definition at line 225 of file lightsrc.\+h.
+Definition at line 226 of file lightsrc.\+h.
 
 
 
@@ -179,7 +181,13 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a23997c8de
 
 
 
-Definition at line 295 of file lightsrc.\+h.
+Definition at line 299 of file lightsrc.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1d36ad1af89f1e4ea1318d1a8c0ee745}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1d36ad1af89f1e4ea1318d1a8c0ee745}} 
+\index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!calcStartPhase@{calcStartPhase}}
+\index{calcStartPhase@{calcStartPhase}!GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}}
+\doxysubsubsection{\texorpdfstring{calcStartPhase()}{calcStartPhase()}}
+{\footnotesize\ttfamily std\+::complex$<$double$>$ GOAT\+::raytracing\+::\+Light\+Src\+Gauss\+::calc\+Start\+Phase (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab7c8de839cf0a111d6ffa4d23f7d118b}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab7c8de839cf0a111d6ffa4d23f7d118b}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!calcw@{calcw}}
@@ -194,7 +202,7 @@ Definition at line 295 of file lightsrc.\+h.
 \end{DoxyParams}
 
 
-Definition at line 288 of file lightsrc.\+h.
+Definition at line 291 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a6f82182b12c7c33ac3f11b10db808e1a}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a6f82182b12c7c33ac3f11b10db808e1a}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!calcz0@{calcz0}}
@@ -208,7 +216,7 @@ recalculates Rayleigh-\/length z0
 
 
 
-Definition at line 259 of file lightsrc.\+h.
+Definition at line 260 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a269723ee8292a8497b8a372a86ba255e}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a269723ee8292a8497b8a372a86ba255e}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!getFocuspos@{getFocuspos}}
@@ -222,7 +230,7 @@ returns the position of the focus
 
 
 
-Definition at line 252 of file lightsrc.\+h.
+Definition at line 253 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a5f9229ad35d701cc1c8731cccf0dcc8d}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a5f9229ad35d701cc1c8731cccf0dcc8d}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!getNA@{getNA}}
@@ -236,7 +244,7 @@ returns numerical aperture
 
 
 
-Definition at line 306 of file lightsrc.\+h.
+Definition at line 310 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1f91eebbb49c596d1d8ae84f96159a6a}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a1f91eebbb49c596d1d8ae84f96159a6a}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!next@{next}}
@@ -308,7 +316,7 @@ Reimplemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gaus
 
 
 
-Definition at line 260 of file lightsrc.\+h.
+Definition at line 262 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a826ed26e04c47e7a57ef7efcb3df17eb}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a826ed26e04c47e7a57ef7efcb3df17eb}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!setFocuspos@{setFocuspos}}
@@ -322,7 +330,7 @@ sets the focus position to fp
 
 
 
-Definition at line 253 of file lightsrc.\+h.
+Definition at line 254 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a589e514a78fc3d95de3c711b80d662b8}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a589e514a78fc3d95de3c711b80d662b8}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!setk@{setk}}
@@ -336,7 +344,7 @@ sets the main direction of light source
 
 
 
-Definition at line 258 of file lightsrc.\+h.
+Definition at line 259 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a89f8d8d4d105b7c767fff76dd1701d12}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a89f8d8d4d105b7c767fff76dd1701d12}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!setNA@{setNA}}
@@ -360,7 +368,7 @@ sets the position of the light source to pos
 
 
 
-Definition at line 254 of file lightsrc.\+h.
+Definition at line 255 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a814f7246413b46b3b8b90ff8f4624565}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a814f7246413b46b3b8b90ff8f4624565}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!setW0@{setW0}}
@@ -374,7 +382,7 @@ sets the beam\textquotesingle{}s waist
 
 
 
-Definition at line 251 of file lightsrc.\+h.
+Definition at line 252 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a4b4e8f320ff4b40d1d784ae5ea0caf0e}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a4b4e8f320ff4b40d1d784ae5ea0caf0e}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!setWvl@{setWvl}}
@@ -401,7 +409,7 @@ distance between light source area and the focal point
 
 
 
-Definition at line 305 of file lightsrc.\+h.
+Definition at line 309 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a57ed5d6a80660afbd9b06cc9033d8e81}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a57ed5d6a80660afbd9b06cc9033d8e81}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!focuspos@{focuspos}}
@@ -416,7 +424,7 @@ focal position ~\newline
 
 
 
-Definition at line 309 of file lightsrc.\+h.
+Definition at line 313 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae866addddafef9b9bc8ef79bcfc75d82}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae866addddafef9b9bc8ef79bcfc75d82}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!k@{k}}
@@ -430,7 +438,7 @@ direction of the gaussian beam
 
 
 
-Definition at line 311 of file lightsrc.\+h.
+Definition at line 315 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aeaebbb9ba49182ab8ae074900c5aa81d}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aeaebbb9ba49182ab8ae074900c5aa81d}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!NA@{NA}}
@@ -444,7 +452,7 @@ numerical aperture (normalized by the intermediate refractive index)
 
 
 
-Definition at line 313 of file lightsrc.\+h.
+Definition at line 317 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a76af486df8be7443fb6012d8392bc8bd}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a76af486df8be7443fb6012d8392bc8bd}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!Normfak@{Normfak}}
@@ -454,7 +462,7 @@ Definition at line 313 of file lightsrc.\+h.
 
 
 
-Definition at line 308 of file lightsrc.\+h.
+Definition at line 312 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ad114232eaf11a5f5ffaa39e58c4dbe02}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ad114232eaf11a5f5ffaa39e58c4dbe02}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!R@{R}}
@@ -468,7 +476,7 @@ curvature
 
 
 
-Definition at line 315 of file lightsrc.\+h.
+Definition at line 319 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_addf3111fa2a80a22cfac8eeb6cd610d4}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_addf3111fa2a80a22cfac8eeb6cd610d4}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!w@{w}}
@@ -482,7 +490,7 @@ radius of the beam (for internal use only)
 
 
 
-Definition at line 312 of file lightsrc.\+h.
+Definition at line 316 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!w0@{w0}}
@@ -496,7 +504,7 @@ Waist diameter (fictitious !), only used for the correct calculation of the elec
 
 
 
-Definition at line 304 of file lightsrc.\+h.
+Definition at line 308 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aa0e1709451a54b54ebfadeb214259d85}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aa0e1709451a54b54ebfadeb214259d85}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!z0@{z0}}
@@ -510,7 +518,7 @@ Rayleigh length (for internal use only)
 
 
 
-Definition at line 310 of file lightsrc.\+h.
+Definition at line 314 of file lightsrc.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a2338484d131ad095ebac6e351b3ba524}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a2338484d131ad095ebac6e351b3ba524}} 
 \index{GOAT::raytracing::LightSrcGauss@{GOAT::raytracing::LightSrcGauss}!zeta@{zeta}}
@@ -524,7 +532,7 @@ Gouy phase.
 
 
 
-Definition at line 314 of file lightsrc.\+h.
+Definition at line 318 of file lightsrc.\+h.
 
 
 

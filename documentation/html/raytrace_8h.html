@@ -102,9 +102,6 @@ $(document).ready(function(){initNavTree('raytrace_8h.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html">GOAT::raytracing::Scene</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> base class. All objects are described by classes derived from the virtual class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html" title="Abstract base class for all volume objects This abstract class provides a template for all volume obj...">ObjectShape</a>.  <a href="class_g_o_a_t_1_1raytracing_1_1_scene.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html">GOAT::raytracing::Raytrace</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides all functionalities for the base raytracing code. It follows all rays from all light sources through the scene.  <a href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -117,6 +114,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html">GOAT::raytracing::Raytrace_pure</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class makes a raytracing without any output (except detectors) In this ray tracing class no reactions at the surface is included. It is intended for calculation only with detectors.  <a href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html">GOAT::raytracing::Scene</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> base class. All objects are described by classes derived from the virtual class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html" title="Abstract base class for all volume objects This abstract class provides a template for all volume obj...">ObjectShape</a>.  <a href="class_g_o_a_t_1_1raytracing_1_1_scene.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -128,18 +128,18 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a154731dc3dc2b464169cb3ed48388f09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09">RAYTRACER_TYPE_NONE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a154731dc3dc2b464169cb3ed48388f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a597741ae430d8fe18e5f99dae2e63c15"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a597741ae430d8fe18e5f99dae2e63c15">RAYTRACER_TYPE_PATH</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:a597741ae430d8fe18e5f99dae2e63c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25e16a918a70b67479aceab7e4931fe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a25e16a918a70b67479aceab7e4931fe2">RAYTRACER_TYPE_OT</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a25e16a918a70b67479aceab7e4931fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af65d07b66313420af5dc6b05d027c707"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#af65d07b66313420af5dc6b05d027c707">RAYTRACER_TYPE_PURE</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:af65d07b66313420af5dc6b05d027c707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1880ecb60693d167d9f566259de80df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#af1880ecb60693d167d9f566259de80df">MAX_RECURSIONS</a>&#160;&#160;&#160;20</td></tr>
 <tr class="separator:af1880ecb60693d167d9f566259de80df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a634d573272f55167b178b564e96f2c2b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a634d573272f55167b178b564e96f2c2b">RAYTRACE_MAX_REFLEXIONS</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:a634d573272f55167b178b564e96f2c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a154731dc3dc2b464169cb3ed48388f09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09">RAYTRACER_TYPE_NONE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a154731dc3dc2b464169cb3ed48388f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25e16a918a70b67479aceab7e4931fe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a25e16a918a70b67479aceab7e4931fe2">RAYTRACER_TYPE_OT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:a25e16a918a70b67479aceab7e4931fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a597741ae430d8fe18e5f99dae2e63c15"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#a597741ae430d8fe18e5f99dae2e63c15">RAYTRACER_TYPE_PATH</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:a597741ae430d8fe18e5f99dae2e63c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af65d07b66313420af5dc6b05d027c707"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="raytrace_8h.html#af65d07b66313420af5dc6b05d027c707">RAYTRACER_TYPE_PURE</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:af65d07b66313420af5dc6b05d027c707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="af1880ecb60693d167d9f566259de80df"></a>

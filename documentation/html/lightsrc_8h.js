@@ -1,9 +1,9 @@
 var lightsrc_8h =
 [
     [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
+    [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
     [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane" ],
     [ "LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring" ],
-    [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
     [ "LIGHTSRC_ERROR", "lightsrc_8h.html#a9427e832c03d24eb45706347a7e36cb6", null ],
     [ "LIGHTSRC_IS_LAST_RAY", "lightsrc_8h.html#af55dd6807d36e98d7dcc9e47736266b3", null ],
     [ "LIGHTSRC_NOT_LAST_RAY", "lightsrc_8h.html#a6cece43af479ca89e1767a51e7b4bf3d", null ],

@@ -18,52 +18,52 @@ Inheritance diagram for GOAT\+::raytracing\+::Cone\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_abfec8b876fcd9ff98904b102c0ac592e}{bin\+Read}} (std\+::ifstream \&os)
+\begin{DoxyCompactList}\small\item\em binary reading from file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a7759af203ee29dcfc85bd680b607942c}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em binary writing to file ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a3e9facb2a673bfbc0a337bfe0c90ad6a}{calc\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ad1312cc133cff28330e542b58c8338d5}{Cone}} ()
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a976ffa0f250ca18c9fd5869ce9fbe725}{Cone}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Pos, double radius, double height, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}}=1.\+0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ex=\mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ey=\mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{maths\+::ey}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ez=\mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{maths\+::ez}})
 \begin{DoxyCompactList}\small\item\em Constructor which defines the cone by the the reference point, radius and height ~\newline
  \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ad450a36eaf069447d81ef42e187b9f49}{$\sim$\+Cone}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a7759af203ee29dcfc85bd680b607942c}{bin\+Write}} (std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em binary writing to file ~\newline
- \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_abfec8b876fcd9ff98904b102c0ac592e}{bin\+Read}} (std\+::ifstream \&os)
-\begin{DoxyCompactList}\small\item\em binary reading from file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a541c272ca03b3e91683cba66b726910d}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
-\begin{DoxyCompactList}\small\item\em sets scaling of the shape by the factor sf \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a32dcbe1efde21f02bf5d3f0f728b467e}{get\+Cone\+Angle}} ()
+\begin{DoxyCompactList}\small\item\em Returns the cone angle. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a249346e9fdc1a82c0e6371e5f766550c}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Returns the height of the cone. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a7e6642cd643c79616b1f58047496d939}{get\+Radius}} ()
+\begin{DoxyCompactList}\small\item\em Returns the radius of the cone. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ab55692926e46f4e7c0eb9bb2724a05e1}{init\+Quad}} ()
+\begin{DoxyCompactList}\small\item\em calculates the circumferent cuboid (needed e.\+g. for the inelastic scattering calculations) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ad75d38a2053d25c0866bb5fc799852de}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em checks if point P is inside the object \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ab4b58ad394ac300355c1b996fb915460}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
 \begin{DoxyCompactList}\small\item\em Calculates next crossing point with ray. This method calculates the next crossing point with the entire cone. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a30152d6cf04a4fd23cce956cb43cf44a}{next\+Cone}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
 \begin{DoxyCompactList}\small\item\em Calculates the next crossing point with the lateral surface of the cone. The method calculates the next crossing point with the lateral surface of the cone according to the algorithm described in the article\+: Ching-\/\+Kuang Shene, \char`\"{}\+V.\+1 -\/ Computing the Intersection of a Line and a Cone\char`\"{} in Graphics Gems V, p. 227--231, Academic Press, 1995. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a56853595e07ed84834eca59f2b832a7b}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
 \begin{DoxyCompactList}\small\item\em surface normal at the point P \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ad75d38a2053d25c0866bb5fc799852de}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
-\begin{DoxyCompactList}\small\item\em checks if point P is inside the object \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_aa9fad17f1c722dc74537cbb1727eae4a}{volume}} ()
-\begin{DoxyCompactList}\small\item\em returns the volume of the object \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ab55692926e46f4e7c0eb9bb2724a05e1}{init\+Quad}} ()
-\begin{DoxyCompactList}\small\item\em calculates the circumferent cuboid (needed e.\+g. for the inelastic scattering calculations) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a1932ae211ec51534aa6ca1991d3e2eec}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
-\begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a541c272ca03b3e91683cba66b726910d}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em sets scaling of the shape by the factor sf \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a6e02c1b3a75f06c82a285e44e305c92f}{set\+Cone\+Angle}} (double cone\+Angle)
+\begin{DoxyCompactList}\small\item\em Set the cone angle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_afcff9a9cc011f34f34ce879f61f1ad6d}{set\+Height}} (double height)
+\begin{DoxyCompactList}\small\item\em Set the height of the cone. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a789b14c84a1b2bd2ec0fde3e1fde37b9}{set\+Pos}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a1932ae211ec51534aa6ca1991d3e2eec}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
 \begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a19e4ca1ca53f85ea07587216a29884ac}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
 \begin{DoxyCompactList}\small\item\em defines the radius of the calculation sphere \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a3e9facb2a673bfbc0a337bfe0c90ad6a}{calc\+CoM}} ()
-\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a6e02c1b3a75f06c82a285e44e305c92f}{set\+Cone\+Angle}} (double cone\+Angle)
-\begin{DoxyCompactList}\small\item\em Set the cone angle. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a32dcbe1efde21f02bf5d3f0f728b467e}{get\+Cone\+Angle}} ()
-\begin{DoxyCompactList}\small\item\em Returns the cone angle. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a43d14b453b65b0c30f3201fdf6c7e9e4}{set\+Radius}} (double radius)
 \begin{DoxyCompactList}\small\item\em Set the radius of the cone. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a7e6642cd643c79616b1f58047496d939}{get\+Radius}} ()
-\begin{DoxyCompactList}\small\item\em Returns the radius of the cone. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_afcff9a9cc011f34f34ce879f61f1ad6d}{set\+Height}} (double height)
-\begin{DoxyCompactList}\small\item\em Set the height of the cone. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_a249346e9fdc1a82c0e6371e5f766550c}{get\+Height}} ()
-\begin{DoxyCompactList}\small\item\em Returns the height of the cone. \end{DoxyCompactList}\end{DoxyCompactItemize}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_aa9fad17f1c722dc74537cbb1727eae4a}{volume}} ()
+\begin{DoxyCompactList}\small\item\em returns the volume of the object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone_ad450a36eaf069447d81ef42e187b9f49}{$\sim$\+Cone}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
 
 

@@ -18,9 +18,11 @@ Inheritance diagram for GOAT\+::raytracing\+::Box\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a5bcb0938544105d00b5bc39ce2a1b37d}{bin\+Read}} (std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em reads object from a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a0e93f79a4102c28a1cb6fdc8f373edd6}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes object to a binary file \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a7a0120069fff3e329527569034cf5a79}{Box}} ()
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a838ee9852f0eb2d13a7a2599c029f4f0}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&F)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a14e730dc927b0bc770637470480b2415}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B)
 \begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
@@ -28,43 +30,41 @@ Inheritance diagram for GOAT\+::raytracing\+::Box\+:\begin{figure}[H]
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_aa294d14e2f644d878bb48dff9a1d7259}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ bound0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ bound1)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a265d02b00384f2985a91101aa0315740}{$\sim$\+Box}} ()
-\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a0e93f79a4102c28a1cb6fdc8f373edd6}{bin\+Write}} (std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em writes object to a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a5bcb0938544105d00b5bc39ce2a1b37d}{bin\+Read}} (std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em reads object from a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab5b68ca8dd37}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
-\begin{DoxyCompactList}\small\item\em sets scaling factor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a838ee9852f0eb2d13a7a2599c029f4f0}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&F)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3b690e68ed76b792fb1712f9c40b1734}{calc\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a632ab4515b5c2d556aaa6ac7aadd993f}{calc\+Diag}} ()
+\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a2dee405436916c044a9ede3ff6ae74a7}{distance}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k)
 \begin{DoxyCompactList}\small\item\em calculates the distance between a ray, described by the position vector p and its directional vector k \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a13890a9a46b8ff2328c61792ec2356ad}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
-\begin{DoxyCompactList}\small\item\em calculates the next crossing point between a ray represented by the position \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af0fceef5fe1edc92af2b45644cf088f1}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
-\begin{DoxyCompactList}\small\item\em normal vector at the position p \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac0b7b14bf65f7bc00703a44b5ed80079}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps)
-\begin{DoxyCompactList}\small\item\em returns true, if Ps is inside the box \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e02336b6b2089f3f6}{volume}} ()
-\begin{DoxyCompactList}\small\item\em returns the volume of the box \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_adb82dce6d42711328e30a14ad5f6daf5}{get\+Size}} ()
 \begin{DoxyCompactList}\small\item\em returns a vector with the side lengths as its components \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_aae74d3d4684ad4e09cfbbc870b3d885f}{init\+Quad}} ()
 \begin{DoxyCompactList}\small\item\em calculates the circumferent cuboid \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ad031bb445df22fc7e9e206d9eb3bdeae}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
-\begin{DoxyCompactList}\small\item\em sets the radius of the calculation sphere \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a632ab4515b5c2d556aaa6ac7aadd993f}{calc\+Diag}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac25e0837e9313b8fed01138888f77cf3}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
-\begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00}{set\+Pos}} (double x, double y, double z)
-\begin{DoxyCompactList}\small\item\em sets the position P and the corresponding bounds \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac0b7b14bf65f7bc00703a44b5ed80079}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps)
+\begin{DoxyCompactList}\small\item\em returns true, if Ps is inside the box \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a13890a9a46b8ff2328c61792ec2356ad}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
+\begin{DoxyCompactList}\small\item\em calculates the next crossing point between a ray represented by the position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af0fceef5fe1edc92af2b45644cf088f1}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em normal vector at the position p \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab5b68ca8dd37}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em sets scaling factor \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163}{setD}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ D)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3b690e68ed76b792fb1712f9c40b1734}{calc\+CoM}} ()
-\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2}{set\+Octree}} (bool is\+Octree)
 \begin{DoxyCompactList}\small\item\em box belongs to an octree calculation ~\newline
- \end{DoxyCompactList}\end{DoxyCompactItemize}
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00}{set\+Pos}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em sets the position P and the corresponding bounds \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac25e0837e9313b8fed01138888f77cf3}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
+\begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ad031bb445df22fc7e9e206d9eb3bdeae}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
+\begin{DoxyCompactList}\small\item\em sets the radius of the calculation sphere \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e02336b6b2089f3f6}{volume}} ()
+\begin{DoxyCompactList}\small\item\em returns the volume of the box \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a265d02b00384f2985a91101aa0315740}{$\sim$\+Box}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 

@@ -1,8 +1,8 @@
 var tubedray_8h =
 [
-    [ "tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer" ],
     [ "Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", "struct_g_o_a_t_1_1raytracing_1_1_gauss" ],
     [ "tubedRay", "class_g_o_a_t_1_1raytracing_1_1tubed_ray.html", "class_g_o_a_t_1_1raytracing_1_1tubed_ray" ],
+    [ "tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer" ],
     [ "EPS_WINKEL", "tubedray_8h.html#a7d91e88410257b42d7e2c1db13909757", null ],
     [ "GESCHNITTEN", "tubedray_8h.html#a5cb74ae13f3c1e2151101fec2567cef0", null ],
     [ "IN_Plane", "tubedray_8h.html#a76cff632b82eccb287e1cec30a56078f", null ],

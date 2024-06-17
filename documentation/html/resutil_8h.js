@@ -1,12 +1,12 @@
 var resutil_8h =
 [
-    [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
-    [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
-    [ "StrahlInfo", "struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html", "struct_g_o_a_t_1_1raytracing_1_1_strahl_info" ],
-    [ "StrahlArray", "struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html", "struct_g_o_a_t_1_1raytracing_1_1_strahl_array" ],
-    [ "objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", "struct_g_o_a_t_1_1raytracing_1_1object_info" ],
-    [ "RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info" ],
     [ "GlobalParms", "class_g_o_a_t_1_1raytracing_1_1_global_parms.html", "class_g_o_a_t_1_1raytracing_1_1_global_parms" ],
+    [ "objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", "struct_g_o_a_t_1_1raytracing_1_1object_info" ],
+    [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
+    [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
+    [ "RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info" ],
+    [ "StrahlArray", "struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html", "struct_g_o_a_t_1_1raytracing_1_1_strahl_array" ],
+    [ "StrahlInfo", "struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html", "struct_g_o_a_t_1_1raytracing_1_1_strahl_info" ],
     [ "ANZ_STRAHLEN", "resutil_8h.html#a16d8477f8528cbbfd302e1c4a09356e8", null ],
     [ "complex_I", "resutil_8h.html#abb666b396b5cea23900efea0bd7cb2b8", null ],
     [ "FLUORESZENZ", "resutil_8h.html#aedf79555d5f8bff341f5cd36bd318de4", null ],

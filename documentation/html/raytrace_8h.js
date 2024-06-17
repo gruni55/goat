@@ -1,10 +1,10 @@
 var raytrace_8h =
 [
-    [ "Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],
     [ "Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace" ],
     [ "Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t" ],
     [ "Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path" ],
     [ "Raytrace_pure", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure" ],
+    [ "Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],
     [ "MAX_RECURSIONS", "raytrace_8h.html#af1880ecb60693d167d9f566259de80df", null ],
     [ "RAYTRACE_MAX_REFLEXIONS", "raytrace_8h.html#a634d573272f55167b178b564e96f2c2b", null ],
     [ "RAYTRACER_TYPE_NONE", "raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09", null ],

@@ -1,7 +1,7 @@
 var raytrace__inel_8h =
 [
-    [ "RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms" ],
     [ "Raytrace_Inel", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel" ],
+    [ "RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms" ],
     [ "calcDetDirParms", "raytrace__inel_8h.html#a1eadf92a6f76e3f9640a40e413a34e88", null ],
     [ "INEL_CALCPHASE_EXCITATION", "raytrace__inel_8h.html#a66b93943735f5cef623e1040b5f3f158", null ],
     [ "INEL_CALCPHASE_EXCITATION_ONLY", "raytrace__inel_8h.html#a642a0f27308887e6f6ec0ba44e163ad3", null ],

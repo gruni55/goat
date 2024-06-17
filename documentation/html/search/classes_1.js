@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['box_949',['Box',['../class_g_o_a_t_1_1raytracing_1_1_box.html',1,'GOAT::raytracing']]]
+  ['box_1252',['Box',['../class_g_o_a_t_1_1raytracing_1_1_box.html',1,'GOAT::raytracing']]]
 ];

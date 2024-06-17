@@ -2,9 +2,9 @@ var dir_19446fe9a19298740000c181fd65b800 =
 [
     [ "pulsecalc_with_template", "dir_f3b31d642f11f3bfc106bdf51eca694c.html", "dir_f3b31d642f11f3bfc106bdf51eca694c" ],
     [ "asphericLens.h", "aspheric_lens_8h.html", [
-      [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
+      [ "asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens" ],
       [ "asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms" ],
-      [ "asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens" ]
+      [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ]
     ] ],
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "cone.h", "cone_8h.html", [

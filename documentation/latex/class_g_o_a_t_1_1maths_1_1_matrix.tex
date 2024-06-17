@@ -12,23 +12,23 @@ This class represents a threedimensional (numeric) \mbox{\hyperlink{class_g_o_a_
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9b3f9007da7429e5ef78445270830b60}{Matrix}} ()
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9444c1efda7640fa78a1962524128e5b}{bin\+Read}} (std\+::ifstream \&is)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a7e374c27c03abf580bbeb559bb2dd644}{bin\+Write}} (std\+::ofstream \&os)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9444c1efda7640fa78a1962524128e5b}{bin\+Read}} (std\+::ifstream \&is)
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a261d5545d9c1ddca68c70e8c545b1c94}{clear}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9b3f9007da7429e5ef78445270830b60}{Matrix}} ()
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aa76dc79e85b3ab5074489d7bd04a83ed}{Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ a, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ b, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ c)
 \begin{DoxyCompactList}\small\item\em Main constructor for the template class \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}. This constructor uses three vectors as parameters, which represents the three columns of the matrix. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a2d4e0b4804f8a6227c937d3454917b8f}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a4bcc2b3688744a2187a0f9e5cb1d9e2a}{operator==}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
-\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a141814359f38a28db7b1438688b5523f}{operator!=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}})
 \item 
 T \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_acea147a0430aefa618d00bab30bf4c77}{operator()}} (int i, int j)
 \begin{DoxyCompactList}\small\item\em This operator returns the value of the j-\/th element in the i-\/th column. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a261d5545d9c1ddca68c70e8c545b1c94}{clear}} ()
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a2d4e0b4804f8a6227c937d3454917b8f}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a4bcc2b3688744a2187a0f9e5cb1d9e2a}{operator==}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
@@ -38,22 +38,22 @@ T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c862
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ac9244dbb542b5f2849b4859e85f48c49}{cut\+Matrix}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}}, int i, int j)
+\begin{DoxyCompactList}\small\item\em This function returns a matrix where all elements of the i-\/th column and the j-\/th row set to zero. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aaf64d99c408b323083c1f40a25c1a5e6}{det}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the determinant of the matrix A. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9e9429796e80c08b15cfd163de04f6f5}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_adc2669b2494036b37d38733b96cb19bd}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A, bool \&invertable)
+\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\item 
 std\+::ostream \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ac574f47759124e79891122fc0f3606a2}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
 \begin{DoxyCompactList}\small\item\em Output of the matrix into an ostream Output in the form\+: M00 M01 M02 M10 M11 M12 M20 M21 M22. \end{DoxyCompactList}\item 
 std\+::istream \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a22ef7f4fb274c9b4ec411e87282d3721}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
 \begin{DoxyCompactList}\small\item\em Input of the matrix from an istream. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ad49add03b74ffaceddaafae2bdc85a75}{transpose}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
-\begin{DoxyCompactList}\small\item\em Calculates the transpose of the matrix A. \end{DoxyCompactList}\item 
 T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_af80afe30e71c36f91065d46ae75f79d1}{trace}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
 \begin{DoxyCompactList}\small\item\em Calculates the trace of matrix A, i.\+e. the sum over all diagonal elements. \end{DoxyCompactList}\item 
-T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aaf64d99c408b323083c1f40a25c1a5e6}{det}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
-\begin{DoxyCompactList}\small\item\em Calculates the determinant of the matrix A. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ac9244dbb542b5f2849b4859e85f48c49}{cut\+Matrix}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}}, int i, int j)
-\begin{DoxyCompactList}\small\item\em This function returns a matrix where all elements of the i-\/th column and the j-\/th row set to zero. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_adc2669b2494036b37d38733b96cb19bd}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A, bool \&invertable)
-\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9e9429796e80c08b15cfd163de04f6f5}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A)
-\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ad49add03b74ffaceddaafae2bdc85a75}{transpose}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the transpose of the matrix A. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{special operators}
 \label{_amgrpd82716fec5109801c05668991feb274f}%
 These operators are the common definitions of the corresponding matrix operations \begin{DoxyCompactItemize}

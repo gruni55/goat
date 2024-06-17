@@ -6,6 +6,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "binReadItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab8e3b0c8902a3f12ad08a202bc21414d", null ],
     [ "binWriteItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc", null ],
     [ "calcNormfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae2e73bda9357091880dcf8fbd1191016", null ],
+    [ "calcStartPhase", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1d36ad1af89f1e4ea1318d1a8c0ee745", null ],
     [ "calcw", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab7c8de839cf0a111d6ffa4d23f7d118b", null ],
     [ "calcz0", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a6f82182b12c7c33ac3f11b10db808e1a", null ],
     [ "getFocuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a269723ee8292a8497b8a372a86ba255e", null ],

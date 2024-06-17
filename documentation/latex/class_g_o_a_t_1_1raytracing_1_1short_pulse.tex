@@ -12,32 +12,32 @@ Class for the calculation of short pulses.
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ac305fddaf146cbce3730fb7ff5662cbf}{short\+Pulse}} (std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}} $>$ Wvl\+Ranges, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}}, std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a921662f5c0d06aeea687334a272265a2}{n\+List}})
-\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a87e3e22504af25a1dda36e2ceeb4b0e6}{set\+Pulse\+Width}} (int i, double pulse\+Width)
 \begin{DoxyCompactList}\small\item\em set pulse width of the i-\/th light source \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ac305fddaf146cbce3730fb7ff5662cbf}{short\+Pulse}} (std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}} $>$ Wvl\+Ranges, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}}, std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a921662f5c0d06aeea687334a272265a2}{n\+List}})
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5ddc590b3418a6170baa7dde47437386}{start\+Raytracing}} ()
 \begin{DoxyCompactList}\small\item\em performs raytracing process \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a0bb93cad8825da7cea0fd95a256eb769}{wvl\+Ranges}}
-\begin{DoxyCompactList}\small\item\em Here, the wavelength ranges for the calculation are stored. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a53fa14e3055e0af948ae89e0816d5963}{num\+Wvl\+Ranges}} = 0
-\begin{DoxyCompactList}\small\item\em number of different wavelength ranges \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}}
-\begin{DoxyCompactList}\small\item\em the scene -\/ it contains all information about the light sources, objects etc. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aa0724719e173538ec44167f60230666b}{bit\+LT}}
+\begin{DoxyCompactList}\small\item\em bit reverse lookup table, used for FFT \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad66e7ed4f925c5827eb69d7f5210cc6d}{field}}
+\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aaa07d911730cc39588da85577fe032f3}{LSwidth}}
+\begin{DoxyCompactList}\small\item\em pulse widths of the light sources \end{DoxyCompactList}\item 
 std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$double) $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a921662f5c0d06aeea687334a272265a2}{n\+List}}
 \begin{DoxyCompactList}\small\item\em List of the refractive index function for each object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a53fa14e3055e0af948ae89e0816d5963}{num\+Wvl\+Ranges}} = 0
+\begin{DoxyCompactList}\small\item\em number of different wavelength ranges \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry}{ray\+List\+Entry}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5a43d7dc18c355d921f36021f9e1e4d5}{ray\+List}}
 \begin{DoxyCompactList}\small\item\em List of all ray steps ~\newline
  \end{DoxyCompactList}\item 
-std\+::vector$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aaa07d911730cc39588da85577fe032f3}{LSwidth}}
-\begin{DoxyCompactList}\small\item\em pulse widths of the light sources \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad66e7ed4f925c5827eb69d7f5210cc6d}{field}}
-\item 
-std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aa0724719e173538ec44167f60230666b}{bit\+LT}}
-\begin{DoxyCompactList}\small\item\em bit reverse lookup table, used for FFT \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}}
+\begin{DoxyCompactList}\small\item\em the scene -\/ it contains all information about the light sources, objects etc. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a0bb93cad8825da7cea0fd95a256eb769}{wvl\+Ranges}}
+\begin{DoxyCompactList}\small\item\em Here, the wavelength ranges for the calculation are stored. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

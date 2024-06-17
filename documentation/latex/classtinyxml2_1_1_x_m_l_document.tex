@@ -13,77 +13,77 @@ Inheritance diagram for tinyxml2\+::XMLDocument\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a57ddf17b6e054dda10af98991b1b8f70}{XMLDocument}} (bool process\+Entities=true, \mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5}{Whitespace}} whitespace\+Mode=\mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5a751769aa625fe5fe5286e9779edec56a}{PRESERVE\+\_\+\+WHITESPACE}})
-\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af37c47d8e2ba4b2fc81b21a77a32579b}{$\sim$\+XMLDocument}} ()
+virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a9efa54f7ecb37c17ab1fa2b3078ccca1}{Accept}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_visitor}{XMLVisitor}} $\ast$visitor) const
 \item 
-virtual \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a3e185f880882bd978367bb55937735ec}{To\+Document}} ()
-\begin{DoxyCompactList}\small\item\em Safely cast to a Document, or null. \end{DoxyCompactList}\item 
-virtual const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a747ab173887d969fe313b4617f968e99}{To\+Document}} () const
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a65656b0b2cbc822708eb351504178aaf}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Clear the document, resetting it to the initial state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a4085d9c52f1d93214311459d6d1fcf17}{Clear\+Error}} ()
+\begin{DoxyCompactList}\small\item\em Clears the error flags. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af592ffc91514e25a39664521ac83db45}{Deep\+Copy}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$target) const
 \item 
-\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af2b616169e6517182f6725f2498e9a01}{Parse}} (const char $\ast$xml, size\+\_\+t n\+Bytes=static\+\_\+cast$<$ size\+\_\+t $>$(-\/1))
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ac1d6e2c7fcc1a660624ac4f68e96380d}{Delete\+Node}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$node)
+\item 
+bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a34e6318e182e40e3cc4f4ba5d59ed9ed}{Error}} () const
+\begin{DoxyCompactList}\small\item\em Return true if there was an error parsing the document. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_afa3ed33b3107f920ec2b301f805ac17d}{Error\+ID}} () const
+\begin{DoxyCompactList}\small\item\em Return the error\+ID. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a57400f816dbe7799ece33615ead9ab76}{Error\+Line\+Num}} () const
+\begin{DoxyCompactList}\small\item\em Return the line where the error occurred, or zero if unknown. \end{DoxyCompactList}\item 
+const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ac75d2de15c78497eadb4245b9a9862c7}{Error\+Name}} () const
+\item 
+const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ad75aa9d32c4e8b300655186808aa9abf}{Error\+Str}} () const
+\item 
+bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a33fc5d159db873a179fa26338adb05bd}{Has\+BOM}} () const
+\item 
+char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af255cf899d2bf5dbae54c9b6de9c2752}{Identify}} (char $\ast$p, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$$\ast$node)
 \item 
 \mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a2ebd4647a8af5fc6831b294ac26a150a}{Load\+File}} (const char $\ast$filename)
 \item 
 \mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a5f1d330fad44c52f3d265338dd2a6dc2}{Load\+File}} (FILE $\ast$)
 \item 
-\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a73ac416b4a2aa0952e841220eb3da18f}{Save\+File}} (const char $\ast$filename, bool compact=false)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a64dadb2de12e52538d0ff8ba38f323ec}{Mark\+In\+Use}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$const)
 \item 
-\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a8b95779479a0035acc67b3a61dfe1b74}{Save\+File}} (FILE $\ast$fp, bool compact=false)
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_comment}{XMLComment}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ade4874bcb439954972ef2b3723ff3259}{New\+Comment}} (const char $\ast$comment)
 \item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_declaration}{XMLDeclaration}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_aee2eb3435923f5494dcc70ac225b60a2}{New\+Declaration}} (const char $\ast$text=0)
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a8aa7817d4a1001364b06373763ab99d6}{New\+Element}} (const char $\ast$name)
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_text}{XMLText}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ab7e8b29ae4099092a8bb947da6361296}{New\+Text}} (const char $\ast$text)
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_unknown}{XMLUnknown}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a5385c937734ff6db9226ab707d2c7147}{New\+Unknown}} (const char $\ast$text)
+\item 
+\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af2b616169e6517182f6725f2498e9a01}{Parse}} (const char $\ast$xml, size\+\_\+t n\+Bytes=static\+\_\+cast$<$ size\+\_\+t $>$(-\/1))
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a867cf5fa3e3ff6ae4847a8b7ee8ec083}{Print}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer}{XMLPrinter}} $\ast$streamer=0) const
+\item 
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a1d033945b42e125d933d6231e4571552}{Print\+Error}} () const
+\begin{DoxyCompactList}\small\item\em A (trivial) utility function that prints the \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ad75aa9d32c4e8b300655186808aa9abf}{Error\+Str()}} to stdout. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a53e6c035b1b539563fef8c817fb30469}{Process\+Entities}} () const
-\item 
-\mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5}{Whitespace}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a810ce508e6e0365497c2a9deb83c9ca7}{Whitespace\+Mode}} () const
-\item 
-bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a33fc5d159db873a179fa26338adb05bd}{Has\+BOM}} () const
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a14419b698f7c4b140df4e80f3f0c93b0}{Set\+BOM}} (bool use\+BOM)
 \item 
 \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ad2b70320d3c2a071c2f36928edff3e1c}{Root\+Element}} ()
 \item 
 const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a2be8ef9d6346bdef34311f91529afae4}{Root\+Element}} () const
 \item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a867cf5fa3e3ff6ae4847a8b7ee8ec083}{Print}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_printer}{XMLPrinter}} $\ast$streamer=0) const
+\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a73ac416b4a2aa0952e841220eb3da18f}{Save\+File}} (const char $\ast$filename, bool compact=false)
 \item 
-virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a9efa54f7ecb37c17ab1fa2b3078ccca1}{Accept}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_visitor}{XMLVisitor}} $\ast$visitor) const
+\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a8b95779479a0035acc67b3a61dfe1b74}{Save\+File}} (FILE $\ast$fp, bool compact=false)
 \item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{XMLElement}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a8aa7817d4a1001364b06373763ab99d6}{New\+Element}} (const char $\ast$name)
-\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_comment}{XMLComment}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ade4874bcb439954972ef2b3723ff3259}{New\+Comment}} (const char $\ast$comment)
-\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_text}{XMLText}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ab7e8b29ae4099092a8bb947da6361296}{New\+Text}} (const char $\ast$text)
-\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_declaration}{XMLDeclaration}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_aee2eb3435923f5494dcc70ac225b60a2}{New\+Declaration}} (const char $\ast$text=0)
-\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_unknown}{XMLUnknown}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a5385c937734ff6db9226ab707d2c7147}{New\+Unknown}} (const char $\ast$text)
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ac1d6e2c7fcc1a660624ac4f68e96380d}{Delete\+Node}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$node)
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a4085d9c52f1d93214311459d6d1fcf17}{Clear\+Error}} ()
-\begin{DoxyCompactList}\small\item\em Clears the error flags. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a34e6318e182e40e3cc4f4ba5d59ed9ed}{Error}} () const
-\begin{DoxyCompactList}\small\item\em Return true if there was an error parsing the document. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{namespacetinyxml2_a1fbf88509c3ac88c09117b1947414e08}{XMLError}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_afa3ed33b3107f920ec2b301f805ac17d}{Error\+ID}} () const
-\begin{DoxyCompactList}\small\item\em Return the error\+ID. \end{DoxyCompactList}\item 
-const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ac75d2de15c78497eadb4245b9a9862c7}{Error\+Name}} () const
-\item 
-const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ad75aa9d32c4e8b300655186808aa9abf}{Error\+Str}} () const
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a1d033945b42e125d933d6231e4571552}{Print\+Error}} () const
-\begin{DoxyCompactList}\small\item\em A (trivial) utility function that prints the \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ad75aa9d32c4e8b300655186808aa9abf}{Error\+Str()}} to stdout. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a57400f816dbe7799ece33615ead9ab76}{Error\+Line\+Num}} () const
-\begin{DoxyCompactList}\small\item\em Return the line where the error occurred, or zero if unknown. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a65656b0b2cbc822708eb351504178aaf}{Clear}} ()
-\begin{DoxyCompactList}\small\item\em Clear the document, resetting it to the initial state. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af592ffc91514e25a39664521ac83db45}{Deep\+Copy}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$target) const
-\item 
-char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af255cf899d2bf5dbae54c9b6de9c2752}{Identify}} (char $\ast$p, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$$\ast$node)
-\item 
-void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a64dadb2de12e52538d0ff8ba38f323ec}{Mark\+In\+Use}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$const)
+void \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a14419b698f7c4b140df4e80f3f0c93b0}{Set\+BOM}} (bool use\+BOM)
 \item 
 virtual \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_aa37cc1709d7e1e988bc17dcfb24a69b8}{Shallow\+Clone}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$) const
 \item 
 virtual bool \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a6fe5ef18699091844fcf64b56ffa5bf9}{Shallow\+Equal}} (const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{XMLNode}} $\ast$) const
+\item 
+virtual \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a3e185f880882bd978367bb55937735ec}{To\+Document}} ()
+\begin{DoxyCompactList}\small\item\em Safely cast to a Document, or null. \end{DoxyCompactList}\item 
+virtual const \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{XMLDocument}} $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a747ab173887d969fe313b4617f968e99}{To\+Document}} () const
+\item 
+\mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5}{Whitespace}} \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a810ce508e6e0365497c2a9deb83c9ca7}{Whitespace\+Mode}} () const
+\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a57ddf17b6e054dda10af98991b1b8f70}{XMLDocument}} (bool process\+Entities=true, \mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5}{Whitespace}} whitespace\+Mode=\mbox{\hyperlink{namespacetinyxml2_a7f91d00f77360f850fd5da0861e27dd5a751769aa625fe5fe5286e9779edec56a}{PRESERVE\+\_\+\+WHITESPACE}})
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_af37c47d8e2ba4b2fc81b21a77a32579b}{$\sim$\+XMLDocument}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
@@ -93,15 +93,15 @@ static const char $\ast$ \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_aba60
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
+class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_acee9e261162d4236fb2c30312c54cd4c}{XMLComment}}
+\item 
+class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a93d2c2c2db3973083b7d6e7f6f358160}{XMLDeclaration}}
+\item 
 class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ac2fba9b6e452829dd892f7392c24e0eb}{XMLElement}}
 \item 
 class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a8233f9dc4d61d90e93be2a3647c6d957}{XMLNode}}
 \item 
 class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_ae50b59416e98bbe7e4bc87df40092109}{XMLText}}
-\item 
-class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_acee9e261162d4236fb2c30312c54cd4c}{XMLComment}}
-\item 
-class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a93d2c2c2db3973083b7d6e7f6f358160}{XMLDeclaration}}
 \item 
 class \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document_a6946948274f7a02f5e69b5dbeaea9b35}{XMLUnknown}}
 \end{DoxyCompactItemize}

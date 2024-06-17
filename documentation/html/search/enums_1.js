@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['side_1832',['Side',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#afab106b2b59df490442822442d791e52',1,'GOAT::raytracing::asphericLens']]]
+  ['elementclosingtype_2400',['ElementClosingType',['../classtinyxml2_1_1_x_m_l_element.html#ab5f90e2493c35702175235127e2935b4',1,'tinyxml2::XMLElement']]]
 ];

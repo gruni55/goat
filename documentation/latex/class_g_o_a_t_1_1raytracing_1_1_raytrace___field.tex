@@ -1,0 +1,279 @@
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field}{}\doxysection{GOAT\+::raytracing\+::Raytrace\+\_\+\+Field Class Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field}\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+
+
+Class which stores the electric field inside a box This raytracer can store the electric field even if there are objects in at least one box (we will call this box a \char`\"{}box detector\char`\"{}). The different box detectors must not interfere ! (In the moment, this will not be checked!)  
+
+
+
+
+{\ttfamily \#include $<$raytrace\+\_\+field.\+h$>$}
+
+Inheritance diagram for GOAT\+::raytracing\+::Raytrace\+\_\+\+Field\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1_raytrace___field}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_af29eeccc7bf538af26151cd109c183bb}{add\+Box\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} $\ast$box)
+\begin{DoxyCompactList}\small\item\em add a box as detector \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a37d188423753fc76c5839acafdb256e7}{find\+Box\+Detector\+Intersection}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
+\item 
+virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ab9709d0bcaffe5c71aadbeb561cb2f2a}{init}} ()
+\begin{DoxyCompactList}\small\item\em do some initialisation (e.\+g. clear the superarray) ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6fbd8a6ba662872aac755ef8830931b4}{Raytrace\+\_\+\+Field}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_abc934a61621ae408b00046e1e40a663e}{Raytrace\+\_\+\+Field}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a21c6829abe1468d82ef0963525174c7a}{set\+Resolution}} (double res)
+\begin{DoxyCompactList}\small\item\em set the resolution (which will be used for all detectors) \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a17a3f8499ff16e7ea6cd834f18c94349}{store\+Data}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a408a74d9f23b319367edbc08b9f9d12a}{PStart}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Pen, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_ac51907766e96756f261be983b87e1557}{EStart}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a570f5f996a09c9ae3b3a554d88ea638d}{trace}} ()
+\begin{DoxyCompactList}\small\item\em Start the raytracing process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6c9fc0d276a1b30c5a5ed3f12a64a84d}{trace\+Enter\+Object}} ()
+\begin{DoxyCompactList}\small\item\em this function is called when the ray enters an object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a9f83434940a78160bcb6c030396412b4}{trace\+Leave\+Object}} ()
+\begin{DoxyCompactList}\small\item\em this function is called when the ray leaves an object \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a81cb14d069a0bb4222ff5d9071e17f7b}{trace\+One\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a5219195028c7ebf9180a6553876b89ab}{ray}}, int \&Reflexions, int \&recur)
+\begin{DoxyCompactList}\small\item\em traces one ray \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a58a9d602d9f8571146b3f1d5a27867df}{$\sim$\+Raytrace\+\_\+\+Field}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} $\ast$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6507f2fc0d6e8f111c3bbe479cbfb0d3}{Box\+Detector}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ac1789eb108b96d779dc5ac6c5a49a380}{index\+Current\+Detector}} =-\/1
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a781b3dea6c18aa26b338a8b2859ff048}{iR}} = 0
+\begin{DoxyCompactList}\small\item\em Number of reflections to consider. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aec479646b60e995cf0f1046a1c7c19a3}{num\+Cells\+Per\+Direction}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a2432b114ac09a7fe5583617b028de646}{p\+Det}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_add46b0d158f5eb8124baee622a11766d}{resolution}} =0.\+1
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aa12dda27811cb50c71b608848d703aae}{SE}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class which stores the electric field inside a box This raytracer can store the electric field even if there are objects in at least one box (we will call this box a \char`\"{}box detector\char`\"{}). The different box detectors must not interfere ! (In the moment, this will not be checked!) 
+
+Definition at line 16 of file raytrace\+\_\+field.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6fbd8a6ba662872aac755ef8830931b4}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6fbd8a6ba662872aac755ef8830931b4}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!Raytrace\_Field@{Raytrace\_Field}}
+\index{Raytrace\_Field@{Raytrace\_Field}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_Field()}{Raytrace\_Field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::\+Raytrace\+\_\+\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_abc934a61621ae408b00046e1e40a663e}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_abc934a61621ae408b00046e1e40a663e}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!Raytrace\_Field@{Raytrace\_Field}}
+\index{Raytrace\_Field@{Raytrace\_Field}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{Raytrace\_Field()}{Raytrace\_Field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::\+Raytrace\+\_\+\+Field (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a58a9d602d9f8571146b3f1d5a27867df}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a58a9d602d9f8571146b3f1d5a27867df}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!````~Raytrace\_Field@{$\sim$Raytrace\_Field}}
+\index{````~Raytrace\_Field@{$\sim$Raytrace\_Field}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{$\sim$Raytrace\_Field()}{~Raytrace\_Field()}}
+{\footnotesize\ttfamily GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::$\sim$\+Raytrace\+\_\+\+Field (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_af29eeccc7bf538af26151cd109c183bb}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_af29eeccc7bf538af26151cd109c183bb}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!addBoxDetector@{addBoxDetector}}
+\index{addBoxDetector@{addBoxDetector}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{addBoxDetector()}{addBoxDetector()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::add\+Box\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} $\ast$}]{box }\end{DoxyParamCaption})}
+
+
+
+add a box as detector 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a37d188423753fc76c5839acafdb256e7}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a37d188423753fc76c5839acafdb256e7}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!findBoxDetectorIntersection@{findBoxDetectorIntersection}}
+\index{findBoxDetectorIntersection@{findBoxDetectorIntersection}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{findBoxDetectorIntersection()}{findBoxDetectorIntersection()}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::find\+Box\+Detector\+Intersection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{k,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{pout }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ab9709d0bcaffe5c71aadbeb561cb2f2a}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ab9709d0bcaffe5c71aadbeb561cb2f2a}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!init@{init}}
+\index{init@{init}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+do some initialisation (e.\+g. clear the superarray) ~\newline
+ 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a21c6829abe1468d82ef0963525174c7a}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a21c6829abe1468d82ef0963525174c7a}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!setResolution@{setResolution}}
+\index{setResolution@{setResolution}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{setResolution()}{setResolution()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::set\+Resolution (\begin{DoxyParamCaption}\item[{double}]{res }\end{DoxyParamCaption})}
+
+
+
+set the resolution (which will be used for all detectors) 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a17a3f8499ff16e7ea6cd834f18c94349}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a17a3f8499ff16e7ea6cd834f18c94349}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!storeData@{storeData}}
+\index{storeData@{storeData}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{storeData()}{storeData()}}
+{\footnotesize\ttfamily virtual void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::store\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{PStart,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Pen,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{EStart }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a570f5f996a09c9ae3b3a554d88ea638d}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a570f5f996a09c9ae3b3a554d88ea638d}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!trace@{trace}}
+\index{trace@{trace}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::trace (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Start the raytracing process. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6c9fc0d276a1b30c5a5ed3f12a64a84d}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6c9fc0d276a1b30c5a5ed3f12a64a84d}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!traceEnterObject@{traceEnterObject}}
+\index{traceEnterObject@{traceEnterObject}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{traceEnterObject()}{traceEnterObject()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::trace\+Enter\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+this function is called when the ray enters an object 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a9f83434940a78160bcb6c030396412b4}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a9f83434940a78160bcb6c030396412b4}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!traceLeaveObject@{traceLeaveObject}}
+\index{traceLeaveObject@{traceLeaveObject}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{traceLeaveObject()}{traceLeaveObject()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::trace\+Leave\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+this function is called when the ray leaves an object 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a81cb14d069a0bb4222ff5d9071e17f7b}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a81cb14d069a0bb4222ff5d9071e17f7b}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!traceOneRay@{traceOneRay}}
+\index{traceOneRay@{traceOneRay}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{traceOneRay()}{traceOneRay()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::trace\+One\+Ray (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} $\ast$}]{ray,  }\item[{int \&}]{Reflexions,  }\item[{int \&}]{recur }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+traces one ray 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ray} & ray which should be traced,\\
+\hline
+{\em Reflexions} & counter for the number of reflexions made within the ray tracing process. This parameter is needed to stop calculation after the maximal number of reflexions\\
+\hline
+{\em recur} & counter which will be set to the current recursion depth \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1209f1394d4fac2b35bd618fdfc20020}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6507f2fc0d6e8f111c3bbe479cbfb0d3}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a6507f2fc0d6e8f111c3bbe479cbfb0d3}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!BoxDetector@{BoxDetector}}
+\index{BoxDetector@{BoxDetector}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{BoxDetector}{BoxDetector}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} $\ast$$>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::\+Box\+Detector}
+
+
+
+Definition at line 35 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ac1789eb108b96d779dc5ac6c5a49a380}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_ac1789eb108b96d779dc5ac6c5a49a380}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!indexCurrentDetector@{indexCurrentDetector}}
+\index{indexCurrentDetector@{indexCurrentDetector}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{indexCurrentDetector}{indexCurrentDetector}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::index\+Current\+Detector =-\/1}
+
+
+
+Definition at line 38 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a781b3dea6c18aa26b338a8b2859ff048}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a781b3dea6c18aa26b338a8b2859ff048}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!iR@{iR}}
+\index{iR@{iR}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{iR}{iR}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::iR = 0}
+
+
+
+Number of reflections to consider. 
+
+
+
+Definition at line 27 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aec479646b60e995cf0f1046a1c7c19a3}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aec479646b60e995cf0f1046a1c7c19a3}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!numCellsPerDirection@{numCellsPerDirection}}
+\index{numCellsPerDirection@{numCellsPerDirection}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{numCellsPerDirection}{numCellsPerDirection}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::num\+Cells\+Per\+Direction}
+
+
+
+Definition at line 37 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a2432b114ac09a7fe5583617b028de646}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_a2432b114ac09a7fe5583617b028de646}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!pDet@{pDet}}
+\index{pDet@{pDet}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{pDet}{pDet}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::p\+Det}
+
+
+
+Definition at line 39 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_add46b0d158f5eb8124baee622a11766d}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_add46b0d158f5eb8124baee622a11766d}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!resolution@{resolution}}
+\index{resolution@{resolution}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{resolution}{resolution}}
+{\footnotesize\ttfamily double GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::resolution =0.\+1}
+
+
+
+Definition at line 36 of file raytrace\+\_\+field.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aa12dda27811cb50c71b608848d703aae}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___field_aa12dda27811cb50c71b608848d703aae}} 
+\index{GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}!SE@{SE}}
+\index{SE@{SE}!GOAT::raytracing::Raytrace\_Field@{GOAT::raytracing::Raytrace\_Field}}
+\doxysubsubsection{\texorpdfstring{SE}{SE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Field\+::\+SE}
+
+
+
+Definition at line 26 of file raytrace\+\_\+field.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{raytrace__field_8h}{raytrace\+\_\+field.\+h}}\end{DoxyCompactItemize}

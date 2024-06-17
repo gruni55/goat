@@ -18,87 +18,87 @@ Inheritance diagram for GOAT\+::raytracing\+::surface\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f}{surface}} ()
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a}{add\+Triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $\ast$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}, int num)
+\begin{DoxyCompactList}\small\item\em Adds triangles to the internal list of triangles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b}{bin\+Read}} (std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em Reads object from binary file represented by istream is. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em Writes object to binary file represented by ostream os. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a116d4935c7278da19295c56bbfb2ce61}{calc\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2}{clearS}} ()
+\begin{DoxyCompactList}\small\item\em clears the internal list of triangles \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a4e05eb588d229bfca1045e24f2d418aa}{compute\+Inertia}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the inertia of the object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130}{createsurface}} ()
+\begin{DoxyCompactList}\small\item\em Creates a list of triangles, which describes the surface, from standard input. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46}{createsurface}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
+\begin{DoxyCompactList}\small\item\em reads the triangle list from a file (proprietary file format, SRF) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867}{export\+SRF}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
+\begin{DoxyCompactList}\small\item\em export triangle list to proprietary file format SRF \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887}{get\+Current\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Returns the index of the triangle that was last hit. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a903152e63dab9cdaedbade5a45d44b14}{get\+FName}} ()
+\begin{DoxyCompactList}\small\item\em returns the current file name \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}{get\+Min\+Max}} (double \&min, double \&max)
+\begin{DoxyCompactList}\small\item\em calculates center of mass \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a24b1d8c3460ab71f4df23491ab58ea75}{get\+Triangle}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns the i-\/th triangle in the internal triangle list. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80}{import\+Bin\+STL}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
+\begin{DoxyCompactList}\small\item\em import triangle list from binary STL-\/file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7}{init\+Bounds}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a7563e04424687ffa01dc559f1c487134}{pul}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a372963153380dd68772fd0d213da1a3e}{por}})
+\begin{DoxyCompactList}\small\item\em Calculates the bounding box (=circumferent cuboid) but without rotation. The cuboid is represented by the upper right corner (por) and the lower left corner (pul). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2}{init\+Quad}} ()
+\begin{DoxyCompactList}\small\item\em Boundaries of the circumferent cuboid is calculated. The cuboid is represented by the upper right corner (por) and the lower left corner (pul). Used only for inelastic scattering. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em checks if point P is inside the object \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&r, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em Calculates the intersection point between a straight line and the surface object. The straight line is represented by a point on the line and its direction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a708b693862e4ffa27df45ddcc4dc7cb0}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
+\begin{DoxyCompactList}\small\item\em Surface normal at point P (There is no check, if P is on the surface. This function is used for internal purposes) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24}{nosurface}} ()
+\begin{DoxyCompactList}\small\item\em returns copy of the object without triangles \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ac85c1ad0a4a211e08112782e085c668d}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729}{surface}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Oh)
-\begin{DoxyCompactList}\small\item\em Empty surface object with position Oh. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9}{surface}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&Su)
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em scale the lengths of all triangles \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96}{set\+Center}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328}{set\+Center2\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em Sets the Position to the center of mass (CoM) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933}{set\+Filename}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}{set\+Pos}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Set position of the object to a position vector represented by its components x,y and z. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
+\begin{DoxyCompactList}\small\item\em Set position of the object to r. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
+\begin{DoxyCompactList}\small\item\em sets the radius of the calculation sphere (necessary only if this class is used outside \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f}{surface}} ()
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8fbfb1b0efa357dec4ad013174135bb8}{surface}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}}, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ex=\mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{GOAT\+::maths\+::ex}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ey=\mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{GOAT\+::maths\+::ey}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ez=\mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{GOAT\+::maths\+::ez}})
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aa60372944805b1049fca28e7f4e45839}{surface}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}}, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}, int num, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $\ast$list, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ex=\mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ey=\mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{maths\+::ey}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ez=\mbox{\hyperlink{vector_8h_ae8cef987957a66194c27bf58d3f1b33e}{maths\+::ez}})
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a116d4935c7278da19295c56bbfb2ce61}{calc\+CoM}} ()
-\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}{get\+Min\+Max}} (double \&min, double \&max)
-\begin{DoxyCompactList}\small\item\em calculates center of mass \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130}{createsurface}} ()
-\begin{DoxyCompactList}\small\item\em Creates a list of triangles, which describes the surface, from standard input. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
-\begin{DoxyCompactList}\small\item\em scale the lengths of all triangles \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46}{createsurface}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
-\begin{DoxyCompactList}\small\item\em reads the triangle list from a file (proprietary file format, SRF) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80}{import\+Bin\+STL}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
-\begin{DoxyCompactList}\small\item\em import triangle list from binary STL-\/file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867}{export\+SRF}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
-\begin{DoxyCompactList}\small\item\em export triangle list to proprietary file format SRF \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24}{nosurface}} ()
-\begin{DoxyCompactList}\small\item\em returns copy of the object without triangles \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a}{add\+Triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $\ast$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}, int num)
-\begin{DoxyCompactList}\small\item\em Adds triangles to the internal list of triangles. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2}{clearS}} ()
-\begin{DoxyCompactList}\small\item\em clears the internal list of triangles \end{DoxyCompactList}\item 
-std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a903152e63dab9cdaedbade5a45d44b14}{get\+FName}} ()
-\begin{DoxyCompactList}\small\item\em returns the current file name \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933}{set\+Filename}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9}{surface}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&Su)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ac85c1ad0a4a211e08112782e085c668d}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&)
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&r, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
-\begin{DoxyCompactList}\small\item\em Calculates the intersection point between a straight line and the surface object. The straight line is represented by a point on the line and its direction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a708b693862e4ffa27df45ddcc4dc7cb0}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
-\begin{DoxyCompactList}\small\item\em Surface normal at point P (There is no check, if P is on the surface. This function is used for internal purposes) \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
-\begin{DoxyCompactList}\small\item\em checks if point P is inside the object \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
-\begin{DoxyCompactList}\small\item\em sets the radius of the calculation sphere (necessary only if this class is used outside \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2}{init\+Quad}} ()
-\begin{DoxyCompactList}\small\item\em Boundaries of the circumferent cuboid is calculated. The cuboid is represented by the upper right corner (por) and the lower left corner (pul). Used only for inelastic scattering. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a4e05eb588d229bfca1045e24f2d418aa}{compute\+Inertia}} ()
-\begin{DoxyCompactList}\small\item\em Calculates the inertia of the object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
-\begin{DoxyCompactList}\small\item\em Set position of the object to r. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}{set\+Pos}} (double x, double y, double z)
-\begin{DoxyCompactList}\small\item\em Set position of the object to a position vector represented by its components x,y and z. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9}{bin\+Write}} (std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em Writes object to binary file represented by ostream os. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b}{bin\+Read}} (std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em Reads object from binary file represented by istream is. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729}{surface}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Oh)
+\begin{DoxyCompactList}\small\item\em Empty surface object with position Oh. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893fa239eae3ff300d36}{volume}} ()
-\begin{DoxyCompactList}\small\item\em Calculates the volume of the object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96}{set\+Center}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328}{set\+Center2\+CoM}} ()
-\begin{DoxyCompactList}\small\item\em Sets the Position to the center of mass (CoM) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887}{get\+Current\+Index}} ()
-\begin{DoxyCompactList}\small\item\em Returns the index of the triangle that was last hit. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a24b1d8c3460ab71f4df23491ab58ea75}{get\+Triangle}} (int i)
-\begin{DoxyCompactList}\small\item\em Returns the i-\/th triangle in the internal triangle list. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7}{init\+Bounds}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a7563e04424687ffa01dc559f1c487134}{pul}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a372963153380dd68772fd0d213da1a3e}{por}})
-\begin{DoxyCompactList}\small\item\em Calculates the bounding box (=circumferent cuboid) but without rotation. The cuboid is represented by the upper right corner (por) and the lower left corner (pul). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Calculates the volume of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}
-\begin{DoxyCompactList}\small\item\em list of all triangles \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}{num\+Triangles}} = 0
-\begin{DoxyCompactList}\small\item\em number of triangles \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43}{currentnorm}}
-\begin{DoxyCompactList}\small\item\em Normal vector of the triangle that was last hit. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec299a9144cf2d79}{current\+Index}}
 \begin{DoxyCompactList}\small\item\em Index of the triangle that was last hit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43}{currentnorm}}
+\begin{DoxyCompactList}\small\item\em Normal vector of the triangle that was last hit. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}}
-\begin{DoxyCompactList}\small\item\em File name (used to save the internal triangle list) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em File name (used to save the internal triangle list) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}{num\+Triangles}} = 0
+\begin{DoxyCompactList}\small\item\em number of triangles \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}
+\begin{DoxyCompactList}\small\item\em list of all triangles \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

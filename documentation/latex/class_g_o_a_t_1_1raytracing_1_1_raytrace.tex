@@ -18,14 +18,16 @@ Inheritance diagram for GOAT\+::raytracing\+::Raytrace\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a89da3c001411ef5bc19bfccd1a7452ae}{init}} ()
+\begin{DoxyCompactList}\small\item\em this function is called if no object was hidden \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a8ae9ace24a3db462b47f691faa24755f}{Raytrace}} ()
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a43782dd88b2b0131a4491a3030a078c4}{Raytrace}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83d6f5d70c431f21f0}{set\+Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
-\begin{DoxyCompactList}\small\item\em sets \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a277f54c1d155fc3f93b97f57e7e8866f}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}})
 \begin{DoxyCompactList}\small\item\em sets number of reflexions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83d6f5d70c431f21f0}{set\+Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
+\begin{DoxyCompactList}\small\item\em sets \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace}} ()
 \begin{DoxyCompactList}\small\item\em this is the starting point for the raytracing procedure \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{trace\+Enter\+Object}} ()=0
@@ -33,32 +35,30 @@ virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58681216
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{trace\+Leave\+Object}} ()=0
 \begin{DoxyCompactList}\small\item\em this function is called when the ray leaves an object \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9192c4ad19fe2d9caff693c182afb525}{trace\+Stop\+Object}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a89da3c001411ef5bc19bfccd1a7452ae}{init}} ()
-\begin{DoxyCompactList}\small\item\em this function is called if no object was hidden \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa786bfc19ad940359021636be54bacf3}{lost}}
-\begin{DoxyCompactList}\small\item\em Rays unintentionally get lost, e.\+g. due to total internal reflection. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1fb8fab4389fa16a178cdba9cea6a666}{current\+Obj}}
-\begin{DoxyCompactList}\small\item\em Number of the last object hit (no object hit\+: -\/1) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a360372bc79715fdb613f8647c2385531}{current\+LS}}
-\begin{DoxyCompactList}\small\item\em Number of the current light source, which is currently in the calculation process. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a29ab6dfd006421bd84fb4c4c77d24b12}{current\+Index}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}$>$(-\/1, -\/1, -\/1)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a408a74d9f23b319367edbc08b9f9d12a}{PStart}}
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a5bb032f629b207be44f78e3aa0bf8818}{PStop}}
-\begin{DoxyCompactList}\small\item\em Start and end point of the last step. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a360372bc79715fdb613f8647c2385531}{current\+LS}}
+\begin{DoxyCompactList}\small\item\em Number of the current light source, which is currently in the calculation process. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1fb8fab4389fa16a178cdba9cea6a666}{current\+Obj}}
+\begin{DoxyCompactList}\small\item\em Number of the last object hit (no object hit\+: -\/1) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_ac51907766e96756f261be983b87e1557}{EStart}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a822f3f9086967e56130e1617e02f4c3f}{EStart2}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_ae093e9c9931526bd0dab3c0b8cec577e}{EStop}}
 \begin{DoxyCompactList}\small\item\em Start and end value of the electric field. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a822f3f9086967e56130e1617e02f4c3f}{EStart2}}
-\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a14780c123bd3b8855925103123a1f987}{EStop2}}
-\begin{DoxyCompactList}\small\item\em Start and end value of the electric field (second ray in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Start and end value of the electric field (second ray in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}}) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa786bfc19ad940359021636be54bacf3}{lost}}
+\begin{DoxyCompactList}\small\item\em Rays unintentionally get lost, e.\+g. due to total internal reflection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a408a74d9f23b319367edbc08b9f9d12a}{PStart}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a5bb032f629b207be44f78e3aa0bf8818}{PStop}}
+\begin{DoxyCompactList}\small\item\em Start and end point of the last step. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \textbf{ }\par
 \begin{DoxyCompactItemize}
 \item 
