@@ -41,7 +41,7 @@ namespace GOAT
 				}
 
 				/* Looking for light sources */
-				readLightSources();
+                readLightSources();
 				
 
 				/* Now, let's look for objects */
@@ -148,7 +148,7 @@ namespace GOAT
 		void xmlReader::readObjects()
 		{
 			tinyxml2::XMLElement* ell;
-			GOAT::raytracing::surface objS;
+        //	GOAT::raytracing::surface objS;
 			GOAT::maths::Vector<double> Pos;
 			std::string typeStr;
 			std::string fileTypeStr;
@@ -166,7 +166,10 @@ namespace GOAT
 
 				for (tinyxml2::XMLElement* objEll = ell->FirstChildElement("Object"); objEll != NULL; objEll = objEll->NextSiblingElement("Object"))
 				{				
-					Obj = (GOAT::raytracing::ObjectShape**)realloc(Obj, numObj + 1);
+                    if (numObj==0)
+                        Obj=(GOAT::raytracing::ObjectShape**) malloc (sizeof(GOAT::raytracing::ObjectShape*));
+                    else
+                        Obj = (GOAT::raytracing::ObjectShape**)realloc(Obj, numObj + 1);
 					Pos = readVector(objEll->FirstChildElement("Position"));
 					typeStr = objEll->Attribute("Type");
 					alpha = objEll->DoubleAttribute("Alpha", 0.0);
@@ -197,7 +200,7 @@ namespace GOAT
 						if (fileTypeStr.compare("srf") == 0)
 						{
 							fileName = objEll->Attribute("Filename");
-							if (!fileName.empty()) objS.createsurface(fileName);
+                            if (!fileName.empty()) ((GOAT::raytracing::surface *)Obj[numObj])->createsurface(fileName);
 						}
 
 						if (fileTypeStr.compare("stl") == 0)
