@@ -52,11 +52,16 @@ namespace GOAT
 				*/
 				void setBandwidth(double dWvl); ///< Set Bandwith of the light source(s)
 				/**
-				* @brief Set the repetition rate (in fs)
+				* @brief Set the repetition rate (in fs^-1)
 				* The repetition rate is the frequency resolution within the calculation. This function sets trafoparms::nS to
 				* the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(nI*nS)  
 				*/
 				void setRepetitionRate(double rep);
+				/**
+				 * @brief Set the period between two adjacent pulses (start->start) in fs
+				 * @param time period in fs
+				 */
+				void setPeriod (double time);
 
 				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		

@@ -20,7 +20,6 @@ namespace GOAT
 			int nS = trafoparms.nS;
 			setSpectralRanges(1);
 			setNumWavelengthsPerRange(1);
-
 			field(0,false);
 			// find the first element which was hit by a ray
 			bool found = false;
@@ -141,7 +140,7 @@ namespace GOAT
 		{
 			this->settings = settings;
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+			double Domega = 10.0 * 4.0 * M_LN2 / trafoparms.dt;
 std::cout << "% Domega=" << Domega << std::endl;
 
 
@@ -153,7 +152,12 @@ std::cout << "% Domega=" << Domega << std::endl;
             double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
 			double wvl;
-		    if(!(settings & PULSECALCULATION_NOT_CLEAR_SA) && (fieldCalls==0)) trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+		    if((settings==PULSECALCULATION_CLEAR_SA) || (fieldCalls==0))
+			{
+				trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+				reset();
+			}
+
 			fieldCalls++;
 		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)

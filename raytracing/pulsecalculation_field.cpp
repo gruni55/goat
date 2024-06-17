@@ -57,7 +57,7 @@ namespace GOAT
                 {
  			// double Sigma= (2.0 * sqrt(M_LN2)) / trafoparms.dt; // Spectral sigma
 					double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
-					double Domega = 8.0 * Sigma;					
+					double Domega = 10.0 * Sigma;
 			        trafoparms.omegaStart = trafoparms.omega0 -  Domega/2.0;
 			        trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 	                double lambdaStart=2.0*M_PI*C_LIGHT_MU_FS / trafoparms.omegaEnd; 
@@ -133,9 +133,17 @@ namespace GOAT
 
 		void pulseCalculation_Field::setRepetitionRate(double rep)
 		{
-			double Domega = trafoparms.omegaEnd - trafoparms.omegaStart;
-			trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));			
+			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+			trafoparms.nI = ceil(Domega / (rep * 2.0 * M_PI * (double)trafoparms.nS));
 		}
+
+		void pulseCalculation_Field::setPeriod (double time)
+		{
+			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+			trafoparms.nI = ceil(Domega * time / (2.0 * M_PI * (double)trafoparms.nS));
+			std::cout << "nI=" << trafoparms.nI << std::endl;
+		}
+
 
 		void pulseCalculation_Field::field(double t)
 		{
@@ -230,6 +238,7 @@ namespace GOAT
 			trafoparms.nS = nS;
 			trafo.setTrafoParms(trafoparms);
 		}
+
 
 
 		void pulseCalculation_Field::setSpatialResolution(double dx)

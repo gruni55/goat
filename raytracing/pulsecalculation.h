@@ -4,7 +4,7 @@
 #include "fft.h"
 #include "raytrace_usp.h"
 #include <vector>
-#include "superarray.h"
+
 
 
 
@@ -12,7 +12,7 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-
+		#define PULSECALCULATION_CLEAR_SA		  0
 		#define PULSECALCULATION_NOT_CLEAR_SA     1  ///< Flag, set when the SA SuperArray should not be cleared
 		constexpr int PULSECALCULATION_NOT_CLEAR_RESULT = 2;  ///< Flag, set when the results should not be cleared when calling field () in pulseCalculation
 
@@ -22,7 +22,7 @@ namespace GOAT
 		*  functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. 
 		*  Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the
 		*  pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0µm 
-		*  and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a SuperArray SAres, 
+		*  and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a SuperArray trafo.SAres,
 		*  which holds the electric field at a certain time t which was given to the class by calling the function field
 		*/
 		class pulseCalculation
@@ -62,7 +62,7 @@ namespace GOAT
 				*/
 				void setRepetitionRate(double rep);
 
-				double field(double t, int settings=0); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
+				double field(double t, int settings=PULSECALCULATION_CLEAR_SA); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;
@@ -70,7 +70,8 @@ namespace GOAT
 					std::vector<SuperArray<std::vector<gridEntry> > >  SA; ///< Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.)
 					Raytrace_usp rt;
 
-		
+		        double domega; ///< spectral resolution
+				double dWvl=0.02;  ///< spectral width of the light (default 20nm)
 				
 
 			private:	
@@ -84,10 +85,9 @@ namespace GOAT
 				void setDefaults();				
                 void calcTrafoParms();
 				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
-				double domega; ///< spectral resolution
-				double dWvl=0.02;  ///< spectral width of the light (default 20nm)
+
 				double dRWvl;      ///< spectral width of one subdivision
-				INDEX_TYPE  nn;    // number of cells over the whole width of the calculation space (i.e. 2*r0)
+				INDEX_TYPE  nn;    // number of cells over the whole width of the calculation space (i.e. 2*r0)500
 				Scene S;
 				
 				bool raytracingDone = false; ///< If true, the raytracing part was done and the field calculation starts directly				
