@@ -2,7 +2,6 @@
 #include "tinyxml2.h"
 #include "xml.h"
 
-
 namespace GOAT
 {
 	namespace XML
@@ -11,13 +10,15 @@ namespace GOAT
 		{
 			
 			tinyxml2::XMLDocument doc;
-			doc.LoadFile(fname);
-			
-			rootElement = doc.RootElement();
-			if (rootElement != 0)
+			tinyxml2::XMLError eResult=doc.LoadFile(fname);
+						
+			if (eResult == tinyxml2::XML_SUCCESS)
 			{
+				rootElement = doc.RootElement();
 				readScene();
 			}
+			else
+				std::cerr << "Could not read XML-File:" << fname << std::endl;
 			
 		}
 
@@ -41,7 +42,7 @@ namespace GOAT
 				}
 
 				/* Looking for light sources */
-                readLightSources();
+			    readLightSources();
 				
 
 				/* Now, let's look for objects */
@@ -148,7 +149,7 @@ namespace GOAT
 		void xmlReader::readObjects()
 		{
 			tinyxml2::XMLElement* ell;
-        //	GOAT::raytracing::surface objS;
+			GOAT::raytracing::surface objS;
 			GOAT::maths::Vector<double> Pos;
 			std::string typeStr;
 			std::string fileTypeStr;
@@ -165,23 +166,25 @@ namespace GOAT
 				
 
 				for (tinyxml2::XMLElement* objEll = ell->FirstChildElement("Object"); objEll != NULL; objEll = objEll->NextSiblingElement("Object"))
-				{				
-                    if (numObj==0)
-                        Obj=(GOAT::raytracing::ObjectShape**) malloc (sizeof(GOAT::raytracing::ObjectShape*));
-                    else
-                        Obj = (GOAT::raytracing::ObjectShape**)realloc(Obj, numObj + 1);
+				{		
+					/*if (numObj == 0)
+						Obj = (GOAT::raytracing::ObjectShape**) malloc(sizeof(GOAT::raytracing::ObjectShape*));
+					else 
+						Obj = (GOAT::raytracing::ObjectShape**) realloc(Obj, numObj + 1);*/
 					Pos = readVector(objEll->FirstChildElement("Position"));
 					typeStr = objEll->Attribute("Type");
 					alpha = objEll->DoubleAttribute("Alpha", 0.0);
 					beta = objEll->DoubleAttribute("Beta", 0.0);
 					gamma = objEll->DoubleAttribute("Gamma", 0.0);
 					isActive = objEll->BoolAttribute("IsActive", false);
-					GOAT::raytracing::ObjectShape* obj = NULL;
+					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					if (typeStr.compare("ellipsoid") == 0) // is an elliptic particle
 					{
 						GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
-						Obj[numObj] = new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n);
+						// Obj[numObj] = new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n);
+						Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
+						S.addObject(Obj[numObj]);
 					}
 
 					if (typeStr.compare("box") == 0) // is a box
@@ -192,7 +195,7 @@ namespace GOAT
 
 
 					//GOAT::raytracing::ObjectShape* obj;
-					if (typeStr.compare("surface") == 0)
+				/*	if (typeStr.compare("surface") == 0)
 					{
 						Obj[numObj] = new GOAT::raytracing::surface(Pos, n);
 						fileTypeStr = objEll->Attribute("Filetype");
@@ -200,7 +203,7 @@ namespace GOAT
 						if (fileTypeStr.compare("srf") == 0)
 						{
 							fileName = objEll->Attribute("Filename");
-                            if (!fileName.empty()) ((GOAT::raytracing::surface *)Obj[numObj])->createsurface(fileName);
+							if (!fileName.empty()) objS.createsurface(fileName);
 						}
 
 						if (fileTypeStr.compare("stl") == 0)
@@ -210,10 +213,10 @@ namespace GOAT
 								((GOAT::raytracing::surface *)Obj[numObj])->importBinSTL(fileName);
 						}
 
-					}
+					}*/
 					numObj++;
 				} // while loop
-				S.addObjectList(numObj, Obj);
+				  // S.addObjectList(numObj, Obj);
 
 			}
 			/* End of objects */

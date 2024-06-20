@@ -10,6 +10,7 @@
  * \date   May 2023
  *********************************************************************/
 #include <string>
+#include <vector>
 namespace GOAT
 {
 	namespace XML
@@ -55,7 +56,7 @@ namespace GOAT
 				tinyxml2::XMLNode* rootElement;
 				tinyxml2::XMLElement* sceneElement;				
 				tinyxml2::XMLElement* calculationElement;
-				GOAT::raytracing::ObjectShape** Obj=0;
+				std::vector<GOAT::raytracing::ObjectShape*> Obj;
 				GOAT::raytracing::LightSrc** LS=0;
 				int numObj = 0;
 				int numLS = 0;
