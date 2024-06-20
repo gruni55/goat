@@ -1,7 +1,8 @@
+#pragma once
 #include "tinyxml2.h"
 #include "raytrace.h"
 #include <string>
-
+#include "xmltoken.h"
 /*****************************************************************//**
  * \file   xml.cpp
  * \brief  Here are a collection of functions to read and write XML-files for GOAT
