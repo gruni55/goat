@@ -260,10 +260,67 @@ namespace GOAT
 									
 					numObj++;
 				} // while loop
+				doCalculations();
 				  // S.addObjectList(numObj, Obj);
 
 			}
 			/* End of objects */
+		}
+
+		void xmlReader::doCalculations()
+		{
+			int type;
+			std::string typeStr;
+			tinyxml2::XMLElement* ell;
+			ell = rootElement->FirstChildElement("Calculations");
+			if (ell != NULL)
+			{
+				for (tinyxml2::XMLElement* objEll = ell->FirstChildElement("Calculation"); objEll != NULL; objEll = objEll->NextSiblingElement("Object"))
+				{
+					typeStr = objEll->Attribute("Type");
+					if (!typeStr.empty())
+					{
+						type = mapString2CalculationToken(typeStr);
+						switch (type)
+						{
+						  case TOKEN_CALCULATION_PATH : 
+						   {
+							  std::string fname = objEll->Attribute("Filename");
+							  int numRays;
+							  if (!fname.empty())
+							  {
+								  GOAT::raytracing::Raytrace_Path rt(S);
+								  // optionally, the number of rays of all sources can be set to numRays
+								  numRays=objEll->IntAttribute("numRays", 0);
+								  std::vector<int> numRays_old;
+								  if (numRays > 0)
+								  {
+									  // store the old values 									 
+									  for (int i = 0; i < S.nLS; i++)
+									  {
+										  numRays_old.push_back(S.LS[i]->getNumRays());
+										  S.LS[i]->setNumRays(numRays);
+									  }
+								  }
+
+								  rt.trace(fname);
+
+								  if (numRays > 0)
+								  {
+									  // restore the old values 
+									  for (int i = 0; i < S.nLS; i++)
+										  S.LS[i]->setNumRays(numRays_old[i]);
+								  }
+							  }
+						   }
+						  case TOKEN_CALCULATION_PULSE:
+						  {
+                            
+						  }
+						}
+					}
+				}
+			}
 		}
 
 		GOAT::maths::Vector<double> xmlReader::readVector(tinyxml2::XMLElement* ell,  double x, double y, double z)

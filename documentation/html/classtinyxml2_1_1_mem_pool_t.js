@@ -2,7 +2,7 @@ var classtinyxml2_1_1_mem_pool_t =
 [
     [ "MemPoolT", "classtinyxml2_1_1_mem_pool_t.html#ac8fa6dbb403f009cf9c8a33c6f2803b3", null ],
     [ "~MemPoolT", "classtinyxml2_1_1_mem_pool_t.html#a5fa4fee934a3df2b9e74282244d78390", null ],
-    [ "Alloc", "classtinyxml2_1_1_mem_pool_t.html#a810fd2b0caf56b8b688e55f2768f96c7", null ],
+    [ "Alloc", "classtinyxml2_1_1_mem_pool_t.html#a334b67f5bd878b2b3c1746ebd240590a", null ],
     [ "Clear", "classtinyxml2_1_1_mem_pool_t.html#a22d595caa0e9d23aa080f49ca6475fdd", null ],
     [ "CurrentAllocs", "classtinyxml2_1_1_mem_pool_t.html#a445a6c80151ba6268b24ec62a7c84d74", null ],
     [ "Free", "classtinyxml2_1_1_mem_pool_t.html#a408ce0918e9d3d5e5e1cc4896944875f", null ],

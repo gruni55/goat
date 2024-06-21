@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['goat_2592',['GOAT',['../index.html',1,'']]]
+  ['goat_0',['GOAT',['../index.html',1,'']]]
 ];

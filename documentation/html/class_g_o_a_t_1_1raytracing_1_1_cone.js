@@ -5,7 +5,7 @@ var class_g_o_a_t_1_1raytracing_1_1_cone =
     [ "~Cone", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ad450a36eaf069447d81ef42e187b9f49", null ],
     [ "binRead", "class_g_o_a_t_1_1raytracing_1_1_cone.html#abfec8b876fcd9ff98904b102c0ac592e", null ],
     [ "binWrite", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a7759af203ee29dcfc85bd680b607942c", null ],
-    [ "calcCoM", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a3e9facb2a673bfbc0a337bfe0c90ad6a", null ],
+    [ "calcCoM", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a705262ac29e68bb71b4203279b2c1b34", null ],
     [ "getConeAngle", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a32dcbe1efde21f02bf5d3f0f728b467e", null ],
     [ "getHeight", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a249346e9fdc1a82c0e6371e5f766550c", null ],
     [ "getRadius", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a7e6642cd643c79616b1f58047496d939", null ],

@@ -2,10 +2,26 @@
 \usepackage{ifthen}
 \usepackage{epsfig}
 \usepackage[utf8]{inputenc}
+\usepackage{xcolor}
 \usepackage{newunicodechar}
-  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
-  \newunicodechar{²}{${}^{2}$}% Superscript two
-  \newunicodechar{³}{${}^{3}$}% Superscript three
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
 
 \pagestyle{empty}
 \begin{document}
@@ -105,7 +121,16 @@ $ k_0=\frac{2\pi}{\lambda_0}$
 $\lambda_0$
 \pagebreak
 
-$ \newline \begin{array}{ccccccccc} \text{<number of triangles>} & & & & & & & & \\ \text{<number of triangles>} & & & & & & & & \\ x_{00} & y_{00} & z_{00} & x_{01} & y_{01} & z_{01} & x_{02} & y_{02} & z_{02} \\ x_{10} & y_{10} & z_{10} & x_{11} & y_{11} & z_{11} & x_{12} & y_{12} & z_{12} \\ \vdots & \vdots & & & & & & & \end{array} $
+$
+\newline
+\begin{array}{ccccccccc}
+\text{<number of triangles>} & & & & & & & & \\
+\text{<number of triangles>} & & & & & & & & \\
+x_{00} & y_{00} & z_{00} & x_{01} & y_{01} & z_{01} &  x_{02} &  y_{02} & z_{02} \\
+x_{10} & y_{10} & z_{10} & x_{11} & y_{11} & z_{11} &  x_{12} &  y_{12} & z_{12} \\
+\vdots & \vdots  & & & & & & &
+\end{array}
+$
 \pagebreak
 
 $-\frac{\pi}{2}$

@@ -1,49 +1,115 @@
-\hypertarget{namespace_g_o_a_t_1_1_x_m_l}{}\doxysection{GOAT\+::XML Namespace Reference}
-\label{namespace_g_o_a_t_1_1_x_m_l}\index{GOAT::XML@{GOAT::XML}}
-\doxysubsection*{Classes}
+\doxysection{GOAT\+::XML Namespace Reference}
+\hypertarget{namespace_g_o_a_t_1_1_x_m_l}{}\label{namespace_g_o_a_t_1_1_x_m_l}\index{GOAT::XML@{GOAT::XML}}
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{xml\+Reader}}
-\begin{DoxyCompactList}\small\item\em This class provides functionality to read a XML-\/file This function reads the \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l}{XML}} file . It can also make calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
+\begin{DoxyCompactList}\small\item\em This class provides functionality to read a XML-\/file This function reads the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} file . It can also perform calculations. Beware\+: The parser is case sensitive. Element names starting with capital letters (except of \"{}real\"{} and \"{}imag\"{} for complex numbers), whereas values are always lower case The structure of the XML-\/\+File is as follows (the order of the subdivision may be changed)\+: Signs\+: o\+: optional, n\+: necessary, i\+: independend parameters, i.\+e. this parameter is valid for all types Values\+: float\+: floating point number int\+: integer number bool\+: possible values\+: true or false. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{LSXMLAttributes}} \mbox{[}$\,$\mbox{]} = \{ \char`\"{}Type\char`\"{},\char`\"{}Size\char`\"{},\char`\"{}Wavelength\char`\"{},\char`\"{}Num\+Rays\char`\"{} \}
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{map\+String2\+Calculation\+Token}} (std\+::string str)
 \item 
-const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{LSXMLTYPES}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}Plane\char`\"{},\char`\"{}Gaussian\char`\"{},\char`\"{}Plane\+\_\+mc\char`\"{},\char`\"{}Gaussian\+\_\+mc\char`\"{}\}
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{map\+String2\+Light\+Source\+Token}} (std\+::string str)
 \item 
-const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{scene\+XMLElements}} \mbox{[}$\,$\mbox{]} = \{ \char`\"{}r0\char`\"{},\char`\"{}nS\char`\"{},\char`\"{}Light\+Sources\char`\"{},\char`\"{}Objects\char`\"{},\char`\"{}Detectors\char`\"{} \}
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{map\+String2\+Object\+Token}} (std\+::string str)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculation\+Token}} = \{ \"{}pure\"{},\"{}path\"{},\"{}pulse\"{} \}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{light\+Source\+Token}} = \{ \"{}plane\"{},\"{}gaussian\"{},\"{}ring\"{},\"{}tophat\"{},\"{}plane\+\_\+mc\"{},\"{}gaussian\+\_\+mc\"{},\"{}ring\+\_\+mc\"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{LSXMLAttributes}} \mbox{[}$\,$\mbox{]} = \{ \"{}Type\"{},\"{}Size\"{},\"{}Wavelength\"{},\"{}Num\+Rays\"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{LSXMLTYPES}} \mbox{[}$\,$\mbox{]} = \{\"{}Plane\"{},\"{}Gaussian\"{},\"{}Plane\+\_\+mc\"{},\"{}Gaussian\+\_\+mc\"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{object\+Token}} = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{scene\+XMLElements}} \mbox{[}$\,$\mbox{]} = \{ \"{}r0\"{},\"{}n\+S\"{},\"{}Light\+Sources\"{},\"{}Objects\"{},\"{}Detectors\"{} \}
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}\label{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118} 
+\index{GOAT::XML@{GOAT::XML}!mapString2CalculationToken@{mapString2CalculationToken}}
+\index{mapString2CalculationToken@{mapString2CalculationToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2CalculationToken()}{mapString2CalculationToken()}}
+{\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Calculation\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}\label{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482} 
+\index{GOAT::XML@{GOAT::XML}!mapString2LightSourceToken@{mapString2LightSourceToken}}
+\index{mapString2LightSourceToken@{mapString2LightSourceToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2LightSourceToken()}{mapString2LightSourceToken()}}
+{\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Light\+Source\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}\label{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e} 
+\index{GOAT::XML@{GOAT::XML}!mapString2ObjectToken@{mapString2ObjectToken}}
+\index{mapString2ObjectToken@{mapString2ObjectToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2ObjectToken()}{mapString2ObjectToken()}}
+{\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Object\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
 \doxysubsection{Variable Documentation}
-\mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\label{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}} 
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}\label{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac} 
+\index{GOAT::XML@{GOAT::XML}!calculationToken@{calculationToken}}
+\index{calculationToken@{calculationToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{calculationToken}{calculationToken}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::calculation\+Token = \{ \"{}pure\"{},\"{}path\"{},\"{}pulse\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00035}{35}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}\label{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5} 
+\index{GOAT::XML@{GOAT::XML}!lightSourceToken@{lightSourceToken}}
+\index{lightSourceToken@{lightSourceToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{lightSourceToken}{lightSourceToken}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::light\+Source\+Token = \{ \"{}plane\"{},\"{}gaussian\"{},\"{}ring\"{},\"{}tophat\"{},\"{}plane\+\_\+mc\"{},\"{}gaussian\+\_\+mc\"{},\"{}ring\+\_\+mc\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00033}{33}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\label{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a} 
 \index{GOAT::XML@{GOAT::XML}!LSXMLAttributes@{LSXMLAttributes}}
 \index{LSXMLAttributes@{LSXMLAttributes}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{LSXMLAttributes}{LSXMLAttributes}}
-{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::\+LSXMLAttributes\mbox{[}$\,$\mbox{]} = \{ \char`\"{}Type\char`\"{},\char`\"{}Size\char`\"{},\char`\"{}Wavelength\char`\"{},\char`\"{}Num\+Rays\char`\"{} \}}
+{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::\+LSXMLAttributes\mbox{[}$\,$\mbox{]} = \{ \"{}Type\"{},\"{}Size\"{},\"{}Wavelength\"{},\"{}Num\+Rays\"{} \}}
 
 
 
-Definition at line 33 of file xml.\+h.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00035}{35}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
-\mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}\label{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}} 
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}\label{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee} 
 \index{GOAT::XML@{GOAT::XML}!LSXMLTYPES@{LSXMLTYPES}}
 \index{LSXMLTYPES@{LSXMLTYPES}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{LSXMLTYPES}{LSXMLTYPES}}
-{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::\+LSXMLTYPES\mbox{[}$\,$\mbox{]} = \{\char`\"{}Plane\char`\"{},\char`\"{}Gaussian\char`\"{},\char`\"{}Plane\+\_\+mc\char`\"{},\char`\"{}Gaussian\+\_\+mc\char`\"{}\}}
+{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::\+LSXMLTYPES\mbox{[}$\,$\mbox{]} = \{\"{}Plane\"{},\"{}Gaussian\"{},\"{}Plane\+\_\+mc\"{},\"{}Gaussian\+\_\+mc\"{}\}}
 
 
 
-Definition at line 34 of file xml.\+h.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00036}{36}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
-\mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}\label{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}} 
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}\label{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66} 
+\index{GOAT::XML@{GOAT::XML}!objectToken@{objectToken}}
+\index{objectToken@{objectToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{objectToken}{objectToken}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::object\+Token = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00034}{34}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}\label{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07} 
 \index{GOAT::XML@{GOAT::XML}!sceneXMLElements@{sceneXMLElements}}
 \index{sceneXMLElements@{sceneXMLElements}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{sceneXMLElements}{sceneXMLElements}}
-{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::scene\+XMLElements\mbox{[}$\,$\mbox{]} = \{ \char`\"{}r0\char`\"{},\char`\"{}nS\char`\"{},\char`\"{}Light\+Sources\char`\"{},\char`\"{}Objects\char`\"{},\char`\"{}Detectors\char`\"{} \}}
+{\footnotesize\ttfamily const std\+::string GOAT\+::\+XML\+::scene\+XMLElements\mbox{[}$\,$\mbox{]} = \{ \"{}r0\"{},\"{}n\+S\"{},\"{}Light\+Sources\"{},\"{}Objects\"{},\"{}Detectors\"{} \}}
 
 
 
-Definition at line 32 of file xml.\+h.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00034}{34}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
