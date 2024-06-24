@@ -183,10 +183,10 @@ namespace GOAT
             {
                 lambda = lleft;
                 pout = Ps + lleft * K;
-                if (lp.left.curvature == flat) currentnorm = -maths::ez;
+                if (lp.left.curvature == flat) currentnorm = -R * maths::ez;
                 else
                 {
-                    currentnorm = R * (p + lleft * k - P - lp.left.P);
+                    currentnorm = R * (p + lleft * k - lp.left.P);
                     currentnorm = currentnorm / abs(currentnorm);
                 }
             }
@@ -196,8 +196,8 @@ namespace GOAT
                 pout = Ps + lambda * K;
                 if (lp.right.curvature == flat) currentnorm = maths::ez;
                 else
-                {
-                    currentnorm = R * (p + lambda * k - P - lp.right.P);
+                {                    
+                    currentnorm = R * (p + lambda * k  - lp.right.P);
                     currentnorm = currentnorm / abs(currentnorm);
                 }
             }
