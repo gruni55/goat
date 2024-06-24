@@ -1,10 +1,10 @@
 var superarray_8h =
 [
-    [ "GOAT::raytracing::SuperArray< T >", "class_g_o_a_t_1_1raytracing_1_1_super_array.html", "class_g_o_a_t_1_1raytracing_1_1_super_array" ],
+    [ "SuperArray", "class_g_o_a_t_1_1raytracing_1_1_super_array.html", "class_g_o_a_t_1_1raytracing_1_1_super_array" ],
     [ "INDEX_TYPE", "superarray_8h.html#a8b2f76584ad23aadae31780237b45e73", null ],
     [ "abs2sum", "superarray_8h.html#a081c5cd4a5f370ef9ee35f88cb048703", null ],
-    [ "operator<<", "superarray_8h.html#a914ad0024a3ca3954ddd16d3b32e34e7", null ],
-    [ "operator<<", "superarray_8h.html#a6c80e4a8708d6b5c43a9286e3282c2eb", null ],
+    [ "operator<<", "superarray_8h.html#a57fdc0375cd9142ad7f02df65310ae27", null ],
+    [ "operator<<", "superarray_8h.html#a5c57e8fdfd49a03f63d9e1c5dff1762b", null ],
     [ "save", "superarray_8h.html#a73f86cc4a9db4faa07903dd7bbffa010", null ],
     [ "save", "superarray_8h.html#af5b9ecb4ba79f1fd07b91262fa69ccaf", null ],
     [ "saveabsE", "superarray_8h.html#abe8447c15a996a9ed192fec42d0781bb", null ],

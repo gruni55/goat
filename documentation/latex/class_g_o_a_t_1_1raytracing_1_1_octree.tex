@@ -1,5 +1,5 @@
-\doxysection{GOAT\+::raytracing\+::Octree\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
-\hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree}{}\label{class_g_o_a_t_1_1raytracing_1_1_octree}\index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree}{}\doxysection{GOAT\+::raytracing\+::Octree$<$ T $>$ Class Template Reference}
+\label{class_g_o_a_t_1_1raytracing_1_1_octree}\index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 
 
 This template class is used for internal purposes and represents an octree.  
@@ -9,17 +9,17 @@ This template class is used for internal purposes and represents an octree.
 
 {\ttfamily \#include $<$octree.\+h$>$}
 
-\doxysubsubsection*{Public Member Functions}
+\doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ab46218fa8ac8c65be544ea7770a0f67e}{create\+Childs}} ()
-\begin{DoxyCompactList}\small\item\em Creates the childs of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} and calculates the bounding boxes. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates the childs of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} and calculates the bounding boxes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}{create\+Tree}} (int max\+Recursions=1, int rek=0)
 \begin{DoxyCompactList}\small\item\em Prepare the tree with recursion depth max\+Recursions. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b}{del\+All\+Childs}} ()
-\begin{DoxyCompactList}\small\item\em Delete all children of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Delete all children of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df}{del\+Child}} (int i)
-\begin{DoxyCompactList}\small\item\em Delete the i-\/th child of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Delete the i-\/th child of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee1083b0cc21f1e5}{del\+Elements}} ()
 \begin{DoxyCompactList}\small\item\em Deletes all elements. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a4553bb2b836b556f1e25f5a352e43dc1}{Octree}} ()
@@ -27,83 +27,84 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a3f72b8b4c6b07675a3e3198ab14c1853}{Octree}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} \&O)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e}{set\+Bounding\+Box}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ MP, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ d)
-\begin{DoxyCompactList}\small\item\em Set the bounding box of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the bounding box of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a7a19546669d1dbd1b1f38c6ae5402015}{trim\+Octree}} ()
 \begin{DoxyCompactList}\small\item\em Trims the tree, i.\+e. removing all empty childs. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a3a393f26127f14e4dfb30eef711f58b9}{trim\+Octree}} (int rek)
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da}{\texorpdfstring{$\sim$}{\string~}\+Octree}} ()
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da}{$\sim$\+Octree}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Public Attributes}
+\doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250}{BBox}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}{child}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ $\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}{child}}
 \item 
-T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}{Element}}
+T $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}{Element}}
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a}{is\+Leaf}}
-\begin{DoxyCompactList}\small\item\em Sign wether the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} is a leaf or not. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sign wether the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} is a leaf or not. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}{MAX\+\_\+\+RECURSIONS}}
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa3ebcc07ed1be8abcc56deb0d6cb68ce}{n\+Childs}}
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a755e9d274278208f79274edf81839ca0}{n\+Elements}}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}{parent}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ $\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}{parent}}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class GOAT\+::raytracing\+::\+Octree$<$ T $>$}
+
 This template class is used for internal purposes and represents an octree. 
 
-This class is mainly used together with the surface class. When searching the intersection point of a ray with a surface described by a large number of triangles, one has to test the ray against all triangles. This is often very time consuming. Therefore we used an octree algorithm. In this case the object is circumscribed by a box. In a first step, the intersection between the ray and this box is tested. If the ray hits this bounding box, the box is subdivided into 8 sub-\/boxes (therefore the name octree). The next task is to find the sub-\/box with the nearest intersection point. Then, this box is one again subdivided in another 8 boxes. This procedure is repeated several times (according to the number MAX\+\_\+\+RECURSIONS). Then, only the triangles on the last sub-\/box are tested against the ray. Depending on the total number of triangles on the surface, this procedure can safe a lot of time. The \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} class is used to store the triangles in a tree-\/like structure, so the triangles within one box can be easily found. Since this class is a template, in principal it can be used for different purposes. The \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} structure is recursive. That means each \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} is a part of the whole tree. It contains up to 8 children (it can have less then 8, if some of the boxes are empty) and one parent \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}. The last \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}, i.\+e. an \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} with no children, is called a leaf. 
+This class is mainly used together with the surface class. When searching the intersection point of a ray with a surface described by a large number of triangles, one has to test the ray against all triangles. This is often very time consuming. Therefore we used an octree algorithm. In this case the object is circumscribed by a box. In a first step, the intersection between the ray and this box is tested. If the ray hits this bounding box, the box is subdivided into 8 sub-\/boxes (therefore the name octree). The next task is to find the sub-\/box with the nearest intersection point. Then, this box is one again subdivided in another 8 boxes. This procedure is repeated several times (according to the number MAX\+\_\+\+RECURSIONS). Then, only the triangles on the last sub-\/box are tested against the ray. Depending on the total number of triangles on the surface, this procedure can safe a lot of time. The \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} class is used to store the triangles in a tree-\/like structure, so the triangles within one box can be easily found. Since this class is a template, in principal it can be used for different purposes. The \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} structure is recursive. That means each \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} is a part of the whole tree. It contains up to 8 children (it can have less then 8, if some of the boxes are empty) and one parent \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}. The last \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}, i.\+e. an \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} with no children, is called a leaf. 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00026}{26}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 26 of file octree.\+h.
 
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a4553bb2b836b556f1e25f5a352e43dc1}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a4553bb2b836b556f1e25f5a352e43dc1} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a4553bb2b836b556f1e25f5a352e43dc1}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a4553bb2b836b556f1e25f5a352e43dc1}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!Octree@{Octree}}
 \index{Octree@{Octree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Octree()}{Octree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\+Octree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00030}{30}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 30 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a3f72b8b4c6b07675a3e3198ab14c1853}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a3f72b8b4c6b07675a3e3198ab14c1853} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a3f72b8b4c6b07675a3e3198ab14c1853}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a3f72b8b4c6b07675a3e3198ab14c1853}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!Octree@{Octree}}
 \index{Octree@{Octree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Octree()}{Octree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\+Octree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ \&}]{O }\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$ T $>$ \&}]{O }\end{DoxyParamCaption})}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00070}{70}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 70 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da} 
-\index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!````~Octree@{\texorpdfstring{$\sim$}{\string~}Octree}}
-\index{````~Octree@{\texorpdfstring{$\sim$}{\string~}Octree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Octree()}{\string~Octree()}}
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ade31fa10ed86b4212da1ef41f80181da}} 
+\index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!````~Octree@{$\sim$Octree}}
+\index{````~Octree@{$\sim$Octree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$Octree()}{~Octree()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00043}{43}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 43 of file octree.\+h.
 
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ab46218fa8ac8c65be544ea7770a0f67e}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ab46218fa8ac8c65be544ea7770a0f67e} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ab46218fa8ac8c65be544ea7770a0f67e}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ab46218fa8ac8c65be544ea7770a0f67e}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!createChilds@{createChilds}}
 \index{createChilds@{createChilds}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{createChilds()}{createChilds()}}
@@ -112,13 +113,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Creates the childs of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} and calculates the bounding boxes. 
+Creates the childs of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} and calculates the bounding boxes. 
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00166}{166}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 166 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}\label{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}\label{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!createTree@{createTree}}
 \index{createTree@{createTree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{createTree()}{createTree()}}
@@ -131,9 +132,9 @@ Prepare the tree with recursion depth max\+Recursions.
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00195}{195}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 195 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!delAllChilds@{delAllChilds}}
 \index{delAllChilds@{delAllChilds}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{delAllChilds()}{delAllChilds()}}
@@ -142,13 +143,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Delete all children of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}. 
+Delete all children of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}. 
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00143}{143}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 143 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df}\label{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df}\label{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!delChild@{delChild}}
 \index{delChild@{delChild}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{delChild()}{delChild()}}
@@ -157,13 +158,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Delete the i-\/th child of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}. 
+Delete the i-\/th child of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}. 
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00159}{159}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 159 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee1083b0cc21f1e5}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee1083b0cc21f1e5} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee1083b0cc21f1e5}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a25c0d9f239b64ffdee1083b0cc21f1e5}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!delElements@{delElements}}
 \index{delElements@{delElements}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{delElements()}{delElements()}}
@@ -176,9 +177,9 @@ Deletes all elements.
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00089}{89}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 89 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!setBoundingBox@{setBoundingBox}}
 \index{setBoundingBox@{setBoundingBox}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{setBoundingBox()}{setBoundingBox()}}
@@ -187,7 +188,7 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Set the bounding box of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. 
+Set the bounding box of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} The bounding box is a circumscribing cuboid with center MP and the side lengths described by the components of d. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -198,9 +199,9 @@ Set the bounding box of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Oc
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00210}{210}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 210 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a7a19546669d1dbd1b1f38c6ae5402015}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a7a19546669d1dbd1b1f38c6ae5402015} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a7a19546669d1dbd1b1f38c6ae5402015}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a7a19546669d1dbd1b1f38c6ae5402015}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!trimOctree@{trimOctree}}
 \index{trimOctree@{trimOctree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{trimOctree()}{trimOctree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -213,9 +214,9 @@ Trims the tree, i.\+e. removing all empty childs.
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00097}{97}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 97 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a3a393f26127f14e4dfb30eef711f58b9}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a3a393f26127f14e4dfb30eef711f58b9} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a3a393f26127f14e4dfb30eef711f58b9}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a3a393f26127f14e4dfb30eef711f58b9}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!trimOctree@{trimOctree}}
 \index{trimOctree@{trimOctree}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{trimOctree()}{trimOctree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -224,45 +225,45 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00103}{103}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 103 of file octree.\+h.
 
 
 
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!BBox@{BBox}}
 \index{BBox@{BBox}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{BBox}{BBox}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\+BBox}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::BBox}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00067}{67}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 67 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!child@{child}}
 \index{child@{child}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{child}{child}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$T$>$\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::child}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$T$>$$\ast$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::child}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00063}{63}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 63 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}\label{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}\label{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!Element@{Element}}
 \index{Element@{Element}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{Element}{Element}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-T\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\+Element}
+T$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::Element}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00064}{64}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 64 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!isLeaf@{isLeaf}}
 \index{isLeaf@{isLeaf}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{isLeaf}{isLeaf}}
@@ -271,24 +272,24 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing
 
 
 
-Sign wether the \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} is a leaf or not. 
+Sign wether the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}} is a leaf or not. 
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00029}{29}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 29 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!MAX\_RECURSIONS@{MAX\_RECURSIONS}}
 \index{MAX\_RECURSIONS@{MAX\_RECURSIONS}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{MAX\_RECURSIONS}{MAX\_RECURSIONS}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::\+MAX\+\_\+\+RECURSIONS}
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::MAX\+\_\+\+RECURSIONS}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00066}{66}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 66 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_aa3ebcc07ed1be8abcc56deb0d6cb68ce}\label{class_g_o_a_t_1_1raytracing_1_1_octree_aa3ebcc07ed1be8abcc56deb0d6cb68ce} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_aa3ebcc07ed1be8abcc56deb0d6cb68ce}\label{class_g_o_a_t_1_1raytracing_1_1_octree_aa3ebcc07ed1be8abcc56deb0d6cb68ce}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!nChilds@{nChilds}}
 \index{nChilds@{nChilds}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{nChilds}{nChilds}}
@@ -297,9 +298,9 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00065}{65}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 65 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a755e9d274278208f79274edf81839ca0}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a755e9d274278208f79274edf81839ca0} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_a755e9d274278208f79274edf81839ca0}\label{class_g_o_a_t_1_1raytracing_1_1_octree_a755e9d274278208f79274edf81839ca0}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!nElements@{nElements}}
 \index{nElements@{nElements}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{nElements}{nElements}}
@@ -308,18 +309,18 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00065}{65}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 65 of file octree.\+h.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385} 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}\label{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}} 
 \index{GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}!parent@{parent}}
 \index{parent@{parent}!GOAT::raytracing::Octree$<$ T $>$@{GOAT::raytracing::Octree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{parent}{parent}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$T$>$\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::parent}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree}}$<$T$>$$\ast$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{GOAT\+::raytracing\+::\+Octree}}$<$ T $>$\+::parent}
 
 
 
-Definition at line \mbox{\hyperlink{octree_8h_source_l00062}{62}} of file \mbox{\hyperlink{octree_8h_source}{octree.\+h}}.
+Definition at line 62 of file octree.\+h.
 
 
 

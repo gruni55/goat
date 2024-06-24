@@ -1,41 +1,41 @@
-\doxysection{raytracing/triangle.h File Reference}
-\hypertarget{triangle_8h}{}\label{triangle_8h}\index{raytracing/triangle.h@{raytracing/triangle.h}}
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
-{\ttfamily \#include \"{}matrix.\+h\"{}}\newline
-\doxysubsubsection*{Classes}
+\hypertarget{triangle_8h}{}\doxysection{raytracing/triangle.h File Reference}
+\label{triangle_8h}\index{raytracing/triangle.h@{raytracing/triangle.h}}
+{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{GOAT\+::raytracing\+::triangle}}
 \begin{DoxyCompactList}\small\item\em This class describes a triangle, represented by its corner points. It is intented for internal purposes. The triangle class is mainly used in class surface. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Namespaces}
+\doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
-namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+ \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
 \begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
-namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Functions}
+\doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6e478f503220c53f1c6f8c35dd27a559}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a398f21e1d8e62a82c716729aa7fab961}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const triangle \&dr)
 \end{DoxyCompactItemize}
 \begin{Indent}\textbf{ Operators on triangle}\par
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c84ccf93257978910241eb9fc36f8c1}{GOAT\+::raytracing\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \&M, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1c84ccf93257978910241eb9fc36f8c1}{GOAT\+::raytracing\+::operator$\ast$}} (const maths\+::\+Matrix$<$ double $>$ \&M, const triangle \&dr)
 \begin{DoxyCompactList}\small\item\em multiply matrix M to every corner of triangle dr \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a44b7076efa06b706874b868c906c7437}{GOAT\+::raytracing\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr, double a)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a44b7076efa06b706874b868c906c7437}{GOAT\+::raytracing\+::operator$\ast$}} (const triangle \&dr, double a)
 \begin{DoxyCompactList}\small\item\em multiply the corners of the triangle dr with the scalar a \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae1889c950442fa34a3935f963180d62a}{GOAT\+::raytracing\+::operator\texorpdfstring{$\ast$}{*}}} (double a, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae1889c950442fa34a3935f963180d62a}{GOAT\+::raytracing\+::operator$\ast$}} (double a, const triangle \&dr)
 \begin{DoxyCompactList}\small\item\em multiply the corners of the triangle dr with the scalar a \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af423f8e4657af12a807692c3cd62d518}{GOAT\+::raytracing\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af423f8e4657af12a807692c3cd62d518}{GOAT\+::raytracing\+::operator+}} (const maths\+::\+Vector$<$ double $>$ \&v, const triangle \&dr)
 \begin{DoxyCompactList}\small\item\em add vector v to the corners of the triangle dr \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad20477045e27aad995fe6f559291d2e2}{GOAT\+::raytracing\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad20477045e27aad995fe6f559291d2e2}{GOAT\+::raytracing\+::operator+}} (const triangle \&dr, const maths\+::\+Vector$<$ double $>$ \&v)
 \begin{DoxyCompactList}\small\item\em add vector v to the corners of the triangle dr \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a133ec722c41dccf3d05cc2791a7c2a67}{GOAT\+::raytracing\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a133ec722c41dccf3d05cc2791a7c2a67}{GOAT\+::raytracing\+::operator-\/}} (const maths\+::\+Vector$<$ double $>$ \&v, const triangle \&dr)
 \begin{DoxyCompactList}\small\item\em subtract vector v from the corners of the triangle dr \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af9b1f06a846d477e2431c8b5b2a99778}{GOAT\+::raytracing\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af9b1f06a846d477e2431c8b5b2a99778}{GOAT\+::raytracing\+::operator-\/}} (const triangle \&dr, const maths\+::\+Vector$<$ double $>$ \&v)
 \begin{DoxyCompactList}\small\item\em subtract vector v from the corners of the triangle dr \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3647ea66b4c35b1e87516ece621e6a54}{GOAT\+::raytracing\+::operator/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr, double a)
+triangle \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3647ea66b4c35b1e87516ece621e6a54}{GOAT\+::raytracing\+::operator/}} (const triangle \&dr, double a)
 \begin{DoxyCompactList}\small\item\em divide the corners of the triangle dr by the scalar a \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
