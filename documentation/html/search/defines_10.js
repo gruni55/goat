@@ -21,5 +21,10 @@ var searchData=
   ['token_5fobject_5fcone_18',['TOKEN_OBJECT_CONE',['../xmltoken_8h.html#aa8122ccaef5dbdaf8e1456319091f95c',1,'xmltoken.h']]],
   ['token_5fobject_5fellispoid_19',['TOKEN_OBJECT_ELLISPOID',['../xmltoken_8h.html#add230672e6fad80543f9be25b0979218',1,'xmltoken.h']]],
   ['token_5fobject_5fspheric_5flens_20',['TOKEN_OBJECT_SPHERIC_LENS',['../xmltoken_8h.html#af69718fe99959a6ba1d12b4003135011',1,'xmltoken.h']]],
-  ['token_5fobject_5fsurface_21',['TOKEN_OBJECT_SURFACE',['../xmltoken_8h.html#ae0cc9b82a25748439ebac9264b046a96',1,'xmltoken.h']]]
+  ['token_5fobject_5fsurface_21',['TOKEN_OBJECT_SURFACE',['../xmltoken_8h.html#ae0cc9b82a25748439ebac9264b046a96',1,'xmltoken.h']]],
+  ['token_5frefractive_5findex_5fair_22',['TOKEN_REFRACTIVE_INDEX_AIR',['../xmltoken_8h.html#af1387f3418cfb7cff25e304d7098fcd4',1,'xmltoken.h']]],
+  ['token_5frefractive_5findex_5fbk7_23',['TOKEN_REFRACTIVE_INDEX_BK7',['../xmltoken_8h.html#aeee5d8450d0f87c14c5ae020623f0d64',1,'xmltoken.h']]],
+  ['token_5frefractive_5findex_5fglass_24',['TOKEN_REFRACTIVE_INDEX_GLASS',['../xmltoken_8h.html#aae3ba90a879902860e44aef6cff5a001',1,'xmltoken.h']]],
+  ['token_5frefractive_5findex_5flasf55_25',['TOKEN_REFRACTIVE_INDEX_LASF55',['../xmltoken_8h.html#adf6ed62249f2731257bc1afc242a61ce',1,'xmltoken.h']]],
+  ['token_5frefractive_5findex_5fvacuum_26',['TOKEN_REFRACTIVE_INDEX_VACUUM',['../xmltoken_8h.html#a9263c37a83e9f9517f74ccdf5b7f472b',1,'xmltoken.h']]]
 ];

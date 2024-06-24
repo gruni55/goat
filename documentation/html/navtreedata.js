@@ -72,16 +72,16 @@ var NAVTREEINDEX =
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#a695b78a4ccebb652428551b4515f8033",
 "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a3263196c671bc65be7565dd45be653b6",
 "class_g_o_a_t_1_1raytracing_1_1grid.html",
-"class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a7a0bc169d8aa894fd25ff418e9d5f863",
-"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abfe9534749a7023ed4d7bfca9de206a0",
-"classtinyxml2_1_1_x_m_l_const_handle.html#a729c41ba82a7a143a749786a265fb6ff",
-"classtinyxml2_1_1_x_m_l_element.html#ac30367a5e25ff30e178b56e0e1456d23",
-"classtinyxml2_1_1_x_m_l_printer.html#a9a4e2c9348b42e147629d5a99f4af3f0",
-"goodies_8h.html",
-"namespace_g_o_a_t_1_1maths.html#ab23e27114d5dd07e01f35dca6189de42",
-"namespacemembers_func_k.html",
-"struct_g_o_a_t_1_1raytracing_1_1_point.html#aa7ec3f622a54f744be8ae16cf15f013c",
-"tinyxml2_8h.html#ae01c0f3f1b45c29e71209555c5821afc"
+"class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a22d29c981dd861e4343c3f772300b7d4",
+"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abe09fb9e19105cf45afbd9de9ad9247d",
+"classtinyxml2_1_1_x_m_l_const_handle.html#a3e714a5153200f0d6ab5339395cb261f",
+"classtinyxml2_1_1_x_m_l_element.html#abd36e34e4428a8eeeffbe87eab0b124d",
+"classtinyxml2_1_1_x_m_l_printer.html#a69120c82088597372d28d0a98f2ee7a1",
+"functions_y.html",
+"namespace_g_o_a_t_1_1maths.html#aa9c14e340aa27d2c003a76f8479b3249",
+"namespacemembers_f.html",
+"struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html",
+"tinyxml2_8h.html#a1fbf88509c3ac88c09117b1947414e08ae9d8ee545a3a69e90df303257a658113"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

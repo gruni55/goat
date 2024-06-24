@@ -3,6 +3,7 @@
 #include "xml.h"
 #include "lens.h"
 #include "sphericLens.h"
+#include "pulsecalculation.h"
 
 namespace GOAT
 {
@@ -188,6 +189,7 @@ namespace GOAT
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
 													Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
 													Obj[numObj]->setMatrix(alpha, beta, gamma);
+													Obj[numObj]->setActive(isActive);
 													S.addObject(Obj[numObj]);
 												 }
 											   break;
@@ -195,6 +197,7 @@ namespace GOAT
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10, 10, 10);
 													Obj.push_back(new GOAT::raytracing::Box(Pos, Dimensions, n));
 													Obj[numObj]->setMatrix(alpha, beta, gamma);
+													Obj[numObj]->setActive(isActive);
 													S.addObject(Obj[numObj]);
 										    }
 										 break;
@@ -217,6 +220,7 @@ namespace GOAT
 											}
 										   }
 										   Obj[numObj]->setMatrix(alpha, beta, gamma);
+										   Obj[numObj]->setActive(isActive);
 										   S.addObject(Obj[numObj]);
 										   break;
 
@@ -254,6 +258,7 @@ namespace GOAT
 
 												Obj.push_back(new GOAT::raytracing::sphericLens(Pos,n,lensparms));
 												Obj[numObj]->setMatrix(alpha, beta, gamma);
+												Obj[numObj]->setActive(isActive);
 												S.addObject(Obj[numObj]);							
 											}
 					}
@@ -275,52 +280,168 @@ namespace GOAT
 			ell = rootElement->FirstChildElement("Calculations");
 			if (ell != NULL)
 			{
-				for (tinyxml2::XMLElement* objEll = ell->FirstChildElement("Calculation"); objEll != NULL; objEll = objEll->NextSiblingElement("Object"))
+				for (tinyxml2::XMLElement* objEll = ell->FirstChildElement("Calculation"); objEll != NULL; objEll = objEll->NextSiblingElement("Calculation"))
 				{
-					typeStr = objEll->Attribute("Type");
-					if (!typeStr.empty())
+					std::string inactiveStr;
+					const char* hStr;
+						hStr=objEll->Attribute("Inactive");
+						if (hStr != NULL) inactiveStr = hStr;
+						else inactiveStr = "false";
+						if (inactiveStr.compare("true")!=0)
 					{
-						type = mapString2CalculationToken(typeStr);
-						switch (type)
+						
+						typeStr = objEll->Attribute("Type");
+						if (!typeStr.empty())
 						{
-						  case TOKEN_CALCULATION_PATH : 
-						   {
-							  std::string fname = objEll->Attribute("Filename");
-							  int numRays;
-							  if (!fname.empty())
-							  {
-								  GOAT::raytracing::Raytrace_Path rt(S);
-								  // optionally, the number of rays of all sources can be set to numRays
-								  numRays=objEll->IntAttribute("numRays", 0);
-								  std::vector<int> numRays_old;
-								  if (numRays > 0)
-								  {
-									  // store the old values 									 
-									  for (int i = 0; i < S.nLS; i++)
-									  {
-										  numRays_old.push_back(S.LS[i]->getNumRays());
-										  S.LS[i]->setNumRays(numRays);
-									  }
-								  }
+							type = mapString2CalculationToken(typeStr);
+							switch (type)
+							{
+							case TOKEN_CALCULATION_PATH:
+							{
+								std::string fname = objEll->Attribute("Filename");
+								int numRays;
+								int numReflex;
+								if (!fname.empty())
+								{
+									GOAT::raytracing::Raytrace_Path rt(S);
+									// optionally, the number of rays of all sources can be set to numRays
+									numRays = objEll->IntAttribute("numRays", 0);									
+									std::vector<int> numRays_old;
+									if (numRays > 0)
+									{
+										// store the old values 									 
+										for (int i = 0; i < S.nLS; i++)
+										{
+											numRays_old.push_back(S.LS[i]->getNumRays());
+											S.LS[i]->setNumRays(numRays);
+										}
+									}
 
-								  rt.trace(fname);
+									numReflex = objEll->IntAttribute("numReflex", 0);									
+									rt.setNumReflex(numReflex);
 
-								  if (numRays > 0)
-								  {
-									  // restore the old values 
-									  for (int i = 0; i < S.nLS; i++)
-										  S.LS[i]->setNumRays(numRays_old[i]);
-								  }
-							  }
-						   }
-						  case TOKEN_CALCULATION_PULSE:
-						  {
-                            
-						  }
-						}
-					}
-				}
-			}
+									rt.trace(fname);
+
+									if (numRays > 0)
+									{
+										// restore the old values  
+										for (int i = 0; i < S.nLS; i++)
+											S.LS[i]->setNumRays(numRays_old[i]);
+									} 
+								}
+								else
+									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
+								break;
+							} // case path calculation
+							case TOKEN_CALCULATION_PULSE:
+							{
+								std::string fname = objEll->Attribute("Filename");
+								if (!fname.empty())
+								{
+									GOAT::raytracing::pulseCalculation pc(S);
+									GOAT::raytracing::TrafoParms trafoparms;
+									trafoparms = pc.getTrafoParms();
+									pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
+									pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+									pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
+									pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
+									pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+									double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
+									if (repRate > 0) pc.setRepetitionRate(repRate);
+									double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDiretion();
+									pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
+								
+
+									char cs[3];
+									std::vector< std::function< std::complex< double >(double) > > nList;
+									std::string refFuncName;
+									bool failed = false;
+
+									tinyxml2::XMLElement* refEll = objEll->FirstChildElement("RefractiveIndexList");
+									if (refEll == NULL)
+									{
+										std::cerr << "Pulse calculation: Refractive index function list is missing! Stopped calculation" << std::endl;
+										break;
+									}
+								
+									std::string refStr;
+									int refIndexToken;
+									for (int i=0; (i<S.nObj) && (!failed); i++)
+									{
+										sprintf(cs, "n%i", i);
+										hStr = refEll->Attribute(cs);
+										if (hStr == NULL)
+										{
+											
+											std::cerr << "Pulse calculation: Refractive index function for object " << i << " is missing! Stopped calculation" << std::endl;
+											failed = true;											
+										}
+										else
+										{
+											refStr = hStr;
+											refIndexToken = mapString2RefractiveIndexToken(refStr);
+											if (refIndexToken == TOKEN_NOT_FOUND)
+											{
+												std::cerr << "Pulse calculation: Wrong refractive index function name (" << refStr << ") !Calculation stopped!" << std::endl;
+												failed = true;
+											}
+											addFunction2IndexList(nList, refIndexToken);
+										}
+									}
+
+									if (failed) break;
+
+
+									hStr = refEll->Attribute("nS");
+									if (hStr == NULL)
+									{
+										std::cerr << "Pulse calculation: Refractive index function for surrounding medium is missing! Stopped calculation" << std::endl;
+										failed = true;
+									}
+									if (failed) break;
+									refStr = hStr;
+									refIndexToken = mapString2RefractiveIndexToken(refStr);
+									if (refIndexToken == TOKEN_NOT_FOUND)
+									{
+										std::cerr << "Pulse calculation: Wrong refractive index function name (" << refStr << ") !Calculation stopped!" << std::endl;
+										failed = true;
+									}
+
+									if (failed) break;
+									addFunction2IndexList(nList, refIndexToken);
+									pc.setRefractiveIndexFunctions(nList);
+
+									double time = objEll->DoubleAttribute("Time", -1);
+									if (time < 0)
+									{
+										double offset = objEll->DoubleAttribute("TimeOffset", 0);
+										int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);
+										time = pc.findHitTime(objEstimate) + offset;
+									}
+
+									
+									pc.field(time);
+
+									std::string fullfname;
+
+									for (int i = 0; i < S.nObj; i++)
+									{
+										if (S.Obj[i]->isActive())
+										{
+											fullfname = fname + std::to_string(i) + ".dat";
+											GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+										}
+									}
+								}
+								else
+									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
+								break;
+							}
+							} // switch 
+						} // is type given ?
+					} // is inactive ?
+				} // for loop
+			} // if no Calculations
 		}
 
 		GOAT::maths::Vector<double> xmlReader::readVector(tinyxml2::XMLElement* ell,  double x, double y, double z)

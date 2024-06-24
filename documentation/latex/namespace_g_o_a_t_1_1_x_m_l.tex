@@ -8,12 +8,18 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{xml\+Reader}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}{add\+Function2\+Index\+List}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \&n\+List, int ref\+Index\+Token)
+\item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{map\+String2\+Calculation\+Token}} (std\+::string str)
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{map\+String2\+Light\+Source\+Token}} (std\+::string str)
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{map\+String2\+Object\+Token}} (std\+::string str)
-\end{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}{map\+String2\+Refractive\+Index\+Token}} (std\+::string str)
+\item 
+std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}{str\+\_\+tolower}} (std\+::string s)
+\begin{DoxyCompactList}\small\item\em converts all letters in s into lower case (taken from \href{https://en.cppreference.com/w/cpp/string/byte/tolower}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/byte/tolower}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,13 +31,21 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab17
 \item 
 const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{LSXMLTYPES}} \mbox{[}$\,$\mbox{]} = \{\"{}Plane\"{},\"{}Gaussian\"{},\"{}Plane\+\_\+mc\"{},\"{}Gaussian\+\_\+mc\"{}\}
 \item 
-const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{object\+Token}} = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{} \}
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{object\+Token}} = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{},\"{}box\"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}{refractive\+Index\+Token}} = \{ \"{}air\"{},\"{}glass\"{},\"{}bk7\"{},\"{}lasf55\"{},\"{}vacuum\"{} \}
 \item 
 const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{scene\+XMLElements}} \mbox{[}$\,$\mbox{]} = \{ \"{}r0\"{},\"{}n\+S\"{},\"{}Light\+Sources\"{},\"{}Objects\"{},\"{}Detectors\"{} \}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}\label{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e} 
+\index{GOAT::XML@{GOAT::XML}!addFunction2IndexList@{addFunction2IndexList}}
+\index{addFunction2IndexList@{addFunction2IndexList}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{addFunction2IndexList()}{addFunction2IndexList()}}
+{\footnotesize\ttfamily bool GOAT\+::\+XML\+::add\+Function2\+Index\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \&}]{n\+List,  }\item[{int}]{ref\+Index\+Token }\end{DoxyParamCaption})}
+
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}\label{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118} 
 \index{GOAT::XML@{GOAT::XML}!mapString2CalculationToken@{mapString2CalculationToken}}
 \index{mapString2CalculationToken@{mapString2CalculationToken}!GOAT::XML@{GOAT::XML}}
@@ -50,6 +64,22 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de
 \doxysubsubsection{\texorpdfstring{mapString2ObjectToken()}{mapString2ObjectToken()}}
 {\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Object\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
 
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}\label{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3} 
+\index{GOAT::XML@{GOAT::XML}!mapString2RefractiveIndexToken@{mapString2RefractiveIndexToken}}
+\index{mapString2RefractiveIndexToken@{mapString2RefractiveIndexToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2RefractiveIndexToken()}{mapString2RefractiveIndexToken()}}
+{\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Refractive\+Index\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}\label{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb} 
+\index{GOAT::XML@{GOAT::XML}!str\_tolower@{str\_tolower}}
+\index{str\_tolower@{str\_tolower}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{str\_tolower()}{str\_tolower()}}
+{\footnotesize\ttfamily std\+::string GOAT\+::\+XML\+::str\+\_\+tolower (\begin{DoxyParamCaption}\item[{std\+::string}]{s }\end{DoxyParamCaption})}
+
+
+
+converts all letters in s into lower case (taken from \href{https://en.cppreference.com/w/cpp/string/byte/tolower}{\texttt{ https\+://en.\+cppreference.\+com/w/cpp/string/byte/tolower}}) 
+
 
 
 \doxysubsection{Variable Documentation}
@@ -61,7 +91,7 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00035}{35}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00046}{46}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}\label{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5} 
 \index{GOAT::XML@{GOAT::XML}!lightSourceToken@{lightSourceToken}}
@@ -71,7 +101,7 @@ Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00035}{35}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00033}{33}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00044}{44}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\label{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a} 
 \index{GOAT::XML@{GOAT::XML}!LSXMLAttributes@{LSXMLAttributes}}
@@ -97,11 +127,21 @@ Definition at line \mbox{\hyperlink{xml_8h_source_l00036}{36}} of file \mbox{\hy
 \index{GOAT::XML@{GOAT::XML}!objectToken@{objectToken}}
 \index{objectToken@{objectToken}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{objectToken}{objectToken}}
-{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::object\+Token = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{} \}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::object\+Token = \{ \"{}ellipsoid\"{},\"{}surface\"{},\"{}cone\"{},\"{}aspheric\+\_\+lens\"{},\"{}spheric\+\_\+lens\"{},\"{}box\"{}\}}
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00034}{34}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00045}{45}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}\label{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec} 
+\index{GOAT::XML@{GOAT::XML}!refractiveIndexToken@{refractiveIndexToken}}
+\index{refractiveIndexToken@{refractiveIndexToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{refractiveIndexToken}{refractiveIndexToken}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::refractive\+Index\+Token = \{ \"{}air\"{},\"{}glass\"{},\"{}bk7\"{},\"{}lasf55\"{},\"{}vacuum\"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00047}{47}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}\label{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07} 
 \index{GOAT::XML@{GOAT::XML}!sceneXMLElements@{sceneXMLElements}}

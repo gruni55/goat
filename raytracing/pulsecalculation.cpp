@@ -9,8 +9,7 @@ namespace GOAT
 		pulseCalculation::pulseCalculation(Scene S)
 		{
 			this->S = S;
-			setDefaults();
-			
+			setDefaults();			
 			trafo = Trafo(trafoparms);			
 		}
 

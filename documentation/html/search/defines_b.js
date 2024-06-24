@@ -8,6 +8,7 @@ var searchData=
   ['numcalculationtoken_5',['numCalculationToken',['../xmltoken_8h.html#a560224a9afe28815563376b219a1a6a0',1,'xmltoken.h']]],
   ['numlightsourcetoken_6',['numLightSourceToken',['../xmltoken_8h.html#a4ec71fa8aaaf51a14f1bcb4224bb90de',1,'xmltoken.h']]],
   ['numobjecttoken_7',['numObjectToken',['../xmltoken_8h.html#a0b27f62752a0045622bfd5979c21a70e',1,'xmltoken.h']]],
-  ['numxml_5fls_5ftypes_8',['numXML_LS_TYPES',['../xml_8h.html#ad729ba2c20589b0e82f26dfbcf07828e',1,'xml.h']]],
-  ['numxmlrootelements_9',['numXMLRootElements',['../xml_8h.html#af0d3110eddf628bf7ec827130ea10c0c',1,'xml.h']]]
+  ['numrefractiveindextoken_8',['numRefractiveIndexToken',['../xmltoken_8h.html#abd0e0e0e48a4abdd1b31e138345336de',1,'xmltoken.h']]],
+  ['numxml_5fls_5ftypes_9',['numXML_LS_TYPES',['../xml_8h.html#ad729ba2c20589b0e82f26dfbcf07828e',1,'xml.h']]],
+  ['numxmlrootelements_10',['numXMLRootElements',['../xml_8h.html#af0d3110eddf628bf7ec827130ea10c0c',1,'xml.h']]]
 ];

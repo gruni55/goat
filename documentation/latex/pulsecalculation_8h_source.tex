@@ -47,32 +47,34 @@
 \DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00072}00072\ }
 \DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_add07a3e14c61a5cf8f3fee2abf2b6510}{domega}};\ }
 \DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1}{dWvl}}=0.02;\ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00076}00076\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:\ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ settings=0;}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ In\ this\ function\ the\ default\ values\ (trafoparms)\ for\ the\ calculations\ are\ set\ as\ follows:}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ dt\ \ :\ 1E-\/14s}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ wvl\ :\ 1.0µm}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ nI\ \ :\ 1}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}{setDefaults}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}{calcTrafoParms}}();}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::vector<\ std::vector<SuperArray<std::vector<gridEntry>\ >\ >\ >\ SA;}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00088}00088\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a58f9f484c306bc04dede3616e35a4895}{dRWvl}};\ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420}{nn}};\ \ \ \ \textcolor{comment}{//\ number\ of\ cells\ over\ the\ whole\ width\ of\ the\ calculation\ space\ (i.e.\ 2*r0)500}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}{S}};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab96fdfe7a64171357845d8ebc561c6ac}{raytracingDone}}\ =\ \textcolor{keyword}{false};\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00094}00094\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f}{trafoparms}};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}}\ =\ 0.0;\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{numReflex}}\ =\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};\ \ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fieldCalls\ =\ 0;\ }
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \};}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00100}00100\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00101}00101\ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00075}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}{00075}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}{getTrafoParms}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f}{trafoparms}};\ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00076}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}{00076}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}{getReferenceTime}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}};\ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00077}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad1c5c29d3000152cc4397f0abd5b44b8}{00077}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad1c5c29d3000152cc4397f0abd5b44b8}{getNumCellsPerDiretion}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420}{nn}};\ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ settings=0;}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ In\ this\ function\ the\ default\ values\ (trafoparms)\ for\ the\ calculations\ are\ set\ as\ follows:}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ dt\ \ :\ 1E-\/14s}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ wvl\ :\ 1.0µm}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ nI\ \ :\ 1}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ }}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00086}00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}{setDefaults}}();\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}{calcTrafoParms}}();}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::vector<\ std::vector<SuperArray<std::vector<gridEntry>\ >\ >\ >\ SA;}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a58f9f484c306bc04dede3616e35a4895}{dRWvl}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420}{nn}};\ \ \ \ \textcolor{comment}{//\ number\ of\ cells\ over\ the\ whole\ width\ of\ the\ calculation\ space\ (i.e.\ 2*r0)500}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}{S}};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab96fdfe7a64171357845d8ebc561c6ac}{raytracingDone}}\ =\ \textcolor{keyword}{false};\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{TrafoParms}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f}{trafoparms}};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}}\ =\ 0.0;\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{numReflex}}\ =\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\_MAX\_NREFLEX}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ fieldCalls\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00102}00102\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{pulsecalculation_8h_source_l00103}00103\ \}}
 
 \end{DoxyCode}
