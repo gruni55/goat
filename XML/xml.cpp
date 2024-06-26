@@ -344,6 +344,7 @@ namespace GOAT
 									pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
 									pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
 									pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
+									pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
 									pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
 									pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
 									double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
