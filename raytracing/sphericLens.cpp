@@ -8,8 +8,7 @@ namespace GOAT
             : ObjectShape(P, n, alpha, Ex, Ey, Ez, type)
         {
             this->lp = lp;
-
-            
+            type=OBJECTSHAPE_SPHERIC_LENS;
             init();
         }
 

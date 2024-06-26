@@ -74,7 +74,7 @@ namespace GOAT
 				double dWvl=0.02;  ///< spectral width of the light (default 20nm)
 				TrafoParms getTrafoParms() { return trafoparms; }
 				double getReferenceTime() { return tref; }
-				INDEX_TYPE getNumCellsPerDiretion() { return nn; }
+				INDEX_TYPE getNumCellsPerDirection() { return nn; }
 
 			private:	
 				int settings=0;

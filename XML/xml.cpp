@@ -185,7 +185,7 @@ namespace GOAT
 					int type = mapString2ObjectToken(typeStr);
 					switch (type)
 					{
-					case TOKEN_OBJECT_ELLISPOID: {
+					case TOKEN_OBJECT_ELLIPSOID: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
 													Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
 													Obj[numObj]->setMatrix(alpha, beta, gamma);
@@ -348,7 +348,7 @@ namespace GOAT
 									pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
 									double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
 									if (repRate > 0) pc.setRepetitionRate(repRate);
-									double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDiretion();
+									double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 									pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
 								
 

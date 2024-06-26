@@ -135,7 +135,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
 			maths::Vector<std::complex<double> > Pol2; ///< second polarisation (used by IRay)
-			double r0;          ///< radius of the calculation sphere
+			double r0=1.0;          ///< radius of the calculation sphere
 			
 			int numObjs;        ///< number of objects
 			std::complex<double> n0; ///< refractive index of the intermediate medium
