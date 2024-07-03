@@ -1,4 +1,5 @@
 
+
 #include "tinyxml2.h"
 #include "xml.h"
 #include "lens.h"
@@ -351,8 +352,7 @@ namespace GOAT
 									if (repRate > 0) pc.setRepetitionRate(repRate);
 									double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 									pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
-								
-
+									double D=objEll->DoubleAttribute("D",-1.0);
 									char cs[3];
 									std::vector< std::function< std::complex< double >(double) > > nList;
 									std::string refFuncName;
@@ -415,23 +415,52 @@ namespace GOAT
 									double time = objEll->DoubleAttribute("Time", -1);
 									if (time < 0)
 									{
-										double offset = objEll->DoubleAttribute("TimeOffset", 0);
+										double offset = objEll->DoubleAttribute("Time_offset", 0);
 										int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);
 										time = pc.findHitTime(objEstimate) + offset;
 									}
 
-									
-									pc.field(time);
-
 									std::string fullfname;
-
-									for (int i = 0; i < S.nObj; i++)
+									double d;
+									if (D>0)
 									{
-										if (S.Obj[i]->isActive())
+										const char* hStr;
+										std::string corrFilename;
+										std::ofstream corrOS;
+										hStr=objEll->Attribute("CorrelationFilename");
+										if (hStr != NULL)
 										{
-											fullfname = fname + std::to_string(i) + ".dat";
-											GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+											corrOS.open(hStr);
 										}
+
+
+										do
+										{
+										  d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
+
+										  for (int i = 0; i < S.nObj; i++)
+										  {
+										  	if (S.Obj[i]->isActive())
+											{
+												fullfname = fname + std::to_string(i) + ".dat";
+												GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+											}
+										  }
+										  if (hStr != NULL) corrOS << d << std::endl;
+									    } while (d>D);
+									  if (hStr != NULL) corrOS.close();
+									}
+									else
+									{
+										pc.field(time);
+										for (int i = 0; i < S.nObj; i++)
+										  {
+										  	if (S.Obj[i]->isActive())
+											{
+												fullfname = fname + std::to_string(i) + ".dat";
+												GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+											}
+										  }
 									}
 								}
 								else

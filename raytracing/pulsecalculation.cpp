@@ -110,6 +110,7 @@ namespace GOAT
 		void pulseCalculation::fieldCalculation(double omega)
 		{
 			double wavelength = 2.0 * M_PI / omega * C_LIGHT_MU_FS;
+			std::cout << "wavelength=" << wavelength << std::endl;
 
 			// clear the old raytracing results
 		    // rt.clear();
