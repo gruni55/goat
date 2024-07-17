@@ -9,7 +9,7 @@ namespace GOAT
 	{
 #define numLightSourceToken 7
 #define numObjectToken	    6 
-#define numDetectorToken 
+#define numDetectorToken    1
 #define numCalculationToken 3
 #define numRefractiveIndexToken 5
 
@@ -52,6 +52,7 @@ namespace GOAT
 
 		int mapString2LightSourceToken(std::string str);
 		int mapString2ObjectToken(std::string str);
+		int mapString2DetectorToken(std::string str);
 		int mapString2CalculationToken(std::string str);
 		int mapString2RefractiveIndexToken(std::string str);
 		std::string str_tolower(std::string s); ///< converts all letters in s into lower case (taken from https://en.cppreference.com/w/cpp/string/byte/tolower)

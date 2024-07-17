@@ -45,6 +45,9 @@ namespace GOAT
 					S.setnS(std::complex<double>(re, im));
 				}
 
+				/* look for the detectors */
+				readDetectors();
+
 				/* Looking for light sources */
 			    readLightSources();
 				
@@ -52,8 +55,45 @@ namespace GOAT
 				/* Now, let's look for objects */
 				readObjects();
 
+				
 			}		
 		}
+
+        void xmlReader::readDetectors()
+		{
+			tinyxml2::XMLElement* ell;
+			ell = sceneElement->FirstChildElement("Detectors");
+
+			if (ell != NULL)
+			{
+				int n1, n2;
+				
+				for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
+				{
+					maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
+					maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
+					std::string typeStr;
+					typeStr = detEll->Attribute("Type");
+					std::string filename;
+					filename = detEll->Attribute("Filename");
+					int type = mapString2DetectorToken(typeStr);
+					switch (type)
+					{
+					  case TOKEN_DETECTOR_PLANE : 
+													{
+													 double d = detEll->DoubleAttribute("d", 1);
+													 int n = detEll->IntAttribute("n", 1);
+													 Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d,n));
+													 Det[numDet]->fname = filename;
+													 S.addDetector(Det[numDet]);
+													 numDet++;
+													}
+													
+					}
+				}
+			}
+		}
+
 		void xmlReader::readLightSources()
 		{
 			tinyxml2::XMLElement* ell;
@@ -307,7 +347,7 @@ namespace GOAT
 						if (hStr != NULL) inactiveStr = hStr;
 						else inactiveStr = "false";
 						if (inactiveStr.compare("true")!=0)
-					{
+						{
 						
 						typeStr = objEll->Attribute("Type");
 						if (!typeStr.empty())
@@ -487,7 +527,9 @@ namespace GOAT
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
 								break;
 							}
-							} // switch 
+							} // switch
+							for (int i = 0; i < numDet; i++)
+								S.Det[i]->save(Det[i]->fname.c_str());
 						} // is type given ?
 					} // is inactive ?
 				} // for loop

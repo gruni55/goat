@@ -88,9 +88,11 @@ namespace GOAT
 				tinyxml2::XMLElement* sceneElement;				
 				tinyxml2::XMLElement* calculationElement;
 				std::vector<GOAT::raytracing::ObjectShape*> Obj;
+				std::vector<GOAT::raytracing::Detector*> Det;
 				GOAT::raytracing::LightSrc** LS=0;
 				int numObj = 0;
 				int numLS = 0;
+				int numDet = 0;
 
 		};
 	}

@@ -1,3 +1,4 @@
+#include "xmltoken.h"
 #include "xml.h"
 #include<algorithm>
 #include "refractive_index_functions.h"
@@ -26,6 +27,17 @@ namespace GOAT
 			for (i = 0; (i < numObjectToken) && (!found); i++)
 				found = (str.compare(objectToken[i])==0);
 			if (found) return (i-1) + 100;
+			return TOKEN_NOT_FOUND;
+		}
+
+		int mapString2DetectorToken(std::string tstr)
+		{
+			std::string str = str_tolower(tstr);
+			bool found = false;
+			int j;
+			for (j = 0; (j < numDetectorToken) && (!found); j++)
+				found = (str.compare(detectorToken[j]) == 0);
+			if (found) return (j - 1) + 150;
 			return TOKEN_NOT_FOUND;
 		}
 
