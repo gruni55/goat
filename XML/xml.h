@@ -73,14 +73,17 @@ namespace GOAT
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
 
 			private:				
-				void readScene();
+                void readScene();
 				void readLightSources();
 				void readCommands();
 				void readObjects();
+				void readDetectors();
 				void doCalculations();
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
+                GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
+                GOAT::maths::Vector<std::complex<double> > readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError);
 				std::complex<double> readCmplx(tinyxml2::XMLElement* ell, double defre=0.0, double defim=0.0 );
-				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);						
+                std::complex<double> readCmplx(tinyxml2::XMLElement* ell, int& xmlError);
 				tinyxml2::XMLNode* rootElement;
 				tinyxml2::XMLElement* sceneElement;				
 				tinyxml2::XMLElement* calculationElement;

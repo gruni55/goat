@@ -67,7 +67,7 @@ namespace GOAT
 				GOAT::raytracing::LightSrc* ls = NULL;
 				for (tinyxml2::XMLElement* lsEll = ell->FirstChildElement("LightSource"); lsEll != NULL; lsEll = lsEll->NextSiblingElement("LightSource"))
 				{
-					std::string typeStr;
+			        	std::string typeStr;
 					typeStr = lsEll->Attribute("Type");
 					Pos = readVector(lsEll->FirstChildElement("Position"));
 					numRays = lsEll->IntAttribute("NumRays", 100);
@@ -115,6 +115,24 @@ namespace GOAT
 															if (err == tinyxml2::XML_SUCCESS) ((GOAT::raytracing::LightSrcGauss_mc*)ls)->setNA(NA);
 														}
 													  break;
+                    case TOKEN_LIGHTSOURCE_RING:        {
+                                                         double rmin, rmax;
+                                                         rmin=lsEll->DoubleAttribute("rmin",0.0);
+                                                         rmax=lsEll->DoubleAttribute("rmax",100.0);
+                                                         LS[numLS]=new GOAT::raytracing::LightSrcRing(Pos, numRays, wavelength, rmin,rmax);
+                                                        break;
+                                                        }
+                    case TOKEN_LIGHTSOURCE_RING_MC:
+                                                        {
+                                                          double rmin, rmax;
+                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
+                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
+							  std::cout << "rmax=" << rmax << "\t rmin=" << rmin << std::endl;
+                                                          LS[numLS]=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax);
+                                                          break;
+                                                        }
+
+
 					}
 
 					numLS++;
@@ -417,7 +435,9 @@ namespace GOAT
 									{
 										double offset = objEll->DoubleAttribute("Time_offset", 0);
 										int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);
-										time = pc.findHitTime(objEstimate) + offset;
+										time = pc.findHitTime(objEstimate);
+ 										std::cout << "% estimated time:" << time << std::endl;
+       										time+= offset;
 									}
 
 									std::string fullfname;
@@ -511,5 +531,30 @@ namespace GOAT
 			}
 			return std::complex<double>(re, im);
 		}
+
+        std::complex<double> xmlReader::readCmplx(tinyxml2::XMLElement* ell, int &xmlError)
+        {
+            double re,im;
+            if (ell != NULL)
+            {
+                xmlError=ell->QueryDoubleAttribute("real",&re);
+                xmlError = xmlError | ell->QueryDoubleAttribute("imag", &im);
+            }
+            return std::complex<double> (re,im);
+        }
+
+        GOAT::maths::Vector<std::complex<double> > xmlReader::readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError)
+        {
+          std::complex<double> x,y,z;
+          int errorX, errorY, errorZ;
+          if (ell != NULL)
+          {
+              x=readCmplx(ell,errorX);
+              y=readCmplx(ell,errorY);
+              z=readCmplx(ell,errorZ);
+              xmlError = errorX | errorY | errorZ;
+          }
+          return GOAT::maths::Vector<std::complex<double> > (x,y,z);
+        }
 	}
 }

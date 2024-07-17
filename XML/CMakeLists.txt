@@ -1,5 +1,5 @@
-set (XML_HDRS xml.h "xmltoken.h")
-set (XML_SRCS xml.cpp "xmltoken.cpp")
+set (XML_HDRS xml.h xmltoken.h)
+set (XML_SRCS xml.cpp xmltoken.cpp)
 
 add_library (goat_xml ${XML_SRCS} ${XML_HDRS} )
 target_compile_definitions (goat_xml PUBLIC WITH_OCTREE WITH_SUPERGITTER)
