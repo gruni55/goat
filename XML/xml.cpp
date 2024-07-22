@@ -5,6 +5,7 @@
 #include "lens.h"
 #include "sphericLens.h"
 #include "pulsecalculation.h"
+#include "raytrace_inel.h"
 
 namespace GOAT
 {
@@ -346,12 +347,12 @@ namespace GOAT
 						hStr=objEll->Attribute("Inactive");
 						if (hStr != NULL) inactiveStr = hStr;
 						else inactiveStr = "false";
-						if (inactiveStr.compare("true")!=0)
-						{
-						
+						std::cout << "inactiveStr=" << inactiveStr << std::endl;
+						if (inactiveStr.compare("false")==0)
+						{						
 						typeStr = objEll->Attribute("Type");
 						if (!typeStr.empty())
-						{
+						{							
 							type = mapString2CalculationToken(typeStr);
 							switch (type)
 							{
@@ -526,6 +527,40 @@ namespace GOAT
 								else
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
 								break;
+							}
+							case TOKEN_CALCULATION_INELASTIC:
+							{
+								std::string fname = objEll->Attribute("Filename");
+								if (fname.empty())
+								{
+									fname = "dummy";
+								}
+								int n = objEll->IntAttribute("n",500);
+									GOAT::raytracing::Raytrace_Inel rt(S,n);									
+									bool fieldonly=true;
+								
+									const char *str = objEll->Attribute("FieldOnly");
+									if (str !=NULL)
+									{
+										fieldonly = (strcmp(str,"true") == 0);
+									}
+									
+									
+									if (fieldonly) rt.setExcitationFieldOnly();
+									GOAT::raytracing::RRTParms rrtparms;
+									
+									rt.trace(rrtparms);
+									std::string fullfname;
+									rt.exportExcitation(fname, GOAT::raytracing::INEL_EXPORT_EXCITATION_FIELD_VECTOR);
+									/*for (int i = 0; i < S.nObj; i++)
+									{
+										if (S.Obj[i]->Active)
+										{
+											fullfname = fname + std::to_string(i) + ".dat";
+											GOAT::raytracing::saveFullE(rt.SGE[0], fullfname, i);
+										}
+									}*/
+								
 							}
 							} // switch
 							for (int i = 0; i < numDet; i++)

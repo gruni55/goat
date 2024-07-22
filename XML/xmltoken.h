@@ -10,7 +10,7 @@ namespace GOAT
 #define numLightSourceToken 7
 #define numObjectToken	    6 
 #define numDetectorToken    1
-#define numCalculationToken 3
+#define numCalculationToken 4
 #define numRefractiveIndexToken 5
 
 #define TOKEN_NOT_FOUND					-1
@@ -34,6 +34,7 @@ namespace GOAT
 #define TOKEN_CALCULATION_PURE		  200
 #define TOKEN_CALCULATION_PATH		  201
 #define TOKEN_CALCULATION_PULSE		  202
+#define TOKEN_CALCULATION_INELASTIC   203
 
 #define TOKEN_REFRACTIVE_INDEX_AIR	  300
 #define TOKEN_REFRACTIVE_INDEX_GLASS  301
@@ -47,7 +48,7 @@ namespace GOAT
 		const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc" };
 		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box"};
 		const std::vector<std::string> detectorToken = {"plane"};
-		const std::vector<std::string> calculationToken = { "pure","path","pulse" };
+		const std::vector<std::string> calculationToken = { "pure","path","pulse","inelastic"};
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum" };
 
 		int mapString2LightSourceToken(std::string str);

@@ -46,8 +46,6 @@ namespace GOAT
 			LSExcit = 0;
 			this->n = n;
 			SGE = 0;
-			
-			n = 0;
 			iR = 0;
 			calcphase = INEL_CALCPHASE_EXCITATION;
 			active = new bool[S.nObj];
