@@ -12,7 +12,7 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation =
     [ "fieldCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ac864eab5a5abcbb977f1b205d757be00", null ],
     [ "findHitTime", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a5e1705691106d1aca4940e47ff764842", null ],
     [ "findHitTime", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a5e1705691106d1aca4940e47ff764842", null ],
-    [ "getNumCellsPerDiretion", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ad1c5c29d3000152cc4397f0abd5b44b8", null ],
+    [ "getNumCellsPerDirection", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aa63163a1eca72c40aaa3d5ed73c2a813", null ],
     [ "getReferenceTime", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#ac65123797a27d721c93d987df280aac4", null ],
     [ "getTrafoParms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a54cd68802a1b2ec7ca617eafac81968c", null ],
     [ "reset", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#adb7060cab84ce09b2d454603c5f2a91b", null ],

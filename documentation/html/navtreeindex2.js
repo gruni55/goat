@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"class_g_o_a_t_1_1raytracing_1_1_octree.html#ab759a2409014bc59f2dd89d680a82385":[3,0,0,1,27,18],
 "class_g_o_a_t_1_1raytracing_1_1_octree.html#ad5a7dff08fb8ba179d4061b1131eabd9":[3,0,0,1,27,15],
 "class_g_o_a_t_1_1raytracing_1_1_octree.html#adac318ce163b4dcb9f03f5cf2c4164df":[3,0,0,1,27,6],
 "class_g_o_a_t_1_1raytracing_1_1_octree.html#ade31fa10ed86b4212da1ef41f80181da":[3,0,0,1,27,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b":[3,0,0,1,53,35],
 "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a252dfb34ba8512f0e7298041a5b0fafe":[3,0,0,1,53,31],
 "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2759899e6c83be817b38e85bbca2f242":[3,0,0,1,53,20],
-"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2899efa3a6526adaaa69e888a38ef60d":[3,0,0,1,53,33],
-"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2aab88f32e5f3a5eabfddb3fd7e0a02e":[3,0,0,1,53,29]
+"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2899efa3a6526adaaa69e888a38ef60d":[3,0,0,1,53,33]
 };

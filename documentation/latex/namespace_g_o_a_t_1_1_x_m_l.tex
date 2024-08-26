@@ -12,6 +12,8 @@ bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f785
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{map\+String2\+Calculation\+Token}} (std\+::string str)
 \item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}{map\+String2\+Detector\+Token}} (std\+::string str)
+\item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{map\+String2\+Light\+Source\+Token}} (std\+::string str)
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{map\+String2\+Object\+Token}} (std\+::string str)
@@ -23,9 +25,11 @@ std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35b
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculation\+Token}} = \{ \char`\"{}pure\char`\"{},\char`\"{}path\char`\"{},\char`\"{}pulse\char`\"{} \}
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculation\+Token}} = \{ \char`\"{}pure\char`\"{},\char`\"{}path\char`\"{},\char`\"{}pulse\char`\"{},\char`\"{}pulse\+\_\+field\char`\"{},\char`\"{}inelastic\char`\"{}\}
 \item 
-const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{light\+Source\+Token}} = \{ \char`\"{}plane\char`\"{},\char`\"{}gaussian\char`\"{},\char`\"{}ring\char`\"{},\char`\"{}tophat\char`\"{},\char`\"{}plane\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+mc\char`\"{},\char`\"{}ring\+\_\+mc\char`\"{} \}
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}{detector\+Token}} = \{\char`\"{}plane\char`\"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{light\+Source\+Token}} = \{ \char`\"{}plane\char`\"{},\char`\"{}gaussian\char`\"{},\char`\"{}ring\char`\"{},\char`\"{}tophat\char`\"{},\char`\"{}plane\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+mc\char`\"{},\char`\"{}ring\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+ring\+\_\+mc\char`\"{} \}
 \item 
 const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{LSXMLAttributes}} \mbox{[}$\,$\mbox{]} = \{ \char`\"{}Type\char`\"{},\char`\"{}Size\char`\"{},\char`\"{}Wavelength\char`\"{},\char`\"{}Num\+Rays\char`\"{} \}
 \item 
@@ -51,6 +55,12 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de
 \index{mapString2CalculationToken@{mapString2CalculationToken}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{mapString2CalculationToken()}{mapString2CalculationToken()}}
 {\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Calculation\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}\label{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}} 
+\index{GOAT::XML@{GOAT::XML}!mapString2DetectorToken@{mapString2DetectorToken}}
+\index{mapString2DetectorToken@{mapString2DetectorToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2DetectorToken()}{mapString2DetectorToken()}}
+{\footnotesize\ttfamily int GOAT\+::\+XML\+::map\+String2\+Detector\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}\label{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}} 
 \index{GOAT::XML@{GOAT::XML}!mapString2LightSourceToken@{mapString2LightSourceToken}}
@@ -87,21 +97,31 @@ converts all letters in s into lower case (taken from \href{https://en.cpprefere
 \index{GOAT::XML@{GOAT::XML}!calculationToken@{calculationToken}}
 \index{calculationToken@{calculationToken}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{calculationToken}{calculationToken}}
-{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::calculation\+Token = \{ \char`\"{}pure\char`\"{},\char`\"{}path\char`\"{},\char`\"{}pulse\char`\"{} \}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::calculation\+Token = \{ \char`\"{}pure\char`\"{},\char`\"{}path\char`\"{},\char`\"{}pulse\char`\"{},\char`\"{}pulse\+\_\+field\char`\"{},\char`\"{}inelastic\char`\"{}\}}
 
 
 
-Definition at line 46 of file xmltoken.\+h.
+Definition at line 53 of file xmltoken.\+h.
+
+\mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}\label{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}} 
+\index{GOAT::XML@{GOAT::XML}!detectorToken@{detectorToken}}
+\index{detectorToken@{detectorToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{detectorToken}{detectorToken}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::detector\+Token = \{\char`\"{}plane\char`\"{}\}}
+
+
+
+Definition at line 52 of file xmltoken.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}\label{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}} 
 \index{GOAT::XML@{GOAT::XML}!lightSourceToken@{lightSourceToken}}
 \index{lightSourceToken@{lightSourceToken}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{lightSourceToken}{lightSourceToken}}
-{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::light\+Source\+Token = \{ \char`\"{}plane\char`\"{},\char`\"{}gaussian\char`\"{},\char`\"{}ring\char`\"{},\char`\"{}tophat\char`\"{},\char`\"{}plane\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+mc\char`\"{},\char`\"{}ring\+\_\+mc\char`\"{} \}}
+{\footnotesize\ttfamily const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::light\+Source\+Token = \{ \char`\"{}plane\char`\"{},\char`\"{}gaussian\char`\"{},\char`\"{}ring\char`\"{},\char`\"{}tophat\char`\"{},\char`\"{}plane\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+mc\char`\"{},\char`\"{}ring\+\_\+mc\char`\"{},\char`\"{}gaussian\+\_\+ring\+\_\+mc\char`\"{} \}}
 
 
 
-Definition at line 44 of file xmltoken.\+h.
+Definition at line 50 of file xmltoken.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\label{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}} 
 \index{GOAT::XML@{GOAT::XML}!LSXMLAttributes@{LSXMLAttributes}}
@@ -111,7 +131,7 @@ Definition at line 44 of file xmltoken.\+h.
 
 
 
-Definition at line 35 of file xml.\+h.
+Definition at line 36 of file xml.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}\label{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}} 
 \index{GOAT::XML@{GOAT::XML}!LSXMLTYPES@{LSXMLTYPES}}
@@ -121,7 +141,7 @@ Definition at line 35 of file xml.\+h.
 
 
 
-Definition at line 36 of file xml.\+h.
+Definition at line 37 of file xml.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}\label{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}} 
 \index{GOAT::XML@{GOAT::XML}!objectToken@{objectToken}}
@@ -131,7 +151,7 @@ Definition at line 36 of file xml.\+h.
 
 
 
-Definition at line 45 of file xmltoken.\+h.
+Definition at line 51 of file xmltoken.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}\label{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}} 
 \index{GOAT::XML@{GOAT::XML}!refractiveIndexToken@{refractiveIndexToken}}
@@ -141,7 +161,7 @@ Definition at line 45 of file xmltoken.\+h.
 
 
 
-Definition at line 47 of file xmltoken.\+h.
+Definition at line 54 of file xmltoken.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}\label{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}} 
 \index{GOAT::XML@{GOAT::XML}!sceneXMLElements@{sceneXMLElements}}
@@ -151,5 +171,5 @@ Definition at line 47 of file xmltoken.\+h.
 
 
 
-Definition at line 34 of file xml.\+h.
+Definition at line 35 of file xml.\+h.
 

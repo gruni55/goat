@@ -1,5 +1,9 @@
 var NAVTREEINDEX4 =
 {
+"class_g_o_a_t_1_1raytracing_1_1short_pulse.html#aaa07d911730cc39588da85577fe032f3":[3,0,0,1,48,5],
+"class_g_o_a_t_1_1raytracing_1_1short_pulse.html#ac305fddaf146cbce3730fb7ff5662cbf":[3,0,0,1,48,0],
+"class_g_o_a_t_1_1raytracing_1_1short_pulse.html#ad66e7ed4f925c5827eb69d7f5210cc6d":[3,0,0,1,48,4],
+"class_g_o_a_t_1_1raytracing_1_1spheric_lens.html":[3,0,0,1,49],
 "class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a0187decc2ca47fd20a2566a10ea4a93c":[3,0,0,1,49,10],
 "class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a036746e1a22dbce5417ffe7a472c400b":[3,0,0,1,49,2],
 "class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a1b0f76539e89644c207c0703cf7beee3":[3,0,0,1,49,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX4 =
 "classtinyxml2_1_1_x_m_l_comment.html#a6f7d227b25afa8cc3c763b7cc8833739":[3,0,1,5,5],
 "classtinyxml2_1_1_x_m_l_comment.html#a8093e1dc8a34fa446d9dc3fde0e6c0ee":[3,0,1,5,6],
 "classtinyxml2_1_1_x_m_l_comment.html#a8e60caf06d8e88876a94b81db026b85c":[3,0,1,5,7],
-"classtinyxml2_1_1_x_m_l_comment.html#ab5da828fe023869b8c5bb69554d41bb1":[3,0,1,5,3],
-"classtinyxml2_1_1_x_m_l_comment.html#ae6463adc3edd93a8e5a9b2b7e99cdf91":[3,0,1,5,0],
-"classtinyxml2_1_1_x_m_l_comment.html#afc227c55a6fec1c388b21d63d24ddbb3":[3,0,1,5,1],
-"classtinyxml2_1_1_x_m_l_const_handle.html":[3,0,1,6],
-"classtinyxml2_1_1_x_m_l_const_handle.html#a098bda71fa11d7c74ccddab59d5dd534":[3,0,1,6,0]
+"classtinyxml2_1_1_x_m_l_comment.html#ab5da828fe023869b8c5bb69554d41bb1":[3,0,1,5,3]
 };
