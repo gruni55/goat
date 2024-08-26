@@ -78,6 +78,15 @@ namespace GOAT
 			trafoparms.omegaStart = trafoparms.omega0 + Domega / 2.0;
 		}
 
+        void pulseCalculation::setNumberOfThreads(int n)
+        {
+            trafoparms.number_of_threads=n;
+        }
+
+        int pulseCalculation::getNumberOfThreads()
+        {
+            return trafoparms.number_of_threads;
+        }
 
 		void pulseCalculation::fieldCalculation()
 		{			

@@ -95,28 +95,44 @@ namespace GOAT
             void reset();
         };       
 
+
+        /**
+        * @brief The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution
+        * This class describes a light source which cuts a ring out of a gaussian shape.
+        */
        class LightSrcRingGauss_mc : public LightSrcPlane
         {
           public:
             LightSrcRingGauss_mc(const LightSrcRingGauss_mc& L);
+            /**
+             * @brief LightSrcRingGauss_mc
+             * @param Pos Position of the light source
+             * @param N number of rays
+             * @param wvl wavelength
+             * @param rmin inner radius
+             * @param rmax outer radius
+             * @param Pol polarisation
+             * @param raytype type of ray
+             * @param r0 radius of the calculation space
+             */
             LightSrcRingGauss_mc( maths::Vector<double> Pos, int N, double wvl,double rmin, double rmax,
                 maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0),
                 int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
             int next(IRay& S);
             int next(tubedRay& S);
             int next(Ray_pow& S);
-            void setFWHM (double r);
-            double getRmax() { return rmax;}
-            double getRmin() { return rmin;}
-            void setRmin(double rmin);
-            void setRmax(double rmax);
+            void setFWHM (double r); ///< set width of the gaussian distribution to r
+            double getRmax() { return rmax;} ///< returns outer radius
+            double getRmin() { return rmin;} ///< returns inner radius
+            void setRmin(double rmin); ///< set the inner radius to rmin
+            void setRmax(double rmax); ///< set the outer radius to rmax
 
         private:
             double rmin = 0.0; ///< inner radius of the ring
             double rmax = 1.0; ///< outer radius of the ring          
-            GOAT::maths::Vector<double> genStartingPos();
+            GOAT::maths::Vector<double> genStartingPos(); ///< generate a position within the ring (needed by the next() method)
             void reset();
-            double sigma2;
+            double sigma2; ///< sigma^2, used for internal purposes
         }; 
     }    
 }

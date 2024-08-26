@@ -6,7 +6,8 @@
 /*****************************************************************//**
  * \file   xml.cpp
  * \brief  Here are a collection of functions to read and write XML-files for GOAT
- *
+ * This part provides a collection of classes, which enables to describe the scene and the calculations.
+ * The xmlreader class enables to read the XML file.
  * \author Thomas Weigel
  * \date   May 2023
  *********************************************************************/
@@ -79,6 +80,7 @@ namespace GOAT
 				void readObjects();
 				void readDetectors();
 				void doCalculations();
+                void doPulseCalculation(tinyxml2::XMLElement* objEll);
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
                 GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
                 GOAT::maths::Vector<std::complex<double> > readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError);

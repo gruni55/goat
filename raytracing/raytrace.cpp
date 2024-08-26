@@ -86,7 +86,7 @@ namespace GOAT
 
 
 		void Raytrace::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
-		{
+		{                           
 			double pjump=0;
 			maths::Vector<double> CP[4];
 			tubedRay hray1, hray2;
@@ -128,7 +128,7 @@ namespace GOAT
 					pjump = hray2.pjump(hray1.P, hray2.P, CP);
 				}
 
-				// search a hit with a detector within the last step
+				// search a hit with a detector within the last step            
 				if (S.nDet > 0)
 				{
 					int i1, i2;
@@ -139,8 +139,8 @@ namespace GOAT
 					else n = S.nS;
 					for (int i = 0; i < S.nDet; i++)
 					{
-						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
-						{
+                        if (S.Det[i]->cross(PStart, kin, i1, i2, l))
+						{                            
 							if ((l <= stepSize) && (l > 0))
 							{
 								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
