@@ -17,7 +17,7 @@ namespace GOAT
 		*  The class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of 
 		*  functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. 
 		*  Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the
-		*  pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0µm 
+        *  pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.0&mu;m
 		*  and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a SuperArray SAres, 
 		*  which holds the electric field at a certain time t which was given to the class by calling the function field
 		*/
@@ -28,7 +28,7 @@ namespace GOAT
 				/**
 				* @brief Make an estimation, when the pulse hits the object the first time
 				* Often it is a problem, to find the pulse in the time domain, especially for very short pulses. 
-				* This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by
+                * This function gives an estimation, by searching the first element of the array around the chosen object which was hit by
 				* a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
 				*/
 				double findHitTime(int ObjNo); 
@@ -63,7 +63,7 @@ namespace GOAT
 				 */
 				void setPeriod (double time);
 
-				void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
+                void field(double t); ///< This function calculates the fields at time t. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;
@@ -72,7 +72,10 @@ namespace GOAT
 					Raytrace_Field_usp rt;
 					void addBoxDetector(Box* box) { BoxDetector.push_back(box); }
 					void saveIntensity(std::string FName, int i);
-				
+                    TrafoParms getTrafoParms() { return trafoparms; }
+                    double getReferenceTime() { return tref; }
+                    INDEX_TYPE getNumCellsPerDirection() { return nn; }
+
 
 			private:	
 				/* In this function the default values (trafoparms) for the calculations are set as follows:

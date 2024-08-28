@@ -18,7 +18,6 @@
 #include "matrix.h"
 #include "vector.h"
 
-#include "resutil.h"
 #include <fstream>
 // #include <time.h>
 namespace GOAT {

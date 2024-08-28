@@ -1,6 +1,7 @@
 var namespace_g_o_a_t_1_1_x_m_l =
 [
     [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
+    [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ],
     [ "addFunction2IndexList", "namespace_g_o_a_t_1_1_x_m_l.html#a0a8ff46ee24452a295f4c81f6f78514e", null ],
     [ "mapString2CalculationToken", "namespace_g_o_a_t_1_1_x_m_l.html#a8e15acb4a5efd7a716d2ef76e612f118", null ],
     [ "mapString2DetectorToken", "namespace_g_o_a_t_1_1_x_m_l.html#adf1b8d3a0604ae886b12d8132015564d", null ],

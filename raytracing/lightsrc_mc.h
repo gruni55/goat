@@ -92,13 +92,14 @@ namespace GOAT
             double rmin = 0.0; ///< inner radius of the ring
             double rmax = 1.0; ///< outer radius of the ring
             GOAT::maths::Vector<double> genStartingPos();
-            void reset();
+            void reset(); ///< sets the internal ray counter to zero (intended for internal use only)
         };       
 
 
         /**
         * @brief The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution
-        * This class describes a light source which cuts a ring out of a gaussian shape.
+        * This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat,
+        * i.e. the phase remains constant along the whole light source surface
         */
        class LightSrcRingGauss_mc : public LightSrcPlane
         {

@@ -22,10 +22,14 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a2092d697818f11c0833
 \begin{DoxyCompactList}\small\item\em fills the entire result array with zero vectors \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_acff5c55a707a693829bfee1b99bc1ef2}{getD}} ()
 \begin{DoxyCompactList}\small\item\em relative change \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a4329532581cf291edbce2c45ecc0fb3d}{get\+Number\+Of\+Threads}} ()
+\begin{DoxyCompactList}\small\item\em get number of threads which can be used by the program \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ad3d411ccdfac33a2899f3f97e41a7478}{init\+Result}} (double r0, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nx, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} nz, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} $\ast$$\ast$Obj, int num\+Objs)
 \begin{DoxyCompactList}\small\item\em Resets and initialize the result array. The result array will be cleared and renewed according to the parameters. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a96138901f4414de73600e9886cfbd08d}{init\+Result}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$$>$ \&SA)
 \begin{DoxyCompactList}\small\item\em Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} SA. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_ab8990f44ad485c229362060ff8ecb930}{set\+Number\+Of\+Threads}} (int n)
+\begin{DoxyCompactList}\small\item\em set number of threads which can be used by the program \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}{set\+Reference\+Time}} (double tref)
 \begin{DoxyCompactList}\small\item\em Sets the reference time (in fs). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a86b62d774473dfc5c3a3bc6b156fdecb}{set\+Refractive\+Index\+Functions}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo_a9045bd1ac7dfde9dbb6c0ab587fafad6}{n\+List}})
@@ -52,7 +56,7 @@ This class calculates the time dependence of a field which calculated before.
 
 The calculation of the time dependence is made in two steps. In the first step, the fields are calculated with help of raytracing. This class uses the information from the raytracing (path of the rays) to make the concrete calculation of the electric field for different wavelength equivalent to a Fourier transform. The class requires an array of \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} elements which contain the the information over all steps for every ray (length of the step and material). The structure \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} carries all information needed for the calculation. The spectral resolution, needed to prevent \char`\"{}ghost\char`\"{} peaks is a function of the time difference dt to a certain reference time tref\+: dt=$\vert$tref-\/t$\vert$. By default tref is set to 0, but if you are interested of a range around time, set tref to an approbriate time to reduce the amount of needed frequencies 
 
-Definition at line 48 of file fft.\+h.
+Definition at line 49 of file fft.\+h.
 
 
 
@@ -138,7 +142,21 @@ relative change
 
 
 
-Definition at line 102 of file fft.\+h.
+Definition at line 103 of file fft.\+h.
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a4329532581cf291edbce2c45ecc0fb3d}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a4329532581cf291edbce2c45ecc0fb3d}} 
+\index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!getNumberOfThreads@{getNumberOfThreads}}
+\index{getNumberOfThreads@{getNumberOfThreads}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
+\doxysubsubsection{\texorpdfstring{getNumberOfThreads()}{getNumberOfThreads()}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Trafo\+::get\+Number\+Of\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get number of threads which can be used by the program 
+
+
+
+Definition at line 105 of file fft.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_ad3d411ccdfac33a2899f3f97e41a7478}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_ad3d411ccdfac33a2899f3f97e41a7478}} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!initResult@{initResult}}
@@ -174,6 +192,20 @@ Resets and initialize the result array. The result array will be cleared and ren
 
 
 Resets and initialize the result array. The result array will be cleared and renewed according to the settings of the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}} SA. 
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_ab8990f44ad485c229362060ff8ecb930}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_ab8990f44ad485c229362060ff8ecb930}} 
+\index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!setNumberOfThreads@{setNumberOfThreads}}
+\index{setNumberOfThreads@{setNumberOfThreads}!GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}}
+\doxysubsubsection{\texorpdfstring{setNumberOfThreads()}{setNumberOfThreads()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Trafo\+::set\+Number\+Of\+Threads (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set number of threads which can be used by the program 
+
+
+
+Definition at line 104 of file fft.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a1a35b9fad8cf7e801a9d7995786717e5}} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!setReferenceTime@{setReferenceTime}}
@@ -221,7 +253,7 @@ List of the refractive index functions ~\newline
 
 
 
-Definition at line 101 of file fft.\+h.
+Definition at line 102 of file fft.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}\label{class_g_o_a_t_1_1raytracing_1_1_trafo_a53b30981ac0281a2ef3f07374bb6fdc8}} 
 \index{GOAT::raytracing::Trafo@{GOAT::raytracing::Trafo}!SAres@{SAres}}
@@ -236,7 +268,7 @@ Container for the last result ~\newline
 
 
 
-Definition at line 68 of file fft.\+h.
+Definition at line 69 of file fft.\+h.
 
 
 

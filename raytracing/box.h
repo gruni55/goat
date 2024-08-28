@@ -11,7 +11,7 @@ namespace GOAT
 	{
 		/**
 		* @brief class which represents a box (cuboid). It is derived by class ObjectShape
-		* This class is mainly used for the octree calculation.
+        * This class is mainly used for the octree calculation, but can also be used for general purposes
 		*/
 		class Box :
 			public ObjectShape

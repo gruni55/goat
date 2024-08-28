@@ -71,7 +71,8 @@ var annotated_dup =
         [ "wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range" ]
       ] ],
       [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [
-        [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ]
+        [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
+        [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ]
       ] ]
     ] ],
     [ "tinyxml2", "namespacetinyxml2.html", [

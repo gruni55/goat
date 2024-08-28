@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -96,15 +103,15 @@ $(document).ready(function(){initNavTree('namespace_g_o_a_t_1_1raytracing.html',
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html">asphericLens</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of aspheric lens The left and the right side is described by a formula <img class="formulaInl" alt="$ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l \alpha_l r^l $" src="form_15.png"/> or the side can also be plano.  <a href="class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of aspheric lens The left and the right side is described by a formula \( z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l \alpha_l r^l \) or the side can also be plano.  <a href="class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html">asphericLensParms</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html">asphericLensSide</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an aspheric lens The surface is described by <img class="formulaInl" alt="$ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l$" src="form_14.png"/>.  <a href="struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an aspheric lens The surface is described by \( z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l\).  <a href="struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_box.html">Box</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class which represents a box (cuboid). It is derived by class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html" title="Abstract base class for all volume objects This abstract class provides a template for all volume obj...">ObjectShape</a> This class is mainly used for the octree calculation.  <a href="class_g_o_a_t_1_1raytracing_1_1_box.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class which represents a box (cuboid). It is derived by class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html" title="Abstract base class for all volume objects This abstract class provides a template for all volume obj...">ObjectShape</a> This class is mainly used for the octree calculation, but can also be used for general purposes  <a href="class_g_o_a_t_1_1raytracing_1_1_box.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_cone.html">Cone</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents a cone. The cone is defined by the reference point (position), the height and the radius.  <a href="class_g_o_a_t_1_1raytracing_1_1_cone.html#details">More...</a><br /></td></tr>
@@ -116,7 +123,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a plane detector, defined by its center point and its side length. The detector plane is spanned by the vectors e1 and e2. The absolute value of the vectors e1 and e2 are the cell widths in the corresponding direction.  <a href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html">Ellipsoid</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents an ellipsoid This class represents an ellipsoid, defined by its half axis a, b and c according to the formula: <img class="formulaInl" alt="$\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$" src="form_16.png"/>.  <a href="class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents an ellipsoid This class represents an ellipsoid, defined by its half axis a, b and c according to the formula: \(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1\).  <a href="class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +156,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a gaussian beam with arbitrary distributed rays.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html">LightSrcPlane</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class derived from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>. It represents a plane wave described by the electric field <img class="formulaInl" alt="$ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $" src="form_25.png"/>  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class derived from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>. It represents a plane wave described by the electric field \( \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} \)  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html">LightSrcPlane_mc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a> wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#details">More...</a><br /></td></tr>
@@ -161,7 +168,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring shaped light source. This class provides a ring shaped light source with arbitrary, uniform distributed rays within the light source area.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html">LightSrcRingGauss_mc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.e. the phase remains constant along the whole light source surface.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_mem_info.html">MemInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -286,6 +293,7 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a2298e2f2f25875138b3fdb5336d1586f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a2298e2f2f25875138b3fdb5336d1586f">abs2</a> (double x)</td></tr>
+<tr class="memdesc:a2298e2f2f25875138b3fdb5336d1586f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the squared absolute value of x  <a href="namespace_g_o_a_t_1_1raytracing.html#a2298e2f2f25875138b3fdb5336d1586f">More...</a><br /></td></tr>
 <tr class="separator:a2298e2f2f25875138b3fdb5336d1586f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a081c5cd4a5f370ef9ee35f88cb048703"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a081c5cd4a5f370ef9ee35f88cb048703">abs2sum</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &gt; &amp;S)</td></tr>
 <tr class="separator:a081c5cd4a5f370ef9ee35f88cb048703"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -436,6 +444,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a29a02b9cf4c838112987352724404055"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a29a02b9cf4c838112987352724404055">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a> &amp;ge)</td></tr>
 <tr class="separator:a29a02b9cf4c838112987352724404055"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acde992e00701e6cbd5578c5ae8c106a9"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#acde992e00701e6cbd5578c5ae8c106a9">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1step_entry.html">stepEntry</a> &amp;se)</td></tr>
+<tr class="memdesc:acde992e00701e6cbd5578c5ae8c106a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">operator &lt;&lt; Output operator for the <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1step_entry.html" title="Structure to store the information about one raytracing step In this structure, the information about...">stepEntry</a> structure  <a href="namespace_g_o_a_t_1_1raytracing.html#acde992e00701e6cbd5578c5ae8c106a9">More...</a><br /></td></tr>
 <tr class="separator:acde992e00701e6cbd5578c5ae8c106a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57fdc0375cd9142ad7f02df65310ae27"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a57fdc0375cd9142ad7f02df65310ae27">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html">SuperArray</a>&lt; std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1grid_entry.html">gridEntry</a> &gt; &gt; &amp;S)</td></tr>
 <tr class="separator:a57fdc0375cd9142ad7f02df65310ae27"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -614,13 +623,13 @@ Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a4dd897507847680da7b14f9baf245d13"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a4dd897507847680da7b14f9baf245d13">C_LIGHT</a> = 299792458</td></tr>
-<tr class="memdesc:a4dd897507847680da7b14f9baf245d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in m*s^-1  <a href="namespace_g_o_a_t_1_1raytracing.html#a4dd897507847680da7b14f9baf245d13">More...</a><br /></td></tr>
+<tr class="memdesc:a4dd897507847680da7b14f9baf245d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in \( m\cdot s^{-1}\)  <a href="namespace_g_o_a_t_1_1raytracing.html#a4dd897507847680da7b14f9baf245d13">More...</a><br /></td></tr>
 <tr class="separator:a4dd897507847680da7b14f9baf245d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a79d16d11be9baf6f59e4e3a730ffd11e"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a79d16d11be9baf6f59e4e3a730ffd11e">C_LIGHT_MU</a> = 299792458E+6</td></tr>
-<tr class="memdesc:a79d16d11be9baf6f59e4e3a730ffd11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in mum*s^-1  <a href="namespace_g_o_a_t_1_1raytracing.html#a79d16d11be9baf6f59e4e3a730ffd11e">More...</a><br /></td></tr>
+<tr class="memdesc:a79d16d11be9baf6f59e4e3a730ffd11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in \(\mu m*s^{-1} \)  <a href="namespace_g_o_a_t_1_1raytracing.html#a79d16d11be9baf6f59e4e3a730ffd11e">More...</a><br /></td></tr>
 <tr class="separator:a79d16d11be9baf6f59e4e3a730ffd11e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e09cc135264898b03c98a33e5dff300"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a9e09cc135264898b03c98a33e5dff300">C_LIGHT_MU_FS</a> = 0.299792458</td></tr>
-<tr class="memdesc:a9e09cc135264898b03c98a33e5dff300"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in m*fs^-1  <a href="namespace_g_o_a_t_1_1raytracing.html#a9e09cc135264898b03c98a33e5dff300">More...</a><br /></td></tr>
+<tr class="memdesc:a9e09cc135264898b03c98a33e5dff300"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in \( m*fs^{-1}\)  <a href="namespace_g_o_a_t_1_1raytracing.html#a9e09cc135264898b03c98a33e5dff300">More...</a><br /></td></tr>
 <tr class="separator:a9e09cc135264898b03c98a33e5dff300"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4945197f5892d3e1a6f8337cb588f8e"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:af4945197f5892d3e1a6f8337cb588f8e"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#af4945197f5892d3e1a6f8337cb588f8e">dummy</a></td></tr>
@@ -703,7 +712,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00017">17</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00016">16</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -745,6 +754,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>returns the squared absolute value of x </p>
 
 </div>
 </div>
@@ -3543,6 +3554,16 @@ max longest side length </dd></dl>
       </table>
 </div><div class="memdoc">
 
+<p>operator &lt;&lt; Output operator for the <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1step_entry.html" title="Structure to store the information about one raytracing step In this structure, the information about...">stepEntry</a> structure </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>stream to write on </td></tr>
+    <tr><td class="paramname">se</td><td><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1step_entry.html" title="Structure to store the information about one raytracing step In this structure, the information about...">stepEntry</a> object to write </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
 </div>
 </div>
 <a id="a57fdc0375cd9142ad7f02df65310ae27"></a>
@@ -3601,7 +3622,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00805">805</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00804">804</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -3633,7 +3654,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="supergrid_8h_source.html#l00770">770</a> of file <a class="el" href="supergrid_8h_source.html">supergrid.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="supergrid_8h_source.html#l00769">769</a> of file <a class="el" href="supergrid_8h_source.html">supergrid.h</a>.</p>
 
 </div>
 </div>
@@ -5235,9 +5256,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>speed of light in m*s^-1 </p>
+<p>speed of light in \( m\cdot s^{-1}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00015">15</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00016">16</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
 
 </div>
 </div>
@@ -5261,9 +5282,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>speed of light in mum*s^-1 </p>
+<p>speed of light in \(\mu m*s^{-1} \) </p>
 
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00017">17</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00018">18</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
 
 </div>
 </div>
@@ -5287,9 +5308,9 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>speed of light in m*fs^-1 </p>
+<p>speed of light in \( m*fs^{-1}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00016">16</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="constants_8h_source.html#l00017">17</a> of file <a class="el" href="constants_8h_source.html">constants.h</a>.</p>
 
 </div>
 </div>
@@ -5307,7 +5328,7 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00164">164</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00163">163</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -5951,7 +5972,7 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="supergrid_8h_source.html#l00015">15</a> of file <a class="el" href="supergrid_8h_source.html">supergrid.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="supergrid_8h_source.html#l00014">14</a> of file <a class="el" href="supergrid_8h_source.html">supergrid.h</a>.</p>
 
 </div>
 </div>

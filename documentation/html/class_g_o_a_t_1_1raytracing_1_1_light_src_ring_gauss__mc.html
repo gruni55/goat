@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -90,7 +97,7 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_light_
 </div><!--header-->
 <div class="contents">
 
-<p>The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape.  
+<p>The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.e. the phase remains constant along the whole light source surface.  
  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>&gt;</code></p>
@@ -313,16 +320,16 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af1101fa18b0d24b1cd3872eaece0be45 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a></td></tr>
 <tr class="memitem:a9ddd2c99fbfa7d0f75748394aba4fa1e inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">k0</a></td></tr>
-<tr class="memdesc:a9ddd2c99fbfa7d0f75748394aba4fa1e inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavenumber (i.e. <img class="formulaInl" alt="$ \frac{2\pi}{\lambda}$" src="form_27.png"/>  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">More...</a><br /></td></tr>
+<tr class="memdesc:a9ddd2c99fbfa7d0f75748394aba4fa1e inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavenumber (i.e. \( \frac{2\pi}{\lambda}\)  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">More...</a><br /></td></tr>
 <tr class="separator:a9ddd2c99fbfa7d0f75748394aba4fa1e inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac336842a26e1722f9959dce29baf7117 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">wvl</a></td></tr>
 <tr class="memdesc:ac336842a26e1722f9959dce29baf7117 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavelength  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">More...</a><br /></td></tr>
 <tr class="separator:ac336842a26e1722f9959dce29baf7117 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. </p>
+<div class="textblock"><p>The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ...">LightSrcRingGauss_mc</a> provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.e. the phase remains constant along the whole light source surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00103">103</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00104">104</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6cac34afecf8e5474ae9df37f6f08314"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6cac34afecf8e5474ae9df37f6f08314">&#9670;&nbsp;</a></span>LightSrcRingGauss_mc() <span class="overload">[1/2]</span></h2>
@@ -447,7 +454,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>returns outer radius </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00125">125</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00126">126</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 
 </div>
 </div>
@@ -476,7 +483,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>returns inner radius </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00126">126</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00127">127</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 
 </div>
 </div>

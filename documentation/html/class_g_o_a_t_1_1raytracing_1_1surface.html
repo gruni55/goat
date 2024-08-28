@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -320,7 +327,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:ac6f4e0e6e591f1617c38ee037074dd9a inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="mdescLeft">&#160;</td><td class="mdescRight">radius of the calculation sphere  <a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ac6f4e0e6e591f1617c38ee037074dd9a">More...</a><br /></td></tr>
 <tr class="separator:ac6f4e0e6e591f1617c38ee037074dd9a inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ff765220b51e3967a5f94211996bf71 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a5ff765220b51e3967a5f94211996bf71">rho</a></td></tr>
-<tr class="memdesc:a5ff765220b51e3967a5f94211996bf71 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="mdescLeft">&#160;</td><td class="mdescRight">mass density in <img class="formulaInl" alt="$ kg/m^3 $" src="form_28.png"/>  <a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a5ff765220b51e3967a5f94211996bf71">More...</a><br /></td></tr>
+<tr class="memdesc:a5ff765220b51e3967a5f94211996bf71 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="mdescLeft">&#160;</td><td class="mdescRight">mass density in \( kg/m^3 \)  <a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a5ff765220b51e3967a5f94211996bf71">More...</a><br /></td></tr>
 <tr class="separator:a5ff765220b51e3967a5f94211996bf71 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a246052e0d543ff741d7e71e4d12c76b8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a246052e0d543ff741d7e71e4d12c76b8">sf</a></td></tr>
 <tr class="memdesc:a246052e0d543ff741d7e71e4d12c76b8 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_object_shape"><td class="mdescLeft">&#160;</td><td class="mdescRight">scaling factor, it is used to scale the shape of the object <br  />
@@ -332,7 +339,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class represents objects those surface is described by triangles. </p>
-<p>The surface class represents a volume object, whose surface is described by triangles. This method is often used by CAD programs, therefore a function is provided to import binary stl files. The surface class has also a simple proprietary file format: The first entry is the number of triangles in the file. Than, the information about the triangles follows. Each triangle is described by the components of the corner vectors. Therefore the file looks like: <img class="formulaInl" alt="$ \newline \begin{array}{ccccccccc} \text{&lt;number of triangles&gt;} &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ \text{&lt;number of triangles&gt;} &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ x_{00} &amp; y_{00} &amp; z_{00} &amp; x_{01} &amp; y_{01} &amp; z_{01} &amp; x_{02} &amp; y_{02} &amp; z_{02} \\ x_{10} &amp; y_{10} &amp; z_{10} &amp; x_{11} &amp; y_{11} &amp; z_{11} &amp; x_{12} &amp; y_{12} &amp; z_{12} \\ \vdots &amp; \vdots &amp; &amp; &amp; &amp; &amp; &amp; &amp; \end{array} $" src="form_32.png"/> The intersection points are calculated with help of an octree procedure to enhance the calculation speed for the intersection point finding. </p>
+<p>The surface class represents a volume object, whose surface is described by triangles. This method is often used by CAD programs, therefore a function is provided to import binary stl files. The surface class has also a simple proprietary file format: The first entry is the number of triangles in the file. Than, the information about the triangles follows. Each triangle is described by the components of the corner vectors. Therefore the file looks like: \( \newline \begin{array}{ccccccccc} \text{&lt;number of triangles&gt;} &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ \text{&lt;number of triangles&gt;} &amp; &amp; &amp; &amp; &amp; &amp; &amp; &amp; \\ x_{00} &amp; y_{00} &amp; z_{00} &amp; x_{01} &amp; y_{01} &amp; z_{01} &amp; x_{02} &amp; y_{02} &amp; z_{02} \\ x_{10} &amp; y_{10} &amp; z_{10} &amp; x_{11} &amp; y_{11} &amp; z_{11} &amp; x_{12} &amp; y_{12} &amp; z_{12} \\ \vdots &amp; \vdots &amp; &amp; &amp; &amp; &amp; &amp; &amp; \end{array} \) The intersection points are calculated with help of an octree procedure to enhance the calculation speed for the intersection point finding. </p>
 
 <p class="definition">Definition at line <a class="el" href="surface_8h_source.html#l00051">51</a> of file <a class="el" href="surface_8h_source.html">surface.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

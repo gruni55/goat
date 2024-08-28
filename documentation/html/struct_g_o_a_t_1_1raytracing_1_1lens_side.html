@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -104,7 +111,7 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:afdfbee574ca3488342d8d605c3c01056"><td class="mdescLeft">&#160;</td><td class="mdescRight">center of the sphere, which describes the corresponding surface of the lens Vector from the position vector of the lens to the center of the sphere  <a href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#afdfbee574ca3488342d8d605c3c01056">More...</a><br /></td></tr>
 <tr class="separator:afdfbee574ca3488342d8d605c3c01056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9be96461c2fc8aaa8154322e7950121d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a9be96461c2fc8aaa8154322e7950121d">R</a></td></tr>
-<tr class="memdesc:a9be96461c2fc8aaa8154322e7950121d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of the sphere.  <a href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a9be96461c2fc8aaa8154322e7950121d">More...</a><br /></td></tr>
+<tr class="memdesc:a9be96461c2fc8aaa8154322e7950121d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Radius of the sphere, which describes the surface (not considered, if curvature is set to flat)  <a href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a9be96461c2fc8aaa8154322e7950121d">More...</a><br /></td></tr>
 <tr class="separator:a9be96461c2fc8aaa8154322e7950121d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd4c9733e5efc3787ba12fa9d5858ea0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#afd4c9733e5efc3787ba12fa9d5858ea0">shift</a> = 0</td></tr>
 <tr class="memdesc:afd4c9733e5efc3787ba12fa9d5858ea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">how much must the curve be shifted (with consideration of the offset)  <a href="struct_g_o_a_t_1_1raytracing_1_1lens_side.html#afd4c9733e5efc3787ba12fa9d5858ea0">More...</a><br /></td></tr>
@@ -163,7 +170,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Radius of the sphere. </p>
+<p>Radius of the sphere, which describes the surface (not considered, if curvature is set to flat) </p>
 
 <p class="definition">Definition at line <a class="el" href="lens_8h_source.html#l00022">22</a> of file <a class="el" href="lens_8h_source.html">lens.h</a>.</p>
 

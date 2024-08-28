@@ -31,6 +31,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705
 \begin{DoxyCompactList}\small\item\em Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842}{find\+Hit\+Time}} (int Obj\+No)
 \begin{DoxyCompactList}\small\item\em Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searching the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd}{get\+Number\+Of\+Threads}} ()
+\begin{DoxyCompactList}\small\item\em get the number of threads used for the calculation \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813}{get\+Num\+Cells\+Per\+Direction}} ()
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}{get\+Reference\+Time}} ()
@@ -59,6 +61,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4
 \begin{DoxyCompactList}\small\item\em Set center wavelength of the pulse. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}{set\+Defaults}} ()
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6}{set\+Number\+Of\+Threads}} (int n)
+\begin{DoxyCompactList}\small\item\em set the number of threads used for the calculation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{num\+Reflex}})
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{num\+Reflex}})
@@ -264,6 +268,17 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+
 
 Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searching the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
 
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd}} 
+\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getNumberOfThreads@{getNumberOfThreads}}
+\index{getNumberOfThreads@{getNumberOfThreads}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumberOfThreads()}{getNumberOfThreads()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::get\+Number\+Of\+Threads (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get the number of threads used for the calculation 
+
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getNumCellsPerDirection@{getNumCellsPerDirection}}
 \index{getNumCellsPerDirection@{getNumCellsPerDirection}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
@@ -273,7 +288,7 @@ Make an estimation, when the pulse hits the object the first time Often it is a 
 
 
 
-Definition at line 88 of file pulsecalculation.\+h.
+Definition at line 90 of file pulsecalculation.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getReferenceTime@{getReferenceTime}}
@@ -284,7 +299,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+
 
 
 
-Definition at line 83 of file pulsecalculation.\+h.
+Definition at line 85 of file pulsecalculation.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getTrafoParms@{getTrafoParms}}
@@ -295,7 +310,7 @@ Definition at line 83 of file pulsecalculation.\+h.
 
 
 
-Definition at line 82 of file pulsecalculation.\+h.
+Definition at line 84 of file pulsecalculation.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!reset@{reset}}
@@ -371,6 +386,17 @@ Set center wavelength of the pulse.
 \doxysubsubsection{\texorpdfstring{setDefaults()}{setDefaults()}}
 {\footnotesize\ttfamily template$<$class T $>$ \\
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Defaults (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6}} 
+\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumberOfThreads@{setNumberOfThreads}}
+\index{setNumberOfThreads@{setNumberOfThreads}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumberOfThreads()}{setNumberOfThreads()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Number\+Of\+Threads (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+set the number of threads used for the calculation 
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumReflex@{setNumReflex}}
@@ -650,7 +676,7 @@ Definition at line 70 of file pulsecalculation.\+h.
 
 
 
-Definition at line 78 of file pulsecalculation.\+h.
+Definition at line 80 of file pulsecalculation.\+h.
 
 \mbox{\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}} 
 \index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!S@{S}}

@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <fstream>
 #include "vector.h"
-#include "resutil.h"
 #include "objectshape.h"
 #include <vector>
 

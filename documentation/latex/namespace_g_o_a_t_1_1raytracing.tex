@@ -10,7 +10,7 @@ struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms}{asp
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side}{aspheric\+Lens\+Side}}
 \begin{DoxyCompactList}\small\item\em Structure to describe one side of an aspheric lens The surface is described by $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}
-\begin{DoxyCompactList}\small\item\em class which represents a box (cuboid). It is derived by class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} This class is mainly used for the octree calculation. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em class which represents a box (cuboid). It is derived by class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} This class is mainly used for the octree calculation, but can also be used for general purposes \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone}{Cone}}
 \begin{DoxyCompactList}\small\item\em This class represents a cone. The cone is defined by the reference point (position), the height and the radius. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}}
@@ -50,7 +50,7 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring}{Light\+Sr
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc}{Light\+Src\+Ring\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em Ring shaped light source. This class provides a ring shaped light source with arbitrary, uniform distributed rays within the light source area. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc}}
-\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc}} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc}} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.\+e. the phase remains constant along the whole light source surface. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_mem_info}{Mem\+Info}}
 \item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}}
@@ -149,7 +149,7 @@ enum \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b
 \begin{DoxyCompactItemize}
 \item 
 double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2298e2f2f25875138b3fdb5336d1586f}{abs2}} (double x)
-\item 
+\begin{DoxyCompactList}\small\item\em returns the squared absolute value of x \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{abs2sum}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
 \item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4c83c8c922c6e340a52e295e78c64f0b}{acos}} (const std\+::complex$<$ double $>$ \&)
@@ -279,7 +279,7 @@ std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad73167eed6df
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a29a02b9cf4c838112987352724404055}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} \&ge)
 \item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acde992e00701e6cbd5578c5ae8c106a9}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} \&se)
-\item 
+\begin{DoxyCompactList}\small\item\em operator $<$$<$ Output operator for the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} structure \end{DoxyCompactList}\item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a57fdc0375cd9142ad7f02df65310ae27}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \&S)
 \item 
 {\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5c57e8fdfd49a03f63d9e1c5dff1762b}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&S)
@@ -438,11 +438,11 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe1
 \begin{DoxyCompactItemize}
 \item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{C\+\_\+\+LIGHT}} = 299792458
-\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em speed of light in $ m\cdot s^{-1}$ \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{C\+\_\+\+LIGHT\+\_\+\+MU}} = 299792458E+6
-\begin{DoxyCompactList}\small\item\em speed of light in mum$\ast$s$^\wedge$-\/1 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em speed of light in $\mu m*s^{-1} $ \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
-\begin{DoxyCompactList}\small\item\em speed of light in m$\ast$fs$^\wedge$-\/1 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em speed of light in $ m*fs^{-1}$ \end{DoxyCompactList}\item 
 {\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}{dummy}}
 \item 
 const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}{Exy}} = \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0.\+0, 0.\+0, 0.\+0), \mbox{\hyperlink{vector_8h_aa39e54ccef74a255384ae21989f11022}{maths\+::ex}}, \mbox{\hyperlink{vector_8h_a56d8a5099eb4328d3a094331b89bc621}{maths\+::ey}})
@@ -510,7 +510,7 @@ constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab6c12d15149f1db0
 
 
 
-Definition at line 17 of file superarray.\+h.
+Definition at line 16 of file superarray.\+h.
 
 
 
@@ -547,6 +547,10 @@ Definition at line 10 of file lens.\+h.
 \index{abs2@{abs2}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{abs2()}{abs2()}}
 {\footnotesize\ttfamily double GOAT\+::raytracing\+::abs2 (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+returns the squared absolute value of x 
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}\label{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!abs2sum@{abs2sum}}
@@ -1370,6 +1374,20 @@ output operator for the \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Bo
 \doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}\hspace{0.1cm}{\footnotesize\ttfamily [3/13]}}
 {\footnotesize\ttfamily std\+::ostream\& GOAT\+::raytracing\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} \&}]{se }\end{DoxyParamCaption})}
 
+
+
+operator $<$$<$ Output operator for the \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} structure 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & stream to write on \\
+\hline
+{\em se} & \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} object to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a57fdc0375cd9142ad7f02df65310ae27}\label{namespace_g_o_a_t_1_1raytracing_a57fdc0375cd9142ad7f02df65310ae27}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1385,7 +1403,7 @@ std\+::ostream\& GOAT\+::raytracing\+::operator$<$$<$ (\begin{DoxyParamCaption}\
 
 
 
-Definition at line 805 of file superarray.\+h.
+Definition at line 804 of file superarray.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_af7d2c863ac58d8eddaadc847d547ed71}\label{namespace_g_o_a_t_1_1raytracing_af7d2c863ac58d8eddaadc847d547ed71}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!operator$<$$<$@{operator$<$$<$}}
@@ -1396,7 +1414,7 @@ std\+::ostream\& GOAT\+::raytracing\+::operator$<$$<$ (\begin{DoxyParamCaption}\
 
 
 
-Definition at line 770 of file supergrid.\+h.
+Definition at line 769 of file supergrid.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_ad695661e64d33d269dbc65b5a13c252e}\label{namespace_g_o_a_t_1_1raytracing_ad695661e64d33d269dbc65b5a13c252e}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!operator$<$$<$@{operator$<$$<$}}
@@ -1723,11 +1741,11 @@ Definition at line 116 of file inel\+\_\+calc.\+h.
 
 
 
-speed of light in m$\ast$s$^\wedge$-\/1 
+speed of light in $ m\cdot s^{-1}$ 
 
 
 
-Definition at line 15 of file constants.\+h.
+Definition at line 16 of file constants.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}\label{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!C\_LIGHT\_MU@{C\_LIGHT\_MU}}
@@ -1737,11 +1755,11 @@ Definition at line 15 of file constants.\+h.
 
 
 
-speed of light in mum$\ast$s$^\wedge$-\/1 
+speed of light in $\mu m*s^{-1} $ 
 
 
 
-Definition at line 17 of file constants.\+h.
+Definition at line 18 of file constants.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}\label{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!C\_LIGHT\_MU\_FS@{C\_LIGHT\_MU\_FS}}
@@ -1751,11 +1769,11 @@ Definition at line 17 of file constants.\+h.
 
 
 
-speed of light in m$\ast$fs$^\wedge$-\/1 
+speed of light in $ m*fs^{-1}$ 
 
 
 
-Definition at line 16 of file constants.\+h.
+Definition at line 17 of file constants.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}\label{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!dummy@{dummy}}
@@ -1766,7 +1784,7 @@ T GOAT\+::raytracing\+::dummy}
 
 
 
-Definition at line 164 of file superarray.\+h.
+Definition at line 163 of file superarray.\+h.
 
 \mbox{\Hypertarget{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}\label{namespace_g_o_a_t_1_1raytracing_a5a279a8d429521b573b92ad894ecf6a9}} 
 \index{GOAT::raytracing@{GOAT::raytracing}!Exy@{Exy}}
@@ -2076,5 +2094,5 @@ Definition at line 37 of file short\+\_\+pulses.\+h.
 
 
 
-Definition at line 15 of file supergrid.\+h.
+Definition at line 14 of file supergrid.\+h.
 

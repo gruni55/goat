@@ -110,5 +110,6 @@ var hierarchy =
     [ "tinyxml2::XMLUtil", "classtinyxml2_1_1_x_m_l_util.html", null ],
     [ "tinyxml2::XMLVisitor", "classtinyxml2_1_1_x_m_l_visitor.html", [
       [ "tinyxml2::XMLPrinter", "classtinyxml2_1_1_x_m_l_printer.html", null ]
-    ] ]
+    ] ],
+    [ "GOAT::XML::xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", null ]
 ];

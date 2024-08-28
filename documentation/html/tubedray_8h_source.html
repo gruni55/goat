@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -99,7 +106,7 @@ $(document).ready(function(){initNavTree('tubedray_8h_source.html',''); initResi
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="raybase_8h.html">raybase.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;complex&gt;</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="fresnel_8h.html">fresnel.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">//#include &quot;fresnel.h&quot;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="resutil_8h.html">resutil.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vector_8h.html">vector.h</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="matrix_8h.html">matrix.h</a>&quot;</span></div>
@@ -252,7 +259,7 @@ $(document).ready(function(){initNavTree('tubedray_8h_source.html',''); initResi
 <div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;}</div>
 <div class="ttc" id="aclass_g_o_a_t_1_1maths_1_1_matrix_html"><div class="ttname"><a href="class_g_o_a_t_1_1maths_1_1_matrix.html">GOAT::maths::Matrix</a></div><div class="ttdoc">This class represents a threedimensional (numeric) Matrix as a template.</div><div class="ttdef"><b>Definition:</b> <a href="matrix_8h_source.html#l00022">matrix.h:23</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1maths_1_1_vector_html"><div class="ttname"><a href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_object_shape_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">GOAT::raytracing::ObjectShape</a></div><div class="ttdoc">Abstract base class for all volume objects This abstract class provides a template for all volume obj...</div><div class="ttdef"><b>Definition:</b> <a href="objectshape_8h_source.html#l00057">objectshape.h:57</a></div></div>
+<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_object_shape_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">GOAT::raytracing::ObjectShape</a></div><div class="ttdoc">Abstract base class for all volume objects This abstract class provides a template for all volume obj...</div><div class="ttdef"><b>Definition:</b> <a href="objectshape_8h_source.html#l00056">objectshape.h:56</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_plane_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_plane.html">GOAT::raytracing::Plane</a></div><div class="ttdef"><b>Definition:</b> <a href="plane_8h_source.html#l00032">plane.h:32</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_ray_base_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">GOAT::raytracing::RayBase</a></div><div class="ttdoc">Abstract base class for all rays used for the raytracing process. This abstract base class for all ra...</div><div class="ttdef"><b>Definition:</b> <a href="raybase_8h_source.html#l00015">raybase.h:15</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_ray_base_html_a0229592b2f60c7b8e5c438933ad278a8"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a0229592b2f60c7b8e5c438933ad278a8">GOAT::raytracing::RayBase::objIndex</a></div><div class="ttdeci">int objIndex</div><div class="ttdoc">index of the current object</div><div class="ttdef"><b>Definition:</b> <a href="raybase_8h_source.html#l00028">raybase.h:28</a></div></div>
@@ -337,9 +344,8 @@ $(document).ready(function(){initNavTree('tubedray_8h_source.html',''); initResi
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1tubed_ray_html_ae3f7d1c8805c8e921e23a3469018ff5f"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#ae3f7d1c8805c8e921e23a3469018ff5f">GOAT::raytracing::tubedRay::crossPlane</a></div><div class="ttdeci">maths::Vector&lt; double &gt; crossPlane(const maths::Vector&lt; double &gt; Pe, const maths::Vector&lt; double &gt; n)</div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1tubed_ray_html_aedff74a5a15c80f81f09f030fdb269a2"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#aedff74a5a15c80f81f09f030fdb269a2">GOAT::raytracing::tubedRay::logRay</a></div><div class="ttdeci">bool logRay</div><div class="ttdef"><b>Definition:</b> <a href="tubedray_8h_source.html#l00223">tubedray.h:223</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1tubed_ray_html_af2a3a5ffa3e37f3ecad52be11ee20905"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#af2a3a5ffa3e37f3ecad52be11ee20905">GOAT::raytracing::tubedRay::initElectricField</a></div><div class="ttdeci">void initElectricField(const maths::Vector&lt; std::complex&lt; double &gt; &gt; &amp;Pol, const int numRays, double dx, Plane Eb)</div></div>
-<div class="ttc" id="afresnel_8h_html"><div class="ttname"><a href="fresnel_8h.html">fresnel.h</a></div></div>
 <div class="ttc" id="amatrix_8h_html"><div class="ttname"><a href="matrix_8h.html">matrix.h</a></div><div class="ttdoc">This file contains the definition of a template for 3x3 matrices, which can be used together with the...</div></div>
-<div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_a2298e2f2f25875138b3fdb5336d1586f"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#a2298e2f2f25875138b3fdb5336d1586f">GOAT::raytracing::abs2</a></div><div class="ttdeci">double abs2(double x)</div></div>
+<div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_a2298e2f2f25875138b3fdb5336d1586f"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#a2298e2f2f25875138b3fdb5336d1586f">GOAT::raytracing::abs2</a></div><div class="ttdeci">double abs2(double x)</div><div class="ttdoc">returns the squared absolute value of x</div></div>
 <div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_a7123161c2477beec6bb0171e7833655b"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#a7123161c2477beec6bb0171e7833655b">GOAT::raytracing::ohne_gauss</a></div><div class="ttdeci">const Gauss ohne_gauss</div><div class="ttdef"><b>Definition:</b> <a href="tubedray_8h_source.html#l00078">tubedray.h:78</a></div></div>
 <div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_ac2d0d78c4a130fcf795e85d094c759e1"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#ac2d0d78c4a130fcf795e85d094c759e1">GOAT::raytracing::binRead</a></div><div class="ttdeci">void binRead(lensSide ls, std::ifstream &amp;is)</div><div class="ttdoc">read a lensSide structure from a binary file</div></div>
 <div class="ttc" id="anamespace_g_o_a_t_1_1raytracing_html_ad6dd8a65083d84f501cc0e01eaf0b60e"><div class="ttname"><a href="namespace_g_o_a_t_1_1raytracing.html#ad6dd8a65083d84f501cc0e01eaf0b60e">GOAT::raytracing::binWrite</a></div><div class="ttdeci">void binWrite(lensSide ls, std::ofstream &amp;os)</div><div class="ttdoc">write a lensSide structure in a binary file</div></div>

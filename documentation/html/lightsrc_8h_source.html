@@ -16,6 +16,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -357,7 +364,7 @@ $(document).ready(function(){initNavTree('lightsrc_8h_source.html',''); initResi
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1maths_1_1_vector_html"><div class="ttname"><a href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector&lt; double &gt;</a></div></div>
-<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_i_ray_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html">GOAT::raytracing::IRay</a></div><div class="ttdoc">This class represents a single ray.</div><div class="ttdef"><b>Definition:</b> <a href="iray_8h_source.html#l00035">iray.h:35</a></div></div>
+<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_i_ray_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html">GOAT::raytracing::IRay</a></div><div class="ttdoc">This class represents a single ray.</div><div class="ttdef"><b>Definition:</b> <a href="iray_8h_source.html#l00033">iray.h:33</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_gauss_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">GOAT::raytracing::LightSrcGauss</a></div><div class="ttdoc">This class describes a focused gaussian beam.</div><div class="ttdef"><b>Definition:</b> <a href="lightsrc_8h_source.html#l00226">lightsrc.h:227</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_gauss_html_a09750e9ca12ccda3a1386a713f4682e0"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0">GOAT::raytracing::LightSrcGauss::next</a></div><div class="ttdeci">int next(IRay &amp;S)</div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_gauss_html_a15df2c89e3e2b341ac083465c5741fbc"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc">GOAT::raytracing::LightSrcGauss::binWriteItem</a></div><div class="ttdeci">void binWriteItem(std::ofstream &amp;os)</div><div class="ttdoc">writes content of LightSrc in a binary file, represented by is (has to be specified by the derived cl...</div></div>
@@ -478,7 +485,7 @@ $(document).ready(function(){initNavTree('lightsrc_8h_source.html',''); initResi
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_ring_html_ae3346b5ffe423093b6b0e09af0fac60b"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ae3346b5ffe423093b6b0e09af0fac60b">GOAT::raytracing::LightSrcRing::setRmin</a></div><div class="ttdeci">void setRmin(double rmin)</div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_ring_html_aeadc57f644ce0fa16f9623038780586d"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aeadc57f644ce0fa16f9623038780586d">GOAT::raytracing::LightSrcRing::next</a></div><div class="ttdeci">int next(IRay &amp;S)</div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_light_src_ring_html_aec7b3f8ff06646798d5d918261a8955c"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c">GOAT::raytracing::LightSrcRing::next</a></div><div class="ttdeci">int next(tubedRay &amp;S)</div></div>
-<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_object_shape_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">GOAT::raytracing::ObjectShape</a></div><div class="ttdoc">Abstract base class for all volume objects This abstract class provides a template for all volume obj...</div><div class="ttdef"><b>Definition:</b> <a href="objectshape_8h_source.html#l00057">objectshape.h:57</a></div></div>
+<div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_object_shape_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">GOAT::raytracing::ObjectShape</a></div><div class="ttdoc">Abstract base class for all volume objects This abstract class provides a template for all volume obj...</div><div class="ttdef"><b>Definition:</b> <a href="objectshape_8h_source.html#l00056">objectshape.h:56</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_ray__pow_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_ray__pow.html">GOAT::raytracing::Ray_pow</a></div><div class="ttdoc">This class provides a ray which carries a special power.</div><div class="ttdef"><b>Definition:</b> <a href="ray__pow_8h_source.html#l00010">ray_pow.h:12</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1_ray_base_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">GOAT::raytracing::RayBase</a></div><div class="ttdoc">Abstract base class for all rays used for the raytracing process. This abstract base class for all ra...</div><div class="ttdef"><b>Definition:</b> <a href="raybase_8h_source.html#l00015">raybase.h:15</a></div></div>
 <div class="ttc" id="aclass_g_o_a_t_1_1raytracing_1_1tubed_ray_html"><div class="ttname"><a href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">GOAT::raytracing::tubedRay</a></div><div class="ttdoc">This class represents a ray with a finite cross section. class tubedRay: This class represents a ray ...</div><div class="ttdef"><b>Definition:</b> <a href="tubedray_8h_source.html#l00088">tubedray.h:88</a></div></div>

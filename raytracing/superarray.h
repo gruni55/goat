@@ -4,7 +4,6 @@
 #include "vector.h"
 #include "resutil.h"
 #include "objectshape.h"
-#include "ellipsoid.h"
 #include "error.h"
 #include <vector>
 #include "gridentry.h"
