@@ -592,6 +592,7 @@ namespace GOAT
 
         void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {
+            std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
             std::string fname = objEll->Attribute("Filename");
             if (!fname.empty())
@@ -671,13 +672,15 @@ namespace GOAT
                 pc.setRefractiveIndexFunctions(nList);
 
                 double time = objEll->DoubleAttribute("Time", -1);
-                if (time < 0)
+               if (time < 0)
                 {
                     double offset = objEll->DoubleAttribute("Time_offset", 0);
-                    int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);
-                    time = pc.findHitTime(objEstimate);
-                        time+= offset;
+                    int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);                    
+                    time = pc.findHitTime(objEstimate);                    
+                    std::cout << "estimated time: " << time << std::endl << std::flush;
+                    time+= offset;
                 }
+
 
                 std::string fullfname;
                 double d;
@@ -711,7 +714,7 @@ namespace GOAT
                   if (hStr != NULL) corrOS.close();
                 }
                 else
-                {
+                {                    
                     pc.field(time);
                     for (int i = 0; i < S.nObj; i++)
                       {
@@ -790,6 +793,19 @@ namespace GOAT
           return GOAT::maths::Vector<std::complex<double> > (x,y,z);
         }
 
+        /*------------------------------- XML-Writer Implementation ----------------------------------------- */
+        xmlWriter::xmlWriter(GOAT::raytracing::Scene S)
+        {
+            this->S=S;
+        }
 
+        void xmlWriter::write (std::string fname)
+        {
+          root=doc.NewElement("Root");
+          doc.InsertFirstChild(root);
+          scene=doc.NewElement("Scene");
+
+
+        }
 	}
 }

@@ -97,5 +97,17 @@ namespace GOAT
 				int numDet = 0;
 
 		};
+
+        class xmlWriter
+        {
+             public:
+                xmlWriter(GOAT::raytracing::Scene S);
+                void write (std::string fname);
+             private:
+                GOAT::raytracing::Scene S;
+                tinyxml2::XMLDocument doc;
+                tinyxml2::XMLElement *root;
+                tinyxml2::XMLElement *scene;
+        };
 	}
 }
