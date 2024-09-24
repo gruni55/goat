@@ -6,7 +6,7 @@ set (
 		     raytrace.cpp ray_pow.cpp resutil.cpp surface.cpp triangle.cpp tubedray.cpp 
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp raytrace_field.cpp
-		     plane.cpp pulsecalculation.cpp gridentry.cpp asphericLens.cpp
+		     raytrace_field_usp.cpp plane.cpp pulsecalculation.cpp pulsecalculation_field.cpp gridentry.cpp asphericLens.cpp
 		     sphericLens.cpp lens.cpp fft.cpp  cone.cpp)  
 
 set (
@@ -14,9 +14,9 @@ set (
                      lightsrc.h lightsrc_mc.h misc.h objectshape.h octree.h 
 		     raybase.h raytrace.h ray_pow.h resutil.h surface.h triangle.h tubedray.h 
 		     triangle_box_intersection.h  superarray.h supergrid.h
-		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field.h inel_calc.h 
-		     refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h asphericLens.h
-		     sphericLens.h lens.h constants.h cone.h)
+		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field_usp.h raytrace_field.h 
+		     inel_calc.h refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h
+		     pulsecalculation_field.h asphericLens.h sphericLens.h lens.h constants.h cone.h)
 
 add_compile_definitions (WITH_SUPERGITTER)
 

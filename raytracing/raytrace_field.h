@@ -2,6 +2,8 @@
 #include "raytrace.h"
 #include "superarray.h"
 #include <vector>
+
+
 namespace GOAT
 {
     namespace raytracing
@@ -17,23 +19,24 @@ namespace GOAT
         public:
             Raytrace_Field();
             Raytrace_Field(Scene& S);
+            ~Raytrace_Field();
             void traceOneRay(RayBase* ray, int& Reflexions, int& recur);            
             void addBoxDetector(Box* box); ///< add a box as detector
-            void init(); ///< do some initialisation (e.g. clear the superarray)           
+            virtual void init(); ///< do some initialisation (e.g. clear the superarray)           
             SuperArray<maths::Vector<std::complex<double> > > SE;            
             int iR = 0; ///< Number of reflections to consider
             void trace(); ///< Start the raytracing process
             void setResolution(double res); ///< set the resolution (which will be used for all detectors)
 
-        private:         
             void traceEnterObject(); 
             void traceLeaveObject();
-            void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
+            virtual void storeData(maths::Vector<double> PStart, maths::Vector<double> Pen, maths::Vector<std::complex<double> > EStart);
             int findBoxDetectorIntersection(maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double>& pout); 
             std::vector<Box *> BoxDetector;  
             double resolution=0.1;
             INDEX_TYPE numCellsPerDirection;
-            int indexCurrentDetector=-1;
+            int indexCurrentDetector=-1;    
+            maths::Vector<double> pDet;
         };
     }
 }

@@ -13,5 +13,6 @@ var searchData=
   ['xmltext_10',['XMLText',['../classtinyxml2_1_1_x_m_l_text.html',1,'tinyxml2']]],
   ['xmlunknown_11',['XMLUnknown',['../classtinyxml2_1_1_x_m_l_unknown.html',1,'tinyxml2']]],
   ['xmlutil_12',['XMLUtil',['../classtinyxml2_1_1_x_m_l_util.html',1,'tinyxml2']]],
-  ['xmlvisitor_13',['XMLVisitor',['../classtinyxml2_1_1_x_m_l_visitor.html',1,'tinyxml2']]]
+  ['xmlvisitor_13',['XMLVisitor',['../classtinyxml2_1_1_x_m_l_visitor.html',1,'tinyxml2']]],
+  ['xmlwriter_14',['xmlWriter',['../class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html',1,'GOAT::XML']]]
 ];

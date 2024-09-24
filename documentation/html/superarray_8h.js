@@ -17,5 +17,6 @@ var superarray_8h =
     [ "saveEzPol", "superarray_8h.html#afab37450a06598aeec406c73ac7910ed", null ],
     [ "saveFullE", "superarray_8h.html#a3ef9e2366ec937cb29b4cdc2e57c4411", null ],
     [ "sumabs", "superarray_8h.html#a93add9d7da939fc4c195671dea654bf7", null ],
-    [ "sumabs2", "superarray_8h.html#ac1a3506cd47a03b8af34b137763def1d", null ]
+    [ "sumabs2", "superarray_8h.html#ac1a3506cd47a03b8af34b137763def1d", null ],
+    [ "dummy", "superarray_8h.html#af4945197f5892d3e1a6f8337cb588f8e", null ]
 ];

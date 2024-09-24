@@ -65,22 +65,24 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_g_o_a_t_1_1raytracing_1_1_detector.html#a16b6bbd23d51a516645b632346736183",
-"class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a9d5bbfa0c6ed1a54b9e52bc1f1f2f4eb",
-"class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a7adde40ffa33913e49715cff2c67177d",
-"class_g_o_a_t_1_1raytracing_1_1_plane.html#a3a6690f522f4ada1a509a756e34d5a30",
-"class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a5ac66e2b916abc512ebaf7769719c835",
-"class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a66571badd41ab16121be2e65c23024a6",
-"class_g_o_a_t_1_1raytracing_1_1short_pulse.html#aa0724719e173538ec44167f60230666b",
-"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a910aa107b0f231b667f7198979f7c215",
-"classtinyxml2_1_1_x_m_l_comment.html#a99082aaaa6be65df9e8957a275e7c7b0",
-"classtinyxml2_1_1_x_m_l_element.html#aae6568c64c7f1cc88be8461ba41a79cf",
-"classtinyxml2_1_1_x_m_l_printer.html#a3f16a30be1537ac141d9bd2db824ba9e",
-"functions_vars_u.html",
-"namespace_g_o_a_t_1_1maths.html#aac10fa542096b6e9c5b886760564391d",
-"namespacemembers_func_c.html",
-"struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html#a32a0504c35266f6e4734b629109459b0",
-"triangle_8h.html#a44b7076efa06b706874b868c906c7437"
+"class_g_o_a_t_1_1raytracing_1_1_detector.html#a0223428862dee5f02b62120ef6c2aba4",
+"class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a89fbf79a79db1c0f9cd5d2ee8647a1ab",
+"class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a3a44dad465414a01672d9ce69042c39b",
+"class_g_o_a_t_1_1raytracing_1_1_octree.html#ab759a2409014bc59f2dd89d680a82385",
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#a577ff09322ed9695a8b391473ad1a127",
+"class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2aab88f32e5f3a5eabfddb3fd7e0a02e",
+"class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#af2667abc0243f54eb8263d349dae39c8",
+"class_g_o_a_t_1_1raytracing_1_1short_pulse.html#a5ddc590b3418a6170baa7dde47437386",
+"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a8a1490cb9d60ec4eb41f2a08ba3cb3ce",
+"classtinyxml2_1_1_x_m_l_comment.html#a5aa77d6d2499f6b81074ae0d20336c7e",
+"classtinyxml2_1_1_x_m_l_element.html#aa848b696e6a75e4e545c6da9893b11e1",
+"classtinyxml2_1_1_x_m_l_printer.html#a38e1ed5a779bdf63eda9e808f7a6de66",
+"functions_vars_e.html",
+"namespace_g_o_a_t_1_1maths.html#a86084ddb56925aa78a51ce265366b795",
+"namespace_g_o_a_t_1_1raytracing.html#af16607f3222c579004d47b7c0b6f024d",
+"struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a540f1b9c97170114f230a7d67a7a2709",
+"surface_8h.html#ac78d7b74c839c07fb829320096b52fd3",
+"xmltoken_8h.html#a6533ad242d100316e975bff8f08c752d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

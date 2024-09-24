@@ -52,7 +52,11 @@ var hierarchy =
     [ "GOAT::raytracing::OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", null ],
     [ "GOAT::raytracing::Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", null ],
     [ "GOAT::raytracing::Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", null ],
-    [ "GOAT::raytracing::pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", null ],
+    [ "GOAT::raytracing::pulseCalculation< T >", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", null ],
+    [ "GOAT::raytracing::pulseCalculation< Raytrace_field_usp >", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", [
+      [ "GOAT::raytracing::pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", null ]
+    ] ],
+    [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [
         [ "GOAT::raytracing::Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", null ]
@@ -61,6 +65,8 @@ var hierarchy =
     ] ],
     [ "GOAT::raytracing::rayListEntry", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html", null ],
     [ "GOAT::raytracing::Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", [
+      [ "GOAT::raytracing::Raytrace_Field", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html", null ],
+      [ "GOAT::raytracing::Raytrace_Field_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html", null ],
       [ "GOAT::raytracing::Raytrace_Inel", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html", null ],
       [ "GOAT::raytracing::Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", null ],
       [ "GOAT::raytracing::Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", null ],
@@ -104,5 +110,6 @@ var hierarchy =
     [ "tinyxml2::XMLUtil", "classtinyxml2_1_1_x_m_l_util.html", null ],
     [ "tinyxml2::XMLVisitor", "classtinyxml2_1_1_x_m_l_visitor.html", [
       [ "tinyxml2::XMLPrinter", "classtinyxml2_1_1_x_m_l_printer.html", null ]
-    ] ]
+    ] ],
+    [ "GOAT::XML::xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", null ]
 ];

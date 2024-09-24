@@ -17,6 +17,12 @@ namespace GOAT
             int matIndex; ///< material index, stores which object (=object number) is hidden. -1 if ray moves in the surroundings
         } stepEntry; 
 
+        /**
+         * @brief operator << Output operator for the stepEntry structure
+         * @param os stream to write on
+         * @param se stepEntry object to write
+         * @return
+         */
         std::ostream & operator << (std::ostream &os, const stepEntry &se);
   
 
@@ -32,7 +38,7 @@ namespace GOAT
             std::vector<stepEntry> step; ///< holds info for one step
             maths::Vector<std::complex<double> > E; ///<electric field (without phase advance along the path) 
         } gridEntry;             
-         
+                 
         std::ostream & operator << (std::ostream &os, const gridEntry &ge);
   }
 }

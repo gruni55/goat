@@ -8,8 +8,6 @@ namespace GOAT
             : ObjectShape(P, n, alpha, Ex, Ey, Ez, type)
         {
             this->lp = lp;
-
-            
             init();
         }
 
@@ -183,10 +181,10 @@ namespace GOAT
             {
                 lambda = lleft;
                 pout = Ps + lleft * K;
-                if (lp.left.curvature == flat) currentnorm = -maths::ez;
+                if (lp.left.curvature == flat) currentnorm = -R * maths::ez;
                 else
                 {
-                    currentnorm = R * (p + lleft * k - P - lp.left.P);
+                    currentnorm = R * (p + lleft * k - lp.left.P);
                     currentnorm = currentnorm / abs(currentnorm);
                 }
             }
@@ -196,8 +194,8 @@ namespace GOAT
                 pout = Ps + lambda * K;
                 if (lp.right.curvature == flat) currentnorm = maths::ez;
                 else
-                {
-                    currentnorm = R * (p + lambda * k - P - lp.right.P);
+                {                    
+                    currentnorm = R * (p + lambda * k  - lp.right.P);
                     currentnorm = currentnorm / abs(currentnorm);
                 }
             }
@@ -290,8 +288,8 @@ namespace GOAT
             // ---- left side ----
             double zl;
             // the radius of the lens must be smaller or equal to the smallest curvature radius
-            if (lp.radius > lp.left.R) lp.radius = lp.left.R;
-            if (lp.radius > lp.right.R) lp.radius = lp.right.R;
+            if ((lp.radius > lp.left.R) && (lp.left.curvature!=flat)) lp.radius = lp.left.R;
+            if ((lp.radius > lp.right.R) && (lp.right.curvature!=flat)) lp.radius = lp.right.R;
             if (lp.left.curvature == convex) zl = sqrt(lp.left.R * lp.left.R - lp.radius * lp.radius) - lp.offset / 2.0;
             if (lp.left.curvature == concave) zl = -(lp.left.R + lp.offset / 2.0);
             if (lp.left.curvature == flat) zl = -lp.offset / 2.0;

@@ -38,10 +38,14 @@ var annotated_dup =
         [ "Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", "class_g_o_a_t_1_1raytracing_1_1_plane" ],
         [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
         [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ],
+        [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],
+        [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
         [ "Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", "class_g_o_a_t_1_1raytracing_1_1_ray__pow" ],
         [ "RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", "class_g_o_a_t_1_1raytracing_1_1_ray_base" ],
         [ "rayListEntry", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry" ],
         [ "Raytrace", "class_g_o_a_t_1_1raytracing_1_1_raytrace.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace" ],
+        [ "Raytrace_Field", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field" ],
+        [ "Raytrace_Field_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp" ],
         [ "Raytrace_Inel", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel" ],
         [ "Raytrace_OT", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t" ],
         [ "Raytrace_Path", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace___path" ],
@@ -67,7 +71,8 @@ var annotated_dup =
         [ "wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range" ]
       ] ],
       [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [
-        [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ]
+        [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
+        [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ]
       ] ]
     ] ],
     [ "tinyxml2", "namespacetinyxml2.html", [

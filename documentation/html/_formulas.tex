@@ -2,26 +2,10 @@
 \usepackage{ifthen}
 \usepackage{epsfig}
 \usepackage[utf8]{inputenc}
-\usepackage{xcolor}
 \usepackage{newunicodechar}
-  \makeatletter
-    \def\doxynewunicodechar#1#2{%
-    \@tempswafalse
-    \edef\nuc@tempa{\detokenize{#1}}%
-    \if\relax\nuc@tempa\relax
-      \nuc@emptyargerr
-    \else
-      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
-      \nuc@check
-      \if@tempswa
-        \@namedef{u8:\nuc@tempa}{#2}%
-      \fi
-    \fi
-  }
-  \makeatother
-  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
-  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
-  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+  \newunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \newunicodechar{²}{${}^{2}$}% Superscript two
+  \newunicodechar{³}{${}^{3}$}% Superscript three
 
 \pagestyle{empty}
 \begin{document}
@@ -73,6 +57,12 @@ $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\al
 $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l \alpha_l r^l $
 \pagebreak
 
+$Z_0=\sqrt{\frac{\mu_0}{\epsilon_0}}=\mu_0*c_{light}$
+\pagebreak
+
+$ m\cdot s^{-1}$
+\pagebreak
+
 $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$
 \pagebreak
 
@@ -85,7 +75,7 @@ $\sqrt{\frac{b_{old}}{b_{new}}}$
 $\sqrt{\frac{c_{old}}{c_{new}}}$
 \pagebreak
 
-$fs^{-1}$
+$s^{-1}$
 \pagebreak
 
 $E(t)=E0 \cdot e^{-t^2/(2*\sigma^2)}$
@@ -103,10 +93,16 @@ $\vec{F}$
 $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $
 \pagebreak
 
-$\vec{E}(ar,z)=\vec{E}_0$
+$\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}$
+\pagebreak
+
+$ \frac{2\pi}{\lambda}$
 \pagebreak
 
 $ kg/m^3 $
+\pagebreak
+
+\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\]
 \pagebreak
 
 $ k_0=\frac{2\pi}{\lambda_0}$
@@ -115,16 +111,13 @@ $ k_0=\frac{2\pi}{\lambda_0}$
 $\lambda_0$
 \pagebreak
 
-$
-\newline
-\begin{array}{ccccccccc}
-\text{<number of triangles>} & & & & & & & & \\
-\text{<number of triangles>} & & & & & & & & \\
-x_{00} & y_{00} & z_{00} & x_{01} & y_{01} & z_{01} &  x_{02} &  y_{02} & z_{02} \\
-x_{10} & y_{10} & z_{10} & x_{11} & y_{11} & z_{11} &  x_{12} &  y_{12} & z_{12} \\
-\vdots & \vdots  & & & & & & &
-\end{array}
-$
+$ \newline \begin{array}{ccccccccc} \text{<number of triangles>} & & & & & & & & \\ \text{<number of triangles>} & & & & & & & & \\ x_{00} & y_{00} & z_{00} & x_{01} & y_{01} & z_{01} & x_{02} & y_{02} & z_{02} \\ x_{10} & y_{10} & z_{10} & x_{11} & y_{11} & z_{11} & x_{12} & y_{12} & z_{12} \\ \vdots & \vdots & & & & & & & \end{array} $
+\pagebreak
+
+$-\frac{\pi}{2}$
+\pagebreak
+
+$-\pi$
 \pagebreak
 
 \end{document}

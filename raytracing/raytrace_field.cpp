@@ -1,13 +1,23 @@
 ﻿#include "raytrace_field.h"
+#include "raytrace_field.h"
 #include "inel_calc.h"
+
 namespace GOAT {
 	namespace raytracing {
+#ifdef WITH_SUPERGITTER
+		extern GOAT::maths::Vector<INDEX_TYPE> currentIndex;
+#endif
 		Raytrace_Field::Raytrace_Field() : Raytrace()
 		{
 		}
 
 		Raytrace_Field::Raytrace_Field(Scene& S) : Raytrace(S)
 		{
+		}
+
+		Raytrace_Field::~Raytrace_Field()
+		{
+			// -> maybe clearing of the Superarray(s) is necessary
 		}
 
 		void Raytrace_Field::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
@@ -20,7 +30,7 @@ namespace GOAT {
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			maths::Vector<double> pDet;
+			
 			while ((Reflexions < numReflex) && (!Abbruch))
 			{
 
@@ -212,7 +222,7 @@ namespace GOAT {
 			bool cancel = false;
 			while ((s < L) && (!cancel))
 			{
-				Pnew = pnext(P, k, SE, 1E-100);  // search next grid cell		
+				Pnew = pnext(P, k, SE, currentIndex, 1E-100);  // search next grid cell		
 				l = abs(Pnew - P);					  // length of the last step  					
 				cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 				s += l;               // path inside the detector
@@ -249,6 +259,7 @@ namespace GOAT {
 		}
 		void Raytrace_Field::init()
 		{
+			SE.r0 = S.r0;
 			setResolution(resolution);
 			SE.clear();	
 			SE = SuperArray<maths::Vector<std::complex<double> > >(S.r0, numCellsPerDirection, numCellsPerDirection, numCellsPerDirection);
@@ -259,8 +270,7 @@ namespace GOAT {
 			}
 		}
 		void Raytrace_Field::trace()
-		{
-			SE.r0=S.r0;
+		{			
 			init();
 			int statusLS;
 			int Reflexions = 0;

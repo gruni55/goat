@@ -49,31 +49,24 @@ surface::surface(const surface &Su):ObjectShape(Su)
     
 //  cout << "weiter" << endl;
   initQuad(); 
-  #ifdef WITH_OCTREE
-  maths::Vector<double> pul, por;
-  initBounds(pul,por);
-  maths::Vector<double> d = por - pul;
-  double h = d[0];
-  if (d[1] > h) h = d[1];
-  if (d[2] > h) h = d[2];
- // cout << "pul=" << pul << "   por=" << por << endl;
-/*  cout << "CREATE NEW OCTREE" << endl;
-  cout << "d=" << d << endl;
-  cout << "numTriangles=" << numTriangles << endl;*/
- /* cube = Octree<triangle>::Section(P, d, 1.0, h);
-  Tree.setRootSection(cube);
-  Tree.build(S, numTriangles);*/
-  Tree.BBox = Box(maths::dzero, d, n);
-  Tree.BBox.setOctree(true);
-  Tree.createTree(TREE_RECURSIONS);
-  for (int i = 0; i < numTriangles; i++)
-  {
-	  addTriangleToTriangle(Tree, S[i]);
-  }
-  Tree.trimOctree();
+#ifdef WITH_OCTREE
+maths::Vector<double> pul, por;
+initBounds(pul,por);
+maths::Vector<double> d = por - pul;
+double h = d[0];
+if (d[1] > h) h = d[1];
+if (d[2] > h) h = d[2];
+Tree.BBox = Box(maths::dzero, d, n);
+Tree.BBox.setOctree(true);
+Tree.createTree(TREE_RECURSIONS);
+for (int i = 0; i < numTriangles; i++)
+{
+  addTriangleToTriangle(Tree, S[i]);
+}
+Tree.trimOctree();
 /*  cout << "%TREE Begins ------------------" << endl;
-  cout << Tree << endl;
-  cout << "%TREE END ---------------------" << endl;*/
+cout << Tree << endl;
+cout << "%TREE END ---------------------" << endl;*/
 #endif 
 //     sprintf (FName,"%s",Su.FName);
 
@@ -723,6 +716,24 @@ void surface::scale (double sf)
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
  this->sf=sf;
+initQuad();
+#ifdef WITH_OCTREE
+maths::Vector<double> por, pul;
+        initBounds(pul,por);
+
+	maths::Vector<double> d = por - pul;
+	maths::Vector<double> Ph = (por + pul) / 2.0;
+	double h = d[0];
+	if (d[1] > h) h = d[1];
+	if (d[2] > h) h = d[2];
+		maths::Vector<double> hd(h,h,h);
+		Tree.BBox = Box(Ph, d, this->n);
+		Tree.createTree();
+		
+		for (int i = 0; i < numTriangles; i++)
+			addTriangleToTriangle(Tree, S[i]);
+#endif 
+
 }
 /** No descriptions */
 /*double surface::isInHost(void)
