@@ -1,4 +1,5 @@
 #include "lightsrc.h"
+#include "lightsrc_mc.h"
 #include "ray_pow.h"
 #include "misc.h"
 
@@ -50,15 +51,20 @@ namespace  GOAT
 			Pol = L.Pol;
 			r0 = L.r0;
 			wvl = L.wvl;
+			k0 = L.k0;
 			P0 = L.P0;
 			numObjs = L.numObjs;
 			Obj = L.Obj;
 			// copyFormList(Ein,L.Ein,numObjs);
 			D = L.D;
+			D1 = L.D1;
+			D2 = L.D2;
+
 			raytype = L.raytype;
 			n0 = 1.0;
 			N = L.N;
 			Pall = 0;
+			suppress_phase_progress = L.suppress_phase_progress;
 		}
 
 		void LightSrc::setk(const maths::Vector<double>& k)
@@ -87,6 +93,8 @@ namespace  GOAT
 			is.read((char*)&nim, (char)sizeof(nim));
 			n0 = std::complex<double>(nre, nim);
 			is.read((char*)&D, (char)sizeof(D));
+			is.read((char*)&D1, (char)sizeof(D1));
+			is.read((char*)&D2, (char)sizeof(D2));
 			e1.binRead(is);
 			e2.binRead(is);
 			is.read((char*)&raytype, (char)sizeof(raytype));
@@ -163,6 +171,8 @@ namespace  GOAT
 			os.write((char*)&nre, (char)sizeof(nre));
 			os.write((char*)&nim, (char)sizeof(nim));
 			os.write((char*)&D, (char)sizeof(D));
+			os.write((char*)&D1, (char)sizeof(D1));
+			os.write((char*)&D2, (char)sizeof(D2));
 			e1.binWrite(os);
 			e2.binWrite(os);
 			os.write((char*)&raytype, (char)sizeof(raytype));
@@ -270,8 +280,10 @@ namespace  GOAT
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
-			this->N = N;
-			this->n0 = 1.0;
+			this->D1 = D;
+			this->D2 = D;
+			this->N = N; 
+			this->n0 = 1.0;			
 			numObjs = 0;
 			Obj = 0;
 			reset();
@@ -292,17 +304,21 @@ namespace  GOAT
 			this->r0 = LS.r0;
 			this->wvl = LS.wvl;
 			this->D = LS.D;
+			this->D1 = LS.D1;
+			this->D2 = LS.D2;
 			this->N = LS.N;
 			this->n0 = LS.n0;
 			// copyFormList(this->Ein, LS.Ein, LS.numObjs);
 			this->Obj = LS.Obj;
 			this->polType = LS.polType;
 			this->numObjs = LS.numObjs;
+			suppress_phase_progress = LS.suppress_phase_progress;
 			Pall = 0;
 		}
 
 		int LightSrcPlane::next(RayBase* ray)
 		{
+			ray->suppress_phase_progress = suppress_phase_progress;
 			switch (raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
@@ -316,18 +332,19 @@ namespace  GOAT
 		{
 
 			Plane E;
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S = IRay(P, Pol*sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.E1 = Pol / (N * N);
 			S.E2 = Pol2 / (N * N);
 			// S.init_Efeld(E,Pol);
 			i1++;
 
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) { return LIGHTSRC_IS_LAST_RAY; }
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
@@ -337,14 +354,14 @@ namespace  GOAT
 			Plane E;
 			double Pow;
 
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			// maths::Vector<double> P=Pos+(i1*density-D/2.0)*e1; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			Pow = 1.0 / ((double)(N * N) * D * D);
+			Pow = P0 / ((double)(N * N) * D1 * D2);
 			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.initElectricField(E, Pol);
 			S.P = P;
 			S.E1 = Pol;
@@ -353,30 +370,218 @@ namespace  GOAT
 			i1++;
 			Pall += abs2(S.E2);
 			// if (i1*density>D) return LIGHTSRC_IS_LAST_RAY; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) { return LIGHTSRC_IS_LAST_RAY; }
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
 
 		int LightSrcPlane::next(tubedRay& S)
 		{
-			double Pow = 1.0 / (N * N * D * D);
-			maths::Vector<double> P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
+			double Pow = P0 / (N * N * D2 * D1);
+			maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
 			// S.init_Efeld(Pol,1);
 			i1++;
-			if (i1 * density > D) { i1 = 0; i2++; }
-			if (i2 * density >= D) return LIGHTSRC_IS_LAST_RAY;
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) return LIGHTSRC_IS_LAST_RAY;
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
+
+
+		LightSrcRing::LightSrcRing() : LightSrc()
+		{
+			type = LIGHTSRC_SRCTYPE_RING;
+			k = maths::ez;
+			density = 2.0 * rmax / ((double)N);
+			raytype = LIGHTSRC_RAYTYPE_IRAY;
+			numObjs = 0;
+			Obj = 0;
+			e1 = maths::ex;
+			e2 = maths::ey;
+			reset();
+		}
+
+		LightSrcRing::LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin, double rmax, maths::Vector<std::complex<double> > Pol, int raytype , double r0) : LightSrc()
+		{
+			e1 = maths::ex;
+			e2 = maths::ey;
+
+			this->Pos = Pos;
+			this->density = 2.0 * rmax / ((double)N);
+			this->type = LIGHTSRC_SRCTYPE_RING;
+			D = 2.0 * rmax;
+			D1 = 2.0 * rmax;
+			D2 = 2.0 * rmax;
+			this->k = maths::ez;
+			this->raytype = raytype;
+			this->Pol = Pol;
+			this->r0 = r0;
+			this->wvl = wvl;
+			this->rmin = rmin;
+			this->rmax = rmax;			
+			this->N = N;
+			this->n0 = 1.0;
+			numObjs = 0;
+			Obj = 0;
+			reset();
+		}
+
+		void LightSrcRing::setRmin(double rmin)
+		{
+			if (rmin<rmax) this->rmin=rmin;
+		}
+
+		void LightSrcRing::setRmax(double rmax)
+		{
+			this->rmax=rmax;
+			D=rmax/(double)N;
+			density = 2.0 * rmax / ((double)N);
+		}
+
+		int LightSrcRing::next(RayBase* ray)
+		{
+			ray->suppress_phase_progress = suppress_phase_progress;
+			switch (raytype)
+			{
+			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
+			case LIGHTSRC_RAYTYPE_PRAY: return next(*(Ray_pow*)ray); break;
+			case LIGHTSRC_RAYTYPE_RAY:
+			default: return next(*(tubedRay*)ray);
+			}
+		}
+
+		int LightSrcRing::next(IRay& S)
+		{
+
+			Plane E;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				else found = true;
+			} 
+			while (!found);
+			P = Pos + P;
+
+				E.e1 = e1;
+				E.e2 = e2;
+				E.n = k;
+				S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+				S.suppress_phase_progress = suppress_phase_progress;
+				S.E1 = Pol / (N * N);
+				S.E2 = Pol2 / (N * N);
+				// S.init_Efeld(E,Pol);
+				i1++;
+
+				if (i1 * density > D1) {
+					i1 = 0; i2++; std::cout << "% i2=" << i2 << std::endl;
+				}
+				if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+			
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+		int LightSrcRing::next(Ray_pow& S)
+		{
+
+			Plane E;
+			double Pow;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				P = Pos + P;
+			} while (!found);
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			Pow = P0 / ((double)(N * N) * D1 * D2);
+			S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.initElectricField(E, Pol);
+			S.P = P;
+			S.E1 = Pol;
+			S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+			S.k = k;
+			i1++;
+			Pall += abs2(S.E2);
+			// if (i1*density>D) return LIGHTSRC_IS_LAST_RAY; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+
+		int LightSrcRing::next(tubedRay& S)
+		{
+			double Pow = P0 / (N * N * D2 * D1);
+
+			Plane E;
+			maths::Vector<double> P;
+			double absP;
+			bool found = false;
+			do
+			{
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				absP = abs(P);
+				if ((absP < rmin) || (absP > rmax))
+				{
+					i1++;
+
+					if (i1 * density > D1) { i1 = 0; i2++; }
+					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+				}
+				else found = true;
+				P = Pos + P;
+			} while (!found);
+			
+			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.setN0(n0);
+			// S.init_Efeld(Pol,1);
+			i1++;
+			if (i1 * density > D1) { i1 = 0; i2++; }
+			if (i2 * density >= D2) return LIGHTSRC_IS_LAST_RAY;
+			return LIGHTSRC_NOT_LAST_RAY;
+		}
+
+
+
+
 
 		void LightSrc::reset()
 		{
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
+                        rayCounter=0; 
+			switch (type)
+			{
+			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
+			case LIGHTSRC_SRCTYPE_GAUSS_MC: ((LightSrcGauss_mc*)this)->reset(); break;
+			}
 		}
 
 
@@ -400,7 +605,7 @@ namespace  GOAT
 
 		LightSrcGauss::LightSrcGauss(void)
 		{
-			type = LIGHTSRC_SRCTYPE_GAUSS;
+			type = LIGHTSRC_SRCTYPE_GAUSS;			
 			Pall = 0.0;
 			k = maths::ez;
 			density = 1;
@@ -417,7 +622,7 @@ namespace  GOAT
 
 
 		LightSrcGauss::LightSrcGauss(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrc()
-			/**
+			/*
 			  Konstruktor für Gauss-Strahlungsquelle
 			  Strahlen laufen aus einem Rechteck am Ort Pos der Breite D in z-Richtung auf den Fokuspunkt zu
 			  Parameter:
@@ -428,7 +633,7 @@ namespace  GOAT
 			  focuspos : Position des Fokus
 			  D   : Breite der Lichtquelle
 			  r0  : Radius der "Weltkugel"
-			**/
+			*/
 		{
 			/*
 			e1=ex;
@@ -439,38 +644,21 @@ namespace  GOAT
 			Pall = 0.0;
 			this->Pos = Pos;
 			this->density = D / ((double)N);
-			this->type = LIGHTSRC_SRCTYPE_GAUSS;
-			k = focuspos - Pos;
-			k = k / abs(k);
-			e1 = k % maths::ez;
-			if (abs(e1) < 1E-10) e1 = maths::ex;
-			e2 = k % e1;
-			e1 = e1 / abs(e1);
-			e2 = e2 / abs(e2);
-
+			this->type = LIGHTSRC_SRCTYPE_GAUSS;			
 			this->raytype = raytype;
 			this->Pol = Pol;
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
-			this->focuspos = focuspos;
-			Pol = maths::Vector<std::complex<double> >(0, 1.0, 0);
-			polType = LIGHTSRC_POL_Y;
-
+			this->D1 = D1;
+			this->D2 = D2;
+			this->focuspos = focuspos;		
 			this->Pol = Pol;
 			this->w0 = w0;
 			this->N = N;
 			this->P0 = P0;
-			f = abs(Pos - focuspos);
-			z0 = M_PI * w0 * w0 / wvl;
-			numObjs = 0;
-			Obj = 0;
-			n0 = 1.0;
-			double d = abs(Pos - focuspos);
-			calcz0();
-			calcw(d);
-			double theta = atan(wvl / (M_PI * w0));
-			NA = real(n0) * sin(theta);
+			this->suppress_phase_progress = suppress_phase_progress;
+			
 			reset();
 		}
 
@@ -503,6 +691,8 @@ namespace  GOAT
 			double absh, gamma;
 			double zeta;
 			double absfp;
+
+			S.suppress_phase_progress = suppress_phase_progress;
 
 			fp = focuspos - P;  // Hier beginnt der Strahl
 			hk = fp / abs(fp);  // Normierter Richtungsvektor vom Startpunkt zum Fokus
@@ -586,7 +776,7 @@ namespace  GOAT
 			double g;
 			double L = 0.1;
 			double R;
-
+			
 			maths::Vector<double> h, hk;
 			maths::Matrix<double> DM;
 			maths::Vector<std::complex<double> > E;
@@ -622,6 +812,7 @@ namespace  GOAT
 
 			DM = rotMatrix(h, gamma);
 			S = Ray_pow(1, P, Pol, hk, n0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 			S.k = k;
 			S.n = n0;
 			absfp = fp * k;
@@ -669,6 +860,7 @@ namespace  GOAT
 
 		int LightSrcGauss::next(RayBase* ray)
 		{
+			ray->suppress_phase_progress = suppress_phase_progress;
 			switch (raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
@@ -680,18 +872,21 @@ namespace  GOAT
 
 		int LightSrcGauss::next(tubedRay& S)
 		{
+
 			maths::Vector<double> Ph = (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
-			maths::Vector<double> P = Pos + Ph;
-			maths::Vector<double> k = focuspos - P;  // Richtung des Strahles
-			k = k / abs(k);
+			maths::Vector<double> P = Pos + Ph;			
 			double r = abs(Ph);
 			double s = w0 / (2.0 * sqrt(log(2.0)));
 			double E0 = exp(-r * r / s / s);
 			S = tubedRay(P, density, density, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
 
 			S.setN0(n0);
 			S.n = n0;
-			for (int i = 0; i < 5; i++) S.E[i] = Pol * E0;
+			double r2 = abs2(Pos - P);
+			std::complex<double> phase = exp(I * (-k0 * n0 * f + zeta - k0 * r2 / (2.0 * R)));
+
+			for (int i = 0; i < 5; i++) S.E[i] = Pol * E0 * phase;
 			i1++;
 			if (i1 * density > D) { i1 = 0; i2++; }
 			if (i2 * density >= D) return LIGHTSRC_IS_LAST_RAY;
@@ -800,7 +995,21 @@ namespace  GOAT
 			P0 = L.P0;
 			k = L.k;
 			numObjs = L.numObjs;
+			reset();
 		}
+
+		std::complex<double> LightSrcGauss::calcStartPhase(maths::Vector<double> P)
+		{
+			std::complex<double> phase;
+			maths::Vector<double> hv = P - Pos;
+			double r2 = hv * hv;
+			double z = k * (focuspos - P);    // we don't use the absolute value of Pos-focuspos, to get the right sign of z 
+			R = z * (1 + z0 * z0 / (z * z));  // calculate the curvature of the phase front at P
+			double gouy = atan(z / z0); // Gouy phase
+			phase = exp(-I * (k0 * n0 * r2 / (2.0 * R) + (k0 * n0 * z - gouy)));
+			return phase;
+		}
+
 
 		/*
 		void LightSrcGauss::initElectricFieldGauss(maths::Vector<double> &P, maths::Vector<double> &n, maths::Vector<std::complex<double> > &E)
@@ -873,9 +1082,12 @@ namespace  GOAT
 			double theta = asin(NA / real(n0));
 			double l = abs(Pos - focuspos);
 			w0 = wvl / (M_PI * tan(theta));
-			D = 2.0 * l * wvl / (M_PI * w0);
-			density = D / ((double)N);
 			calcz0();
+			w=calcw(l);
+			// D = 2.0 * l * wvl / (M_PI * w0);
+			D = 6 * w;
+			density = D / ((double)N);
+			
 		}
 
 		void copyLightSrcList(LightSrc**& d, LightSrc** s, int nLS)

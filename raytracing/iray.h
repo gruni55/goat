@@ -9,8 +9,6 @@
 
 #pragma once
 #include <complex>
-#include "fresnel.h"
-#include "resutil.h"
 #include "vector.h"
 #include "matrix.h"
 #include "plane.h"
@@ -69,6 +67,8 @@ namespace GOAT
 				this->OK = r.OK;
 				this->P = r.P;
 				this->r0 = r.r0;
+				this->status = r.status;
+				this->suppress_phase_progress = r.suppress_phase_progress;
 			}
 
 

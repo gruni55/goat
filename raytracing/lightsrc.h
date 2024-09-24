@@ -17,7 +17,12 @@ namespace GOAT
 #define LIGHTSRC_RAYTYPE_PRAY 3   ///< Ray class : Pow_Ray
 constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
 constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
-constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_RING = 3;  ///< Light source is a ring shaped wave
+constexpr int LIGHTSRC_SRCTYPE_TOPHAT=4; ///< Light source is a top hat
+
+constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 11; ///< Light source is a plane wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wave (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -25,10 +30,10 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 #define LIGHTSRC_ERROR -1        ///< Error occurs within the ray creation
 #define Z0 376.730313461         ///< Wave impedance of free space
 
-#define LIGHTSRC_POL_X 0
-#define LIGHTSRC_POL_Y 1
-#define LIGHTSRC_POL_Z 2
-#define LIGHTSRC_POL_USER_DEFINED 0 
+#define LIGHTSRC_POL_X 0 ///< Light source is polarized in x-direction
+#define LIGHTSRC_POL_Y 1 ///< Light source is polarized in y-direction
+#define LIGHTSRC_POL_Z 2 ///< Light source is polarized in z-direction
+#define LIGHTSRC_POL_USER_DEFINED 0 ///< Light source is user defined
 
 
 
@@ -85,8 +90,22 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			{
 				this->density = D / ((double)N);
 				this->D = D;
+				D1 = D;
+				D2 = D;
 				reset();
 			} ///< sets the width of the light source (this resets also the ray counter)
+
+			void setD(double D1, double D2) ///< sets the width of the light source
+			{				
+				if (D1<D2) density= D1 / ((double)N);
+				else density = D2 / ((double)N);
+				this->D1 = D1;
+				this->D2 = D2;
+				reset();
+			}
+
+
+
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
 			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
@@ -96,6 +115,10 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 				density = D / ((double)N);
 				reset();
 			}
+			void setWavelength(double wvl) { this->wvl = wvl; k0 = 2.0 * M_PI / wvl; }
+			double getWavelength() { return wvl; }
+			void setWavenumber(double k0) { this->k0 = k0; wvl = 2.0 * M_PI / k0; }
+			double getWavenumber() { return k0; }
 			void setPol(maths::Vector<std::complex<double> > pol) { Pol = pol; } ///< sets the polarisation 
 			void setPos(maths::Vector<double> P); ///< sets the position of the light source. This is the center of the square area of the light source
 			maths::Vector<double> getPos() { return Pos; }  ///< returns the position of the light source. This is the center of the square area of the light source
@@ -104,20 +127,21 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			// protected :
 			maths::Vector<double> Pos; ///< position of the light source (center of the square area of the light source)
 			int type;           ///< type of the light source
-			double P0;        ///< power
+			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
 			maths::Vector<double> k;   ///< main direction of the light source   
-			int N;  ///< number of rays (per direction)
+			int N=100;  ///< number of rays (per direction)
 			int i1; ///< first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
 			maths::Vector<std::complex<double> > Pol2; ///< second polarisation (used by IRay)
-			double r0;          ///< radius of the calculation sphere
-			double wvl;         ///< wavelength
+			double r0=1.0;          ///< radius of the calculation sphere
+			
 			int numObjs;        ///< number of objects
 			std::complex<double> n0; ///< refractive index of the intermediate medium
 
 			double D;           ///< width of the square light source area 
+			double D1, D2;      ///< width in the e1- and the e2-direction (used only for _mc versions of LightSrc)
 			maths::Vector<double> e1, e2;  ///< unit vectors that span the light source area 
 			int raytype;        ///< Strahltyp : ray oder ISTRAHL (=RAY oder IRAY)
 			int polType;        ///< Polarisationsrichtung (s.o.)  
@@ -125,6 +149,12 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			friend class LightSrcPlane;
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
+			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
+            int rayCounter=0; 
+			
+		protected:
+			double wvl;         ///< wavelength
+			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 		};
 
 
@@ -161,11 +191,35 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 		};
 
 		/**
+		* @brief This class describes a ring shaped
+		*/
+		class LightSrcRing : public LightSrc
+		{
+		public:
+			LightSrcRing();
+			LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin=0.0, double rmax=100.0, maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+			int next(RayBase* ray);
+			int next(IRay& S);
+			int next(Ray_pow& S);
+			int next(tubedRay& S);
+			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
+			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
+			double getRmin() {return rmin; }
+			double getRmax() {return rmax; }
+			void setRmin(double rmin);
+			void setRmax(double rmax);
+
+		private:
+			double rmin = 0.0;
+			double rmax = 100.0;
+		};
+
+		/**
 		* @brief This class describes a focused gaussian beam.
 		*
 		 Class which describes a (focused) gaussian light source. The main direction is given by the source position and
 		 the focal position. The electric field is calculated by
-		 \f$\vec E(r,z)=\vec E_0 \frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}\f$
+		 \f$\vec{E}(ar,z)=\vec{E}_0\frac{w_0}{w(z)}\cdot e^{\frac{r^2}{w^2(z)}}\cdot e^{-ik\frac{r^2}{2R(z)}}\cdot e^{i(\zeta(z)-kz)}\f$
 		 The waist of the beam is only used for the correct electric field distribution within the starting area. Since we are working with geometrical optics
 		 the rays follow straight lines inside the medium.
 		*/
@@ -204,8 +258,10 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			void setWvl(double wvl); ///< sets the vacuum wavelength
 			void setk(maths::Vector<double> k) { this->k = k; reset(); }	///< sets the main direction of light source 
 			double calcz0() { z0 = M_PI * w0 * w0 / wvl; return z0; } ///< recalculates Rayleigh-length z0
+			std::complex<double> calcStartPhase(maths::Vector<double> P); 
 			void reset()
-			{
+			{			
+				polType = LIGHTSRC_POL_Y; // ???
 				k = focuspos - Pos;
 				k = k / abs(k);
 				e1 = k % maths::ez;
@@ -216,14 +272,30 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 
 				i1 = 0;
 				i2 = 0;
+				f = (Pos - focuspos)*k;
+				z0 = M_PI * w0 * w0 / wvl;
+				numObjs = 0;
+				Obj = 0;
+				n0 = 1.0;
+				double d = abs(Pos - focuspos);
+				calcz0();
+				calcw(d);
+				double theta = atan(wvl / (M_PI * w0));
+				NA = real(n0) * sin(theta);
 				calcNormfak();
+				zeta = atan(f / z0);
+				R = f * (1 + z0 * z0 / (f * f));
+				k0 = 2.0 * M_PI / wvl;
 			}
+
 			double calcw(double z) ///< calculates the beam waist of the light beam at the distance z from the focal point, returns the value and sets the corrsponding local variable w (needed for next(), only for internal use)
 			{
 				w = w0 * sqrt(1.0 + z * z / (z0 * z0));
 				return w;
 			}
 
+			
+			
 			void calcNormfak() ///< needed for next()
 			{
 				double l = abs(Pos - focuspos);
@@ -243,8 +315,11 @@ constexpr int LIGHTSRC_SRCTYPE_TOPHAT=3; ///< Light source is a top hat
 			maths::Vector<double> k;		 ///< direction of the gaussian beam
 			double w;				 ///< radius of the beam (for internal use only)
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
+			double zeta;			 ///< Gouy phase 
+			double R;				 ///< curvature 
 		};
 
+		
 		/**
 		 * @brief Writes a list of light sources into a binary file.
 		 * @param os Output file stream to write the data

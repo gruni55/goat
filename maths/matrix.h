@@ -8,16 +8,17 @@
 #pragma once
 #include "vector.h"
 #include <iostream>
-/**
- * @brief This class represents a threedimensional (numeric) Matrix as Template
- * 
- * The Matrix class represents a template class for 3x3 numeric matrices. Operators for standard matrix operation are provided. 
- * This class is intended to work with the Vector template class defined in this SDK.
- */
+
 namespace GOAT
 {
     namespace maths
     {
+        /**
+ * @brief This class represents a threedimensional (numeric) Matrix as a template
+ *
+ * The Matrix class represents a template class for 3x3 numeric matrices. Operators for standard matrix operation are provided.
+ * This class is intended to work with the Vector template class defined in this SDK.
+ */
     template<class T> class Matrix
     {
     public:
@@ -107,7 +108,7 @@ namespace GOAT
             return Erg;
         }
 
-        Matrix& operator +=(const Matrix& A)
+        Matrix& operator +=(const Matrix& A) ///< subtract one matrix from this matrix
         {
             for (int i = 0; i < 3; i++)
                 for (int j = 0; j < 3; j++)
@@ -232,7 +233,10 @@ namespace GOAT
 
        /**
         * @brief Output of the matrix into an ostream
-        *
+        * Output in the form: 
+        * M00 M01 M02 
+        * M10 M11 M12 
+        * M20 M21 M22 
         * \param os stream
         * \param A  matrix
         * \return changed stream
@@ -251,7 +255,6 @@ namespace GOAT
          * \param A  matrix
          * \return changed stream
          */
-
         friend std::istream& operator >> (std::istream& is, Matrix& A)
         {
             for (int i = 0; i < 3; i++)
@@ -332,8 +335,8 @@ namespace GOAT
         /**
          * @brief Calculates the inverse of a matrix, if possible.
          *
-         * \param A Matrix to invert
-         * \param invertable true, if A is invertable otherwise false
+         * \param[in] A Matrix to invert
+         * \param[out] invertable true, if A is invertable otherwise false
          * \return Inverse of matrix A, if A is invertable, otherwise the function returns a zero matrix.
          */
         friend Matrix invert(const Matrix<T>& A, bool& invertable)
@@ -451,7 +454,7 @@ namespace GOAT
         Matrix<double>& H,
         Matrix<double>& R);
     const Matrix<double> UNITY = Matrix<double>(Vector<double>(1.0, 0.0, 0.0), Vector<double>(0.0, 1.0, 0.0), Vector<double>(0.0, 0.0, 1.0)); ///< Unity matrix (double-valued)
-    const Matrix<std::complex<double> > CUNITY = Matrix<std::complex<double> >(Vector<std::complex<double> >(1, 0, 0), Vector<std::complex<double> >(0, 1, 0), Vector<std::complex<double> >(0, 0, 1));///< (complex-valued)
+    const Matrix<std::complex<double> > CUNITY = Matrix<std::complex<double> >(Vector<std::complex<double> >(1, 0, 0), Vector<std::complex<double> >(0, 1, 0), Vector<std::complex<double> >(0, 0, 1));///< Unity matrix (complex-valued)
    
  }
 }

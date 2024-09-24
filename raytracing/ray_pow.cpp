@@ -34,7 +34,7 @@ namespace GOAT
              /* Erst mal die Fresnelmatrix für Reflexion berechnen */
 
             double nk = n * k / (abs(n) * abs(k));
-            double h;
+           
             if (nk < 0) { n = -n; nk = -nk; }
             getKSystem(n, k, e0, e1, e2);
             if (nk > 1.0) nk = 1.0;

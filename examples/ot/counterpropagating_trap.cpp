@@ -61,7 +61,7 @@ int main()
         /* The result is stored in the array F for the force and in L for the angular momenta
            of the optical tweezers raytracer ot. There is an entry for each object. */
 
-        os << z << "\t" << ot.F[0] << "\t" << ot.L[0] << std::endl;
+        os << z << "\t" << ot.F[0] << "\t" << ot.L[0] << std::endl;       
         std::cout << z << "\t" << ot.F[0] << "\t" << ot.L[0] << std::endl;
     }
     os.close();

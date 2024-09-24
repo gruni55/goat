@@ -33,7 +33,7 @@ namespace GOAT
 #define RAMAN 0
 #define FLUORESZENZ 1
 
-#define IN_INC  1 
+#define IN_OBJECT  1 
 #define IN_HOST 2
 #define IN_INC_AND_HOST 3
 
@@ -95,15 +95,19 @@ namespace GOAT
 			/*
 			   P  : Ort des Einschlusses
 			   n  : Brechungsindex
-			   a  : Radius (in Einheiten des Partikelradius´)
+			   a  : Radius (in Einheiten des Partikelradiusï¿½)
 			   alpha : Polarisierbarkeit;
 			*/
 			maths::Vector <double> P;
 			std::complex<double> n;
 			double a;
 			maths::Matrix<double> alpha;
-		} EinschlussInfo;
+		} objectInfo;
 
+
+		/**
+		* @brief Class used to set the parameters for inelastic scattering (may replaced later)
+		*/
 		class RRTParmsInfo
 		{
 		public:
@@ -116,9 +120,7 @@ namespace GOAT
 			double wave;
 			bool isKoherent;
 		};
-
-
-		class GlobalParms
+        class GlobalParms
 		{
 			/*
 			nx,ny     : Anzahl der Gitterpunkte in x/y-Richtung
@@ -142,7 +144,7 @@ namespace GOAT
 			GlobalParms();
 
 			/// Radius der "Weltkugel"
-			double r0;
+            double r0;
 
 			/// Anzahl der Gitterpunkte in x/y-Richtung
 			int nx, ny;
@@ -181,7 +183,7 @@ namespace GOAT
 		std::ostream& operator << (std::ostream& os, GlobalParms& parms);
 		std::istream& operator >> (std::istream& is, GlobalParms& parms);
 
-		double abs2(double x);
+        double abs2(double x); ///< returns the squared absolute value of x
 
 		void output(int nx, int ny, maths::Vector<std::complex<double> >** G);
 		void init_Strahl(GlobalParms Parms, StrahlArray* Strahl);
@@ -209,20 +211,20 @@ namespace GOAT
 
 		void minmax(double x, double dx, int& min, int& max);
 		void checkObjectIntersection(maths::Vector<double>& anf, const maths::Vector<double>& end,
-			StrahlInfo& S, int numObj, EinschlussInfo* Obj,
+			StrahlInfo& S, int numObj, objectInfo* Obj,
 			maths::Vector<double>& Ps, int& Index);
 		void checkObjectIntersection(double r0, maths::Vector<double>& anf, const maths::Vector<double>& end,
-			StrahlInfo& S, int numObj, EinschlussInfo* Obj,
+			StrahlInfo& S, int numObj, objectInfo* Obj,
 			maths::Vector<double>& Ps, int& Index);
 		void checkObjectIntersection(double r0, maths::Vector<double>& anf, const maths::Vector<double>& end,
-			const maths::Vector<double> k, int numObj, EinschlussInfo* Obj,
+			const maths::Vector<double> k, int numObj, objectInfo* Obj,
 			maths::Vector<double>& Ps, int& Index);
 
 		maths::Vector<double> nextP(maths::Vector<double> P, maths::Vector<double> k, maths::Vector<double> OK, double rK, bool& found);
-		void toString(char* S, EinschlussInfo* E, int i);
-		std::ostream& operator << (std::ostream& os, EinschlussInfo E);
+		void toString(char* S, objectInfo* E, int i);
+		std::ostream& operator << (std::ostream& os, objectInfo E);
 
-		bool operator == (EinschlussInfo a, EinschlussInfo b);
+		bool operator == (objectInfo a, objectInfo b);
 		std::ostream& savebinGlobalParms(std::ostream& os, GlobalParms parms);
 		std::istream& loadbinGlobalParms(std::istream& os, GlobalParms& parms);
 		GlobalParms readGlobalParms(bool old, std::ifstream& is);

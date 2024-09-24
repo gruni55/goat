@@ -179,23 +179,23 @@ if (min>rad || max<-rad) return 0;
 
 			/* Bullet 3:  */
 			/*  test the 9 tests first (this was faster) */
-			fex = fabsf(e0[X]);
-			fey = fabsf(e0[Y]);
-			fez = fabsf(e0[Z]);
+			fex = fabs(e0[X]);
+			fey = fabs(e0[Y]);
+			fez = fabs(e0[Z]);
 			AXISTEST_X01(e0[Z], e0[Y], fez, fey);
 			AXISTEST_Y02(e0[Z], e0[X], fez, fex);
 			AXISTEST_Z12(e0[Y], e0[X], fey, fex);
 
-			fex = fabsf(e1[X]);
-			fey = fabsf(e1[Y]);
-			fez = fabsf(e1[Z]);
+			fex = fabs(e1[X]);
+			fey = fabs(e1[Y]);
+			fez = fabs(e1[Z]);
 			AXISTEST_X01(e1[Z], e1[Y], fez, fey);
 			AXISTEST_Y02(e1[Z], e1[X], fez, fex);
 			AXISTEST_Z0(e1[Y], e1[X], fey, fex);
 
-			fex = fabsf(e2[X]);
-			fey = fabsf(e2[Y]);
-			fez = fabsf(e2[Z]);
+			fex = fabs(e2[X]);
+			fey = fabs(e2[Y]);
+			fez = fabs(e2[Z]);
 			AXISTEST_X2(e2[Z], e2[Y], fez, fey);
 			AXISTEST_Y1(e2[Z], e2[X], fez, fex);
 			AXISTEST_Z12(e2[Y], e2[X], fey, fex);
@@ -267,8 +267,7 @@ if (min>rad || max<-rad) return 0;
 			maths::Vector<double> D = T.P[0] - B.P;
 			maths::Vector<double> A[3] = { maths::ex,maths::ey,maths::ez };
 
-			int i, j;
-			int l, m;
+			int i = 0;
 
 			E[0] = T.P[1] - T.P[0];
 			E[1] = T.P[2] - T.P[0];

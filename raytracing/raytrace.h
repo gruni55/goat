@@ -5,7 +5,7 @@
 #include "vector.h"
 #include "detector.h"
 #include "raybase.h"
-
+#include "superarray.h"
 
 namespace GOAT
 {
@@ -16,7 +16,7 @@ namespace GOAT
 		#define RAYTRACER_TYPE_OT   2	
 		#define RAYTRACER_TYPE_PURE  3
 
-
+		#define MAX_RECURSIONS 20
 		#define RAYTRACE_MAX_REFLEXIONS 2
 		/**
 		 * @brief Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings.
@@ -28,6 +28,7 @@ namespace GOAT
 		public:
 			Scene();  ///< Standard constructor 
 			Scene(const Scene& S); ///< Copy constructor
+			void setPhaseProgress(bool suppress_phase_progress);
 			void addObject(ObjectShape* Obj); ///< add single object to scene
 			void addObjectList(int nobj, ObjectShape** obj); ///< add a list of objects to scene, nobj: number of objects
 			void removeObject(int index); ///< removes object with index "index" from object list
@@ -58,8 +59,9 @@ namespace GOAT
 			int nDet = 0; ///< Number of detectors
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
-			double r0; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
-			int raytype; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			double r0=1E+100; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
+			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 		};
 
 
@@ -86,6 +88,7 @@ namespace GOAT
 			int lost; ///< Rays unintentionally get lost, e.g. due to total internal reflection 
 			int currentObj; ///< Number of the last object hit  (no object hit: -1)
 			int currentLS; ///< Number of the current light source, which is currently in the calculation process
+			GOAT::maths::Vector<INDEX_TYPE> currentIndex= GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 			maths::Vector<double> PStart, PStop; ///< Start and end point of the last step
 			maths::Vector<std::complex<double> > EStart, EStop; ///< Start and end value of the electric field 
 			maths::Vector<std::complex<double> > EStart2, EStop2;  ///< Start and end value of the electric field (second ray in IRay)
@@ -105,13 +108,14 @@ namespace GOAT
 			bool useRRTParms; ///< Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation
 			int type=RAYTRACER_TYPE_NONE; ///< Flag which shows which type of raytracer is selected
 
-		private:
+		
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
 				This parameter is needed to stop calculation after the maximal number of reflexions  @param recur: counter which will be set to the current recursion depth*/
-			void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
+			virtual void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
+			virtual void reset();
 			void copyRay(RayBase*& dest, RayBase* src);
 			RayBase* ray; ///< current ray 
-			RayBase* tray; ///< transmitted ray
+			RayBase* tray; ///< transmitted ray		
 			bool Abbruch; ///< flag to stop calculation
 			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
 		};
@@ -163,7 +167,11 @@ namespace GOAT
 			bool storeInFile = false;
 
 		};
-
+		/**
+		* @brief This class makes a raytracing without any output (except detectors)
+		* In this ray tracing class no reactions at the surface is included. 
+		* It is intended for calculation only with detectors
+		*/
 		class Raytrace_pure : public Raytrace
 		{
 		public:

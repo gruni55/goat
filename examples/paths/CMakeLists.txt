@@ -1,5 +1,4 @@
 # here all entries for the test program raytest
-cmake_minimum_required (VERSION 2.8.11)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/release)
@@ -26,6 +25,18 @@ add_executable (stlexample stlexample.cpp)
 target_compile_definitions (stlexample PUBLIC CALC_PATH)
 target_include_directories (stlexample PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (stlexample goat_raytracing goat_maths)
+
+add_executable (conepath conepath.cpp)
+target_compile_definitions (conepath PUBLIC CALC_PATH)
+target_include_directories (conepath PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (conepath goat_raytracing goat_maths)
+
+add_executable (mirror mirror.cpp)
+target_compile_definitions (mirror PUBLIC CALC_PATH)
+target_include_directories (mirror PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (mirror goat_raytracing goat_maths)
+
+
 
 install(TARGETS raytest
     RUNTIME DESTINATION bin

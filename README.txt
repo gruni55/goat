@@ -3,6 +3,9 @@ by Thomas Weigel (C) 2021
 
 this project requires CMake by Kitware, which can be downloaded from https://cmake.org/ 
 
+the XML support makes use of the library TinyXML-2 (the full library can be
+found on https://github.com/leethomason/tinyxml2)
+
 Please note that for Windows, the slash "/" must be replaced by the backslash "\" in the specifications for the directories. 
 
 
