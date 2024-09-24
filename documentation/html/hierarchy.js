@@ -33,10 +33,10 @@ var hierarchy =
     [ "GOAT::maths::Matrix< std::complex< double > >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::raytracing::MemInfo", "struct_g_o_a_t_1_1raytracing_1_1_mem_info.html", null ],
     [ "tinyxml2::MemPool", "classtinyxml2_1_1_mem_pool.html", [
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLComment) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
-      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLElement) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLComment) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< ITEM_SIZE >", "classtinyxml2_1_1_mem_pool_t.html", null ]
     ] ],
     [ "GOAT::raytracing::objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", null ],

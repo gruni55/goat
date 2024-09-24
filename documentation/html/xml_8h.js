@@ -1,7 +1,7 @@
 var xml_8h =
 [
-    [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
-    [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ],
+    [ "GOAT::XML::xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
+    [ "GOAT::XML::xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ],
     [ "numXML_LS_TYPES", "xml_8h.html#ad729ba2c20589b0e82f26dfbcf07828e", null ],
     [ "numXMLRootElements", "xml_8h.html#af0d3110eddf628bf7ec827130ea10c0c", null ],
     [ "XML_LS_TYPE_GAUSS", "xml_8h.html#abb55ad027dba791a5acc8635a060bf06", null ],

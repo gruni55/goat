@@ -1,69 +1,69 @@
-\hypertarget{surface_8h}{}\doxysection{raytracing/surface.h File Reference}
-\label{surface_8h}\index{raytracing/surface.h@{raytracing/surface.h}}
+\doxysection{raytracing/surface.h File Reference}
+\hypertarget{surface_8h}{}\label{surface_8h}\index{raytracing/surface.h@{raytracing/surface.h}}
 {\ttfamily \#include $<$complex$>$}\newline
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}vector.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}objectshape.\+h\char`\"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include "{}objectshape.\+h"{}}\newline
 {\ttfamily \#include $<$string.\+h$>$}\newline
-{\ttfamily \#include \char`\"{}triangle.\+h\char`\"{}}\newline
-\doxysubsection*{Classes}
+{\ttfamily \#include "{}triangle.\+h"{}}\newline
+\doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{GOAT\+::raytracing\+::surface}}
 \begin{DoxyCompactList}\small\item\em This class represents objects those surface is described by triangles. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Namespaces}
+\doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
- \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
 \begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
- \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \end{DoxyCompactItemize}
-\doxysubsection*{Macros}
+\doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{surface_8h_ae42978afd835c3a1f70d409a1b5f5a39}{SQRT3}}~1.\+73205080756887729352744634150587236694280525381038062805580
 \end{DoxyCompactItemize}
-\doxysubsection*{Functions}
+\doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad695661e64d33d269dbc65b5a13c252e}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const surface \&su)
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a82aabe65090ebaf61aa8514aa7139a17}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&su)
 \end{DoxyCompactItemize}
 \begin{Indent}\textbf{ operators on surface}\par
 {\em Operators, which act directly on the surface class }\begin{DoxyCompactItemize}
 \item 
-surface \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abbdc607b61ea4ff97be86b6f21b5fd04}{GOAT\+::raytracing\+::generate\+Bullet}} (double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_adf476c5ac64d648999ccad582e80a39c}{GOAT\+::raytracing\+::generate\+Bullet}} (double a, double h, double t, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \begin{DoxyCompactList}\small\item\em generates a cylinder with hexagonal cross section with a pyramid-\/shaped tip on the upper surface. \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac78d7b74c839c07fb829320096b52fd3}{GOAT\+::raytracing\+::generate\+Ellipsoid}} (double a, double b, int N, double r0=1.\+0, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac78d7b74c839c07fb829320096b52fd3}{GOAT\+::raytracing\+::generate\+Ellipsoid}} (double a, double b, int N, double r0=1.\+0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \begin{DoxyCompactList}\small\item\em Generiert einen hexagonalen Zylinder mit Seitenlänge a und Höhe h und einer pyramidalen Spitze. \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd8d5b420a55ba7db37ddfb125ef873a}{GOAT\+::raytracing\+::generate\+Hexagon\+Cylinder}} (double a, double h, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd8d5b420a55ba7db37ddfb125ef873a}{GOAT\+::raytracing\+::generate\+Hexagon\+Cylinder}} (double a, double h, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \begin{DoxyCompactList}\small\item\em \} \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a54be4faf95c9d3dc3848cad776670b05}{GOAT\+::raytracing\+::generate\+Hollow\+Hexagonal\+Cylinder}} (double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a54be4faf95c9d3dc3848cad776670b05}{GOAT\+::raytracing\+::generate\+Hollow\+Hexagonal\+Cylinder}} (double a, double h, double t, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \begin{DoxyCompactList}\small\item\em generates a cylinder with hexagonal cross section. At the upper and lower faces, there are pyramidal dips. \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a800fe986dd97969ec8c9aa8b641f08e5}{GOAT\+::raytracing\+::generate\+Pill}} (double a, double b, double h, int N, double r0=1.\+0, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a800fe986dd97969ec8c9aa8b641f08e5}{GOAT\+::raytracing\+::generate\+Pill}} (double a, double b, double h, int N, double r0=1.\+0, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \begin{DoxyCompactList}\small\item\em Generates a cylinder with ellipsoidal caps. \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af8e5b4805908366c7e4c42d8e6183229}{GOAT\+::raytracing\+::generate\+Poly\+Bullet}} (int n, double a, double h, double t, maths\+::\+Matrix$<$ double $>$ M=maths\+::\+UNITY)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af8e5b4805908366c7e4c42d8e6183229}{GOAT\+::raytracing\+::generate\+Poly\+Bullet}} (int n, double a, double h, double t, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ M=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a2dd26d9f28293a8e56d97660380ab622}{maths\+::\+UNITY}})
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe146fc689}{GOAT\+::raytracing\+::get\+Min\+Max}} (int num\+Triangles, triangle $\ast$S, double \&min, double \&max)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67369b8075430397fb11cffe146fc689}{GOAT\+::raytracing\+::get\+Min\+Max}} (int num\+Triangles, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*}S, double \&min, double \&max)
 \begin{DoxyCompactList}\small\item\em calculates the longest and shortest side length \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae6a8055163322a103e76c795333e69cb}{GOAT\+::raytracing\+::operator$\ast$}} (const maths\+::\+Matrix$<$ double $>$ \&M, const surface \&s)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae6a8055163322a103e76c795333e69cb}{GOAT\+::raytracing\+::operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \&M, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&s)
 \item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1ee415d06c371da35e392a769ea42632}{GOAT\+::raytracing\+::operator+}} (const maths\+::\+Vector$<$ double $>$ \&v, const surface \&s)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1ee415d06c371da35e392a769ea42632}{GOAT\+::raytracing\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&s)
 \begin{DoxyCompactList}\small\item\em adds vector v to all corners of the triangle list of the surface object s \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac7c2b09523977b858ecf36c2176e216d}{GOAT\+::raytracing\+::operator+}} (const surface \&s, const maths\+::\+Vector$<$ double $>$ \&v)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac7c2b09523977b858ecf36c2176e216d}{GOAT\+::raytracing\+::operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&s, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v)
 \begin{DoxyCompactList}\small\item\em \{ \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5d210bf4c939fd91910517f84e70730}{GOAT\+::raytracing\+::operator-\/}} (const maths\+::\+Vector$<$ double $>$ \&v, const surface \&s)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5d210bf4c939fd91910517f84e70730}{GOAT\+::raytracing\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&s)
 \begin{DoxyCompactList}\small\item\em subtracts vector v from all corners of the triangle list of the surface object s \end{DoxyCompactList}\item 
-surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1bb8016b176c61c48bc2313f25cfa02b}{GOAT\+::raytracing\+::operator-\/}} (const surface \&s, const maths\+::\+Vector$<$ double $>$ \&v)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1bb8016b176c61c48bc2313f25cfa02b}{GOAT\+::raytracing\+::operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&s, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&v)
 \begin{DoxyCompactList}\small\item\em subtracts vector v from all corners of the triangle list of the surface object s \end{DoxyCompactList}\end{DoxyCompactItemize}
 \end{Indent}
 
 
 \doxysubsection{Macro Definition Documentation}
-\mbox{\Hypertarget{surface_8h_ae42978afd835c3a1f70d409a1b5f5a39}\label{surface_8h_ae42978afd835c3a1f70d409a1b5f5a39}} 
+\Hypertarget{surface_8h_ae42978afd835c3a1f70d409a1b5f5a39}\label{surface_8h_ae42978afd835c3a1f70d409a1b5f5a39} 
 \index{surface.h@{surface.h}!SQRT3@{SQRT3}}
 \index{SQRT3@{SQRT3}!surface.h@{surface.h}}
 \doxysubsubsection{\texorpdfstring{SQRT3}{SQRT3}}
@@ -71,5 +71,5 @@ surface \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1bb8016b176c61c48bc231
 
 
 
-Definition at line 25 of file surface.\+h.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00025}{25}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 

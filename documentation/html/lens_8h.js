@@ -1,7 +1,7 @@
 var lens_8h =
 [
-    [ "lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
-    [ "lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1lens_side" ],
+    [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
+    [ "GOAT::raytracing::lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1lens_side" ],
     [ "Curvature", "lens_8h.html#aa4fd198b39861231289725c0b422e977", [
       [ "convex", "lens_8h.html#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde", null ],
       [ "concave", "lens_8h.html#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f", null ],
