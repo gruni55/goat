@@ -672,18 +672,19 @@ namespace GOAT
                 pc.setRefractiveIndexFunctions(nList);
 
                 double time = objEll->DoubleAttribute("Time", -1);
+                std::cout << "given time:" << time << std::endl;
                if (time < 0)
                 {
                     double offset = objEll->DoubleAttribute("Time_offset", 0);
                     int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);                    
                     time = pc.findHitTime(objEstimate);                    
-                    std::cout << "estimated time: " << time << std::endl << std::flush;
+                    std::cout << "estimated time: " << time << std::endl;
                     time+= offset;
                 }
 
 
                 std::string fullfname;
-                double d;
+                std::vector<double> d;
                 if (D>0)
                 {
                     const char* hStr;
@@ -708,9 +709,15 @@ namespace GOAT
                             GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
                         }
                       }
-                      if (hStr != NULL) corrOS << d << std::endl;
+                      if (hStr != NULL) 
+                      {
+                               for (int i=0; i<S.nObj; i++) corrOS << d[i]/(double)loopno << "\t";
+                              corrOS << std::endl;
+                      }  
                       loopno++;
-                    } while (true); // while ( (d>D) || (loopno<2));
+                    }
+                //   while ( (d[0]>D) || (loopno<2));
+               while (true); // while ( (d>D) || (loopno<2));
                   if (hStr != NULL) corrOS.close();
                 }
                 else

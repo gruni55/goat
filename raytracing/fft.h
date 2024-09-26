@@ -100,7 +100,8 @@ namespace GOAT
              */
             void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs);
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
-            double getD() { return D; } ///< relative change 
+            double getD(int i) { return D[i]; } ///< relative change in field of object i 
+            std::vector<double> getD() { return D;}
             void setNumberOfThreads(int n) {tp.number_of_threads=n;} ///< set number of threads which can be used by the program
             int getNumberOfThreads () {return tp.number_of_threads;} ///< get number of threads which can be used by the program
         private:
@@ -128,8 +129,9 @@ namespace GOAT
             double tref = 0.0;
             TrafoParms tp;
             std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)      
-            double D = 0;
+            std::vector<double> D;
             int number_of_threads;
+	    int numObjs=0;
         };
 	}
 }

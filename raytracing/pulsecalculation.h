@@ -71,7 +71,7 @@ namespace GOAT
                 void setNumberOfThreads(int n); ///< set the number of threads used for the calculation
                 int getNumberOfThreads(); ///< get the number of threads used for the calculation
 
-				double field(double t, int settings=PULSECALCULATION_CLEAR_SA); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
+				std::vector<double> field(double t, int settings=PULSECALCULATION_CLEAR_SA); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
 				void reset(); ///< Clears all arrays 		
 				void setReferenceTime(double tref);
 				Trafo trafo;

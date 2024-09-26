@@ -25,6 +25,7 @@ namespace GOAT
         void Trafo::clear()
         {
             SAres.clear();
+            D.clear();
         }
 
         void Trafo::empty()
@@ -36,13 +37,19 @@ namespace GOAT
         void Trafo::initResult(SuperArray<maths::Vector<std::complex<double> >>& SA)
         {           
             clear();
-            SAres = SuperArray<maths::Vector<std::complex<double> > >(SA.r0, SA.nges[0], SA.nges[1], SA.nges[2], SA.Obj, SA.numObjs);
+            SAres = SuperArray<maths::Vector<std::complex<double> > >(SA.r0, SA.nges[0], SA.nges[1], SA.nges[2], SA.Obj, SA.numObjs);             
+            for (int i=0; i<numObjs; i++)
+              D.push_back(0);
+            this->numObjs=numObjs; 
         }
 
         void Trafo::initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs)
         {
             clear();
             SAres = SuperArray<maths::Vector<std::complex<double> > >(r0, nx, ny, nz, Obj, numObjs);
+            for (int i=0; i<numObjs; i++)
+              D.push_back(0);
+            this->numObjs=numObjs;  
         }
 
        
@@ -118,13 +125,13 @@ namespace GOAT
                     for (int i = 0; i < SA[iOmega][iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
-//#if defined(_OPENMP)
-                            omp_set_num_threads(tp.number_of_threads);
-                            std::cout << "number of threads used:" << omp_get_num_threads() << std::endl;
+// #if defined(_OPENMP)
+                           //omp_set_num_threads(tp.number_of_threads);
+                            // std::cout << "number of threads used:" << omp_get_num_threads() << std::endl;
                              #pragma omp parallel for
 
 
-//#endif
+// #endif
                             // #pragma omp parallel for num_threads (7)
                             for (int ix = 0; ix < SA[iOmega][iR].n[i][0]; ix++) // loops over x-,y- and z- indices
                             {
@@ -151,16 +158,16 @@ namespace GOAT
         void Trafo::calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear)
         {
               //  auto start = std::chrono::high_resolution_clock::now();
-            D=0;
             int counter=0;
-            omp_set_num_threads(tp.number_of_threads);
+  //          omp_set_num_threads(tp.number_of_threads);
 
-            std::cout << "number of threads used:" << omp_get_num_threads() << "(" << tp.number_of_threads << ")" << std::endl;
+//            std::cout << "number of threads used:" << omp_get_num_threads() << "(" << tp.number_of_threads << ")" << std::endl;
             maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
                         {
+                         D[i]=0;  
 //  #pragma omp parallel for num_threads(6)
 #pragma omp parallel for
                             for (INDEX_TYPE ix = 0; ix < SA[iR].n[i][0]; ix++) // loops over x-,y- and z- indices
@@ -173,16 +180,18 @@ namespace GOAT
                                         if (SA[iR].G[i][ix][iy][iz].size() > 0)
                                         {
                                             maths::Vector<std::complex<double>> hint=integrate(t, SA[iR].G[i][ix][iy][iz], omegaStart, omegaEnd);
-                                            double absold = abs(SAres.G[i][ix][iy][iz]);
-                                            if (absold > 1E-20) { D += abs(hint) / absold; }
+                                            // double absold = abs(SAres.G[i][ix][iy][iz]);
+                                            //if (absold > 1E-20) { D += abs(hint) / absold; }
                                             SAres.G[i][ix][iy][iz] += hint;
+                                            D[i]+=abs2(SAres.G[i][ix][iy][iz]);
                                             counter++;
                                             if (do_clear) SA[iR].G[i][ix][iy][iz].clear();
                                         }
                                     }
                              }
+                          D[i]/=counter; 
                         }
-                 D/=counter;
+                 // D/=counter;
               //  auto end = std::chrono::high_resolution_clock::now();
               //  std::cout << "%integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
         }

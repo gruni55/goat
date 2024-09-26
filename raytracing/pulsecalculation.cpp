@@ -145,7 +145,7 @@ namespace GOAT
 			trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));			
 		}
 
-		double pulseCalculation::field(double t, int settings)
+		std::vector<double> pulseCalculation::field(double t, int settings)
 		{
 			this->settings = settings;
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
