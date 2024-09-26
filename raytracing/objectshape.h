@@ -18,7 +18,6 @@
 #include "matrix.h"
 #include "vector.h"
 
-#include "resutil.h"
 #include <fstream>
 // #include <time.h>
 namespace GOAT {
@@ -64,7 +63,7 @@ namespace GOAT {
             @brief Constructor, as template for all derived classes.
             @param P position of the object (reference point)
             @param n refractive index (complex)
-            @alpha polarisabilty matrix#include "raytrace.h"
+            @alpha polarizability matrix
             @param Ex, Ey, Ez direction of the object's coordinate system (default values: ex, ey and ez)
             @type  type of the object, defines the shape (default value: -1, no shape)
             */

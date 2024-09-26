@@ -120,9 +120,7 @@ namespace GOAT
 			double wave;
 			bool isKoherent;
 		};
-
-
-		class GlobalParms
+        class GlobalParms
 		{
 			/*
 			nx,ny     : Anzahl der Gitterpunkte in x/y-Richtung
@@ -146,7 +144,7 @@ namespace GOAT
 			GlobalParms();
 
 			/// Radius der "Weltkugel"
-			double r0;
+            double r0;
 
 			/// Anzahl der Gitterpunkte in x/y-Richtung
 			int nx, ny;
@@ -185,7 +183,7 @@ namespace GOAT
 		std::ostream& operator << (std::ostream& os, GlobalParms& parms);
 		std::istream& operator >> (std::istream& is, GlobalParms& parms);
 
-		double abs2(double x);
+        double abs2(double x); ///< returns the squared absolute value of x
 
 		void output(int nx, int ny, maths::Vector<std::complex<double> >** G);
 		void init_Strahl(GlobalParms Parms, StrahlArray* Strahl);

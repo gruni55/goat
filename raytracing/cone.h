@@ -17,7 +17,7 @@ namespace GOAT
 		public:
 			Cone();
 			/**
-			 * @brief Constructor which defines the cone by the the reference point, radius and height			 
+             * @brief Constructor which defines the cone by the reference point, radius and height
 			 * @param Pos: Reference point in the center of the base (acts as position of the cone)
 			 * @param radius: Radius of the base area
 			 * @param height: Height of the cone

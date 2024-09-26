@@ -4,6 +4,9 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+#ifdef WITH_SUPERGITTER
+		extern GOAT::maths::Vector<INDEX_TYPE> currentIndex;
+#endif
 		Raytrace_usp::Raytrace_usp()
 		{
 		}
@@ -74,7 +77,6 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 			stepEntry ge;
 			gridEntry gridStack;		
 			bool cancel = false;
-			// std::cout << PStart << "\t" << PStop << std::endl;
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
 			if ( (L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
@@ -85,7 +87,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				gridStack.step.push_back(ge);
 				while ( (s < L) && (!cancel) )
 				{
-					Pnew = pnext(P, kin, SA[iR],1E-100);  // search next grid cell					
+					Pnew = pnext(P, kin, SA[iR],currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;
@@ -106,7 +108,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				    if (SA[iR].Error == NO_ERRORS)
 					{	
 						gridStack.step.back() = ge;
-						SA[iR](currentObj, cell).push_back(gridStack);							
+						SA[iR](currentObj, cell).push_back(gridStack);
 						SA[iR](currentObj, cell).back().E = E;
  						// gridStack.step.push_back(ge);						
 					}		

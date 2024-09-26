@@ -32,6 +32,7 @@ namespace GOAT
             double wvl=1.0;                 ///< main wavelength (in µm)  
             double dt=100;                  ///< width of the pulse (in femto seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
+            int number_of_threads=5; ///< number of threads which should be used for calculation
         } TrafoParms;
 
         
@@ -61,10 +62,10 @@ namespace GOAT
              * @brief calculation of the Fourier transformation.
              * The calculation of the Fourier transformation is made in a certain frequency intervall at the time t
              * @param SA this SuperArray structure contains the information gathered in the raytracing part. 
-             * @param omegaStart Start frequency (in \f$fs^{-1}\f$) of the frequency intervall 
-             * @param omegaStop End frequency (in \f$fs^{-1}\f$) of the frequency intervall 
+             * @param omegaStart Start frequency (in \f$s^{-1}\f$ ) of the frequency intervall
+             * @param omegaStop End frequency (in \f$s^{-1}\f$) of the frequency intervall
              */
-            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t); 
+            void calc(std::vector<SuperArray <std::vector<gridEntry> > > & SA, double omegaStart, double omegaEnd, double t, bool do_clear=true);
             SuperArray<maths::Vector<std::complex<double> > >SAres; ///< Container for the last result     
             /**
              * @brief Set the refractive index functions.
@@ -99,6 +100,9 @@ namespace GOAT
              */
             void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs);
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
+            double getD() { return D; } ///< relative change 
+            void setNumberOfThreads(int n) {tp.number_of_threads=n;} ///< set number of threads which can be used by the program
+            int getNumberOfThreads () {return tp.number_of_threads;} ///< get number of threads which can be used by the program
         private:
             double pulseWeight(double omega);
             /**
@@ -112,7 +116,7 @@ namespace GOAT
             {
                 for (int i = 0; i < nList.size(); i++)
                     currNList[i] = nList[i](wvl);
-            }
+            }            
         //    void createLTexpo();
             std::complex<double> calcPhase(std::vector<stepEntry> steps, double k0);
             GOAT::maths::Vector<std::complex<double> > calcOne(std::vector<stepEntry> steps, double t);
@@ -123,7 +127,9 @@ namespace GOAT
             std::vector<double> freq;
             double tref = 0.0;
             TrafoParms tp;
-            std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)            
+            std::vector<std::complex<double > > currNList; ///< here, the refractive indices for the current wavelength are stored (for faster calculation)      
+            double D = 0;
+            int number_of_threads;
         };
 	}
 }

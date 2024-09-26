@@ -51,6 +51,7 @@ namespace GOAT
 			maths::Vector<double> position() { return P; } ///< returns the position of the detector 
 			maths::Vector<double> norm() { return n; } ///< returns the normal vector of the detectors surface
 		friend std::ostream& operator << (std::ostream& os, Detector& D);
+		std::string fname;
 	protected:
 		maths::Vector<double> e1;
 		maths::Vector<double> e2;

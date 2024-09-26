@@ -29,3 +29,5 @@ int main (int argc, char **argv)
 	GOAT::raytracing::saveFullE(rf.SE, "C:\\users\\thomas\\data\\field2.dat");
 	return 0;
 }
+
+

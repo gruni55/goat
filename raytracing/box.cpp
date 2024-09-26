@@ -516,20 +516,13 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 	maths::Vector<double>p = ps - P;
 			p = H * p;
-			/*	if (fabs(p[0] - d[0] / 2.0) < EPS) { cout << "n=" << ex << endl; return ex; }
-				if (fabs(p[0] + d[0] / 2.0) < EPS) { cout << "n=" << -ex << endl; return -ex; }
-				if (fabs(p[1] - d[1] / 2.0) < EPS) { cout << "n=" << ey << endl; return  ey; }
-				if (fabs(p[1] + d[1] / 2.0) < EPS) { cout << "n=" << -ey << endl; return -ey; }
-				if (fabs(p[2] - d[2] / 2.0) < EPS) { cout << "n=" << ez << endl; return ez; }
-				if (fabs(p[2] + d[2] / 2.0) < EPS) { cout << "n=" << -ez << endl; return -ez;  } */
-
+  
 			if (fabs(p[0] - d[0] / 2.0) < EPS) return R * maths::ex;
 			if (fabs(p[0] + d[0] / 2.0) < EPS) return -R * maths::ex;
 			if (fabs(p[1] - d[1] / 2.0) < EPS) return  R * maths::ey;
 			if (fabs(p[1] + d[1] / 2.0) < EPS) return -R * maths::ey;
 			if (fabs(p[2] - d[2] / 2.0) < EPS) return R * maths::ez;
 			if (fabs(p[2] + d[2] / 2.0) < EPS) return -R * maths::ez;
-			//        cout << "n=" << zero << "   ps=" << ps << "   p=" << p << "   d=" << d << "    p[0] - d[0] / 2.0=" << p[0] - d[0] / 2.0 << endl;
 			return maths::one;
 		}
 

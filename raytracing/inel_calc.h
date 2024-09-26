@@ -1,3 +1,5 @@
+
+#pragma once
 #include <complex>
 #include <math.h>
 #include "vector.h"
@@ -42,12 +44,12 @@ namespace GOAT
 #define SGN(x) (x<0) ? -1 : (x>0)
         SuperArray<maths::Vector<std::complex<double> > > verfolgung(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<maths::Vector<std::complex<double> > >&git);
 
-        GOAT::maths::Vector<INDEX_TYPE> currentIndex(-1, -1, -1);
+        // 
         
 
-       template<class T>  maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T> &git);
+       template<class T>  maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T> &git, GOAT::maths::Vector<INDEX_TYPE>&currentIndex);
 
-        template<class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T> &git, double eps);
+        template<class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T> &git, GOAT::maths::Vector<INDEX_TYPE>& currentIndex, double eps);
         #endif
         maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, maths::Vector<double> d, double eps=1E-50);
         maths::Vector<double> pnext(Plane E, maths::Vector<double> p0s, maths::Vector<double> k0s, maths::Vector<double> d, double eps=1E-50);
@@ -63,7 +65,7 @@ namespace GOAT
 
 #define NUM_EPS 1E-10
 
-        template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git)
+        template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git, GOAT::maths::Vector<INDEX_TYPE>& currentIndex)
         {
             double lambdax, lambday, lambdaz, lambda;
             // double signx, signy, signz;
@@ -111,7 +113,7 @@ namespace GOAT
             
         }
 
-        template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git, double eps)
+        template <class T> maths::Vector<double> pnext(maths::Vector<double> p0, maths::Vector<double> k0, SuperArray<T>& git, GOAT::maths::Vector<INDEX_TYPE>& currentIndex, double eps)
         {
             double lambdax = DBL_MAX; 
             double lambday = DBL_MAX; 

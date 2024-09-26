@@ -26,6 +26,18 @@ target_compile_definitions (stlexample PUBLIC CALC_PATH)
 target_include_directories (stlexample PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (stlexample goat_raytracing goat_maths)
 
+add_executable (conepath conepath.cpp)
+target_compile_definitions (conepath PUBLIC CALC_PATH)
+target_include_directories (conepath PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (conepath goat_raytracing goat_maths)
+
+add_executable (mirror mirror.cpp)
+target_compile_definitions (mirror PUBLIC CALC_PATH)
+target_include_directories (mirror PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (mirror goat_raytracing goat_maths)
+
+
+
 install(TARGETS raytest
     RUNTIME DESTINATION bin
     LIBRARY DESTINATION lib

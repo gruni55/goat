@@ -9,8 +9,6 @@
 
 #pragma once
 #include <complex>
-#include "fresnel.h"
-#include "resutil.h"
 #include "vector.h"
 #include "matrix.h"
 #include "plane.h"

@@ -1,25 +1,33 @@
-#include "pulsecalculation.h"
+// #include "pulsecalculation.h"
 #include "fft.h"
-#include <chrono>
+
 
 namespace GOAT
 {
 	namespace raytracing
 	{
-		pulseCalculation::pulseCalculation(Scene S)
+		template <class T> pulseCalculation<T>::pulseCalculation()
+		{
+
+		}
+
+		template <class T> pulseCalculation<T>::pulseCalculation(Scene S)
 		{
 			this->S = S;
-			setDefaults();			
+			setDefaults();
+			
 			trafo = Trafo(trafoparms);			
 		}
 
-		double pulseCalculation::findHitTime(int ObjNo)
+		template <class T> double pulseCalculation<T>::findHitTime(int ObjNo)
 		{			
 			int nI = trafoparms.nI;
 			int nS = trafoparms.nS;
 			setSpectralRanges(1);
 			setNumWavelengthsPerRange(1);
-			field(0,false);
+
+			field(0);
+
 			// find the first element which was hit by a ray
 			bool found = false;
 			INDEX_TYPE fix, fiy, fiz;
@@ -31,7 +39,7 @@ namespace GOAT
 						if (found) { fix = ix; fiy = iy; fiz = iz; }
 					}
 			
-	//		std::cout << "fix=" << fix << "\tfiy=" << fiy << "\tfiz=" << fiz << std::endl;
+			
 			
 			double time = 0.0;
 			if (found)
@@ -44,13 +52,13 @@ namespace GOAT
 			return time;
 		}
 
-		void pulseCalculation::setReferenceTime(double tref)
+		template <class T> void pulseCalculation<T>::setReferenceTime(double tref)
 		{
 			this->tref = tref;
 			trafo.setReferenceTime(tref);
 		}
       
-                void pulseCalculation::calcTrafoParms()
+		template <class T> void pulseCalculation<T>::calcTrafoParms()
                 {
  			// double Sigma= (2.0 * sqrt(M_LN2)) / trafoparms.dt; // Spectral sigma
 					double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
@@ -63,14 +71,14 @@ namespace GOAT
 			trafo.setTrafoParms(trafoparms);
                 }
 				
-		void pulseCalculation::setCenterWavelength(double wvl)
+		template <class T> void pulseCalculation<T>::setCenterWavelength(double wvl)
 		{
 			trafoparms.wvl = wvl;
 			trafoparms.omega0 = C_LIGHT_MU_FS / wvl * 2.0 * M_PI;
                         calcTrafoParms();
 		}
 
-		void pulseCalculation::setBandwidth(double dWvl)
+		template <class T> void pulseCalculation<T>::setBandwidth(double dWvl)
 		{
 			this->dWvl = dWvl;
 			double Domega = 2.0 * M_PI * C_LIGHT_MU_FS * dWvl / (trafoparms.wvl * trafoparms.wvl);
@@ -78,17 +86,8 @@ namespace GOAT
 			trafoparms.omegaStart = trafoparms.omega0 + Domega / 2.0;
 		}
 
-        void pulseCalculation::setNumberOfThreads(int n)
-        {
-            trafoparms.number_of_threads=n;
-        }
 
-        int pulseCalculation::getNumberOfThreads()
-        {
-            return trafoparms.number_of_threads;
-        }
-
-		void pulseCalculation::fieldCalculation()
+		template <class T> void pulseCalculation<T>::fieldCalculation()
 		{			
 			double Sigma = 2.3548 / trafoparms.dt;
 			double Domega = 20.0 * Sigma;			
@@ -99,7 +98,6 @@ namespace GOAT
 			trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 			trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 			trafo.setTrafoParms(trafoparms);
-
 			for (int i = 0; i < trafoparms.nI; i++)
 			{
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
@@ -116,10 +114,9 @@ namespace GOAT
 			}			
 		}
 
-		void pulseCalculation::fieldCalculation(double omega)
+		template <class T> void pulseCalculation<T>::fieldCalculation(double omega)
 		{
 			double wavelength = 2.0 * M_PI / omega * C_LIGHT_MU_FS;
-			std::cout << "wavelength=" << wavelength << std::endl;
 
 			// clear the old raytracing results
 		    // rt.clear();
@@ -139,19 +136,17 @@ namespace GOAT
 		}
 
 
-		void pulseCalculation::setRepetitionRate(double rep)
+		template <class T> void pulseCalculation<T>::setRepetitionRate(double rep)
 		{
 			double Domega = trafoparms.omegaEnd - trafoparms.omegaStart;
 			trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));			
 		}
 
-		double pulseCalculation::field(double t, int settings)
+		template <class T>void pulseCalculation<T>::field(double t)
 		{
-			this->settings = settings;
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Domega = 10.0 * 4.0 * M_LN2 / trafoparms.dt;
-            std::cout << "% Domega=" << Domega << std::endl;
-            std::cout << "% time=" << t << "fs" << std::endl;
+			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+std::cout << "Domega=" << Domega << std::endl;
 
 
 //			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
@@ -162,17 +157,10 @@ namespace GOAT
             double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
 			double wvl;
-		    if((settings==PULSECALCULATION_CLEAR_SA) || (fieldCalls==0))
-			{
-				trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
-				reset();
-			}
-
-			fieldCalls++;
+		trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
 		    // loop over the frequency ranges
 			for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 			{
-
 				omega = omegaStart + (double)iOmega * domega;				
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega; // center wavelength of the current range
 
@@ -181,16 +169,9 @@ namespace GOAT
                 wvl2=  2.0 * M_PI * C_LIGHT_MU_FS / (omega+0.5*domega);
 				std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
 
-				auto startrt = std::chrono::high_resolution_clock::now();
-				fieldCalculation(omega); // do the raytracing
-				auto endrt = std::chrono::high_resolution_clock::now();
-                std::cout << "% time for raytracing " << std::chrono::duration_cast<std::chrono::microseconds>(endrt - startrt).count() / 1000000 << " s" << std::endl;
-                auto start = std::chrono::high_resolution_clock::now();
-                trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t, settings & PULSECALCULATION_NOT_CLEAR_SA); // do the Fourier transform
-				auto end = std::chrono::high_resolution_clock::now();
-				std::cout << "% integration time: " << std::chrono::duration_cast<std::chrono::microseconds>(end - start).count() / 1000000 << " s" << std::endl;
+				fieldCalculation(omega); // do the raytracing				
+				trafo.calc(rt.SA, omega - domega * 0.5, omega + domega * 0.5, t); // do the Fourier transform
 			}
-			return trafo.getD();
 		}
 
 	/*	void pulseCalculation::field(double t)
@@ -209,7 +190,7 @@ namespace GOAT
 			}
 		}
 		*/
-		void pulseCalculation::reset()
+		template <class T> void pulseCalculation<T>::reset()
 		{
 			// first, let's clear the array where the ray paths and the materials are stored
 			for ( SuperArray<std::vector<gridEntry> >  SAElement : SA)
@@ -218,17 +199,16 @@ namespace GOAT
 			}
 			SA.clear();
 			raytracingDone = false;
-			fieldCalls = 0;
 		}
 
 
-		void pulseCalculation::setPulseWidth(double dt)
+		template <class T> void pulseCalculation<T>::setPulseWidth(double dt)
 		{
 			trafoparms.dt = dt;
             calcTrafoParms();	 
 		}
 
-		void pulseCalculation::setDefaults()
+		template <class T>void pulseCalculation<T>::setDefaults()
 		{
 			trafoparms.dt = 100;
 			trafoparms.wvl = 1.0;
@@ -239,34 +219,40 @@ namespace GOAT
 			setSpatialResolution(1.0);
 		}
 
-		void pulseCalculation::setSpectralRanges(int nI)
+		template <class T> void pulseCalculation<T>::setSpectralRanges(int nI)
 		{
 			trafoparms.nI = nI;
 			trafo.setTrafoParms(trafoparms);
 		}
 
-		void pulseCalculation::setNumWavelengthsPerRange(int nS)
+		template <class T> void pulseCalculation<T>::setNumWavelengthsPerRange(int nS)
 		{
 			trafoparms.nS = nS;
 			trafo.setTrafoParms(trafoparms);
 		}
 
 
-		void pulseCalculation::setSpatialResolution(double dx)
+		template <class T> void pulseCalculation<T>::setSpatialResolution(double dx)
 		{
 			nn = 2.0 * S.r0 / dx;
 		}
 
-		void pulseCalculation::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)
+		template <class T> void pulseCalculation<T>::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)
 		{
 			trafoparms.nList = nList;	
 			trafo.setRefractiveIndexFunctions(nList);			
 		}
 
-		void pulseCalculation::setNumReflex(int numReflex)
+		template <class T> void pulseCalculation<T>::setNumReflex(int numReflex)
 		{
 			this->numReflex = numReflex;
 			rt.setNumReflex(numReflex);
+		}
+
+		void pulseCalculation<Raytrace_field_usp>::setSpatialResolution(double dx)
+		{
+			nn = 2.0 * S.r0 / dx;
+			rt.setResolution(dx);
 		}
 	}
 }
