@@ -24,7 +24,11 @@ namespace GOAT
 			void setNumReflex(int numReflex);
 			void setPulseWidth(double dt);
 			void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
-			
+			/*
+				* Returns the number of cells per direction, nn along each axis of the calculation space.
+				* The spatial resolution is then 2*r0/nn. This number is changed by calling #setSpatialResolution
+				*/
+			INDEX_TYPE getNumCellsPerDirection() { return nn; }
 			Raytrace_usp_rt rt;
 			Scene S;
 			INDEX_TYPE nn = 0;

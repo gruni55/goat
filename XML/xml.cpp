@@ -4,7 +4,7 @@
 #include "xml.h"
 #include "lens.h"
 #include "sphericLens.h"
-#include "pulsecalculation.h"
+#include "pulsecalculation_rt.h"
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
 
@@ -162,6 +162,8 @@ namespace GOAT
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                          LS[numLS]=new GOAT::raytracing::LightSrcRing(Pos, numRays, wavelength, rmin,rmax);
+														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+														 LS[numLS]->setk(k);
                                                         break;
                                                         }
                     case TOKEN_LIGHTSOURCE_RING_MC:
@@ -170,7 +172,9 @@ namespace GOAT
                                                           rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                           rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                            LS[numLS]=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax);
-                                                          break;
+														   GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+														   LS[numLS]->setk(k);
+														   break;
                                                         }
                     case TOKEN_LIGHTSOURCE_GAUSSIAN_RING_MC :
                                                         {
@@ -181,6 +185,8 @@ namespace GOAT
                                                          width=lsEll->DoubleAttribute("width",rmax);
                                                           LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax);
                                                          ((GOAT::raytracing::LightSrcRingGauss_mc *)LS[numLS])->setFWHM(width);
+														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+														 LS[numLS]->setk(k);
                                                          break;
                                                         }
 
@@ -597,19 +603,20 @@ namespace GOAT
             std::string fname = objEll->Attribute("Filename");
             if (!fname.empty())
             {
-                GOAT::raytracing::pulseCalculation pc(S);
+                GOAT::raytracing::pulseCalculation_rt pc(S);
                 GOAT::raytracing::TrafoParms trafoparms;
-                trafoparms = pc.getTrafoParms();
+                //trafoparms = pc.getTrafoParms();
                 pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
                 pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
-                pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
+                //pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
                 pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
                 pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
-                pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
-                pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
+                //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+                // pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
                 double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
                 if (repRate > 0) pc.setRepetitionRate(repRate);
                 double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
+				
                 pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
                 double D=objEll->DoubleAttribute("D",-1.0);
                 char cs[3];
@@ -672,11 +679,12 @@ namespace GOAT
                 pc.setRefractiveIndexFunctions(nList);
 
                 double time = objEll->DoubleAttribute("Time", -1);
+				std::cout << "time:" << time << std::endl;
                if (time < 0)
                 {
                     double offset = objEll->DoubleAttribute("Time_offset", 0);
                     int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);                    
-                    time = pc.findHitTime(objEstimate);                    
+//                    time = pc.findHitTime(objEstimate);                    
                     std::cout << "estimated time: " << time << std::endl << std::flush;
                     time+= offset;
                 }
@@ -698,14 +706,16 @@ namespace GOAT
                     int loopno=0;
                     do
                     {
-                      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
+                //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
+						pc.field(time);
 
                       for (int i = 0; i < S.nObj; i++)
                       {
                         if (S.Obj[i]->isActive())
                         {
                             fullfname = fname + std::to_string(i) + ".dat";
-                            GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+                            // GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+							GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
                         }
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
@@ -721,7 +731,7 @@ namespace GOAT
                         if (S.Obj[i]->isActive())
                         {
                             fullfname = fname + std::to_string(i) + ".dat";
-                            GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+                            GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
                         }
                       }
                 }

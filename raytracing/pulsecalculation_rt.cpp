@@ -42,6 +42,7 @@ namespace GOAT
 				double omega;
 				double wvl1, wvl2;
 				rt = Raytrace_usp_rt(S, nn);
+				rt.setRefractiveIndexFunctions(trafoparms.nList);
 				double wvl;
 				double sigma = trafoparms.dt / (2.0 * M_LN2);
 				std::complex<double> weight;
@@ -107,6 +108,7 @@ namespace GOAT
 			void pulseCalculation_rt::setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double) > > nList)
 			{
 				trafoparms.nList = nList;
+				rt.setRefractiveIndexFunctions(nList);
 			}
 
 			void pulseCalculation_rt::setNumReflex(int numReflex)

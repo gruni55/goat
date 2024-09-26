@@ -61,7 +61,7 @@ namespace GOAT
 			for (int i = 0; i < S.nLS; i++)
 				S.LS[i]->setWavelength(wvl);
 
-			Raytrace::trace();			
+			Raytrace::trace();						
 		}
 
 		void Raytrace_usp_rt::storeData()
@@ -75,13 +75,13 @@ namespace GOAT
 			maths::Vector<INDEX_TYPE> cell;
 			bool cancel = false;
 			
-//			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
+			GOAT::maths::Vector<INDEX_TYPE> currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
 			if ((L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
 			{				
 				while ((s < L) && (!cancel))
 				{
-					Pnew = pnext(P, kin, SA[iR], 1E-100);  // search next grid cell					
+					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
 					if (cancel) std::cout << "% Abort !!!!  " << P << "," << l << std::endl;
@@ -89,14 +89,14 @@ namespace GOAT
 					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
 					// put everything in the Array
-					SA[iR](currentObj, cell);
-					if (SA[iR].Error == NO_ERRORS)
+					SA[0](currentObj, cell);
+					if (SA[0].Error == NO_ERRORS)
 					{
-						SA[iR](currentObj, cell) += EStart * exp(I * k0 * s) * weight;
+						SA[0](currentObj, cell) += EStart * exp(I * k0 * s) * weight;
 					}
 					else
 					{
-						SA[iR].Error = NO_ERRORS;
+						SA[0].Error = NO_ERRORS;
 					}
 					P = Pnew;
 				}
@@ -109,7 +109,7 @@ namespace GOAT
 		}
 
 		void Raytrace_usp_rt::traceEnterObject()
-		{						
+		{			
 		}
 
 		void Raytrace_usp_rt::traceLeaveObject()
