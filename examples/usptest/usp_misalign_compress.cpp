@@ -156,20 +156,20 @@ std::string fname="/home/weigel/data/test.dat";
    LS.setNumRays(nRays);
    LS.setD(2.0*r);
 
-  double D;
+  std::vector<double> D;
   std::ofstream oserr;
   oserr.open("/home/weigel/data/testerr2.dat");
   int counter=0;
    do
   {
 	  D = pc.field(time-500, GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
-	  oserr <<  D << std::endl;
-      std::cout << "% D:" << D << std::endl;
+	  oserr <<  D[0] << std::endl;
+      std::cout << "% D:" << D[0] << std::endl;
       counter++;
     //  fname="/home/weigel/data/test" + std::to_string(counter) + ".dat";
     //  std::cout << "% write file: " << fname << std::endl;
 	  GOAT::raytracing::saveFullE(pc.trafo.SAres, "/home/weigel/data/start.dat", 4);
       GOAT::raytracing::saveFullE(pc.trafo.SAres, "/home/weigel/data/end.dat", 5);
-  }  while (D > 1E-10);
+  }  while (D[0] > 1E-10);
 
 }
