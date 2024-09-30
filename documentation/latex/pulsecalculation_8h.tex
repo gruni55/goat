@@ -1,19 +1,58 @@
 \doxysection{raytracing/pulsecalculation.h File Reference}
 \hypertarget{pulsecalculation_8h}{}\label{pulsecalculation_8h}\index{raytracing/pulsecalculation.h@{raytracing/pulsecalculation.h}}
-{\ttfamily \#include \"{}superarray.\+h\"{}}\newline
-{\ttfamily \#include \"{}fft.\+h\"{}}\newline
-{\ttfamily \#include \"{}raytrace\+\_\+usp.\+h\"{}}\newline
+{\ttfamily \#include "{}superarray.\+h"{}}\newline
+{\ttfamily \#include "{}fft.\+h"{}}\newline
+{\ttfamily \#include "{}raytrace\+\_\+usp.\+h"{}}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation$<$ T $>$}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. ~\newline
  \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pulsecalculation_8h_abe2ab0c4ebf3d14b5a4610839ad7e930}{PULSECALCULATION\+\_\+\+CLEAR\+\_\+\+SA}}~0
+\item 
+\#define \mbox{\hyperlink{pulsecalculation_8h_af8e9da163c3d7f3061a6f5a20599b172}{PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+SA}}~1
+\begin{DoxyCompactList}\small\item\em Flag, set when the SA Super\+Array should not be cleared. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a35b77cfead80a1270e41c3a7480eedd3}{GOAT\+::raytracing\+::\+PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+RESULT}} = 2
+\begin{DoxyCompactList}\small\item\em Flag, set when the results should not be cleared when calling field () in \doxylink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{pulsecalculation_8h_abe2ab0c4ebf3d14b5a4610839ad7e930}\label{pulsecalculation_8h_abe2ab0c4ebf3d14b5a4610839ad7e930} 
+\index{pulsecalculation.h@{pulsecalculation.h}!PULSECALCULATION\_CLEAR\_SA@{PULSECALCULATION\_CLEAR\_SA}}
+\index{PULSECALCULATION\_CLEAR\_SA@{PULSECALCULATION\_CLEAR\_SA}!pulsecalculation.h@{pulsecalculation.h}}
+\doxysubsubsection{\texorpdfstring{PULSECALCULATION\_CLEAR\_SA}{PULSECALCULATION\_CLEAR\_SA}}
+{\footnotesize\ttfamily \#define PULSECALCULATION\+\_\+\+CLEAR\+\_\+\+SA~0}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00015}{15}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{pulsecalculation_8h_af8e9da163c3d7f3061a6f5a20599b172}\label{pulsecalculation_8h_af8e9da163c3d7f3061a6f5a20599b172} 
+\index{pulsecalculation.h@{pulsecalculation.h}!PULSECALCULATION\_NOT\_CLEAR\_SA@{PULSECALCULATION\_NOT\_CLEAR\_SA}}
+\index{PULSECALCULATION\_NOT\_CLEAR\_SA@{PULSECALCULATION\_NOT\_CLEAR\_SA}!pulsecalculation.h@{pulsecalculation.h}}
+\doxysubsubsection{\texorpdfstring{PULSECALCULATION\_NOT\_CLEAR\_SA}{PULSECALCULATION\_NOT\_CLEAR\_SA}}
+{\footnotesize\ttfamily \#define PULSECALCULATION\+\_\+\+NOT\+\_\+\+CLEAR\+\_\+\+SA~1}
+
+
+
+Flag, set when the SA Super\+Array should not be cleared. 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00016}{16}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+

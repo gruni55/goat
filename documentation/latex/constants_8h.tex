@@ -4,33 +4,33 @@
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
 \#define \mbox{\hyperlink{constants_8h_aaa394eb43d83411862c2480cca91d331}{c\+\_\+light}}~299792458.\+0
-\item 
-\#define \mbox{\hyperlink{constants_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
-\item 
-\#define \mbox{\hyperlink{constants_8h_a913e4feb488dce7bfeee4b0e4f886a11}{mu0}}~4.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI\texorpdfstring{$\ast$}{*}1E-\/7
-\item 
+\begin{DoxyCompactList}\small\item\em speed of light in vacuum in m/s \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{constants_8h_a77e87d06f5832eb1a8c064c37e301087}{eps0}}~8.\+854187817E-\/12
-\item 
+\begin{DoxyCompactList}\small\item\em vacuum permittvity in $F\cdot m^{-1}$ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_a913e4feb488dce7bfeee4b0e4f886a11}{mu0}}~4.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI\texorpdfstring{$\ast$}{*}1E-\/7
+\begin{DoxyCompactList}\small\item\em vacuum permeability in $F\cdot A^{-2}$ \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{constants_8h_a390d4f025a7c09f071fd3f6804669ddb}{Planck\+\_\+h}}~6.\+62606896E-\/34
-\item 
+\begin{DoxyCompactList}\small\item\em Planck constant in Js. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{constants_8h_a26242616de488ad628c1967a436a520c}{Planck\+\_\+hquer}}~1.\+054571628E-\/34
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em reduced Planck constant in Js \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{constants_8h_a49a0a00a612635d79a06bbe9fc15c094}{Z0}}~376.\+730313461
+\begin{DoxyCompactList}\small\item\em impedance of the free space $Z_0=\sqrt{\frac{\mu_0}{\epsilon_0}}=\mu_0\cdot c_{light}$ in Ohms \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4dd897507847680da7b14f9baf245d13}{GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT}} = 299792458
-\begin{DoxyCompactList}\small\item\em speed of light in m\texorpdfstring{$\ast$}{*}s\texorpdfstring{$^\wedge$}{\string^}-\/1 \end{DoxyCompactList}\item 
-constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
-\begin{DoxyCompactList}\small\item\em speed of light in m\texorpdfstring{$\ast$}{*}fs\texorpdfstring{$^\wedge$}{\string^}-\/1 \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em speed of light in $ m\cdot s^{-1}$ \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9baf6f59e4e3a730ffd11e}{GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT\+\_\+\+MU}} = 299792458E+6
-\begin{DoxyCompactList}\small\item\em speed of light in mum\texorpdfstring{$\ast$}{*}s\texorpdfstring{$^\wedge$}{\string^}-\/1 \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em speed of light in $\mu m*s^{-1} $ \end{DoxyCompactList}\item 
+constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{GOAT\+::raytracing\+::\+C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
+\begin{DoxyCompactList}\small\item\em speed of light in $ m*fs^{-1}$ \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -42,7 +42,11 @@ constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9ba
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00007}{7}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+speed of light in vacuum in m/s 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00008}{8}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \Hypertarget{constants_8h_a77e87d06f5832eb1a8c064c37e301087}\label{constants_8h_a77e87d06f5832eb1a8c064c37e301087} 
 \index{constants.h@{constants.h}!eps0@{eps0}}
@@ -52,7 +56,11 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00007}{7}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00012}{12}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+vacuum permittvity in $F\cdot m^{-1}$ 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00013}{13}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \Hypertarget{constants_8h_a913e4feb488dce7bfeee4b0e4f886a11}\label{constants_8h_a913e4feb488dce7bfeee4b0e4f886a11} 
 \index{constants.h@{constants.h}!mu0@{mu0}}
@@ -62,7 +70,11 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00012}{12}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00011}{11}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+vacuum permeability in $F\cdot A^{-2}$ 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00012}{12}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \Hypertarget{constants_8h_a390d4f025a7c09f071fd3f6804669ddb}\label{constants_8h_a390d4f025a7c09f071fd3f6804669ddb} 
 \index{constants.h@{constants.h}!Planck\_h@{Planck\_h}}
@@ -72,7 +84,11 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00011}{11}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00013}{13}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+Planck constant in Js. 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00014}{14}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \Hypertarget{constants_8h_a26242616de488ad628c1967a436a520c}\label{constants_8h_a26242616de488ad628c1967a436a520c} 
 \index{constants.h@{constants.h}!Planck\_hquer@{Planck\_hquer}}
@@ -82,7 +98,11 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00013}{13}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00014}{14}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+reduced Planck constant in Js 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00015}{15}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
 \Hypertarget{constants_8h_a49a0a00a612635d79a06bbe9fc15c094}\label{constants_8h_a49a0a00a612635d79a06bbe9fc15c094} 
 \index{constants.h@{constants.h}!Z0@{Z0}}
@@ -92,5 +112,9 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00014}{14}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{constants_8h_source_l00010}{10}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
+impedance of the free space $Z_0=\sqrt{\frac{\mu_0}{\epsilon_0}}=\mu_0\cdot c_{light}$ in Ohms 
+
+
+
+Definition at line \mbox{\hyperlink{constants_8h_source_l00011}{11}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 

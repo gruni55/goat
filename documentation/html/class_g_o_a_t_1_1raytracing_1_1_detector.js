@@ -29,6 +29,7 @@ var class_g_o_a_t_1_1raytracing_1_1_detector =
     [ "d2", "class_g_o_a_t_1_1raytracing_1_1_detector.html#aa849a37f952c61892592136249433a3c", null ],
     [ "e1", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a6b1044d35d59ba1f071c5c6f369ff61e", null ],
     [ "e2", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a69f64b412ca29d16aa3633ce54f4272c", null ],
+    [ "fname", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a2f34cd660fc7aae58967c4e27f941dd1", null ],
     [ "n", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a05ff56a1899ade06c3e858ea32e32c03", null ],
     [ "n1", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a16b6bbd23d51a516645b632346736183", null ],
     [ "n2", "class_g_o_a_t_1_1raytracing_1_1_detector.html#add8a7e7dfcea189813df617c6b2d7b43", null ],

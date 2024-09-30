@@ -1,25 +1,25 @@
 \doxysection{raytracing/triangle\+\_\+box\+\_\+intersection.h File Reference}
 \hypertarget{triangle__box__intersection_8h}{}\label{triangle__box__intersection_8h}\index{raytracing/triangle\_box\_intersection.h@{raytracing/triangle\_box\_intersection.h}}
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
-{\ttfamily \#include \"{}box.\+h\"{}}\newline
-{\ttfamily \#include \"{}triangle.\+h\"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include "{}box.\+h"{}}\newline
+{\ttfamily \#include "{}triangle.\+h"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{GOAT\+::raytracing\+::max3}} (double x, double y, double z)
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{GOAT\+::raytracing\+::min3}} (double x, double y, double z)
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{GOAT\+::raytracing\+::triangle\+AABBIntersection}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&d)
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac0618b88828803db0b8635ce593f4461}{GOAT\+::raytracing\+::tri\+Box\+Overlap}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ boxcenter, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ boxhalfsize, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ triverts\mbox{[}3\mbox{]})
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a385174e09df056ce5734279c64adeb66}{GOAT\+::raytracing\+::tri\+Box\+Overlap}} (double boxcenter\mbox{[}3\mbox{]}, double boxhalfsize\mbox{[}3\mbox{]}, double triverts\mbox{[}3\mbox{]}\mbox{[}3\mbox{]})
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af26bf8dec1fcb8741c96deb3191f98b2}{GOAT\+::raytracing\+::triangle\+AABBIntersection}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&d)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abfc811755668dfce2bde8cdb2afc5f94}{GOAT\+::raytracing\+::min3}} (double x, double y, double z)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a33366a151f0db1345e0a9e68e3d85482}{GOAT\+::raytracing\+::max3}} (double x, double y, double z)
 \end{DoxyCompactItemize}

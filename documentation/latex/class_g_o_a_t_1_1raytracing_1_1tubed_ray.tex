@@ -18,198 +18,182 @@ Inheritance diagram for GOAT\+::raytracing\+::tubed\+Ray\+:\begin{figure}[H]
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adb35bec3f3c4f09c973c5603652a90eb}{check\+Object\+Intersection}} (int Index\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}Pmin)
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac872c369ff22668ee86b53af6d6ec613}{cross}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P10, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P11, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P20, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P21)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aacbb32525cac88180f1818a51240092d}{cross\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Pe, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a717e3ded065c14db8e315ed1be696701}{cross\+XAxis}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P1, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P2, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}})
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a97848eae0c842c865b41229fca48fb5f}{current\+Object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em returns index of the currently hitted object \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc}{Einschluss}} ()
+\begin{DoxyCompactList}\small\item\em like is\+In\+Object (for compatibilty reasons, will be removed in future) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}{Einschluss}} (int i)
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae374d7183bd202d3c0bd2ea55be5d161}{flaeche}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adaddd2cd5aa7fa4eeee751097c3e4e3b}{Fresnel\+\_\+reflect}} (double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em calculates the Fresnel matrix for the reflected beam (used in method reflect) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aea4249e98c342b6ce3f5f96effa2c975}{Fresnel\+\_\+trans}} (double alpha, std\+::complex$<$ double $>$ beta, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em calculates the Fresnel matrix for the refracted beam (used in method reflect) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a49b28d701b554be57195b0ea08da2602}{get\+Amp}} (int i)
+\begin{DoxyCompactList}\small\item\em returns the value of the electric field of the i-\/th sub-\/ray \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78}{getE}} ()
+\begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abf70aaef3410b1081c734213a67957e6}{getk}} ()
+\begin{DoxyCompactList}\small\item\em return the directional vector of the central sub-\/ray (same as getk(4) ) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7eba1bf72f60a1d0b222b8ee71a50221}{getk}} (int i)
+\begin{DoxyCompactList}\small\item\em returns the directional vector of the i-\/th sub-\/ray \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d}{getP}} ()
+\begin{DoxyCompactList}\small\item\em returns the position of the central sub-\/ray (same as get\+P(4) ) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a910aa107b0f231b667f7198979f7c215}{getP}} (int i)
+\begin{DoxyCompactList}\small\item\em returns the position of the i-\/th sub-\/ray \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b}{getP}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p\mbox{[}5\mbox{]})
+\begin{DoxyCompactList}\small\item\em returns an array whichs holds the current positions of the sub-\/rays \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2fb010f2737399ea2dc8c37f27972e93}{getphi}} (int i)
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abfe9534749a7023ed4d7bfca9de206a0}{get\+Refract}} ()
+\begin{DoxyCompactList}\small\item\em returns the current refractive index \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe09fb9e19105cf45afbd9de9ad9247d}{Getunnelt}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_af2a3a5ffa3e37f3ecad52be11ee20905}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const int num\+Rays, double dx, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} Eb)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a89410bb1f7acf6e96e82e544d95e4b}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, int Anz\+Rays=1)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a83bc447cfc7f3aa34948bbe22878a174}{init\+Electric\+Field\+Gauss}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol)
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2ec60906d63c60548944dd3664135b81}{Intensity}} (int i)
+\begin{DoxyCompactList}\small\item\em returns the squared magnitude of the electric field \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}{is\+In\+Object}} ()
+\begin{DoxyCompactList}\small\item\em Is the ray currently inside an object? \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}{next}} ()
+\begin{DoxyCompactList}\small\item\em do the next step \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a590d4d14785b7c1ad728041e80246f17}{next\+Caustic}} (double \&l)
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a8267e3e562cb6c0f1bf529e8ce98c181}{norm\+Vol}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3}{P}}\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a871bd154d78221713e9c48e0813041b0}{object\+Index}} ()
+\begin{DoxyCompactList}\small\item\em index of the current object or -\/1 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a14d5f97b79daafbb68d2e6087bbd3af5}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a94f5579201637132a4a99a110436ebbc}{pjump}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P1\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P2\mbox{[}5\mbox{]}, const double epsilon=1\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}-\/10)
+\begin{DoxyCompactList}\small\item\em This method checks if there is a phase jump due to self focusing The method checks if neighboring edge rays cross each other between the start position and the end position. In this case a phase jump of -\/pi has to be considered. The parameter epsilon is there for compatibility reasons and will not be considered (the parameter will be removed in future) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac1d8288e1882984aac88954f155977a7}{pjump}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P1\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P2\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}S)
+\begin{DoxyCompactList}\small\item\em This method checks if there is a phase jump due to self focusing The method checks if neighboring edge rays cross each other. In this case a phase jump of -\/pi has to be considered. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a19599cff781923b7c1da0362bf7a046d}{pjump}} (void)
+\begin{DoxyCompactList}\small\item\em for internal use only \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abee076dd9a11d7b2cc746a43fab88613}{reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This method reflects the beam. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a128da6f259e430333dc3f01297b8f2a8}{reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2e47c0314088a2165a83522d0aee4ff6}{reflections}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em reflects ray \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a131f7ba188f0d1ef58c5f38d3d80c2e0}{refract}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em This method refracts the beam. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a9391980b66ec7ecf71471722d45d1f}{refract}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\begin{DoxyCompactList}\small\item\em Strahl wird reflektiert. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae43780010d3cf12f1edcdb92b3c5fec5}{schneide\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, bool \&found)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6d64046a396a1274169eb80ccd9e0519}{schneide\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, double d, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&S1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&S2)
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe066f29b296c504c1e27ac01c19b3d0}{schneide\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}Erg, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0b147f29f0b37cc0d744f7f5fb258f03}{set\+Amp}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&A)
+\begin{DoxyCompactList}\small\item\em sets the value of the electric field of the i-\/th sub-\/ray \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a37c2ec1442986ebb6e6824180e7fc52f}{set\+Gauss}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}{g}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adc1e6c16de81565d2daae63ac83a8b3d}{set\+Getunnelt}} (bool v)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1b02b1f56e699d2f0d0739f41a53e826}{setiR}} (int i)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab8ed25b39a8607aaa58bb7948bc31d6d}{setk}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&K)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108}{set\+N0}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0fdea71ef420dc417820642d027f5ef5}{setP}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0d81f36e746f4410eab8d90c45b2cdfd}{setphi}} (int i, const std\+::complex$<$ double $>$ \&p)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9d4973c4c0935399a0509152c8055e09}{set\+Refract}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
+\begin{DoxyCompactList}\small\item\em set current refractive index \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0d59c9ec5aaba2163c9dffc91b7ce5da}{tubed\+Ray}} ()
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae07f50d88932f4ab14d9024037077f42}{tubed\+Ray}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&ray)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a50fd08ee9b3aa4b62c605290387806ad}{tubed\+Ray}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{tubed\+Ray\+Buffer}} \&B)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac2699ba1609380467acb95877f872a48}{tubed\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, double dy, double dz, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}}, const int Anzein=0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}{Einschluss}}=NULL, bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}{log\+Ray}}=false)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a8a1490cb9d60ec4eb41f2a08ba3cb3ce}{tubed\+Ray}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, double dy, double dz, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&K, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}}, const int Anzein=0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}{Einschluss}}=NULL, bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}{log\+Ray}}=false)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a37c2ec1442986ebb6e6824180e7fc52f}{set\+Gauss}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}{g}})
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae07f50d88932f4ab14d9024037077f42}{tubed\+Ray}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&ray)
 \item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac37a0a3e0bac73560cd07add96a2524a}{next}} ()
-\begin{DoxyCompactList}\small\item\em make the next step (has to include phase progress) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_affbb616ef2de85614b110ee2f34b1f78}{getE}} ()
-\begin{DoxyCompactList}\small\item\em naechster Schritt \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a871bd154d78221713e9c48e0813041b0}{object\+Index}} ()
-\begin{DoxyCompactList}\small\item\em index of the current object or -\/1 \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acc7bd18ce693ffb0deb4ad39499f9005}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\begin{DoxyCompactList}\small\item\em reflects ray \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a128da6f259e430333dc3f01297b8f2a8}{reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac2699ba1609380467acb95877f872a48}{tubed\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, double dy, double dz, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}}, const int Anzein=0, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}{Einschluss}}=NULL, bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}{log\+Ray}}=false)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a9391980b66ec7ecf71471722d45d1f}{refract}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\begin{DoxyCompactList}\small\item\em Strahl wird reflektiert. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a50fd08ee9b3aa4b62c605290387806ad}{tubed\+Ray}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{tubed\+Ray\+Buffer}} \&B)
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2865f44442f37d84f8569d4472010166}{tunnel}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ Pol, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
 \begin{DoxyCompactList}\small\item\em Strahl wird gebrochen. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adcbecbd5dd4bad7bd508bdcd3af31072}{tunnel}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ Pol, std\+::complex$<$ double $>$ na, std\+::complex$<$ double $>$ np, int l)
 \item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae374d7183bd202d3c0bd2ea55be5d161}{flaeche}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9d4973c4c0935399a0509152c8055e09}{set\+Refract}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
-\begin{DoxyCompactList}\small\item\em Flaeche zwischen den Randstrahlen. \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abfe9534749a7023ed4d7bfca9de206a0}{get\+Refract}} ()
-\begin{DoxyCompactList}\small\item\em Momentanen Brechungsindex setzen. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab8ed25b39a8607aaa58bb7948bc31d6d}{setk}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&K)
-\begin{DoxyCompactList}\small\item\em Gibt Brechungsindex zurueck. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0d81f36e746f4410eab8d90c45b2cdfd}{setphi}} (int i, const std\+::complex$<$ double $>$ \&p)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0fdea71ef420dc417820642d027f5ef5}{setP}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1b02b1f56e699d2f0d0739f41a53e826}{setiR}} (int i)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adc1e6c16de81565d2daae63ac83a8b3d}{set\+Getunnelt}} (bool v)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108}{set\+N0}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7eba1bf72f60a1d0b222b8ee71a50221}{getk}} (int i)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abf70aaef3410b1081c734213a67957e6}{getk}} ()
-\begin{DoxyCompactList}\small\item\em gives back direction Vector \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a910aa107b0f231b667f7198979f7c215}{getP}} (int i)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d}{getP}} ()
-\begin{DoxyCompactList}\small\item\em gives back position \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2fb010f2737399ea2dc8c37f27972e93}{getphi}} (int i)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b}{getP}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p\mbox{[}5\mbox{]})
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a49b28d701b554be57195b0ea08da2602}{get\+Amp}} (int i)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0b147f29f0b37cc0d744f7f5fb258f03}{set\+Amp}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&A)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a845689b0393f38a9ae0aaa3e322682fa}{Einschluss}} (int i)
-\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6506aa54bc308fada2900d6705c295db}{\texorpdfstring{$\sim$}{\string~}tubed\+Ray}} ()
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc}{Einschluss}} ()
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}{is\+In\+Object}} ()
-\begin{DoxyCompactList}\small\item\em true if ray is in an object otherwise false \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adb35bec3f3c4f09c973c5603652a90eb}{check\+Object\+Intersection}} (int Index\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}Pmin)
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe09fb9e19105cf45afbd9de9ad9247d}{Getunnelt}} ()
-\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a97848eae0c842c865b41229fca48fb5f}{current\+Object\+Index}} ()
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2ec60906d63c60548944dd3664135b81}{Intensity}} (int i)
-\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2e47c0314088a2165a83522d0aee4ff6}{reflections}} ()
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a94f5579201637132a4a99a110436ebbc}{pjump}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P1\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P2\mbox{[}5\mbox{]}, const double epsilon=1\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}-\/10)
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac1d8288e1882984aac88954f155977a7}{pjump}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P1\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P2\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}S)
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a19599cff781923b7c1da0362bf7a046d}{pjump}} (void)
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a8267e3e562cb6c0f1bf529e8ce98c181}{norm\+Vol}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3}{P}}\mbox{[}5\mbox{]}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abe066f29b296c504c1e27ac01c19b3d0}{schneide\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}Erg, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}})
-\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6d64046a396a1274169eb80ccd9e0519}{schneide\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, double d, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&S1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&S2)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae43780010d3cf12f1edcdb92b3c5fec5}{schneide\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}, bool \&found)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abee076dd9a11d7b2cc746a43fab88613}{reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2636023d088729f178b02e289a5d730d}{refract}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}N, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\begin{DoxyCompactList}\small\item\em Reflexion des Strahls. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_adaddd2cd5aa7fa4eeee751097c3e4e3b}{Fresnel\+\_\+reflect}} (double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\begin{DoxyCompactList}\small\item\em Brechung des Strahls. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aea4249e98c342b6ce3f5f96effa2c975}{Fresnel\+\_\+trans}} (double alpha, std\+::complex$<$ double $>$ beta, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0a5b7e8f1cae9fa349b7d74728d021ce}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, const int Anz\+Rays, double dx, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} Eb)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a83bc447cfc7f3aa34948bbe22878a174}{init\+Electric\+Field\+Gauss}} (int i, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}} \&Eb, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a89410bb1f7acf6e96e82e544d95e4b}{init\+Electric\+Field}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&Pol, int Anz\+Rays=1)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aacbb32525cac88180f1818a51240092d}{cross\+Plane}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Pe, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}})
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac872c369ff22668ee86b53af6d6ec613}{cross}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P10, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P11, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P20, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P21)
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a717e3ded065c14db8e315ed1be696701}{cross\+XAxis}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P1, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P2, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}})
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a590d4d14785b7c1ad728041e80246f17}{next\+Caustic}} (double \&l)
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a14d5f97b79daafbb68d2e6087bbd3af5}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
 \end{DoxyCompactItemize}
-\begin{DoxyCompactItemize}
-\item 
-virtual bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next}} ()=0
-\begin{DoxyCompactList}\small\item\em make the next step (has to include phase progress) \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a10971cdc663deed5684c6641840e5485}{getk}} ()=0
-\begin{DoxyCompactList}\small\item\em gives back direction Vector \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_abd660a304594f532ce921f2929c58c66}{getE}} ()=0
-\begin{DoxyCompactList}\small\item\em gives back electric field strength \end{DoxyCompactList}\item 
-virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aa9e3b2cbd60dc59c1b4401728a29ac0f}{getP}} ()=0
-\begin{DoxyCompactList}\small\item\em gives back position \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a44c52198ec69ded8a637d0a74c1b7e2e}{is\+In\+Object}} ()=0
-\begin{DoxyCompactList}\small\item\em true if ray is in an object otherwise false \end{DoxyCompactList}\item 
-virtual int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a9661d889c4d7d1290440b1412515074e}{object\+Index}} ()=0
-\begin{DoxyCompactList}\small\item\em index of the current object or -\/1 \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}{reflect\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)=0
-\begin{DoxyCompactList}\small\item\em reflects ray \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}} \mbox{[}5\mbox{]}
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}{g}}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa}{getunnelt}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75}{iR}}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140}{is\+Valid}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}} \mbox{[}5\mbox{]}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e}{ka}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c}{KORR}}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}{log\+Ray}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae03e2697fc97f58c892326204dd9f522}{OK}}
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3}{P}} \mbox{[}5\mbox{]}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}{k}} \mbox{[}5\mbox{]}
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}} \mbox{[}5\mbox{]}
-\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9c2bd14ae40f1ad4e302341da586d4ee}{phi}} \mbox{[}5\mbox{]}
 \item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75}{iR}}
-\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a66b70096f4a0c32aee570f134f496cef}{pol}}
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa}{getunnelt}}
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}{log\+Ray}}
-\item 
-bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140}{is\+Valid}}
-\item 
-\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}{g}}
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e}{ka}}
-\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c}{KORR}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{GOAT\+::raytracing\+::\+Ray\+Base}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}} =0
-\begin{DoxyCompactList}\small\item\em transmitted ray (used by the raytracer, for internal use only) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a388e89c0bdee8ce7b53855fc9ed32f9c}{in\+Object}} =false
 \begin{DoxyCompactList}\small\item\em is in an object \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}} =0
-\begin{DoxyCompactList}\small\item\em list of all objects \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}} =0
-\begin{DoxyCompactList}\small\item\em number of objects \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}{obj\+Index}} =0
-\begin{DoxyCompactList}\small\item\em index of the current object \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}{iR}} =0
+\begin{DoxyCompactList}\small\item\em number of reflections already done \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}} =2.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI
+\begin{DoxyCompactList}\small\item\em wave number \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a43f5b4b3cde5d1795b2a5e02c7800677}{n}}
 \item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a234b67d6c1eb5da7c8fd1cbec4c1de58}{n0}}
 \begin{DoxyCompactList}\small\item\em current refractive index and refractive index of the host material \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad029d56061469a0b98d4aa06c2956eb8}{k0}} =2.\+0\texorpdfstring{$\ast$}{*}M\+\_\+\+PI
-\begin{DoxyCompactList}\small\item\em wave number \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a555d734b8aac9dd5f3688414ba32c9c1}{num\+Obj}} =0
+\begin{DoxyCompactList}\small\item\em number of objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a45f8c538909522d5e505a3f90d997363}{Obj}} =0
+\begin{DoxyCompactList}\small\item\em list of all objects \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a0229592b2f60c7b8e5c438933ad278a8}{obj\+Index}} =0
+\begin{DoxyCompactList}\small\item\em index of the current object \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_aef88aaaaab2b96b59536ecc69a29c178}{r0}} =1.\+0
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ad9467a1f9f00f2ed842e2a5c79f3cd9b}{rc}} =1.\+0
 \begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_afcb50609feb8561020ce61a6fda5981e}{iR}} =0
-\begin{DoxyCompactList}\small\item\em number of reflections already done \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}{status}} = \mbox{\hyperlink{raybase_8h_a183c8f9e50782ac6d4a0fee16d79f969}{RAYBASE\+\_\+\+STATUS\+\_\+\+NONE}}
+\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}{suppress\+\_\+phase\+\_\+progress}} =false
 \begin{DoxyCompactList}\small\item\em suppress phase change in \doxylink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a54453ba99657a55bd4e9dd57dc4e1b97}{next()}, needed for short pulse consideration \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}{status}} = \mbox{\hyperlink{raybase_8h_a183c8f9e50782ac6d4a0fee16d79f969}{RAYBASE\+\_\+\+STATUS\+\_\+\+NONE}}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ac85e485b0b855edcd4dd299bf82783cb}{tray}} =0
+\begin{DoxyCompactList}\small\item\em transmitted ray (used by the raytracer, for internal use only) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
@@ -303,6 +287,10 @@ Constructor of \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray} w
 
 
 
+returns index of the currently hitted object 
+
+
+
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00136}{136}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a12965165f88116a3a0669420db9233cc} 
@@ -310,6 +298,10 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00136}{136}} of file \mb
 \index{Einschluss@{Einschluss}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{Einschluss()}{Einschluss()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily bool GOAT\+::raytracing\+::tubed\+Ray\+::\+Einschluss (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+like is\+In\+Object (for compatibilty reasons, will be removed in future) 
 
 
 
@@ -339,19 +331,51 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00128}{128}} of file \mb
 
 
 
-Brechung des Strahls. 
+calculates the Fresnel matrix for the reflected beam (used in method reflect) 
 
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alpha} & angle of incidence (in radiants) \\
+\hline
+\mbox{\texttt{ in}}  & {\em n1} & refractive index first medium \\
+\hline
+\mbox{\texttt{ in}}  & {\em n2} & refractive index second medium \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Fresnel matrix 
+\end{DoxyReturn}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aea4249e98c342b6ce3f5f96effa2c975}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aea4249e98c342b6ce3f5f96effa2c975} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!Fresnel\_trans@{Fresnel\_trans}}
 \index{Fresnel\_trans@{Fresnel\_trans}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{Fresnel\_trans()}{Fresnel\_trans()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::raytracing\+::tubed\+Ray\+::\+Fresnel\+\_\+trans (\begin{DoxyParamCaption}\item[{double}]{alpha,  }\item[{std\+::complex$<$ double $>$}]{beta,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
 
+
+
+calculates the Fresnel matrix for the refracted beam (used in method reflect) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em alpha} & angle of incidence (in radiants) \\
+\hline
+\mbox{\texttt{ in}}  & {\em n1} & refractive index first medium \\
+\hline
+\mbox{\texttt{ in}}  & {\em n2} & refractive index second medium \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Fresnel matrix 
+\end{DoxyReturn}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a49b28d701b554be57195b0ea08da2602}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a49b28d701b554be57195b0ea08da2602} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getAmp@{getAmp}}
 \index{getAmp@{getAmp}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{getAmp()}{getAmp()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::raytracing\+::tubed\+Ray\+::get\+Amp (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the value of the electric field of the i-\/th sub-\/ray 
 
 
 
@@ -365,7 +389,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00126}{126}} of file \mb
 
 
 
-naechster Schritt 
+gives back electric field strength 
 
 
 
@@ -383,7 +407,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00104}{104}} of file \mb
 
 
 
-gives back direction Vector 
+return the directional vector of the central sub-\/ray (same as getk(4) ) 
 
 
 
@@ -401,6 +425,10 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00121}{121}} of file \mb
 
 
 
+returns the directional vector of the i-\/th sub-\/ray 
+
+
+
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00120}{120}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a851e30fb00482d308f75670c131b8c4d} 
@@ -411,7 +439,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00120}{120}} of file \mb
 
 
 
-gives back position 
+returns the position of the central sub-\/ray (same as get\+P(4) ) 
 
 
 
@@ -429,6 +457,10 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00123}{123}} of file \mb
 
 
 
+returns the position of the i-\/th sub-\/ray 
+
+
+
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00122}{122}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a6e348a9ae51f7868dac3700fdd0bd37b} 
@@ -436,6 +468,10 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00122}{122}} of file \mb
 \index{getP@{getP}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{getP()}{getP()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::getP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{p\mbox{[}5\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns an array whichs holds the current positions of the sub-\/rays 
 
 
 
@@ -459,7 +495,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00124}{124}} of file \mb
 
 
 
-Momentanen Brechungsindex setzen. 
+returns the current refractive index 
 
 
 
@@ -475,11 +511,11 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00113}{113}} of file \mb
 
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00135}{135}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0a5b7e8f1cae9fa349b7d74728d021ce}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0a5b7e8f1cae9fa349b7d74728d021ce} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_af2a3a5ffa3e37f3ecad52be11ee20905}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_af2a3a5ffa3e37f3ecad52be11ee20905} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!initElectricField@{initElectricField}}
 \index{initElectricField@{initElectricField}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{initElectricField()}{initElectricField()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::init\+Electric\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{const int}]{Anz\+Rays,  }\item[{double}]{dx,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}}]{Eb }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::init\+Electric\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{Pol,  }\item[{const int}]{num\+Rays,  }\item[{double}]{dx,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}}]{Eb }\end{DoxyParamCaption})}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a89410bb1f7acf6e96e82e544d95e4b}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a89410bb1f7acf6e96e82e544d95e4b} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!initElectricField@{initElectricField}}
@@ -501,6 +537,10 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00135}{135}} of file \mb
 
 
 
+returns the squared magnitude of the electric field 
+
+
+
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00137}{137}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ad81c1ceaa3848054b76e68fd0f1ac78f} 
@@ -511,7 +551,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00137}{137}} of file \mb
 
 
 
-true if ray is in an object otherwise false 
+Is the ray currently inside an object? 
 
 
 
@@ -529,7 +569,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00131}{131}} of file \mb
 
 
 
-make the next step (has to include phase progress) 
+do the next step 
 
 
 
@@ -577,17 +617,51 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00105}{105}} of file \mb
 \doxysubsubsection{\texorpdfstring{pjump()}{pjump()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily double GOAT\+::raytracing\+::tubed\+Ray\+::pjump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P1\mbox{[}5\mbox{]},  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P2\mbox{[}5\mbox{]},  }\item[{const double}]{epsilon = {\ttfamily 1\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a0f8ab0054c060335c4e47faf47590cbd}{E}}-\/10} }\end{DoxyParamCaption})}
 
+
+
+This method checks if there is a phase jump due to self focusing The method checks if neighboring edge rays cross each other between the start position and the end position. In this case a phase jump of -\/pi has to be considered. The parameter epsilon is there for compatibility reasons and will not be considered (the parameter will be removed in future) 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em P1} & Array which holds the start position of the edge rays \\
+\hline
+\mbox{\texttt{ in}}  & {\em P2} & Array which holds the end position of the edge rays \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the phase jump (0, $-\frac{\pi}{2}$ or $-\pi$) 
+\end{DoxyReturn}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac1d8288e1882984aac88954f155977a7}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ac1d8288e1882984aac88954f155977a7} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!pjump@{pjump}}
 \index{pjump@{pjump}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{pjump()}{pjump()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily double GOAT\+::raytracing\+::tubed\+Ray\+::pjump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P1\mbox{[}5\mbox{]},  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P2\mbox{[}5\mbox{]},  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{S }\end{DoxyParamCaption})}
 
+
+
+This method checks if there is a phase jump due to self focusing The method checks if neighboring edge rays cross each other. In this case a phase jump of -\/pi has to be considered. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em P1} & Array which holds the start position of the edge rays \\
+\hline
+\mbox{\texttt{ in}}  & {\em P2} & Array which holds the end position of the edge rays \\
+\hline
+\mbox{\texttt{ out}}  & {\em S} & Array of two vectors which hold the position of the foci for self focusing, if it exists otherwise it is set to a zero vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the phase jump (0, $-\frac{\pi}{2}$ or $-\pi$) 
+\end{DoxyReturn}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a19599cff781923b7c1da0362bf7a046d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a19599cff781923b7c1da0362bf7a046d} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!pjump@{pjump}}
 \index{pjump@{pjump}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{pjump()}{pjump()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily double GOAT\+::raytracing\+::tubed\+Ray\+::pjump (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+for internal use only 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abee076dd9a11d7b2cc746a43fab88613}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abee076dd9a11d7b2cc746a43fab88613} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!reflect@{reflect}}
@@ -596,14 +670,22 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00105}{105}} of file \mb
 {\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} GOAT\+::raytracing\+::tubed\+Ray\+::reflect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
 
 
-\begin{DoxyParams}{Parameters}
-{\em n} & Oberflaechennormale (in Richtung gegen den Strahl) \\
+
+This method reflects the beam. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & surface normal (angles of incidence will be calculated with help of the directional vectors k) ~\newline
+ \\
 \hline
-{\em n1} & Brechungsindex Medium 1 \\
+\mbox{\texttt{ in}}  & {\em n1} & refractive index first medium \\
 \hline
-{\em n2} & Brechungsindex Medium 2 Rueckgabewert\+: gebrochener Strahl \\
+\mbox{\texttt{ in}}  & {\em n2} & refractive index second medium \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+refracted ray 
+\end{DoxyReturn}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a128da6f259e430333dc3f01297b8f2a8}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a128da6f259e430333dc3f01297b8f2a8} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!reflect@{reflect}}
 \index{reflect@{reflect}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
@@ -634,23 +716,23 @@ reflects ray
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a401344ddf78f03e797985b280dc6da99}{GOAT\+::raytracing\+::\+Ray\+Base}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2636023d088729f178b02e289a5d730d}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a2636023d088729f178b02e289a5d730d} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a131f7ba188f0d1ef58c5f38d3d80c2e0}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a131f7ba188f0d1ef58c5f38d3d80c2e0} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!refract@{refract}}
 \index{refract@{refract}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{refract()}{refract()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::refract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{N,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::refract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{n,  }\item[{std\+::complex$<$ double $>$}]{n1,  }\item[{std\+::complex$<$ double $>$}]{n2 }\end{DoxyParamCaption})}
 
 
 
-Reflexion des Strahls. 
+This method refracts the beam. 
 
 
-\begin{DoxyParams}{Parameters}
-{\em n} & Oberflaechennormale (in Richtung gegen den Strahl) \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & array which holds surface normals of the edge rays (angles of incidence will be calculated with help of the directional vectors k) \\
 \hline
-{\em n1} & Brechungsindex Medium 1 \\
+\mbox{\texttt{ in}}  & {\em n1} & refractive index first medium \\
 \hline
-{\em n2} & Brechungsindex Medium 2 \\
+\mbox{\texttt{ in}}  & {\em n2} & refractive index second medium \\
 \hline
 \end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a9391980b66ec7ecf71471722d45d1f}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a4a9391980b66ec7ecf71471722d45d1f} 
@@ -686,6 +768,10 @@ Strahl wird reflektiert.
 \index{setAmp@{setAmp}!GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}}
 \doxysubsubsection{\texorpdfstring{setAmp()}{setAmp()}}
 {\footnotesize\ttfamily void GOAT\+::raytracing\+::tubed\+Ray\+::set\+Amp (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{A }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the value of the electric field of the i-\/th sub-\/ray 
 
 
 
@@ -729,10 +815,6 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00117}{117}} of file \mb
 
 
 
-Gibt Brechungsindex zurueck. 
-
-
-
 Definition at line \mbox{\hyperlink{tubedray_8h_source_l00114}{114}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_acf5c673c1376b6e60d9d6f34618cb108} 
@@ -773,7 +855,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00115}{115}} of file \mb
 
 
 
-Flaeche zwischen den Randstrahlen. 
+set current refractive index 
 
 
 
@@ -815,7 +897,7 @@ Strahl wird gebrochen.
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00181}{181}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00216}{216}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_abaabb88f73cfd7bd8a2721a1c7a269ca} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!g@{g}}
@@ -825,7 +907,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00181}{181}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00190}{190}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00225}{225}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a1e33538bf3e2c7b5c264f630304602fa} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!getunnelt@{getunnelt}}
@@ -835,7 +917,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00190}{190}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00187}{187}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00222}{222}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a7022dcf3c6569860e5d1fdb9e70c2f75} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!iR@{iR}}
@@ -845,7 +927,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00187}{187}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00185}{185}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00220}{220}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a53ec1e245d2c223e02b0c22b7ef06140} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!isValid@{isValid}}
@@ -855,7 +937,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00185}{185}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00189}{189}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00224}{224}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a061c075d2bc0263a1fb8a5c10a6a43f1} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!k@{k}}
@@ -865,7 +947,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00189}{189}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00180}{180}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00215}{215}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a3913a769a789739f72ee24cfd06ce61e} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!ka@{ka}}
@@ -875,7 +957,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00180}{180}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00191}{191}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00226}{226}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a75eb498a7c5e12252f625b12ee558f0c} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!KORR@{KORR}}
@@ -885,7 +967,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00191}{191}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00192}{192}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00227}{227}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_aedff74a5a15c80f81f09f030fdb269a2} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!logRay@{logRay}}
@@ -895,7 +977,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00192}{192}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00188}{188}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00223}{223}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae03e2697fc97f58c892326204dd9f522}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ae03e2697fc97f58c892326204dd9f522} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!OK@{OK}}
@@ -905,7 +987,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00188}{188}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00178}{178}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00213}{213}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_ab19d3d9df652f5b3b5f2813ff8c1d1e3} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!P@{P}}
@@ -915,7 +997,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00178}{178}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00179}{179}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00214}{214}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9c2bd14ae40f1ad4e302341da586d4ee}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a9c2bd14ae40f1ad4e302341da586d4ee} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!phi@{phi}}
@@ -925,7 +1007,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00179}{179}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00183}{183}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00218}{218}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a66b70096f4a0c32aee570f134f496cef}\label{class_g_o_a_t_1_1raytracing_1_1tubed_ray_a66b70096f4a0c32aee570f134f496cef} 
 \index{GOAT::raytracing::tubedRay@{GOAT::raytracing::tubedRay}!pol@{pol}}
@@ -935,7 +1017,7 @@ Definition at line \mbox{\hyperlink{tubedray_8h_source_l00183}{183}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{tubedray_8h_source_l00186}{186}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00221}{221}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
 
 
 

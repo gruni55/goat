@@ -1,7 +1,7 @@
 \doxysection{raytracing/detector.h File Reference}
 \hypertarget{detector_8h}{}\label{detector_8h}\index{raytracing/detector.h@{raytracing/detector.h}}
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
-{\ttfamily \#include \"{}box.\+h\"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include "{}box.\+h"{}}\newline
 {\ttfamily \#include $<$iostream$>$}\newline
 {\ttfamily \#include $<$vector$>$}\newline
 \doxysubsubsection*{Classes}
@@ -15,9 +15,9 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{GOAT\+::r
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
@@ -25,11 +25,7 @@ namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \item 
 \#define \mbox{\hyperlink{detector_8h_a220cc659cd779bb2adabd0a1008f49db}{DETECTOR\+\_\+\+PLANE}}~2
 \item 
-\#define \mbox{\hyperlink{detector_8h_a7987327e795cf45132e2c3bbe21b645e}{SAVE\+\_\+X}}~0
-\item 
-\#define \mbox{\hyperlink{detector_8h_a962163256f7d4a46529426776695b8f4}{SAVE\+\_\+Y}}~1
-\item 
-\#define \mbox{\hyperlink{detector_8h_a30d376254460c5cbf83ee3a8ef3d32e9}{SAVE\+\_\+Z}}~2
+\#define \mbox{\hyperlink{detector_8h_aa68865ed300bfbc8d69145a49d3b6386}{SAVE\+\_\+\+ABS}}~6
 \item 
 \#define \mbox{\hyperlink{detector_8h_aa2176b44d1ac396bff50d9e545055a23}{SAVE\+\_\+\+PHASE\+\_\+X}}~3
 \item 
@@ -37,7 +33,11 @@ namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \item 
 \#define \mbox{\hyperlink{detector_8h_ac5748b705d3dc3e5e85f0ded4b158a9e}{SAVE\+\_\+\+PHASE\+\_\+Z}}~5
 \item 
-\#define \mbox{\hyperlink{detector_8h_aa68865ed300bfbc8d69145a49d3b6386}{SAVE\+\_\+\+ABS}}~6
+\#define \mbox{\hyperlink{detector_8h_a7987327e795cf45132e2c3bbe21b645e}{SAVE\+\_\+X}}~0
+\item 
+\#define \mbox{\hyperlink{detector_8h_a962163256f7d4a46529426776695b8f4}{SAVE\+\_\+Y}}~1
+\item 
+\#define \mbox{\hyperlink{detector_8h_a30d376254460c5cbf83ee3a8ef3d32e9}{SAVE\+\_\+Z}}~2
 \end{DoxyCompactItemize}
 
 
@@ -70,7 +70,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00007}{7}} of file \mbox
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00108}{108}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00109}{109}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_aa2176b44d1ac396bff50d9e545055a23}\label{detector_8h_aa2176b44d1ac396bff50d9e545055a23} 
 \index{detector.h@{detector.h}!SAVE\_PHASE\_X@{SAVE\_PHASE\_X}}
@@ -80,7 +80,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00108}{108}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00105}{105}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00106}{106}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_afae17a475b984f467c1408f065ae6ca8}\label{detector_8h_afae17a475b984f467c1408f065ae6ca8} 
 \index{detector.h@{detector.h}!SAVE\_PHASE\_Y@{SAVE\_PHASE\_Y}}
@@ -90,7 +90,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00105}{105}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00106}{106}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00107}{107}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_ac5748b705d3dc3e5e85f0ded4b158a9e}\label{detector_8h_ac5748b705d3dc3e5e85f0ded4b158a9e} 
 \index{detector.h@{detector.h}!SAVE\_PHASE\_Z@{SAVE\_PHASE\_Z}}
@@ -100,7 +100,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00106}{106}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00107}{107}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00108}{108}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_a7987327e795cf45132e2c3bbe21b645e}\label{detector_8h_a7987327e795cf45132e2c3bbe21b645e} 
 \index{detector.h@{detector.h}!SAVE\_X@{SAVE\_X}}
@@ -110,7 +110,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00107}{107}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00102}{102}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00103}{103}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_a962163256f7d4a46529426776695b8f4}\label{detector_8h_a962163256f7d4a46529426776695b8f4} 
 \index{detector.h@{detector.h}!SAVE\_Y@{SAVE\_Y}}
@@ -120,7 +120,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00102}{102}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00103}{103}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00104}{104}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{detector_8h_a30d376254460c5cbf83ee3a8ef3d32e9}\label{detector_8h_a30d376254460c5cbf83ee3a8ef3d32e9} 
 \index{detector.h@{detector.h}!SAVE\_Z@{SAVE\_Z}}
@@ -130,5 +130,5 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00103}{103}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00104}{104}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00105}{105}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 

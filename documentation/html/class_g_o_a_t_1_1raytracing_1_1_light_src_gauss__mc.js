@@ -7,6 +7,5 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc =
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#aafba313b4066146e7bd6d75a78f31465", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a680615a6d031f7e2dcf95bfc60d573be", null ],
     [ "reset", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#ad47c88839517e415ee2f812facd22af2", null ],
-    [ "rayCounter", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a657df3a186da3978339ae38f8017fc41", null ],
     [ "stddev", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#ac5820b7f6cd17966e11fa9da84159326", null ]
 ];

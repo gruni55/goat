@@ -1,36 +1,39 @@
 \doxysection{maths/fresnel.h File Reference}
 \hypertarget{fresnel_8h}{}\label{fresnel_8h}\index{maths/fresnel.h@{maths/fresnel.h}}
 {\ttfamily \#include $<$complex$>$}\newline
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{GOAT\+::maths}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{fresnel_8h_a3592f52dc1ce96e519957f2556c318af}{SENKRECHT}}~1
-\item 
 \#define \mbox{\hyperlink{fresnel_8h_adb2d9505bae635c86de4a47561d7d930}{PARALLEL}}~0
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em used to determine the direction of the polarization \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fresnel_8h_a508860063e69521f1aaabd947f86c9f7}{PERPENDICULAR}}~1
+\begin{DoxyCompactList}\small\item\em used to determine the direction of the polarization ~\newline
+ \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{fresnel_8h_a3592f52dc1ce96e519957f2556c318af}{SENKRECHT}}~1
+\begin{DoxyCompactList}\small\item\em used to determine the direction of the polarization \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0042b79a72458da973662aa6aed15536}{GOAT\+::maths\+::abs}} (std\+::complex$<$ double $>$ x)
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0042b79a72458da973662aa6aed15536}{GOAT\+::maths\+::abs}} (std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ x)
 \begin{DoxyCompactList}\small\item\em absolute value of the complex valued variable x \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a161539674a9eab813146902f5442473f}{GOAT\+::maths\+::sqr}} (double x)
-\begin{DoxyCompactList}\small\item\em square of x \end{DoxyCompactList}\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac8439d6e565101f31d72b863027034eb}{GOAT\+::maths\+::\+Fresnel\+\_\+trans}} (int pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ n, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a043bda31e22b22d068e7585eda8903ab}{GOAT\+::maths\+::\+Fresnel\+\_\+reflect}} (int pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ double $>$ n, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6bd1067e0d2604f34f098926094a4aa2}{GOAT\+::maths\+::freflect}} (int pol, double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\item 
-std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae2b1587f91e8f8b11c6c3b6f41527d09}{GOAT\+::maths\+::ftrans}} (int pol, double alpha, std\+::complex$<$ double $>$ n1, std\+::complex$<$ double $>$ n2)
-\end{DoxyCompactItemize}
+std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a6bd1067e0d2604f34f098926094a4aa2}{GOAT\+::maths\+::freflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{int}} pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} alpha, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n1, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n2)
+\begin{DoxyCompactList}\small\item\em Calculates the Fresnel coefficient for reflection This function calculates the amplitude Fresnel coefficient for the reflected part of the ray. \end{DoxyCompactList}\item 
+std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a043bda31e22b22d068e7585eda8903ab}{GOAT\+::maths\+::\+Fresnel\+\_\+reflect}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{int}} pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n1, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n2)
+\begin{DoxyCompactList}\small\item\em Calculates the Fresnel coefficient for reflection This function calculates the amplitude Fresnel coefficient for the reflected part of the ray. \end{DoxyCompactList}\item 
+std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac8439d6e565101f31d72b863027034eb}{GOAT\+::maths\+::\+Fresnel\+\_\+trans}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{int}} pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n1, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n2)
+\begin{DoxyCompactList}\small\item\em Calculates the Fresnel coefficient for transmission This function calculates the amplitude Fresnel coefficient for the transmitted part of the ray. \end{DoxyCompactList}\item 
+std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae2b1587f91e8f8b11c6c3b6f41527d09}{GOAT\+::maths\+::ftrans}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{int}} pol, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} alpha, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n1, std\+::complex$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} $>$ n2)
+\begin{DoxyCompactList}\small\item\em Calculates the Fresnel coefficient for transmission This function calculates the amplitude Fresnel coefficient for the transmitted part of the ray. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a161539674a9eab813146902f5442473f}{GOAT\+::maths\+::sqr}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{double}} x)
+\begin{DoxyCompactList}\small\item\em square of x \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -42,13 +45,36 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae2b158
 
 
 
-Definition at line \mbox{\hyperlink{fresnel_8h_source_l00015}{15}} of file \mbox{\hyperlink{fresnel_8h_source}{fresnel.\+h}}.
+used to determine the direction of the polarization 
+
+
+
+Definition at line \mbox{\hyperlink{fresnel_8h_source_l00016}{16}} of file \mbox{\hyperlink{fresnel_8h_source}{fresnel.\+h}}.
+
+\Hypertarget{fresnel_8h_a508860063e69521f1aaabd947f86c9f7}\label{fresnel_8h_a508860063e69521f1aaabd947f86c9f7} 
+\index{fresnel.h@{fresnel.h}!PERPENDICULAR@{PERPENDICULAR}}
+\index{PERPENDICULAR@{PERPENDICULAR}!fresnel.h@{fresnel.h}}
+\doxysubsubsection{\texorpdfstring{PERPENDICULAR}{PERPENDICULAR}}
+{\footnotesize\ttfamily \#define PERPENDICULAR~1}
+
+
+
+used to determine the direction of the polarization ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{fresnel_8h_source_l00012}{12}} of file \mbox{\hyperlink{fresnel_8h_source}{fresnel.\+h}}.
 
 \Hypertarget{fresnel_8h_a3592f52dc1ce96e519957f2556c318af}\label{fresnel_8h_a3592f52dc1ce96e519957f2556c318af} 
 \index{fresnel.h@{fresnel.h}!SENKRECHT@{SENKRECHT}}
 \index{SENKRECHT@{SENKRECHT}!fresnel.h@{fresnel.h}}
 \doxysubsubsection{\texorpdfstring{SENKRECHT}{SENKRECHT}}
 {\footnotesize\ttfamily \#define SENKRECHT~1}
+
+
+
+used to determine the direction of the polarization 
 
 
 

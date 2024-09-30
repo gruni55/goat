@@ -64,7 +64,7 @@
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ Element\ =\ (T*)malloc(\textcolor{keyword}{sizeof}(T)\ *\ nElements);}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ nElements;\ j++)}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Element[j]\ =\ O.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}{Element}}[j];}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ MAX\_RECURSIONS\ =\ O.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}{MAX\_RECURSIONS}};}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raytrace_8h_af1880ecb60693d167d9f566259de80df}{MAX\_RECURSIONS}}\ =\ O.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ad5a7dff08fb8ba179d4061b1131eabd9}{MAX\_RECURSIONS}};}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ BBox\ =\ O.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a5328c8b7440f58abd52e47b783da1250}{BBox}};}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ isLeaf\ =\ O.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a99dfd6a0f07719c46207bd4549aeaf6a}{isLeaf}};}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
@@ -177,8 +177,8 @@
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00194}00194\ }
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00195}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}{00195}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_af941bca3332b91225f907f2436183030}{Octree<T>::createTree}}(\textcolor{keywordtype}{int}\ maxRecursions,\ \textcolor{keywordtype}{int}\ rek)}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ MAX\_RECURSIONS\ =\ maxRecursions;}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rek\ <\ MAX\_RECURSIONS)}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{raytrace_8h_af1880ecb60693d167d9f566259de80df}{MAX\_RECURSIONS}}\ =\ maxRecursions;}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rek\ <\ \mbox{\hyperlink{raytrace_8h_af1880ecb60693d167d9f566259de80df}{MAX\_RECURSIONS}})}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ createChilds();}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 8;\ i++)\ child[i]-\/>createTree(maxRecursions,\ rek\ +\ 1);}

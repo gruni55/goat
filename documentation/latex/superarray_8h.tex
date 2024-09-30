@@ -2,13 +2,12 @@
 \hypertarget{superarray_8h}{}\label{superarray_8h}\index{raytracing/superarray.h@{raytracing/superarray.h}}
 {\ttfamily \#include $<$stdlib.\+h$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
-{\ttfamily \#include \"{}vector.\+h\"{}}\newline
-{\ttfamily \#include \"{}resutil.\+h\"{}}\newline
-{\ttfamily \#include \"{}objectshape.\+h\"{}}\newline
-{\ttfamily \#include \"{}ellipsoid.\+h\"{}}\newline
-{\ttfamily \#include \"{}error.\+h\"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include "{}resutil.\+h"{}}\newline
+{\ttfamily \#include "{}objectshape.\+h"{}}\newline
+{\ttfamily \#include "{}error.\+h"{}}\newline
 {\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include \"{}gridentry.\+h\"{}}\newline
+{\ttfamily \#include "{}gridentry.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -18,9 +17,9 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{GOAT\+::rayt
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
-\begin{DoxyCompactList}\small\item\em This class represents a threedimensional (numeric) Matrix as Template. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
 namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
@@ -29,37 +28,25 @@ typedef long long int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f7658
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6c80e4a8708d6b5c43a9286e3282c2eb}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&S)
-\item 
 std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a914ad0024a3ca3954ddd16d3b32e34e7}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ \&S)
 \item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0d351fab5051aa7174ee5514f2b0861d}{GOAT\+::raytracing\+::save\+Ex\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad26d2ebc2331102ae021d9ea4a78186d}{GOAT\+::raytracing\+::save\+Ey\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1444136629301616430a71add32e15c4}{GOAT\+::raytracing\+::save\+Ez\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10e2dcb87393ccc477d40ad877bedb9f}{GOAT\+::raytracing\+::save\+Ex\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a364898acb4f4eb8de085e5184d796522}{GOAT\+::raytracing\+::save\+Ey\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afab37450a06598aeec406c73ac7910ed}{GOAT\+::raytracing\+::save\+Ez\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6c80e4a8708d6b5c43a9286e3282c2eb}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ T $>$ \&S)
 \item 
 bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abe8447c15a996a9ed192fec42d0781bb}{GOAT\+::raytracing\+::saveabsE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
-\item 
+\begin{DoxyCompactList}\small\item\em save the square of the absolute value of the z-\/component of the electric field Save the square of the absolute value of the z-\/component of the electric field, i.\+e. $ \sum_i E_i \cdot conj(E_i) $ the i-\/th object of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a85b55982d60c9bb02e025a0b519e2729}{GOAT\+::raytracing\+::saveabs\+Ebin}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
 \item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3ef9e2366ec937cb29b4cdc2e57c4411}{GOAT\+::raytracing\+::save\+FullE}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, std\+::string FName, int i=0)
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0d351fab5051aa7174ee5514f2b0861d}{GOAT\+::raytracing\+::save\+Ex\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
+\begin{DoxyCompactList}\small\item\em save the phase of the x-\/component of the electric field Save the phase of the x-\/component of the electric field, i.\+e. atan of the ratio imaginary part/real part, inside the i-\/th object of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10e2dcb87393ccc477d40ad877bedb9f}{GOAT\+::raytracing\+::save\+Ex\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a93add9d7da939fc4c195671dea654bf7}{GOAT\+::raytracing\+::sumabs}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad26d2ebc2331102ae021d9ea4a78186d}{GOAT\+::raytracing\+::save\+Ey\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
+\begin{DoxyCompactList}\small\item\em save the phase of the y-\/component of the electric field Save the phase of the y-\/component of the electric field, i.\+e. atan of the ratio imaginary part/real part, inside the i-\/th object of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a364898acb4f4eb8de085e5184d796522}{GOAT\+::raytracing\+::save\+Ey\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
 \item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac1a3506cd47a03b8af34b137763def1d}{GOAT\+::raytracing\+::sumabs2}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
-\item 
-double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a081c5cd4a5f370ef9ee35f88cb048703}{GOAT\+::raytracing\+::abs2sum}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a73f86cc4a9db4faa07903dd7bbffa010}{GOAT\+::raytracing\+::save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ S, std\+::string FName)
-\item 
-bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af5b9ecb4ba79f1fd07b91262fa69ccaf}{GOAT\+::raytracing\+::save}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}} $>$ $>$ S, std\+::string FName)
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1444136629301616430a71add32e15c4}{GOAT\+::raytracing\+::save\+Ez\+Phase}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
+\begin{DoxyCompactList}\small\item\em save the phase of the z-\/component of the electric field Save the phase of the z-\/component of the electric field, i.\+e. atan of the ratio imaginary part/real part, inside the i-\/th object of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_afab37450a06598aeec406c73ac7910ed}{GOAT\+::raytracing\+::save\+Ez\+Pol}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \&S, char \texorpdfstring{$\ast$}{*}FName, int i=0)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
