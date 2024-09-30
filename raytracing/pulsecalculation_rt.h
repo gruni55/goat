@@ -8,6 +8,12 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+		/**
+		 * @brief This class provides pulse calculation (only with ray tracing)
+		 * The pulses from a mode-locked laser can be described by series of frequency modes. 
+		 * The electric field at a certain location at time t can be described by
+		 * \f$ \vec E(\vec r,t)=\sum\f$
+		 */
 		class pulseCalculation_rt
 		{
 		public:

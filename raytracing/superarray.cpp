@@ -149,7 +149,7 @@ namespace GOAT
           if (!S.Obj[i]->isActive()) { os.close();  return false; }
           if (S.type == IN_OBJECT)
           {
-              os << "%Dimensionen " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
+              os << "%Dimensions " << S.n[i][0] << "  x  " << S.n[i][1] << "  x  " << S.n[i][2] << std::endl;
 
               for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
                   for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
@@ -386,8 +386,21 @@ namespace GOAT
           return true;
       }
 
-
-
+double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S, int i)
+{
+          double erg=0;
+          if (!S.Obj[i]->isActive()) { return -1; }
+          maths::Vector<INDEX_TYPE> Pi;          
+          if (S.type == IN_OBJECT)
+          {              
+              for (INDEX_TYPE ix = 0; ix < S.n[i][0]; ix++)
+                  for (INDEX_TYPE iy = 0; iy < S.n[i][1]; iy++)
+                      for (INDEX_TYPE iz = 0; iz < S.n[i][2]; iz++)
+                        erg+=abs2(S.G[i][ix][iy][iz]);                          
+                      
+          }
+          return erg;
+}
 
       double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S)
       {

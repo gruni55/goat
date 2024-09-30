@@ -448,24 +448,26 @@ namespace GOAT
             if (G[i].size() == 0) { Error = NOT_FOUND; return dummy; }
             if (Pi[0] < 0) { Error = NOT_FOUND; return dummy; }//maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[1] < 0) { Error = NOT_FOUND; return dummy; } //maths::Vector<std::complex<double> > (0,0,0);
-            if (Pi[2] < 0) { Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
+            if (Pi[2] < 0) {
+                std::cout << "Pi[2]=" << Pi[2] << std::endl;
+                  Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[0] >= n[i][0])
             {
-           //     std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
+                std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[1] >= n[i][1])
             {
-            //    std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
+                std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[2] >= n[i][2])
             {
-              //  std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
+               std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy;
             }
@@ -1021,20 +1023,69 @@ namespace GOAT
     }
 
     
+/**
+ * @brief save the phase of the x-component of the electric field
+ * Save the phase of the x-component of the electric field, i.e. atan of the ratio imaginary part/real part, inside 
+ * the i-th object of the SuperArray
+ * @param S SuperArray in which the field is stored
+ * @param FName Filename of the file 
+ * @param i Number of the object
+ * @return true on success
+ */
+    bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0); 
 
-    bool saveExPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+/**
+ * @brief save the phase of the y-component of the electric field
+ * Save the phase of the y-component of the electric field, i.e. atan of the ratio imaginary part/real part, inside 
+ * the i-th object of the SuperArray
+ * @param S SuperArray in which the field is stored
+ * @param FName Filename of the file 
+ * @param i Number of the object
+ * @return true on success
+ */
     bool saveEyPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
-    bool saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);
+
+/**
+ * @brief save the phase of the z-component of the electric field
+ * Save the phase of the z-component of the electric field, i.e. atan of the ratio imaginary part/real part, inside 
+ * the i-th object of the SuperArray
+ * @param S SuperArray in which the field is stored
+ * @param FName Filename of the file 
+ * @param i Number of the object
+ * @return true on success
+ */
+    bool saveEzPhase(SuperArray<maths::Vector<std::complex<double> > > &S, char* FName, int i = 0);    
     bool saveExPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
     bool saveEyPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
     bool saveEzPol(SuperArray < maths::Vector < std::complex<double> > > &S, char* FName, int i = 0);
+/**
+ * @brief save the square of the absolute value of the z-component of the electric field
+ * Save the square of the absolute value  of the z-component of the electric field, i.e. \f$ \sum_i E_i \cdot conj(E_i) \f$ 
+ * the i-th object of the SuperArray
+ * @param S SuperArray in which the field is stored
+ * @param FName Filename of the file 
+ * @param i Number of the object
+ * @return true on success
+ */
     bool saveabsE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
     bool saveabsEbin(SuperArray < maths::Vector < std::complex<double> > >& S, std::string FName, int i = 0);
+   /**
+ * @brief save the  electric field
+ * Save all components of the electric field inside the i-th object. 
+ * Each volume element is stored in one row. The data in each row is organized as follows: 
+ * \f$ real(E_x) imag (E_x) real(E_y) imag (E_y) real(E_z) imag (E_z)
+ * @param S SuperArray in which the field is stored
+ * @param FName Filename of the file 
+ * @param i Number of the object
+ * @return true on success
+ */ 
     bool saveFullE(SuperArray < maths::Vector < std::complex<double> > > &S, std::string FName, int i = 0);
     double sumabs(const SuperArray<maths::Vector<std::complex<double> > >& S);
     double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
-    double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
+    double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S);
+    double sumabs2(const SuperArray<maths::Vector<std::complex<double> > >& S, int i);
     bool save(SuperArray<GOAT::raytracing::gridEntry > S, std::string FName);
-    bool save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName);
+    double abs2sum(const SuperArray<maths::Vector<std::complex<double> > >& S);
+bool save(SuperArray<std::vector<GOAT::raytracing::gridEntry > > S, std::string FName);      
       }
 }

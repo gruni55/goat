@@ -75,6 +75,8 @@ namespace GOAT
 			maths::Vector<INDEX_TYPE> cell;
 			bool cancel = false;
 			
+           //  std::cout << PStart << "\t" << PStop << std::endl;
+
 			GOAT::maths::Vector<INDEX_TYPE> currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 
 			if ((L < 2.0 * S.r0) && S.Obj[currentObj]->isActive())
@@ -83,22 +85,27 @@ namespace GOAT
 				{
 					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
-					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
+					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15ï¿½m
 					if (cancel) std::cout << "% Abort !!!!  " << P << "," << l << std::endl;
 					s += l;               // path inside the detector
-					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
+					if (s<L)
+					{
+						cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
 
 					// put everything in the Array
-					SA[0](currentObj, cell);
-					if (SA[0].Error == NO_ERRORS)
-					{
-						SA[0](currentObj, cell) += EStart * exp(I * k0 * s) * weight;
+				//		SA[0](currentObj, cell);
+				//		if (SA[0].Error == NO_ERRORS)
+						{
+							SA[0](currentObj, cell) += EStart * exp(I * k0 * s) * weight;
+						}
+				/*		else
+						{
+					   	 std::cout << "ERROR: " << cell[0]  << "  " << cell[1] << "  " << cell[2] << "\tP=" << P << "\tPnew=" << Pnew << "\t(Pnew+P)/2.0=" << ((Pnew+P)/2.0) << std::endl;
+						 SA[0].Error = NO_ERRORS;	
+						// exit(0);					
+						} */
+						P = Pnew;
 					}
-					else
-					{
-						SA[0].Error = NO_ERRORS;
-					}
-					P = Pnew;
 				}
 			}
 		}
@@ -109,12 +116,13 @@ namespace GOAT
 		}
 
 		void Raytrace_usp_rt::traceEnterObject()
-		{			
+		{					  
 		}
 
 		void Raytrace_usp_rt::traceLeaveObject()
 		{
-			storeData();			
+		//	std::cout << "currentObj=" << currentObj << std::endl;
+			if (S.Obj[currentObj]->isActive()) storeData();			
 		}
 
 

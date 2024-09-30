@@ -1,4 +1,5 @@
 #include "pulsecalculation_rt.h"
+#include <chrono>
 namespace GOAT
 {
 	namespace raytracing
@@ -24,7 +25,7 @@ namespace GOAT
 			void pulseCalculation_rt::calcTrafoParms()
 			{
 				double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
-				double Domega = 8.0 * Sigma;
+				double Domega = 20.0 * Sigma;
 				trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 				trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 				double lambdaStart = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.omegaEnd;
@@ -57,11 +58,13 @@ namespace GOAT
 					wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega; // center wavelength of the current range
 
 					// ------ for output only ------
-					wvl1 = 2.0 * M_PI * C_LIGHT_MU_FS / (omega - 0.5 * domega);
-					wvl2 = 2.0 * M_PI * C_LIGHT_MU_FS / (omega + 0.5 * domega);
-					std::cout << "%  " << iOmega << ":start FFT (" << wvl << "µm)" << "\twvl1=" << wvl1 << "\twvl2=" << wvl2 << "\tomega=" << omega << std::endl << std::flush;
-
+				//	wvl1 = 2.0 * M_PI * C_LIGHT_MU_FS / (omega - 0.5 * domega);
+				//	wvl2 = 2.0 * M_PI * C_LIGHT_MU_FS / (omega + 0.5 * domega);
+					std::cout << "%  " << iOmega  << std::endl << std::flush;
+				auto starttime=std::chrono::high_resolution_clock::now();
 					rt.trace(omega, weight);
+				auto rttime=std::chrono::high_resolution_clock::now();
+				std::cout << "% time for rt: " << std::chrono::duration_cast<std::chrono::microseconds>(rttime - starttime).count() / 1000000.0 << " s" << std::endl;
 				}
 			}
 

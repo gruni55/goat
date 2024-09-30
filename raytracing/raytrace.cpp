@@ -86,7 +86,8 @@ namespace GOAT
 
 
 		void Raytrace::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
-		{                           
+		{             
+			int hObj;              
 			double pjump=0;
 			maths::Vector<double> CP[4];
 			tubedRay hray1, hray2;
@@ -117,7 +118,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-	//			std::cout << PStart << "  " << PStop << std::endl;
+		//		std::cout << "=>" << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -168,7 +169,7 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);			
-							//std::cout << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
+							// std::cout <<  PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
 
@@ -183,8 +184,10 @@ namespace GOAT
 
 						traceLeaveObject();
 						int tReflexions = -1;
-						currentObj = ray->objIndex;
+						currentObj = objIndex;
+						hObj=currentObj;
 						traceOneRay(tray, tReflexions, recur);
+						currentObj=hObj;
 						Reflexions++;
 						//delete tray;
 					}
@@ -203,8 +206,7 @@ namespace GOAT
 							else
 							{
 								copyRay(tray, ray);								
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
-			//					std::cout << "*k=" << ((tubedRay*)tray)->k[4]  <<  std::endl;
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);																
 							}
 
 							kref = ray->getk();
@@ -219,7 +221,9 @@ namespace GOAT
 							ray->status = RAYBASE_STATUS_NONE;
 							tray->status = RAYBASE_STATUS_NONE;
 							int tReflexions = -1;
+							hObj=currentObj;
 							traceOneRay(tray, Reflexions, recur);
+							currentObj=hObj;
 							Reflexions++;
 							Abbruch = true;
 						}

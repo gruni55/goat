@@ -7,6 +7,7 @@
 #include "pulsecalculation_rt.h"
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
+#include <chrono>
 
 namespace GOAT
 {
@@ -598,6 +599,7 @@ namespace GOAT
 
         void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {
+			
             std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
             std::string fname = objEll->Attribute("Filename");
@@ -692,7 +694,7 @@ namespace GOAT
 
                 std::string fullfname;
                 double d;
-                if (D>0)
+               // if (D>0)
                 {
                     const char* hStr;
                     std::string corrFilename;
@@ -706,23 +708,28 @@ namespace GOAT
                     int loopno=0;
                     do
                     {
-                //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);
+                //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
 						pc.field(time);
-
+				
                       for (int i = 0; i < S.nObj; i++)
                       {
                         if (S.Obj[i]->isActive())
                         {
                             fullfname = fname + std::to_string(i) + ".dat";
                             // GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
-							GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
-                        }
+							
+		        	GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
+					
+					d=sumabs2(pc.rt.SA[0],i);
+				        }
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
                       loopno++;
+                      std::cout << "loopno=" << loopno << std::endl;
                     } while (true); // while ( (d>D) || (loopno<2));
                   if (hStr != NULL) corrOS.close();
                 }
+/*
                 else
                 {                    
                     pc.field(time);
@@ -735,6 +742,7 @@ namespace GOAT
                         }
                       }
                 }
+*/
             }
             else
                 std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
