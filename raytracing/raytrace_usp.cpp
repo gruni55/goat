@@ -89,35 +89,38 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				{
 					Pnew = pnext(P, kin, SA[iR],currentIndex, 1E-100);  // search next grid cell					
 					l = abs(Pnew - P);					  // length of the last step  					
-					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15µm
+					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15ï¿½m
 					if (cancel) std::cout << "% ABBRUCH !!!!  " << P << "," << l << std::endl;
 										
 					s += l;               // path inside the detector
-					cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
-
-					// prepare cell entry
-					ge.l = s; 
-					
-
-					// set the right material index 
-					if (currentObj < 0) ge.matIndex = S.nObj;
-					else ge.matIndex = currentObj;
-					
-					// put everything in the Array
-					SA[iR](currentObj, cell);
-				    if (SA[iR].Error == NO_ERRORS)
-					{	
-						gridStack.step.back() = ge;
-						SA[iR](currentObj, cell).push_back(gridStack);
-						SA[iR](currentObj, cell).back().E = E;
- 						// gridStack.step.push_back(ge);						
-					}		
-					else
+					if (s<L)
 					{
-						SA[iR].Error = NO_ERRORS;
-						//std::cout << "ERROR" << std::endl;
+						cell = SA[iR].gitterpunkt((Pnew + P) / 2.0); // get cell index (global)
+
+						// prepare cell entry
+						ge.l = s; 
+						
+
+						// set the right material index 
+						if (currentObj < 0) ge.matIndex = S.nObj;
+						else ge.matIndex = currentObj;
+						
+						// put everything in the Array
+						SA[iR](currentObj, cell);
+						if (SA[iR].Error == NO_ERRORS)
+						{	
+							gridStack.step.back() = ge;
+							SA[iR](currentObj, cell).push_back(gridStack);
+							SA[iR](currentObj, cell).back().E = E;
+							// gridStack.step.push_back(ge);						
+						}		
+						else
+						{
+							SA[iR].Error = NO_ERRORS;
+							//std::cout << "ERROR" << std::endl;
+						}
+						P = Pnew;					
 					}
-					P = Pnew;					
 				}
 			}
 		}

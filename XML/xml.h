@@ -80,7 +80,8 @@ namespace GOAT
 				void readObjects();
 				void readDetectors();
 				void doCalculations();
-                void doPulseCalculation(tinyxml2::XMLElement* objEll);
+                void doPulseCalculation(tinyxml2::XMLElement* objEll); 
+				void doPulseCalculation_rt(tinyxml2::XMLElement* objEll); ///< do pulse Calculation with raytracing only
 				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
                 GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
                 GOAT::maths::Vector<std::complex<double> > readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError);

@@ -75,7 +75,10 @@ else()
 
 	add_executable (usptest usptest.cpp )
 	target_include_directories (usptest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-	target_link_libraries (usptest goat_raytracing goat_maths)
+	target_compile_options (usptest PUBLIC ${OpenMP_CXX_FLAGS})
+	target_compile_definitions (usptest PUBLIC WITH_OCTREE WITH_SUPERGITTER)	
+	target_include_directories (usptest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+	target_link_libraries (usptest OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
 
 	add_executable (fieldtest2 fieldtest.cpp)

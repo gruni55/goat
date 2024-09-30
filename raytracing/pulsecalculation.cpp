@@ -149,7 +149,7 @@ namespace GOAT
 		{
 			this->settings = settings;
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Domega = 10.0 * 4.0 * M_LN2 / trafoparms.dt;
+			double Domega =  4.0 * 4.0 * M_LN2 / trafoparms.dt;
             std::cout << "% Domega=" << Domega << std::endl;
             std::cout << "% time=" << t << "fs" << std::endl;
 

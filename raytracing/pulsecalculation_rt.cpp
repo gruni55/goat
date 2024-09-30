@@ -25,7 +25,7 @@ namespace GOAT
 			void pulseCalculation_rt::calcTrafoParms()
 			{
 				double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
-				double Domega = 20.0 * Sigma;
+				double Domega = 8.0 * Sigma;
 				trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 				trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 				double lambdaStart = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.omegaEnd;
@@ -36,7 +36,7 @@ namespace GOAT
 			void pulseCalculation_rt::field(double t)
 			{
 				double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-				double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+				double Domega = 4.0 * 4.0 * M_LN2 / trafoparms.dt;
 				std::cout << "Domega=" << Domega << std::endl;
 				double domega = Domega / (double)trafoparms.nI;
 				double omegaStart = omega0 - Domega / 2.0;

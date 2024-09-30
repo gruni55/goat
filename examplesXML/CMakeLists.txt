@@ -28,7 +28,7 @@ target_include_directories (readXML PUBLIC ${CMAKE_CURRENT_SOURCE} ../maths ../r
 find_package (OpenMP)
 if (OpenMP_CXX_FOUND)
 message (STATUS "create readXML with OpenMP support")
-target_link_libraries (readXML OpenMP::OpenMP_CXX goat_xml goat_raytracing_mp goat_maths)
+target_link_libraries (readXML  goat_xml goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
 else()
 message (STATUS "create readXML WITHOUT OpenMP support")
 target_link_libraries (readXML goat_xml goat_raytracing goat_maths)

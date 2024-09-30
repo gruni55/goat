@@ -4,6 +4,7 @@
 #include "xml.h"
 #include "lens.h"
 #include "sphericLens.h"
+#include "pulsecalculation.h"
 #include "pulsecalculation_rt.h"
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
@@ -416,7 +417,19 @@ namespace GOAT
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
 								break;
 							} // case path calculation
-                            case TOKEN_CALCULATION_PULSE: doPulseCalculation(objEll); break;
+                            case TOKEN_CALCULATION_PULSE: 
+							{
+								std::string methodStr;
+								const char* hStr;
+								hStr=objEll->Attribute("Method");
+								if (hStr != NULL) methodStr = hStr;
+								else methodStr = "mixed";
+								if (inactiveStr.compare("rtonly")==0)
+										doPulseCalculation_rt(objEll); 
+								else 
+										doPulseCalculation(objEll);
+								break;
+							}
 
                             case TOKEN_CALCULATION_PULSE_FIELD:
                             {
@@ -597,9 +610,154 @@ namespace GOAT
 			} // if no Calculations
 		}
 
-        void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
-        {
-			
+void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
+        {			
+            std::cout << "------------------ DO PULSED CALCULATION  (mixed) -----------------" << std::endl;
+            const char* hStr;
+            std::string fname = objEll->Attribute("Filename");
+            if (!fname.empty())
+            {
+                GOAT::raytracing::pulseCalculation pc(S);
+                GOAT::raytracing::TrafoParms trafoparms;
+                trafoparms = pc.getTrafoParms();
+                pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
+                pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+                pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
+                pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
+                pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
+                pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+                pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
+                double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
+                if (repRate > 0) pc.setRepetitionRate(repRate);
+                double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
+				
+                pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
+                double D=objEll->DoubleAttribute("D",-1.0);
+                char cs[3];
+                std::vector< std::function< std::complex< double >(double) > > nList;
+                std::string refFuncName;
+                bool failed = false;
+
+                tinyxml2::XMLElement* refEll = objEll->FirstChildElement("RefractiveIndexList");
+                if (refEll == NULL)
+                {
+                    std::cerr << "Pulse calculation: Refractive index function list is missing! Stopped calculation" << std::endl;
+                    return;
+                }
+
+                std::string refStr;
+                int refIndexToken;
+                for (int i=0; (i<S.nObj) && (!failed); i++)
+                {
+                    sprintf(cs, "n%i", i);
+                    hStr = refEll->Attribute(cs);
+                    if (hStr == NULL)
+                    {
+
+                        std::cerr << "Pulse calculation: Refractive index function for object " << i << " is missing! Stopped calculation" << std::endl;
+                        failed = true;
+                    }
+                    else
+                    {
+                        refStr = hStr;
+                        refIndexToken = mapString2RefractiveIndexToken(refStr);
+                        if (refIndexToken == TOKEN_NOT_FOUND)
+                        {
+                            std::cerr << "Pulse calculation: Wrong refractive index function name (" << refStr << ") !Calculation stopped!" << std::endl;
+                            failed = true;
+                        }
+                        addFunction2IndexList(nList, refIndexToken);
+                    }
+                }
+
+                if (failed) return;
+
+
+                hStr = refEll->Attribute("nS");
+                if (hStr == NULL)
+                {
+                    std::cerr << "Pulse calculation: Refractive index function for surrounding medium is missing! Stopped calculation" << std::endl;
+                    failed = true;
+                }
+                if (failed) return;
+                refStr = hStr;
+                refIndexToken = mapString2RefractiveIndexToken(refStr);
+                if (refIndexToken == TOKEN_NOT_FOUND)
+                {
+                    std::cerr << "Pulse calculation: Wrong refractive index function name (" << refStr << ") !Calculation stopped!" << std::endl;
+                    failed = true;
+                }
+
+                if (failed) return;
+                addFunction2IndexList(nList, refIndexToken);
+                pc.setRefractiveIndexFunctions(nList);
+
+                double time = objEll->DoubleAttribute("Time", -1);
+				std::cout << "time:" << time << std::endl;
+               if (time < 0)
+                {
+                    double offset = objEll->DoubleAttribute("Time_offset", 0);
+                    int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);                    
+                    time = pc.findHitTime(objEstimate);                    
+                    std::cout << "estimated time: " << time << std::endl << std::flush;
+                    time+= offset;
+                }
+
+
+                std::string fullfname;
+                double d;
+                if (D>0)
+                {
+                    const char* hStr;
+                    std::string corrFilename;
+                    std::ofstream corrOS;
+                    hStr=objEll->Attribute("CorrelationFilename");
+                    if (hStr != NULL)
+                    {
+                        corrOS.open(hStr);
+                    }
+
+                    int loopno=0;
+                    do
+                    {
+                      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
+				      for (int i = 0; i < S.nObj; i++)
+                      {
+                        if (S.Obj[i]->isActive())
+                        {
+                            fullfname = fname + std::to_string(i) + ".dat";
+                            GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);				
+				        }
+                      }
+                      if (hStr != NULL) corrOS << d << std::endl;
+                      loopno++;
+                      std::cout << "loopno=" << loopno << std::endl;
+                    } while (true); // while ( (d>D) || (loopno<2));
+                  if (hStr != NULL) corrOS.close();
+                }
+
+                else
+                {                    
+                    pc.field(time);
+                    for (int i = 0; i < S.nObj; i++)
+                      {
+                        if (S.Obj[i]->isActive())
+                        {
+                            fullfname = fname + std::to_string(i) + ".dat";
+                            GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+                        }
+                      }
+                }
+            }
+            else
+                std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
+            return;
+        }
+
+
+
+        void xmlReader::doPulseCalculation_rt(tinyxml2::XMLElement* objEll)
+        {			
             std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
             std::string fname = objEll->Attribute("Filename");
