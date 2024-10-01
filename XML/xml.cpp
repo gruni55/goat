@@ -766,6 +766,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             std::string fname = objEll->Attribute("Filename");
             if (!fname.empty())
             {
+                int numLoops = objEll->IntAttribute("NumLoops", -1);
                 GOAT::raytracing::pulseCalculation_rt pc(S);
                 GOAT::raytracing::TrafoParms trafoparms;
                 //trafoparms = pc.getTrafoParms();
@@ -867,6 +868,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     }
 
                     int loopno=0;
+                    bool cancel=false;
                     do
                     {
                 //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
@@ -886,8 +888,9 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
                       loopno++;
+                      cancel = (loopno >= numLoops) && (numLoops >= 0);
                       std::cout << "loopno=" << loopno << std::endl;
-                    } while (true); // while ( (d>D) || (loopno<2));
+                    } while (!cancel); // while ( (d>D) || (loopno<2));
                   if (hStr != NULL) corrOS.close();
                 }
 /*
