@@ -356,6 +356,7 @@ namespace GOAT
            int type;
 			std::string typeStr;
 			tinyxml2::XMLElement* ell;
+            std::cout << "doCalculations" << std::endl;
 			ell = rootElement->FirstChildElement("Calculations");
 			if (ell != NULL)
 			{
@@ -369,6 +370,7 @@ namespace GOAT
                         if (inactiveStr.compare("false")==0)
 						{						
 						typeStr = objEll->Attribute("Type");
+                        std::cout << "typeStr=" << typeStr << std::endl;
 						if (!typeStr.empty())
 						{							
 							type = mapString2CalculationToken(typeStr);
@@ -382,6 +384,7 @@ namespace GOAT
                             }
 							case TOKEN_CALCULATION_PATH:
 							{
+                                std::cout << "do path calculation" << std::endl;
                                 std::string fname = objEll->Attribute("Filename");
 								int numRays;
 								int numReflex;
@@ -424,7 +427,7 @@ namespace GOAT
 								hStr=objEll->Attribute("Method");
 								if (hStr != NULL) methodStr = hStr;
 								else methodStr = "mixed";
-								if (inactiveStr.compare("rtonly")==0)
+								if (methodStr.compare("rtonly")==0)
 										doPulseCalculation_rt(objEll); 
 								else 
 										doPulseCalculation(objEll);

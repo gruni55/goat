@@ -181,10 +181,9 @@ namespace GOAT
 							PowRef = ((Ray_pow*)ray)->Pow;
 							PowTrans = ((Ray_pow*)tray)->Pow;
 						}
-
+						currentObj = objIndex;
 						traceLeaveObject();
 						int tReflexions = -1;
-						currentObj = objIndex;
 						hObj=currentObj;
 						traceOneRay(tray, tReflexions, recur);
 						currentObj=hObj;
