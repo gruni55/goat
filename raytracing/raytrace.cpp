@@ -97,7 +97,7 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			while ((Reflexions < numReflex) && (!Abbruch))
+			while ((Reflexions < numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20))
 			{
 
 				// save first the infos at the beginning of the next step

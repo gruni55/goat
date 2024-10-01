@@ -84,7 +84,8 @@ namespace GOAT
 				while ((s < L) && (!cancel))
 				{
 					Pnew = pnext(P, kin, SA[iR], currentIndex, 1E-100);  // search next grid cell					
-					l = abs(Pnew - P);					  // length of the last step  					
+					l = abs(Pnew - P);					  // length of the last step  			
+				//	std::cout << P << "\t" << Pnew << std::endl;
 					cancel = (l < 1E-15); // cancel, if the step is less than 1E-15�m
 					if (cancel) std::cout << "% Abort !!!!  " << P << "," << l << std::endl;
 					s += l;               // path inside the detector
