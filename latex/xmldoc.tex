@@ -1,0 +1,102 @@
+\documentclass[a4paper,html,11pt,openany]{book}
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage{nicefrac}
+\usepackage{listings}
+\usepackage{color}
+\definecolor{gray}{rgb}{0.4,0.4,0.4}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.6}
+\definecolor{cyan}{rgb}{0.0,0.6,0.6}
+
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  showstringspaces=false,
+  commentstyle=\color{gray}\upshape
+}
+
+\lstdefinelanguage{XML}
+{
+  morestring=[b]",
+  morestring=[s]{>}{<},
+  morecomment=[s]{<?}{?>},
+  stringstyle=\color{black},
+  identifierstyle=\color{darkblue},
+  keywordstyle=\color{cyan},
+  morekeywords={xmlns,version,type}% list your attributes here
+}
+\begin{document}
+  \title{Documentation of the XML commands}
+  \tableofcontents   
+  \section*{Introduction}
+  In the following, we will given an overview on the structure of a XML file, which can be used as an input for the setup of the scene and for a couple of different calculation processes. Firstly, the principle structure will be discussed. Please note that all lengths are given in \si{\micro\metre}. After the usual preamble of the XML file, everything is encapsulated in the Root entry, i.e. $<$Root$>...<$\textbackslash Root$>$.   
+   In the following, the term "section" is used for a closed part which is encapulated by $<$Sectionname$>...<$\textbackslash Sectionname$>$. Within the root section, there are two possible subsections, the Scene section, which describes the whole structure of the scene with all light sources, objects etc. and the calculation section where the calculation parameters are described. As values there are strings, integer or floating point numbers, threedimensional vectors and complex numbers. \textbf{Threedimensional vectors} are given by the x,y and z component. Default values for missing coordinates is always 0. \\
+   example: 
+    \lstset{language=XML}
+ \begin{lstlisting}
+ <Position x="2.3" y="4.5" z="-5.6" />
+   \end{lstlisting}
+   A \textbf{complex number} is given its real and its imaginary part: 
+ \begin{lstlisting}
+ <n real="1.5" image="0.1"/>
+   \end{lstlisting}
+   
+ \chapter{Scene}
+ Within this section, all elements like light sources, objects and detectors are described. The scene has the parameter: the radius of the calculation space r0.
+   
+ \section{Light sources}
+ All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
+
+ \vspace{1em}
+ \textbf{Parameters used for all light sources} \\
+ 
+ \begin{tabular}{c|c|c}
+ Parameter name & description  & possible value \\ 
+ \hline
+ Type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} \\
+ \hline
+ Position & \parbox{5cm}{position of the light source\\(center of the area)} & 3D vector \\
+ \hline
+ NumRays & \parbox{5cm}{Number of rays per calculation step} & integer number \\
+ \hline
+ Size & width of the light source  & floating point number \\
+ \hline
+Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number
+ \end{tabular}
+ 
+  \subsection{Plane wave}
+ This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is 
+  \begin{tabular}{c|c|c}
+ Parameter name & description  & possible value \\
+ \hline
+ Direction & Direction of the plane wave & 3D Vector  
+ \end{tabular}
+ 
+ \subsection{Plane wave (mc)} 
+ All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
+ 
+ 
+\subsection{Gaussian wave}
+A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. 
+ 
+\vspace{1em} 
+ \textbf{Example for a scene with one light source}
+ \lstset{language=XML}
+ \begin{lstlisting}
+  <?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <Scene r0="4E+4">
+    <nS imag="0.0" real="1.0" />
+    <LightSources>
+      <LightSource NumRays="100000" Size="1500" Type="ring_mc" Wavelength="1.0"
+       rmax="500" rmin="0">
+        <Position x="0.0" y="0" z="-1E+4" />
+        <Direction x="0.0" y="0" z="1" />
+      </LightSource>
+    </LightSources>
+ </Root>
+ \end{lstlisting}
+ Beside these general parameters, every type of light sources have there own special parameters
+
+ 
+\end{document}
