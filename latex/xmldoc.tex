@@ -65,7 +65,10 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
  \end{tabular}
  
   \subsection{Plane wave}
- This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is 
+  type: \textbf{plane} \\
+ This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is
+  
+\vspace{1em} 
   \begin{tabular}{c|c|c}
  Parameter name & description  & possible value \\
  \hline
@@ -73,12 +76,28 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
  \end{tabular}
  
  \subsection{Plane wave (mc)} 
+ type: \textbf{plane\_mc} \\
  All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
  
- 
 \subsection{Gaussian wave}
-A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. 
- 
+ type: \textbf{gaussian} \\
+A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. Special parameters:
+
+\vspace{1em}
+ \begin{tabular}{c|c|c}
+ Parameter name & description  & possible value \\
+ \hline
+ w0 & (virtual) waist at the focal point & floating point number \\
+ \hline
+ NA\footnote{if w0 and NA are given, NA is used} & numerical aperture & floating point number \\ 
+ \end{tabular}
+
+\subsection{Gaussian wave (mc)} 
+ type: \textbf{gaussian\_mc} \\
+The same as the normal gaussian wave, except that the distribution of the rays is arbitrary and the intensity distribution is given by the density of the rays. 
+\subsection{Ring shaped light source}
+type: \textbf{ring} \\
+
 \vspace{1em} 
  \textbf{Example for a scene with one light source}
  \lstset{language=XML}
@@ -88,7 +107,8 @@ A gaussian wave describe a wave which is focused  towards the focal point and ha
   <Scene r0="4E+4">
     <nS imag="0.0" real="1.0" />
     <LightSources>
-      <LightSource NumRays="100000" Size="1500" Type="ring_mc" Wavelength="1.0"
+      <LightSource NumRays="100000" Size="1500" Type="ring_mc"
+       Wavelength="1.0"
        rmax="500" rmin="0">
         <Position x="0.0" y="0" z="-1E+4" />
         <Direction x="0.0" y="0" z="1" />
