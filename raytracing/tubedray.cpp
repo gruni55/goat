@@ -241,7 +241,7 @@ void tubedRay::refract(maths::Vector<double> *N, std::complex<double>  n1, std::
  maths::Matrix<double> D;
  maths::Vector <double> n,e0,e1,e2;
  double alpha, gamma;
- double  beta;
+ std::complex<double>  beta;
  isValid=true;
    for (int i=0; i<5; i++)
  {
@@ -256,10 +256,12 @@ void tubedRay::refract(maths::Vector<double> *N, std::complex<double>  n1, std::
   alpha= std::acos(det);
   if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
 
-  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  // beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta = asin((std::complex<double>)real(n1) / real(n2) * sin(alpha));
+  if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
   isValid=isValid ; //&& (fabs(beta)>EPS_WINKEL);
 //  if (real(n1/n2*sin(alpha))>=1.0) cout << "P=" << P[4] << "    " << n1/n2*sin(alpha) << endl;
-  gamma=beta-alpha;
+  gamma=real(beta)-alpha;
   //if (real(n2)<real(n1)) { e2=-e2;}
   s=1.0;
   trafo(e0,e1,e2,H,R);
@@ -382,7 +384,7 @@ void tubedRay::refract(maths::Vector<double> N, std::complex<double>  n1, std::c
  maths::Matrix<double> D;
  maths::Vector <double> n,e0,e1,e2;
  double ha,alpha, gamma;
- double  beta;
+ std::complex<double>  beta;
 
   n=N/abs(N);
   isValid=true;
@@ -399,9 +401,11 @@ void tubedRay::refract(maths::Vector<double> N, std::complex<double>  n1, std::c
        if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
   }
 
-  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  // beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta = asin((std::complex<double>)real(n1) / real(n2) * sin(alpha));
+  if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
  //  isValid=isValid && fabs(beta)>EPS_WINKEL;  // HÄH ????
-  gamma=beta-alpha;
+  gamma=real(beta)-alpha;
   s=1.0;
   trafo(e0,e1,e2,H,R);
 

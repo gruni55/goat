@@ -396,8 +396,10 @@ namespace GOAT
 			std::random_device rd;
 			std::mt19937_64 gen(rd());
 			std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
-			std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
-			double r = rmax * std::sqrt(ur(gen));			
+			std::uniform_real_distribution<double> ur(rmin, rmax);
+            // std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
+			// double r = rmax * std::sqrt(ur(gen));			
+			double r = ur(gen);
 			double phi = uphi(gen);
 			double x, y;
 			x = r * cos(phi);

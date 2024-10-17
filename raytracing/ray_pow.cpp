@@ -148,6 +148,7 @@ namespace GOAT
             //  cout << "n=" << n << "   nk=" << nk << "   alpha=" << alpha << endl;
             if (alpha > M_PI / 2.0) { alpha = M_PI - alpha; e2 = -e2; }
             beta = asin((std::complex<double>) std::real(n1) / real(n2) * sin(alpha));
+            if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
             gamma = real(beta) - alpha;
             s = 1.0;
             trafo(e0, e1, e2, H, R);

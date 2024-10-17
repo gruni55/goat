@@ -97,9 +97,9 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			while ((Reflexions < numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20))
+			while ((Reflexions < numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20) )
 			{
-
+				ray->status = RAYBASE_STATUS_NONE;
 				// save first the infos at the beginning of the next step
 				int oldObjIndex = ray->objectIndex();
 				EStart = ray->getE();
@@ -118,7 +118,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-		//		std::cout << "=>" << PStart << "  " << PStop << std::endl;
+			//	std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -185,7 +185,7 @@ namespace GOAT
 						traceLeaveObject();
 						int tReflexions = -1;
 						hObj=currentObj;
-						traceOneRay(tray, tReflexions, recur);
+						if (tray->status!=RAYBASE_STATUS_TIR)  traceOneRay(tray, tReflexions, recur);
 						currentObj=hObj;
 						Reflexions++;
 						//delete tray;
@@ -221,7 +221,7 @@ namespace GOAT
 							tray->status = RAYBASE_STATUS_NONE;
 							int tReflexions = -1;
 							hObj=currentObj;
-							traceOneRay(tray, Reflexions, recur);
+							if (tray->status != RAYBASE_STATUS_TIR) traceOneRay(tray, Reflexions, recur);
 							currentObj=hObj;
 							Reflexions++;
 							Abbruch = true;

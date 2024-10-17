@@ -8,6 +8,7 @@ namespace GOAT
     {
 #define RAYBASE_STATUS_NONE       0 
 #define RAYBASE_STATUS_FIRST_STEP 1
+#define RAYBASE_STATUS_TIR        2
         /**
          * @brief Abstract base class for all rays used for the raytracing process. 
          *  This abstract base class for all rays is the parent class, from which all ray classes are derived.

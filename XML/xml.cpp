@@ -138,7 +138,7 @@ namespace GOAT
 
 					case TOKEN_LIGHTSOURCE_GAUSSIAN: {
 														double w0;
-														double NA;
+														double NA=1.0;
 														tinyxml2::XMLError err;
 														w0 = lsEll->DoubleAttribute("w0", 1.0);
 														GOAT::maths::Vector<double> focusPos = readVector(lsEll->FirstChildElement("FocusPosition"));
@@ -150,7 +150,7 @@ namespace GOAT
 
 					case TOKEN_LIGHTSOURCE_GAUSSIAN_MC: {
 															double w0;
-															double NA = 0.9;
+															double NA = 1.0;
 															tinyxml2::XMLError err;
 															w0 = lsEll->DoubleAttribute("w0", 1.0);
 															GOAT::maths::Vector<double> focusPos = readVector(lsEll->FirstChildElement("FocusPosition"));

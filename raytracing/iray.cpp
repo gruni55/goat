@@ -173,6 +173,7 @@ namespace GOAT
             alpha = std::acos(nk);
             if (alpha > M_PI / 2.0) { alpha = M_PI - alpha; e2 = -e2; }
             beta = asin((std::complex<double>) real(n1) / real(n2) * sin(alpha));
+            if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
             gamma = real(beta) - alpha;
             //if (real(n2)<real(n1)) { e2=-e2;}
             s = 1.0;
