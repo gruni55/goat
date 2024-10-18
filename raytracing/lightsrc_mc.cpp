@@ -395,15 +395,22 @@ namespace GOAT
 		{
 			std::random_device rd;
 			std::mt19937_64 gen(rd());
-			std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
-			std::uniform_real_distribution<double> ur(rmin, rmax);
+			
+			/*std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
+			std::uniform_real_distribution<double> ur(0, 1);*/
+			std::uniform_real_distribution<double> uxy (-rmax,rmax);
             // std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
 			// double r = rmax * std::sqrt(ur(gen));			
-			double r = ur(gen);
-			double phi = uphi(gen);
-			double x, y;
-			x = r * cos(phi);
-			y = r * sin(phi);
+			
+			double x,y,r2;
+			do 
+			{
+              x=uxy(gen);
+			  y=uxy(gen);
+			  r2=x*x+y*y;
+			} while ((r2<rmin*rmin) || (r2>rmax*rmax));
+			// x = r * cos(phi);
+			// y = r * sin(phi);
 			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
 			return P;
 		}

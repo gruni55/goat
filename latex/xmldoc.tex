@@ -25,6 +25,8 @@
   keywordstyle=\color{cyan},
   morekeywords={xmlns,version,type}% list your attributes here
 }
+\usepackage{footnote}
+\makesavenoteenv{tabular}
 \begin{document}
   \title{Documentation of the XML commands}
   \tableofcontents   
@@ -95,9 +97,27 @@ A gaussian wave describe a wave which is focused  towards the focal point and ha
 \subsection{Gaussian wave (mc)} 
  type: \textbf{gaussian\_mc} \\
 The same as the normal gaussian wave, except that the distribution of the rays is arbitrary and the intensity distribution is given by the density of the rays. 
+
 \subsection{Ring shaped light source}
 type: \textbf{ring} \\
+A light source, shaped like a ring with equally distributed rays. The ring is described by its inner and outer radius. 
 
+\vspace{1em}
+ \begin{tabular}{c|c|c}
+ Parameter name & description  & possible value \\
+ \hline
+  rmin & inner radius ($\ge 0$) & floating point number \\
+  \hline
+  rmax & outer radius  & floating point number \\
+  \hline 
+  Direction & direction of the light rays & 3D vector
+\end{tabular} 
+ 
+\subsection{Ring shaped light source (mc)}
+ type: \textbf{ring\_mc} \\
+Like ring shaped light source, except that the rays are distributed arbitrarily. 
+ 
+ 
 \vspace{1em} 
  \textbf{Example for a scene with one light source}
  \lstset{language=XML}
