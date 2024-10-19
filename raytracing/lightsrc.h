@@ -19,10 +19,12 @@ constexpr int LIGHTSRC_SRCTYPE_PLANE=1;  ///< Light source is a plane wave
 constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
 constexpr int LIGHTSRC_SRCTYPE_RING = 3;  ///< Light source is a ring shaped wave
 constexpr int LIGHTSRC_SRCTYPE_TOPHAT=4; ///< Light source is a top hat
+constexpr int LIGHTSRC_SRCTYPE_LINE = 5; ///< Light source along a straight line
 
 constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 11; ///< Light source is a plane wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
+
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -164,7 +166,6 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 		* @brief class derived from LightSrc. It represents a plane wave described by the electric field \f$ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} \f$
 		*/
 		class LightSrcPlane : public LightSrc
-
 		{
 		public:
 			LightSrcPlane(void);
@@ -188,6 +189,30 @@ constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (rando
 
 
 			// void turnSrc // to be done !!!
+		};
+
+		/** @brief This class provides a light source, which emitts along a straight line 
+		*/
+		class LightSrcLine : public LightSrc
+		{
+		public:
+			LightSrcLine();
+			/**
+			*  @brief constructor 
+			* @param Pos Position of the light source 
+			* @param N number of rays along straight line
+			* @param size length of the light source
+			* @param direction direction of light source (not the direction of emission !)
+			*/
+			LightSrcLine(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k=maths::ez, maths::Vector<double> direction=maths::ey);
+			int next(RayBase* ray);
+			int next(IRay& S);
+			int next(Ray_pow& S);
+			int next(tubedRay& S);
+			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
+			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
+			maths::Vector<double> direction;
+			double size;
 		};
 
 		/**
