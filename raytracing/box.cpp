@@ -280,8 +280,8 @@ namespace GOAT
 		}
 		*/
 
-// #define BOX_EPS 1E-10
-#define BOX_EPS DBL_MIN
+ #define BOX_EPS 1E-10
+// #define BOX_EPS DBL_MIN
 
 		/*
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
@@ -390,12 +390,14 @@ namespace GOAT
 			if (tmin > BOX_EPS)
 			{				
 				pout = ps + K * tmin;
+			//	std::cout << ps << "\t tmax2=" << tmin << std::endl;
 				return true;
 			}
 
 			if (tmax > BOX_EPS)
 			{
 				pout = ps + K * tmax;
+			//	std::cout << ps << "\t tmax2=" << tmax << std::endl;
 				return true;
 			}
 
