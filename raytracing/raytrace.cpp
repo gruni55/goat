@@ -56,7 +56,7 @@ namespace GOAT
 //						std::cout << "%---------------------------------" << std::endl;
 						currentLS = i;
 						Abbruch = false;
-						Reflexions = -1;
+						Reflexions = 0;
 						statusLS = S.LS[i]->next(ray);
 						recursions = 0;
 						ray->status = RAYBASE_STATUS_FIRST_STEP;
@@ -97,7 +97,7 @@ namespace GOAT
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
 			recur++;
-			while ((Reflexions < numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20) )
+			while ((Reflexions <= numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20) )
 			{
 				ray->status = RAYBASE_STATUS_NONE;
 				// save first the infos at the beginning of the next step
@@ -113,12 +113,12 @@ namespace GOAT
 
 				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
 				Abbruch = Abbruch || (abs(EStart) < 10.0 * std::numeric_limits<double>::min()); // Stop, if absolute value of the electric field is smaller than 10*smallest number
-								
+				
 				// save now the infos about the state after the step
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-			//	std::cout << PStart << "  " << PStop << std::endl;
+		//		std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -169,7 +169,7 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);			
-							// std::cout <<  PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
+							//std::cout <<  PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
 
@@ -183,9 +183,10 @@ namespace GOAT
 						}
 						currentObj = objIndex;
 						traceLeaveObject();
-						int tReflexions = -1;
+						int tReflexions = Reflexions;
 						hObj=currentObj;
-						if (tray->status!=RAYBASE_STATUS_TIR)  traceOneRay(tray, tReflexions, recur);
+						if (tray->status!=RAYBASE_STATUS_TIR)  traceOneRay(tray, Reflexions, recur);
+						Reflexions = tReflexions;
 						currentObj=hObj;
 						Reflexions++;
 						//delete tray;
@@ -219,12 +220,16 @@ namespace GOAT
 							traceEnterObject();
 							ray->status = RAYBASE_STATUS_NONE;
 							tray->status = RAYBASE_STATUS_NONE;
-							int tReflexions = -1;
+							int tReflexions = 1;
 							hObj=currentObj;
-							if (tray->status != RAYBASE_STATUS_TIR) traceOneRay(tray, Reflexions, recur);
+							if (tray->status != RAYBASE_STATUS_TIR)
+							{
+								tReflexions = Reflexions;								
+								traceOneRay(tray, Reflexions, recur);
+								Reflexions = tReflexions;
+							}
 							currentObj=hObj;
 							Reflexions++;
-							Abbruch = true;
 						}
 						else
 						{
@@ -232,7 +237,8 @@ namespace GOAT
 							Abbruch = true;
 						}
 				}
-				if (tray != 0) { delete tray; tray = 0; }				
+				if (tray != 0) { delete tray; tray = 0; }			
+
 			}
 		}
 

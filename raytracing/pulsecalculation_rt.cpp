@@ -44,6 +44,7 @@ namespace GOAT
 				double wvl1, wvl2;
 				rt = Raytrace_usp_rt(S, nn);
 				rt.setRefractiveIndexFunctions(trafoparms.nList);
+				rt.setNumReflex(numReflex);
 				double wvl;
 				double sigma = trafoparms.dt / (2.0 * M_LN2);
 				std::complex<double> weight;

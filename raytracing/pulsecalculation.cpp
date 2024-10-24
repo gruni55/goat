@@ -161,6 +161,7 @@ namespace GOAT
 			double omega;
             double wvl1, wvl2;
 			rt = Raytrace_usp(S, nn);
+			rt.setNumReflex(numReflex);
 			double wvl;
 		    if((settings==PULSECALCULATION_CLEAR_SA) || (fieldCalls==0))
 			{
