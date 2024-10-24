@@ -177,7 +177,7 @@ namespace GOAT
 
             // finally everthing is prepared, let's have a look, which intersection point is nearer 
             // first, compare the side faces
-            if (((lleft > 0) && (lleft < lright))|| (lright<=1E-10))
+            if (((lleft > 1E-10) && (lleft < lright))|| (lright<=1E-10))
             {
                 lambda = lleft;
                 pout = Ps + lleft * K;
