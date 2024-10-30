@@ -142,6 +142,12 @@ namespace GOAT
                                                         LS[numLS] = new GOAT::raytracing::LightSrcLine(Pos, numRays, wavelength, size, k, D);
                                                         }
                                                break;
+                    case TOKEN_LIGHTSOURCE_LINE_MC: {
+                                                        GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+                                                        GOAT::maths::Vector<double> D = readVector(lsEll->FirstChildElement("lateral_direction"));
+                                                        LS[numLS] = new GOAT::raytracing::LightSrcLine_mc(Pos, numRays, wavelength, size, k, D);
+                                                    }
+                                               break;
 
 					case TOKEN_LIGHTSOURCE_GAUSSIAN: {
 														double w0;
