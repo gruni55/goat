@@ -351,8 +351,21 @@ namespace GOAT
 												Obj.push_back(new GOAT::raytracing::sphericLens(Pos,n,lensparms));
 												Obj[numObj]->setMatrix(alpha, beta, gamma);
 												Obj[numObj]->setActive(isActive);
-												S.addObject(Obj[numObj]);							
+												S.addObject(Obj[numObj]);	
+                                                break;						
 											}
+                    case TOKEN_OBJECT_CONE: 
+                                            {
+                                                double height, radius;
+                                                height=objEll->DoubleAttribute("height",100);
+                                                radius=objEll->DoubleAttribute("radius",100);
+                                                Obj.push_back(new GOAT::raytracing::Cone(Pos,radius,height,n));
+                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
+												Obj[numObj]->setActive(isActive);
+												S.addObject(Obj[numObj]);	
+                                                break;
+                                            }
+
 					}
 									
 					numObj++;
