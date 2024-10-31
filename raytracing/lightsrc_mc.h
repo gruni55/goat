@@ -68,6 +68,32 @@ namespace GOAT
                 void reset();
         };
 
+
+        /** @brief This class provides a light source, which emitts along a straight line (random ray distribution)
+        */
+        class LightSrcLine_mc : public LightSrc
+        {
+        public:
+            LightSrcLine_mc();
+            /**
+            *  @brief constructor
+            * @param Pos Position of the light source
+            * @param N number of rays along straight line
+            * @param size length of the light source
+            * @param direction direction of light source (not the direction of emission !)
+            */
+            LightSrcLine_mc(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k = maths::ez, maths::Vector<double> direction = maths::ey);
+            int next(RayBase* ray);
+            int next(IRay& S);
+            int next(Ray_pow& S);
+            int next(tubedRay& S);
+            void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
+            void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
+            maths::Vector<double> direction;
+            GOAT::maths::Vector<double> genStartingPos();
+            double size;
+        };
+
         /**
          * @brief  Ring shaped light source.
          * This class provides a ring shaped light source with arbitrary, uniform 

@@ -24,6 +24,7 @@ constexpr int LIGHTSRC_SRCTYPE_LINE = 5; ///< Light source along a straight line
 constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 11; ///< Light source is a plane wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
+constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight line (random distribution)
 
 
 
