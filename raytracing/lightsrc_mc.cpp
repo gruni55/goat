@@ -706,5 +706,110 @@ namespace GOAT
                   sigma2=r*r/log(2.0);
                 }
 
+				LightSrcLine_mc::LightSrcLine_mc() : LightSrc()
+				{
+					type = LIGHTSRC_SRCTYPE_LINE_MC;
+				}
+
+				LightSrcLine_mc::LightSrcLine_mc(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k, maths::Vector<double> direction) : LightSrc()
+				{
+					type = LIGHTSRC_SRCTYPE_LINE_MC;
+					this->Pos = Pos;
+					this->N = N;
+					this->wvl = wvl;
+					this->size = size;
+					this->density = size / ((double)N);
+					Pol = maths::Vector<std::complex<double> >(0, 1, 0);
+					this->D = size;
+					this->D1 = size;
+					this->direction = direction / abs(direction);
+					this->k = k;
+				}
+
+				GOAT::maths::Vector<double>  LightSrcLine_mc::genStartingPos()
+				{
+					std::random_device rd;
+					std::mt19937_64 gen(rd());
+					std::uniform_real_distribution<double> udx(-D1 / 2.0, D1 / 2.0);
+	
+					double x;
+
+					x = udx(gen);
+					GOAT::maths::Vector<double> P = Pos + x * direction;
+					return P;
+				}
+
+				int LightSrcLine_mc::next(RayBase* ray)
+				{
+					ray->suppress_phase_progress = suppress_phase_progress;
+					switch (raytype)
+					{
+					case LIGHTSRC_RAYTYPE_IRAY: return next(*(IRay*)ray); break;
+					case LIGHTSRC_RAYTYPE_PRAY: return next(*(Ray_pow*)ray); break;
+					case LIGHTSRC_RAYTYPE_RAY:
+					default: return next(*(tubedRay*)ray);
+					}
+
+					return 0;
+				}
+
+				int LightSrcLine_mc::next(IRay& S)
+				{
+					Plane E;
+					// maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * direction;
+					maths::Vector<double> P = genStartingPos();
+					E.e1 = direction;
+					E.n = k;
+					S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+					S.suppress_phase_progress = suppress_phase_progress;
+					S.E1 = Pol / (N * N);
+					S.E2 = Pol2 / (N * N);
+					// S.init_Efeld(E,Pol);
+					i1++;
+
+					if (i1 * density > D1) { return LIGHTSRC_IS_LAST_RAY; }
+					return LIGHTSRC_NOT_LAST_RAY;
+				}
+
+				int LightSrcLine_mc::next(Ray_pow& S)
+				{
+
+					Plane E;
+					double Pow;
+
+					maths::Vector<double> P = genStartingPos();
+					// maths::Vector<double> P=Pos+(i1*density-D/2.0)*e1; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
+					E.e1 = direction;
+
+					E.n = k;
+					Pow = P0 / ((double)(N * N) * D1 * D2);
+					S = Ray_pow(Pow, P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+					S.suppress_phase_progress = suppress_phase_progress;
+					S.initElectricField(E, Pol);
+					S.P = P;
+					S.E1 = Pol;
+					S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+					S.k = k;
+					i1++;
+					Pall += abs2(S.E2);
+					// if (i1*density>D) return LIGHTSRC_IS_LAST_RAY; // NUR ZU TESTZWECKEN !!!!!!!!!!!!!!
+					if (i1 * density > D1) { return LIGHTSRC_IS_LAST_RAY; }
+					return LIGHTSRC_NOT_LAST_RAY;
+				}
+
+
+				int LightSrcLine_mc::next(tubedRay& S)
+				{
+					double Pow = P0 / (N * N * D2 * D1);
+					maths::Vector<double> P = genStartingPos();
+					S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+					S.suppress_phase_progress = suppress_phase_progress;
+					S.setN0(n0);
+					// S.init_Efeld(Pol,1);
+					i1++;
+					if (i1 * density > D1) { return LIGHTSRC_IS_LAST_RAY; }
+					return LIGHTSRC_NOT_LAST_RAY;
+				}
+
     }
 }
