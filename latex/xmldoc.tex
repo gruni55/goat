@@ -1,8 +1,10 @@
 \documentclass[a4paper,html,11pt,openany]{book}
+\usepackage{hyperref}
 \usepackage{longtable}
 \usepackage{siunitx}
 \usepackage{nicefrac}
 \usepackage{listings}
+\usepackage{makecell}
 \usepackage{color}
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
@@ -52,18 +54,19 @@
  \vspace{1em}
  \textbf{Parameters used for all light sources} \\
  
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\ 
+ % \begin{tabular}{c|c|c|p{3cm}}
+ \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter name & description  & possible value & default value\\ 
  \hline
- Type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} \\
+ Type & type of the light source & \makecell[l]{"plane","gaussian"\\"ring","tophat"\\"plane\_mc"\\"gaussian\_mc"\\"ring\_mc"\\"gaussian\_ring\_mc"} & -- \\
  \hline
- Position & \parbox{5cm}{position of the light source\\(center of the area)} & 3D vector \\
+ Position & position of the light source (center of the area) & 3D vector & -- \\
  \hline
- NumRays & \parbox{5cm}{Number of rays per calculation step} & integer number \\
+ NumRays & Number of rays per calculation step & integer number & --\\
  \hline
- Size & width of the light source  & floating point number \\
+ Size & width of the light source  & floating point number & --\\
  \hline
-Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number
+Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0
  \end{tabular}
  
   \subsection{Plane wave}
@@ -71,10 +74,11 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
  This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is
   
 \vspace{1em} 
-  \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+%  \begin{tabular}{c|c|c}
+\begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter name & description  & possible value & default value\\
  \hline
- Direction & Direction of the plane wave & 3D Vector  
+ Direction & Direction of the plane wave & 3D Vector  & -- 
  \end{tabular}
  
  \subsection{Plane wave (mc)} 
@@ -86,10 +90,11 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
 A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. Special parameters:
 
 \vspace{1em}
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+% \begin{tabular}{c|c|c}
+\begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter name & description  & possible value & default value \\
  \hline
- w0 & (virtual) waist at the focal point & floating point number \\
+ w0 & (virtual) waist at the focal point & floating point number & 1.0 \\
  \hline
  NA\footnote{if w0 and NA are given, NA is used} & numerical aperture & floating point number \\ 
  \end{tabular}
@@ -103,14 +108,15 @@ type: \textbf{ring} \\
 A light source, shaped like a ring with equally distributed rays. The ring is described by its inner and outer radius. 
 
 \vspace{1em}
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+% \begin{tabular}{c|c|c}
+ \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter name & description  & possible value & default value\\
  \hline
-  rmin & inner radius ($\ge 0$) & floating point number \\
+  rmin & inner radius ($\ge 0$) & floating point number & 0\\
   \hline
-  rmax & outer radius  & floating point number \\
+  rmax & outer radius  & floating point number & 100 \\
   \hline 
-  Direction & direction of the light rays & 3D vector
+  Direction & direction of the light rays & 3D vector & --
 \end{tabular} 
  
 \subsection{Ring shaped light source (mc)}
@@ -137,18 +143,51 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
  </Root>
  \end{lstlisting}
  Beside these general parameters, every type of light sources have there own special parameters
-
+\newpage
  \section{Objects}
  Like the light sources, all objects have some general parameters. Those parameters can be seen in the following table
- \vspace{1em}
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
- \hline
-  Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector \\
-  \hline
-  Type & Type of the object  & " \\
-  \hline 
-  Direction & direction of the light rays & 3D vector
-\end{tabular} 
  
+ \vspace{1em}
+% \begin{tabular}{c|c|c}
+ \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter name & description  & possible value & default value\\
+ \hline
+  Type & Type of the object  & \makecell{ "ellipsoid","surface"\\"cone","aspheric\_lens"\\"spheric\_lens","box"} & --  \\
+  \hline
+   Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & --\\
+  \hline 
+  Alpha & rotation angle around x-axis & double (in radiants) & 0 \\
+  \hline
+  Beta & rotation angle around y-axis & double (in radiants) & 0 \\
+  \hline
+  Gamma & rotation angle around z-axis & double (in radiants) & 0 \\
+  \hline
+  isActive & for pulse calculation and inelastic: if true, the field inside the object will be stored & true, false & false \\
+  \hline
+  n & refractive index & complex number\footnote{Complex numbers have two components: real and imag for the real and the imaginary part} & real: 1.0, imag: 0.0 \\
+\end{tabular} 
+ \subsubsection{Ellipsoid}
+ type: \textbf (ellipsoid)
+ This object type describes an elliptic object, defined by the three semi-axis, according to
+  \begin{equation}
+  \frac{(x-x_c)^2}{a_x^2}+\frac{(y-y_c)^2}{a_y^2}+\frac{(z-z_c)^2}{a_z^2}=1
+\end{equation}   
+The position is defined by the center of the ellipsoid ($x_c$,$y_c$,$z_c$).
+
+\vspace{1em}
+\begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ Dimension & Vector, which holds the semi-axes as components & 3D Vector & (10,10,10) 
+ \end{tabular}
+ \subsubsection{Box}
+ type: \textbf{box}
+ This object type describes a cuboid, defined by the edge lengths. The center of the cuboid is used as position.
+ 
+\vspace{1em}
+\begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ Dimension & Vector, which holds the edge lengths in x-, y- and z-direction & 3D Vector & (10,10,10) 
+ \end{tabular}
 \end{document}
