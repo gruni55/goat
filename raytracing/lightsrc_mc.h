@@ -162,12 +162,12 @@ namespace GOAT
             double sigma2; ///< sigma^2, used for internal purposes
         }; 
 
-       /** @brief This class provides a light source, which emitts along a straight line
+       /** @brief This class provides a point light source
        */
-       class LightSrcLine_mc : public LightSrc
+       class LightSrcPoint_mc : public LightSrc
        {
        public:
-           LightSrcLine_mc();
+           LightSrcPoint_mc();
            /**
            *  @brief constructor
            * @param Pos Position of the light source
@@ -175,16 +175,14 @@ namespace GOAT
            * @param size length of the light source
            * @param direction direction of light source (not the direction of emission !)
            */
-           LightSrcLine_mc(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k = maths::ez, maths::Vector<double> direction = maths::ey);
+           LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl);
            int next(RayBase* ray);
            int next(IRay& S);
            int next(Ray_pow& S);
            int next(tubedRay& S);
-           GOAT::maths::Vector<double>  genStartingPos();
+           GOAT::maths::Vector<double>  genDirection();
            void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
-           void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
-           maths::Vector<double> direction;
-           double size;
+           void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }          
        };
     }    
 }
