@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/weigetz9/source/repos/goat/tinyxml2
-BuildDirectory: C:/Users/weigetz9/source/repos/goat/tinyxml2
+SourceDirectory: C:/Users/Thomas/source/repos/gruni55/goat/tinyxml2
+BuildDirectory: C:/Users/Thomas/source/repos/gruni55/goat/tinyxml2
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: zeus-windows2
+Site: DESKTOP-99LCVTF
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Win32-MSBuild
@@ -21,13 +21,12 @@ LabelsForSubprojects:
 
 # Submission information
 SubmitURL: http://
-SubmitInactivityTimeout: 
 
 # Dashboard start time
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/weigetz9/source/repos/goat/tinyxml2"
+ConfigureCommand: "C:/Program Files/CMake/bin/cmake.exe" "C:/Users/Thomas/source/repos/gruni55/goat/tinyxml2"
 MakeCommand: "C:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -63,8 +62,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.39.33519/bin/Hostx64/x64/cl.exe
-CompilerVersion: 19.39.33522.0
+Compiler: C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe
+CompilerVersion: 19.41.34123.0
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 
@@ -81,7 +80,7 @@ MemoryCheckCommandOptions:
 MemoryCheckSuppressionFile: 
 
 # Coverage
-CoverageCommand: COVERAGE_COMMAND-NOTFOUND
+CoverageCommand: C:/Strawberry/c/bin/gcov.exe
 CoverageExtraFlags: -l
 
 # Testing options

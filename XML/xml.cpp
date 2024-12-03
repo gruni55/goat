@@ -149,6 +149,11 @@ namespace GOAT
                                                     }
                                                break;
 
+                    case TOKEN_LIGHTSOURCE_POINT_MC: {
+                                                        LS[numLS] = new GOAT::raytracing::LightSrcPoint_mc(Pos, numRays, wavelength);
+                                                     }
+                                                   break;
+
 					case TOKEN_LIGHTSOURCE_GAUSSIAN: {
 														double w0;
 														double NA=1.0;

@@ -7,7 +7,7 @@ namespace GOAT
 {
 	namespace XML
 	{
-#define numLightSourceToken 10
+#define numLightSourceToken 12
 #define numObjectToken	    6 
 #define numDetectorToken    1
 #define numCalculationToken 5
@@ -24,6 +24,9 @@ namespace GOAT
 #define TOKEN_LIGHTSOURCE_GAUSSIAN_RING_MC 7
 #define TOKEN_LIGHTSOURCE_LINE			8
 #define TOKEN_LIGHTSOURCE_LINE_MC		9
+#define TOKEN_LIGHTSOURCE_POINT 		10
+#define TOKEN_LIGHTSOURCE_POINT_MC		11
+
 
 #define TOKEN_OBJECT_ELLIPSOID		  100
 #define TOKEN_OBJECT_SURFACE		  101
@@ -49,7 +52,7 @@ namespace GOAT
 
 
 
-        const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc","gaussian_ring_mc","line","line_mc"};
+        const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc","gaussian_ring_mc","line","line_mc","point","point_mc"};
 		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box"};
 		const std::vector<std::string> detectorToken = {"plane"};
         const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic"};

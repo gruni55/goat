@@ -1,23 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Root>
-  <Scene r0="1E+5">
-    <nS real="1.2" imag="0.1"></nS>
+  <Scene r0="200">
+    <nS real="1.0" imag="0.0"></nS>
     <LightSources>
-		<LightSource Type="plane" Size="10.0" Wavelength="1.0" NumRays="30">
-			<Position x="0.0" y="-100.0"></Position>
-			<Direction x="0.0" y="1.0" z="0.0"></Direction>
-		</LightSource>
+      <LightSource Type="plane_mc" Size="20" Wavelength="1.0" NumRays="30">
+        <Position x="0.0" y="0" z="-20"></Position>
+        <Direction x="0.0" y="0" z="1"></Direction>
+      </LightSource>
     </LightSources>
     <Objects>
-		<Object Type="ellipsoid" Alpha="0.0" Beta="0.0" Gamma="0.0" IsActive="false">
-			<n real="1.5" imag="0.0"></n>
-			<Position x="0.0" y="0.0" z="0.0"></Position>
-			<Dimensions x="20.0" y="20.0" z="20.0"></Dimensions>
-		</Object>				
+      <Object Type="ellipsoid" Alpha="0.0" Beta="0.0" Gamma="0.0" IsActive="false">
+        <n real="1.5" imag="0.0"></n>
+        <Position x="0.0" y="0" z="50"></Position>
+        <Dimension x="20.0" y="20.0" z="20.0" />
+      </Object>
+      <Object Type="spheric_lens" Radius="20">
+        <Position x="0" y="0" z="100" />
+        <n real="1.5" />
+        <left Curvature="flat" />
+        <right Curvature="convex" R="20" />
+      </Object>
     </Objects>
   </Scene>
-	<Calculations>
-		<Calculation Type="path" fname="test.dat">			
-		</Calculation>
-	</Calculations>
+  <Calculations>
+    <Calculation Type="path" fname="test.dat"></Calculation>
+  </Calculations>
 </Root>
