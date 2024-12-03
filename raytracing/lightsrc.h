@@ -20,12 +20,13 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS=2;  ///< Light source is a gaussian wave
 constexpr int LIGHTSRC_SRCTYPE_RING = 3;  ///< Light source is a ring shaped wave
 constexpr int LIGHTSRC_SRCTYPE_TOPHAT=4; ///< Light source is a top hat
 constexpr int LIGHTSRC_SRCTYPE_LINE = 5; ///< Light source along a straight line
+constexpr int LIGHTSRC_SRCTYPE_POINT = 6; ///< Point light source 
 
 constexpr int LIGHTSRC_SRCTYPE_PLANE_MC = 11; ///< Light source is a plane wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wave (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight line (random distribution)
-
+constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random distribution)
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -215,6 +216,8 @@ constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight 
 			maths::Vector<double> direction;
 			double size;
 		};
+
+
 
 		/**
 		* @brief This class describes a ring shaped

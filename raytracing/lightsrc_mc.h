@@ -161,5 +161,28 @@ namespace GOAT
             void reset();
             double sigma2; ///< sigma^2, used for internal purposes
         }; 
+
+       /** @brief This class provides a point light source
+       */
+       class LightSrcPoint_mc : public LightSrc
+       {
+       public:
+           LightSrcPoint_mc();
+           /**
+           *  @brief constructor
+           * @param Pos Position of the light source
+           * @param N number of rays along straight line
+           * @param size length of the light source
+           * @param direction direction of light source (not the direction of emission !)
+           */
+           LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl);
+           int next(RayBase* ray);
+           int next(IRay& S);
+           int next(Ray_pow& S);
+           int next(tubedRay& S);
+           GOAT::maths::Vector<double>  genDirection();
+           void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
+           void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }          
+       };
     }    
 }
