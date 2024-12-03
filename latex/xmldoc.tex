@@ -140,6 +140,7 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
 
  \section{Objects}
  Like the light sources, all objects have some general parameters. Those parameters can be seen in the following table
+ 
  \vspace{1em}
  \begin{tabular}{c|c|c}
  Parameter name & description  & possible value \\
@@ -151,4 +152,35 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
   Direction & direction of the light rays & 3D vector
 \end{tabular} 
  
+ \chapter {Calculations}
+ Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
+ 
+ \begin{center}
+ \vspace{1em}
+ \begin{tabular}{c|l}
+ type name & description \\
+ \hline
+ pure & \parbox{10cm}{Raytracing will be done without any further calculation will be done. Only detectors are considered.}\\
+ \hline 
+ path & Raytracing will be performed, path of the rays can be stored in a file. \\
+ \hline
+ pulse & Calculation with pulsed light source will be performed.
+ \end{tabular}
+  \end{center}
+  
+ \section{Calculations with pulsed laser sources}
+ Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). 
+ 
+The parameters are as follows:
+ 
+ \vspace{1em}
+ \begin{tabular}{c|l|c}
+  Parameter name & description  & possible value \\
+ \hline
+ EstimateTimeForObject & \parbox{5cm}{The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"!} & \parbox{5cm}{number of the corresponding object} \\
+ \hline
+  Filename & \parbox{5cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form "$<$Filename$><$object no.$>$.dat"}. & any filename \\
+  \hline
+  Spatial\_Resolution
+ \end{tabular}
 \end{document}

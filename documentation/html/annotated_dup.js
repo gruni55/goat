@@ -25,6 +25,8 @@ var annotated_dup =
         [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
         [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
         [ "LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc" ],
+        [ "LightSrcLine", "class_g_o_a_t_1_1raytracing_1_1_light_src_line.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_line" ],
+        [ "LightSrcLine_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc" ],
         [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane" ],
         [ "LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc" ],
         [ "LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring" ],

@@ -117,12 +117,14 @@ Inheritance diagram for GOAT::raytracing::LightSrc:</div>
   <img src="class_g_o_a_t_1_1raytracing_1_1_light_src.png" usemap="#GOAT::raytracing::LightSrc_map" alt=""/>
   <map id="GOAT::raytracing::LightSrc_map" name="GOAT::raytracing::LightSrc_map">
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html" title="This class describes a focused gaussian beam." alt="GOAT::raytracing::LightSrcGauss" shape="rect" coords="0,56,247,80"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html" title="class derived from LightSrc. It represents a plane wave described by the electric field" alt="GOAT::raytracing::LightSrcPlane" shape="rect" coords="514,56,761,80"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="771,56,1018,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html" title="This class provides a light source, which emitts along a straight line." alt="GOAT::raytracing::LightSrcLine" shape="rect" coords="257,56,504,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html" title="This class provides a light source, which emitts along a straight line (random ray distribution)" alt="GOAT::raytracing::LightSrcLine_mc" shape="rect" coords="514,56,761,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html" title="class derived from LightSrc. It represents a plane wave described by the electric field" alt="GOAT::raytracing::LightSrcPlane" shape="rect" coords="771,56,1018,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="1028,56,1275,80"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html" title="This class provides a gaussian beam with arbitrary distributed rays." alt="GOAT::raytracing::LightSrcGauss_mc" shape="rect" coords="0,112,247,136"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html" title="Plane wave with random ray distribution. This class provides a plane (square sized) wave with a given..." alt="GOAT::raytracing::LightSrcPlane_mc" shape="rect" coords="257,112,504,136"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ..." alt="GOAT::raytracing::LightSrcRingGauss_mc" shape="rect" coords="514,112,761,136"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html" title="Ring shaped light source. This class provides a ring shaped light source with arbitrary,..." alt="GOAT::raytracing::LightSrcRing_mc" shape="rect" coords="771,112,1018,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html" title="Plane wave with random ray distribution. This class provides a plane (square sized) wave with a given..." alt="GOAT::raytracing::LightSrcPlane_mc" shape="rect" coords="514,112,761,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ..." alt="GOAT::raytracing::LightSrcRingGauss_mc" shape="rect" coords="771,112,1018,136"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html" title="Ring shaped light source. This class provides a ring shaped light source with arbitrary,..." alt="GOAT::raytracing::LightSrcRing_mc" shape="rect" coords="1028,112,1275,136"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -319,7 +321,7 @@ Friends</h2></td></tr>
 <div class="textblock"><p>This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. </p>
 <p><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>: the virtual base class for describing light sources. Each light source is defined by a quadratic area as starting area for the corresponding rays and a reference point Pos in the middle of this area. The direction has to be defined separately in the derived class. It provides a standard programming interface for light sources. The virtual function next(...) gives the next ray with the light source dependent parameters (position, direction, strength of the electric field etc.). The return parameter has three possible values: LIGHTSRC_NOT_LAST_RAY: the created ray is not the last ray, LIGHTSRC_IS_LAST_RAY: the last ray was created (i.e. the raytracing is at its end) and LIGHTSRC_ERROR: an error occurs. The routine <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#aaebdb75999da8229dcdc15a225735d6f" title="Reset everything (counting starts from the beginning)">reset()</a> resets the ray counter to its initial value, so the next call of the routine <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a2d457888d0410407f5cfe4ef3e465b0c">next()</a> gives the first ray. Since the rays need information about the objects to be able to calculate the crossing points with the object surface, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> provides routines to pass these informations to the rays. These routines are only needed for calculations without the raytracing process, especially without the <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html" title="Class defining a scene with lightsources and objects. This is a container used to inform the Raytrace...">Scene</a> class. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00055">55</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00058">58</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1265e79b083e53f2ca0153fa640b680e" name="a1265e79b083e53f2ca0153fa640b680e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1265e79b083e53f2ca0153fa640b680e">&#9670;&#160;</a></span>~LightSrc()</h2>
@@ -443,7 +445,7 @@ Friends</h2></td></tr>
 
 <p>reads content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> from a binary file, represented by os (has to be specified by the derived classes) </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab8e3b0c8902a3f12ad08a202bc21414d">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ad1c1bc9453c100fa87596429ecdcf70c">GOAT::raytracing::LightSrcPlane</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1d89210274e077b45591962852610584">GOAT::raytracing::LightSrcRing</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab8e3b0c8902a3f12ad08a202bc21414d">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ad1c1bc9453c100fa87596429ecdcf70c">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#a4dd1c23c03c80aa75a1af0a5735ff00f">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1d89210274e077b45591962852610584">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#a76eb7414b613af8c0ebd5dcd72829613">GOAT::raytracing::LightSrcLine_mc</a>.</p>
 
 </div>
 </div>
@@ -493,7 +495,7 @@ Friends</h2></td></tr>
 
 <p>writes content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> in a binary file, represented by is (has to be specified by the derived classes)focuspos </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ab6b176214b30f9b2dd4d373ca998a208">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ac71cdfc8fe1835773b022ee620493f73">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc">GOAT::raytracing::LightSrcGauss</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ab6b176214b30f9b2dd4d373ca998a208">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#a6d9a0be0972a91e2a2b7065a5785989c">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ac71cdfc8fe1835773b022ee620493f73">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc">GOAT::raytracing::LightSrcGauss</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#adf663d8e802d5d3df17f79cd7cabc4cc">GOAT::raytracing::LightSrcLine_mc</a>.</p>
 
 </div>
 </div>
@@ -541,7 +543,7 @@ Friends</h2></td></tr>
 
 <p>returns the ray density, i.e. the number of rays per unit length (=D/N) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00088">88</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00091">91</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +572,7 @@ Friends</h2></td></tr>
 
 <p>returns the main direction of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00110">110</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00113">113</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -599,7 +601,7 @@ Friends</h2></td></tr>
 
 <p>returns the number of Objects (only needed, when used seperately outside scene) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00083">83</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00086">86</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -628,7 +630,7 @@ Friends</h2></td></tr>
 
 <p>returns the number of rays (per direction in space) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00111">111</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00114">114</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -658,7 +660,7 @@ Friends</h2></td></tr>
 
 <p>returns i-th item in the object list </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00084">84</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00087">87</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +689,7 @@ Friends</h2></td></tr>
 
 <p>returns the position of the light source. This is the center of the square area of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00124">124</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00127">127</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -714,7 +716,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00119">119</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00122">122</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -741,7 +743,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00121">121</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00124">124</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -769,7 +771,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#af7534ab0741b360f5245b6f3ca88d797">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aeadc57f644ce0fa16f9623038780586d">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a7d1d9438529c64c6dc2cd34d8fc17073">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#ae40adffd9b575f98c8d2b2a1b9043aca">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ae8a30e8a679ee303717cf295097fd81f">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a75eafa44799cd1f48a5cd99aae39dcda">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#af7534ab0741b360f5245b6f3ca88d797">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#aa77242c5c28075802aa06262977dcdad">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aeadc57f644ce0fa16f9623038780586d">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a09750e9ca12ccda3a1386a713f4682e0">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a7d1d9438529c64c6dc2cd34d8fc17073">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#ae40adffd9b575f98c8d2b2a1b9043aca">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#a6e2265bf0fc159fdcb72ef7b48600663">GOAT::raytracing::LightSrcLine_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ae8a30e8a679ee303717cf295097fd81f">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a75eafa44799cd1f48a5cd99aae39dcda">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
 
 </div>
 </div>
@@ -797,7 +799,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a7adde40ffa33913e49715cff2c67177d">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a0070e2f24ddd28ec3b86fae57e605761">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a964ed0ed53173923768200fc890182fd">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#aafba313b4066146e7bd6d75a78f31465">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#a050a6bd8fe0ffe51310e0c335793e9d7">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#af12a3af99f30bcf3ccfcf94662869d06">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a63fcec136c4b2e3b2f720e78f3cffc2b">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a7adde40ffa33913e49715cff2c67177d">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#a6031eb7b7bdd999161bff7355d1d94ac">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a0070e2f24ddd28ec3b86fae57e605761">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a964ed0ed53173923768200fc890182fd">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#aafba313b4066146e7bd6d75a78f31465">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#a050a6bd8fe0ffe51310e0c335793e9d7">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#a39dd6c0034fa3e58572d4d3fa1634e0a">GOAT::raytracing::LightSrcLine_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#af12a3af99f30bcf3ccfcf94662869d06">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a63fcec136c4b2e3b2f720e78f3cffc2b">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
 
 </div>
 </div>
@@ -837,7 +839,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a8dd935f709d519b72036b52226374457">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1f91eebbb49c596d1d8ae84f96159a6a">GOAT::raytracing::LightSrcGauss</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a043ea13f61a5fbc446c6a0d229a743c6">GOAT::raytracing::LightSrcRing</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a8dd935f709d519b72036b52226374457">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a1f91eebbb49c596d1d8ae84f96159a6a">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#a08ee8047a1f576a214cfad42e23e9c50">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a043ea13f61a5fbc446c6a0d229a743c6">GOAT::raytracing::LightSrcRing</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#a5d47d8350e72c889b719bb989892927e">GOAT::raytracing::LightSrcLine_mc</a>.</p>
 
 </div>
 </div>
@@ -865,7 +867,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a680615a6d031f7e2dcf95bfc60d573be">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a44fde31dd81c2c5e9308303b78e52cb4">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#af7e5260b4d39051a3c1bc767409ca089">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#abe7353a84903f0d9537f09adb36ecfbd">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a1e3de68dd4f2a510e597f3e58a11d7ca">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a009c342503e427ed395e4d6b1efe7c39">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html#a680615a6d031f7e2dcf95bfc60d573be">GOAT::raytracing::LightSrcGauss_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a44fde31dd81c2c5e9308303b78e52cb4">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#ad19aee08fb62f450e35a401a702bffcf">GOAT::raytracing::LightSrcLine</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#af7e5260b4d39051a3c1bc767409ca089">GOAT::raytracing::LightSrcGauss</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#abe7353a84903f0d9537f09adb36ecfbd">GOAT::raytracing::LightSrcPlane_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#af6c115b09e52e467dc313cdf2bd6081e">GOAT::raytracing::LightSrcLine_mc</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a1e3de68dd4f2a510e597f3e58a11d7ca">GOAT::raytracing::LightSrcRing_mc</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a009c342503e427ed395e4d6b1efe7c39">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
 
 </div>
 </div>
@@ -923,7 +925,7 @@ Friends</h2></td></tr>
 
 <p>returns the current ray type </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00086">86</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00089">89</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -978,7 +980,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00089">89</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00092">92</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1022,7 +1024,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00098">98</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00101">101</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1072,7 +1074,7 @@ Friends</h2></td></tr>
 
 <p>sets the complex valued refractive index of the intermediate medium </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00125">125</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00128">128</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1108,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00112">112</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00115">115</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1166,7 +1168,7 @@ Friends</h2></td></tr>
 
 <p>sets the polarisation </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00122">122</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00125">125</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1234,7 +1236,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00118">118</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00121">121</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1262,7 +1264,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00120">120</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00123">123</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1291,7 +1293,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00150">150</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00153">153</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1319,7 +1321,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00149">149</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00152">152</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1374,7 +1376,7 @@ Friends</h2></td></tr>
 
 <p>width of the square light source area </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00143">143</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00146">146</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1390,7 +1392,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00144">144</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00147">147</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1408,7 +1410,7 @@ Friends</h2></td></tr>
 
 <p>width in the e1- and the e2-direction (used only for _mc versions of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00144">144</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00147">147</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1426,7 +1428,7 @@ Friends</h2></td></tr>
 
 <p>ray density, i.e. distance between two neighboring rays </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00131">131</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00134">134</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1442,7 +1444,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00145">145</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00148">148</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1460,7 +1462,7 @@ Friends</h2></td></tr>
 
 <p>unit vectors that span the light source area </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00145">145</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00148">148</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1478,7 +1480,7 @@ Friends</h2></td></tr>
 
 <p>first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00134">134</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00137">137</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1496,7 +1498,7 @@ Friends</h2></td></tr>
 
 <p>second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00135">135</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00138">138</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1515,7 +1517,7 @@ Friends</h2></td></tr>
 <p>main direction of the light source <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00132">132</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00135">135</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1541,7 +1543,7 @@ Friends</h2></td></tr>
 
 <p>wavenumber (i.e. \( \frac{2\pi}{\lambda}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00157">157</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00160">160</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1559,7 +1561,7 @@ Friends</h2></td></tr>
 
 <p>number of rays (per direction) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00133">133</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00136">136</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1577,7 +1579,7 @@ Friends</h2></td></tr>
 
 <p>refractive index of the intermediate medium </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00141">141</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00144">144</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1595,7 +1597,7 @@ Friends</h2></td></tr>
 
 <p>number of objects </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00140">140</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00143">143</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1613,7 +1615,7 @@ Friends</h2></td></tr>
 
 <p>list of all objects </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00126">126</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00129">129</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1631,7 +1633,7 @@ Friends</h2></td></tr>
 
 <p>power </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00130">130</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00133">133</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1650,7 +1652,7 @@ Friends</h2></td></tr>
 <p>overall Power <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00148">148</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00151">151</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1668,7 +1670,7 @@ Friends</h2></td></tr>
 
 <p>polarisation (default: (0.0, 1.0, 0.0) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00136">136</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00139">139</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1686,7 +1688,7 @@ Friends</h2></td></tr>
 
 <p>second polarisation (used by <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html" title="This class represents a single ray.">IRay</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00137">137</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00140">140</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1707,7 @@ Friends</h2></td></tr>
 <p>Polarisationsrichtung (s.o.) <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00147">147</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00150">150</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1723,7 +1725,7 @@ Friends</h2></td></tr>
 
 <p>position of the light source (center of the square area of the light source) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00128">128</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00131">131</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1741,7 +1743,7 @@ Friends</h2></td></tr>
 
 <p>radius of the calculation sphere </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00138">138</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00141">141</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1757,7 +1759,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00153">153</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00156">156</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1775,7 +1777,7 @@ Friends</h2></td></tr>
 
 <p>Strahltyp : ray oder ISTRAHL (=RAY oder IRAY) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00146">146</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00149">149</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1793,7 +1795,7 @@ Friends</h2></td></tr>
 
 <p>if set true, the phase won't be changed when calling a next method (needed for USP-calculations) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00152">152</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00155">155</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1811,7 +1813,7 @@ Friends</h2></td></tr>
 
 <p>type of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00129">129</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00132">132</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1837,7 +1839,7 @@ Friends</h2></td></tr>
 
 <p>wavelength </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00156">156</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00159">159</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

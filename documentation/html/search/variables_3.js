@@ -10,9 +10,9 @@ var searchData=
   ['colmax_7',['ColMax',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a6add09bf7dbab6d1e8c033f00017db55',1,'GOAT::raytracing::GlobalParms']]],
   ['colmin_8',['ColMin',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a57433777782ca236377f225d820ccc35',1,'GOAT::raytracing::GlobalParms']]],
   ['cunity_9',['CUNITY',['../namespace_g_o_a_t_1_1maths.html#af316adec18961903cfe77123f8ebe110',1,'GOAT::maths']]],
-  ['currentindex_10',['currentindex',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface::currentIndex'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a29ab6dfd006421bd84fb4c4c77d24b12',1,'GOAT::raytracing::Raytrace::currentIndex']]],
+  ['currentindex_10',['currentindex',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a29ab6dfd006421bd84fb4c4c77d24b12',1,'GOAT::raytracing::Raytrace::currentIndex'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface::currentIndex']]],
   ['currentls_11',['currentLS',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a360372bc79715fdb613f8647c2385531',1,'GOAT::raytracing::Raytrace']]],
-  ['currentnorm_12',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm']]],
+  ['currentnorm_12',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm']]],
   ['currentobj_13',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
   ['curvature_14',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens_side.html#a243f145815c816376166b82079dc0bf3',1,'GOAT::raytracing::lensSide']]]
 ];

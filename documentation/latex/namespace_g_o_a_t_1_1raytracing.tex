@@ -46,6 +46,10 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+S
 \begin{DoxyCompactList}\small\item\em This class describes a focused gaussian beam. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}{Light\+Src\+Gauss\+\_\+mc}}
 \begin{DoxyCompactList}\small\item\em This class provides a gaussian beam with arbitrary distributed rays. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_line}{Light\+Src\+Line}}
+\begin{DoxyCompactList}\small\item\em This class provides a light source, which emitts along a straight line. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc}{Light\+Src\+Line\+\_\+mc}}
+\begin{DoxyCompactList}\small\item\em This class provides a light source, which emitts along a straight line (random ray distribution) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane}{Light\+Src\+Plane}}
 \begin{DoxyCompactList}\small\item\em class derived from \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}. It represents a plane wave described by the electric field $ \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} $ \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc}{Light\+Src\+Plane\+\_\+mc}}
@@ -79,7 +83,7 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. ~\newline
  \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt}{pulse\+Calculation\+\_\+rt}}
-\item 
+\begin{DoxyCompactList}\small\item\em This class provides pulse calculation (only with ray tracing) The pulses from a mode-\/locked laser can be described by series of frequency modes. The electric field at a certain location at time t can be described by $ \vec E(\vec r,t)=\sum$. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}}
 \begin{DoxyCompactList}\small\item\em This class provides a ray which carries a special power. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}
@@ -474,6 +478,10 @@ constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a124e6652c363828b
 \begin{DoxyCompactList}\small\item\em Light source is a gaussian wave. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaef90f92c59bfd736f8bd55a02fbf25c}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+GAUSS\+\_\+\+MC}} = 12
 \begin{DoxyCompactList}\small\item\em Light source is a gaussian wave (random distribution) \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa43f6e20df010c130ac1e515fd7dd226}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+LINE}} = 5
+\begin{DoxyCompactList}\small\item\em Light source along a straight line. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abc7038f3a29d4d789d978e4f7a2c347d}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+LINE\+\_\+\+MC}} = 14
+\begin{DoxyCompactList}\small\item\em Light source along a straight line (random distribution) \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE}} =1
 \begin{DoxyCompactList}\small\item\em Light source is a plane wave. \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a4966b3d5b5bfb6400cbcad696f0d1485}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+PLANE\+\_\+\+MC}} = 11
@@ -1397,7 +1405,7 @@ std\+::ostream \& GOAT\+::raytracing\+::operator$<$$<$ (\begin{DoxyParamCaption}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00804}{804}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00806}{806}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_acb6bfac6c739ca3120a555473a4073c9}\label{namespace_g_o_a_t_1_1raytracing_acb6bfac6c739ca3120a555473a4073c9} 
 \index{GOAT::raytracing@{GOAT::raytracing}!operator$<$$<$@{operator$<$$<$}}
@@ -1980,7 +1988,35 @@ Light source is a gaussian wave (random distribution)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00024}{24}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00025}{25}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_aa43f6e20df010c130ac1e515fd7dd226}\label{namespace_g_o_a_t_1_1raytracing_aa43f6e20df010c130ac1e515fd7dd226} 
+\index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_LINE@{LIGHTSRC\_SRCTYPE\_LINE}}
+\index{LIGHTSRC\_SRCTYPE\_LINE@{LIGHTSRC\_SRCTYPE\_LINE}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_SRCTYPE\_LINE}{LIGHTSRC\_SRCTYPE\_LINE}}
+{\footnotesize\ttfamily constexpr int GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+LINE = 5\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Light source along a straight line. 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00022}{22}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_abc7038f3a29d4d789d978e4f7a2c347d}\label{namespace_g_o_a_t_1_1raytracing_abc7038f3a29d4d789d978e4f7a2c347d} 
+\index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_LINE\_MC@{LIGHTSRC\_SRCTYPE\_LINE\_MC}}
+\index{LIGHTSRC\_SRCTYPE\_LINE\_MC@{LIGHTSRC\_SRCTYPE\_LINE\_MC}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_SRCTYPE\_LINE\_MC}{LIGHTSRC\_SRCTYPE\_LINE\_MC}}
+{\footnotesize\ttfamily constexpr int GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+LINE\+\_\+\+MC = 14\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Light source along a straight line (random distribution) 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00027}{27}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945}\label{namespace_g_o_a_t_1_1raytracing_a6d8dbb0b949d917c58d5bc2860b65945} 
 \index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_PLANE@{LIGHTSRC\_SRCTYPE\_PLANE}}
@@ -2008,7 +2044,7 @@ Light source is a plane wave (random distribution)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00023}{23}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00024}{24}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}\label{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec} 
 \index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_RING@{LIGHTSRC\_SRCTYPE\_RING}}
@@ -2036,7 +2072,7 @@ Light source is a ring (random distribution)
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00025}{25}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00026}{26}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}\label{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d} 
 \index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_TOPHAT@{LIGHTSRC\_SRCTYPE\_TOPHAT}}
