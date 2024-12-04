@@ -156,7 +156,7 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
  \chapter {Calculations}
  Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
  
- \begin{center}
+ %\begin{center}
  \vspace{1em}
  \begin{tabular}{c|l}
  type name & description \\
@@ -164,6 +164,10 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
  pure & \parbox{10cm}{Raytracing will be done without any further calculation will be done. Only detectors are considered.}\\
  \hline 
  path & Raytracing will be performed, path of the rays can be stored in a file. \\
+  \hline
+ pulse & Calculation with pulsed light source will be performed.
+ \end{tabular}
+% \end{center}
  \subsubsection{Ellipsoid}
  type: \textbf {ellipsoid} \\
  This object type describes an elliptic object, defined by the three semi-axis, according to
@@ -175,27 +179,36 @@ The position is defined by the center of the ellipsoid ($x_c$,$y_c$,$z_c$).
 \vspace{1em}
 \begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
  Parameter  & description  & possible value & default value\\
- \hline
- pulse & Calculation with pulsed light source will be performed.
  \end{tabular}
+%  \end{center}
  \subsubsection{Box}
  type: \textbf{box} \\
  This object type describes a cuboid, defined by the edge lengths. The center of the cuboid is used as position (reference point).
-  \end{center}
+
   
  \section{Calculations with pulsed laser sources}
- Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). 
+ Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. 
  
 The parameters are as follows:
  
  \vspace{1em}
- \begin{tabular}{c|l|c}
-  Parameter name & description  & possible value \\
+ \begin{table}
+\fontsize{10pt}{10pt}\selectfont
+ \begin{tabular}{c|m{3cm}|m{3cm}|c}
+  Parameter name & description  & possible value & default value \\
  \hline
- EstimateTimeForObject & \parbox{5cm}{The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"!} & \parbox{5cm}{number of the corresponding object} \\
+ \tiny{EstimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"! & number of the corresponding object & -- \\
  \hline
-  Filename & \parbox{5cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form "$<$Filename$><$object no.$>$.dat"}. & any filename \\
+  Filename & \parbox{2cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$Filename$><$object no.$>$.dat}. & any filename & -- \\
   \hline
-  Spatial\_Resolution
+  Spatial\_Resolution & resolution of the grid in \si{\micro\metre} & integer & $\frac{2\cdot r_0}{nn\footnote{number of elements per direction}}$ \\
+  \hline 
+  Wavelength & Central wavelength in µm & double & $\SI{1}{\micro\metre}$ \\
+  \hline
+  NumReflexions & Number of reflections & integer & \tiny{INEL\_MAX\_NREFLEX (1)} \\
+  \hline
+  Pulse\_width & \parbox{3cm}{Pulse width \\ (FWHM)  in \si{\femto\second} }& double & \SI{100}{\femto\second} \\
+  \hline
  \end{tabular}
+ \end{table}
 \end{document}
