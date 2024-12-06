@@ -148,7 +148,7 @@ namespace GOAT
 		void pulseCalculation_Field::field(double t)
 		{
 			double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-			double Domega = 8.0 * 4.0 * M_LN2 / trafoparms.dt;
+			double Domega = 5.0 * 4.0 * M_LN2 / trafoparms.dt;
 
 
 
