@@ -4,6 +4,7 @@
 \usepackage{nicefrac}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{hyperref}
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
 \definecolor{cyan}{rgb}{0.0,0.6,0.6}
@@ -143,32 +144,27 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
  
  \vspace{1em}
 % \begin{tabular}{c|c|c}
- \begin{tabular}{p{2cm}|p{3.5cm}|p{3.8cm}|p{1.7cm}}
+ \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter name & description  & possible value & default value\\
  \hline
-  Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector \\
+  Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
-  Type & Type of the object  & " \\
+  Type & Type of the object  & \parbox{3cm}{ellipsoid,\\surface,\\cone,\\aspheric\_lens,\\box} & --  \\
   \hline 
-  Direction & direction of the light rays & 3D vector
-\end{tabular} 
- 
- \chapter {Calculations}
- Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
- 
- %\begin{center}
- \vspace{1em}
- \begin{tabular}{c|l}
- type name & description \\
- \hline
- pure & \parbox{10cm}{Raytracing will be done without any further calculation will be done. Only detectors are considered.}\\
- \hline 
- path & Raytracing will be performed, path of the rays can be stored in a file. \\
+  Direction & direction of the light rays & 3D vector & (0,0,0) \\
   \hline
- pulse & Calculation with pulsed light source will be performed.
- \end{tabular}
-% \end{center}
- \subsubsection{Ellipsoid}
+  Alpha & \parbox{3.5cm}{rotation angle\\around x-axis\\(in radiants)} & double & 0 \\ 
+    \hline
+  Beta & \parbox{3.5cm}{rotation angle\\around y-axis\\(in radiants)} & double & 0 \\ 
+      \hline
+  Gamma & \parbox{3.5cm}{rotation angle\\around z-axis\\(in radiants)} & double & 0 \\ 
+  \hline
+  IsActive & \parbox{3.5cm}{Fields inside the object will be stored (this concerns e.g. the pulsed calculation and the inelastic scattering)} & true/false & false \\
+  \hline
+  n & refractive index & complex value & (1.0,0.0) 
+\end{tabular} 
+  
+\subsection{Ellipsoid}
  type: \textbf {ellipsoid} \\
  This object type describes an elliptic object, defined by the three semi-axis, according to
   \begin{equation}
@@ -177,22 +173,94 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
 The position is defined by the center of the ellipsoid ($x_c$,$y_c$,$z_c$).
 
 \vspace{1em}
-\begin{tabular}{p{2cm}|p{4cm}|p{4cm}|p{1cm}}
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
+ \hline
+ Dimension & Vector which holds semi-axis along the x-, y- and z-direction & 3D Vector & (10,10,10) 
  \end{tabular}
 %  \end{center}
- \subsubsection{Box}
+ \subsection{Box}
  type: \textbf{box} \\
  This object type describes a cuboid, defined by the edge lengths. The center of the cuboid is used as position (reference point).
+ 
+\vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ Dimension & Vector which holds the edge lengths along the x-, y- and z-direction & 3D Vector & (10,10,10) 
+ \end{tabular}
+ 
+\subsection{Surface}
+type: \textbf{surface} \\
+A the surface of a surface object is described by triangles stored in a file. Up to now two file formats are supported:
+\begin{itemize}
+\item {\bf SRF}-files: A proprietary file format. The first entry is the number of triangles stored in the file, followed by a list of the triangles. This file format is described in more detail in the documentation of the GOAT library. 
+\item {\bf STL}-files: Here only binary stl-files are supported. 
+\end{itemize} 
 
-  
+ 
+\vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ FileType & String, which holds the file type & ".srf",".stl" & -- \\
+ FileName & String, which holds the file name & string & -- \\
+ \end{tabular}
+ 
+\subsection{Spheric lens}
+type: \textbf{spheric\_lens} \\
+A spheric lens is described by the two side faces (see also documentation of the GOAT-library for details). It has two child elements named "left" and "right" for the two corresponding surfaces. 
+
+ 
+\vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ 
+ \end{tabular}
+ \chapter {Calculations}
+ Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
+ 
+ %\begin{center}
+ \vspace{1em}
+ \begin{tabular}{c|m{8cm}}
+ type name & description \\
+ \hline
+ pure & Raytracing will be done without any further calculation will be done. Only detectors are considered.\\
+ \hline 
+ path & Raytracing will be performed, path of the rays can be stored in a file. \\
+  \hline
+ pulse & Calculation with pulsed light source will be performed.
+ \end{tabular}
+% \end{center}
+
+ \section{Calculation of the ray paths}
+ Sometimes it is necessary to know the path of the rays through the scene. This can be done with the calculation type "{\bf path}". In the file, the starting and ending positions of each step, i.e. from surface to surface (or from light source to surface). 
+ 
+ 
+ The corresponding parameters are
+ 
+ \vspace{1em}
+ \begin{table}
+\fontsize{10pt}{10pt}\selectfont
+ \begin{tabular}{c|m{3cm}|m{3cm}|c}
+  Parameter name & description  & possible value & default value \\
+ \hline
+ Filename & Name of the file in which the paths are stored. This parameter is essential & string & -- \\
+ \hline 
+ numRays & Number of rays\footnote{The meaning of this parameter depends on the type of source} & integer & 1 \\
+ \hline 
+ numReflex & Number of reflections & integer & 0 \\
+ \hline 
+ \end{tabular}
+   \end{table}
  \section{Calculations with pulsed laser sources}
  Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. 
  
 The parameters are as follows:
  
  \vspace{1em}
- \begin{table}
+ \begin{table}[h!]
 \fontsize{10pt}{10pt}\selectfont
  \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\

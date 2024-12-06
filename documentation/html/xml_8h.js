@@ -12,6 +12,7 @@ var xml_8h =
     [ "XML_SCENE_DETECTORS", "xml_8h.html#a129fe0365555a1805be5f3b82d3d7beb", null ],
     [ "XML_SCENE_LIGHTSOURCES", "xml_8h.html#ad11e69b29c27d5effed5ce7ea374c715", null ],
     [ "XML_SCENE_OBJECTS", "xml_8h.html#a98b0aea49e5b3ae1565d0f38ae8a29ff", null ],
+    [ "findExtension", "xml_8h.html#a609183d889d51dbdacec453d5d2dd13f", null ],
     [ "LSXMLAttributes", "xml_8h.html#aaf98f6e18eab176629a4332dd4bd1c6a", null ],
     [ "LSXMLTYPES", "xml_8h.html#ae17af7fb699941154a1007034e7524ee", null ],
     [ "sceneXMLElements", "xml_8h.html#af1e262cfc476de9e58afa5bb75b1db07", null ]

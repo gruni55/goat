@@ -36,6 +36,14 @@ namespace GOAT
 		const std::string LSXMLAttributes[] = { "Type","Size","Wavelength","NumRays" };
 		const std::string LSXMLTYPES[] = {"Plane","Gaussian","Plane_mc","Gaussian_mc"};
 	
+	   /**
+		* @brief check if the fname has a given extension
+		* This function checks if the fname ends with a given extension
+		* \param[in] fname Filename
+		* \param[in] extension Extension to search (without "."!)
+		* \return True if fname has the given extension
+	    */
+        bool findExtension (std::string fname, std::string extension); 
 		/**
 		 * @brief This class provides functionality to read a XML-file 
 		 * This function reads the XML file . It can also perform calculations. 

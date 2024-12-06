@@ -2,6 +2,7 @@ var lightsrc_8h =
 [
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
     [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
+    [ "GOAT::raytracing::LightSrcLine", "class_g_o_a_t_1_1raytracing_1_1_light_src_line.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_line" ],
     [ "GOAT::raytracing::LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane" ],
     [ "GOAT::raytracing::LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring" ],
     [ "LIGHTSRC_ERROR", "lightsrc_8h.html#a9427e832c03d24eb45706347a7e36cb6", null ],
@@ -20,8 +21,12 @@ var lightsrc_8h =
     [ "copyLightSrcList", "lightsrc_8h.html#a1c79048f923ffb412e8f256992ec9618", null ],
     [ "LIGHTSRC_SRCTYPE_GAUSS", "lightsrc_8h.html#a124e6652c363828bc8a67bb99cf2988f", null ],
     [ "LIGHTSRC_SRCTYPE_GAUSS_MC", "lightsrc_8h.html#aaef90f92c59bfd736f8bd55a02fbf25c", null ],
+    [ "LIGHTSRC_SRCTYPE_LINE", "lightsrc_8h.html#aa43f6e20df010c130ac1e515fd7dd226", null ],
+    [ "LIGHTSRC_SRCTYPE_LINE_MC", "lightsrc_8h.html#abc7038f3a29d4d789d978e4f7a2c347d", null ],
     [ "LIGHTSRC_SRCTYPE_PLANE", "lightsrc_8h.html#a6d8dbb0b949d917c58d5bc2860b65945", null ],
     [ "LIGHTSRC_SRCTYPE_PLANE_MC", "lightsrc_8h.html#a4966b3d5b5bfb6400cbcad696f0d1485", null ],
+    [ "LIGHTSRC_SRCTYPE_POINT", "lightsrc_8h.html#aea813e5ba83ac2a4534d55164f00d5ee", null ],
+    [ "LIGHTSRC_SRCTYPE_POINT_MC", "lightsrc_8h.html#ab87c6a65278f61d95ab88be7032e36ef", null ],
     [ "LIGHTSRC_SRCTYPE_RING", "lightsrc_8h.html#a5ca856c447861e579d99cf4cbce3d2ec", null ],
     [ "LIGHTSRC_SRCTYPE_RING_MC", "lightsrc_8h.html#a8a1ac81c890408a9d1309dfc7932d6c8", null ],
     [ "LIGHTSRC_SRCTYPE_TOPHAT", "lightsrc_8h.html#a452abd4bbc2fe2d04cf476bad00dd82d", null ]

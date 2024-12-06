@@ -122,6 +122,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">GOAT::raytracing::LightSrcGauss</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a focused gaussian beam.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html">GOAT::raytracing::LightSrcLine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a light source, which emitts along a straight line.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html">GOAT::raytracing::LightSrcPlane</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class derived from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>. It represents a plane wave described by the electric field \( \vec{E}(\vec{P})=\vec{E}_0 \cdot e^{i\vec{k}\cdot\Delta\vec{P}} \)  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,12 +197,24 @@ Variables</h2></td></tr>
 <tr class="memitem:aaef90f92c59bfd736f8bd55a02fbf25c" id="r_aaef90f92c59bfd736f8bd55a02fbf25c"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#aaef90f92c59bfd736f8bd55a02fbf25c">GOAT::raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC</a> = 12</td></tr>
 <tr class="memdesc:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a gaussian wave (random distribution)  <br /></td></tr>
 <tr class="separator:aaef90f92c59bfd736f8bd55a02fbf25c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa43f6e20df010c130ac1e515fd7dd226" id="r_aa43f6e20df010c130ac1e515fd7dd226"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#aa43f6e20df010c130ac1e515fd7dd226">GOAT::raytracing::LIGHTSRC_SRCTYPE_LINE</a> = 5</td></tr>
+<tr class="memdesc:aa43f6e20df010c130ac1e515fd7dd226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source along a straight line.  <br /></td></tr>
+<tr class="separator:aa43f6e20df010c130ac1e515fd7dd226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7038f3a29d4d789d978e4f7a2c347d" id="r_abc7038f3a29d4d789d978e4f7a2c347d"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#abc7038f3a29d4d789d978e4f7a2c347d">GOAT::raytracing::LIGHTSRC_SRCTYPE_LINE_MC</a> = 14</td></tr>
+<tr class="memdesc:abc7038f3a29d4d789d978e4f7a2c347d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source along a straight line (random distribution)  <br /></td></tr>
+<tr class="separator:abc7038f3a29d4d789d978e4f7a2c347d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d8dbb0b949d917c58d5bc2860b65945" id="r_a6d8dbb0b949d917c58d5bc2860b65945"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a6d8dbb0b949d917c58d5bc2860b65945">GOAT::raytracing::LIGHTSRC_SRCTYPE_PLANE</a> =1</td></tr>
 <tr class="memdesc:a6d8dbb0b949d917c58d5bc2860b65945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a plane wave.  <br /></td></tr>
 <tr class="separator:a6d8dbb0b949d917c58d5bc2860b65945"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4966b3d5b5bfb6400cbcad696f0d1485" id="r_a4966b3d5b5bfb6400cbcad696f0d1485"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a4966b3d5b5bfb6400cbcad696f0d1485">GOAT::raytracing::LIGHTSRC_SRCTYPE_PLANE_MC</a> = 11</td></tr>
 <tr class="memdesc:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a plane wave (random distribution)  <br /></td></tr>
 <tr class="separator:a4966b3d5b5bfb6400cbcad696f0d1485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea813e5ba83ac2a4534d55164f00d5ee" id="r_aea813e5ba83ac2a4534d55164f00d5ee"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#aea813e5ba83ac2a4534d55164f00d5ee">GOAT::raytracing::LIGHTSRC_SRCTYPE_POINT</a> = 6</td></tr>
+<tr class="memdesc:aea813e5ba83ac2a4534d55164f00d5ee"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_point.html">Point</a> light source.  <br /></td></tr>
+<tr class="separator:aea813e5ba83ac2a4534d55164f00d5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87c6a65278f61d95ab88be7032e36ef" id="r_ab87c6a65278f61d95ab88be7032e36ef"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#ab87c6a65278f61d95ab88be7032e36ef">GOAT::raytracing::LIGHTSRC_SRCTYPE_POINT_MC</a> = 15</td></tr>
+<tr class="memdesc:ab87c6a65278f61d95ab88be7032e36ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_point.html">Point</a> light source (random distribution)  <br /></td></tr>
+<tr class="separator:ab87c6a65278f61d95ab88be7032e36ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ca856c447861e579d99cf4cbce3d2ec" id="r_a5ca856c447861e579d99cf4cbce3d2ec"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5ca856c447861e579d99cf4cbce3d2ec">GOAT::raytracing::LIGHTSRC_SRCTYPE_RING</a> = 3</td></tr>
 <tr class="memdesc:a5ca856c447861e579d99cf4cbce3d2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring shaped wave.  <br /></td></tr>
 <tr class="separator:a5ca856c447861e579d99cf4cbce3d2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,7 +240,7 @@ Variables</h2></td></tr>
 
 <p>Error occurs within the ray creation. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00030">30</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00034">34</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -243,7 +258,7 @@ Variables</h2></td></tr>
 
 <p>Created ray is the last ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00029">29</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00033">33</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -261,7 +276,7 @@ Variables</h2></td></tr>
 
 <p>Created ray is not the last ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00028">28</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00032">32</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +294,7 @@ Variables</h2></td></tr>
 
 <p>Light source is user defined. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00036">36</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00040">40</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -297,7 +312,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in x-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00033">33</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00037">37</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -315,7 +330,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in y-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00034">34</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00038">38</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +348,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in z-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00035">35</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00039">39</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -405,7 +420,7 @@ Variables</h2></td></tr>
 
 <p>Wave impedance of free space. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00031">31</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00035">35</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

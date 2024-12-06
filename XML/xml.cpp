@@ -14,6 +14,16 @@ namespace GOAT
 {
 	namespace XML
 	{
+
+        bool findExtension (std::string fname, std::string extension)
+        {
+            std::size_t ifound = fname.find_last_of (".");
+            std::string ext=fname.substr(ifound+1,std::string::npos);
+
+            bool found = ext.compare (extension)==0;
+            return found;
+        }
+
 		void xmlReader::readXML(const char* fname)
 		{
 			
@@ -279,6 +289,17 @@ namespace GOAT
 					isActive = objEll->BoolAttribute("IsActive", false);
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
+
+fname = 
+
+    "test70500_1.dat"
+
+
+fname = 
+
+    "test70525_1.dat"
+
+
 					int type = mapString2ObjectToken(typeStr);
 					switch (type)
 					{
@@ -303,13 +324,13 @@ namespace GOAT
 											Obj.push_back(new GOAT::raytracing::surface(Pos, n));
 											fileTypeStr = objEll->Attribute("Filetype");
 
-											if (fileTypeStr.compare("srf") == 0)
+											if (fileTypeStr.compare(".srf") == 0)
 											{
 												fileName = objEll->Attribute("Filename");
 												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
 											}
 
-											if (fileTypeStr.compare("stl") == 0)
+											if (fileTypeStr.compare(".stl") == 0)
 											{
 												fileName = objEll->Attribute("Filename");
 												if (!fileName.empty())
@@ -423,7 +444,7 @@ namespace GOAT
 								{
 									GOAT::raytracing::Raytrace_Path rt(S);
 									// optionally, the number of rays of all sources can be set to numRays
-									numRays = objEll->IntAttribute("numRays", 0);									
+									numRays = objEll->IntAttribute("numRays", 1);									
 									std::vector<int> numRays_old;
 									if (numRays > 0)
 									{
