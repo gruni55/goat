@@ -28,6 +28,7 @@ namespace GOAT {
 #define OBJECTSHAPE_CONE         2 ///< Shape is a cone
 #define OBJECTSHAPE_ASPHERIC_LENS 3 ///< Shape is an aspheric lens
 #define OBJECTSHAPE_SPHERIC_LENS 4 ///< Shape is a spheric lens
+#define OBJECTSHAPE_CYLINDER     5 ///< Shape is a cylinder
 
 
 #define FUNSURF      2  
