@@ -8,7 +8,7 @@ namespace GOAT
 	namespace XML
 	{
 #define numLightSourceToken 12
-#define numObjectToken	    7 
+#define numObjectToken	    8 
 #define numDetectorToken    1
 #define numCalculationToken 5
 #define numRefractiveIndexToken 5
@@ -35,6 +35,7 @@ namespace GOAT
 #define TOKEN_OBJECT_SPHERIC_LENS	  104
 #define TOKEN_OBJECT_BOX			  105
 #define TOKEN_OBJECT_CYLINDER		  106
+#define TOKEN_OBJECT_VORTEX_PLATE	  107
 
 #define TOKEN_DETECTOR_PLANE 		  150
 

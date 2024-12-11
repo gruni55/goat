@@ -5,21 +5,22 @@ namespace GOAT
 	namespace raytracing
 	{
 		/**
-		 * @brief This class provides a cylindrical object.
-		 * Here, a cylindrical object is provided. The reference point is situated in the center of bottom face. The cylinder is described 
-		 * by its height and radius. It is oriented in the z-direction
+		 * @brief This class provides a vortex phase plate object.
+		 * Here, a vortex phase plate object is provided. The reference point is situated in the center of bottom face. 
 		 */
-		class Cylinder :
+		class VortexPlate :
 			public ObjectShape
 		{
 		public:
-			Cylinder();
-			Cylinder(ObjectShape& os);
-			Cylinder(Cylinder& c);
-			Cylinder(
+			VortexPlate();
+			VortexPlate(ObjectShape& os);
+			VortexPlate(VortexPlate& c);
+			VortexPlate(
 				const maths::Vector<double>& P,
 				double r,
 				double h,
+				double dh,
+				int m, 
 				std::complex<double>  n,
 				double r0 = 1.0,
 				const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
@@ -29,9 +30,10 @@ namespace GOAT
 			     );
 			double radius() { return r; } 
 			double height() { return h; }
-			void setRadius(double r); ///<  
-			void setHeight(double h); ///< set the height of the cylinder
-			void setr0(double r0);
+			void setRadius(double r); 
+			void setHeight(double h);
+			void setr0(double r0); ///< set the radius of the calculation space
+			void setm(int m); ///< set the topological charge
 			void binWrite(std::ofstream& os);  
 			void binRead(std::ifstream& is);
 			maths::Vector<double> norm(const maths::Vector<double>& p);
@@ -44,12 +46,14 @@ namespace GOAT
 			void setPos(double x, double y, double z) { P = maths::Vector<double>(x, y, z); };
 			bool next(const maths::Vector<double>& Ps, const maths::Vector<double>& K,
 				maths::Vector<double>& pout);
-			Cylinder& operator =  (Cylinder& f);
-			Cylinder& operator = (Cylinder f);
+			VortexPlate& operator =  (VortexPlate& f);
+			VortexPlate& operator = (VortexPlate f);
 			void scale(double sf); ///< Set the scaling factor (the half axis will be multiplied by this factor)
 		protected :
-			double h = 1.0;
-			double r = 1.0;
+			double h = 1.0; ///< height of the vortex (without vortex structure)
+			double r = 1.0; ///< radius of the vortex
+			int m = 1; ///< topological charge of the vortex
+			double dh = 1.0; ///< height of the vortex structure
 
 		};
 	}

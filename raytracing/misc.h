@@ -15,6 +15,7 @@
 #include "cone.h"
 #include "constants.h"
 #include "cylinder.h"
+#include "vortex.h"
 
 #ifndef MISC_H
 #define MISC_H

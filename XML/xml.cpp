@@ -392,6 +392,21 @@ namespace GOAT
                                                 S.addObject(Obj[numObj]);
                                                 break;
                                             }
+                    case TOKEN_OBJECT_VORTEX_PLATE:
+                                            {
+                                                double height, radius, dh;
+                                                int m;
+                                                height = objEll->DoubleAttribute("height", 1);
+                                                radius = objEll->DoubleAttribute("radius", 1);
+                                                m = objEll->IntAttribute("m", 1);
+                                                dh = objEll->DoubleAttribute("dh", 1);
+                                                Obj.push_back(new GOAT::raytracing::VortexPlate(Pos, radius, height, dh, m, n));
+                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
+                                                Obj[numObj]->setActive(isActive);
+                                                S.addObject(Obj[numObj]);
+                                                break;
+                            
+                                            }
 
 					}
 									
