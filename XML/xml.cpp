@@ -283,23 +283,12 @@ namespace GOAT
 					
 					Pos = readVector(objEll->FirstChildElement("Position"));
 					typeStr = objEll->Attribute("Type");
-					alpha = objEll->DoubleAttribute("Alpha", 0.0);
-					beta = objEll->DoubleAttribute("Beta", 0.0);
-					gamma = objEll->DoubleAttribute("Gamma", 0.0);
+                    alpha = objEll->DoubleAttribute("Alpha", 0.0) / 180.0 * M_PI;
+					beta = objEll->DoubleAttribute("Beta", 0.0) / 180.0 * M_PI;
+					gamma = objEll->DoubleAttribute("Gamma", 0.0) / 180.0 * M_PI;
 					isActive = objEll->BoolAttribute("IsActive", false);
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
-
-fname = 
-
-    "test70500_1.dat"
-
-
-fname = 
-
-    "test70525_1.dat"
-
-
 					int type = mapString2ObjectToken(typeStr);
 					switch (type)
 					{
@@ -389,6 +378,18 @@ fname =
                                                 Obj[numObj]->setMatrix(alpha, beta, gamma);
 												Obj[numObj]->setActive(isActive);
 												S.addObject(Obj[numObj]);	
+                                                break;
+                                            }
+
+                    case TOKEN_OBJECT_CYLINDER:
+                                            {                                                
+                                                double height, radius;
+                                                height = objEll->DoubleAttribute("height", 1);
+                                                radius = objEll->DoubleAttribute("radius", 1);                                                
+                                                Obj.push_back(new GOAT::raytracing::Cylinder(Pos, radius, height, n));
+                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
+                                                Obj[numObj]->setActive(isActive);
+                                                S.addObject(Obj[numObj]);
                                                 break;
                                             }
 

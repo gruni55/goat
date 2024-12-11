@@ -41,6 +41,55 @@ namespace GOAT
 			this->h = h;
 		}
 
+		void Cylinder::setr0(double r0)
+		{
+			this->r0 = r0;
+			initQuad();				
+		}
+
+		void Cylinder::binWrite(std::ofstream& os)
+		{
+			P.binWrite(os);
+			H.binWrite(os);
+			R.binWrite(os);
+			os.write((char*)&n, (char)sizeof(n));
+			alpha.binWrite(os);
+			pul.binWrite(os);
+			por.binWrite(os);
+			for (int i = 0; i < 3; i++)
+				e[i].binWrite(os);
+			os.write((char*)&Ealpha, (char)sizeof(Ealpha));
+			os.write((char*)&Ebeta, (char)sizeof(Ebeta));
+			os.write((char*)&Egamma, (char)sizeof(Egamma));
+			os.write((char*)&sf, (char)sizeof(sf));
+			os.write((char*)&r0, (char)sizeof(r0));
+			os.write((char*)&r, (char)sizeof(r));
+			os.write((char*)&h, (char)sizeof(h));
+		}
+
+		void Cylinder::binRead(std::ifstream& is)
+		{
+			type = OBJECTSHAPE_CYLINDER;
+			P.binRead(is);
+			H.binRead(is);
+			R.binRead(is);
+			is.read((char*)&n, (char)sizeof(n));
+			alpha.binRead(is);
+			pul.binRead(is);
+			por.binRead(is);
+			for (int i = 0; i < 3; i++)
+				e[i].binRead(is);
+			is.read((char*)&Ealpha, (char)sizeof(Ealpha));
+			is.read((char*)&Ebeta, (char)sizeof(Ebeta));
+			is.read((char*)&Egamma, (char)sizeof(Egamma));
+			is.read((char*)&sf, (char)sizeof(sf));
+			is.read((char*)&r0, (char)sizeof(r0));
+			is.read((char*)&r, (char)sizeof(r));
+			is.read((char*)&h, (char)sizeof(h));
+		}
+
+
+
 		maths::Vector<double> Cylinder::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> p = H * (ps - P);
@@ -90,37 +139,49 @@ namespace GOAT
 			p = H * p;
 			k = H * K;
 
-			A = p[0] * k[0] + p[1] * k[1];
-			B = k[0] * k[0] + k[1] * k[1];
+			A = k[0] * k[0] + k[1] * k[1];
+			B = p[0] * k[0] + p[1] * k[1];			
 			C = p[0] * p[0] + p[1] * p[1] - r * r;
 
-			D = A * A - B * C;
+			D = B * B - A * C;
 			if (D >= 0)
 			{
-				if (D == 0) l1 = -A / B;
+				if (D == 0) if (B == 0) l1 = -1; else l1 = -1 / B;
 				else
 				{
 					double sd = sqrt(D);
 					double la, lb;
-					la = (-A + sd) / B;
-					lb = (-A - sd) / B;
-					if (la <= 0) l1 = lb;
-					else l1 = la;
+					la = (-B + sd) / A;
+					lb = (-B - sd) / A;
+					if ((la < lb) && (la > EPS) || (lb < EPS)) l1 = la;
+					else l1 = lb;					
 				}
+				pout = p + l1 * k;
+				if ((pout[2] < 0) || (pout[2] > h)) l1 = -1;
 			}
 			else l1 = -1;
 			
 			// now bottom face
 			l2 = -p[2] / k[2];
+			if (l2 > EPS)
+			{
+				pout = p + l2 * k;
+				if (pout[0] * pout[0] + pout[1] * pout[1] > r * r) l2 = -1;
+			}
 
 			// top face
 			l3 = (h - p[2]) / k[2];
+			if (l3 > EPS)
+			{
+				pout = p + l3 * k;
+				if (pout[0] * pout[0] + pout[1] * pout[1] > r * r) l3 = -1;
+			}
 
-			if (((l1 > l2) && (l2>0)) || (l1 < 0)) l = l2;
+			if (((l1 > l2) && (l2>EPS)) || (l1 < 0)) l = l2;
 			else l = l1;
 
-			if ((l < 0) || ((l > l3) && (l3 > 0))) l = l3;
-			if (l <= 0) return false;
+			if ((l < EPS) || ((l > l3) && (l3 > EPS))) l = l3;
+			if (l <= EPS) return false;
 
 			pout = Ps + l * K;
 			return true;

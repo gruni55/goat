@@ -14,6 +14,7 @@
 #include "box.h"
 #include "cone.h"
 #include "constants.h"
+#include "cylinder.h"
 
 #ifndef MISC_H
 #define MISC_H

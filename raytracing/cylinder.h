@@ -31,6 +31,9 @@ namespace GOAT
 			double height() { return h; }
 			void setRadius(double r); 
 			void setHeight(double h);
+			void setr0(double r0);
+			void binWrite(std::ofstream& os);  
+			void binRead(std::ifstream& is);
 			maths::Vector<double> norm(const maths::Vector<double>& p);
 			bool isInside(const maths::Vector<double>& p);
 			double volume();  ///< Calculates the volume of the ellipsoid
