@@ -55,7 +55,7 @@ namespace GOAT
 
 
         const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc","gaussian_ring_mc","line","line_mc","point","point_mc"};
-		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box","cylinder"};
+		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box","cylinder","vortex_plate"};
 		const std::vector<std::string> detectorToken = {"plane"};
         const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic"};
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum" };
