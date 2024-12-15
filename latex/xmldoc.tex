@@ -236,14 +236,27 @@ A spheric lens is described by the two side faces (see also documentation of the
 
  
 \vspace{1em} 
+\begin{center}
+
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline
- R & radius of the lens & double & 0 \\
+ Radius & Overall radius of the lens & double & 0 \\
  \hline
- left  
+ Offset & Thickness of the lens\footnote{For more detailed description, refer to class GOAT::raytracing::sphericLens} & double & 0 \\
+ \hline 
+ left  & left side  & &\\
+ right & right side & &\\
+ \hline
+ \hline
+  \multicolumn{4}{c}{The following parameters belong to parameter left or right} \\
+   \hline
+ \hline
+ Curvature & Type of curvature of the corresponding side & \parbox{2cm}{"flat","concave",\\"convex"} & flat\\
+ \hline
+ R & Radius of the curvature (only valid if Curvature is "concave" or "convex") & double & 0 \\
  \end{tabular}
- 
+\end{center} 
 \subsection{Vortex phase plate}
 type: \textbf{vortex\_plate} \\
 A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to create a vortex beam. It is defined by its height $dh$ and the topological charge $m$, which gives the number of subdivisions. The full object is described by a cylinder with a given height and on top,the spiral vortex structure.   
@@ -383,10 +396,10 @@ The parameters are as follows:
  Material & value \\
  \hline 
  Air & air \\
- Glass & glass (allways refractive index 1.5) \\
+ Glass & glass (always refractive index 1.5) \\
  N-BK7 glass & bk7 \\
  N-LASF55 glass & lasf55 \\
- Vacuum & vacuum \\ 
+ Vacuum & vacuum (always 1) \\ 
  \end{tabular}
  \end{center}
  For vacuum and glass constant refractive indices were used (1 for vacuum and 1.5 for glass). The other dispersion curves were taken from \url{https://www.refractiveindex.info}. 
