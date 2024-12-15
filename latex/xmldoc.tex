@@ -4,6 +4,8 @@
 \usepackage{nicefrac}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{graphicx}
+\usepackage{longtable}
 \usepackage{hyperref}
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
@@ -31,25 +33,28 @@
 \begin{document}
   \title{Documentation of the XML commands}
   \tableofcontents   
-  \section*{Introduction}
+  \chapter{Introduction}
+ Beside the library, a setup can be done by using a XML-file. In such a file, all parts of the scene can be described and also calculations can be performed. The aim of this documentation is to give an overview how the parameters of the different elements can be defined. 
   In the following, we will given an overview on the structure of a XML file, which can be used as an input for the setup of the scene and for a couple of different calculation processes. Firstly, the principle structure will be discussed. Please note that all lengths are given in \si{\micro\metre}. After the usual preamble of the XML file, everything is encapsulated in the Root entry, i.e. $<$Root$>...<$\textbackslash Root$>$.   
-   In the following, the term "section" is used for a closed part which is encapulated by $<$Sectionname$>...<$\textbackslash Sectionname$>$. Within the root section, there are two possible subsections, the Scene section, which describes the whole structure of the scene with all light sources, objects etc. and the calculation section where the calculation parameters are described. As values there are strings, integer or floating point numbers, threedimensional vectors and complex numbers. \textbf{Threedimensional vectors} are given by the x,y and z component. Default values for missing coordinates is always 0. \\
-   example: 
+   In the following, the term "section" is used for a closed part which is encapulated by $<$Sectionname$>...<$\textbackslash Sectionname$>$. Within the root section, there are two possible subsections, the Scene section, which describes the whole structure of the scene with all light sources, objects etc. and the calculation section where the calculation parameters are described. As values there are strings, integer or floating point numbers, threedimensional vectors and complex numbers. \textbf{Threedimensional vectors} are given by the x,y and z component. In the following sections, the parameters that apply equally to all elements of the same type (light sources, detectors, etc.) are specified first. Then only the specific parameters are specified.  \\
+   examples: \\   
+
+ \textbf{Threedimensional Vector}:   
     \lstset{language=XML}
  \begin{lstlisting}
  <Position x="2.3" y="4.5" z="-5.6" />
    \end{lstlisting}
    A \textbf{complex number} is given its real and its imaginary part: 
  \begin{lstlisting}
- <n real="1.5" image="0.1"/>
+ <n real="1.5" imag="0.1"/>
    \end{lstlisting}
-   
+  
  \chapter{Scene}
  Within this section, all elements like light sources, objects and detectors are described. The scene has the parameter: the radius of the calculation space r0.
    
  \section{Light sources}
  All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
-
+set (gca,'position',[0.1 0.1 0.75 0.75],'xlim',[-1000 1000],'ylim',[-1000 1000]);
  \vspace{1em}
  \textbf{Parameters used for all light sources} \\
  
@@ -80,7 +85,7 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
  
  \subsection{Plane wave (mc)} 
  type: \textbf{plane\_mc} \\
- All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
+ All light sources denoted wset (gca,'position',[0.1 0.1 0.75 0.75],'xlim',[-1000 1000],'ylim',[-1000 1000]);ith "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
  
 \subsection{Gaussian wave}
  type: \textbf{gaussian} \\
@@ -117,7 +122,22 @@ A light source, shaped like a ring with equally distributed rays. The ring is de
 \subsection{Ring shaped light source (mc)}
  type: \textbf{ring\_mc} \\
 Like ring shaped light source, except that the rays are distributed arbitrarily. 
- 
+ \subsection{Gaussian ring shaped light source (mc)}
+type: \textbf{gaussian\_ring\_mc}
+The light source consists of a Gaussian beam profile from which a ring is cut out. In contrast to the Gaussian beam, the rays are aligned in parallel.
+Like all light sources denoted with "mc", the rays are distributed arbitrarily. The intensity is given by the density of the rays. 
+
+\vspace{1em}
+ \begin{tabular}{c|c|c|c}
+ Parameter name & description  & possible value & default value\\
+ \hline
+ rmin  & inner radius & double ($0\le$ rmax) & 0 \\
+ \hline 
+ rmax & outer radius & double & 100 \\
+ \hline 
+ width & FWHM & double & rmax (100) \\
+ Direction & direction of the beam & 3D-Vector & -- \\ 
+\end{tabular}
  
 \vspace{1em} 
  \textbf{Example for a scene with one light source}
@@ -138,6 +158,9 @@ Like ring shaped light source, except that the rays are distributed arbitrarily.
  </Root>
  \end{lstlisting}
  Beside these general parameters, every type of light sources have there own special parameters
+
+\subsection{Line shaped light source}
+For some calculations a twodimensional calculation is sufficient. For this purpose a line shaped light source is introduced. Beside the position, this source is defined by its direction, which gives the direction of the rays and the orientation (lateral direction). 
 
  \section{Objects}
  Like the light sources, all objects have some general parameters. Those parameters can be seen in the following table
@@ -176,7 +199,7 @@ The position is defined by the center of the ellipsoid ($x_c$,$y_c$,$z_c$).
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline
- Dimension & Vector which holds semi-axis along the x-, y- and z-direction & 3D Vector & (10,10,10) 
+ Dimension & Vector which hset (gca,'position',[0.1 0.1 0.75 0.75],'xlim',[-1000 1000],'ylim',[-1000 1000]);olds semi-axis along the x-, y- and z-direction & 3D Vector & (10,10,10) 
  \end{tabular}
 %  \end{center}
  \subsection{Box}
@@ -216,8 +239,63 @@ A spheric lens is described by the two side faces (see also documentation of the
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline
- 
+ R & radius of the lens & double & 0 \\
+ \hline
+ left  
  \end{tabular}
+ 
+\subsection{Vortex phase plate}
+type: \textbf{vortex\_plate} \\
+A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to create a vortex beam. It is defined by its height $dh$ and the topological charge $m$, which gives the number of subdivisions. The full object is described by a cylinder with a given height and on top,the spiral vortex structure.   
+\begin{figure}[h!]
+   \includegraphics{vortex_plate.png}
+   \caption{Vortex phase plate with $m=4$}
+   \label{fig:vortexplate}
+\end{figure} 
+
+\vspace{1em}
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ height & height of the base cylinder & double & 1 \\
+ \hline
+ radius & radius of the object & double & 1 \\
+ \hline
+ m & topological charge & integer & 1\\
+ \hline
+ dh & height of the vortex & double & 1 \\
+ \end{tabular}
+ 
+ \section{Detectors}
+ A detector is a special twodimensional object in which the electric field is stored. Like for the light sources and the objects the section is encapsulated in a tag with sectioname "Detectors". 
+  
+ \vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+ Type & type of the detector & "plane" & -- \\
+ \hline
+ Position & Center of the detector & 3D-vector & -- \\
+ \hline
+ Direction & normal vector & 3D-vector & -- \\
+ \hline  
+ Filename & name of the file to store the data & string & -- \\
+  \end{tabular}
+  
+ \subsection{Plane detector}
+ type: \textbf{plane}
+ This is square plane detector object. \newline
+ Special parameters: 
+ 
+ \vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+d & width of the detector & double & 1 \\
+\hline
+n & no. of elements per direction & int & 1 \\ 
+\end{tabular}
+ 
  \chapter {Calculations}
  Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
  
@@ -233,11 +311,24 @@ A spheric lens is described by the two side faces (see also documentation of the
  pulse & Calculation with pulsed light source will be performed.
  \end{tabular}
 % \end{center}
+ 
+ \vspace{1em}
+
+ Parameters for all calculations
+ \begin{table}[h!]
+\fontsize{10pt}{10pt}\selectfont
+ \begin{tabular}{c|m{3cm}|m{3cm}|c}
+  Parameter name & description  & possible value & default value \\
+ \hline
+ Type & type of the calculation & "pure","path","pulse" & -- \\
+ \hline
+ Inactive & if true, this calculation will be skipped & true, false & false \\
+ \hline 
+ \end{tabular}
+ \end{table}
 
  \section{Calculation of the ray paths}
- Sometimes it is necessary to know the path of the rays through the scene. This can be done with the calculation type "{\bf path}". In the file, the starting and ending positions of each step, i.e. from surface to surface (or from light source to surface). 
- 
- 
+ Sometimes it is necessary to know the path of the rays through the scene. This can be done with the calculation type "{\bf path}". In the file, the starting and ending positions of each step, i.e. from surface to surface (or from light source to surface).
  The corresponding parameters are
  
  \vspace{1em}
@@ -260,16 +351,17 @@ A spheric lens is described by the two side faces (see also documentation of the
 The parameters are as follows:
  
  \vspace{1em}
- \begin{table}[h!]
+ \begin{longtable}{c|m{3cm}|m{3cm}|c}
 \fontsize{10pt}{10pt}\selectfont
- \begin{tabular}{c|m{3cm}|m{3cm}|c}
+% \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\
  \hline
  \tiny{EstimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"! & number of the corresponding object & -- \\
  \hline
-  Filename & \parbox{2cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$Filename$><$object no.$>$.dat}. & any filename & -- \\
+  Filename & \parbox{3cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$Filename$><$object no.$>$.dat}. & any filename & -- \\
   \hline
-  Spatial\_Resolution & resolution of the grid in \si{\micro\metre} & integer & $\frac{2\cdot r_0}{nn\footnote{number of elements per direction}}$ \\
+  Spatial\_Resolution & resolution of the grid in \si{\micro\metre} & integer & 1 \\
+  %$\frac{2\cdot r_0}{nn\footnote{number of elements per direction}}$
   \hline 
   Wavelength & Central wavelength in µm & double & $\SI{1}{\micro\metre}$ \\
   \hline
@@ -277,6 +369,25 @@ The parameters are as follows:
   \hline
   Pulse\_width & \parbox{3cm}{Pulse width \\ (FWHM)  in \si{\femto\second} }& double & \SI{100}{\femto\second} \\
   \hline
+  Method & \parbox{3cm}{For the calculation a pure raytracing calculation will be performed (the fields for all wavelengths will be calculated by raytracing) or a mixed method can be applied} & "rtonly","mixed" & "mixed" \\
+  \hline
+  NumSpectralRanges & Number of spectral ranges considered for calculation & 4 \\
+  \hline    
+% \end{tabular}
+ \end{longtable}
+ Additionally, a list with the materials is required. For each object, the material is given by the name of the material. Up to now the following materials are available: 
+ 
+ \vspace{1em}
+ \begin{center}
+ \begin{tabular}[H]{l|l}
+ Material & value \\
+ \hline 
+ Air & air \\
+ Glass & glass (allways refractive index 1.5) \\
+ N-BK7 glass & bk7 \\
+ N-LASF55 glass & lasf55 \\
+ Vacuum & vacuum \\ 
  \end{tabular}
- \end{table}
+ \end{center}
+ For vacuum and glass constant refractive indices were used (1 for vacuum and 1.5 for glass). The other dispersion curves were taken from \url{https://www.refractiveindex.info}. 
 \end{document}
