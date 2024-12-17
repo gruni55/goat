@@ -108,8 +108,8 @@ namespace GOAT
 			{
 				double phi = atan2(p[1], p[0]);
 				double r = sqrt(p[0] * p[0] + p[1] * p[1]);
-				maths::Vector<double> n(-h * (double)m / (2.0 * M_PI) * sin(phi), h * (double)m / (2.0 * M_PI) * cos(phi), r);
-				n /= abs(n);
+				maths::Vector<double> n(-dh * (double)m / (2.0 * M_PI) * sin(phi), dh * (double)m / (2.0 * M_PI) * cos(phi), r);
+				n /= -abs(n);
 				return R * n;
 			}
 			return R * maths::Vector<double>(p[0], p[1], 0);
