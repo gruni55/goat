@@ -87,6 +87,15 @@ namespace GOAT
 			return m * wvl + c;
 		}
 
+        /**
+		 * @brief refractive index function of Poly(methyl mathacrylate), PMMA 
+		 * refractive index function for PMMA taken from refractiveindex.info (Sultanova et al., Acta Physica Polonica A 116, 585-587 (2009))  
+		*/
+		std::complex<double> n_PMMA (double wvl)
+		{
+			return sqrt(1.0+1.1819*wvl*wvl/(wvl*wvl-0.011313));
+		}
+
 		/** 
 		* @brief refractive index function for highly absorbing medium with real part 1.0
 		*/

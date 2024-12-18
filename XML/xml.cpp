@@ -394,6 +394,7 @@ namespace GOAT
                                             }
                     case TOKEN_OBJECT_VORTEX_PLATE:
                                             {
+                                                std::cout << "Vortex plate added" << std::endl;
                                                 double height, radius, dh;
                                                 int m;
                                                 height = objEll->DoubleAttribute("height", 1);
@@ -1020,7 +1021,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
         std::complex<double> xmlReader::readCmplx(tinyxml2::XMLElement* ell, int &xmlError)
         {
-            double re,im;
+            double re=0,im=0;
             if (ell != NULL)
             {
                 xmlError=ell->QueryDoubleAttribute("real",&re);

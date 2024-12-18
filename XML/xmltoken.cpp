@@ -79,7 +79,8 @@ namespace GOAT
 				case TOKEN_REFRACTIVE_INDEX_VACUUM: nList.push_back(GOAT::raytracing::n_Vacuum); break;
 				case TOKEN_REFRACTIVE_INDEX_BK7: nList.push_back(GOAT::raytracing::n_BK7); break;
 				case TOKEN_REFRACTIVE_INDEX_GLASS: nList.push_back(GOAT::raytracing::n_Glass); break;
-				case TOKEN_REFRACTIVE_INDEX_LASF55: nList.push_back(GOAT::raytracing::n_LASF55); break;									
+				case TOKEN_REFRACTIVE_INDEX_LASF55: nList.push_back(GOAT::raytracing::n_LASF55); break;		
+				case TOKEN_REFRACTIVE_INDEX_PMMA: nList.push_back(GOAT::raytracing::n_PMMA); break; 							
 				default: std::cerr << "Pulse calculation: Wrong refractive index function name! Calculation stopped!" << std::endl; return false;
 			}
 			return true;
