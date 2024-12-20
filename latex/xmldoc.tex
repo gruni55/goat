@@ -54,7 +54,7 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
    
  \section{Light sources}
  All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
-set (gca,'position',[0.1 0.1 0.75 0.75],'xlim',[-1000 1000],'ylim',[-1000 1000]);
+
  \vspace{1em}
  \textbf{Parameters used for all light sources} \\
  
@@ -213,6 +213,19 @@ The position is defined by the center of the ellipsoid ($x_c$,$y_c$,$z_c$).
  Dimension & Vector which holds the edge lengths along the x-, y- and z-direction & 3D Vector & (10,10,10) 
  \end{tabular}
  
+ \subsection{Cylinder}
+ type: \textbf{cylinder}
+ This object type is a spheric cylinder. 
+ 
+\vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+height & Height of the cylinder & double & 1 \\
+\hline
+radius & Radius of the cylinder & double & 1 \\
+\end{tabular}  
+ 
 \subsection{Surface}
 type: \textbf{surface} \\
 A the surface of a surface object is described by triangles stored in a file. Up to now two file formats are supported:
@@ -327,12 +340,14 @@ n & no. of elements per direction & int & 1 \\
  \end{tabular}
  \end{table}
 
+\section{Calculation with detectors only}
+If one want only the electric field distribution at certain areas, this calculation type "\textbf{pure}" is the right choice. Here, beside light sources and objects, only the detectors will be considered. Therefore no further special parameters are needed. 
  \section{Calculation of the ray paths}
  Sometimes it is necessary to know the path of the rays through the scene. This can be done with the calculation type "{\bf path}". In the file, the starting and ending positions of each step, i.e. from surface to surface (or from light source to surface).
  The corresponding parameters are
  
  \vspace{1em}
- \begin{table}
+ \begin{table}[h!]
 \fontsize{10pt}{10pt}\selectfont
  \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\
@@ -345,6 +360,7 @@ n & no. of elements per direction & int & 1 \\
  \hline 
  \end{tabular}
    \end{table}
+   
  \section{Calculations with pulsed laser sources}
  Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. 
  

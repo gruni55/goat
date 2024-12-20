@@ -112,7 +112,9 @@ namespace GOAT
 				n /= -abs(n);
 				return R * n;
 			}
-			return R * maths::Vector<double>(p[0], p[1], 0);
+			p[2]=0;
+			p=p/abs(p);
+			return R * p;
 		}
 
 		bool VortexPlate::isInside(const maths::Vector<double>& p)

@@ -96,8 +96,8 @@ namespace GOAT
 			bool Abbruch = false;
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
-			recur++;
-			while ((Reflexions <= numReflex) && (!Abbruch) && (abs2(ray->getE()) > 1E-20) )
+			recur++;					
+			while ((Reflexions <= numReflex) && (!Abbruch)   && (abs2(ray->getE()) > 1E-20) )
 			{
 				ray->status = RAYBASE_STATUS_NONE;
 				// save first the infos at the beginning of the next step
@@ -118,7 +118,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-		//		std::cout << PStart << "  " << PStop << std::endl;
+	//			std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 
@@ -129,7 +129,7 @@ namespace GOAT
 					pjump = hray2.pjump(hray1.P, hray2.P, CP);
 				}
 
-				// search a hit with a detector within the last step            
+				// search a hit with a detector within the last step       				
 				if (S.nDet > 0)
 				{
 					int i1, i2;
@@ -141,11 +141,9 @@ namespace GOAT
 					for (int i = 0; i < S.nDet; i++)
 					{
                         if (S.Det[i]->cross(PStart, kin, i1, i2, l))
-						{                            
-							if ((l <= stepSize) && (l > 0))
-							{
-								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
-							}
+						{            
+								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 							
+//								std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
 						}
 					}
 				}
@@ -154,21 +152,21 @@ namespace GOAT
 					((tubedRay*)ray)->E[4] *= exp(I * pjump);
 				}
 
-				if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
+			/*	if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
 				{
 					Abbruch = true;
-					lost++;
-				}
+					lost++;					
+				}*/
 				
 				if (!Abbruch)
 				{
 					if (ray->isInObject()) // Is the ray inside an object ?
-					{
+					{						
 						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
-							copyRay(tray, ray);			
+						    copyRay(tray, ray);			
 							//std::cout <<  PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
@@ -195,7 +193,7 @@ namespace GOAT
 						if (objIndex > -1) // an object was hit
 						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
-//                                  std::cout << "n=" << S.Obj[objIndex]->n << std::endl;
+                              //    std::cout << "n=" << n << std::endl;
 						    // std::cout << PStop << "\t" << n << std::endl;
 			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)
