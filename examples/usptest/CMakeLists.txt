@@ -20,9 +20,7 @@ find_library (NAMES goat_raytracing PATHS ../../lib)
 
 
 find_package (OpenMP)
-if (WITHOUT_MP) 
-	message (STATUS "OpenMP support skipped in boxtest")
-else()
+if (OpenMP_FOUND) 
 	message (STATUS "OpenMP support works")
 	add_executable (boxtest boxtest.cpp)
 	target_compile_options (boxtest PUBLIC ${OpenMP_CXX_FLAGS})
@@ -114,6 +112,8 @@ else()
     		LIBRARY DESTINATION lib
     		ARCHIVE DESTINATION lib
     		)
+else()
+  message (STATUS,"OpenMP not found, support skipped!")   
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)

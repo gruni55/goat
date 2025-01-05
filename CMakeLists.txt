@@ -9,7 +9,7 @@ if(CMAKE_CXX_COMPILER_LOADED)
              ${CMAKE_CXX_COMPILER_VERSION}")
      message(STATUS "Compiler is part of GCC: 
              ${CMAKE_COMPILER_IS_GNUCXX}")
-  #   add_compile_options(-std=c++11)
+    add_compile_options(-std=c++11)
    endif()
 
 

@@ -79,7 +79,7 @@ namespace GOAT
                 INDEX_TYPE ny = (p0[1] + git.r0) / git.d[1];
                 INDEX_TYPE nz = (p0[2] + git.r0) / git.d[2];
 
-                currentIndex = GOAT::maths::Vector<int>(nx, ny, nz);
+                currentIndex = GOAT::maths::Vector<INDEX_TYPE>(nx, ny, nz);
             }
 
             int signx = SGN(k0[0]);

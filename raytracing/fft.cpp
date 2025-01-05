@@ -1,7 +1,7 @@
 #include "fft.h"
 #include <chrono>
 #include <math.h>
-#include <omp.h>
+// #include <omp.h>
 
 namespace GOAT
 {
@@ -155,9 +155,9 @@ namespace GOAT
             int counter=0;
 #if defined(_OPENMP)
             omp_set_num_threads(tp.number_of_threads);
-#endif
             std::cout << "number of threads used:" << omp_get_num_threads() << "(" << tp.number_of_threads << ")" << std::endl;
-            maths::Vector<std::complex<double> > hint;
+#endif 
+maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
                     for (int i = 0; i < SA[iR].numObjs; i++)        // loop over object number (i.e. over Sub-Array in SuperArray)
                         if (SAres.Obj[i]->isActive())
