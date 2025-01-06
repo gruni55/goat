@@ -119,8 +119,8 @@ namespace GOAT
                         if (SAres.Obj[i]->isActive())
                         {
 #if defined(_OPENMP)
-                            omp_set_num_threads(tp.number_of_threads);
-                            std::cout << "number of threads used:" << omp_get_num_threads() << std::endl;
+//                            omp_set_num_threads(tp.number_of_threads);
+//                            std::cout << "number of threads used:" << omp_get_num_threads() << std::endl;
                              #pragma omp parallel for
 
 
@@ -154,8 +154,8 @@ namespace GOAT
             D=0;
             int counter=0;
 #if defined(_OPENMP)
-            omp_set_num_threads(tp.number_of_threads);
-            std::cout << "number of threads used:" << omp_get_num_threads() << "(" << tp.number_of_threads << ")" << std::endl;
+            // omp_set_num_threads(tp.number_of_threads);
+            //std::cout << "number of threads used:" << omp_get_num_threads() << "(" << tp.number_of_threads << ")" << std::endl;
 #endif 
 maths::Vector<std::complex<double> > hint;
                 for (int iR = 0; iR < tp.nR; iR++)   // loop over reflection order
