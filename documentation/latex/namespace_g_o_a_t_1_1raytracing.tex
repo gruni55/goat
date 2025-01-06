@@ -18,6 +18,8 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}
 \begin{DoxyCompactList}\small\item\em class which represents a box (cuboid). It is derived by class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape} This class is mainly used for the octree calculation, but can also be used for general purposes \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cone}{Cone}}
 \begin{DoxyCompactList}\small\item\em This class represents a cone. The cone is defined by the reference point (position), the height and the radius. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_cylinder}{Cylinder}}
+\begin{DoxyCompactList}\small\item\em This class provides a cylindrical object. Here, a cylindrical object is provided. The reference point is situated in the center of bottom face. The cylinder is described by its height and radius. It is oriented in the z-\/direction. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}}
 \begin{DoxyCompactList}\small\item\em The abstract \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector} class provides an interface to a detector to store the information about the electric field into any kind of an array. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}}
@@ -145,6 +147,8 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}}
 \begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{tubed\+Ray\+Buffer}}
 \item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_vortex_plate}{Vortex\+Plate}}
+\begin{DoxyCompactList}\small\item\em This class provides a vortex phase plate object. Here, a vortex phase plate object is provided. The reference point is situated in the center of bottom face. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelength\+Range}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Typedefs}
@@ -275,6 +279,9 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9
 \begin{DoxyCompactList}\small\item\em refractive index of LASF55-\/glass from Schott (coefficients according taken from www.\+schott.\+com) \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a00df40202a4b7c5b4e2ffd124c15ddd2}{n\+\_\+lin}} (double wvl)
 \item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af72b6af2de3aceb13bd5e645084f2ce8}{n\+\_\+\+PMMA}} (double wvl)
+\begin{DoxyCompactList}\small\item\em refractive index function of Poly(methyl mathacrylate), PMMA refractive index function for PMMA taken from refractiveindex.\+info (Sultanova et al., Acta Physica Polonica A 116, 585-\/587 (2009)) ~\newline
+ \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}{n\+\_\+\+Sellmeier}} (double lambda, double C\mbox{[}3\mbox{]}, double B\mbox{[}3\mbox{]})
 \begin{DoxyCompactList}\small\item\em refractive index formula used for glasses from Schott \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a67e28a9983d77327527a70f0c03dee46}{n\+\_\+test}} (double wvl)
@@ -1064,7 +1071,7 @@ refractive index function for highly absorbing medium with real part 1.\+0
 
 
 
-Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00094}{94}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00103}{103}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a2be4834db583c1407765a36a7fe4e1bc}\label{namespace_g_o_a_t_1_1raytracing_a2be4834db583c1407765a36a7fe4e1bc} 
 \index{GOAT::raytracing@{GOAT::raytracing}!n\_Air@{n\_Air}}
@@ -1178,6 +1185,21 @@ Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l0007
 
 Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00082}{82}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
 
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_af72b6af2de3aceb13bd5e645084f2ce8}\label{namespace_g_o_a_t_1_1raytracing_af72b6af2de3aceb13bd5e645084f2ce8} 
+\index{GOAT::raytracing@{GOAT::raytracing}!n\_PMMA@{n\_PMMA}}
+\index{n\_PMMA@{n\_PMMA}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{n\_PMMA()}{n\_PMMA()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::n\+\_\+\+PMMA (\begin{DoxyParamCaption}\item[{double}]{wvl }\end{DoxyParamCaption})}
+
+
+
+refractive index function of Poly(methyl mathacrylate), PMMA refractive index function for PMMA taken from refractiveindex.\+info (Sultanova et al., Acta Physica Polonica A 116, 585-\/587 (2009)) ~\newline
+ 
+
+
+
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00094}{94}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7}\label{namespace_g_o_a_t_1_1raytracing_ae313fd777c998559699ee26ddb6c6cf7} 
 \index{GOAT::raytracing@{GOAT::raytracing}!n\_Sellmeier@{n\_Sellmeier}}
 \index{n\_Sellmeier@{n\_Sellmeier}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1200,7 +1222,7 @@ Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l0006
 
 
 
-Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00099}{99}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
+Definition at line \mbox{\hyperlink{refractive__index__functions_8h_source_l00108}{108}} of file \mbox{\hyperlink{refractive__index__functions_8h_source}{refractive\+\_\+index\+\_\+functions.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a883a7356d84cade7f08fed45b7d7a8cf}\label{namespace_g_o_a_t_1_1raytracing_a883a7356d84cade7f08fed45b7d7a8cf} 
 \index{GOAT::raytracing@{GOAT::raytracing}!n\_Vacuum@{n\_Vacuum}}

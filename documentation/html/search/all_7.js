@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['g_0',['g',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abaabb88f73cfd7bd8a2721a1c7a269ca',1,'GOAT::raytracing::tubedRay::g'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a17fca976d45bebd9c1f4d6f2be5f91a4',1,'GOAT::raytracing::SuperGrid::G'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b',1,'GOAT::raytracing::SuperArray::G']]],
+  ['g_0',['g',['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a17fca976d45bebd9c1f4d6f2be5f91a4',1,'GOAT::raytracing::SuperGrid::G'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a25137cb8f912660c9a71a0cc56341b1b',1,'GOAT::raytracing::SuperArray::G'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abaabb88f73cfd7bd8a2721a1c7a269ca',1,'GOAT::raytracing::tubedRay::g']]],
   ['gauss_1',['Gauss',['../struct_g_o_a_t_1_1raytracing_1_1_gauss.html',1,'GOAT::raytracing']]],
   ['gaussphase_2',['gaussphase',['../namespace_g_o_a_t_1_1raytracing.html#a4adc45593fda60dbbf7d24415efb027f',1,'GOAT::raytracing']]],
   ['gaussw_3',['gaussw',['../namespace_g_o_a_t_1_1raytracing.html#a7874817c58cb0f9a946cca676453a292',1,'GOAT::raytracing']]],
@@ -53,7 +53,7 @@ var searchData=
   ['gettext_50',['GetText',['../classtinyxml2_1_1_x_m_l_element.html#a0fa5bea0a4daf3ddd503dcabb823eba6',1,'tinyxml2::XMLElement']]],
   ['gettrafoparms_51',['gettrafoparms',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a54cd68802a1b2ec7ca617eafac81968c',1,'GOAT::raytracing::pulseCalculation::getTrafoParms()'],['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html#a957b82675e84fa76f250be69e8d4f9d4',1,'GOAT::raytracing::pulseCalculation_Field::getTrafoParms()']]],
   ['gettriangle_52',['getTriangle',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a10e04122f52957ea831ace36b93bab98',1,'GOAT::raytracing::surface']]],
-  ['getunnelt_53',['getunnelt',['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#a49a7194c25a6917309729da3d37c5616',1,'GOAT::raytracing::StrahlInfo::getunnelt'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a1e33538bf3e2c7b5c264f630304602fa',1,'GOAT::raytracing::tubedRay::getunnelt'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abe09fb9e19105cf45afbd9de9ad9247d',1,'GOAT::raytracing::tubedRay::Getunnelt()']]],
+  ['getunnelt_53',['getunnelt',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a1e33538bf3e2c7b5c264f630304602fa',1,'GOAT::raytracing::tubedRay::getunnelt'],['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#abe09fb9e19105cf45afbd9de9ad9247d',1,'GOAT::raytracing::tubedRay::Getunnelt()'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#a49a7194c25a6917309729da3d37c5616',1,'GOAT::raytracing::StrahlInfo::getunnelt']]],
   ['getuserdata_54',['GetUserData',['../classtinyxml2_1_1_x_m_l_node.html#a18cc02ebd0b06f6bf5db7ef87653e00e',1,'tinyxml2::XMLNode']]],
   ['getwavelength_55',['getWavelength',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a092ebbf5ccd7877576951649c3f3d69b',1,'GOAT::raytracing::LightSrc']]],
   ['getwavenumber_56',['getWavenumber',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html#a3c675d1909859764c93802a443970c5a',1,'GOAT::raytracing::LightSrc']]],

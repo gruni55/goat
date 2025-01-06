@@ -46,7 +46,9 @@ var hierarchy =
     [ "GOAT::raytracing::ObjectShape", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html", [
       [ "GOAT::raytracing::Box", "class_g_o_a_t_1_1raytracing_1_1_box.html", null ],
       [ "GOAT::raytracing::Cone", "class_g_o_a_t_1_1raytracing_1_1_cone.html", null ],
+      [ "GOAT::raytracing::Cylinder", "class_g_o_a_t_1_1raytracing_1_1_cylinder.html", null ],
       [ "GOAT::raytracing::Ellipsoid", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html", null ],
+      [ "GOAT::raytracing::VortexPlate", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html", null ],
       [ "GOAT::raytracing::asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", null ],
       [ "GOAT::raytracing::sphericLens", "class_g_o_a_t_1_1raytracing_1_1spheric_lens.html", null ],
       [ "GOAT::raytracing::surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", null ]

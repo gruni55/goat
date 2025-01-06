@@ -24,6 +24,6 @@ var searchData=
   ['powtrans_21',['PowTrans',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a35661a01ce3e3f64b6e2a2f2cf4d4b1c',1,'GOAT::raytracing::Raytrace']]],
   ['pstart_22',['PStart',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a408a74d9f23b319367edbc08b9f9d12a',1,'GOAT::raytracing::Raytrace']]],
   ['pstop_23',['PStop',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a5bb032f629b207be44f78e3aa0bf8818',1,'GOAT::raytracing::Raytrace']]],
-  ['pul_24',['pul',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a7563e04424687ffa01dc559f1c487134',1,'GOAT::raytracing::ObjectShape::pul'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5e862b8542faf7eff6fc8671d4f538ae',1,'GOAT::raytracing::SuperArray::Pul'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a9382553d1ba745ed576ba6086c9baf84',1,'GOAT::raytracing::SuperGrid::Pul']]],
+  ['pul_24',['pul',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5e862b8542faf7eff6fc8671d4f538ae',1,'GOAT::raytracing::SuperArray::Pul'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a9382553d1ba745ed576ba6086c9baf84',1,'GOAT::raytracing::SuperGrid::Pul'],['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a7563e04424687ffa01dc559f1c487134',1,'GOAT::raytracing::ObjectShape::pul']]],
   ['pulsecalculation_5fnot_5fclear_5fresult_25',['PULSECALCULATION_NOT_CLEAR_RESULT',['../namespace_g_o_a_t_1_1raytracing.html#a35b77cfead80a1270e41c3a7480eedd3',1,'GOAT::raytracing']]]
 ];
