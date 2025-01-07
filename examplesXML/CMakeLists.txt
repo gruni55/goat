@@ -34,8 +34,8 @@ message (STATUS "create readXML WITHOUT OpenMP support")
 target_link_libraries (readXML goat_xml goat_raytracing goat_maths)
 endif()
 install(TARGETS readXML
-                RUNTIME DESTINATION bin
-                LIBRARY DESTINATION lib
-                ARCHIVE DESTINATION lib
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 )
 

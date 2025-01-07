@@ -30,7 +30,7 @@ target_include_directories (otexample PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths
 target_link_libraries (otexample goat_raytracing goat_maths)
 
 install(TARGETS otexample
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
-    ARCHIVE DESTINATION lib
-    )
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                )

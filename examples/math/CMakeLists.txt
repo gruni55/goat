@@ -1,4 +1,4 @@
-# build example for thin film interference
+# build examples for mathematic library
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/release)
@@ -14,16 +14,16 @@ endif(NOT CMAKE_BUILD_TYPE)
 
 
 message (STATUS "LIB Library: ${LIBDIR}")
-add_executable (layers layers.cpp)
+
 find_library (NAMES goat_maths PATHS ../../lib)
-find_library (NAMES goat_raytracing PATHS ../../lib)
 
-target_include_directories (layers PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (layers goat_raytracing goat_maths)
+add_executable (testmath testmath.cpp)
+target_include_directories (testmath PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths)
+target_link_libraries (testmath goat_maths)
 
-
-install(TARGETS layers
+install(TARGETS testmath
                 RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 )
+

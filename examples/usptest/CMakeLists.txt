@@ -109,17 +109,22 @@ else()
 	target_include_directories (testusp PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 	target_link_libraries (testusp OpenMP::OpenMP_CXX goat_raytracing_mp goat_maths)
 
-	install(TARGETS testusp pnexttest usptest usp_misalign_compress usptest_spatial
-    		RUNTIME DESTINATION bin
-    		LIBRARY DESTINATION lib
-    		ARCHIVE DESTINATION lib
-    		)
+	
+    install(TARGETS testusp pnexttest usptest usp_misalign_compress usptest_spatial
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                )
  endif()
 
 add_executable (usp_raytest usp_raytest.cpp)
 target_include_directories (usp_raytest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (usp_raytest goat_raytracing goat_maths)
-
+install(TARGETS usp_raytest
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                )
 
 
 
