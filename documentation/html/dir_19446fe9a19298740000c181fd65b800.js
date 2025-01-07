@@ -5,6 +5,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "cone.h", "cone_8h.html", "cone_8h" ],
     [ "constants.h", "constants_8h.html", "constants_8h" ],
+    [ "cylinder.h", "cylinder_8h.html", "cylinder_8h" ],
     [ "detector.h", "detector_8h.html", "detector_8h" ],
     [ "ellipsoid.h", "ellipsoid_8h.html", "ellipsoid_8h" ],
     [ "error.h", "error_8h.html", "error_8h" ],
@@ -41,5 +42,6 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "surface.h", "surface_8h.html", "surface_8h" ],
     [ "triangle.h", "triangle_8h.html", "triangle_8h" ],
     [ "triangle_box_intersection.h", "triangle__box__intersection_8h.html", "triangle__box__intersection_8h" ],
-    [ "tubedray.h", "tubedray_8h.html", "tubedray_8h" ]
+    [ "tubedray.h", "tubedray_8h.html", "tubedray_8h" ],
+    [ "vortex.h", "vortex_8h.html", "vortex_8h" ]
 ];

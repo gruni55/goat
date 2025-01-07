@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['l_0',['l',['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a97b6150a09505cb739365b40c14b20b5',1,'GOAT::raytracing::stepEntry::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a798f80ed574316ba22506fe07dabc9bb',1,'GOAT::raytracing::Raytrace_OT::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a8e47fe7734da28cab54c67f42e5e894f',1,'GOAT::raytracing::Raytrace_OT::L']]],
+  ['l_0',['l',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a798f80ed574316ba22506fe07dabc9bb',1,'GOAT::raytracing::Raytrace_OT::l'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a8e47fe7734da28cab54c67f42e5e894f',1,'GOAT::raytracing::Raytrace_OT::L'],['../struct_g_o_a_t_1_1raytracing_1_1step_entry.html#a97b6150a09505cb739365b40c14b20b5',1,'GOAT::raytracing::stepEntry::l']]],
   ['l0_1',['l0',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a47a7577b4ef9a6ad56229392097d8347',1,'GOAT::raytracing::GlobalParms']]],
   ['left_2',['left',['../struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html#a3df6ff413443a51b980b7060177e837c',1,'GOAT::raytracing::asphericLensParms::left'],['../struct_g_o_a_t_1_1raytracing_1_1lens_parms.html#aa78c66475b72a58d04ba871abb97167e',1,'GOAT::raytracing::lensParms::left']]],
   ['lensparms_3',['lensParms',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a318dc5ac3f209b73a4793ecdab3ade1c',1,'GOAT::raytracing::asphericLens']]],

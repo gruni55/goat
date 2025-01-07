@@ -11,6 +11,7 @@ var annotated_dup =
         [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
         [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html", "class_g_o_a_t_1_1raytracing_1_1_box" ],
         [ "Cone", "class_g_o_a_t_1_1raytracing_1_1_cone.html", "class_g_o_a_t_1_1raytracing_1_1_cone" ],
+        [ "Cylinder", "class_g_o_a_t_1_1raytracing_1_1_cylinder.html", "class_g_o_a_t_1_1raytracing_1_1_cylinder" ],
         [ "Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", "class_g_o_a_t_1_1raytracing_1_1_detector" ],
         [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", "class_g_o_a_t_1_1raytracing_1_1_detector_plane" ],
         [ "Ellipsoid", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid" ],
@@ -73,6 +74,7 @@ var annotated_dup =
         [ "triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", "class_g_o_a_t_1_1raytracing_1_1triangle" ],
         [ "tubedRay", "class_g_o_a_t_1_1raytracing_1_1tubed_ray.html", "class_g_o_a_t_1_1raytracing_1_1tubed_ray" ],
         [ "tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer" ],
+        [ "VortexPlate", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate" ],
         [ "wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range" ]
       ] ],
       [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [

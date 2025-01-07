@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['m_0',['m',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a5cfec052508138d8a22c70c8626e6437',1,'GOAT::maths::Matrix::M'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aa5a17528660cc5713dc16b50e35d2279',1,'GOAT::raytracing::StrahlInfo::m']]],
+  ['m_0',['m',['../class_g_o_a_t_1_1maths_1_1_matrix.html#a5cfec052508138d8a22c70c8626e6437',1,'GOAT::maths::Matrix::M'],['../class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#abdd8d2d8f998cd618d73f7e18b62abc1',1,'GOAT::raytracing::VortexPlate::m'],['../struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html#aa5a17528660cc5713dc16b50e35d2279',1,'GOAT::raytracing::StrahlInfo::m']]],
   ['makereal_1',['makereal',['../namespace_g_o_a_t_1_1maths.html#ae465a34a41caa84372abf7c267452d28',1,'GOAT::maths::makeReal()'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a2759899e6c83be817b38e85bbca2f242',1,'GOAT::raytracing::SuperArray::makeReal()']]],
   ['malloc_5ferr_2',['MALLOC_ERR',['../error_8h.html#aa1ab001303a7dbf4e05f26804886106c',1,'error.h']]],
   ['mapstring2calculationtoken_3',['mapString2CalculationToken',['../namespace_g_o_a_t_1_1_x_m_l.html#a8e15acb4a5efd7a716d2ef76e612f118',1,'GOAT::XML']]],

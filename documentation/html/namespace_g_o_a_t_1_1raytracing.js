@@ -5,6 +5,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
     [ "Box", "class_g_o_a_t_1_1raytracing_1_1_box.html", "class_g_o_a_t_1_1raytracing_1_1_box" ],
     [ "Cone", "class_g_o_a_t_1_1raytracing_1_1_cone.html", "class_g_o_a_t_1_1raytracing_1_1_cone" ],
+    [ "Cylinder", "class_g_o_a_t_1_1raytracing_1_1_cylinder.html", "class_g_o_a_t_1_1raytracing_1_1_cylinder" ],
     [ "Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", "class_g_o_a_t_1_1raytracing_1_1_detector" ],
     [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", "class_g_o_a_t_1_1raytracing_1_1_detector_plane" ],
     [ "Ellipsoid", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid.html", "class_g_o_a_t_1_1raytracing_1_1_ellipsoid" ],
@@ -67,6 +68,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", "class_g_o_a_t_1_1raytracing_1_1triangle" ],
     [ "tubedRay", "class_g_o_a_t_1_1raytracing_1_1tubed_ray.html", "class_g_o_a_t_1_1raytracing_1_1tubed_ray" ],
     [ "tubedRayBuffer", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer.html", "struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer" ],
+    [ "VortexPlate", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate" ],
     [ "wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range" ],
     [ "INDEX_TYPE", "namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73", null ],
     [ "Curvature", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977", [
@@ -136,6 +138,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "n_Glass", "namespace_g_o_a_t_1_1raytracing.html#afa47af00bb87044dae949e0443301df2", null ],
     [ "n_LASF55", "namespace_g_o_a_t_1_1raytracing.html#a97fa6cb0dca018d31ed37abd45b1d572", null ],
     [ "n_lin", "namespace_g_o_a_t_1_1raytracing.html#a00df40202a4b7c5b4e2ffd124c15ddd2", null ],
+    [ "n_PMMA", "namespace_g_o_a_t_1_1raytracing.html#af72b6af2de3aceb13bd5e645084f2ce8", null ],
     [ "n_Sellmeier", "namespace_g_o_a_t_1_1raytracing.html#ae313fd777c998559699ee26ddb6c6cf7", null ],
     [ "n_test", "namespace_g_o_a_t_1_1raytracing.html#a67e28a9983d77327527a70f0c03dee46", null ],
     [ "n_Vacuum", "namespace_g_o_a_t_1_1raytracing.html#a883a7356d84cade7f08fed45b7d7a8cf", null ],
