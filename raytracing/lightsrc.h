@@ -159,6 +159,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
+			/**
+			 * @brief rotation matrix
+			 * This matrix describes the rotation of the light source given by the direction vector
+			 */
+            maths::Matrix<double> Rot; 
 		};
 
 
@@ -185,10 +190,10 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int next(GOAT::raytracing::RayBase* ray);  ///< gives the next ray for the following calculations 
 			int next(IRay& S);///< gives the next ray for the following calculations 
 			int next(tubedRay& S);///< gives the next ray for the following calculations 
-			int next(Ray_pow& S);///< gives the next ray for the following calculations 
+			int next(Ray_pow& S);///< gives the next ray for the following calculations 			
 			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
 			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
-
+			
 
 			// void turnSrc // to be done !!!
 		};

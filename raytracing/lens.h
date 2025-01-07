@@ -12,7 +12,7 @@ namespace GOAT
        * @brief Structure to describe one side of an spheric lens 
        * For this type of lens one side can either be spherical (convex or  concave) or flat 
        */
-        typedef struct
+        typedef struct lensa
         {
             /**
             * @brief center of the sphere, which describes the corresponding surface of the lens
