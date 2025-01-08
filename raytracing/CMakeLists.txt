@@ -31,6 +31,11 @@ else()
 	        target_compile_options (goat_raytracing_mp PUBLIC ${OpenMP_CXX_FLAGS})
                 target_compile_definitions (goat_raytracing_mp PUBLIC WITH_OCTREE)
                 target_include_directories (goat_raytracing_mp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)  
+		install(TARGETS goat_raytracing_mp 
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                )
 	else()
 		message (WARNING "OpenMP not found - Calculation without parallelization")
 	endif()
@@ -39,7 +44,7 @@ message (STATUS "Write libraries to:  ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS}  )
 target_compile_definitions (goat_raytracing PUBLIC WITH_OCTREE)
 target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
-install(TARGETS goat_maths goat_raytracing goat_raytracing_mp 
+install(TARGETS goat_maths goat_raytracing  
                 RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}

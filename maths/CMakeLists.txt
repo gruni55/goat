@@ -5,7 +5,7 @@ set (MATHS_SRCS fresnel.cpp   goodies.cpp   matrix.cpp    vector.cpp )
 add_library (goat_maths ${MATHS_SRCS} ${MATHS_HDRS})
 target_include_directories (goat_maths PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 install(TARGETS goat_maths
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+		ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 )
