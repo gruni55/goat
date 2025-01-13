@@ -624,6 +624,7 @@ namespace GOAT
 
 //			double r = rmax * std::sqrt(ur(gen));			
             std::normal_distribution<double> nd (0,sqrt(sigma2));
+			
 
             double x,y;
 
@@ -701,9 +702,9 @@ namespace GOAT
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
                 
-                void LightSrcRingGauss_mc::setFWHM (double r)
+                void LightSrcRingGauss_mc::setFWHM (double fwhm)
                 {
-                  sigma2=r*r/log(2.0);
+				    sigma2=fwhm*fwhm/(8*M_LN2);				  
                 }
 
 				LightSrcPoint_mc::LightSrcPoint_mc() : LightSrc()

@@ -130,7 +130,7 @@ namespace GOAT
 					LS = (GOAT::raytracing::LightSrc**)realloc(LS, numLS + 1);
 					
 					int type = mapString2LightSourceToken(typeStr);
-					switch (type)
+                   switch (type)
 					{
 					case TOKEN_LIGHTSOURCE_PLANE: {
 													LS[numLS] = new GOAT::raytracing::LightSrcPlane(Pos, numRays, wavelength, size);
@@ -213,7 +213,7 @@ namespace GOAT
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                          width=lsEll->DoubleAttribute("width",rmax);
-                                                          LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax);
+                                                           LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax);
                                                          ((GOAT::raytracing::LightSrcRingGauss_mc *)LS[numLS])->setFWHM(width);
 														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														 LS[numLS]->setk(k);

@@ -1,4 +1,5 @@
 \documentclass[a4paper,html,11pt,openany]{book}
+\usepackage{amsmath,mathtools}
 \usepackage{longtable}
 \usepackage{siunitx}
 \usepackage{nicefrac}
@@ -6,6 +7,7 @@
 \usepackage{color}
 \usepackage{graphicx}
 \usepackage{longtable}
+\usepackage{ulem}
 \usepackage{hyperref}
 \definecolor{gray}{rgb}{0.4,0.4,0.4}
 \definecolor{darkblue}{rgb}{0.0,0.0,0.6}
@@ -89,7 +91,16 @@ Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten}
  
 \subsection{Gaussian wave}
  type: \textbf{gaussian} \\
-A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. Special parameters:
+A gaussian wave describe a wave which is focused  towards the focal point and has a gaussian radial intensity distribution. The direction of the wave is given by the position of the light source and the focal point. For the description of the gaussian distribution, one can either give the (virtual) waist width at the focal point, w0 or the numerical aperture NA. If both are given, the numerical aperture is used. Please note, that the width (full width at half maximum) refers to the electric field: \\ 
+
+\begin{align}
+E&=E_0 \cdot e^{\frac{-x^2}{2\sigma^2}} \Rightarrow \sigma^2=\frac{\delta x_E^2}{8\ln2} \\
+I&=I_0 \cdot e^{\frac{-2x^2}{2\sigma^2}} \\
+\Aboxed {\delta x_I&=\frac{\delta x_E}{\sqrt{2}}}
+\end{align}
+with the width of the electric field $\delta x_E$ and the corresponding width of the intensity profile $\delta_I$.
+\vspace{1em}
+Special parameters:
 
 \vspace{1em}
  \begin{tabular}{c|c|c}
@@ -167,7 +178,7 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
  
  \vspace{1em}
 % \begin{tabular}{c|c|c}
- \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter name & description  & possible value & default value\\
  \hline
   Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
@@ -185,7 +196,7 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
   IsActive & \parbox{3.5cm}{Fields inside the object will be stored (this concerns e.g. the pulsed calculation and the inelastic scattering)} & true/false & false \\
   \hline
   n & refractive index & complex value & (1.0,0.0) 
-\end{tabular} 
+\end{longtable} 
   
 \subsection{Ellipsoid}
  type: \textbf {ellipsoid} \\
@@ -360,7 +371,7 @@ If one want only the electric field distribution at certain areas, this calculat
  \hline 
  \end{tabular}
    \end{table}
-   
+   Sometimes it is convenient to switch off calculations without erasing it. For this reason, the property "Inactive" can be set to "true". ´ 
  \section{Calculations with pulsed laser sources}
  Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. 
  
