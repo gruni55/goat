@@ -300,7 +300,7 @@ namespace  GOAT
 			this->Pos = LS.Pos;
 			this->density = LS.density;
 			this->type = LIGHTSRC_SRCTYPE_PLANE;
-			this->k = LS.k;
+			setk(LS.k);
 			this->raytype = LS.raytype;
 			this->Pol = LS.Pol;
 			this->r0 = LS.r0;
@@ -396,7 +396,7 @@ namespace  GOAT
 		LightSrcRing::LightSrcRing() : LightSrc()
 		{
 			type = LIGHTSRC_SRCTYPE_RING;
-			k = maths::ez;
+			setk(maths::ez);
 			density = 2.0 * rmax / ((double)N);
 			raytype = LIGHTSRC_RAYTYPE_IRAY;
 			numObjs = 0;
@@ -408,6 +408,7 @@ namespace  GOAT
 
 		LightSrcRing::LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin, double rmax, maths::Vector<std::complex<double> > Pol, int raytype , double r0) : LightSrc()
 		{
+			setk(maths::ez);
 			e1 = maths::ex;
 			e2 = maths::ey;
 
@@ -417,7 +418,7 @@ namespace  GOAT
 			D = 2.0 * rmax;
 			D1 = 2.0 * rmax;
 			D2 = 2.0 * rmax;
-			this->k = maths::ez;
+			
 			this->raytype = raytype;
 			this->Pol = Pol;
 			this->r0 = r0;
@@ -609,7 +610,7 @@ namespace  GOAT
 		{
 			type = LIGHTSRC_SRCTYPE_GAUSS;			
 			Pall = 0.0;
-			k = maths::ez;
+			setk(maths::ez);
 			density = 1;
 			raytype = LIGHTSRC_RAYTYPE_IRAY;
 			numObjs = 0;
@@ -1130,7 +1131,7 @@ namespace  GOAT
 			this->D = size;
 			this->D1 = size;
 			this->direction = direction/abs(direction);
-			this->k = k;
+			setk(k);
 		}
 
 		int LightSrcLine::next(RayBase* ray)
