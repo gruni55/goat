@@ -38,10 +38,10 @@ struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{index\+List}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}}
 \begin{DoxyCompactList}\small\item\em This class represents a single ray. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{lensa}}
+\begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}
 \begin{DoxyCompactList}\small\item\em Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class \doxylink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}
-\begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}
 \begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{Light\+Src\+Gauss}}
@@ -155,7 +155,9 @@ struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavele
 \begin{DoxyCompactItemize}
 \item 
 typedef long long int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}
-\end{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{GOAT\+::raytracing\+::lensa}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}
+\begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -182,8 +184,8 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc2
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure from a binary file ~\newline
  \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side} structure from a binary file ~\newline
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}} ls, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em read a lens\+Side structure from a binary file ~\newline
  \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{bin\+Read\+Inc}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\&E, bool is\+New)
 \item 
@@ -195,8 +197,8 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d856
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ofstream \&os)
 \begin{DoxyCompactList}\small\item\em write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure in a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}} ls, std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side} structure in a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}} ls, std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em write a lens\+Side structure in a binary file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{bin\+Write\+Inc}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}E)
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a70a382182a989a88ddff811c42689ff8}{bin\+Write\+Inc\+List}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}E, int anz)
@@ -533,6 +535,16 @@ Raytracer used for ultrashort pulse calculation with raytracing only.
 
 Definition at line \mbox{\hyperlink{superarray_8h_source_l00016}{16}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}\label{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe} 
+\index{GOAT::raytracing@{GOAT::raytracing}!lensSide@{lensSide}}
+\index{lensSide@{lensSide}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{lensSide}{lensSide}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{GOAT\+::raytracing\+::lensa}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{GOAT\+::raytracing\+::lens\+Side}}}
+
+
+
+Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. 
+
 
 
 \doxysubsection{Enumeration Type Documentation}
@@ -622,11 +634,11 @@ read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} struct
 \index{GOAT::raytracing@{GOAT::raytracing}!binRead@{binRead}}
 \index{binRead@{binRead}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binRead()}{binRead()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}}]{ls,  }\item[{std\+::ifstream \&}]{is }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}}]{ls,  }\item[{std\+::ifstream \&}]{is }\end{DoxyParamCaption})}
 
 
 
-read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side} structure from a binary file ~\newline
+read a lens\+Side structure from a binary file ~\newline
  
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}\label{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6} 
@@ -680,11 +692,11 @@ write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} struc
 \index{GOAT::raytracing@{GOAT::raytracing}!binWrite@{binWrite}}
 \index{binWrite@{binWrite}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side}}}]{ls,  }\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}}]{ls,  }\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})}
 
 
 
-write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_side}{lens\+Side} structure in a binary file 
+write a lens\+Side structure in a binary file 
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}\label{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f} 
 \index{GOAT::raytracing@{GOAT::raytracing}!binWriteInc@{binWriteInc}}

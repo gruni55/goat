@@ -386,6 +386,7 @@ namespace GOAT
     };
     /** @name special operators for mixed types
      * @brief Operators for calculations with mixed types.
+     * 
      */
      ///@{
     // Matrix-Matrix Operatoren mit gemischten Typen (std::complex<double> /double)
@@ -413,10 +414,27 @@ namespace GOAT
     /** @name Rotation matrices
      *  @brief Rotation matrices around the principal axis of the cartesian coordinate system (angles are given in radiants)
      */
-     ///@{
-    Matrix<double> Dx(double phi); ///< Rotation around x axis
-    Matrix<double> Dy(double phi); ///< Rotation around y axis
-    Matrix<double> Dz(double phi); ///< Rotation around z axis
+     /**
+      * @brief Rotation matrix around x axis
+      * This function returns the matrix for a rotation around the x-axis: 
+      * \f[ D_x=\left( \begin{array}{ccc} 1 & 0 & 0 \\  0 & \cos \varphi & \sin \varphi  \\ 0 & -\sin \varphi & \cos \varphi \end{array}\right)
+      * \f]
+      */
+    Matrix<double> Dx(double phi); 
+     /**
+      * @brief Rotation matrix around y axis
+      * This function returns the matrix for a rotation around the y-axis: 
+      * \f[ D_y=\left( \begin{array}{ccc} \cos\varphi & 0 & \sin \varphi \\  0 & 1 & 0  \\ -\sin\varphi & 0 & \cos \varphi \end{array}\right)
+      * \f]
+      */
+    Matrix<double> Dy(double phi); 
+    /**
+      * @brief Rotation matrix around z axis
+      * This function returns the matrix for a rotation around the z-axis: 
+      * \f[ D_z=\left( \begin{array}{ccc} \cos\varphi & -\sin\varphi & 0 \\ \sin\varphi & \cos\varphi & 0 \\0 & 0 & 1 \end{array}\right)
+      * \f]
+      */
+    Matrix<double> Dz(double phi);
     Matrix<double> rotMatrix(const Vector<double> a, double gamma); ///<   Rotation matrix for rotation around the axis a by the angle gamma
     /**
      * @brief Rotation matrix calculated from rotation around x-axis, y-axis and z-axis

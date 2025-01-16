@@ -159,11 +159,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
-			/**
-			 * @brief rotation matrix
-			 * This matrix describes the rotation of the light source given by the direction vector
-			 */
-            maths::Matrix<double> Rot; 
+			maths::Vector<double> rotVec; ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
 		};
 
 
@@ -290,7 +286,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 
 			void setNA(double na); ///< sets the numerical aperture NA and recalculates the width D, the focal beam waist w0 and the Rayleigh-length z0
 			void setWvl(double wvl); ///< sets the vacuum wavelength
-			void setk(maths::Vector<double> k) { this->k = k; reset(); }	///< sets the main direction of light source 
+			void setk(maths::Vector<double> k);	///< sets the main direction of light source 
 			double calcz0() { z0 = M_PI * w0 * w0 / wvl; return z0; } ///< recalculates Rayleigh-length z0
 			std::complex<double> calcStartPhase(maths::Vector<double> P); 
 			void reset()

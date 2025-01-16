@@ -15,8 +15,8 @@ var hierarchy =
     [ "GOAT::raytracing::grid", "class_g_o_a_t_1_1raytracing_1_1grid.html", null ],
     [ "GOAT::raytracing::gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", null ],
     [ "GOAT::raytracing::indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", null ],
+    [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", null ],
     [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
-    [ "GOAT::raytracing::lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
       [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", [
         [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]

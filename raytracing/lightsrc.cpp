@@ -45,7 +45,7 @@ namespace  GOAT
 			density = L.density;
 			e1 = L.e1;
 			e2 = L.e2;
-			k = L.k;
+			setk(L.k);			
 			i1 = L.i1;
 			i2 = L.i2;
 			Pol = L.Pol;
@@ -65,9 +65,10 @@ namespace  GOAT
 			N = L.N;
 			Pall = 0;
 			suppress_phase_progress = L.suppress_phase_progress;
+			
 		}
 
-		void LightSrc::setk(const maths::Vector<double>& k)
+		void LightSrc::setk(const maths::Vector<double>& k) 
 		{
 			this->k = k / abs(k);
 			e1 = k % maths::ez;
@@ -75,6 +76,7 @@ namespace  GOAT
 			e2 = k % e1;
 			e1 = e1 / abs(e1);
 			e2 = e2 / abs(e2);
+            rotVec=maths::cart2sphere (k);
 		}
 
 		void LightSrc::binRead(std::ifstream& is)
@@ -274,7 +276,7 @@ namespace  GOAT
 			this->Pos = Pos;
 			this->density = D / ((double)N);
 			this->type = LIGHTSRC_SRCTYPE_PLANE;
-			this->k = maths::ez;
+			setk(maths::ez);
 			this->raytype = raytype;
 			this->Pol = Pol;
 			this->r0 = r0;
@@ -623,12 +625,12 @@ namespace  GOAT
 
 		LightSrcGauss::LightSrcGauss(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrc()
 			/*
-			  Konstruktor für Gauss-Strahlungsquelle
+			  Konstruktor fï¿½r Gauss-Strahlungsquelle
 			  Strahlen laufen aus einem Rechteck am Ort Pos der Breite D in z-Richtung auf den Fokuspunkt zu
 			  Parameter:
 			  Pos : Position der Quelle (Mitte)
 			  N   : Anzahl Strahlen je Raumrichtung
-			  wvl : Wellenlänge
+			  wvl : Wellenlï¿½nge
 			  w0  : Taillendurchmesser
 			  focuspos : Position des Fokus
 			  D   : Breite der Lichtquelle
@@ -661,7 +663,10 @@ namespace  GOAT
 			
 			reset();
 		}
-
+        void LightSrcGauss::setk(maths::Vector<double> k) 
+		{ 
+			this->k = k; reset(); 
+		}
 
 		void LightSrcGauss::setWvl(double wvl)
 		{
@@ -764,10 +769,10 @@ namespace  GOAT
 		{
 			maths::Vector<double> fp, P = Pos + (i1 * density - D / 2.0) * e1 + (i2 * density - D / 2.0) * e2;
 			//  maths::Vector<double> fp,P=Pos+(i1*density-D/2.0)*e1; // nur zu TESTZWECKEN !!!
-				// P : Startort, density=Anzahl Strahlen/Längeneinheit, D: Breite der Lichtquelle
+				// P : Startort, density=Anzahl Strahlen/Lï¿½ngeneinheit, D: Breite der Lichtquelle
 				//     i1=momentaner Index in e1-Richtung (normalerweise x-Richtung), i2=momentaner Index in e2-Richtung (normalerweise y-Richtung)
 
-			double x1, x2, x3; // Hilfsgrößen
+			double x1, x2, x3; // Hilfsgrï¿½ï¿½en
 			x1 = P * e1;
 			x2 = P * e2;
 			double r2 = x1 * x1 + x2 * x2;  // Quadrat des Abstands von der Laserstrahlachse

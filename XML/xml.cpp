@@ -77,9 +77,9 @@ namespace GOAT
 		{
 			tinyxml2::XMLElement* ell;
 			ell = sceneElement->FirstChildElement("Detectors");
-
+            
 			if (ell != NULL)
-			{
+			{                
 				int n1, n2;
 				
 				for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
@@ -101,6 +101,7 @@ namespace GOAT
 													 Det[numDet]->fname = filename;
 													 S.addDetector(Det[numDet]);
                                                     numDet++;
+                                                    std::cout << "Detector" << std::endl;
 													}
 													
 					}
@@ -139,7 +140,7 @@ namespace GOAT
 												   }
 												   break;
 
-					case TOKEN_LIGHTSOURCE_PLANE_MC: {
+					case TOKEN_LIGHTSOURCE_PLANE_MC: {                        
 														LS[numLS] = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, wavelength, size);
 														GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														LS[numLS]->setk(k);
@@ -208,6 +209,7 @@ namespace GOAT
                                                         }
                     case TOKEN_LIGHTSOURCE_GAUSSIAN_RING_MC :
                                                         {
+                                                            std::cout << "light source gaussian ring mc" << std::endl;
                                                          double rmin, rmax;
                                                          double width;
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
@@ -440,6 +442,26 @@ namespace GOAT
 						{						
 						typeStr = objEll->Attribute("Type");
                         std::cout << "typeStr=" << typeStr << std::endl;
+
+                        // change number of rays, if given
+                        int numRays;
+                        std::vector<int> numRays_old;
+                        numRays = objEll->IntAttribute("numRays", 0);
+                        bool numRaysChanged=false;
+                        if (numRays > 0)
+									{
+										// store the old values 									 
+                                        numRaysChanged=true;
+										for (int i = 0; i < S.nLS; i++)
+										{
+											numRays_old.push_back(S.LS[i]->getNumRays());
+											S.LS[i]->setNumRays(numRays);
+										}
+									}
+
+                        int numReflex;
+                        numReflex = objEll->IntAttribute("numReflex", 0);
+
 						if (!typeStr.empty())
 						{							
 							type = mapString2CalculationToken(typeStr);
@@ -454,41 +476,19 @@ namespace GOAT
 							case TOKEN_CALCULATION_PATH:
 							{
                                 std::cout << "do path calculation" << std::endl;
-                                std::string fname = objEll->Attribute("Filename");
-								int numRays;
-								int numReflex;
+                                std::string fname = objEll->Attribute("Filename");								
+								
 								if (!fname.empty())
 								{
 									GOAT::raytracing::Raytrace_Path rt(S);
-									// optionally, the number of rays of all sources can be set to numRays
-									numRays = objEll->IntAttribute("numRays", 1);									
-									std::vector<int> numRays_old;
-									if (numRays > 0)
-									{
-										// store the old values 									 
-										for (int i = 0; i < S.nLS; i++)
-										{
-											numRays_old.push_back(S.LS[i]->getNumRays());
-											S.LS[i]->setNumRays(numRays);
-										}
-									}
-
-									numReflex = objEll->IntAttribute("numReflex", 0);									
 									rt.setNumReflex(numReflex);
-
 									rt.trace(fname);
-
-									if (numRays > 0)
-									{
-										// restore the old values  
-										for (int i = 0; i < S.nLS; i++)
-											S.LS[i]->setNumRays(numRays_old[i]);
-									} 
 								}
 								else
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
 								break;
 							} // case path calculation
+
                             case TOKEN_CALCULATION_PULSE: 
 							{
 								std::string methodStr;
@@ -512,11 +512,13 @@ namespace GOAT
                                     GOAT::raytracing::TrafoParms trafoparms;
                                     trafoparms = pc.getTrafoParms();
                                     pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
-                                    pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+                                    pc.setNumReflex(numReflex);
+                                    trafoparms.nR=numReflex;
+                                    // pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
                                     pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
                                     pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
                                     pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
-                                    pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+                                    pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));                                    
                                     double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
                                     if (repRate > 0) pc.setRepetitionRate(repRate);
                                     double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
@@ -620,6 +622,7 @@ namespace GOAT
                                           }
                                           if (hStr != NULL) corrOS << d << std::endl;
                                         }// while (d>D);
+
                                       if (hStr != NULL) corrOS.close();
                                     }
                                     else
@@ -674,8 +677,16 @@ namespace GOAT
 								
 							}
 							} // switch
+                            std::cout << "number of detectors:" << numDet << std::endl;
 							for (int i = 0; i < numDet; i++)
 								S.Det[i]->save(Det[i]->fname.c_str());
+
+                            if (numRaysChanged)
+									{
+										// restore the old values  
+										for (int i = 0; i < S.nLS; i++)
+											S.LS[i]->setNumRays(numRays_old[i]);
+									} 
 						} // is type given ?
 					} // is inactive ?
 				} // for loop

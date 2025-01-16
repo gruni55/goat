@@ -372,13 +372,13 @@ Functions</h2></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Rotation matrices around the principal axis of the cartesian coordinate system (angles are given in radiants) </p>
 </div></td></tr>
 <tr class="memitem:a8ff3b630bf57b0490b8b232ad6a0ff7e" id="r_a8ff3b630bf57b0490b8b232ad6a0ff7e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">Matrix</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a8ff3b630bf57b0490b8b232ad6a0ff7e">Dx</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> phi)</td></tr>
-<tr class="memdesc:a8ff3b630bf57b0490b8b232ad6a0ff7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation around x axis.  <br /></td></tr>
+<tr class="memdesc:a8ff3b630bf57b0490b8b232ad6a0ff7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation matrix around x axis This function returns the matrix for a rotation around the x-axis:  <br /></td></tr>
 <tr class="separator:a8ff3b630bf57b0490b8b232ad6a0ff7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b65ccebd66b8e79b2e3c0d2240fbb05" id="r_a9b65ccebd66b8e79b2e3c0d2240fbb05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">Matrix</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#a9b65ccebd66b8e79b2e3c0d2240fbb05">Dy</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> phi)</td></tr>
-<tr class="memdesc:a9b65ccebd66b8e79b2e3c0d2240fbb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation around y axis.  <br /></td></tr>
+<tr class="memdesc:a9b65ccebd66b8e79b2e3c0d2240fbb05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation matrix around y axis This function returns the matrix for a rotation around the y-axis:  <br /></td></tr>
 <tr class="separator:a9b65ccebd66b8e79b2e3c0d2240fbb05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca592fee1949e8f3edc9cf9bb1dcc6c1" id="r_aca592fee1949e8f3edc9cf9bb1dcc6c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">Matrix</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#aca592fee1949e8f3edc9cf9bb1dcc6c1">Dz</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> phi)</td></tr>
-<tr class="memdesc:aca592fee1949e8f3edc9cf9bb1dcc6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation around z axis.  <br /></td></tr>
+<tr class="memdesc:aca592fee1949e8f3edc9cf9bb1dcc6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation matrix around z axis This function returns the matrix for a rotation around the z-axis:  <br /></td></tr>
 <tr class="separator:aca592fee1949e8f3edc9cf9bb1dcc6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae940162a9cdd6fbe3b31d62b729ac06a" id="r_ae940162a9cdd6fbe3b31d62b729ac06a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">Matrix</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1maths.html#ae940162a9cdd6fbe3b31d62b729ac06a">rotMatrix</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">const</a> <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">Vector</a>&lt; <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> &gt; a, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">double</a> <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">gamma</a>)</td></tr>
 <tr class="memdesc:ae940162a9cdd6fbe3b31d62b729ac06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotation matrix for rotation around the axis a by the angle gamma.  <br /></td></tr>
@@ -1076,8 +1076,12 @@ template&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">class</a
       </table>
 </div><div class="memdoc">
 
-<p>Rotation around x axis. </p>
-
+<p>Rotation matrix around x axis This function returns the matrix for a rotation around the x-axis: </p>
+<p class="formulaDsp">
+\[ D_x=\left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 \\  0 &amp; \cos \varphi &amp; \sin \varphi  \\ 0 &amp; -\sin \varphi &amp; \cos \varphi \end{array}\right)
+\]
+</p>
+ 
 </div>
 </div>
 <a id="a9b65ccebd66b8e79b2e3c0d2240fbb05" name="a9b65ccebd66b8e79b2e3c0d2240fbb05"></a>
@@ -1096,8 +1100,12 @@ template&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">class</a
       </table>
 </div><div class="memdoc">
 
-<p>Rotation around y axis. </p>
-
+<p>Rotation matrix around y axis This function returns the matrix for a rotation around the y-axis: </p>
+<p class="formulaDsp">
+\[ D_y=\left( \begin{array}{ccc} \cos\varphi &amp; 0 &amp; \sin \varphi \\  0 &amp; 1 &amp; 0  \\ -\sin\varphi &amp; 0 &amp; \cos \varphi \end{array}\right)
+\]
+</p>
+ 
 </div>
 </div>
 <a id="aca592fee1949e8f3edc9cf9bb1dcc6c1" name="aca592fee1949e8f3edc9cf9bb1dcc6c1"></a>
@@ -1116,8 +1124,12 @@ template&lt;<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">class</a
       </table>
 </div><div class="memdoc">
 
-<p>Rotation around z axis. </p>
-
+<p>Rotation matrix around z axis This function returns the matrix for a rotation around the z-axis: </p>
+<p class="formulaDsp">
+\[ D_z=\left( \begin{array}{ccc} \cos\varphi &amp; -\sin\varphi &amp; 0 \\ \sin\varphi &amp; \cos\varphi &amp; 0 \\0 &amp; 0 &amp; 1 \end{array}\right)
+\]
+</p>
+ 
 </div>
 </div>
 <a id="aa67032012f810e3e3db8a95a9ac49833" name="aa67032012f810e3e3db8a95a9ac49833"></a>
@@ -5589,7 +5601,7 @@ R transformation matrix from local system into laboratory coordinate system </dd
 
 <p>Unity matrix (complex-valued) </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix_8h_source.html#l00457">457</a> of file <a class="el" href="matrix_8h_source.html">matrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix_8h_source.html#l00475">475</a> of file <a class="el" href="matrix_8h_source.html">matrix.h</a>.</p>
 
 </div>
 </div>
@@ -5625,7 +5637,7 @@ R transformation matrix from local system into laboratory coordinate system </dd
 
 <p>Unity matrix (double-valued) </p>
 
-<p class="definition">Definition at line <a class="el" href="matrix_8h_source.html#l00456">456</a> of file <a class="el" href="matrix_8h_source.html">matrix.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="matrix_8h_source.html#l00474">474</a> of file <a class="el" href="matrix_8h_source.html">matrix.h</a>.</p>
 
 </div>
 </div>

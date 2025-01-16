@@ -15,8 +15,8 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", "struct_g_o_a_t_1_1raytracing_1_1grid_entry" ],
     [ "indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", "struct_g_o_a_t_1_1raytracing_1_1index_list" ],
     [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", "class_g_o_a_t_1_1raytracing_1_1_i_ray" ],
+    [ "lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", "struct_g_o_a_t_1_1raytracing_1_1lensa" ],
     [ "lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
-    [ "lensSide", "struct_g_o_a_t_1_1raytracing_1_1lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1lens_side" ],
     [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
     [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
     [ "LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc" ],
@@ -71,6 +71,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "VortexPlate", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html", "class_g_o_a_t_1_1raytracing_1_1_vortex_plate" ],
     [ "wavelengthRange", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range.html", "struct_g_o_a_t_1_1raytracing_1_1wavelength_range" ],
     [ "INDEX_TYPE", "namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73", null ],
+    [ "lensSide", "namespace_g_o_a_t_1_1raytracing.html#a866edf70813cc095beb14e11abb20efe", null ],
     [ "Curvature", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977", [
       [ "convex", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde", null ],
       [ "concave", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f", null ],
