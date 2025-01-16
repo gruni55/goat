@@ -2,6 +2,7 @@
 #include "lightsrc_mc.h"
 #include "ray_pow.h"
 #include "misc.h"
+#include <complex>
 
 namespace  GOAT
 {
@@ -230,7 +231,28 @@ namespace  GOAT
 			Pos = P;
 		}
 
-		void LightSrc::setObject(ObjectShape* O, int i)
+        void LightSrc::adjustDirection()
+        {
+			// Adjust polarisation vector
+			maths::Vector<double> polReal=maths::real(Pol);
+			maths::Vector<double> polImag=maths::imag(Pol);
+
+			maths::Vector<double> sCoord = maths::cart2sphere(polReal);
+			maths::Vector<double> polRealnew, polImagnew;
+
+			polRealnew[0]=(cos(rotVec[2])-sin(rotVec[2]))*cos(rotVec[1])*polReal[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[2]) * polReal[2];
+			polRealnew[1]= sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polReal[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
+			polRealnew[2]=cos(rotVec[1])*polReal[2]-sCoord[0]*sin(sCoord[2])*sin(rotVec[2]);
+			
+			sCoord = maths::cart2sphere(polImag);
+			polImagnew[0]=(cos(rotVec[2])-sin(rotVec[2]))*cos(rotVec[1])*polImag[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[2]) * polImag[2];
+			polImagnew[1]= sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polImag[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polImag[2];
+			polImagnew[2]=cos(rotVec[1])*polImag[2]-sCoord[0]*sin(sCoord[2])*sin(rotVec[2]);
+
+			Pol=maths::Vector<std::complex<double> >(polRealnew[0]+I*polImagnew[0],polRealnew[1]+I*polImagnew[1],polRealnew[2]+I*polImagnew[2]);
+        }
+
+        void LightSrc::setObject(ObjectShape* O, int i)
 			/**
 			   O : Pointer of the object
 			   i : Index of the object, which will be changed. The object will be inserted at the end of the object list, if i<0 or larger than the number of objects.

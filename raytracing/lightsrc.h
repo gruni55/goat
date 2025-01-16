@@ -155,11 +155,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
             int rayCounter=0; 
-			
+			void adjustDirection();
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
-			maths::Vector<double> rotVec; ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
+			maths::Vector<double> rotVec=maths::Vector<double>(1,0,0); ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
 		};
 
 

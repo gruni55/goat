@@ -1009,11 +1009,33 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 		GOAT::maths::Vector<double> xmlReader::readVector(tinyxml2::XMLElement* ell, int &xmlError)
 		{
 			double x=0, y=0, z=0;
+            bool cartesian=false;
+            int error;
 			if (ell != NULL)
 			{
 				xmlError = ell->QueryDoubleAttribute("x", &x);
-				xmlError = xmlError | ell->QueryDoubleAttribute("y", &y);
-				xmlError = xmlError | ell->QueryDoubleAttribute("z", &z);
+                cartesian = xmlError==tinyxml2::XML_SUCCESS;
+                error = ell->QueryDoubleAttribute("y", &y);
+                cartesian = cartesian | (error==tinyxml2::XML_SUCCESS);
+				xmlError = xmlError | error;
+				error = ell->QueryDoubleAttribute("z", &z);
+                cartesian = cartesian | (error==tinyxml2::XML_SUCCESS);
+				xmlError = xmlError | error;
+                // use caresian coordinates, if x,y or z is given 
+                // otherwise try spherical coordinates                 
+                if (!cartesian) 
+                {
+                    double r,theta,phi;
+                   xmlError = ell->QueryDoubleAttribute("r", &r); 
+                   xmlError = xmlError | ell->QueryDoubleAttribute("theta", &theta);
+                   xmlError = xmlError | ell->QueryDoubleAttribute("phi", &phi);
+                   if (xmlError == tinyxml2::XML_SUCCESS) 
+                   {
+                    x=r * cos(phi) * sin(theta);
+                    y=r * sin(phi) * sin(theta);
+                    z=r * cos(theta);
+                   }
+                }
 			}
 			return GOAT::maths::Vector<double>(x,y,z);
 		}
