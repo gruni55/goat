@@ -55,6 +55,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 		* ray. Since the rays need information about the objects to be able to calculate the crossing points with the object surface,
 		* LightSrc provides routines to pass these informations to the rays. These routines are only needed for calculations without
 		* the raytracing process, especially without the Scene class.
+		* 
+		* Polarisation: 
+		* @image html polarisation_rotation.png width=400px; 
+		* When calling the setPol function, the polarisation is set as if the direction would be in z-direction and afterwards the polarisation 
+		* will be rotated according to the above picture. If the direction vector is changed using setk, the direction of the polarization is changed accordingly.  
 		*/
 		class LightSrc
 
@@ -123,7 +128,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double getWavelength() { return wvl; }
 			void setWavenumber(double k0) { this->k0 = k0; wvl = 2.0 * M_PI / k0; }
 			double getWavenumber() { return k0; }
-			void setPol(maths::Vector<std::complex<double> > pol) { Pol = pol; } ///< sets the polarisation 
+			void setPol(maths::Vector<std::complex<double> > pol); ///< sets the polarisation 
 			void setPos(maths::Vector<double> P); ///< sets the position of the light source. This is the center of the square area of the light source
 			maths::Vector<double> getPos() { return Pos; }  ///< returns the position of the light source. This is the center of the square area of the light source
 			void setN0(std::complex<double> n0) { this->n0 = n0; } ///< sets the complex valued refractive index of the intermediate medium
@@ -156,10 +161,12 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
             int rayCounter=0; 
 			void adjustDirection();
+			
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 			maths::Vector<double> rotVec=maths::Vector<double>(1,0,0); ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
+			maths::Vector<std::complex<double> > initPol; ///< Polarisation, if the k-Vector points in z-direction
 		};
 
 

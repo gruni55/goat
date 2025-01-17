@@ -29,7 +29,10 @@ namespace GOAT
 #define IS_ROW 1
 #define IS_COL 2
 
+#ifndef SQRT3
 #define SQRT3  1.73205080756887729352744634150587 // Wurzel aus 3
+#endif 
+
 #define RAMAN 0
 #define FLUORESZENZ 1
 

@@ -372,13 +372,37 @@ namespace GOAT
          */
         template <class T> Vector<T> cart2sphere(const Vector<T>& x)
         {
-            Vector<T> y, a;
+            Vector<T> y;
 
-            a[0] = x[0];
-            a[1] = x[1];
-            a[2] = x[2];
-            y[1] = std::sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]);
-            if (a[2] == 0.0)
+            x[0];
+            x[1];
+            x[2];
+
+            // calculate r              
+            y[0] = abs(x);
+            
+            // r==0 => phi=0, theta=0
+            if (y[0]==0) 
+            {
+                y[1]=0;
+                y[2]=0;
+                return y;
+            }
+
+            // calculate phi=atan2 (y,x); x==0 => set phi to 0
+            if (x[0]==0) y[2]=0;
+            else 
+              {
+               y[2]=atan2(x[1],x[0]);
+               if(y[2]<0) y[2]+=2.0 * M_PI;
+              }
+
+            // calculate theta=acos(z/r)
+            y[1]=acos (x[2]/y[0]);
+            
+            return y;
+
+            /*if (a[2] == 0.0)
                 if (y[0] == 0.0)
                     y[1] = 0;
                 else
@@ -403,7 +427,11 @@ namespace GOAT
                 if (a[0] < 0.0)
                     y[2] = M_PI + y[2];
             }
+            
             return y;
+            */
+
+            
         }
 
 

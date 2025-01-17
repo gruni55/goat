@@ -4,6 +4,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src =
     [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a2856039a4ca3510715e18597dda0142f", null ],
     [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a44b97d3ed8f0b8a083571d4a187a3c9b", null ],
     [ "addObject", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a1aebd3dbd4db7dbe33a3a2822afd7299", null ],
+    [ "adjustDirection", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#acf34d0346a3b9e11c917f0f66486963f", null ],
     [ "binRead", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a77527df6a3ae0ea302a6607b9f61b281", null ],
     [ "binReadItem", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a04bf6f811caff6b8f6da34f8d3071978", null ],
     [ "binWrite", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a160ddee51d6f793bb2f69f17ff05185b", null ],

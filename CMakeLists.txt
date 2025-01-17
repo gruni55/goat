@@ -37,5 +37,5 @@ add_subdirectory (examples/sphere)
 add_subdirectory (examplesXML)
 add_subdirectory (examples/lenses)
 add_subdirectory (XML)
-# add_subdirectory (test)
+add_subdirectory (test)
 

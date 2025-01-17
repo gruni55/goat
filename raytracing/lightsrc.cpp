@@ -78,6 +78,7 @@ namespace  GOAT
 			e1 = e1 / abs(e1);
 			e2 = e2 / abs(e2);
             rotVec=maths::cart2sphere (k);
+			adjustDirection();
 		}
 
 		void LightSrc::binRead(std::ifstream& is)
@@ -225,8 +226,14 @@ namespace  GOAT
 				copyFormList(this->Ein,Ein,Anz);*/
 		}
 
-		void LightSrc::setPos(maths::Vector<double> P)
-		{
+        void LightSrc::setPol(maths::Vector<std::complex<double>> pol)
+        { 
+			initPol = pol; 			
+			adjustDirection();
+		}
+
+        void LightSrc::setPos(maths::Vector<double> P)
+        {
 
 			Pos = P;
 		}
@@ -234,22 +241,27 @@ namespace  GOAT
         void LightSrc::adjustDirection()
         {
 			// Adjust polarisation vector
-			maths::Vector<double> polReal=maths::real(Pol);
-			maths::Vector<double> polImag=maths::imag(Pol);
+			maths::Vector<double> polReal=maths::real(initPol);
+			maths::Vector<double> polImag=maths::imag(initPol);
 
-			maths::Vector<double> sCoord = maths::cart2sphere(polReal);
+             
+			maths::Vector<double> sCoord;			
 			maths::Vector<double> polRealnew, polImagnew;
 
-			polRealnew[0]=(cos(rotVec[2])-sin(rotVec[2]))*cos(rotVec[1])*polReal[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[2]) * polReal[2];
-			polRealnew[1]= sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polReal[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
-			polRealnew[2]=cos(rotVec[1])*polReal[2]-sCoord[0]*sin(sCoord[2])*sin(rotVec[2]);
+			// note: (r,theta,phi) => sCoord
+			//       (dr,dtheta,dphi) => rotVec 
+
+            sCoord = maths::cart2sphere(polReal);			
+			polRealnew[0]=cos(rotVec[2])*cos(rotVec[1])*polReal[0]-sin(rotVec[2])*cos(rotVec[1])*polReal[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
+			polRealnew[1]=sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polReal[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
+			polRealnew[2]=cos(rotVec[1])*polReal[2]-sCoord[0]*sin(sCoord[1])*sin(rotVec[1]);
 			
 			sCoord = maths::cart2sphere(polImag);
-			polImagnew[0]=(cos(rotVec[2])-sin(rotVec[2]))*cos(rotVec[1])*polImag[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[2]) * polImag[2];
+			polImagnew[0]=cos(rotVec[2])*cos(rotVec[1])*polImag[0]-sin(rotVec[2])*cos(rotVec[1])*polImag[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[1])*polImag[2];
 			polImagnew[1]= sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polImag[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polImag[2];
-			polImagnew[2]=cos(rotVec[1])*polImag[2]-sCoord[0]*sin(sCoord[2])*sin(rotVec[2]);
+			polImagnew[2]=cos(rotVec[1])*polImag[2]-sCoord[0]*sin(sCoord[1])*sin(rotVec[1]);
 
-			Pol=maths::Vector<std::complex<double> >(polRealnew[0]+I*polImagnew[0],polRealnew[1]+I*polImagnew[1],polRealnew[2]+I*polImagnew[2]);
+			Pol=maths::Vector<std::complex<double> >(polRealnew[0]+I*polImagnew[0],polRealnew[1]+I*polImagnew[1],polRealnew[2]+I*polImagnew[2]);		
         }
 
         void LightSrc::setObject(ObjectShape* O, int i)
