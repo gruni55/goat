@@ -60,20 +60,21 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  \vspace{1em}
  \textbf{Parameters used for all light sources} \\
  
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\ 
+ \begin{tabular}{c|m{3cm}|c|c}
+ Parameter name & description  & possible value & default value\\ 
  \hline
- Type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} \\
+ Type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} & -- \\
  \hline
- Position & \parbox{5cm}{position of the light source\\(center of the area)} & 3D vector \\
+ Position & \parbox{3cm}{position of the light source\\(center of the area)} & 3D vector & (0,0,0) \\
  \hline
- NumRays & \parbox{5cm}{Number of rays per calculation step} & integer number \\
+ NumRays & \parbox{3cm}{Number of rays per calculation step} & integer number & 100 \\
  \hline
- Size & width of the light source  & floating point number \\
+ Size & width of the light source  & floating point number & 10.0\\
  \hline
-Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number
+Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0 \\
+Polarisation & Polarisation & 3D Vector & (1,0,0) 
  \end{tabular}
- 
+ Note: As described in more detail in the documentation for the LightSrc class, the polarization here also refers to the case where the light source points in the z direction. The polarization is rotated according to the direction defined in “Direction”. 
   \subsection{Plane wave}
   type: \textbf{plane} \\
  This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is

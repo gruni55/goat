@@ -50,6 +50,7 @@ namespace  GOAT
 			i1 = L.i1;
 			i2 = L.i2;
 			Pol = L.Pol;
+			initPol = Pol;
 			r0 = L.r0;
 			wvl = L.wvl;
 			k0 = L.k0;
@@ -333,10 +334,10 @@ namespace  GOAT
 
 			this->Pos = LS.Pos;
 			this->density = LS.density;
-			this->type = LIGHTSRC_SRCTYPE_PLANE;
-			setk(LS.k);
+			this->type = LIGHTSRC_SRCTYPE_PLANE;			
 			this->raytype = LS.raytype;
-			this->Pol = LS.Pol;
+			setPol(LS.Pol);
+			
 			this->r0 = LS.r0;
 			this->wvl = LS.wvl;
 			this->D = LS.D;
@@ -350,6 +351,7 @@ namespace  GOAT
 			this->numObjs = LS.numObjs;
 			suppress_phase_progress = LS.suppress_phase_progress;
 			Pall = 0;
+			setk(LS.k);
 		}
 
 		int LightSrcPlane::next(RayBase* ray)

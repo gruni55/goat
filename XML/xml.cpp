@@ -111,10 +111,13 @@ namespace GOAT
 
 		void xmlReader::readLightSources()
 		{
+
 			tinyxml2::XMLElement* ell;
 			ell = sceneElement->FirstChildElement("LightSources");
 			if (ell != NULL)
 			{
+               GOAT::maths::Vector<std::complex<double> > Pol;                
+               GOAT::maths::Vector<double> Pold;
 			   GOAT::maths::Vector<double> Pos;
 				int numRays;
 				double wavelength;
@@ -129,19 +132,22 @@ namespace GOAT
 					wavelength = lsEll->DoubleAttribute("Wavelength", 1.0);
 					size = lsEll->DoubleAttribute("Size", 10.0);
 					LS = (GOAT::raytracing::LightSrc**)realloc(LS, numLS + 1);
-					
+					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
+                    Pol[0]=Pold[0];
+                    Pol[1]=Pold[1];
+                    Pol[2]=Pold[2];
 					int type = mapString2LightSourceToken(typeStr);
                    switch (type)
 					{
 					case TOKEN_LIGHTSOURCE_PLANE: {
-													LS[numLS] = new GOAT::raytracing::LightSrcPlane(Pos, numRays, wavelength, size);
+													LS[numLS] = new GOAT::raytracing::LightSrcPlane(Pos, numRays, wavelength, size, Pol);
 													GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 													LS[numLS]->setk(k);
 												   }
 												   break;
 
 					case TOKEN_LIGHTSOURCE_PLANE_MC: {                        
-														LS[numLS] = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, wavelength, size);
+														LS[numLS] = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, wavelength, size, Pol);
 														GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														LS[numLS]->setk(k);
 													 }
@@ -150,13 +156,15 @@ namespace GOAT
                                                         
                                                         GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
                                                         GOAT::maths::Vector<double> D = readVector(lsEll->FirstChildElement("lateral_direction"));
-                                                        LS[numLS] = new GOAT::raytracing::LightSrcLine(Pos, numRays, wavelength, size, k, D);
+                                                        LS[numLS] = new GOAT::raytracing::LightSrcLine(Pos, numRays, wavelength, size, k);
+                                                         LS[numLS]->setPol(Pol);
                                                         }
                                                break;
                     case TOKEN_LIGHTSOURCE_LINE_MC: {
                                                         GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
                                                         GOAT::maths::Vector<double> D = readVector(lsEll->FirstChildElement("lateral_direction"));
                                                         LS[numLS] = new GOAT::raytracing::LightSrcLine_mc(Pos, numRays, wavelength, size, k, D);
+                                                        LS[numLS]->setPol(Pol);
                                                     }
                                                break;
 
@@ -170,8 +178,9 @@ namespace GOAT
 														double NA=1.0;
 														tinyxml2::XMLError err;
 														w0 = lsEll->DoubleAttribute("w0", 1.0);
+                                                        size=lsEll->DoubleAttribute("size",1.0);
 														GOAT::maths::Vector<double> focusPos = readVector(lsEll->FirstChildElement("FocusPosition"));
-														LS[numLS] = new GOAT::raytracing::LightSrcGauss(Pos, numRays, wavelength, w0, focusPos);
+														LS[numLS] = new GOAT::raytracing::LightSrcGauss(Pos, numRays, wavelength, w0, focusPos,size,Pol);
 														err = lsEll->QueryDoubleAttribute("NA", &NA);
 														if (err == tinyxml2::XML_SUCCESS) ((GOAT::raytracing::LightSrcGauss*)ls)->setNA(NA);
 													  }
@@ -182,8 +191,9 @@ namespace GOAT
 															double NA = 1.0;
 															tinyxml2::XMLError err;
 															w0 = lsEll->DoubleAttribute("w0", 1.0);
+                                                            size=lsEll->DoubleAttribute("size",1.0);
 															GOAT::maths::Vector<double> focusPos = readVector(lsEll->FirstChildElement("FocusPosition"));
-															LS[numLS] = new GOAT::raytracing::LightSrcGauss_mc(Pos, numRays, wavelength, w0, focusPos);
+															LS[numLS] = new GOAT::raytracing::LightSrcGauss_mc(Pos, numRays, wavelength, w0, focusPos,size,Pol);
 															err = lsEll->QueryDoubleAttribute("NA", &NA);
 															if (err == tinyxml2::XML_SUCCESS) ((GOAT::raytracing::LightSrcGauss_mc*)ls)->setNA(NA);
 														}
@@ -192,7 +202,7 @@ namespace GOAT
                                                          double rmin, rmax;
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
-                                                         LS[numLS]=new GOAT::raytracing::LightSrcRing(Pos, numRays, wavelength, rmin,rmax);
+                                                         LS[numLS]=new GOAT::raytracing::LightSrcRing(Pos, numRays, wavelength, rmin,rmax,Pol);
 														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														 LS[numLS]->setk(k);
                                                         break;
@@ -202,7 +212,7 @@ namespace GOAT
                                                           double rmin, rmax;
                                                           rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                           rmax=lsEll->DoubleAttribute("rmax",100.0);
-                                                           LS[numLS]=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax);
+                                                           LS[numLS]=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax,Pol);
 														   GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														   LS[numLS]->setk(k);
 														   break;
@@ -215,7 +225,7 @@ namespace GOAT
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                          width=lsEll->DoubleAttribute("width",rmax);
-                                                           LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax);
+                                                           LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax,Pol);
                                                          ((GOAT::raytracing::LightSrcRingGauss_mc *)LS[numLS])->setFWHM(width);
 														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														 LS[numLS]->setk(k);
