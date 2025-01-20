@@ -72,6 +72,7 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  Size & width of the light source  & floating point number & 10.0\\
  \hline
 Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0 \\
+\hline
 Polarisation & Polarisation & 3D Vector & (1,0,0) 
  \end{tabular}
  Note: As described in more detail in the documentation for the LightSrc class, the polarization here also refers to the case where the light source points in the z direction. The polarization is rotated according to the direction defined in “Direction”. 
@@ -87,8 +88,8 @@ Polarisation & Polarisation & 3D Vector & (1,0,0)
  \end{tabular}
  
  \subsection{Plane wave (mc)} 
- type: \textbf{plane\_mc} \\
- All light sources denoted wset (gca,'position',[0.1 0.1 0.75 0.75],'xlim',[-1000 1000],'ylim',[-1000 1000]);ith "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
+ type: \textbf{plane\_mc} \\ 
+ All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
  
 \subsection{Gaussian wave}
  type: \textbf{gaussian} \\

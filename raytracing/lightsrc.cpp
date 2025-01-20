@@ -314,6 +314,7 @@ namespace  GOAT
 			setk(maths::ez);
 			this->raytype = raytype;
 			this->Pol = Pol;
+			initPol = Pol;
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
@@ -326,7 +327,7 @@ namespace  GOAT
 			reset();
 		}
 
-		LightSrcPlane::LightSrcPlane(const LightSrcPlane& LS)
+		LightSrcPlane::LightSrcPlane(const LightSrcPlane& LS) : LightSrc(LS)
 		{
 			type = LIGHTSRC_SRCTYPE_PLANE;
 			e1 = LS.e1;
