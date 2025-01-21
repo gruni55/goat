@@ -84,6 +84,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			virtual int next(Ray_pow& ray) = 0; // gives back next ray
 			virtual int next(IRay& ray) = 0; // gives back next ray
 			virtual int next(tubedRay& ray) = 0;  // gives back next ray
+			virtual double area() { return 1.0; } 
 			///@}
 			void binRead(std::ifstream& is); ///< writes content of LightSrc in a binary file, represented by is
 			void binWrite(std::ofstream& os); ///< reads content of LightSrc from  a binary file, represented by os
@@ -161,12 +162,14 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
             int rayCounter=0; 
 			void adjustDirection();
-			
+			double getIsum1() { return Isum1; }
+			double getIsum2() { return Isum2; }
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 			maths::Vector<double> rotVec=maths::Vector<double>(1,0,0); ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
 			maths::Vector<std::complex<double> > initPol; ///< Polarisation, if the k-Vector points in z-direction
+			double Isum1, Isum2;
 		};
 
 
@@ -196,7 +199,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int next(Ray_pow& S);///< gives the next ray for the following calculations 			
 			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
 			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
-			
+			double area() { return D * D; } ///< area A of the light source, \f$ A=d^2\f$ 
 
 			// void turnSrc // to be done !!!
 		};
@@ -229,6 +232,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 
 		/**
 		* @brief This class describes a ring shaped
+		* This class represents a ring shaped light source, defined by the inner radius rmin and the outer radius rmax
 		*/
 		class LightSrcRing : public LightSrc
 		{
@@ -241,11 +245,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int next(tubedRay& S);
 			void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
 			void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }
-			double getRmin() {return rmin; }
-			double getRmax() {return rmax; }
-			void setRmin(double rmin);
-			void setRmax(double rmax);
-
+			double getRmin() {return rmin; }  ///< returns the inner radius of the light source
+			double getRmax() {return rmax; } ///< returns the outer radius of the light source
+			void setRmin(double rmin); ///< set the inner radius of the light source
+			void setRmax(double rmax); ///< set the outer radius of the light source
+			double area() { return M_PI * (rmax * rmax - rmin * rmin); } ///< area \f$A=\pi \cdot (r_{max}^2-r_{min}^2) of the light source
 		private:
 			double rmin = 0.0;
 			double rmax = 100.0;
@@ -286,6 +290,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			 * \param r0 Radius of the calculation sphere
 			 */
 			LightSrcGauss(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D = 1.0, maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 1.0);
+			double area() { return D * D; } ///< area A of the light source \f$ A=d^2\f$
 			void setW0(double w0) { this->w0 = w0; calcz0(); reset(); } ///< sets the beam's waist 
 			maths::Vector<double> getFocuspos() { return focuspos; } ///< returns the position of the focus
 			void setFocuspos(maths::Vector<double> fp) { focuspos = fp; f = abs(Pos - focuspos); reset(); } ///< sets the focus position to fp
@@ -353,7 +358,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double w;				 ///< radius of the beam (for internal use only)
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
 			double zeta;			 ///< Gouy phase 
-			double R;				 ///< curvature 
+			double R;				 ///< curvature 			  
 		};
 
 		

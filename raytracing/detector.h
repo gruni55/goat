@@ -52,6 +52,11 @@ namespace GOAT
 			maths::Vector<double> norm() { return n; } ///< returns the normal vector of the detectors surface
 		friend std::ostream& operator << (std::ostream& os, Detector& D);
 		std::string fname;
+		/**
+		 * @brief Multiply with factor.
+		 * This functions multiplies all elements of the detector with the factor fac
+		 */
+		void mult(double fac); 
 	protected:
 		maths::Vector<double> e1;
 		maths::Vector<double> e2;
@@ -88,7 +93,7 @@ namespace GOAT
 		 * \param n2 number of cells in e2 direction
 		 */
 		DetectorPlane(maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
-		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector
+		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector		
 	};
 
 	/*class DetectorBox : public Detector

@@ -1,5 +1,6 @@
 #include "detector.h"
 #include "matrix.h"
+#include "constants.h"
 
 namespace GOAT
 {
@@ -60,6 +61,15 @@ namespace GOAT
 			return *this;
 		}
 
+		void Detector::mult(double fac)
+		{
+			if (n1 > 0)
+			{
+				for (int i1 = 0; i1 < n1; i1++)
+					for (int i2 = 0; i2 < n2; i2++)
+						D[i1][i2] *= fac;
+			}
+		}
 
 		Detector::~Detector(void)
 		{

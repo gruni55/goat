@@ -377,8 +377,8 @@ namespace  GOAT
 			E.n = k;
 			S = IRay(P, Pol*sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / (N * N);
-			S.E2 = Pol2 / (N * N);
+			S.E1 = Pol ;
+			S.E2 = Pol2 ;
 			// S.init_Efeld(E,Pol);
 			i1++;
 
@@ -616,7 +616,9 @@ namespace  GOAT
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
-                        rayCounter=0; 
+            rayCounter=0;
+			Isum1 = 0;
+			Isum2 = 0;
 			switch (type)
 			{
 			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;

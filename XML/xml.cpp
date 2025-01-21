@@ -122,6 +122,7 @@ namespace GOAT
 				int numRays;
 				double wavelength;
 				double size;
+                double power;
 				GOAT::raytracing::LightSrc* ls = NULL;
 				for (tinyxml2::XMLElement* lsEll = ell->FirstChildElement("LightSource"); lsEll != NULL; lsEll = lsEll->NextSiblingElement("LightSource"))
 				{
@@ -133,6 +134,7 @@ namespace GOAT
 					size = lsEll->DoubleAttribute("Size", 10.0);
 					LS = (GOAT::raytracing::LightSrc**)realloc(LS, numLS + 1);
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
+                    power = lsEll->DoubleAttribute("Power", 1.0);
                     Pol[0]=Pold[0];
                     Pol[1]=Pold[1];
                     Pol[2]=Pold[2];
@@ -234,11 +236,11 @@ namespace GOAT
 
 
 					}
-
+                   LS[numLS]->P0 = power;
 					numLS++;
 
-					
-				} // while loop			
+				} // while loop		
+                
 				S.addLightSourceList(numLS, LS);
 			}
 		}
@@ -688,9 +690,22 @@ namespace GOAT
 							}
 							} // switch
                             std::cout << "number of detectors:" << numDet << std::endl;
-							for (int i = 0; i < numDet; i++)
-								S.Det[i]->save(Det[i]->fname.c_str());
-
+                            double normfac = 0;
+                            double Iall = 0;
+                            for (int i = 0; i < numLS; i++)
+                            {
+                                normfac += LS[i]->P0  / (LS[i]->area() * 1E-12 * LS[i]->getIsum1());  // factor 1E-12 to convert µm^2 into m^2 
+                                Iall += LS[i]->getIsum1();
+                            }
+                            
+                            // normfac /= Iall;
+                            // normfac =  sqrt(normfac) ;
+                            std::cout << "Iall=" << Iall << "\tnormfac=" << normfac << std::endl;
+                            for (int i = 0; i < numDet; i++)
+                            {
+                                S.Det[i]->mult(normfac);
+                                S.Det[i]->save(Det[i]->fname.c_str());
+                            }
                             if (numRaysChanged)
 									{
 										// restore the old values  

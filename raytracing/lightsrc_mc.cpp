@@ -290,8 +290,10 @@ namespace GOAT
 			E.n = k;
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / N;
-			S.E2 = Pol2 / N;
+			S.E1 = Pol ;
+			S.E2 = Pol2 ;
+			Isum1 += abs2(S.E1);
+			Isum2 += abs2(S.E2);
 			// S.init_Efeld(E,Pol);
 			rayCounter++;
 			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
