@@ -86,7 +86,8 @@ namespace GOAT
 
 
 		void Raytrace::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
-		{             
+		{          
+			double fak;   
 			int hObj;              
 			double pjump=0;
 			maths::Vector<double> CP[4];
@@ -133,16 +134,21 @@ namespace GOAT
 				if (S.nDet > 0)
 				{
 					int i1, i2;
-					double l;
+					double l;					
 					stepSize = abs(PStop - PStart);
-					std::complex<double> n;
+					std::complex<double> n;					
 					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
 					else n = S.nS;
 					for (int i = 0; i < S.nDet; i++)
 					{
                         if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{            
-								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 							
+							    if (abs(PStop-PStart)>l)
+								{
+							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
+								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
+								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 																							
+								}
 //								std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
 						}
 					}
@@ -441,13 +447,14 @@ namespace GOAT
 				case LIGHTSRC_SRCTYPE_GAUSS: LS[nLS] = new LightSrcGauss(*(LightSrcGauss*)ls); break;
 				}
 				*/
+			
 			LS[nLS] = ls;
 			LS[nLS]->clearObjects();
 			if (nObj > 0) LS[nLS]->ObjectList(nObj, Obj);
 			LS[nLS]->raytype = raytype;
 			LS[nLS]->setR0(r0);
 			LS[nLS]->setN0(nS);
-			LS[nLS]->suppress_phase_progress = suppress_phase_progress;
+			LS[nLS]->suppress_phase_progress = suppress_phase_progress;		
 			nLS++;
 		}
 

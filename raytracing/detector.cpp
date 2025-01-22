@@ -276,6 +276,8 @@ namespace GOAT
 			if (kn == 0) return false;
 			l = (dP * n) / kn;
 
+			if (l<0) return false;
+
 			/* Index berechnen */
 			GOAT::maths::Vector<double> Ph = P + l * k;
 			dP = Ph - this->P;
