@@ -16,5 +16,6 @@ var searchData=
   ['memstat_13',['memstat',['../namespace_g_o_a_t_1_1raytracing.html#a7c73bcb2fb33bed3da19556841bbf64d',1,'GOAT::raytracing']]],
   ['min3_14',['min3',['../namespace_g_o_a_t_1_1raytracing.html#abfc811755668dfce2bde8cdb2afc5f94',1,'GOAT::raytracing']]],
   ['minmax_15',['minmax',['../namespace_g_o_a_t_1_1raytracing.html#ab897ab2ef20c4648f524c0a62433fa36',1,'GOAT::raytracing::minmax(double a, double b)'],['../namespace_g_o_a_t_1_1raytracing.html#ac826726a7d875427f756221ffa734599',1,'GOAT::raytracing::minmax(double x, double dx, int &amp;min, int &amp;max)']]],
-  ['movingavg_16',['movingAvg',['../namespace_g_o_a_t_1_1maths.html#ac142460e9abee07ad1aa82bab55908de',1,'GOAT::maths']]]
+  ['movingavg_16',['movingAvg',['../namespace_g_o_a_t_1_1maths.html#ac142460e9abee07ad1aa82bab55908de',1,'GOAT::maths']]],
+  ['mult_17',['mult',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a725a427b1fe6e9de4976345629f0be62',1,'GOAT::raytracing::Detector']]]
 ];

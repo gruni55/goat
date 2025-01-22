@@ -4,6 +4,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_plane =
     [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a983feb5b4dcc357e9135485399549eae", null ],
     [ "LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a1c5bb2dc95ffb347544df7f5370a0374", null ],
     [ "~LightSrcPlane", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a5fd53e8301f7222e606eb5ea53544955", null ],
+    [ "area", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a01420dc61da74586da8039b266826465", null ],
     [ "binReadItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ad1c1bc9453c100fa87596429ecdcf70c", null ],
     [ "binWriteItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#ab6b176214b30f9b2dd4d373ca998a208", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a8dd935f709d519b72036b52226374457", null ],

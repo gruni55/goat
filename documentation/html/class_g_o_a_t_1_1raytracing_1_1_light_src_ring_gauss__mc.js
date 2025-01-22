@@ -2,6 +2,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc =
 [
     [ "LightSrcRingGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a6cac34afecf8e5474ae9df37f6f08314", null ],
     [ "LightSrcRingGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a819e717de12999ce2276520f74a2dc87", null ],
+    [ "area", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a6f474a9911441cf53e0bd7f08fd05996", null ],
     [ "getRmax", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a21ee5bc25d4aa3c2a659ceb531138c43", null ],
     [ "getRmin", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a82d68970951534589bcc2e262201aecb", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a75eafa44799cd1f48a5cd99aae39dcda", null ],

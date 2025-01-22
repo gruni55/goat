@@ -35,6 +35,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc_ad47c8
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss}{GOAT\+::raytracing\+::\+Light\+Src\+Gauss}}}
 \begin{DoxyCompactItemize}
 \item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a5b654ec964113109630d6c3706886427}{area}} ()
+\begin{DoxyCompactList}\small\item\em area A of the light source $ A=d^2$ \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ab8e3b0c8902a3f12ad08a202bc21414d}{bin\+Read\+Item}} (std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em reads content of \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a15df2c89e3e2b341ac083465c5741fbc}{bin\+Write\+Item}} (std\+::ofstream \&os)
@@ -88,6 +90,10 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6b1fc4fa99c70eb
 \begin{DoxyCompactList}\small\item\em clear object list \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af301e090f60697d032cf0cd8f7d7ef20}{get\+Density}} ()
 \begin{DoxyCompactList}\small\item\em returns the ray density, i.\+e. the number of rays per unit length (=D/N) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acfc2960d8a27d4608792ef338b494f49}{get\+Isum1}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a69481109ac3633e75402c05c0e95adf3}{get\+Isum2}} ()
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af3adbd66f1b919014bda07ca5afd283f}{getk}} ()
 \begin{DoxyCompactList}\small\item\em returns the main direction of the light source \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aa6348ba59462f3601165d028dd9b5290}{get\+Num\+Objs}} ()
@@ -156,7 +162,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_aeaebbb9
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_a76af486df8be7443fb6012d8392bc8bd}{Normfak}}
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ad114232eaf11a5f5ffaa39e58c4dbe02}{R}}
-\begin{DoxyCompactList}\small\item\em curvature \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em curvature ~\newline
+ \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_addf3111fa2a80a22cfac8eeb6cd610d4}{w}}
 \begin{DoxyCompactList}\small\item\em radius of the beam (for internal use only) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss_ae31ffb9e6a25aa2728c3566e29021fd6}{w0}}
@@ -223,6 +230,12 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0a82a65ad7958761d9512ed7245c0309}{init\+Pol}}
+\begin{DoxyCompactList}\small\item\em Polarisation, if the k-\/\+Vector points in z-\/direction. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a55104fca137a361734d8b7c196910f20}{Isum1}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a5967a0a1a0b4714b4f3ff028bdcd3fdb}{Isum2}}
+\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a9ddd2c99fbfa7d0f75748394aba4fa1e}{k0}}
 \begin{DoxyCompactList}\small\item\em wavenumber (i.\+e. $ \frac{2\pi}{\lambda}$ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_adb040a92725326180358b7fa2f568d19}{rot\+Vec}} =\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(1,0,0)
@@ -234,7 +247,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e17
 \doxysubsection{Detailed Description}
 This class provides a gaussian beam with arbitrary distributed rays. 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00014}{14}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00015}{15}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 
@@ -332,7 +345,7 @@ Reimplemented from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ga
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00040}{40}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00041}{41}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 

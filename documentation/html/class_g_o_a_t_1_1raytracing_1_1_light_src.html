@@ -121,7 +121,7 @@ Inheritance diagram for GOAT::raytracing::LightSrc:</div>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html" title="This class provides a light source, which emitts along a straight line (random ray distribution)" alt="GOAT::raytracing::LightSrcLine_mc" shape="rect" coords="514,56,761,80"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html" title="class derived from LightSrc. It represents a plane wave described by the electric field" alt="GOAT::raytracing::LightSrcPlane" shape="rect" coords="771,56,1018,80"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html" title="This class provides a point light source." alt="GOAT::raytracing::LightSrcPoint_mc" shape="rect" coords="1028,56,1275,80"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="1285,56,1532,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html" title="This class describes a ring shaped This class represents a ring shaped light source,..." alt="GOAT::raytracing::LightSrcRing" shape="rect" coords="1285,56,1532,80"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html" title="This class provides a gaussian beam with arbitrary distributed rays." alt="GOAT::raytracing::LightSrcGauss_mc" shape="rect" coords="0,112,247,136"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html" title="Plane wave with random ray distribution. This class provides a plane (square sized) wave with a given..." alt="GOAT::raytracing::LightSrcPlane_mc" shape="rect" coords="514,112,761,136"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html" title="The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution This class ..." alt="GOAT::raytracing::LightSrcRingGauss_mc" shape="rect" coords="771,112,1018,136"/>
@@ -154,6 +154,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af301e090f60697d032cf0cd8f7d7ef20" id="r_af301e090f60697d032cf0cd8f7d7ef20"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#af301e090f60697d032cf0cd8f7d7ef20">getDensity</a> ()</td></tr>
 <tr class="memdesc:af301e090f60697d032cf0cd8f7d7ef20"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the ray density, i.e. the number of rays per unit length (=D/N)  <br /></td></tr>
 <tr class="separator:af301e090f60697d032cf0cd8f7d7ef20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfc2960d8a27d4608792ef338b494f49" id="r_acfc2960d8a27d4608792ef338b494f49"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#acfc2960d8a27d4608792ef338b494f49">getIsum1</a> ()</td></tr>
+<tr class="separator:acfc2960d8a27d4608792ef338b494f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69481109ac3633e75402c05c0e95adf3" id="r_a69481109ac3633e75402c05c0e95adf3"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a69481109ac3633e75402c05c0e95adf3">getIsum2</a> ()</td></tr>
+<tr class="separator:a69481109ac3633e75402c05c0e95adf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3adbd66f1b919014bda07ca5afd283f" id="r_af3adbd66f1b919014bda07ca5afd283f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#af3adbd66f1b919014bda07ca5afd283f">getk</a> ()</td></tr>
 <tr class="memdesc:af3adbd66f1b919014bda07ca5afd283f"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the main direction of the light source  <br /></td></tr>
 <tr class="separator:af3adbd66f1b919014bda07ca5afd283f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -226,6 +230,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3f92b79918d63d832e2938d85e6a0043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb4acde5ce380120ba8535c7da03ad8a" id="r_aeb4acde5ce380120ba8535c7da03ad8a"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#aeb4acde5ce380120ba8535c7da03ad8a">next</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a> &amp;ray)=0</td></tr>
 <tr class="separator:aeb4acde5ce380120ba8535c7da03ad8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5365bfa702b37dcd8f17f335337bfce" id="r_af5365bfa702b37dcd8f17f335337bfce"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#af5365bfa702b37dcd8f17f335337bfce">area</a> ()</td></tr>
+<tr class="separator:af5365bfa702b37dcd8f17f335337bfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -304,6 +310,13 @@ Public Attributes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
+<tr class="memitem:a0a82a65ad7958761d9512ed7245c0309" id="r_a0a82a65ad7958761d9512ed7245c0309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a0a82a65ad7958761d9512ed7245c0309">initPol</a></td></tr>
+<tr class="memdesc:a0a82a65ad7958761d9512ed7245c0309"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polarisation, if the k-Vector points in z-direction.  <br /></td></tr>
+<tr class="separator:a0a82a65ad7958761d9512ed7245c0309"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55104fca137a361734d8b7c196910f20" id="r_a55104fca137a361734d8b7c196910f20"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a55104fca137a361734d8b7c196910f20">Isum1</a></td></tr>
+<tr class="separator:a55104fca137a361734d8b7c196910f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5967a0a1a0b4714b4f3ff028bdcd3fdb" id="r_a5967a0a1a0b4714b4f3ff028bdcd3fdb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a5967a0a1a0b4714b4f3ff028bdcd3fdb">Isum2</a></td></tr>
+<tr class="separator:a5967a0a1a0b4714b4f3ff028bdcd3fdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ddd2c99fbfa7d0f75748394aba4fa1e" id="r_a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e">k0</a></td></tr>
 <tr class="memdesc:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavenumber (i.e. \( \frac{2\pi}{\lambda}\)  <br /></td></tr>
 <tr class="separator:a9ddd2c99fbfa7d0f75748394aba4fa1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -329,7 +342,8 @@ Friends</h2></td></tr>
 <p>Polarisation: </p><div class="image">
 <img src="polarisation_rotation.png" alt="" width="400px;"/>
 </div>
-<p> When calling the setPol function, the polarisation is set as if the direction would be in z-direction and afterwards the polarisation will be rotated according to the above picture. </p>
+<p> When calling the setPol function, the polarisation is set as if the direction would be in z-direction and afterwards the polarisation will be rotated according to the above picture. If the direction vector is changed using setk, the direction of the polarization is changed accordingly. <br  />
+ </p>
 
 <p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00064">64</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -423,6 +437,35 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="af5365bfa702b37dcd8f17f335337bfce" name="af5365bfa702b37dcd8f17f335337bfce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5365bfa702b37dcd8f17f335337bfce">&#9670;&#160;</a></span>area()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GOAT::raytracing::LightSrc::area </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane.html#a01420dc61da74586da8039b266826465">GOAT::raytracing::LightSrcPlane</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a301176ea5bcf0de17131eace4b64b6f9">GOAT::raytracing::LightSrcRing</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a5b654ec964113109630d6c3706886427">GOAT::raytracing::LightSrcGauss</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html#a6f474a9911441cf53e0bd7f08fd05996">GOAT::raytracing::LightSrcRingGauss_mc</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00087">87</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -570,7 +613,61 @@ Friends</h2></td></tr>
 
 <p>returns the ray density, i.e. the number of rays per unit length (=D/N) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00097">97</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00098">98</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="acfc2960d8a27d4608792ef338b494f49" name="acfc2960d8a27d4608792ef338b494f49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfc2960d8a27d4608792ef338b494f49">&#9670;&#160;</a></span>getIsum1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrc::getIsum1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00165">165</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a69481109ac3633e75402c05c0e95adf3" name="a69481109ac3633e75402c05c0e95adf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69481109ac3633e75402c05c0e95adf3">&#9670;&#160;</a></span>getIsum2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrc::getIsum2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00166">166</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -599,7 +696,7 @@ Friends</h2></td></tr>
 
 <p>returns the main direction of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00119">119</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00120">120</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -628,7 +725,7 @@ Friends</h2></td></tr>
 
 <p>returns the number of Objects (only needed, when used seperately outside scene) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00092">92</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00093">93</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -657,7 +754,7 @@ Friends</h2></td></tr>
 
 <p>returns the number of rays (per direction in space) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00120">120</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00121">121</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +784,7 @@ Friends</h2></td></tr>
 
 <p>returns i-th item in the object list </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00093">93</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00094">94</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -716,7 +813,7 @@ Friends</h2></td></tr>
 
 <p>returns the position of the light source. This is the center of the square area of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00133">133</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00134">134</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -743,7 +840,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00128">128</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00129">129</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -770,7 +867,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00130">130</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00131">131</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -952,7 +1049,7 @@ Friends</h2></td></tr>
 
 <p>returns the current ray type </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00095">95</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00096">96</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1007,7 +1104,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00098">98</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00099">99</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1051,7 +1148,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00107">107</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00108">108</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1101,7 +1198,7 @@ Friends</h2></td></tr>
 
 <p>sets the complex valued refractive index of the intermediate medium </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00134">134</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00135">135</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1135,7 +1232,7 @@ Friends</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00121">121</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00122">122</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1253,7 +1350,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00127">127</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00128">128</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1281,7 +1378,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00129">129</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00130">130</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1310,7 +1407,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00159">159</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00160">160</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1338,7 +1435,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00158">158</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00159">159</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1393,7 +1490,7 @@ Friends</h2></td></tr>
 
 <p>width of the square light source area </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00152">152</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00153">153</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1409,7 +1506,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00153">153</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00154">154</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1427,7 +1524,7 @@ Friends</h2></td></tr>
 
 <p>width in the e1- and the e2-direction (used only for _mc versions of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00153">153</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00154">154</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1445,7 +1542,7 @@ Friends</h2></td></tr>
 
 <p>ray density, i.e. distance between two neighboring rays </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00140">140</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00141">141</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1461,7 +1558,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00154">154</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00155">155</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1479,7 +1576,7 @@ Friends</h2></td></tr>
 
 <p>unit vectors that span the light source area </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00154">154</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00155">155</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1497,7 +1594,7 @@ Friends</h2></td></tr>
 
 <p>first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00143">143</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00144">144</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1515,7 +1612,81 @@ Friends</h2></td></tr>
 
 <p>second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00144">144</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00145">145</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a0a82a65ad7958761d9512ed7245c0309" name="a0a82a65ad7958761d9512ed7245c0309"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a82a65ad7958761d9512ed7245c0309">&#9670;&#160;</a></span>initPol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;std::complex&lt;double&gt; &gt; GOAT::raytracing::LightSrc::initPol</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Polarisation, if the k-Vector points in z-direction. </p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00171">171</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a55104fca137a361734d8b7c196910f20" name="a55104fca137a361734d8b7c196910f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55104fca137a361734d8b7c196910f20">&#9670;&#160;</a></span>Isum1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrc::Isum1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00172">172</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a5967a0a1a0b4714b4f3ff028bdcd3fdb" name="a5967a0a1a0b4714b4f3ff028bdcd3fdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5967a0a1a0b4714b4f3ff028bdcd3fdb">&#9670;&#160;</a></span>Isum2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrc::Isum2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00172">172</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1534,7 +1705,7 @@ Friends</h2></td></tr>
 <p>main direction of the light source <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00141">141</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00142">142</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1560,7 +1731,7 @@ Friends</h2></td></tr>
 
 <p>wavenumber (i.e. \( \frac{2\pi}{\lambda}\) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00166">166</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00169">169</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1749,7 @@ Friends</h2></td></tr>
 
 <p>number of rays (per direction) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00142">142</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00143">143</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1596,7 +1767,7 @@ Friends</h2></td></tr>
 
 <p>refractive index of the intermediate medium </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00150">150</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00151">151</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1614,7 +1785,7 @@ Friends</h2></td></tr>
 
 <p>number of objects </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00149">149</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00150">150</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1632,7 +1803,7 @@ Friends</h2></td></tr>
 
 <p>list of all objects </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00135">135</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00136">136</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1650,7 +1821,7 @@ Friends</h2></td></tr>
 
 <p>power </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00139">139</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00140">140</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1669,7 +1840,7 @@ Friends</h2></td></tr>
 <p>overall Power <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00157">157</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00158">158</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1687,7 +1858,7 @@ Friends</h2></td></tr>
 
 <p>polarisation (default: (0.0, 1.0, 0.0) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00145">145</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00146">146</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1705,7 +1876,7 @@ Friends</h2></td></tr>
 
 <p>second polarisation (used by <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html" title="This class represents a single ray.">IRay</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00146">146</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00147">147</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1724,7 +1895,7 @@ Friends</h2></td></tr>
 <p>Polarisationsrichtung (s.o.) <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00156">156</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00157">157</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1742,7 +1913,7 @@ Friends</h2></td></tr>
 
 <p>position of the light source (center of the square area of the light source) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00137">137</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00138">138</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1760,7 +1931,7 @@ Friends</h2></td></tr>
 
 <p>radius of the calculation sphere </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00147">147</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00148">148</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1776,7 +1947,7 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00162">162</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00163">163</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1794,7 +1965,7 @@ Friends</h2></td></tr>
 
 <p>Strahltyp : ray oder ISTRAHL (=RAY oder IRAY) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00155">155</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00156">156</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1820,7 +1991,7 @@ Friends</h2></td></tr>
 
 <p>Vector which holds the spherical coordinates \(r\), \(\vartheta\) and \(\varphi\) of the direction vector k. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00167">167</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00170">170</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1838,7 +2009,7 @@ Friends</h2></td></tr>
 
 <p>if set true, the phase won't be changed when calling a next method (needed for USP-calculations) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00161">161</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00162">162</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1856,7 +2027,7 @@ Friends</h2></td></tr>
 
 <p>type of the light source </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00138">138</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00139">139</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -1882,7 +2053,7 @@ Friends</h2></td></tr>
 
 <p>wavelength </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00165">165</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00168">168</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

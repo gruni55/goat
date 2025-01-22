@@ -10,6 +10,7 @@ namespace GOAT
     {
         /**
          * @brief This class provides a gaussian beam with arbitrary distributed rays 
+         * 
         */
         class LightSrcGauss_mc : public LightSrcGauss
         {
@@ -124,8 +125,8 @@ namespace GOAT
 
         /**
         * @brief The LightSrcRingGauss_mc provides a ring shaped light source with a gaussian distribution
-        * This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat,
-        * i.e. the phase remains constant along the whole light source surface
+        * This class describes a light source which cuts a ring out of a gaussian shape. Unlike in class LightSrcGauss_mc, the phase distribution
+        * at the light source is constant. The default value of the full with at half maximum (FWHM) of the intensity distribution is set to 1
         */
        class LightSrcRingGauss_mc : public LightSrcPlane
         {
@@ -153,13 +154,13 @@ namespace GOAT
             double getRmin() { return rmin;} ///< returns inner radius
             void setRmin(double rmin); ///< set the inner radius to rmin
             void setRmax(double rmax); ///< set the outer radius to rmax
-
+            virtual double area(); 
         private:
             double rmin = 0.0; ///< inner radius of the ring
             double rmax = 1.0; ///< outer radius of the ring          
             GOAT::maths::Vector<double> genStartingPos(); ///< generate a position within the ring (needed by the next() method)
             void reset();
-            double sigma2; ///< sigma^2, used for internal purposes
+            double sigma2=1.0/sqrt(M_LN2); ///< sigma^2, used for internal purposes (default value corresponds to a FWHM of 1um)
         }; 
 
        /** @brief This class provides a point light source

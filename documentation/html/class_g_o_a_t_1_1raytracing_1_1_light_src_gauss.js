@@ -3,6 +3,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a503be630640d724d501536de7a9a97d6", null ],
     [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a4e3e99f040ca7df802f5ab4bd84870f8", null ],
     [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#af9f1eed5e442327a72efc3b314863267", null ],
+    [ "area", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a5b654ec964113109630d6c3706886427", null ],
     [ "binReadItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ab8e3b0c8902a3f12ad08a202bc21414d", null ],
     [ "binWriteItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a15df2c89e3e2b341ac083465c5741fbc", null ],
     [ "calcNormfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae2e73bda9357091880dcf8fbd1191016", null ],

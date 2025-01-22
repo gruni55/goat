@@ -2,7 +2,7 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}\index{GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}}
 
 
-The \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.\+e. the phase remains constant along the whole light source surface.  
+The \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. Unlike in class \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}{Light\+Src\+Gauss\+\_\+mc}, the phase distribution at the light source is constant. The default value of the full with at half maximum (FWHM) of the intensity distribution is set to 1.  
 
 
 
@@ -18,6 +18,8 @@ Inheritance diagram for GOAT\+::raytracing\+::Light\+Src\+Ring\+Gauss\+\_\+mc\+:
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+virtual double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a6f474a9911441cf53e0bd7f08fd05996}{area}} ()
+\begin{DoxyCompactList}\small\item\em area A of the light source, $ A=d^2$ \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a21ee5bc25d4aa3c2a659ceb531138c43}{get\+Rmax}} ()
 \begin{DoxyCompactList}\small\item\em returns outer radius \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a82d68970951534589bcc2e262201aecb}{get\+Rmin}} ()
@@ -71,6 +73,10 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6b1fc4fa99c70eb
 \begin{DoxyCompactList}\small\item\em clear object list \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af301e090f60697d032cf0cd8f7d7ef20}{get\+Density}} ()
 \begin{DoxyCompactList}\small\item\em returns the ray density, i.\+e. the number of rays per unit length (=D/N) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acfc2960d8a27d4608792ef338b494f49}{get\+Isum1}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a69481109ac3633e75402c05c0e95adf3}{get\+Isum2}} ()
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af3adbd66f1b919014bda07ca5afd283f}{getk}} ()
 \begin{DoxyCompactList}\small\item\em returns the main direction of the light source \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aa6348ba59462f3601165d028dd9b5290}{get\+Num\+Objs}} ()
@@ -177,6 +183,12 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0a82a65ad7958761d9512ed7245c0309}{init\+Pol}}
+\begin{DoxyCompactList}\small\item\em Polarisation, if the k-\/\+Vector points in z-\/direction. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a55104fca137a361734d8b7c196910f20}{Isum1}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a5967a0a1a0b4714b4f3ff028bdcd3fdb}{Isum2}}
+\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a9ddd2c99fbfa7d0f75748394aba4fa1e}{k0}}
 \begin{DoxyCompactList}\small\item\em wavenumber (i.\+e. $ \frac{2\pi}{\lambda}$ \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_adb040a92725326180358b7fa2f568d19}{rot\+Vec}} =\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(1,0,0)
@@ -186,9 +198,9 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e17
 
 
 \doxysubsection{Detailed Description}
-The \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. The phase distribution is flat, i.\+e. the phase remains constant along the whole light source surface. 
+The \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc}{Light\+Src\+Ring\+Gauss\+\_\+mc} provides a ring shaped light source with a gaussian distribution This class describes a light source which cuts a ring out of a gaussian shape. Unlike in class \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc}{Light\+Src\+Gauss\+\_\+mc}, the phase distribution at the light source is constant. The default value of the full with at half maximum (FWHM) of the intensity distribution is set to 1. 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00130}{130}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00131}{131}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 
@@ -231,6 +243,20 @@ Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00130}{130}} of file
 
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a6f474a9911441cf53e0bd7f08fd05996}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a6f474a9911441cf53e0bd7f08fd05996} 
+\index{GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}!area@{area}}
+\index{area@{area}!GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily virtual double GOAT\+::raytracing\+::\+Light\+Src\+Ring\+Gauss\+\_\+mc\+::area (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+area A of the light source, $ A=d^2$ 
+
+
+
+Reimplemented from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_plane_a01420dc61da74586da8039b266826465}{GOAT\+::raytracing\+::\+Light\+Src\+Plane}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a21ee5bc25d4aa3c2a659ceb531138c43}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a21ee5bc25d4aa3c2a659ceb531138c43} 
 \index{GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}!getRmax@{getRmax}}
 \index{getRmax@{getRmax}!GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}}
@@ -243,7 +269,7 @@ returns outer radius
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00152}{152}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00153}{153}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a82d68970951534589bcc2e262201aecb}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a82d68970951534589bcc2e262201aecb} 
 \index{GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}!getRmin@{getRmin}}
@@ -257,7 +283,7 @@ returns inner radius
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00153}{153}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00154}{154}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a75eafa44799cd1f48a5cd99aae39dcda}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc_a75eafa44799cd1f48a5cd99aae39dcda} 
 \index{GOAT::raytracing::LightSrcRingGauss\_mc@{GOAT::raytracing::LightSrcRingGauss\_mc}!next@{next}}

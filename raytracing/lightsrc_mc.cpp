@@ -612,10 +612,15 @@ namespace GOAT
 		}
 
  
-                void LightSrcRingGauss_mc::reset()
-                {
-                  rayCounter=0;
-                }
+        void LightSrcRingGauss_mc::reset()
+        {
+        	rayCounter=0;
+        }
+
+		double LightSrcRingGauss_mc::area()
+		{
+			return M_PI*(rmax-rmin)*(rmax-rmin);
+		}
 
 		GOAT::maths::Vector<double> LightSrcRingGauss_mc::genStartingPos()
 		{
@@ -655,6 +660,8 @@ namespace GOAT
 			maths::Vector<double> P = genStartingPos();
 			E.e1 = e1;
 			E.e2 = e2;
+			Isum1=abs2(S.E1);
+			Isum2=abs2(S.E2);
 			E.n = k;
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
@@ -682,6 +689,8 @@ namespace GOAT
 			S.P = P;
 			S.E1 = Pol;
 			S.E2 = sqrt(Pow) * Pol / (double)(N * N);
+			Isum1=abs2(S.E1);
+			Isum2=abs2(S.E2);
 			S.k = k;
 			i1++;
 			Pall += abs2(S.E2);
@@ -706,7 +715,8 @@ namespace GOAT
                 
                 void LightSrcRingGauss_mc::setFWHM (double fwhm)
                 {
-				    sigma2=fwhm*fwhm/(8*M_LN2);				  
+				    // sigma2=fwhm*fwhm/(8*M_LN2);				  
+					sigma2=fwhm*fwhm/M_LN2;
                 }
 
 				LightSrcPoint_mc::LightSrcPoint_mc() : LightSrc()

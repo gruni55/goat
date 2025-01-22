@@ -2,6 +2,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_ring =
 [
     [ "LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ab44cc0cb62773a4ca09ec4a68ed6b40d", null ],
     [ "LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1a82e44b029b956f6354396923770042", null ],
+    [ "area", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a301176ea5bcf0de17131eace4b64b6f9", null ],
     [ "binReadItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a1d89210274e077b45591962852610584", null ],
     [ "binWriteItem", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ac71cdfc8fe1835773b022ee620493f73", null ],
     [ "getRmax", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a68212bfeac9ec2487328b3c1ed7bcda5", null ],

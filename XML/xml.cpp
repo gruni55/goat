@@ -229,7 +229,7 @@ namespace GOAT
                                                          width=lsEll->DoubleAttribute("width",rmax);
                                                            LS[numLS]=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax,Pol);
                                                          ((GOAT::raytracing::LightSrcRingGauss_mc *)LS[numLS])->setFWHM(width);
-														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"),0,0,1);
 														 LS[numLS]->setk(k);
                                                          break;
                                                         }
@@ -694,12 +694,13 @@ namespace GOAT
                             double Iall = 0;
                             for (int i = 0; i < numLS; i++)
                             {
-                                normfac += LS[i]->P0  / (LS[i]->area() * 1E-12 * LS[i]->getIsum1());  // factor 1E-12 to convert µm^2 into m^2 
+                                normfac += LS[i]->P0  / (LS[i]->area() * 1E-12 * LS[i]->getIsum1());  // factor 1E-12 to convert ï¿½m^2 into m^2 
                                 Iall += LS[i]->getIsum1();
+                                std::cout << "area=" << LS[i]->area() << "\tIsum1=" << LS[i]->getIsum1() << std::endl;
                             }
                             
                             // normfac /= Iall;
-                            // normfac =  sqrt(normfac) ;
+                            // normfac =  sqrt(normfac) ;                            
                             std::cout << "Iall=" << Iall << "\tnormfac=" << normfac << std::endl;
                             for (int i = 0; i < numDet; i++)
                             {
