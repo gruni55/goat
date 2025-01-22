@@ -101,7 +101,7 @@ namespace GOAT
 													 Det[numDet]->fname = filename;
 													 S.addDetector(Det[numDet]);
                                                     numDet++;
-                                                    std::cout << "Detector" << std::endl;
+                                                    std::cout << "Detector filename=" << filename << std::endl;
 													}
 													
 					}
@@ -481,7 +481,8 @@ namespace GOAT
 							{
                             case TOKEN_CALCULATION_PURE:
                             {
-                             GOAT::raytracing::Raytrace_pure rt(S);
+                             GOAT::raytracing::Raytrace_pure rt(S);      
+                             rt.setNumReflex(numReflex);                       
                              rt.trace();
                              break;
                             }
@@ -489,7 +490,8 @@ namespace GOAT
 							{
                                 std::cout << "do path calculation" << std::endl;
                                 std::string fname = objEll->Attribute("Filename");								
-								
+								int numDet=S.nDet;
+                                // S.nDet=0;
 								if (!fname.empty())
 								{
 									GOAT::raytracing::Raytrace_Path rt(S);
@@ -498,6 +500,7 @@ namespace GOAT
 								}
 								else
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
+                                // S.nDet=numDet;
 								break;
 							} // case path calculation
 

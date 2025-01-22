@@ -283,7 +283,7 @@ namespace GOAT
 			dP = Ph - this->P;
 			i1 = dP * e1 * n1 / d1 + n1 / 2.0;
 			i2 = dP * e2 * n2 / d2 + n2 / 2.0;
-
+         //  std::cout << "n1=" << n1 << "\tn2=" << n2 << "\ti1=" << i1 << "\ti2=" << i2 << std::endl;
 			if ((i1 < 0) || (i1 >= n1) || (i2 < 0) || (i2 >= n2)) return false;
 			return true;
 		}

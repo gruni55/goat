@@ -122,14 +122,6 @@ namespace GOAT
 	//			std::cout << PStart << "  " << PStop << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
-
-			    // do we use tubed ray and is there a phase jump to be considered? 
-				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
-				{
-					hray2 = *(tubedRay*)ray;
-					pjump = hray2.pjump(hray1.P, hray2.P, CP);
-				}
-
 				// search a hit with a detector within the last step       				
 				if (S.nDet > 0)
 				{
@@ -143,16 +135,26 @@ namespace GOAT
 					{
                         if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{            
+							  //  std::cout << "l=" << l << std::endl;
 							    if (abs(PStop-PStart)>l)
 								{
 							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
 								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
-								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 																							
+								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
+							  // std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
 								}
-//								std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
+//								
 						}
 					}
 				}
+			    // do we use tubed ray and is there a phase jump to be considered? 
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				{
+					hray2 = *(tubedRay*)ray;
+					pjump = hray2.pjump(hray1.P, hray2.P, CP);
+				}
+
+				
 				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
 				{
 					((tubedRay*)ray)->E[4] *= exp(I * pjump);
