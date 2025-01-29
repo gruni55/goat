@@ -130,7 +130,7 @@ namespace GOAT
 				{
 			        	std::string typeStr;
 					typeStr = lsEll->Attribute("type");
-					Pos = readVector(lsEll->FirstChildElement("position"));
+					Pos = readVector(lsEll->FirstChildElement("Position"));
 					numRays = lsEll->IntAttribute("numRays", 100);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
 					size = lsEll->DoubleAttribute("size", 10.0);
