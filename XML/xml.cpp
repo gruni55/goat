@@ -885,7 +885,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 //trafoparms = pc.getTrafoParms();
                 pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
                 pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
-                //pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
+                //pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
                 pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
                 pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
                 //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
@@ -894,7 +894,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 if (repRate > 0) pc.setRepetitionRate(repRate);
                 double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 				
-                pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
+                pc.setSpatialResolution(objEll->DoubleAttribute("spatialResolution", dx));
                  std::cout << "dx=" << dx << std::endl;
                                    
                 double D=objEll->DoubleAttribute("D",-1.0);
@@ -957,12 +957,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 addFunction2IndexList(nList, refIndexToken);
                 pc.setRefractiveIndexFunctions(nList);
 
-                double time = objEll->DoubleAttribute("Time", -1);
+                double time = objEll->DoubleAttribute("time", -1);
 				std::cout << "time:" << time << std::endl;
                if (time < 0)
                 {
-                    double offset = objEll->DoubleAttribute("Time_offset", 0);
-                    int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);                    
+                    double offset = objEll->DoubleAttribute("timeOffset", 0);
+                    int objEstimate = objEll->IntAttribute("estimateTimeForObject", 0);                    
 //                    time = pc.findHitTime(objEstimate);                    
                     std::cout << "estimated time: " << time << std::endl << std::flush;
                     time+= offset;
@@ -976,7 +976,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     const char* hStr;
                     std::string corrFilename;
                     std::ofstream corrOS;
-                    hStr=objEll->Attribute("CorrelationFilename");
+                    hStr=objEll->Attribute("correlationFilename");
                     if (hStr != NULL)
                     {
                         corrOS.open(hStr);
