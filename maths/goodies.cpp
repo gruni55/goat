@@ -3,6 +3,7 @@
 #include <math.h>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 using namespace std;
 namespace GOAT
@@ -92,7 +93,6 @@ namespace GOAT
 			return erg;
 		}
 
-#include <iostream>
 
 		double newton_root(std::function<double(double)> f, std::function<double(double)> df, double x0, double eps)
 		{
@@ -109,6 +109,12 @@ namespace GOAT
 			return xnew;
 		}
 
+		std::string tl(std::string sc)
+        { 	
+            std::string s=sc;
+			std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c){ return std::tolower(c);});
+			return s;
+		}	
 	}
 }
 

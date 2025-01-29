@@ -33,7 +33,10 @@
 \usepackage{footnote}
 \makesavenoteenv{tabular}
 \begin{document}
-  \title{Documentation of the XML commands}
+  \title{Reference for the XML-Files for GOAT}
+  \author{Thomas Weigel\\Applied Laser Technologies, Ruhr-Universit\"at Bochum, Germany}
+  \date{\today}
+  \maketitle
   \tableofcontents   
   \chapter{Introduction}
 A calculation can be carried out directly via the GOAT library. Sometimes it is useful to save the scene information externally. A separate GOAT::XML::xmlReader class is available for this purpose. It is based on an XML file, the structure of which is described in more detail in this documentation. 
@@ -44,13 +47,15 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  \textbf{Threedimensional Vector}:   
     \lstset{language=XML}
  \begin{lstlisting}
- <Position x="2.3" y="4.5" z="-5.6" />
+ <position x="2.3" y="4.5" z="-5.6" />
    \end{lstlisting}
    A \textbf{complex number} is given its real and its imaginary part: 
  \begin{lstlisting}
  <n real="1.5" imag="0.1"/>
    \end{lstlisting}
   The default values for the threedimensional vector is (0,0,0) and for the complex number (0,0) unless otherwise specified. 
+  Naming convention: The name of all elements which have childs like light sources, objects also position and direction etc. start with uppercase letters. In case a name consists of more than one word (like "numRays" for number of rays) the subsequent words start with uppercase letters. 
+   
  \chapter{Scene}
  Within this section, all elements like light sources, objects and detectors are described. The scene has the parameter: the radius of the calculation space r0.
    
@@ -63,33 +68,35 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  \begin{tabular}{c|m{3cm}|c|c}
  Parameter name & description  & possible value & default value\\ 
  \hline
- Type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} & -- \\
+ type & type of the light source & \parbox{5cm}{"plane","gaussian","ring",\\"tophat","plane\_mc",\\"gaussian\_mc","ring\_mc",\\"gaussian\_ring\_mc"} & -- \\
  \hline
- Position & \parbox{3cm}{position of the light source\\(center of the area)} & 3D vector & (0,0,0) \\
+ position & \parbox{3cm}{position of the light source\\(center of the area)} & 3D vector & (0,0,0) \\
  \hline
  NumRays & \parbox{3cm}{Number of rays per calculation step} & integer number & 100 \\
  \hline
- Size & width of the light source  & floating point number & 10.0\\
- \hline
-Wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0 \\
+wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0 \\
 \hline
 Polarisation & Polarisation & 3D Vector & (1,0,0) 
  \end{tabular}
+ 
+ \vspace{1em} 
  Note: As described in more detail in the documentation for the LightSrc class, the polarisation here also refers to the case where the light source points in the z direction. The polarisation is rotated according to the direction defined in “Direction”. 
   \subsection{Plane wave}
   type: \textbf{plane} \\
- This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{Size}{NumRays}$. The only special parameter is
+ This type is the most simplest type of light source. This is a plane wave in which the rays are emitted equally distributed. The number of rays here only refers to one direction, i.e. the total number of rays is the square ($Numrays^2$). The distance between two adjacent rays is $\nicefrac{size}{numRays}$. The only special parameter is
   
 \vspace{1em} 
-  \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+  \begin{tabular}{c|c|c|c}
+ Parameter name & description  & possible value & Default value \\
  \hline
- Direction & Direction of the plane wave & 3D Vector  
+ Direction & Direction of the plane wave & 3D Vector  & (0,0,1)\\
+  \hline
+  size & width of the light source  & floating point number & 10.0\\
  \end{tabular}
  
  \subsection{Plane wave (mc)} 
  type: \textbf{plane\_mc} \\
- All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to NumRays. Also here, the only special parameter is "Direction". 
+ All light sources denoted with "mc" are those where the rays are arbitrarily distributed. Unlike in the case of the plane wave, the total number of rays is equal to numRays. Also here, the only special parameters are "Direction" and "size". 
  
 \subsection{Gaussian wave}
  type: \textbf{gaussian} \\
@@ -105,12 +112,14 @@ with the width of the electric field $\delta x_E$ and the corresponding width of
 Special parameters:
 
 \vspace{1em}
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+ \begin{tabular}{c|c|c|c}
+ Parameter name & description  & possible value & default value\\
  \hline
- w0 & (virtual) waist at the focal point & floating point number \\
+ w0 & (virtual) waist at the focal point & floating point number & 1.0 \\
  \hline
- NA\footnote{if w0 and NA are given, NA is used} & numerical aperture & floating point number \\ 
+ NA\footnote{if w0 and NA are given, NA is used} & numerical aperture & floating point number & 1.0 \\ 
+   \hline
+  size & width of the light source  & floating point number & 10.0
  \end{tabular}
 
 \subsection{Gaussian wave (mc)} 
@@ -122,14 +131,17 @@ type: \textbf{ring} \\
 A light source, shaped like a ring with equally distributed rays. The ring is described by its inner and outer radius. 
 
 \vspace{1em}
- \begin{tabular}{c|c|c}
- Parameter name & description  & possible value \\
+ \begin{tabular}{c|c|c|c}
+ Parameter name & description  & possible value & default value\\
  \hline
-  rmin & inner radius ($\ge 0$) & floating point number \\
+  rmin & inner radius ($\ge 0$) & floating point number & 0 \\
   \hline
-  rmax & outer radius  & floating point number \\
+  rmax & outer radius  & floating point number & 100 \\
   \hline 
-  Direction & direction of the light rays & 3D vector
+  Direction & direction of the light rays & 3D vector & (0,0,1) \\
+    \hline
+  size & width of the light source  & floating point number & 10.0\\
+
 \end{tabular} 
  
 \subsection{Ring shaped light source (mc)}
@@ -162,10 +174,10 @@ Like all light sources denoted with "mc", the rays are distributed arbitrarily. 
   <Scene r0="4E+4">
     <nS imag="0.0" real="1.0" />
     <LightSources>
-      <LightSource NumRays="100000" Size="1500" Type="ring_mc"
-       Wavelength="1.0"
+      <LightSource numRays="100000" size="1500" Type="ring_mc"
+       wavelength="1.0"
        rmax="500" rmin="0">
-        <Position x="0.0" y="0" z="-1E+4" />
+        <position x="0.0" y="0" z="-1E+4" />
         <Direction x="0.0" y="0" z="1" />
       </LightSource>
     </LightSources>
@@ -186,17 +198,17 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
  \hline
   Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
-  Type & Type of the object  & \parbox{3cm}{ellipsoid,\\surface,\\cone,\\aspheric\_lens,\\box} & --  \\
+  type & Type of the object  & \parbox{3cm}{ellipsoid,\\surface,\\cone,\\aspheric\_lens,\\box} & --  \\
   \hline 
   Direction & direction of the light rays & 3D vector & (0,0,0) \\
   \hline
-  Alpha & \parbox{3.5cm}{rotation angle\\around x-axis\\(in radiants)} & double & 0 \\ 
+  alpha & \parbox{3.5cm}{rotation angle\\around x-axis\\(in radiants)} & double & 0 \\ 
     \hline
-  Beta & \parbox{3.5cm}{rotation angle\\around y-axis\\(in radiants)} & double & 0 \\ 
+  beta & \parbox{3.5cm}{rotation angle\\around y-axis\\(in radiants)} & double & 0 \\ 
       \hline
-  Gamma & \parbox{3.5cm}{rotation angle\\around z-axis\\(in radiants)} & double & 0 \\ 
+  gamma & \parbox{3.5cm}{rotation angle\\around z-axis\\(in radiants)} & double & 0 \\ 
   \hline
-  IsActive & \parbox{3.5cm}{Fields inside the object will be stored (this concerns e.g. the pulsed calculation and the inelastic scattering)} & true/false & false \\
+  isactive & \parbox{3.5cm}{Fields inside the object will be stored (this concerns e.g. the pulsed calculation and the inelastic scattering)} & true/false & false \\
   \hline
   n & refractive index & complex value & (1.0,0.0) 
 \end{longtable} 
@@ -253,8 +265,8 @@ A the surface of a surface object is described by triangles stored in a file. Up
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline
- FileType & String, which holds the file type & ".srf",".stl" & -- \\
- FileName & String, which holds the file name & string & -- \\
+ filetype & String, which holds the file type & ".srf",".stl" & -- \\
+ filename & String, which holds the file name & string & -- \\
  \end{tabular}
  
 \subsection{Spheric lens}
@@ -300,13 +312,13 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline 
- Type & type of the detector & "plane" & -- \\
+ type & type of the detector & "plane" & -- \\
  \hline
- Position & Center of the detector & 3D-vector & -- \\
+ position & Center of the detector & 3D-vector & -- \\
  \hline
  Direction & normal vector & 3D-vector & -- \\
  \hline  
- Filename & name of the file to store the data & string & -- \\
+ filename & name of the file to store the data & string & -- \\
   \end{tabular}
   
  \subsection{Plane detector}
@@ -324,7 +336,7 @@ n & no. of elements per direction & int & 1 \\
 \end{tabular}
  
  \chapter {Calculations}
- Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "Type" there are different calculations possible:
+ Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "type" there are different calculations possible:
  
  %\begin{center}
  \vspace{1em}
@@ -347,9 +359,9 @@ n & no. of elements per direction & int & 1 \\
  \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\
  \hline
- Type & type of the calculation & \parbox{3cm}{"pure","path",\\"pulse"} & -- \\
+ type & type of the calculation & \parbox{3cm}{"pure","path",\\"pulse"} & -- \\
  \hline
- Inactive & if true, this calculation will be skipped & true, false & false \\
+ inactive & if true, this calculation will be skipped & true, false & false \\
  \hline 
  \end{tabular}
  \end{table}
@@ -366,7 +378,7 @@ If one want only the electric field distribution at certain areas, this calculat
  \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\
  \hline
- Filename & Name of the file in which the paths are stored. This parameter is essential & string & -- \\
+ filename & Name of the file in which the paths are stored. This parameter is essential & string & -- \\
  \hline 
  numRays & Number of rays\footnote{The meaning of this parameter depends on the type of source} & integer & 1 \\
  \hline 
@@ -374,12 +386,17 @@ If one want only the electric field distribution at certain areas, this calculat
  \hline 
  \end{tabular}
    \end{table}
-   Sometimes it is convenient to switch off calculations without erasing it. For this reason, the property "Inactive" can be set to "true". ´ 
+   Sometimes it is convenient to switch off calculations without erasing it. For this reason, the property "inactive" can be set to "true". ´ 
  \section{Calculations with pulsed laser sources}
- Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. 
- 
-The parameters are as follows:
- 
+ Here, all light sources are considered as mode-locked lasers.  For this calculation, two different methods for the Fourier transform can be applied. On the one hand, a pure raytracing calculation can be performed, here attribute "Method" is set to "rtonly". On the other hand a mixture of raytracing and an integral can be used (attribute "Method" is not set). Here, the frequency range used for the calculation is divided into frequency divisions. For each division, one raytracing at the center frequency is performed. Here a gaussian pulse shape is considered. As parameter the pulse width $\Delta t$(FWHM of the intensity profile) in \si{\femto\second} can be given. The corresponding spectral width (FWHM) $\delta \omega$ is directly connected with $\Delta t$ by
+ \begin{equation}
+  \delta \omega=\frac{4\cdot\ln 2}{\delta t}.
+ \end{equation}
+ To get a better result of the pulse, a spectral width $\Delta \omega = 5 \cdot \delta \omega$ is used. The distance between two subsequent pulses $\tau$ is then given by
+ \begin{equation}
+   \tau=\frac{2\pi N}{\Delta \omega}
+ \end{equation}
+The parameters are as follows: 
  \vspace{1em}
  \begin{longtable}{c|m{3cm}|m{3cm}|c}
 \fontsize{10pt}{10pt}\selectfont
@@ -388,29 +405,32 @@ The parameters are as follows:
  \hline
  \tiny{EstimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"! & number of the corresponding object & -- \\
  \hline
-  Filename & \parbox{3cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$Filename$><$object no.$>$.dat}. & any filename & -- \\
+  filename & \parbox{3cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$filename$><$object no.$>$.dat}. & any filename & -- \\
   \hline
-  Spatial\_Resolution & resolution of the grid in \si{\micro\metre} & double $>0$ & 1 \\
+  spatialResolution & resolution of the grid in \si{\micro\metre} & double $>0$ & 1 \\
   %$\frac{2\cdot r_0}{nn\footnote{number of elements per direction}}$
   \hline 
-  Wavelength & Central wavelength in µm & double & $\SI{1}{\micro\metre}$ \\
+  wavelength & Central wavelength in µm & double & $\SI{1}{\micro\metre}$ \\
   \hline
-  NumReflexions & Number of reflections & integer $\ge$ 0 & \tiny{INEL\_MAX\_NREFLEX (1)} \\
+  numReflex & Number of reflections & integer $\ge$ 0 & \tiny{INEL\_MAX\_NREFLEX (1)} \\
   \hline
-  NumLoops & Specifies how often the calculation should be repeated (-1: calculation is repeated infinitely often) & integer $\ge$-1 & -1 \\
+  numLoops & Specifies how often the calculation should be repeated (-1: calculation is repeated infinitely often) & integer $\ge$-1 & -1 \\
   \hline
-  Pulse\_width & \parbox{3cm}{Pulse width \\ (FWHM)  in \si{\femto\second} }& double & \SI{100}{\femto\second} \\
+  pulseWidth & \parbox{3cm}{Pulse width \\ (FWHM)  in \si{\femto\second} }& double & \SI{100}{\femto\second} \\
   \hline
   Method & \parbox{3cm}{For the calculation a pure raytracing calculation will be performed (the fields for all wavelengths will be calculated by raytracing) or a mixed method can be applied} & "rtonly","mixed" & "mixed" \\
   \hline
-  NumSpectralRanges & Number of spectral ranges considered for calculation & integer $\ge$ 1 & 4 \\
-  \hline    
+  numSpectralRanges & Number of spectral ranges considered for calculation & integer $\ge$ 1 & 4 \\
+  \hline 
+  RefractiveIndexList & List of the refractive indices of the materials & see below & N/A \\   
 % \end{tabular}
  \end{longtable}
- Additionally, a list with the materials is required. For each object, the material is given by the name of the material. Up to now the following materials are available: 
+ The refractive index list is organized as follows: \\
+ For the objects, the corresponding attribute is named as "n0" for the first object, "n1" for the second and so on. The order is given by the order in which the objects are defined in the objects-section. The attribute for the surrounding medium is "nS". Possible values are given in Table \ref{tab:refractiveIndexList}. 
  
  \vspace{1em}
  \begin{center}
+ \begin{table}
  \begin{tabular}[H]{l|l}
  Material & value \\
  \hline 
@@ -419,7 +439,11 @@ The parameters are as follows:
  N-BK7 glass & bk7 \\
  N-LASF55 glass & lasf55 \\
  Vacuum & vacuum \\ 
- \end{tabular}
+ PMMA & pmma \\
+ \end{tabular}  
+ \caption{List of the possible values for the refractive index list}
+ \label{tab:refractiveIndexList}
+\end{table}
  \end{center}
  For vacuum and glass constant refractive indices were used (1 for vacuum and 1.5 for glass). The other dispersion curves were taken from \url{https://www.refractiveindex.info}. 
 \end{document}

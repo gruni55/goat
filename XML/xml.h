@@ -32,9 +32,9 @@ namespace GOAT
 
 
 
-		const std::string sceneXMLElements[] = { "r0","nS","LightSources","Objects","Detectors" };
-		const std::string LSXMLAttributes[] = { "Type","Size","Wavelength","NumRays" };
-		const std::string LSXMLTYPES[] = {"Plane","Gaussian","Plane_mc","Gaussian_mc"};
+		const std::string sceneXMLElements[] = { "r0","ns","lightsources","objects","detectors" };
+		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays" };
+		const std::string LSXMLTYPES[] = {"plane","gaussian","plane_mc","gaussian_mc"};
 	
 	   /**
 		* @brief check if the fname has a given extension

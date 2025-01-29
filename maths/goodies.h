@@ -5,6 +5,8 @@
 #include <vector>
 #include <functional>
 #include <limits>
+#include <string>
+#include <cctype>  
 namespace GOAT
 {
 	namespace maths
@@ -52,6 +54,11 @@ namespace GOAT
 		*/
 		std::size_t FWHM(std::vector<double> d, std::size_t index);
 		double newton_root(std::function<double(double)> f, std::function<double(double)> df, double x0=0, double eps=std::numeric_limits<double>::min());		
+		/**
+		 * @brief Converts string into lowercase
+		 * This function converts all characters in a string into lower case
+		 */
+        std::string tl(std::string); 	
 	}
 }
 #endif

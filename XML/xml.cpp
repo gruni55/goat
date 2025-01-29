@@ -9,6 +9,8 @@
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
 #include <chrono>
+#include <goodies.h>
+#define tl(s) GOAT::maths::tl(s)	
 
 namespace GOAT
 {
@@ -87,9 +89,9 @@ namespace GOAT
 					maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
 					maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
 					std::string typeStr;
-					typeStr = detEll->Attribute("Type");                    
+					typeStr = detEll->Attribute("type");                    
 					std::string filename;
-					filename = detEll->Attribute("Filename");
+					filename = detEll->Attribute("filename");
 					int type = mapString2DetectorToken(typeStr);
 					switch (type)
 					{
@@ -127,14 +129,14 @@ namespace GOAT
 				for (tinyxml2::XMLElement* lsEll = ell->FirstChildElement("LightSource"); lsEll != NULL; lsEll = lsEll->NextSiblingElement("LightSource"))
 				{
 			        	std::string typeStr;
-					typeStr = lsEll->Attribute("Type");
-					Pos = readVector(lsEll->FirstChildElement("Position"));
-					numRays = lsEll->IntAttribute("NumRays", 100);
-					wavelength = lsEll->DoubleAttribute("Wavelength", 1.0);
-					size = lsEll->DoubleAttribute("Size", 10.0);
+					typeStr = lsEll->Attribute("type");
+					Pos = readVector(lsEll->FirstChildElement("position"));
+					numRays = lsEll->IntAttribute("numRays", 100);
+					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
+					size = lsEll->DoubleAttribute("size", 10.0);
 					LS = (GOAT::raytracing::LightSrc**)realloc(LS, numLS + 1);
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
-                    power = lsEll->DoubleAttribute("Power", 1.0);
+                    power = lsEll->DoubleAttribute("power", 1.0);
                     Pol[0]=Pold[0];
                     Pol[1]=Pold[1];
                     Pol[2]=Pold[2];
@@ -143,7 +145,7 @@ namespace GOAT
 					{
 					case TOKEN_LIGHTSOURCE_PLANE: {
 													LS[numLS] = new GOAT::raytracing::LightSrcPlane(Pos, numRays, wavelength, size, Pol);
-													GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+													GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"),0,0,1);
 													LS[numLS]->setk(k);
 												   }
 												   break;
@@ -255,8 +257,8 @@ namespace GOAT
 			{
                 for (tinyxml2::XMLElement* calcEll = ell->FirstChildElement("Calculation"); calcEll != NULL; calcEll = calcEll->NextSiblingElement("Calculation"))
 				{
-					typeStr = calcEll->Attribute("Type");
-					fname = calcEll->Attribute("Filename");
+					typeStr = calcEll->Attribute("type");
+					fname = calcEll->Attribute("filename");
 					numReflex = calcEll->IntAttribute("numReflex", 0);
 					if (typeStr.compare("path") && (!fname.empty()) )
 					{
@@ -296,11 +298,11 @@ namespace GOAT
 				{		
 					
 					Pos = readVector(objEll->FirstChildElement("Position"));
-					typeStr = objEll->Attribute("Type");
-                    alpha = objEll->DoubleAttribute("Alpha", 0.0) / 180.0 * M_PI;
-					beta = objEll->DoubleAttribute("Beta", 0.0) / 180.0 * M_PI;
-					gamma = objEll->DoubleAttribute("Gamma", 0.0) / 180.0 * M_PI;
-					isActive = objEll->BoolAttribute("IsActive", false);
+					typeStr = objEll->Attribute("type");
+                    alpha = objEll->DoubleAttribute("alpha", 0.0) / 180.0 * M_PI;
+					beta = objEll->DoubleAttribute("beta", 0.0) / 180.0 * M_PI;
+					gamma = objEll->DoubleAttribute("gamma", 0.0) / 180.0 * M_PI;
+					isActive = objEll->BoolAttribute("isactive", false);
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					int type = mapString2ObjectToken(typeStr);
@@ -325,17 +327,17 @@ namespace GOAT
 					case TOKEN_OBJECT_SURFACE: 
 										   {
 											Obj.push_back(new GOAT::raytracing::surface(Pos, n));
-											fileTypeStr = objEll->Attribute("Filetype");
+											fileTypeStr = objEll->Attribute("filetype");
 
 											if (fileTypeStr.compare(".srf") == 0)
 											{
-												fileName = objEll->Attribute("Filename");
+												fileName = objEll->Attribute("filename");
 												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
 											}
 
 											if (fileTypeStr.compare(".stl") == 0)
 											{
-												fileName = objEll->Attribute("Filename");
+												fileName = objEll->Attribute("filename");
 												if (!fileName.empty())
 												((GOAT::raytracing::surface*)Obj[numObj])->importBinSTL(fileName);
 											}
@@ -371,9 +373,9 @@ namespace GOAT
 												if (rightCurvatureStr.compare("convex") == 0) lensparms.right.curvature = GOAT::raytracing::convex;
 												}
 												else lensparms.right.curvature = GOAT::raytracing::flat;
-												lensparms.right.R = rightEll->DoubleAttribute("R", 0.0);
-												lensparms.offset = objEll->DoubleAttribute("Offset", 0.0);
-												lensparms.radius = objEll->DoubleAttribute("Radius", 0.0);
+												lensparms.right.R = rightEll->DoubleAttribute("r", 0.0);
+												lensparms.offset = objEll->DoubleAttribute("offset", 0.0);
+												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);
 
 
 
@@ -447,12 +449,12 @@ namespace GOAT
 				{
 					std::string inactiveStr;
 					const char* hStr;
-						hStr=objEll->Attribute("Inactive");
+						hStr=objEll->Attribute("inactive");
 						if (hStr != NULL) inactiveStr = hStr;
 						else inactiveStr = "false";
                         if (inactiveStr.compare("false")==0)
 						{						
-						typeStr = objEll->Attribute("Type");
+						typeStr = objEll->Attribute("type");
                         std::cout << "typeStr=" << typeStr << std::endl;
 
                         // change number of rays, if given
@@ -489,7 +491,7 @@ namespace GOAT
 							case TOKEN_CALCULATION_PATH:
 							{
                                 std::cout << "do path calculation" << std::endl;
-                                std::string fname = objEll->Attribute("Filename");								
+                                std::string fname = objEll->Attribute("filename");								
 								int numDet=S.nDet;
                                 // S.nDet=0;
 								if (!fname.empty())
@@ -508,7 +510,7 @@ namespace GOAT
 							{
 								std::string methodStr;
 								const char* hStr;
-								hStr=objEll->Attribute("Method");
+								hStr=objEll->Attribute("method");
 								if (hStr != NULL) methodStr = hStr;
 								else methodStr = "mixed";
 								if (methodStr.compare("rtonly")==0)
@@ -520,24 +522,24 @@ namespace GOAT
 
                             case TOKEN_CALCULATION_PULSE_FIELD:
                             {
-                                std::string fname = objEll->Attribute("Filename");
+                                std::string fname = objEll->Attribute("filename");
                                 if (!fname.empty())
                                 {
                                     GOAT::raytracing::pulseCalculation_Field pc(S);
                                     GOAT::raytracing::TrafoParms trafoparms;
                                     trafoparms = pc.getTrafoParms();
-                                    pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
+                                    pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
                                     pc.setNumReflex(numReflex);
                                     trafoparms.nR=numReflex;
-                                    // pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+                                    // pc.setNumReflex(objEll->IntAttribute("NumReflex", trafoparms.nR));
                                     pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
-                                    pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
-                                    pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
-                                    pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));                                    
-                                    double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
+                                    pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
+                                    pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
+                                    pc.setReferenceTime(objEll->IntAttribute("referenceTime", pc.getReferenceTime()));                                    
+                                    double repRate = objEll->DoubleAttribute("repetitionRate", -1);
                                     if (repRate > 0) pc.setRepetitionRate(repRate);
                                     double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
-                                    pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
+                                    pc.setSpatialResolution(objEll->DoubleAttribute("spatialResolution", dx));
                                     double D=objEll->DoubleAttribute("D",-1.0);
                                     char cs[3];
                                     std::vector< std::function< std::complex< double >(double) > > nList;
@@ -659,7 +661,7 @@ namespace GOAT
                             }
                             case TOKEN_CALCULATION_INELASTIC:
 							{
-								std::string fname = objEll->Attribute("Filename");
+								std::string fname = objEll->Attribute("filename");
 								if (fname.empty())
 								{
 									fname = "dummy";
@@ -697,13 +699,15 @@ namespace GOAT
                             double Iall = 0;
                             for (int i = 0; i < numLS; i++)
                             {
-                                normfac += LS[i]->P0  / (LS[i]->area() * 1E-12 * LS[i]->getIsum1());  // factor 1E-12 to convert �m^2 into m^2 
+                                normfac += LS[i]->getNumRays();
+                                // normfac += LS[i]->P0 * LS[i]->getNumRays() * raytracing::mu0 * raytracing::c_light / (LS[i]->area() * 1E-12 * LS[i]->getIsum1());  // factor 1E-12 to convert �m^2 into m^2 
                                 Iall += LS[i]->getIsum1();
+                                std::cout.precision (6);
                                 std::cout << "area=" << LS[i]->area() << "\tIsum1=" << LS[i]->getIsum1() << std::endl;
                             }
                             
                             // normfac /= Iall;
-                            // normfac =  sqrt(normfac) ;                            
+                            normfac =  sqrt(normfac) ;                            
                             std::cout << "Iall=" << Iall << "\tnormfac=" << normfac << std::endl;
                             for (int i = 0; i < numDet; i++)
                             {
@@ -726,20 +730,20 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {			
             std::cout << "------------------ DO PULSED CALCULATION  (mixed) -----------------" << std::endl;
             const char* hStr;
-            std::string fname = objEll->Attribute("Filename");
+            std::string fname = objEll->Attribute("filename");
             if (!fname.empty())
             {
                 GOAT::raytracing::pulseCalculation pc(S);
                 GOAT::raytracing::TrafoParms trafoparms;
                 trafoparms = pc.getTrafoParms();
-                pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
-                pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+                pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
+                pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
                 pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
-                pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
-                pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
-                pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+                pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
+                pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
+                pc.setReferenceTime(objEll->IntAttribute("referenceTime", pc.getReferenceTime()));
                 pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
-                double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
+                double repRate = objEll->DoubleAttribute("repetitionRate", -1);
                 if (repRate > 0) pc.setRepetitionRate(repRate);
                 double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 				
@@ -872,25 +876,27 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {			
             std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
-            std::string fname = objEll->Attribute("Filename");
+            std::string fname = objEll->Attribute("filename");
             if (!fname.empty())
             {
-                int numLoops = objEll->IntAttribute("NumLoops", -1);
+                int numLoops = objEll->IntAttribute("numLoops", -1);
                 GOAT::raytracing::pulseCalculation_rt pc(S);
                 GOAT::raytracing::TrafoParms trafoparms;
                 //trafoparms = pc.getTrafoParms();
-                pc.setCenterWavelength(objEll->DoubleAttribute("Wavelength", trafoparms.wvl));
-                pc.setNumReflex(objEll->IntAttribute("NumReflexions", trafoparms.nR));
+                pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
+                pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
                 //pc.setNumWavelengthsPerRange(objEll->IntAttribute("NumWavelengthsPerRange", trafoparms.nS));
-                pc.setPulseWidth(objEll->DoubleAttribute("Pulse_width",trafoparms.dt));
-                pc.setSpectralRanges(objEll->IntAttribute("NumSpectralRanges", trafoparms.nI));
+                pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
+                pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
                 //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
                 // pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
-                double repRate = objEll->DoubleAttribute("Repetition_rate", -1);
+                double repRate = objEll->DoubleAttribute("repetitionRate", -1);
                 if (repRate > 0) pc.setRepetitionRate(repRate);
                 double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 				
                 pc.setSpatialResolution(objEll->DoubleAttribute("Spatial_resolution", dx));
+                 std::cout << "dx=" << dx << std::endl;
+                                   
                 double D=objEll->DoubleAttribute("D",-1.0);
                 char cs[3];
                 std::vector< std::function< std::complex< double >(double) > > nList;
