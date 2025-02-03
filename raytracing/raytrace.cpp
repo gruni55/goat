@@ -170,7 +170,7 @@ namespace GOAT
 				{
 					if (ray->isInObject()) // Is the ray inside an object ?
 					{						
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
@@ -404,6 +404,9 @@ namespace GOAT
 			for (int i = 0; (i < nObj) && (intersect==-1); i++)
 				if (intersectionTest(*Obj[0], *obj)) intersect = i;
 			if (intersect > -1) std::cerr << "Object " << nObj << " may intersect with object " << intersect << " - Please check !" << std::endl;
+			// add Object to light source(s) 
+			for (int i = 0; i < nLS; i++)
+				LS[i]->addObject(obj); 
 			nObj++;
 		}
 
