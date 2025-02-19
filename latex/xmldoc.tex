@@ -314,7 +314,7 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
  \hline 
  type & type of the detector & "plane" & -- \\
  \hline
- position & Center of the detector & 3D-vector & -- \\
+ Position & Center of the detector & 3D-vector & -- \\
  \hline
  Direction & normal vector & 3D-vector & -- \\
  \hline  
@@ -403,8 +403,9 @@ The parameters are as follows:
 % \begin{tabular}{c|m{3cm}|m{3cm}|c}
   Parameter name & description  & possible value & default value \\
  \hline
- \tiny{EstimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without Method "rtonly"! & number of the corresponding object & -- \\
+ \tiny{estimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without method "rtonly"! & number of the corresponding object & -- \\
  \hline
+ time & Time at which the fields are calculated & -- \\
   filename & \parbox{3cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$filename$><$object no.$>$.dat}. & any filename & -- \\
   \hline
   spatialResolution & resolution of the grid in \si{\micro\metre} & double $>0$ & 1 \\
@@ -418,7 +419,7 @@ The parameters are as follows:
   \hline
   pulseWidth & \parbox{3cm}{Pulse width \\ (FWHM)  in \si{\femto\second} }& double & \SI{100}{\femto\second} \\
   \hline
-  Method & \parbox{3cm}{For the calculation a pure raytracing calculation will be performed (the fields for all wavelengths will be calculated by raytracing) or a mixed method can be applied} & "rtonly","mixed" & "mixed" \\
+  method & \parbox{3cm}{For the calculation a pure raytracing calculation will be performed (the fields for all wavelengths will be calculated by raytracing) or a mixed method can be applied} & "rtonly","mixed" & "mixed" \\
   \hline
   numSpectralRanges & Number of spectral ranges considered for calculation & integer $\ge$ 1 & 4 \\
   \hline 

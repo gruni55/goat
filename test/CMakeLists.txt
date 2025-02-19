@@ -16,7 +16,7 @@ endif(NOT CMAKE_BUILD_TYPE)
 message (STATUS "LIB Library: ${LIBDIR}")
 
 
-find_library (NAMES goat_maths PATHS ../../lib)
+find_library (goat_maths PATHS ../../lib)
 find_library (NAMES goat_raytracing PATHS ../../lib)
 
 

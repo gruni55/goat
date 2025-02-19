@@ -7,7 +7,7 @@ set (
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp raytrace_field.cpp 
 		     raytrace_usp.cpp raytrace_field_usp.cpp raytrace_usp_rt.cpp plane.cpp pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp gridentry.cpp asphericLens.cpp
-		     sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp)  
+		     sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp refractive_index_functions.cpp)  
 
 set (
 	RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 

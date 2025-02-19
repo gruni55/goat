@@ -37,7 +37,7 @@ The names of the libraries are:
 
 ## XML Support
 
-Scenes and calculations can be stored in a XML file. A more detailed documentation can be found here [XML Documentation](../../latex/xmldoc.pdf)
+Scenes and calculations can be stored in a XML file. More details can be found [here](XML.md)
 
 
 

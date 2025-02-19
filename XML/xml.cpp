@@ -512,7 +512,7 @@ namespace GOAT
 								const char* hStr;
 								hStr=objEll->Attribute("method");
 								if (hStr != NULL) methodStr = hStr;
-								else methodStr = "mixed";
+								else methodStr = "rtonly";
 								if (methodStr.compare("rtonly")==0)
 										doPulseCalculation_rt(objEll); 
 								else 
@@ -600,11 +600,11 @@ namespace GOAT
                                     addFunction2IndexList(nList, refIndexToken);
                                     pc.setRefractiveIndexFunctions(nList);
 
-                                    double time = objEll->DoubleAttribute("Time", -1);
+                                    double time = objEll->DoubleAttribute("time", -1);
                                     if (time < 0)
                                     {
-                                        double offset = objEll->DoubleAttribute("Time_offset", 0);
-                                        int objEstimate = objEll->IntAttribute("EstimateTimeForObject", 0);
+                                        double offset = objEll->DoubleAttribute("timeOffset", 0);
+                                        int objEstimate = objEll->IntAttribute("estimateTimeForObject", 0);
                                         time = pc.findHitTime(objEstimate);
                                             time+= offset;
                                     }
@@ -616,7 +616,7 @@ namespace GOAT
                                         const char* hStr;
                                         std::string corrFilename;
                                         std::ofstream corrOS;
-                                        hStr=objEll->Attribute("CorrelationFilename");
+                                        hStr=objEll->Attribute("correlationFilename");
                                         if (hStr != NULL)
                                         {
                                             corrOS.open(hStr);
@@ -994,11 +994,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         if (S.Obj[i]->isActive())
                         {
                             fullfname = fname + std::to_string(i) + ".dat";
-                            // GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
+                       //     GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
 							
-		        	GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
+		        	 GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
 					
-					d=sumabs2(pc.rt.SA[0],i);
+					           d=sumabs2(pc.rt.SA[0],i);
+                             std::cout << "d=" << d << std::endl;
 				        }
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
