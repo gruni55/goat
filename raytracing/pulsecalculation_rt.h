@@ -39,6 +39,7 @@ namespace GOAT
 			Scene S;
 			INDEX_TYPE nn = 0;
 			double dWvl = 0.02;  ///< spectral width of the light (default 20nm)
+			double Domega = 0;  ///< spectral width in frequencies (unit: fs^-1)
 			int numReflex = INEL_MAX_NREFLEX;
 		};
 	}

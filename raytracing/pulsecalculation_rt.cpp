@@ -25,7 +25,7 @@ namespace GOAT
 			void pulseCalculation_rt::calcTrafoParms()
 			{
 				double Sigma = sqrt(2.0 * M_LN2) / trafoparms.dt;
-				double Domega = 8.0 * Sigma;
+				Domega = 8.0 * Sigma;
 				trafoparms.omegaStart = trafoparms.omega0 - Domega / 2.0;
 				trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 				double lambdaStart = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.omegaEnd;
@@ -36,7 +36,7 @@ namespace GOAT
 			void pulseCalculation_rt::field(double t)
 			{
 				double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
-				double Domega = 5.0 * 4.0 * M_LN2 / trafoparms.dt;
+				Domega = 5.0 * 4.0 * M_LN2 / trafoparms.dt;
 				std::cout << "Domega=" << Domega << std::endl;
 				double domega = Domega / (double)trafoparms.nI;
 				double omegaStart = omega0 - Domega / 2.0;
@@ -85,14 +85,14 @@ namespace GOAT
 			void pulseCalculation_rt::setBandwidth(double dWvl)
 			{
 				this->dWvl = dWvl;
-				double Domega = 2.0 * M_PI * C_LIGHT_MU_FS * dWvl / (trafoparms.wvl * trafoparms.wvl);
+				 Domega = 2.0 * M_PI * C_LIGHT_MU_FS * dWvl / (trafoparms.wvl * trafoparms.wvl);
 				trafoparms.omegaEnd = trafoparms.omega0 + Domega / 2.0;
 				trafoparms.omegaStart = trafoparms.omega0 + Domega / 2.0;
 			}
 
 			void pulseCalculation_rt::setRepetitionRate(double rep)
 			{
-				double Domega = trafoparms.omegaEnd - trafoparms.omegaStart;
+				 Domega = trafoparms.omegaEnd - trafoparms.omegaStart;
 				trafoparms.nS = ceil(Domega / (rep * (double)trafoparms.nI));
 			}
 			
