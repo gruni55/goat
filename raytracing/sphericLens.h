@@ -64,6 +64,7 @@ namespace GOAT
             void setPos(maths::Vector<double> r); ///< set the position of the lens
             void setPos(double x, double y, double z); ///< set the position of the lens
             maths::Vector<double> calcCoM() { return maths::dzero; }; ///< not yet implemented
+            lensParms getParms() { return lp; }  ///< returns the parameters, which describe the lens
         private:
             void init();
             lensParms lp;
