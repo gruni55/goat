@@ -373,7 +373,7 @@ namespace GOAT
 												if (rightCurvatureStr.compare("convex") == 0) lensparms.right.curvature = GOAT::raytracing::convex;
 												}
 												else lensparms.right.curvature = GOAT::raytracing::flat;
-												lensparms.right.R = rightEll->DoubleAttribute("r", 0.0);
+												lensparms.right.R = rightEll->DoubleAttribute("R", 0.0);
 												lensparms.offset = objEll->DoubleAttribute("offset", 0.0);
 												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);
 
