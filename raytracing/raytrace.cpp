@@ -371,11 +371,9 @@ namespace GOAT
 		Scene::Scene()
 		{
 			nLS = 0;
-			LS = 0;
 			nObj = 0;
 			Obj = 0;			
 			nS = 1.0;			
-			LS = 0;
 			LSRRT = 0;
 			nDet = 0;
 		}
@@ -441,10 +439,11 @@ namespace GOAT
 
 		void Scene::addLightSource(LightSrc* ls, int raytype)
 		{
-			if (nLS == 0)
+			/*if (nLS == 0)
 				LS = (LightSrc**)malloc(sizeof(LightSrc));
 			else
-				LS = (LightSrc**)realloc(LS, sizeof(LightSrc) * (nLS + 1));
+				LS = (LightSrc**)realloc(LS, sizeof(LightSrc) * (nLS + 1));*/
+			LS.push_back(ls);
 			/*
 				switch (ls->type)
 				{
@@ -453,7 +452,7 @@ namespace GOAT
 				}
 				*/
 			
-			LS[nLS] = ls;
+			// LS[nLS] = ls;
 			LS[nLS]->clearObjects();
 			if (nObj > 0) LS[nLS]->ObjectList(nObj, Obj);
 			LS[nLS]->raytype = raytype;
@@ -478,7 +477,9 @@ namespace GOAT
 		{
 			if (nLS > 0)
 			{
-				free(LS);
+			   //  free(LS);
+				LS.clear();
+				LS.shrink_to_fit();
 				nLS = 0;
 			}
 		}
@@ -502,7 +503,7 @@ namespace GOAT
 			LSRRT->Pol2 = Pol2;
 		}
 
-		void Scene::addLightSourceList(int nls, LightSrc** ls)
+		void Scene::addLightSourceList(int nls, std::vector<LightSrc*> ls)
 		{
 			for (int i = 0; i < nls; i++)
 			{

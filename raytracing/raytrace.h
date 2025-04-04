@@ -6,6 +6,7 @@
 #include "detector.h"
 #include "raybase.h"
 #include "superarray.h"
+#include <vector>
 
 namespace GOAT
 {
@@ -38,7 +39,7 @@ namespace GOAT
 			void removeLightSrc(int index); ///< remove one light source from the scene
 			void removeAllLightSources(); ///< removes all light sources from the scene
 			void addLightSourceRRT(LightSrc* ls, maths::Vector<std::complex<double> >Pol1, maths::Vector<std::complex<double> >Pol2);
-			void addLightSourceList(int nls, LightSrc** ls); ///< add list of lightsources, nls: number of lightsources
+			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
 			void addDetector(Detector* D); ///< add single detector to scene
 			void addDetectorList(int nDet, Detector** D); ///< add a list of detectors to the scene, nDet: number of detectors to add
 			void removeAllDetectors(); ///< remove all detectors from the scene
@@ -51,7 +52,7 @@ namespace GOAT
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
 			ObjectShape** Obj;   ///< List of all objects within the scene
-			LightSrc** LS; ///< List of all light sources 
+			std::vector<LightSrc*> LS; ///< List of all light sources 
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
 			Detector** Det; ///< List of detectors, which are storing the electric field inside a defined area
 			int nObj = 0; ///< Number of objects in the scene
