@@ -98,7 +98,7 @@ namespace GOAT
              * @param Obj List of all objects in the scene
              * @param numObjs Numnber of objects in List
              */
-            void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs);
+            void initResult(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, std::vector<ObjectShape*> Obj, int numObjs);
             std::vector<std::function<std::complex<double>(double) > > nList; ///< List of the refractive index functions      
             double getD() { return D; } ///< relative change 
             void setNumberOfThreads(int n) {tp.number_of_threads=n;} ///< set number of threads which can be used by the program

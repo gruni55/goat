@@ -51,7 +51,8 @@ namespace GOAT
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
-			ObjectShape** Obj;   ///< List of all objects within the scene
+			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
+			// ObjectShape** Obj;   
 			std::vector<LightSrc*> LS; ///< List of all light sources 
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
 			Detector** Det; ///< List of detectors, which are storing the electric field inside a defined area

@@ -96,7 +96,7 @@ void tubedRay::checkObjectIntersection(int Index[5], maths::Vector<double> *Pmin
 tubedRay::tubedRay(Plane E, const maths::Vector<double> &p, double dy, double dz,
          const maths::Vector<std::complex<double> > &Pol,
          std::complex<double>  n0, double r0, double k0,
-         const int Anzein, ObjectShape **Einschluss,bool logRay)
+         const int Anzein, std::vector<ObjectShape*>Einschluss,bool logRay)
 {
  g.isGauss=false;
  GOAT::maths::Matrix<double> D;
@@ -131,7 +131,7 @@ tubedRay::tubedRay(Plane E, const maths::Vector<double> &p, double dy, double dz
 tubedRay::tubedRay(const maths::Vector<double> &p, double dy, double dz,
          const maths::Vector<std::complex<double> > &Pol, const maths::Vector<double> &K,
          std::complex<double>  n0, double r0, double k0,
-         const int Anzein, ObjectShape **Einschluss,bool logRay)
+         const int Anzein, std::vector<ObjectShape*>Einschluss,bool logRay)
 {
  g.isGauss=false;
  this->logRay=logRay;

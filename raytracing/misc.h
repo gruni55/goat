@@ -28,10 +28,10 @@ namespace GOAT
 
         void initInc(ObjectShape* E);
         void setR0(ObjectShape* E, double r0);
-        void copyFormList(ObjectShape**& d, ObjectShape** s, int anz);
-        void binWriteIncList(std::ofstream& os, ObjectShape** E, int anz);
+        void copyFormList(std::vector<ObjectShape*>& d, std::vector<ObjectShape*> s, int anz);
+        void binWriteIncList(std::ofstream& os, std::vector<ObjectShape*> E, int anz);
         void binWriteInc(std::ofstream& os, ObjectShape* E);
-        void binReadIncList(std::ifstream& is, ObjectShape**& E, int anz);
+        void binReadIncList(std::ifstream& is, std::vector<ObjectShape*>& E, int anz);
         void binReadInc(std::ifstream& is, ObjectShape*& E, bool isNew);
         void copyInc(ObjectShape*& d, ObjectShape* s);
         void deleteInc(ObjectShape* E);

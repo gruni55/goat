@@ -24,7 +24,7 @@ namespace GOAT
             virtual void reflectRay(RayBase*& tray, maths::Vector<double> n, std::complex<double> n1, std::complex<double> n2) = 0; ///< reflects ray
             RayBase* tray=0; ///< transmitted ray (used by the raytracer, for internal use only)
             bool inObject=false; ///< is in an object
-            ObjectShape** Obj=0; ///< list of all objects
+            std::vector<ObjectShape*> Obj; ///< list of all objects
             int numObj=0; ///< number of objects
             int objIndex=0; ///< index of the current object
             std::complex<double>  n, n0; ///< current refractive index and refractive index of the host material

@@ -53,30 +53,32 @@ namespace GOAT
 			}
 		}
 
-		void copyFormList(ObjectShape**& d, ObjectShape** s, int anz)
+		void copyFormList(std::vector<ObjectShape*>& d, std::vector<ObjectShape*> s, int anz)
 		{
 			/*
 			  Kopiert die Einschluss-Liste s in die neue Liste d
 			*/
 			//	cout << "COPY OBJECT LIST" << endl;
-			if ((anz > 0) && (s != 0))
+			ObjectShape* os;
+			if ((anz > 0) && (!s.empty() ))
 			{
-				d = (ObjectShape**)malloc(sizeof(ObjectShape*) * anz);
 				for (int i = 0; i < anz; i++)
 				{
 					switch (s[i]->type)
 					{
-					case OBJECTSHAPE_ELLIPSOID: d[i] = new Ellipsoid(*((Ellipsoid*)s[i])); break;
-					case OBJECTSHAPE_SURFACE: d[i] = new surface(*((surface*)s[i])); break;
-					case OBJECTSHAPE_BOX: d[i] = new Box(*((Box*)s[i])); break;
+					case OBJECTSHAPE_ELLIPSOID: os = new Ellipsoid(*((Ellipsoid*)s[i])); break;
+					case OBJECTSHAPE_SURFACE: os = new surface(*((surface*)s[i])); break;
+					case OBJECTSHAPE_BOX: os = new Box(*((Box*)s[i])); break;
 					}
-					d[i]->initQuad();
+
+					os->initQuad();
+					d.push_back(os);
 					//   sprintf (d[i]->Beschreibung,"%s",s[i]->Beschreibung); 
 				}
 			}
 		}
 
-		void binWriteIncList(std::ofstream& os, ObjectShape** E, int anz)
+		void binWriteIncList(std::ofstream& os, std::vector<ObjectShape*>E, int anz)
 		{
 			os.write((char*)&anz, (char)sizeof(anz));
 			if (anz > 0)
@@ -95,20 +97,20 @@ namespace GOAT
 			}
 		}
 
-		void binReadIncList(std::ifstream& is, ObjectShape**& E, int anz)
+		void binReadIncList(std::ifstream& is, std::vector<ObjectShape*>& E, int anz)
 		{
 			int Anz;
 			is.read((char*)&Anz, (char)sizeof(Anz));
 //			std::cout << "ANZ=" << Anz << std::endl;
+			ObjectShape* os;
 			if (anz > 0)
 			{
-				E = (ObjectShape**)malloc(sizeof(ObjectShape*) * anz);
 				for (int i = 0; i < anz; i++)
 				{
-					binReadInc(is, E[i], true);
+					binReadInc(is, os, true);
+					E.push_back(os);
 				}
-			}
-			else E = 0;
+			}			
 		}
 
 		void binReadInc(std::ifstream& is, ObjectShape*& E, bool isNew)

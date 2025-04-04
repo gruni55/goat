@@ -28,7 +28,7 @@ namespace GOAT
 			Ray_pow(double pow, const maths::Vector<double>& p,
 				const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
 				std::complex<double>  n0, double r0, double k0,
-				const int numObjs, ObjectShape** Einschluss);
+				const int numObjs, std::vector<ObjectShape*> Einschluss);
 			/**
 			* @brief Copy constructor
 			*/

@@ -32,7 +32,6 @@ namespace  GOAT
 		LightSrc::LightSrc()
 		{
 			type = LIGHTSRC_ERROR;
-			Obj = 0;
 			numObjs = 0;
 			P0 = 1.0;
 			Pall = 0.0;
@@ -192,9 +191,7 @@ namespace  GOAT
 
 		void LightSrc::addObject(ObjectShape* obj)
 		{
-			if (numObjs > 0) Obj = (ObjectShape**)realloc(Obj, sizeof(ObjectShape*) * (numObjs + 1));
-			else Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
-			Obj[numObjs] = obj;
+			Obj.push_back(obj);
 			/*switch (obj->type)
 			{
 			case FUNSURF: Ein[numObjs] = new Funsurf(*((Funsurf*)obj)); break;
@@ -218,7 +215,7 @@ namespace  GOAT
 			numObjs++;
 		}
 
-		void LightSrc::ObjectList(int Anz, ObjectShape** Obj)
+		void LightSrc::ObjectList(int Anz, std::vector<ObjectShape*> Obj)
 		{
 			for (int i = 0; i < Anz; i++)
 				addObject(Obj[i]);
@@ -274,16 +271,12 @@ namespace  GOAT
 		{
 			if ((i < 0) || (i > numObjs - 1))
 			{
-				Obj = (ObjectShape**)realloc(Obj, sizeof(ObjectShape*) * (numObjs + 1));
-				Obj[numObjs] = O;
-				// copyInc(Ein[numObjs],O);
+				Obj.push_back(O);
 				numObjs++;
 			}
 			else
 			{
-				// delete Ein[i];
 				Obj[i] = O;
-				// copyInc(Ein[i],O);
 			}
 		}
 
@@ -294,7 +287,6 @@ namespace  GOAT
 			density = 1;
 			raytype = LIGHTSRC_RAYTYPE_IRAY;
 			numObjs = 0;
-			Obj = 0;
 			e1 = maths::ex;
 			e2 = maths::ey;
 
@@ -323,7 +315,6 @@ namespace  GOAT
 			this->N = N; 
 			this->n0 = 1.0;			
 			numObjs = 0;
-			Obj = 0;
 			reset();
 		}
 
@@ -437,7 +428,6 @@ namespace  GOAT
 			density = 2.0 * rmax / ((double)N);
 			raytype = LIGHTSRC_RAYTYPE_IRAY;
 			numObjs = 0;
-			Obj = 0;
 			e1 = maths::ex;
 			e2 = maths::ey;
 			reset();
@@ -465,7 +455,6 @@ namespace  GOAT
 			this->N = N;
 			this->n0 = 1.0;
 			numObjs = 0;
-			Obj = 0;
 			reset();
 		}
 
@@ -629,7 +618,10 @@ namespace  GOAT
 
 		LightSrc::~LightSrc(void)
 		{
-			if (numObjs > 0) delete[] Obj;
+			if (numObjs > 0) {
+				Obj.clear(); 
+				Obj.shrink_to_fit();
+			}
 			numObjs = 0;
 			reset();
 		}
@@ -653,7 +645,6 @@ namespace  GOAT
 			density = 1;
 			raytype = LIGHTSRC_RAYTYPE_IRAY;
 			numObjs = 0;
-			Obj = 0;
 			e1 = maths::ex;
 			e2 = maths::ey;
 			n0 = 1.0;

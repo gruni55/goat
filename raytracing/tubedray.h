@@ -48,7 +48,7 @@ namespace GOAT {
             maths::Vector<double> k[5];  /// current direction of the edge ray (index 0-3) and of the center ray (index 4)
             maths::Vector<std::complex<double> > E[5]; /// current electric field of the edge ray (index 0-3) and of the center ray (index 4)
             int numObj; /// number of objects within the scene
-            ObjectShape** Obj; /// list of objects in the scene
+            std::vector<ObjectShape*> Obj; /// list of objects in the scene
             double r0; /// radius of the calculation space
             maths::Vector<std::complex<double> >*** Gitter;
         } tubedRayBuffer;
@@ -97,8 +97,8 @@ namespace GOAT {
              */
             tubedRay(Plane E, const maths::Vector<double>& p, double dy, double dz, const
                 maths::Vector<std::complex<double> >& Pol, std::complex<double>  n0, double r0, double
-                k0, const int Anzein = 0, ObjectShape** Einschluss = NULL, bool logRay = false);
-            tubedRay(const maths::Vector<double>& p, double dy, double dz, const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K, std::complex<double>  n0, double r0, double k0, const int Anzein = 0, ObjectShape** Einschluss = NULL, bool logRay = false);
+                k0, const int Anzein = 0, std::vector<ObjectShape*> Einschluss = std::vector<ObjectShape*>(), bool logRay = false);
+            tubedRay(const maths::Vector<double>& p, double dy, double dz, const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K, std::complex<double>  n0, double r0, double k0, const int Anzein = 0, std::vector<ObjectShape*> Einschluss = std::vector<ObjectShape*>(), bool logRay = false);
             void setGauss(Gauss g) { this->g = g; }
             bool next(); ///< do the next step
             maths::Vector<std::complex<double> > getE() { return E[4]; }

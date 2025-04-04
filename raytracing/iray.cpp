@@ -93,7 +93,7 @@ namespace GOAT
         IRay::IRay(const maths::Vector<double>& p,
             const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
             std::complex<double>  n0, double r0, double k0,
-            const int numObj, ObjectShape** obj)
+            const int numObj, std::vector<ObjectShape*> obj)
         {
             double l;
             E1 = maths::czero;

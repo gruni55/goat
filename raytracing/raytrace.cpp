@@ -372,7 +372,6 @@ namespace GOAT
 		{
 			nLS = 0;
 			nObj = 0;
-			Obj = 0;			
 			nS = 1.0;			
 			LSRRT = 0;
 			nDet = 0;
@@ -388,19 +387,16 @@ namespace GOAT
 
 		void Scene::addObject(ObjectShape* obj)
 		{
-			if (nObj == 0)
-				Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
-			else
-				Obj = (ObjectShape**)realloc(Obj, sizeof(ObjectShape*) * (nObj + 1));
-			Obj[nObj] = obj;
+			
 			obj->r0 = r0;
 			obj->initQuad();
+			Obj.push_back(obj);
 			int intersect = -1;
 		//	std::cout << "pul=" << obj->pul << "   por=" << obj->por << "  P=" << obj->P << std::endl;
 			if (obj->isOutsideWorld())
 				std::cerr << "Object " << nObj << " might be (partly) outside the calculation space, please check!" << std::endl;
 			for (int i = 0; (i < nObj) && (intersect==-1); i++)
-				if (intersectionTest(*Obj[0], *obj)) intersect = i;
+				if (intersectionTest(*Obj[i], *obj)) intersect = i;
 			if (intersect > -1) std::cerr << "Object " << nObj << " may intersect with object " << intersect << " - Please check !" << std::endl;
 			// add Object to light source(s) 
 			for (int i = 0; i < nLS; i++)
@@ -418,7 +414,8 @@ namespace GOAT
 		{
 			if (nObj > 0)
 			{
-				free(Obj);
+				Obj.clear();
+				Obj.shrink_to_fit();
 				for (int i = 0; i < nLS; i++)  // remove objects from all light sources
 					LS[i]->clearObjects();
 				nObj = 0;

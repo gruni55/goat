@@ -33,7 +33,7 @@ namespace GOAT
           * @param type describes wether the whole space of the grid is allocated (IN_HOST) or in the objects only (IN_OBJECT) 
          */
          SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, const int typ=IN_OBJECT);
-         SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz,ObjectShape **Obj, int numObjs, const bool isAbsolute=false, const int typ=IN_OBJECT);
+         SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, std::vector<ObjectShape*>Obj, int numObjs, const bool isAbsolute=false, const int typ=IN_OBJECT);
          SuperArray(const SuperArray& S)
          {
              Error = NO_ERRORS;
@@ -93,7 +93,7 @@ namespace GOAT
          * @param isAbsolute true: Location/size information in absolute coordinates
          * 
          */
-         bool addInc(ObjectShape **Obj,int numObj, const bool isAbsolute=false); // numObjs Einschluesse hinzufuegen
+         bool addInc(std::vector<ObjectShape*>Obj,int numObj, const bool isAbsolute=false); // numObjs Einschluesse hinzufuegen
                                            // isAbsolute=true => Orts-/Groessenangaben in absoluten Koordinaten 
          /**
          * @brief Add object to SuperArray
@@ -136,7 +136,7 @@ namespace GOAT
          T kugelwert(int ix, int iy, int iz); ///< for internal use only
  
          int Error;  ///< Holds an error number 
-         ObjectShape** Obj=NULL; ///< here are the objects
+         std::vector<ObjectShape*> Obj; ///< here are the objects
          int numObjs; ///< Number of objects
          int type; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
          std::vector<int> ywerte;
@@ -183,7 +183,6 @@ namespace GOAT
         double b = 2.0 * r0;
         isequal = false;
         numObjs = 0;
-        Obj = 0;
         this->r0 = r0;
 
 
@@ -196,7 +195,7 @@ namespace GOAT
             allockugel();
     }
 
-    template <class T> SuperArray<T>::SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, ObjectShape** Obj, int numObjs, const bool isAbsolute, const int typ)
+    template <class T> SuperArray<T>::SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, std::vector<ObjectShape*> Obj, int numObjs, const bool isAbsolute, const int typ)
     {
         Error = NO_ERRORS;
         double b = 2.0 * r0;
@@ -215,7 +214,7 @@ namespace GOAT
     }
 
 
-    template <class T> bool SuperArray<T>::addInc(ObjectShape** Obj, int numObjs, const bool isAbsolute)
+    template <class T> bool SuperArray<T>::addInc(std::vector<ObjectShape*> Obj, int numObjs, const bool isAbsolute)
     {
         bool ok = true;
         for (int i = 0; (i < numObjs)/* && (canCalc)*/ && (ok); i++) ok = addInc(Obj[i], isAbsolute);
@@ -267,19 +266,17 @@ namespace GOAT
             if (numObjs < 1)  // Es ist der erste Einschluss der hinzugef�gt wird
             {   
                 G.resize(1);                        
-                Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
-                if (Obj == NULL) { error(MALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
+                G.shrink_to_fit();
             }
             else
             {
                 G.resize(numObjs + 1);
-                Obj = (ObjectShape**)realloc(Obj, (numObjs + 1) * sizeof(ObjectShape*));
-                if (Obj == NULL) { error(REALLOC_ERR, "SuperArray::addInc Obj=.."); return false; }
+                G.shrink_to_fit();
             }
         }
       
         n.push_back(hn);
-        Obj[numObjs] = E;
+        Obj.push_back(E);
         h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
         Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
         
@@ -673,7 +670,8 @@ namespace GOAT
         {
         /*  for (int i = 0; i < this->numObjs; i++)
                 delete this->Obj[i];*/
-            delete[] this->Obj;
+            this->Obj.clear();
+            this->Obj.shrink_to_fit();
             this->numObjs = 0;
         }
         r0 = S.r0;

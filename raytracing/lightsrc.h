@@ -7,6 +7,7 @@
 #include "iray.h"
 #include "objectshape.h"
 #include "ray_pow.h"
+#include <vector>
 
 namespace GOAT
 {
@@ -71,7 +72,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			LightSrc(const LightSrc&); ///< Copy constructor
 			void clearObjects(); ///< clear object list
 			void addObject(ObjectShape* obj);  ///< add single object to the object list
-			void ObjectList(int Anz, ObjectShape** Obj);  ///< import object list
+			void ObjectList(int Anz, std::vector<ObjectShape*> Obj);  ///< import object list
 			/// 
 
 			/**
@@ -133,7 +134,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			void setPos(maths::Vector<double> P); ///< sets the position of the light source. This is the center of the square area of the light source
 			maths::Vector<double> getPos() { return Pos; }  ///< returns the position of the light source. This is the center of the square area of the light source
 			void setN0(std::complex<double> n0) { this->n0 = n0; } ///< sets the complex valued refractive index of the intermediate medium
-			ObjectShape** Obj;         ///< list of all objects
+			std::vector<ObjectShape*> Obj; ///< list of all objects
 			// protected :
 			maths::Vector<double> Pos; ///< position of the light source (center of the square area of the light source)
 			int type;           ///< type of the light source
@@ -317,7 +318,6 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 				f = (Pos - focuspos)*k;
 				z0 = M_PI * w0 * w0 / wvl;
 				numObjs = 0;
-				Obj = 0;
 				n0 = 1.0;
 				double d = abs(Pos - focuspos);
 				calcz0();

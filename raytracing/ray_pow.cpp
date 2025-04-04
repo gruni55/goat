@@ -12,7 +12,7 @@ namespace GOAT
         Ray_pow::Ray_pow(double pow, const maths::Vector<double>& p,
             const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
             std::complex<double>  n0, double r0, double k0,
-            const int numObjs = 0, ObjectShape** Objs = NULL) : IRay(p, Pol, K, n0, r0, k0, numObjs, Objs)
+            const int numObjs = 0, std::vector<ObjectShape*> Objs = std::vector<ObjectShape*>()) : IRay(p, Pol, K, n0, r0, k0, numObjs, Objs)
         {
             this->Pow = pow;
             E1 = Pol / abs(Pol);
