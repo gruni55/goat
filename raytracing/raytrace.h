@@ -31,7 +31,7 @@ namespace GOAT
 			Scene(const Scene& S); ///< Copy constructor
 			void setPhaseProgress(bool suppress_phase_progress);
 			void addObject(ObjectShape* Obj); ///< add single object to scene
-			void addObjectList(int nobj, ObjectShape** obj); ///< add a list of objects to scene, nobj: number of objects
+			void addObjectList(int nobj, std::vector<ObjectShape*> obj); ///< add a list of objects to scene, nobj: number of objects
 			void removeObject(int index); ///< removes object with index "index" from object list
 			void removeAllObjects(); ///< removes all objects from the scene
 			void addLightSource(LightSrc* ls) { addLightSource(ls, raytype); } ///< add single lightsource to scene
@@ -41,7 +41,7 @@ namespace GOAT
 			void addLightSourceRRT(LightSrc* ls, maths::Vector<std::complex<double> >Pol1, maths::Vector<std::complex<double> >Pol2);
 			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
 			void addDetector(Detector* D); ///< add single detector to scene
-			void addDetectorList(int nDet, Detector** D); ///< add a list of detectors to the scene, nDet: number of detectors to add
+			void addDetectorList(int nDet, std::vector< Detector*> D); ///< add a list of detectors to the scene, nDet: number of detectors to add
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
@@ -52,10 +52,9 @@ namespace GOAT
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
-			// ObjectShape** Obj;   
 			std::vector<LightSrc*> LS; ///< List of all light sources 
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
-			Detector** Det; ///< List of detectors, which are storing the electric field inside a defined area
+			std::vector< Detector*> Det; ///< List of detectors, which are storing the electric field inside a defined area
 			int nObj = 0; ///< Number of objects in the scene
 			int nLS = 0;  ///< Number of light sources
 			int nDet = 0; ///< Number of detectors

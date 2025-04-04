@@ -404,7 +404,7 @@ namespace GOAT
 			nObj++;
 		}
 
-		void Scene::addObjectList(int nobj, ObjectShape** obj)
+		void Scene::addObjectList(int nobj, std::vector< ObjectShape*> obj)
 		{
 			for (int i = 0; i < nobj; i++)
 				addObject(obj[i]);
@@ -511,15 +511,11 @@ namespace GOAT
 
 		void Scene::addDetector(Detector* D)
 		{
-			if (nDet == 0)
-				Det = (Detector**)malloc(sizeof(Detector));
-			else
-				Det = (Detector**)realloc(Det, sizeof(Detector) * (nDet + 1));
-			Det[nDet] = D;
+			Det.push_back(D);
 			nDet++;
 		}
 
-		void Scene::addDetectorList(int nDet, Detector** D)
+		void Scene::addDetectorList(int nDet, std::vector<Detector *> D)
 		{
 			for (int i = 0; i < nDet; i++) addDetector(D[i]);
 		}
@@ -536,8 +532,9 @@ namespace GOAT
 			{
 				/*for (int i = 0; i < nDet; i++)
 					delete Det[i];*/
-				free(Det);
-				nDet = 0;
+				Det.clear();
+				Det.shrink_to_fit();
+;				nDet = 0;
 			}
 		}
 
