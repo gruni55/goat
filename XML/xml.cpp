@@ -373,9 +373,10 @@ namespace GOAT
 													if (leftCurvatureStr.compare("concave") == 0) lensparms.left.curvature = GOAT::raytracing::concave;
 													if (leftCurvatureStr.compare("convex") == 0) lensparms.left.curvature = GOAT::raytracing::convex;
 												}
-												else lensparms.left.curvature = GOAT::raytracing::flat;
+												else lensparms.left.curvature = GOAT::raytracing::flat; // default value is "flat"
 												lensparms.left.R=leftEll->DoubleAttribute("R",0.0);
 												
+
 												tinyxml2::XMLElement* rightEll = objEll->FirstChildElement("right");
 												rightCurvatureStr = rightEll->Attribute("Curvature");
 												if (!rightCurvatureStr.empty())
@@ -386,7 +387,7 @@ namespace GOAT
 												}
 												else lensparms.right.curvature = GOAT::raytracing::flat;
 												lensparms.right.R = rightEll->DoubleAttribute("R", 0.0);
-												lensparms.offset = objEll->DoubleAttribute("offset", 0.0);
+                                            	lensparms.offset = objEll->DoubleAttribute("offset", 0.0);
 												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);
 
 

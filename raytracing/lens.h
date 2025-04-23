@@ -7,7 +7,8 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-        enum Curvature {convex,concave,flat};
+        enum Curvature {convex,concave,flat}; ///< Enum to descrive the curvature of the surface of the lens
+        Curvature int2Curvature (int index); ///< converts integer value to Curvature enum
         /**
        * @brief Structure to describe one side of an spheric lens 
        * For this type of lens one side can either be spherical (convex or  concave) or flat 

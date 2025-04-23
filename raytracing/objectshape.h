@@ -23,13 +23,13 @@
 namespace GOAT {
     namespace raytracing {
 #define OBJECTSHAPE_NO_SHAPE    -1  //F/< No shape defined
-#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is an ellipsoid 
-#define OBJECTSHAPE_SURFACE      1 ///< Shape is triangulated surface
-#define OBJECTSHAPE_CONE         2 ///< Shape is a cone
-#define OBJECTSHAPE_ASPHERIC_LENS 3 ///< Shape is an aspheric lens
-#define OBJECTSHAPE_SPHERIC_LENS 4 ///< Shape is a spheric lens
-#define OBJECTSHAPE_CYLINDER     5 ///< Shape is a cylinder
-#define OBJECTSHAPE_VORTEX_PLATE 6 ///< Shape is a vortex plate
+#define OBJECTSHAPE_ELLIPSOID     10000  ///< Shape is an ellipsoid 
+#define OBJECTSHAPE_SURFACE       10001 ///< Shape is triangulated surface
+#define OBJECTSHAPE_CONE          10002 ///< Shape is a cone
+#define OBJECTSHAPE_ASPHERIC_LENS 10003 ///< Shape is an aspheric lens
+#define OBJECTSHAPE_SPHERIC_LENS  10004 ///< Shape is a spheric lens
+#define OBJECTSHAPE_CYLINDER      10005 ///< Shape is a cylinder
+#define OBJECTSHAPE_VORTEX_PLATE  10006 ///< Shape is a vortex plate
 
 
 #define FUNSURF      2  

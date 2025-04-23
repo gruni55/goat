@@ -531,8 +531,8 @@ namespace GOAT
 			E.n = k;
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / N;
-			S.E2 = Pol2 / N;
+			S.E1 = Pol ;
+			S.E2 = Pol2 ;
 			// S.init_Efeld(E,Pol);
 			rayCounter++;
 			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
@@ -635,7 +635,7 @@ namespace GOAT
 
             double x,y;
 
-            do 
+        /*    do 
             {
                x=nd(gen);
             } while ((x<-D1/2.0) || (x>D1/2.0));
@@ -644,6 +644,14 @@ namespace GOAT
             {
                y=nd(gen);
             } while ((y<-D2/2.0) || (y>D2/2.0));
+			*/
+		  double r2;
+		  do 
+		  {
+			 x=nd(gen);
+			 y=nd(gen);
+             r2=x*x+y*y;
+		  } while ((r2<rmin*rmin) && (r2>rmax*rmax));
 /*
 			double phi = uphi(gen);
 			double x, y;
@@ -660,13 +668,13 @@ namespace GOAT
 			maths::Vector<double> P = genStartingPos();
 			E.e1 = e1;
 			E.e2 = e2;
-			Isum1=abs2(S.E1);
-			Isum2=abs2(S.E2);
+			Isum1+=abs2(S.E1);
+			Isum2+=abs2(S.E2);
 			E.n = k;
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / N;
-			S.E2 = Pol2 / N;
+			S.E1 = Pol;
+			S.E2 = Pol2;
 			// S.init_Efeld(E,Pol);
 			rayCounter++;
 			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;

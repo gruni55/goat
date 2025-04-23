@@ -3,8 +3,8 @@
 
 #include "vector.h"
 #include "box.h"
-#define DETECTOR_ANGLE 1
-#define DETECTOR_PLANE 2
+#define DETECTOR_ANGLE 20001
+#define DETECTOR_PLANE 20002
 #include <iostream>
 #include <vector>
 

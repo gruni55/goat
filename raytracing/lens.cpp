@@ -3,6 +3,18 @@ namespace GOAT
 {
     namespace raytracing
     {
+        Curvature int2Curvature(int index)
+        {
+            Curvature cv;
+            switch (index)
+            {
+                case 0 : cv=convex; break;
+                case 1 : cv=concave; break;
+                case 2 : cv=flat; break;
+            }
+            return cv;
+        }
+
         void binWrite(lensSide ls, std::ofstream& os)
         {
             ls.P.binWrite(os);

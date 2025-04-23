@@ -196,7 +196,7 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
  \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter name & description  & possible value & default value\\
  \hline
-  Pos & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
+  Position & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
   type & Type of the object  & \parbox{3cm}{ellipsoid,\\surface,\\cone,\\aspheric\_lens,\\box} & --  \\
   \hline 
@@ -275,12 +275,17 @@ A spheric lens is described by the two side faces (see also documentation of the
 
  
 \vspace{1em} 
-\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
- Parameter  & description  & possible value & default value\\
+\begin{tabular}{p{2cm}|m{2cm}|m{2.5cm}|m{2.0cm}|p{1.7cm}}
+ subcategory  & parameter & description  & possible value & default value\\
  \hline
- R & radius of the lens & double & 0 \\
+ & radius  & radius of the lens (cross section) & double & 0 \\
  \hline
- left  
+ & offset & offset between the sides & double & 0 \\
+ \hline
+ left(right)\footnote{parameters for the subcategories "left" and "right" are the same} & & Subcategory for the left(right) side & N/A & N/A  \\
+ \hline
+  left(right) & Curvature & Curvature type & "flat", "concave" or "flat" & --  \\
+    left(right) & R & Radius  & double  & 0  \\
  \end{tabular}
  
 \subsection{Vortex phase plate}
