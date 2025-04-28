@@ -28,9 +28,9 @@ namespace GOAT
 
 		void xmlReader::readXML(const char* fname)
 		{
-			
+			setlocale(LC_NUMERIC, "C");
 			tinyxml2::XMLDocument doc;
-			tinyxml2::XMLError eResult=doc.LoadFile(fname);
+			tinyxml2::XMLError eResult=doc.LoadFile(fname);                        
 						
 			if (eResult == tinyxml2::XML_SUCCESS)
 			{
@@ -151,8 +151,7 @@ namespace GOAT
 												   }
 												   break;
 
-					case TOKEN_LIGHTSOURCE_PLANE_MC: {      
-                                                        std::cout << "light source plane_mc" << std::endl;
+					case TOKEN_LIGHTSOURCE_PLANE_MC: {                                                              
 														ls = new GOAT::raytracing::LightSrcPlane_mc(Pos, numRays, wavelength, size, Pol);
 														GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
 														ls->setk(k);
@@ -251,8 +250,7 @@ namespace GOAT
 					}
                    LS[numLS]->P0 = power;
 					numLS++;
-                    std::cout << "numLS=" << numLS << std::endl;
-
+            
 				} // while loop		
                 
 				S.addLightSourceList(numLS, LS);
@@ -422,8 +420,7 @@ namespace GOAT
                                                 break;
                                             }
                     case TOKEN_OBJECT_VORTEX_PLATE:
-                                            {
-                                                std::cout << "Vortex plate added" << std::endl;
+                                            {                                                
                                                 double height, radius, dh;
                                                 int m;
                                                 height = objEll->DoubleAttribute("height", 1);
@@ -1094,9 +1091,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 		{
 			double im=defim, re=defre;
 			if (ell != NULL)
-			{
+			{       
+                /*         
 				re = ell->DoubleAttribute("real", defre);
 				im = ell->DoubleAttribute("imag", defim);
+                */              
+                ell->QueryDoubleAttribute("real", &re);
+				ell->QueryDoubleAttribute("imag", &im);
 			}
 			return std::complex<double>(re, im);
 		}
