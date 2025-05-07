@@ -414,8 +414,26 @@ bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &
 	  return true;
   }*/
   return false;
+
+  
+
 #endif
 }
+
+#ifdef WITH_OCTREE
+void surface::setOctreeRecursiondepth(int octreeRecursions)
+{
+  
+  Tree.createTree(octreeRecursions);
+		
+  for (int i = 0; i < numTriangles; i++)
+  {
+    
+    addTriangleToTriangle(Tree, S[i]);
+  }		
+}
+
+#endif
 
 bool surface::isInside(const maths::Vector<double> &p)
 {
@@ -729,7 +747,7 @@ maths::Vector<double> por, pul;
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
 		Tree.BBox = Box(Ph, d, this->n);
-		Tree.createTree();
+		Tree.createTree(5);
 		
 		for (int i = 0; i < numTriangles; i++)
 			addTriangleToTriangle(Tree, S[i]);

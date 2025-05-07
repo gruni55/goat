@@ -58,7 +58,7 @@ namespace GOAT
 			 * \param d Vector, where each component is the corresponding side length
 			 */
 			void setBoundingBox(maths::Vector<double> MP, maths::Vector<double> d);
-
+			void setRecursiondepth(int max_recursions);
 			Octree<T>* parent;
 			Octree<T>** child;
 			T* Element;
@@ -120,7 +120,7 @@ namespace GOAT
 					child[i]->trimOctree(rek + 1);
 			}
 
-			if (hnChilds < nChilds) // Kinder wurden gelöscht ==> umsortieren notwendig
+			if (hnChilds < nChilds) // Kinder wurden gelï¿½scht ==> umsortieren notwendig
 			{
 				Octree<T>** hChild = 0;
 				int i = 0;
@@ -210,6 +210,16 @@ namespace GOAT
 		template <class T> void Octree<T>::setBoundingBox(maths::Vector<double> MP, maths::Vector<double> d)
 		{
 			BBox = Box(MP, d, 1.0);
+		}
+
+		template <class T> void Octree<T>:: setRecursiondepth(int max_recursions)
+		{			
+			// delete the whole tree...
+			delAllChilds();
+			delElements();
+
+			// ... and recreate it with the new number of
+            // createTree(max_recursions);
 		}
 
 
