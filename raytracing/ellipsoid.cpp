@@ -49,12 +49,12 @@ namespace GOAT
         }
 
         void Ellipsoid::scale(double sf)
-        {
+        {           
             double sfold = this->sf;
             this->sf = sf;
             r = r * sf / sfold;
             r_2 = GOAT::maths::Vector<double>(1.0 / (r[0] * r[0]), 1.0 / (r[1] * r[1]), 1.0 / (r[2] * r[2]));
-            initQuad();
+            initQuad();            
         }
 
         bool Ellipsoid::next(const GOAT::maths::Vector<double>& Ps, const GOAT::maths::Vector<double>& K,
@@ -333,8 +333,8 @@ namespace GOAT
             os << "%r=" << E.r << std::endl;
             os << "%P=" << E.P << std::endl;
             os << "%Ealpha=" << E.Ealpha / M_PI * 180.0
-                << "°   Ebeta=" << E.Ebeta / M_PI * 180.0
-                << "°   Egamma=" << E.Egamma / M_PI * 180.0 << "°" << std::endl;
+                << "ï¿½   Ebeta=" << E.Ebeta / M_PI * 180.0
+                << "ï¿½   Egamma=" << E.Egamma / M_PI * 180.0 << "ï¿½" << std::endl;
             return os;
         }
 
@@ -399,7 +399,7 @@ namespace GOAT
             I(0, 0) = 1.0 / 5.0 * (r[1] * r[1] + r[2] * r[2]);
             I(1, 1) = 1.0 / 5.0 * (r[0] * r[0] + r[2] * r[2]);
             I(2, 2) = 1.0 / 5.0 * (r[0] * r[0] + r[1] * r[1]);
-            return I / 1E-12; // 1E-12, da r hier in µm angegeben wird, ich will aber I in m²
+            return I / 1E-12; // 1E-12, da r hier in ï¿½m angegeben wird, ich will aber I in mï¿½
         }
     }
 }

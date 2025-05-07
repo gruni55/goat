@@ -436,7 +436,8 @@ namespace GOAT
                                             }
 
 					}
-									
+					double sf=objEll->DoubleAttribute("scaling",1);
+                    if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf); 
 					numObj++;
 				} // while loop
 

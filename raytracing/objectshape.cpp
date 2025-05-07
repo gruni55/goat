@@ -204,12 +204,24 @@ namespace GOAT
             return result;
         }
 
+        void ObjectShape::scale(double sf)
+        {            
+            switch (type)
+            {
+                case OBJECTSHAPE_BOX : ((Box *)this)->scale(sf); break;
+                case OBJECTSHAPE_SURFACE : ((surface *)this)->scale(sf); break;
+                case OBJECTSHAPE_ELLIPSOID : ((Ellipsoid *)this)->scale(sf); break;
+            }
+        }
+
         bool intersectionTest(ObjectShape& A, ObjectShape& B)
         {
          bool result = (A.pul[0] <= B.por[0]) && (A.por[0] >= B.pul[0]) &&
                        (A.pul[1] <= B.por[1]) && (A.por[1] >= B.pul[1]) &&
                        (A.pul[2] <= B.por[2]) && (A.por[2] >= B.pul[2]);
          return result;             
-        }       
+        }      
+        
+        
     }
 }

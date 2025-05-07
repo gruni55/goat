@@ -81,7 +81,7 @@ namespace GOAT {
 
             virtual void binWrite(std::ofstream& os) = 0;                    ///< binary writing to file   
             virtual void binRead(std::ifstream& os) = 0;                     ///< binary reading from file
-            virtual void scale(double sf) = 0;                                ///< sets scaling of the shape by the factor sf
+            void scale(double sf);                                ///< sets scaling of the shape by the factor sf
             virtual bool next(const maths::Vector<double>& p, const maths::Vector<double>& k,
                 maths::Vector<double>& pout) = 0; ///< searches for the next (nearest) intersection of a ray with the object, p: current position of the ray, k: direction of the ray, pout: position of the crossing point. Returns true, if a crossing point was found.
 
@@ -122,7 +122,7 @@ namespace GOAT {
             maths::Vector<double> e[3];        ///< unity vectors, describing the directions of the local coordinate system
             double Ealpha, Ebeta, Egamma; ///< angles through which the object was rotated (around the x- (Ealpha), then the y- (Ebeta) and finally the z-axis (Egamma))
             double r0;                  ///< radius of the calculation sphere 
-            double sf;         ///< scaling factor, it is used to scale the shape of the object     
+            double sf=1;         ///< scaling factor, it is used to scale the shape of the object     
             bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
             double rho;        ///< mass density in \f$ kg/m^3 \f$
         };

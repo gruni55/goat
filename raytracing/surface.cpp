@@ -713,6 +713,7 @@ surface operator * (const maths::Matrix<double> &M, const surface &s)
 /** No descriptions */
 void surface::scale (double sf)
 {
+  std::cout << "sf=" << sf << "\t this->sf=" << this->sf << std::endl;
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
  this->sf=sf;

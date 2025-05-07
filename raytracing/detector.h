@@ -39,8 +39,8 @@ namespace GOAT
 		virtual bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l) = 0;
 		int N1(); ///< returns the dimension of the array in the first direction
 		int N2(); ///< returns the dimension of the array in the second direction
-		double D1();
-		double D2();
+		double D1(); ///< return the length in the first direction
+		double D2(); ///< return the length in the second direction
 		int Type() { return type; } ///< returns kind of detector
 		void save(const char* fn); ///< stores the content (the whole vector)
 		void saveabs(const char* fn);  ///< stores the content (absolute value of the electric field) of the detector array in the file determined by its filename fn 
