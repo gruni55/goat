@@ -112,6 +112,8 @@ namespace GOAT {
             void setAlpha(double Alpha) { setMatrix(Alpha, Ebeta, Egamma); }   ///< sets rotation angle around x-axis
             void setBeta(double Beta) { setMatrix(Ealpha, Beta, Egamma); }     ///< sets rotation angle around y-axis 
             void setGamma(double Gamma) { setMatrix(Ealpha, Ebeta, Gamma); }   ///< sets rotation angle around z-axis
+            void setVisible(bool visible) { this->visible = visible; } ///< set visiblity (used in GOATvis)
+            bool getVisible() { return visible; } ///< show the visiblity state (used in GOATvis)
             maths::Vector<double> P;                       ///< position of the object
             maths::Matrix<double> H, R;                     ///< matrices for the transformation in the local coordinate system (H) and back to the calculation system (R)
             std::complex<double>  n;                ///< refractive index of the object
@@ -125,6 +127,12 @@ namespace GOAT {
             double sf=1;         ///< scaling factor, it is used to scale the shape of the object     
             bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
             double rho;        ///< mass density in \f$ kg/m^3 \f$
+            /*
+            * @brief Used in the visualization part (GOATvis) => if true object will be visualized
+            * If this parameter is true, GOATvis will show the full representation of the object in the scene dialog otherwise only the bounding box is shown.
+            * This parameter can be used e.g. for very heavy surface object to safe memory.
+            */
+            bool visible=true; 
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix

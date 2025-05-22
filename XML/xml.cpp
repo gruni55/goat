@@ -26,12 +26,22 @@ namespace GOAT
             return found;
         }
 
-		void xmlReader::readXML(const char* fname)
+		// void xmlReader::readXML(const char* fname, char* path)
+        void xmlReader::readXML(std::string fname, std::string path)
 		{
+            this->path = path;
 			setlocale(LC_NUMERIC, "C");
 			tinyxml2::XMLDocument doc;
-			tinyxml2::XMLError eResult=doc.LoadFile(fname);                        
-						
+            std::cout << "Filename :" << fname << std::endl;
+            
+            if (path.size() >0)
+          //  if (strlen(path)>0)
+            {
+                std::string fstr = std::string(path) + "/" + std::string(fname);
+                fname = fstr.c_str();
+            }
+
+			tinyxml2::XMLError eResult=doc.LoadFile(fname.c_str());                        
 			if (eResult == tinyxml2::XML_SUCCESS)
 			{
 				rootElement = doc.RootElement();
@@ -342,12 +352,28 @@ namespace GOAT
 											if (fileTypeStr.compare(".srf") == 0)
 											{
 												fileName = objEll->Attribute("filename");
+                                          
+                                                std::cout << "path.size()=" << path.size() << std::endl;
+                                                if (path.size()>0)
+                                                {
+                                                    std::string sep = "/";
+                                                    fileName = path + sep + fileName;
+                                                    std::cout << "fileName:" << fileName << std::endl;
+                                                }
+
 												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
 											}
 
 											if (fileTypeStr.compare(".stl") == 0)
 											{
 												fileName = objEll->Attribute("filename");
+                                                std::cout << "path.size()=" << path.size() << std::endl;
+                                                if (path.size() > 0)
+                                                {
+                                                    std::string sep = "/";
+                                                    fileName = path + sep + fileName;
+                                                    std::cout << "fileName:" << fileName << std::endl;
+                                                }
 												if (!fileName.empty())
 												((GOAT::raytracing::surface*)Obj[numObj])->importBinSTL(fileName);
 											}

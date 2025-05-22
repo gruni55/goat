@@ -78,7 +78,8 @@ namespace GOAT
 		class xmlReader
 		{
 			public:
-				void readXML(const char* fname); ///< function to read the file and store 
+			//	void readXML(const char* fname,char* path=nullptr); ///< function to read the file and store 
+				void readXML(std::string fname, std::string path= nullptr);
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
 
 			private:				
@@ -104,6 +105,7 @@ namespace GOAT
 				int numObj = 0;
 				int numLS = 0;
 				int numDet = 0;
+				std::string path;
 
 		};
 
