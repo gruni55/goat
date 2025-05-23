@@ -430,6 +430,9 @@ namespace  GOAT
 			numObjs = 0;
 			e1 = maths::ex;
 			e2 = maths::ey;
+			D1=2.0 * rmax;
+ 			D2=2.0 * rmax;
+                        D=2.0 * rmax;
 			reset();
 		}
 
@@ -467,6 +470,8 @@ namespace  GOAT
 		{
 			this->rmax=rmax;
 			D=rmax/(double)N;
+			D1=2.0*rmax;
+			D2=D1;
 			density = 2.0 * rmax / ((double)N);
 		}
 
@@ -683,8 +688,8 @@ namespace  GOAT
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
-			this->D1 = D1;
-			this->D2 = D2;
+			this->D1 = D;
+			this->D2 = D;
 			this->focuspos = focuspos;		
 			this->Pol = Pol;
 			this->w0 = w0;

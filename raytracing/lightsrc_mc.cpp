@@ -373,6 +373,7 @@ namespace GOAT
 			Pol = maths::Vector<std::complex<double> >(0, 1, 0);
 			this->D = size;
 			this->D1 = size;
+                        this->D2=1; 
 			this->direction = direction / abs(direction);
 			this->k = k;
 		}
@@ -465,6 +466,8 @@ namespace GOAT
 		{
 			rmin = L.rmin;
 			rmax = L.rmax;
+			D1=2.0*rmax;
+			D2=D1;
 			type = LIGHTSRC_SRCTYPE_RING_MC;
                         rayCounter=0;
 		}
@@ -474,6 +477,8 @@ namespace GOAT
 		{
 			this->rmin = rmin;
 			this->rmax = rmax;
+			D1=2.0*rmax;
+			D2=D1;
                         rayCounter=0;
 			type = LIGHTSRC_SRCTYPE_RING_MC;
 		}
@@ -487,15 +492,15 @@ namespace GOAT
 		{
 			this->rmax=rmax;
 			D=rmax/(double)N;
-			D1=D;
-			D2=D;
+			D1=2.0*rmax;
+			D2=2.0*rmax;
 			density = 2.0 * rmax / ((double)N);
 		} 
  
-                void LightSrcRing_mc::reset()
-                {
-                  rayCounter=0;
-                }
+        void LightSrcRing_mc::reset()
+        {
+            rayCounter=0;
+        }
 
 		GOAT::maths::Vector<double> LightSrcRing_mc::genStartingPos()
 		{
@@ -583,6 +588,8 @@ namespace GOAT
 		{
 			rmin = L.rmin;
 			rmax = L.rmax;
+			D1=2.0*rmax;
+			D2=D1;
 			type = LIGHTSRC_SRCTYPE_RING_MC;
                         rayCounter=0;
                         sigma2 = 2.0*rmax*rmax/log(2.0);
@@ -593,6 +600,8 @@ namespace GOAT
 		{
 			this->rmin = rmin;
 			this->rmax = rmax;
+			D1=2.0*rmax;
+			D2=D1;
                         rayCounter=0;
 			sigma2 = 2.0*rmax*rmax/log(2.0);
 			type = LIGHTSRC_SRCTYPE_RING_MC;
@@ -607,7 +616,7 @@ namespace GOAT
 		void LightSrcRingGauss_mc::setRmax(double rmax)
 		{
 			this->rmax=rmax;
-			D1=2*rmax;
+			D1=2.0*rmax;
 			D2=D1;
 		}
 
