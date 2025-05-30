@@ -42,6 +42,12 @@ namespace GOAT
 		double D1(); ///< return the length in the first direction
 		double D2(); ///< return the length in the second direction
 		int Type() { return type; } ///< returns kind of detector
+		/**
+		* @load detector data from file
+		* This function loads detector data from file. It expects a complex vector format. The first line has to start with "%n1 " followed by the number
+		* of items in e1-direction. The second row must start with "%n2" followed by the number of items in e2-direction.  
+		*/
+		bool load(const char* fn); 
 		void save(const char* fn); ///< stores the content (the whole vector)
 		void saveabs(const char* fn);  ///< stores the content (absolute value of the electric field) of the detector array in the file determined by its filename fn 
 		void savePhase(const char* fn, int coord);  ///< stores the content (phase of one component of the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 

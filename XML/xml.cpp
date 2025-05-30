@@ -29,10 +29,14 @@ namespace GOAT
 		// void xmlReader::readXML(const char* fname, char* path)
         void xmlReader::readXML(std::string fname, std::string path)
 		{
+            std::ofstream os;
+            os.open("test.log");
+            os << "Filename :" << fname << std::flush << std::endl;
+            os.close();
             this->path = path;
 			setlocale(LC_NUMERIC, "C");
 			tinyxml2::XMLDocument doc;
-            std::cout << "Filename :" << fname << std::endl;
+            
             
             if (path.size() >0)
           //  if (strlen(path)>0)
@@ -102,6 +106,7 @@ namespace GOAT
 					typeStr = detEll->Attribute("type");                    
 					std::string filename;
 					filename = detEll->Attribute("filename");
+
 					int type = mapString2DetectorToken(typeStr);
 					switch (type)
 					{
@@ -112,11 +117,13 @@ namespace GOAT
                                                      Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d,n));
 													 Det[numDet]->fname = filename;
 													 S.addDetector(Det[numDet]);
+                                                     Det[numDet]->load(filename.c_str());
                                                     numDet++;
                                                     std::cout << "Detector filename=" << filename << std::endl;
 													}
 													
 					}
+
 				}
 			}
 		}
@@ -151,6 +158,8 @@ namespace GOAT
                     Pol[1]=Pold[1];
                     Pol[2]=Pold[2];
 					int type = mapString2LightSourceToken(typeStr);
+                    
+
                    switch (type)
 					{
 					case TOKEN_LIGHTSOURCE_PLANE: {
@@ -1162,11 +1171,99 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
         void xmlWriter::write (std::string fname)
         {
+            tinyxml2::XMLDeclaration* decl = doc.NewDeclaration(R"(xml version="1.0" encoding="utf-8")");
+            doc.InsertFirstChild(decl);
+            std::cout << "write :" << fname << std::endl;
           root=doc.NewElement("Root");
-          doc.InsertFirstChild(root);
+          doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
+          scene->SetAttribute("r0", "1E4");
+          root->InsertEndChild(scene);
+          
+          if (S.nLS > 0)
+          {
+              tinyxml2::XMLElement* lightSrc;
+              lightSrcs = doc.NewElement("LightSources");
+               for (int i = 0; i < S.nLS; i++)
+              {
+                   writeLightSrc(i);
+              }
+               scene->InsertEndChild(lightSrcs);
+          }
+          tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
 
 
+        }
+        void xmlWriter::writeLightSrc(int i)
+        {
+            
+            auto lightSrc = doc.NewElement("LightSource");
+            int type = S.LS[i]->type;
+            int typeh = type < 10 ? type : type - 5;
+            std::cout << "typeh=" << typeh << "\ttype=" << type << std::endl;
+            lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
+            lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
+            lightSrc->SetAttribute("wavelength", S.LS[i]->getWavelength());
+
+            lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));
+            lightSrc->InsertEndChild(writeVectorC("Polarisation", S.LS[i]->Pol));
+           
+            switch (type)
+            {
+              case raytracing::LIGHTSRC_SRCTYPE_PLANE:
+              case raytracing::LIGHTSRC_SRCTYPE_PLANE_MC:
+                  {
+                  raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
+                   lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+                   lightSrc->SetAttribute("size", ls->D);
+                  }
+                  break;
+
+              case raytracing::LIGHTSRC_SRCTYPE_GAUSS :
+              case raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC:
+              {
+                  raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
+                  lightSrc->SetAttribute("size", ls->D);
+                  lightSrc->SetAttribute("w0", ls->w0);
+              }
+              break;
+
+              case raytracing::LIGHTSRC_SRCTYPE_RING :
+              case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
+              {
+                  raytracing::LightSrcRing* ls = (raytracing::LightSrcRing*)S.LS[i];
+                  lightSrc->SetAttribute("rmin", ls->getRmin());
+                  lightSrc->SetAttribute("rmax", ls->getRmax());
+                  lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+              }
+            }
+            lightSrcs->InsertEndChild(lightSrc);
+        }
+
+        tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)
+        {
+            auto vell = doc.NewElement(name.c_str());
+            vell->SetAttribute("x", v[0]);
+            vell->SetAttribute("y", v[1]);
+            vell->SetAttribute("z", v[2]);
+            return vell;
+        }
+
+        tinyxml2::XMLElement* xmlWriter::writeVectorC(std::string name, maths::Vector<std::complex<double> > v)
+        {
+            auto vell = doc.NewElement(name.c_str());
+            vell->InsertEndChild(writeComplex("x", v[0]));
+            vell->InsertEndChild(writeComplex("y", v[1]));
+            vell->InsertEndChild(writeComplex("z", v[2]));
+
+            return vell;
+        }
+        tinyxml2::XMLElement* xmlWriter::writeComplex(std::string name, std::complex<double> z)
+        {
+            auto cell = doc.NewElement(name.c_str());
+            cell->SetAttribute("real", real(z));
+            cell->SetAttribute("imag", imag(z));
+            return cell;
         }
 	}
 }

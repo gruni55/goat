@@ -30,6 +30,7 @@ constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight 
 constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random distribution)
 
 
+
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
 #define LIGHTSRC_IS_LAST_RAY 1   ///< Created ray is the last ray 
 #define LIGHTSRC_ERROR -1        ///< Error occurs within the ray creation

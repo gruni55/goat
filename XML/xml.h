@@ -35,6 +35,7 @@ namespace GOAT
 		const std::string sceneXMLElements[] = { "r0","ns","lightsources","objects","detectors" };
 		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays" };
 		const std::string LSXMLTYPES[] = {"plane","gaussian","plane_mc","gaussian_mc"};
+		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc" };
 	
 	   /**
 		* @brief check if the fname has a given extension
@@ -79,7 +80,7 @@ namespace GOAT
 		{
 			public:
 			//	void readXML(const char* fname,char* path=nullptr); ///< function to read the file and store 
-				void readXML(std::string fname, std::string path= nullptr);
+				void readXML(std::string fname, std::string path = "");
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
 
 			private:				
@@ -111,14 +112,21 @@ namespace GOAT
 
         class xmlWriter
         {
-             public:
+			public:
                 xmlWriter(GOAT::raytracing::Scene S);
                 void write (std::string fname);
-             private:
+			private:
+				void writeLightSrc(int i);
+				tinyxml2::XMLElement* writeVectorD(std::string name, maths::Vector<double> v);
+				tinyxml2::XMLElement* writeVectorC(std::string name, maths::Vector<std::complex<double>> v);
+				tinyxml2::XMLElement* writeComplex(std::string name, std::complex<double> z);
                 GOAT::raytracing::Scene S;
                 tinyxml2::XMLDocument doc;
-                tinyxml2::XMLElement *root;
-                tinyxml2::XMLElement *scene;
+				tinyxml2::XMLElement* root;
+				tinyxml2::XMLElement* scene;
+				tinyxml2::XMLElement* lightSrcs;
+				tinyxml2::XMLElement* objects;
+				tinyxml2::XMLElement* detectors;
         };
 	}
 }

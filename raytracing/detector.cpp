@@ -107,6 +107,8 @@ namespace GOAT
 		{
 			std::ofstream os;
 			os.open(fn);
+			os << "%n1 " << n1 << std::endl;
+			os << "%n2 " << n2 << std::endl;
 			for (int i1 = 0; i1 < n1; i1++)
 			{
 				for (int i2 = 0; i2 < n2; i2++)
@@ -116,6 +118,33 @@ namespace GOAT
 				}
 			}
 			os.close();
+		}
+
+		bool Detector::load(const char* fn)
+		{
+			int nl1, nl2;
+			std::ifstream is;
+			is.open(fn);
+			std::string str;
+			if (!is.good()) return false;
+			is >> str;
+			if (str.compare("%n1") != 0) return false; // something went wrong, first parameter is not n1
+			is >> nl1;
+
+			is >> str;
+			if (str.compare("%n2") != 0) return false; // something went wrong, second parameter is not n2
+			is >> nl2;
+
+			if ((nl1 != n1) || (nl2 != n2)) return false; // n1 or n2 in file don't correspond to n1 or n2 from class
+			for (int i1 = 0; i1 < n1; i1++)
+			{
+				for (int i2 = 0; i2 < n2; i2++)
+				{
+
+					is >> D[i1][i2];
+				}
+			}
+			is.close();
 		}
 
 		void Detector::saveabs(const char* fn)
