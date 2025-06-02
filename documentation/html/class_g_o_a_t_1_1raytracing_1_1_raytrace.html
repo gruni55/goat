@@ -234,7 +234,7 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p>This class provides all functionalities for the base raytracing code. It follows all rays from all light sources through the scene. </p>
 <p>The calculation space is determined by sphere with the radius r0. The <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html" title="Class defining a scene with lightsources and objects. This is a container used to inform the Raytrace...">Scene</a> class is used to describe the position and types of the light sources (derived from class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a>) and objects (derived from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html" title="Abstract base class for all volume objects This abstract class provides a template for all volume obj...">ObjectShape</a>). In the moment, objects are extended volume object only. Area objects, like mirrors or detectors are not implemented yet. Besides the starting and end points of each step, the electric field strength of the ray at the beginning and the end of the step is stored for further calculation in derived classes. Also, the direction of the incident, the reflected and the transmitted ray is given. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00076">76</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00077">77</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8ae9ace24a3db462b47f691faa24755f" name="a8ae9ace24a3db462b47f691faa24755f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8ae9ace24a3db462b47f691faa24755f">&#9670;&#160;</a></span>Raytrace() <span class="overload">[1/2]</span></h2>
@@ -429,7 +429,7 @@ Public Attributes</h2></td></tr>
 
 <p>this function is called when the ray enters an object </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a177e2638d990fe28fa9bb184e5e182ae">GOAT::raytracing::Raytrace_OT</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html#a6c9fc0d276a1b30c5a5ed3f12a64a84d">GOAT::raytracing::Raytrace_Field</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#ae9729554a04c1566e26ee7d7f2d776ee">GOAT::raytracing::Raytrace_Field_usp</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a61ddcd24edd7ee0885409d597c9345f0">GOAT::raytracing::Raytrace_Inel</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a5ac66e2b916abc512ebaf7769719c835">GOAT::raytracing::Raytrace_usp</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html#a7b6d757b7abfb8b6e4e167b53d3bd5ef">GOAT::raytracing::Raytrace_usp_rt</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a177e2638d990fe28fa9bb184e5e182ae">GOAT::raytracing::Raytrace_OT</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a68eafa319baaafb10638c4bd72cf66f8">GOAT::raytracing::Raytrace_Path</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html#a568d46a5a9757ffa9ace4aeba65edee3">GOAT::raytracing::Raytrace_pure</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html#a6c9fc0d276a1b30c5a5ed3f12a64a84d">GOAT::raytracing::Raytrace_Field</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#ae9729554a04c1566e26ee7d7f2d776ee">GOAT::raytracing::Raytrace_Field_usp</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a61ddcd24edd7ee0885409d597c9345f0">GOAT::raytracing::Raytrace_Inel</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a5ac66e2b916abc512ebaf7769719c835">GOAT::raytracing::Raytrace_usp</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html#a7b6d757b7abfb8b6e4e167b53d3bd5ef">GOAT::raytracing::Raytrace_usp_rt</a>.</p>
 
 </div>
 </div>
@@ -458,7 +458,7 @@ Public Attributes</h2></td></tr>
 
 <p>this function is called when the ray leaves an object </p>
 
-<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a47364751baf664a70cab6e25463a4b25">GOAT::raytracing::Raytrace_OT</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html#a9f83434940a78160bcb6c030396412b4">GOAT::raytracing::Raytrace_Field</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#aa8fd37a665ba3946073277ca7a022f3a">GOAT::raytracing::Raytrace_Field_usp</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#aaaeeaa3027bc570cbf4e448d81256d24">GOAT::raytracing::Raytrace_Inel</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7b066d52f15452897559a9da838c688f">GOAT::raytracing::Raytrace_usp</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html#ad9987cc439ee34cc4ad4e3fab8760bd7">GOAT::raytracing::Raytrace_usp_rt</a>.</p>
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a47364751baf664a70cab6e25463a4b25">GOAT::raytracing::Raytrace_OT</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ac513b216e00e1e0428b5514d5768d22d">GOAT::raytracing::Raytrace_Path</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html#afe76252bf31dec91e25231d522e0e4eb">GOAT::raytracing::Raytrace_pure</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html#a9f83434940a78160bcb6c030396412b4">GOAT::raytracing::Raytrace_Field</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html#aa8fd37a665ba3946073277ca7a022f3a">GOAT::raytracing::Raytrace_Field_usp</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#aaaeeaa3027bc570cbf4e448d81256d24">GOAT::raytracing::Raytrace_Inel</a>, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7b066d52f15452897559a9da838c688f">GOAT::raytracing::Raytrace_usp</a>, and <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html#ad9987cc439ee34cc4ad4e3fab8760bd7">GOAT::raytracing::Raytrace_usp_rt</a>.</p>
 
 </div>
 </div>
@@ -539,7 +539,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00086">86</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p>Reimplemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a5bc684cadde018d57e31ca59d23781a9">GOAT::raytracing::Raytrace_Path</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00087">87</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +560,7 @@ Public Attributes</h2></td></tr>
 
 <p>flag to stop calculation </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00119">119</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00120">120</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -574,7 +576,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00091">91</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00092">92</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -592,7 +594,7 @@ Public Attributes</h2></td></tr>
 
 <p>Number of the current light source, which is currently in the calculation process. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00090">90</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00091">91</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -610,7 +612,7 @@ Public Attributes</h2></td></tr>
 
 <p>Number of the last object hit (no object hit: -1) </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00089">89</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00090">90</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -626,7 +628,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00093">93</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00094">94</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -642,7 +644,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00094">94</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00095">95</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -660,7 +662,7 @@ Public Attributes</h2></td></tr>
 
 <p>Start and end value of the electric field. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00093">93</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00094">94</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -678,7 +680,7 @@ Public Attributes</h2></td></tr>
 
 <p>Start and end value of the electric field (second ray in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html" title="This class represents a single ray.">IRay</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00094">94</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00095">95</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -697,7 +699,7 @@ Public Attributes</h2></td></tr>
 <p>direction of the incident ray </p>
 <p>last hit with the objects surface: normalized direction of the incident, the reflected and the transmitted ray *&zwj;/ </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00098">98</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00099">99</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -715,7 +717,7 @@ Public Attributes</h2></td></tr>
 
 <p>direction of the reflected ray </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00099">99</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00100">100</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -733,7 +735,7 @@ Public Attributes</h2></td></tr>
 
 <p>direction of the transmitted ray </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00100">100</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00101">101</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -751,7 +753,7 @@ Public Attributes</h2></td></tr>
 
 <p>Rays unintentionally get lost, e.g. due to total internal reflection. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00088">88</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00089">89</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -770,7 +772,7 @@ Public Attributes</h2></td></tr>
 <p>current number of reflections <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00120">120</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00121">121</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -788,7 +790,7 @@ Public Attributes</h2></td></tr>
 
 <p>Power of the incident ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00105">105</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00106">106</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -807,7 +809,7 @@ Public Attributes</h2></td></tr>
 <p>Powers stored when ray type is PRay. </p>
 <p>Power of the reflected ray </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00104">104</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00105">105</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -825,7 +827,7 @@ Public Attributes</h2></td></tr>
 
 <p>Power of the transmitted ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00106">106</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00107">107</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -841,7 +843,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00092">92</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00093">93</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -859,7 +861,7 @@ Public Attributes</h2></td></tr>
 
 <p>Start and end point of the last step. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00092">92</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00093">93</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -877,7 +879,7 @@ Public Attributes</h2></td></tr>
 
 <p>current ray </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00117">117</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00118">118</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -895,7 +897,7 @@ Public Attributes</h2></td></tr>
 
 <p>Description of the scene. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00107">107</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00108">108</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -914,7 +916,7 @@ Public Attributes</h2></td></tr>
 <p>transmitted ray <br  />
  </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00118">118</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00119">119</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -932,7 +934,7 @@ Public Attributes</h2></td></tr>
 
 <p>Flag which shows which type of raytracer is selected. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00109">109</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00110">110</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>
@@ -950,7 +952,7 @@ Public Attributes</h2></td></tr>
 
 <p>Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00108">108</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00109">109</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>

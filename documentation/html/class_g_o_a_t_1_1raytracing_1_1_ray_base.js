@@ -13,7 +13,7 @@ var class_g_o_a_t_1_1raytracing_1_1_ray_base =
     [ "n", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a43f5b4b3cde5d1795b2a5e02c7800677", null ],
     [ "n0", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a234b67d6c1eb5da7c8fd1cbec4c1de58", null ],
     [ "numObj", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a555d734b8aac9dd5f3688414ba32c9c1", null ],
-    [ "Obj", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a45f8c538909522d5e505a3f90d997363", null ],
+    [ "Obj", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a7671c036dc5ead738660b2deac1a9434", null ],
     [ "objIndex", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#a0229592b2f60c7b8e5c438933ad278a8", null ],
     [ "r0", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#aef88aaaaab2b96b59536ecc69a29c178", null ],
     [ "rc", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html#ad9467a1f9f00f2ed842e2a5c79f3cd9b", null ],

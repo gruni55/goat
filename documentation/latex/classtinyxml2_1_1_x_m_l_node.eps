@@ -5,7 +5,7 @@
 %%For: 
 %Magnification: 1.00
 %%Orientation: Portrait
-%%BoundingBox: 0 0 500 40.899796
+%%BoundingBox: 0 0 500 797.546021
 %%Pages: 0
 %%BeginSetup
 %%EndSetup
@@ -19,13 +19,13 @@
 /marginwidth 10 def
 /distx 20 def
 /disty 40 def
-/boundaspect 12.225000 def  % aspect ratio of the BoundingBox (width/height)
+/boundaspect 0.626923 def  % aspect ratio of the BoundingBox (width/height)
 /boundx 500 def
 /boundy boundx boundaspect div def
 /xspacing 0 def
 /yspacing 0 def
-/rows 2 def
-/cols 6 def
+/rows 13 def
+/cols 2 def
 /scalefactor 0 def
 /boxfont /Times-Roman findfont fontheight scalefont def
 
@@ -175,10 +175,16 @@ boxfont setfont
 1 boundaspect scale
 (tinyxml2::XMLNode) cw
 (tinyxml2::XMLComment) cw
+(tinyxml2::XMLComment) cw
+(tinyxml2::XMLDeclaration) cw
 (tinyxml2::XMLDeclaration) cw
 (tinyxml2::XMLDocument) cw
+(tinyxml2::XMLDocument) cw
+(tinyxml2::XMLElement) cw
 (tinyxml2::XMLElement) cw
 (tinyxml2::XMLText) cw
+(tinyxml2::XMLText) cw
+(tinyxml2::XMLUnknown) cw
 (tinyxml2::XMLUnknown) cw
 /boxwidth boxwidth marginwidth 2 mul add def
 /xspacing boxwidth distx add def
@@ -191,29 +197,47 @@ boundx scalefactor div boundy scalefactor div scale
 
 % ----- classes -----
 
- (tinyxml2::XMLNode) 2.500000 1.000000 box
- (tinyxml2::XMLComment) 0.000000 0.000000 box
- (tinyxml2::XMLDeclaration) 1.000000 0.000000 box
- (tinyxml2::XMLDocument) 2.000000 0.000000 box
- (tinyxml2::XMLElement) 3.000000 0.000000 box
- (tinyxml2::XMLText) 4.000000 0.000000 box
- (tinyxml2::XMLUnknown) 5.000000 0.000000 box
+ (tinyxml2::XMLNode) 0.000000 12.000000 box
+ (tinyxml2::XMLComment) 1.000000 11.000000 box
+ (tinyxml2::XMLComment) 1.000000 10.000000 box
+ (tinyxml2::XMLDeclaration) 1.000000 9.000000 box
+ (tinyxml2::XMLDeclaration) 1.000000 8.000000 box
+ (tinyxml2::XMLDocument) 1.000000 7.000000 box
+ (tinyxml2::XMLDocument) 1.000000 6.000000 box
+ (tinyxml2::XMLElement) 1.000000 5.000000 box
+ (tinyxml2::XMLElement) 1.000000 4.000000 box
+ (tinyxml2::XMLText) 1.000000 3.000000 box
+ (tinyxml2::XMLText) 1.000000 2.000000 box
+ (tinyxml2::XMLUnknown) 1.000000 1.000000 box
+ (tinyxml2::XMLUnknown) 1.000000 0.000000 box
 
 % ----- relations -----
 
 solid
-1 2.500000 0.250000 out
+1 0.000000 11.250000 out
 solid
-0.000000 5.000000 1.000000 conn
+0 0.000000 11.500000 hedge
 solid
-0 0.000000 0.750000 in
+0 0.000000 10.500000 hedge
 solid
-0 1.000000 0.750000 in
+0 0.000000 9.500000 hedge
 solid
-0 2.000000 0.750000 in
+0 0.000000 8.500000 hedge
 solid
-0 3.000000 0.750000 in
+0 0.000000 7.500000 hedge
 solid
-0 4.000000 0.750000 in
+0 0.000000 6.500000 hedge
 solid
-0 5.000000 0.750000 in
+0 0.000000 5.500000 hedge
+solid
+0 0.000000 4.500000 hedge
+solid
+0 0.000000 3.500000 hedge
+solid
+0 0.000000 2.500000 hedge
+solid
+0 0.000000 1.500000 hedge
+solid
+0 0.000000 0.500000 hedge
+solid
+0.000000 12.000000 0.500000 vedge

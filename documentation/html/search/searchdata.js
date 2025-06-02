@@ -8,10 +8,10 @@ var indexSectionsWithContent =
   5: "_abcdefghiklmnoprstuvwxyz",
   6: "il",
   7: "cemswx",
-  8: "acfilnoprtx",
+  8: "abcefilnoprtx",
   9: "cdeilostx",
-  10: "acdefghiklmnoprstvxz",
-  11: "cg"
+  10: "abcdefghiklmnoprstvxz",
+  11: "cgx"
 };
 
 var indexSectionNames =

@@ -13,6 +13,7 @@ var namespace_g_o_a_t_1_1_x_m_l =
     [ "calculationToken", "namespace_g_o_a_t_1_1_x_m_l.html#a903a892a864a08354137c1fa488f63ac", null ],
     [ "detectorToken", "namespace_g_o_a_t_1_1_x_m_l.html#a445a5c3e59594302f79224e23156e5b0", null ],
     [ "lightSourceToken", "namespace_g_o_a_t_1_1_x_m_l.html#a32593972f7706fe5391997b5da6e9cd5", null ],
+    [ "LSTYPES", "namespace_g_o_a_t_1_1_x_m_l.html#a2e2e6f4b5dc4d6302a3c4f9d2abff8ac", null ],
     [ "LSXMLAttributes", "namespace_g_o_a_t_1_1_x_m_l.html#aaf98f6e18eab176629a4332dd4bd1c6a", null ],
     [ "LSXMLTYPES", "namespace_g_o_a_t_1_1_x_m_l.html#ae17af7fb699941154a1007034e7524ee", null ],
     [ "objectToken", "namespace_g_o_a_t_1_1_x_m_l.html#a7562d03fb24af1a89db31d41f9b5fa66", null ],

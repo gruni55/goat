@@ -15,7 +15,7 @@ var class_g_o_a_t_1_1raytracing_1_1surface =
     [ "createsurface", "class_g_o_a_t_1_1raytracing_1_1surface.html#a36c51c771871f67b25efdb2223cabd46", null ],
     [ "exportSRF", "class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867", null ],
     [ "getCurrentIndex", "class_g_o_a_t_1_1raytracing_1_1surface.html#a6ebbe66f2dd6e28916fdf7865e40e887", null ],
-    [ "getFName", "class_g_o_a_t_1_1raytracing_1_1surface.html#a903152e63dab9cdaedbade5a45d44b14", null ],
+    [ "getFilename", "class_g_o_a_t_1_1raytracing_1_1surface.html#a0e83266005450b988c40dc9c4841fc40", null ],
     [ "getMinMax", "class_g_o_a_t_1_1raytracing_1_1surface.html#a9329caf29da906f7e906193af072a269", null ],
     [ "getTriangle", "class_g_o_a_t_1_1raytracing_1_1surface.html#a10e04122f52957ea831ace36b93bab98", null ],
     [ "importBinSTL", "class_g_o_a_t_1_1raytracing_1_1surface.html#a70e5761526c76eac07282898690afa80", null ],
@@ -36,6 +36,7 @@ var class_g_o_a_t_1_1raytracing_1_1surface =
     [ "volume", "class_g_o_a_t_1_1raytracing_1_1surface.html#aa15b5460b843893fa239eae3ff300d36", null ],
     [ "currentIndex", "class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79", null ],
     [ "currentnorm", "class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43", null ],
+    [ "filetype", "class_g_o_a_t_1_1raytracing_1_1surface.html#a724fae22c01f0a337592eb307548d4ff", null ],
     [ "FName", "class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50", null ],
     [ "numTriangles", "class_g_o_a_t_1_1raytracing_1_1surface.html#acbe12314ce4648efc534941b3eb11f07", null ],
     [ "S", "class_g_o_a_t_1_1raytracing_1_1surface.html#a85f2e795c6d610db9b3aa478542ef531", null ]

@@ -1,14 +1,8 @@
 var searchData=
 [
-  ['lightsrc_5ferror_0',['LIGHTSRC_ERROR',['../lightsrc_8h.html#a9427e832c03d24eb45706347a7e36cb6',1,'lightsrc.h']]],
-  ['lightsrc_5fis_5flast_5fray_1',['LIGHTSRC_IS_LAST_RAY',['../lightsrc_8h.html#af55dd6807d36e98d7dcc9e47736266b3',1,'lightsrc.h']]],
-  ['lightsrc_5fnot_5flast_5fray_2',['LIGHTSRC_NOT_LAST_RAY',['../lightsrc_8h.html#a6cece43af479ca89e1767a51e7b4bf3d',1,'lightsrc.h']]],
-  ['lightsrc_5fpol_5fuser_5fdefined_3',['LIGHTSRC_POL_USER_DEFINED',['../lightsrc_8h.html#a0767e5f4cd385e2e8ac69efc11f4db71',1,'lightsrc.h']]],
-  ['lightsrc_5fpol_5fx_4',['LIGHTSRC_POL_X',['../lightsrc_8h.html#a3ad7523b2497f1e43795163f3c517b13',1,'lightsrc.h']]],
-  ['lightsrc_5fpol_5fy_5',['LIGHTSRC_POL_Y',['../lightsrc_8h.html#a9b0d133205a03c08c678067d79e0b169',1,'lightsrc.h']]],
-  ['lightsrc_5fpol_5fz_6',['LIGHTSRC_POL_Z',['../lightsrc_8h.html#acb3b77ed87f4ed728d1e8f1123eed76b',1,'lightsrc.h']]],
-  ['lightsrc_5fraytype_5firay_7',['LIGHTSRC_RAYTYPE_IRAY',['../lightsrc_8h.html#a3a010aaffbbdd0d4020f4b01b95e07b4',1,'lightsrc.h']]],
-  ['lightsrc_5fraytype_5fpray_8',['LIGHTSRC_RAYTYPE_PRAY',['../lightsrc_8h.html#ac4b6b5f07edda74abe23188b9e563478',1,'lightsrc.h']]],
-  ['lightsrc_5fraytype_5fray_9',['LIGHTSRC_RAYTYPE_RAY',['../lightsrc_8h.html#a2646f407aa5ec41f8e913b2091abf310',1,'lightsrc.h']]],
-  ['linse_10',['LINSE',['../objectshape_8h.html#a5f0600cba388234350102b73392bfdd4',1,'objectshape.h']]]
+  ['kegelstumpf_0',['KEGELSTUMPF',['../objectshape_8h.html#add99c9136ff6c8fd78e6cb126b7de5cc',1,'objectshape.h']]],
+  ['kegelstumpf_5fhohl_1',['KEGELSTUMPF_HOHL',['../objectshape_8h.html#ac7ad901198cfc026e30d981253b8de9e',1,'objectshape.h']]],
+  ['kein_5fschnittpunkt_2',['KEIN_SCHNITTPUNKT',['../tubedray_8h.html#adecb25a5942951bc8245d9d8f41ec7bc',1,'tubedray.h']]],
+  ['kreiskegel_3',['KREISKEGEL',['../objectshape_8h.html#a1c2dcd2285bd3386c2a92cd4efd571ef',1,'objectshape.h']]],
+  ['kugelgitter_5fk_4',['KUGELGITTER_K',['../error_8h.html#a90815b44d28504c3e3265574947b5bee',1,'error.h']]]
 ];

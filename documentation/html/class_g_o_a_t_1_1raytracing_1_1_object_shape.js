@@ -8,6 +8,7 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "calcCoM", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a6f9c3fb38ae7c01d441e8d81cdb5456b", null ],
     [ "getn", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#af744675d71f2057bf0ef01ebc86e11dd", null ],
     [ "getninel", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ae0dac278872d9239bd4a81e9da7362b8", null ],
+    [ "getVisible", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a3cab025468e85edef9a561fa68362578", null ],
     [ "initQuad", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#aa1478ba256f588aa0af5cb5ff7b70977", null ],
     [ "isActive", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#adca97d288a36effec8dca8bb7fc84c64", null ],
     [ "isInside", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a8338a7937b4cfe43900f975dd6bd539e", null ],
@@ -15,7 +16,7 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ae19071ea0777fc2ea1aad5ceb917c5d7", null ],
     [ "norm", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#afa28a4c4f4206fc11e0fca0e45bbbf03", null ],
     [ "rotate", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ab9982660e631c9eb95f82e850ef4ca7e", null ],
-    [ "scale", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a4ae7aae34f8f64260a63fcc30085a403", null ],
+    [ "scale", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a80d327c030210dfb48e0def8e0a4584b", null ],
     [ "setActive", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#abe5c88dadc5d9f8a1aa3dac5850e0bea", null ],
     [ "setAlpha", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ad1d2c3e671857267c9f374712f24e051", null ],
     [ "setBeta", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a57dfe94c2dbc1d33009e39af2fa59774", null ],
@@ -30,6 +31,7 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "setPos", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a85ee33a5b1a3655e075dd5996b1c2065", null ],
     [ "setPos", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#afacfdc0e51e3a4f42aadba59cad1fe1f", null ],
     [ "setr0", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#aaa870a967b9600080330bc372b38a8c2", null ],
+    [ "setVisible", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a661edeaddb24518110c9752efc1bddb6", null ],
     [ "Type", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#afe01f045f24afe4b8af91a3ba136d7b3", null ],
     [ "volume", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a14a259332938faaf3743a309e1b88e12", null ],
     [ "Active", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a3efbe58f8f5d97b6f139a4151beb01a6", null ],
@@ -48,5 +50,6 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "r0", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ac6f4e0e6e591f1617c38ee037074dd9a", null ],
     [ "rho", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a5ff765220b51e3967a5f94211996bf71", null ],
     [ "sf", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a246052e0d543ff741d7e71e4d12c76b8", null ],
-    [ "type", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a3a94d86ef25c4b89069e46f7fa1f224d", null ]
+    [ "type", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a3a94d86ef25c4b89069e46f7fa1f224d", null ],
+    [ "visible", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a8badcbb3c00b1343d9819b7c174de56e", null ]
 ];

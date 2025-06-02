@@ -1,9 +1,4 @@
 var searchData=
 [
-  ['closed_0',['CLOSED',['../classtinyxml2_1_1_x_m_l_element.html#ab5f90e2493c35702175235127e2935b4aa2f1f384020d2d4538ad2ec84930a028',1,'tinyxml2::XMLElement']]],
-  ['closing_1',['CLOSING',['../classtinyxml2_1_1_x_m_l_element.html#ab5f90e2493c35702175235127e2935b4aa2857344b98a931536c443cd0cadc4b7',1,'tinyxml2::XMLElement']]],
-  ['collapse_5fwhitespace_2',['COLLAPSE_WHITESPACE',['../namespacetinyxml2.html#a7f91d00f77360f850fd5da0861e27dd5a9a4a309029a6f5e636e20ef5e0b65136',1,'tinyxml2']]],
-  ['comment_3',['COMMENT',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54a067a6ec90c8beea1cf5992930d93bffa',1,'tinyxml2::StrPair']]],
-  ['concave_4',['concave',['../namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f',1,'GOAT::raytracing']]],
-  ['convex_5',['convex',['../namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde',1,'GOAT::raytracing']]]
+  ['buf_5fsize_0',['buf_size',['../classtinyxml2_1_1_x_m_l_attribute.html#a8d7505a806f2a5b0c686c8e88704cd66ad3d79d98339e5ff81d56028d1a1056ff',1,'tinyxml2::XMLAttribute::BUF_SIZE'],['../classtinyxml2_1_1_x_m_l_element.html#a8cd0a806913b0e19c7c6bac69528650faa93e5cb8bb3628c8a775fcc9a99f7103',1,'tinyxml2::XMLElement::BUF_SIZE'],['../classtinyxml2_1_1_x_m_l_printer.html#a5a31ad059026a2efcc3aceb9f9862966a6260c7b4c689967c9baeb17e1febf769',1,'tinyxml2::XMLPrinter::BUF_SIZE']]]
 ];

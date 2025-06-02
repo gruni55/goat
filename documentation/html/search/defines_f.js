@@ -1,17 +1,14 @@
 var searchData=
 [
-  ['save_5fabs_0',['SAVE_ABS',['../detector_8h.html#aa68865ed300bfbc8d69145a49d3b6386',1,'detector.h']]],
-  ['save_5fphase_5fx_1',['SAVE_PHASE_X',['../detector_8h.html#aa2176b44d1ac396bff50d9e545055a23',1,'detector.h']]],
-  ['save_5fphase_5fy_2',['SAVE_PHASE_Y',['../detector_8h.html#afae17a475b984f467c1408f065ae6ca8',1,'detector.h']]],
-  ['save_5fphase_5fz_3',['SAVE_PHASE_Z',['../detector_8h.html#ac5748b705d3dc3e5e85f0ded4b158a9e',1,'detector.h']]],
-  ['save_5fx_4',['SAVE_X',['../detector_8h.html#a7987327e795cf45132e2c3bbe21b645e',1,'detector.h']]],
-  ['save_5fy_5',['SAVE_Y',['../detector_8h.html#a962163256f7d4a46529426776695b8f4',1,'detector.h']]],
-  ['save_5fz_6',['SAVE_Z',['../detector_8h.html#a30d376254460c5cbf83ee3a8ef3d32e9',1,'detector.h']]],
-  ['senkrecht_7',['senkrecht',['../fresnel_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT:&#160;fresnel.h'],['../resutil_8h.html#a3592f52dc1ce96e519957f2556c318af',1,'SENKRECHT:&#160;resutil.h']]],
-  ['spiegel_8',['SPIEGEL',['../objectshape_8h.html#a32127e210d1c5dd39d3f11dd6b894c90',1,'objectshape.h']]],
-  ['sqrt3_9',['sqrt3',['../resutil_8h.html#ae42978afd835c3a1f70d409a1b5f5a39',1,'SQRT3:&#160;resutil.h'],['../surface_8h.html#ae42978afd835c3a1f70d409a1b5f5a39',1,'SQRT3:&#160;surface.h']]],
-  ['superellipsoid_10',['SUPERELLIPSOID',['../objectshape_8h.html#a71a6202eb57b8cbe37567b138f4d8bff',1,'objectshape.h']]],
-  ['superellipsoid_5fd_11',['SUPERELLIPSOID_D',['../objectshape_8h.html#ac08570942c732e30d5af5e3746ced441',1,'objectshape.h']]],
-  ['superellipsoid_5fn_12',['SUPERELLIPSOID_N',['../objectshape_8h.html#ab293b58743e4ec8b7f4ea230db113c1b',1,'objectshape.h']]],
-  ['supergitter_13',['SUPERGITTER',['../error_8h.html#a01fe41f7daf244522bc4d73d3dc8d182',1,'error.h']]]
+  ['raman_0',['RAMAN',['../resutil_8h.html#a2ac770360e3151dbfb4083137fc5d008',1,'resutil.h']]],
+  ['raybase_5fstatus_5ffirst_5fstep_1',['RAYBASE_STATUS_FIRST_STEP',['../raybase_8h.html#a3e39fc0fbea197edc625ef924e42656e',1,'raybase.h']]],
+  ['raybase_5fstatus_5fnone_2',['RAYBASE_STATUS_NONE',['../raybase_8h.html#a183c8f9e50782ac6d4a0fee16d79f969',1,'raybase.h']]],
+  ['raybase_5fstatus_5ftir_3',['RAYBASE_STATUS_TIR',['../raybase_8h.html#a5858d5958e73ab05bff9465b8169ffed',1,'raybase.h']]],
+  ['raytrace_5fmax_5freflexions_4',['RAYTRACE_MAX_REFLEXIONS',['../raytrace_8h.html#a634d573272f55167b178b564e96f2c2b',1,'raytrace.h']]],
+  ['raytracer_5ftype_5fnone_5',['RAYTRACER_TYPE_NONE',['../raytrace_8h.html#a154731dc3dc2b464169cb3ed48388f09',1,'raytrace.h']]],
+  ['raytracer_5ftype_5fot_6',['RAYTRACER_TYPE_OT',['../raytrace_8h.html#a25e16a918a70b67479aceab7e4931fe2',1,'raytrace.h']]],
+  ['raytracer_5ftype_5fpath_7',['RAYTRACER_TYPE_PATH',['../raytrace_8h.html#a597741ae430d8fe18e5f99dae2e63c15',1,'raytrace.h']]],
+  ['raytracer_5ftype_5fpure_8',['RAYTRACER_TYPE_PURE',['../raytrace_8h.html#af65d07b66313420af5dc6b05d027c707',1,'raytrace.h']]],
+  ['realloc_5ferr_9',['REALLOC_ERR',['../error_8h.html#af75b71c8fffbbfbfd5cbf20748a50542',1,'error.h']]],
+  ['resutil_5fh_10',['RESUTIL_H',['../resutil_8h.html#a0291232760a55b8e20503ad3f56efb03',1,'resutil.h']]]
 ];

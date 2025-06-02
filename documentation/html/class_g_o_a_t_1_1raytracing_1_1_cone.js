@@ -9,6 +9,7 @@ var class_g_o_a_t_1_1raytracing_1_1_cone =
     [ "getConeAngle", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a32dcbe1efde21f02bf5d3f0f728b467e", null ],
     [ "getHeight", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a249346e9fdc1a82c0e6371e5f766550c", null ],
     [ "getRadius", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a7e6642cd643c79616b1f58047496d939", null ],
+    [ "init", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a704f49089b30f4969d2d9d20501490c8", null ],
     [ "initQuad", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ab55692926e46f4e7c0eb9bb2724a05e1", null ],
     [ "isInside", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ad75d38a2053d25c0866bb5fc799852de", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ab4b58ad394ac300355c1b996fb915460", null ],
@@ -21,5 +22,14 @@ var class_g_o_a_t_1_1raytracing_1_1_cone =
     [ "setPos", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a1932ae211ec51534aa6ca1991d3e2eec", null ],
     [ "setr0", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a19e4ca1ca53f85ea07587216a29884ac", null ],
     [ "setRadius", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a43d14b453b65b0c30f3201fdf6c7e9e4", null ],
-    [ "volume", "class_g_o_a_t_1_1raytracing_1_1_cone.html#aa9fad17f1c722dc74537cbb1727eae4a", null ]
+    [ "volume", "class_g_o_a_t_1_1raytracing_1_1_cone.html#aa9fad17f1c722dc74537cbb1727eae4a", null ],
+    [ "coneAngle", "class_g_o_a_t_1_1raytracing_1_1_cone.html#aeb2247b3aeda21bb652baf53c4fc93bd", null ],
+    [ "cosCA", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a37a6b6fb6467e839c09543fc6d94e762", null ],
+    [ "height", "class_g_o_a_t_1_1raytracing_1_1_cone.html#adf529fc0ea872206c2de512f9d3a674e", null ],
+    [ "normv", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ac4466161a2b9c3391bb043e0f33bb3ce", null ],
+    [ "radius", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a2564753334ec717ef52a1d39be2c5af7", null ],
+    [ "sideLen", "class_g_o_a_t_1_1raytracing_1_1_cone.html#ac545d0f6306256454b75f351557204af", null ],
+    [ "tan2CA", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a2719249040f972f9df9894c0aba6684e", null ],
+    [ "V", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a81c63cee2ed5e9220247d63e041702ba", null ],
+    [ "v", "class_g_o_a_t_1_1raytracing_1_1_cone.html#a0a5e67dbbf3c2897ec283d5d071d4e45", null ]
 ];

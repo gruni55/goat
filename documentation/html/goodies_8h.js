@@ -7,5 +7,6 @@ var goodies_8h =
     [ "movingAvg", "goodies_8h.html#ac142460e9abee07ad1aa82bab55908de", null ],
     [ "newton_root", "goodies_8h.html#a21e5c5b81ace492e721f4c83d3db0882", null ],
     [ "sqr", "goodies_8h.html#a161539674a9eab813146902f5442473f", null ],
-    [ "testnan", "goodies_8h.html#acf1de9fa5bd909a98d9e0162d5b1ca79", null ]
+    [ "testnan", "goodies_8h.html#acf1de9fa5bd909a98d9e0162d5b1ca79", null ],
+    [ "tl", "goodies_8h.html#af42a4b7ab808cc5aeeee3724672da1f1", null ]
 ];

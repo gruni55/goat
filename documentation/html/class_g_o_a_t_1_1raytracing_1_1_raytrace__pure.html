@@ -98,6 +98,7 @@ $(document).ready(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_raytra
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">GOAT::raytracing::Raytrace_pure Class Reference</div></div>
 </div><!--header-->
@@ -150,6 +151,15 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6f33cfc22c680fad7a19923cfb151147 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_raytrace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae577d8a38d529d73737c7040e9abe346 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_raytrace" id="r_ae577d8a38d529d73737c7040e9abe346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ae577d8a38d529d73737c7040e9abe346">copyRay</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a> *&amp;dest, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a> *src)</td></tr>
 <tr class="separator:ae577d8a38d529d73737c7040e9abe346 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_raytrace"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a568d46a5a9757ffa9ace4aeba65edee3" id="r_a568d46a5a9757ffa9ace4aeba65edee3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html#a568d46a5a9757ffa9ace4aeba65edee3">traceEnterObject</a> ()</td></tr>
+<tr class="memdesc:a568d46a5a9757ffa9ace4aeba65edee3"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function is called when the ray enters an object  <br /></td></tr>
+<tr class="separator:a568d46a5a9757ffa9ace4aeba65edee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe76252bf31dec91e25231d522e0e4eb" id="r_afe76252bf31dec91e25231d522e0e4eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html#afe76252bf31dec91e25231d522e0e4eb">traceLeaveObject</a> ()</td></tr>
+<tr class="memdesc:afe76252bf31dec91e25231d522e0e4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">this function is called when the ray leaves an object  <br /></td></tr>
+<tr class="separator:afe76252bf31dec91e25231d522e0e4eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -225,7 +235,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class makes a raytracing without any output (except detectors) In this ray tracing class no reactions at the surface is included. It is intended for calculation only with detectors. </p>
 
-<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00175">175</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00176">176</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a49cb54a60d6e7645dc8268f684d36fa0" name="a49cb54a60d6e7645dc8268f684d36fa0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a49cb54a60d6e7645dc8268f684d36fa0">&#9670;&#160;</a></span>Raytrace_pure() <span class="overload">[1/2]</span></h2>
@@ -261,6 +271,69 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor with <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html" title="Class defining a scene with lightsources and objects. This is a container used to inform the Raytrace...">Scene</a> Object. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a568d46a5a9757ffa9ace4aeba65edee3" name="a568d46a5a9757ffa9ace4aeba65edee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568d46a5a9757ffa9ace4aeba65edee3">&#9670;&#160;</a></span>traceEnterObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::Raytrace_pure::traceEnterObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this function is called when the ray enters an object </p>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a586812164aa3415ee7cd16a7344b3d85">GOAT::raytracing::Raytrace</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00183">183</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
+
+</div>
+</div>
+<a id="afe76252bf31dec91e25231d522e0e4eb" name="afe76252bf31dec91e25231d522e0e4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe76252bf31dec91e25231d522e0e4eb">&#9670;&#160;</a></span>traceLeaveObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::Raytrace_pure::traceLeaveObject </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>this function is called when the ray leaves an object </p>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a9c263d1e971845eb8a28e66221ea3bdc">GOAT::raytracing::Raytrace</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="raytrace_8h_source.html#l00182">182</a> of file <a class="el" href="raytrace_8h_source.html">raytrace.h</a>.</p>
 
 </div>
 </div>

@@ -11,5 +11,6 @@ var lens_8h =
     [ "binRead", "lens_8h.html#a96e56eb2683c9f0cbdd48ab46b436c4a", null ],
     [ "binRead", "lens_8h.html#ac2d0d78c4a130fcf795e85d094c759e1", null ],
     [ "binWrite", "lens_8h.html#a3cca66f627df43622b7124fb3ed0c4c7", null ],
-    [ "binWrite", "lens_8h.html#ad6dd8a65083d84f501cc0e01eaf0b60e", null ]
+    [ "binWrite", "lens_8h.html#ad6dd8a65083d84f501cc0e01eaf0b60e", null ],
+    [ "int2Curvature", "lens_8h.html#ad7d4120c7b6cac967e489acd76a688a9", null ]
 ];

@@ -1,7 +1,7 @@
 var class_g_o_a_t_1_1raytracing_1_1_i_ray =
 [
     [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ae89a67598dd13a855d9c5d86d222750f", null ],
-    [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ae10c46b6e8a1c30e745e79f6b5066767", null ],
+    [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a93792c5fb4230d2785b20496a4c0a66c", null ],
     [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ab154f48541ab127915caf7922c7e31a3", null ],
     [ "~IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ab9a6b006b06ba98ceae6e622c74af344", null ],
     [ "checkObjectIntersection", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html#a7687b805440c564f234afcb1d7f45569", null ],

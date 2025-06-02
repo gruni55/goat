@@ -41,7 +41,7 @@
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_adac318ce163b4dcb9f03f5cf2c4164df}{delChild}}(\textcolor{keywordtype}{int}\ i);\ }
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a4a9f1ca379086a4c91413bdd4aabc38b}{delAllChilds}}();\ }
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a609eb887f26d1ca968adfcf4ef56c74e}{setBoundingBox}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ MP,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ d);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a600cf783ea877b7715e88fbd1d154554}{setRecursiondepth}}(\textcolor{keywordtype}{int}\ max\_recursions);}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00062}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}{00062}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<T>}}*\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ab759a2409014bc59f2dd89d680a82385}{parent}};}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00063}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}{00063}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<T>}}**\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_ae171809abd1f3356dd7f6ca7af68d19b}{child}};}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}{00064}}\ \ \ \ \ \ \ \ \ \ \ \ \ T*\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_aa0d5aeec879f26bffd2c58cffc0e9f7a}{Element}};}
@@ -103,7 +103,7 @@
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ child[i]-\/>trimOctree(rek\ +\ 1);}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00122}00122\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hnChilds\ <\ nChilds)\ \textcolor{comment}{//\ Kinder\ wurden\ gelöscht\ ==>\ umsortieren\ notwendig}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (hnChilds\ <\ nChilds)\ \textcolor{comment}{//\ Kinder\ wurden\ gel{\ucr}scht\ ==>\ umsortieren\ notwendig}}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<T>}}**\ hChild\ =\ 0;}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
@@ -195,17 +195,27 @@
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ BBox\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}(MP,\ d,\ 1.0);}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{octree_8h_source_l00214}00214\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00215}00215\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00216}00216\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00217}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{00217}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{checkTriangleBoxIntersection}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}\ B,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00218}00218\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00219}00219\ }
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00220}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{00220}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{addTriangleToTriangle}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}*\ O,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D,\ \textcolor{keywordtype}{int}\ rek);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00221}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abf3060ba1344b7513b017ef79d556557}{00221}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{addTriangleToTriangle}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&\ O,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00222}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{00222}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{rayOctreeIntersection}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&\ T,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ P,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\&\ D);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00223}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{00223}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{writeTriangleOctree}}(\textcolor{keywordtype}{char}*\ Fname,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00224}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa8995aed02a5b0135f77ff8e2486e22e}{00224}}\ \ \ \ \ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae34cb15e884d76e1018160177de94068}{operator<<\ }}(std::ostream\&\ os,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&);}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00225}00225\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{octree_8h_source_l00226}00226\ \}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00215}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a600cf783ea877b7715e88fbd1d154554}{00215}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree_a600cf783ea877b7715e88fbd1d154554}{Octree<T>::\ setRecursiondepth}}(\textcolor{keywordtype}{int}\ max\_recursions)}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ delete\ the\ whole\ tree...}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ delAllChilds();}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ delElements();}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ...\ and\ recreate\ it\ with\ the\ new\ number\ of}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ createTree(max\_recursions);}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00227}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{00227}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b69f4e4e6aba99dd2d88225f20ffc06}{checkTriangleBoxIntersection}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}\ B,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00229}00229\ }
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00230}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{00230}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{addTriangleToTriangle}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}*\ O,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D,\ \textcolor{keywordtype}{int}\ rek);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00231}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abf3060ba1344b7513b017ef79d556557}{00231}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3d0b4515}{addTriangleToTriangle}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&\ O,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\ D);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00232}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{00232}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a053f44b10920be0b45dbfa82626db17d}{rayOctreeIntersection}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&\ T,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ P,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\&\ D);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00233}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{00233}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6826cb534cf0319351a923a72ce00d73}{writeTriangleOctree}}(\textcolor{keywordtype}{char}*\ Fname,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00234}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa8995aed02a5b0135f77ff8e2486e22e}{00234}}\ \ \ \ \ \ \ \ \ std::ostream\&\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae34cb15e884d76e1018160177de94068}{operator<<\ }}(std::ostream\&\ os,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree<triangle>}}\&);}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00235}00235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{octree_8h_source_l00236}00236\ \}}
 
 \end{DoxyCode}

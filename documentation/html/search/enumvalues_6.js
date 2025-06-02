@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['open_0',['OPEN',['../classtinyxml2_1_1_x_m_l_element.html#ab5f90e2493c35702175235127e2935b4a78cf277c55b4655c86458dfecb11d349',1,'tinyxml2::XMLElement']]]
+  ['lateral_0',['lateral',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#afab106b2b59df490442822442d791e52afe8b61b406834f67efd8c25f46adc155',1,'GOAT::raytracing::asphericLens']]],
+  ['left_1',['left',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#afab106b2b59df490442822442d791e52acb2103ca35c27a4b07c1fdd6d3b4d005',1,'GOAT::raytracing::asphericLens']]]
 ];

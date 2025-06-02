@@ -25,5 +25,6 @@ var class_g_o_a_t_1_1raytracing_1_1_box =
     [ "volume", "class_g_o_a_t_1_1raytracing_1_1_box.html#ade96093d04b2967e02336b6b2089f3f6", null ],
     [ "bounds", "class_g_o_a_t_1_1raytracing_1_1_box.html#a541ad66f0847b74433d0d7abb51ee7db", null ],
     [ "d", "class_g_o_a_t_1_1raytracing_1_1_box.html#a8b0c56202c77308d8e9a4c7fb1c01817", null ],
-    [ "diag", "class_g_o_a_t_1_1raytracing_1_1_box.html#af6bdb9fddc0933d31f66396aef873485", null ]
+    [ "diag", "class_g_o_a_t_1_1raytracing_1_1_box.html#af6bdb9fddc0933d31f66396aef873485", null ],
+    [ "isOctree", "class_g_o_a_t_1_1raytracing_1_1_box.html#a50a4267dafce4e9062ce3f278adff0b3", null ]
 ];

@@ -22,7 +22,7 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a6fdb08a7e
 \begin{DoxyCompactList}\small\item\em Export excitation field to (ASCII-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name "{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS \+: the absolute value of the electric field is stored (default value) INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR \+: the full \doxylink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aa9fe3ee8e9027d770eb9b5acb0dd7c48}{Raytrace\+\_\+\+Inel}} ()
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3547287c14732434376e6928f8813056}{Raytrace\+\_\+\+Inel}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}}, int n)
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3547287c14732434376e6928f8813056}{Raytrace\+\_\+\+Inel}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a79eabab815d536bfd87504a847be5fb8}{n}})
 \begin{DoxyCompactList}\small\item\em Constructor for the inelastic scattering raytracer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}{reset\+Calculation}} ()
 \begin{DoxyCompactList}\small\item\em forces the calculation of the excited field when calling \doxylink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_adb59a4560029ece31fea976c4499e76b}{trace(\+RRTParms D)} \end{DoxyCompactList}\item 
@@ -150,6 +150,44 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_acb9c91a6c8805e72
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}} = \mbox{\hyperlink{raytrace_8h_a634d573272f55167b178b564e96f2c2b}{RAYTRACE\+\_\+\+MAX\+\_\+\+REFLEXIONS}}
 \begin{DoxyCompactList}\small\item\em current number of reflections ~\newline
  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a9ae9a8329eaaf21f2813c936c59c3b16}{gewichte}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ E, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ p)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aca4df55edc95a1a50996b4af48b21108}{init\+Excitation}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ae0ba001e9f1a4f86ef706155811a4777}{init\+RRT}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aea2acb5c7e92d170f14403459e5a7c73}{save\+Excitation}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af779015d148dfcb251679489830d57d8}{save\+RRT}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5db43e789b08e6c73b0372649bee8abf}{trace\+Excitation}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aa314e638161cb64d179f6336694c06ba}{trace\+RRT}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a86ef76483e57ebde7d957f976c2349b7}{active}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a40061416d0172e45b183ada0ca012c36}{calcphase}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a18cd0f9f2e4979b93ebac69fa5717e17}{iR}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a8c2f578e9aac1c65c72dc13688daf165}{LSExcit}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a79eabab815d536bfd87504a847be5fb8}{n}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaee2f2cb9e4bf4823e805af32062f8af}{n\+LSExcit}}
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a4a4c581035746ca7674684795634f10e}{parms}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a0558d661da67857114dd86f89d61af42}{SGRRT1}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5775959411e7f52bf395668b4af4b285}{SGRRT2}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -204,6 +242,24 @@ Constructor for the inelastic scattering raytracer.
 
 Export excitation field to (ASCII-\/) file This function exports excitation field inside the objects. For each object, a separate file is created with name "{}$<$no of the object$>$\+\_\+$<$fname$>$.\+dat"{}. Each file contains the information about the field inside an array which contains the object. In the first line, the dimensions in x,y and z direction is given. The kind of information, stored in the file is determined by the parameter savetype. In can have the following values\+: INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS \+: the absolute value of the electric field is stored (default value) INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR \+: the full \doxylink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector} is stored in the file. Each line stores the following values\+: real(\+Ex) imag(\+Ex) real(\+Ey) imag(\+Ey) real(\+Ez) imag(\+Ez) 
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a9ae9a8329eaaf21f2813c936c59c3b16}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a9ae9a8329eaaf21f2813c936c59c3b16} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!gewichte@{gewichte}}
+\index{gewichte@{gewichte}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{gewichte()}{gewichte()}}
+{\footnotesize\ttfamily std\+::complex$<$ double $>$ GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::gewichte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{E,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aca4df55edc95a1a50996b4af48b21108}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aca4df55edc95a1a50996b4af48b21108} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!initExcitation@{initExcitation}}
+\index{initExcitation@{initExcitation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{initExcitation()}{initExcitation()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::init\+Excitation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ae0ba001e9f1a4f86ef706155811a4777}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_ae0ba001e9f1a4f86ef706155811a4777} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!initRRT@{initRRT}}
+\index{initRRT@{initRRT}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{initRRT()}{initRRT()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::init\+RRT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a57f2d8ead44786192d7623fb124bb132} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!resetCalculation@{resetCalculation}}
 \index{resetCalculation@{resetCalculation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
@@ -217,6 +273,18 @@ forces the calculation of the excited field when calling \doxylink{class_g_o_a_t
 
 
 Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00107}{107}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aea2acb5c7e92d170f14403459e5a7c73}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aea2acb5c7e92d170f14403459e5a7c73} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!saveExcitation@{saveExcitation}}
+\index{saveExcitation@{saveExcitation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{saveExcitation()}{saveExcitation()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::save\+Excitation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af779015d148dfcb251679489830d57d8}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af779015d148dfcb251679489830d57d8} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!saveRRT@{saveRRT}}
+\index{saveRRT@{saveRRT}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{saveRRT()}{saveRRT()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::save\+RRT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af095f9bd43cd33b03cdb17241dc95cd9}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_af095f9bd43cd33b03cdb17241dc95cd9} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!sceneChanged@{sceneChanged}}
@@ -275,6 +343,12 @@ Function internally called when ray enters an object.
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a586812164aa3415ee7cd16a7344b3d85}{GOAT\+::raytracing\+::\+Raytrace}}.
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5db43e789b08e6c73b0372649bee8abf}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5db43e789b08e6c73b0372649bee8abf} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!traceExcitation@{traceExcitation}}
+\index{traceExcitation@{traceExcitation}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{traceExcitation()}{traceExcitation()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+Excitation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaaeeaa3027bc570cbf4e448d81256d24}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaaeeaa3027bc570cbf4e448d81256d24} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!traceLeaveObject@{traceLeaveObject}}
 \index{traceLeaveObject@{traceLeaveObject}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
@@ -288,6 +362,12 @@ Function internally called when ray leaves an object.
 
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c263d1e971845eb8a28e66221ea3bdc}{GOAT\+::raytracing\+::\+Raytrace}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aa314e638161cb64d179f6336694c06ba}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aa314e638161cb64d179f6336694c06ba} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!traceRRT@{traceRRT}}
+\index{traceRRT@{traceRRT}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{traceRRT()}{traceRRT()}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::trace\+RRT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95a52b4e32ebf7cb4343788ca4303172}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95a52b4e32ebf7cb4343788ca4303172} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!unsetExcitationFieldOnly@{unsetExcitationFieldOnly}}
@@ -306,6 +386,26 @@ Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00109}{109}} of fi
 
 
 \doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a86ef76483e57ebde7d957f976c2349b7}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a86ef76483e57ebde7d957f976c2349b7} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!active@{active}}
+\index{active@{active}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{active}{active}}
+{\footnotesize\ttfamily bool\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::active\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00125}{125}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a40061416d0172e45b183ada0ca012c36}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a40061416d0172e45b183ada0ca012c36} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!calcphase@{calcphase}}
+\index{calcphase@{calcphase}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{calcphase}{calcphase}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::calcphase\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00121}{121}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95fd490b1f6df01d67a7b1fa300dc4da}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a95fd490b1f6df01d67a7b1fa300dc4da} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!inel1@{inel1}}
 \index{inel1@{inel1}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
@@ -330,6 +430,56 @@ result of the inelastic scattering for the two given polarisations
 
 Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00106}{106}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a18cd0f9f2e4979b93ebac69fa5717e17}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a18cd0f9f2e4979b93ebac69fa5717e17} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!iR@{iR}}
+\index{iR@{iR}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{iR}{iR}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::iR\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00127}{127}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a8c2f578e9aac1c65c72dc13688daf165}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a8c2f578e9aac1c65c72dc13688daf165} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!LSExcit@{LSExcit}}
+\index{LSExcit@{LSExcit}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{LSExcit}{LSExcit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+LSExcit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00128}{128}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a79eabab815d536bfd87504a847be5fb8}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a79eabab815d536bfd87504a847be5fb8} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!n@{n}}
+\index{n@{n}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::n\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00126}{126}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaee2f2cb9e4bf4823e805af32062f8af}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_aaee2f2cb9e4bf4823e805af32062f8af} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!nLSExcit@{nLSExcit}}
+\index{nLSExcit@{nLSExcit}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{nLSExcit}{nLSExcit}}
+{\footnotesize\ttfamily int GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::n\+LSExcit\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00129}{129}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a4a4c581035746ca7674684795634f10e}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a4a4c581035746ca7674684795634f10e} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!parms@{parms}}
+\index{parms@{parms}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{parms}{parms}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::parms\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00130}{130}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a3b8dbb44fc4a6fb421e6bf50fb2acac4} 
 \index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!SGE@{SGE}}
 \index{SGE@{SGE}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
@@ -343,6 +493,26 @@ Here, the exciting field is stored.
 
 
 Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00110}{110}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a0558d661da67857114dd86f89d61af42}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a0558d661da67857114dd86f89d61af42} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!SGRRT1@{SGRRT1}}
+\index{SGRRT1@{SGRRT1}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{SGRRT1}{SGRRT1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+SGRRT1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00122}{122}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5775959411e7f52bf395668b4af4b285}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel_a5775959411e7f52bf395668b4af4b285} 
+\index{GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}!SGRRT2@{SGRRT2}}
+\index{SGRRT2@{SGRRT2}!GOAT::raytracing::Raytrace\_Inel@{GOAT::raytracing::Raytrace\_Inel}}
+\doxysubsubsection{\texorpdfstring{SGRRT2}{SGRRT2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel\+::\+SGRRT2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__inel_8h_source_l00123}{123}} of file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
 
 
 

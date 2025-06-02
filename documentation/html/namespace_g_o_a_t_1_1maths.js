@@ -168,6 +168,7 @@ var namespace_g_o_a_t_1_1maths =
     [ "sViereck", "namespace_g_o_a_t_1_1maths.html#ae6bd073aea822c6496839eb73fe6b00d", null ],
     [ "tan", "namespace_g_o_a_t_1_1maths.html#aeb07510be73ba4f7279a4b3b493e1b7a", null ],
     [ "testnan", "namespace_g_o_a_t_1_1maths.html#acf1de9fa5bd909a98d9e0162d5b1ca79", null ],
+    [ "tl", "namespace_g_o_a_t_1_1maths.html#af42a4b7ab808cc5aeeee3724672da1f1", null ],
     [ "toString", "namespace_g_o_a_t_1_1maths.html#af8bf984dd5c3c8b074c28dddec1dc205", null ],
     [ "toString", "namespace_g_o_a_t_1_1maths.html#aa397880f388906f8ce931776f222f592", null ],
     [ "trafo", "namespace_g_o_a_t_1_1maths.html#a6ecc1cf8634087afaad1ab0daef979cc", null ],

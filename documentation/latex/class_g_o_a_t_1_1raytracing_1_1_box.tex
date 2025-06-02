@@ -52,7 +52,7 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab
 \begin{DoxyCompactList}\small\item\em sets scaling factor \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163}{setD}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ D)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2}{set\+Octree}} (bool is\+Octree)
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2}{set\+Octree}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}{is\+Octree}})
 \begin{DoxyCompactList}\small\item\em box belongs to an octree calculation ~\newline
  \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00}{set\+Pos}} (double x, double y, double z)
@@ -72,6 +72,8 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ob
 \begin{DoxyCompactList}\small\item\em returns refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae0dac278872d9239bd4a81e9da7362b8}{getninel}} ()
 \begin{DoxyCompactList}\small\item\em returns refractive index \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3cab025468e85edef9a561fa68362578}{get\+Visible}} ()
+\begin{DoxyCompactList}\small\item\em show the visiblity state (used in GOATvis) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adca97d288a36effec8dca8bb7fc84c64}{is\+Active}} ()
 \begin{DoxyCompactList}\small\item\em returns true if the object should be considered for inelastic calculation \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a950b456e0f6ac23a28fb565950056f0a}{is\+Outside\+World}} ()
@@ -84,6 +86,8 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a950b456e0f6a
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab9982660e631c9eb95f82e850ef4ca7e}{rotate}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ A, double phi)
 \begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, A\+: rotation axis, phi\+: angle for rotation around A \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80d327c030210dfb48e0def8e0a4584b}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em sets scaling of the shape by the factor sf \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_abe5c88dadc5d9f8a1aa3dac5850e0bea}{set\+Active}} (bool active)
 \begin{DoxyCompactList}\small\item\em sets flag if the object is inelastic active, i.\+e. it will be considered for inelastic calculation ~\newline
  \end{DoxyCompactList}\item 
@@ -107,6 +111,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adb988c87e41e
 \begin{DoxyCompactList}\small\item\em sets refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a87735677f226d2b3ac62f5eb1e2bf878}{set\+Pol\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}})
 \begin{DoxyCompactList}\small\item\em sets polarisability matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a661edeaddb24518110c9752efc1bddb6}{set\+Visible}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}})
+\begin{DoxyCompactList}\small\item\em set visiblity (used in GOATvis) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afe01f045f24afe4b8af91a3ba136d7b3}{Type}} ()
 \begin{DoxyCompactList}\small\item\em returns the object\textquotesingle{}s type \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
@@ -151,11 +157,18 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e5
 \begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a5ff765220b51e3967a5f94211996bf71}{rho}}
 \begin{DoxyCompactList}\small\item\em mass density in $ kg/m^3 $ \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}} =1
 \begin{DoxyCompactList}\small\item\em scaling factor, it is used to scale the shape of the object ~\newline
  \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3a94d86ef25c4b89069e46f7fa1f224d}{type}}
-\begin{DoxyCompactList}\small\item\em type of the object \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em type of the object \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}} =true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}{is\+Octree}} = false
+\begin{DoxyCompactList}\small\item\em used for \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} calculation \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -381,15 +394,11 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afa28a4
 \index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!scale@{scale}}
 \index{scale@{scale}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
 \doxysubsubsection{\texorpdfstring{scale()}{scale()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Box\+::scale (\begin{DoxyParamCaption}\item[{double}]{sf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily void GOAT\+::raytracing\+::\+Box\+::scale (\begin{DoxyParamCaption}\item[{double}]{sf }\end{DoxyParamCaption})}
 
 
 
 sets scaling factor 
-
-
-
-Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a4ae7aae34f8f64260a63fcc30085a403}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163}\label{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163} 
 \index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setD@{setD}}
@@ -533,6 +542,20 @@ diagonal
 
 
 Definition at line \mbox{\hyperlink{box_8h_source_l00091}{91}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}\label{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3} 
+\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!isOctree@{isOctree}}
+\index{isOctree@{isOctree}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{isOctree}{isOctree}}
+{\footnotesize\ttfamily bool GOAT\+::raytracing\+::\+Box\+::is\+Octree = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+used for \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} calculation 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00021}{21}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
 
 
 

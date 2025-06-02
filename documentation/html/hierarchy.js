@@ -2,19 +2,22 @@ var hierarchy =
 [
     [ "GOAT::raytracing::asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", null ],
     [ "GOAT::raytracing::asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", null ],
+    [ "tinyxml2::MemPoolT< ITEM_SIZE >::Block", "structtinyxml2_1_1_mem_pool_t_1_1_block.html", null ],
+    [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", null ]
     ] ],
     [ "tinyxml2::DynArray< T, INITIAL_SIZE >", "classtinyxml2_1_1_dyn_array.html", null ],
-    [ "tinyxml2::DynArray< Block *, 10 >", "classtinyxml2_1_1_dyn_array.html", null ],
     [ "tinyxml2::DynArray< char, 20 >", "classtinyxml2_1_1_dyn_array.html", null ],
     [ "tinyxml2::DynArray< const char *, 10 >", "classtinyxml2_1_1_dyn_array.html", null ],
+    [ "tinyxml2::DynArray< tinyxml2::MemPoolT::Block *, 10 >", "classtinyxml2_1_1_dyn_array.html", null ],
     [ "tinyxml2::DynArray< tinyxml2::XMLNode *, 10 >", "classtinyxml2_1_1_dyn_array.html", null ],
     [ "GOAT::raytracing::Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", null ],
     [ "GOAT::raytracing::GlobalParms", "class_g_o_a_t_1_1raytracing_1_1_global_parms.html", null ],
     [ "GOAT::raytracing::grid", "class_g_o_a_t_1_1raytracing_1_1grid.html", null ],
     [ "GOAT::raytracing::gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", null ],
     [ "GOAT::raytracing::indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", null ],
+    [ "tinyxml2::MemPoolT< ITEM_SIZE >::Item", "uniontinyxml2_1_1_mem_pool_t_1_1_item.html", null ],
     [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", null ],
     [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
@@ -40,6 +43,11 @@ var hierarchy =
       [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLComment) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLElement) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLAttribute) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLText) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< sizeof(tinyxml2::XMLComment) >", "classtinyxml2_1_1_mem_pool_t.html", null ],
+      [ "tinyxml2::MemPoolT< ITEM_SIZE >", "classtinyxml2_1_1_mem_pool_t.html", null ],
       [ "tinyxml2::MemPoolT< ITEM_SIZE >", "classtinyxml2_1_1_mem_pool_t.html", null ]
     ] ],
     [ "GOAT::raytracing::objectInfo", "struct_g_o_a_t_1_1raytracing_1_1object_info.html", null ],
@@ -107,15 +115,22 @@ var hierarchy =
     [ "tinyxml2::XMLHandle", "classtinyxml2_1_1_x_m_l_handle.html", null ],
     [ "tinyxml2::XMLNode", "classtinyxml2_1_1_x_m_l_node.html", [
       [ "tinyxml2::XMLComment", "classtinyxml2_1_1_x_m_l_comment.html", null ],
+      [ "tinyxml2::XMLComment", "classtinyxml2_1_1_x_m_l_comment.html", null ],
+      [ "tinyxml2::XMLDeclaration", "classtinyxml2_1_1_x_m_l_declaration.html", null ],
       [ "tinyxml2::XMLDeclaration", "classtinyxml2_1_1_x_m_l_declaration.html", null ],
       [ "tinyxml2::XMLDocument", "classtinyxml2_1_1_x_m_l_document.html", null ],
+      [ "tinyxml2::XMLDocument", "classtinyxml2_1_1_x_m_l_document.html", null ],
+      [ "tinyxml2::XMLElement", "classtinyxml2_1_1_x_m_l_element.html", null ],
       [ "tinyxml2::XMLElement", "classtinyxml2_1_1_x_m_l_element.html", null ],
       [ "tinyxml2::XMLText", "classtinyxml2_1_1_x_m_l_text.html", null ],
+      [ "tinyxml2::XMLText", "classtinyxml2_1_1_x_m_l_text.html", null ],
+      [ "tinyxml2::XMLUnknown", "classtinyxml2_1_1_x_m_l_unknown.html", null ],
       [ "tinyxml2::XMLUnknown", "classtinyxml2_1_1_x_m_l_unknown.html", null ]
     ] ],
     [ "GOAT::XML::xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", null ],
     [ "tinyxml2::XMLUtil", "classtinyxml2_1_1_x_m_l_util.html", null ],
     [ "tinyxml2::XMLVisitor", "classtinyxml2_1_1_x_m_l_visitor.html", [
+      [ "tinyxml2::XMLPrinter", "classtinyxml2_1_1_x_m_l_printer.html", null ],
       [ "tinyxml2::XMLPrinter", "classtinyxml2_1_1_x_m_l_printer.html", null ]
     ] ],
     [ "GOAT::XML::xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", null ]

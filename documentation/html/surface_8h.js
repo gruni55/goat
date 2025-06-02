@@ -1,6 +1,9 @@
 var surface_8h =
 [
     [ "GOAT::raytracing::surface", "class_g_o_a_t_1_1raytracing_1_1surface.html", "class_g_o_a_t_1_1raytracing_1_1surface" ],
+    [ "OBJECTSHAPE_SURFACE_FILETYPE_NONE", "surface_8h.html#ab0b3fb01ba6b7796f388033896813583", null ],
+    [ "OBJECTSHAPE_SURFACE_FILETYPE_SRF", "surface_8h.html#a4c204b147f7a75b1771cb53fabebe468", null ],
+    [ "OBJECTSHAPE_SURFACE_FILETYPE_STL", "surface_8h.html#a8ddfac5174a88f799d7d539a30b0bbcb", null ],
     [ "SQRT3", "surface_8h.html#ae42978afd835c3a1f70d409a1b5f5a39", null ],
     [ "generateBullet", "surface_8h.html#adf476c5ac64d648999ccad582e80a39c", null ],
     [ "generateEllipsoid", "surface_8h.html#ac78d7b74c839c07fb829320096b52fd3", null ],

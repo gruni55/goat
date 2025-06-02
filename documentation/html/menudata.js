@@ -77,6 +77,7 @@ var menudata={children:[
 {text:"e",url:"namespacemembers_vars.html#index_e"},
 {text:"i",url:"namespacemembers_vars.html#index_i"},
 {text:"l",url:"namespacemembers_vars.html#index_l"},
+{text:"m",url:"namespacemembers_vars.html#index_m"},
 {text:"n",url:"namespacemembers_vars.html#index_n"},
 {text:"o",url:"namespacemembers_vars.html#index_o"},
 {text:"p",url:"namespacemembers_vars.html#index_p"},
@@ -188,6 +189,7 @@ var menudata={children:[
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
 {text:"a",url:"globals.html#index_a"},
+{text:"b",url:"globals.html#index_b"},
 {text:"c",url:"globals.html#index_c"},
 {text:"d",url:"globals.html#index_d"},
 {text:"e",url:"globals.html#index_e"},
@@ -210,6 +212,7 @@ var menudata={children:[
 {text:"Variables",url:"globals_vars.html"},
 {text:"Macros",url:"globals_defs.html",children:[
 {text:"a",url:"globals_defs.html#index_a"},
+{text:"b",url:"globals_defs.html#index_b"},
 {text:"c",url:"globals_defs.html#index_c"},
 {text:"d",url:"globals_defs.html#index_d"},
 {text:"e",url:"globals_defs.html#index_e"},

@@ -199,9 +199,7 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
   Position & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
   type & Type of the object  & \parbox{3cm}{ellipsoid,\\surface,\\cone,\\aspheric\_lens,\\box} & --  \\
-  \hline 
-  Direction & direction of the light rays & 3D vector & (0,0,0) \\
-  \hline
+  \hline   
   scaling & The object will be scaled by this factor & double & 1.0 \\
   \hline
   alpha & \parbox{3.5cm}{rotation angle\\around x-axis\\(in radiants)} & double & 0 \\ 
@@ -287,7 +285,7 @@ A spheric lens is described by the two side faces (see also documentation of the
  left(right)\footnote{parameters for the subcategories "left" and "right" are the same} & & Subcategory for the left(right) side & N/A & N/A  \\
  \hline
   left(right) & Curvature & Curvature type & "flat", "concave" or "flat" & --  \\
-    left(right) & R & Radius  & double  & 0  \\
+    left(right) & R & Radius  & convex, concave, flat (enumerator)  & flat  \\
  \end{tabular}
  
 \subsection{Vortex phase plate}
@@ -413,6 +411,7 @@ The parameters are as follows:
  \tiny{estimateTimeForObject} & The time when the pulse hits the object with the given number. This can only be used with one light source. If a time is given, it is relative to this estimated time. Can only be used without method "rtonly"! & number of the corresponding object & -- \\
  \hline
  time & Time at which the fields are calculated & -- \\
+ \hline
   filename & \parbox{3cm}{Prefix of the filename used to store the result. A file for each active object will be created in the form $<$filename$><$object no.$>$.dat}. & any filename & -- \\
   \hline
   spatialResolution & resolution of the grid in \si{\micro\metre} & double $>0$ & 1 \\

@@ -9,6 +9,7 @@ var class_g_o_a_t_1_1raytracing_1_1_octree =
     [ "delChild", "class_g_o_a_t_1_1raytracing_1_1_octree.html#adac318ce163b4dcb9f03f5cf2c4164df", null ],
     [ "delElements", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a25c0d9f239b64ffdee1083b0cc21f1e5", null ],
     [ "setBoundingBox", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a609eb887f26d1ca968adfcf4ef56c74e", null ],
+    [ "setRecursiondepth", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a600cf783ea877b7715e88fbd1d154554", null ],
     [ "trimOctree", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a7a19546669d1dbd1b1f38c6ae5402015", null ],
     [ "trimOctree", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a3a393f26127f14e4dfb30eef711f58b9", null ],
     [ "BBox", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a5328c8b7440f58abd52e47b783da1250", null ],

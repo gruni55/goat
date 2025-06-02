@@ -1,6 +1,7 @@
 var objectshape_8h =
 [
     [ "GOAT::raytracing::ObjectShape", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html", "class_g_o_a_t_1_1raytracing_1_1_object_shape" ],
+    [ "BOX", "objectshape_8h.html#a23a390cc01279924f6190334c5fa97a0", null ],
     [ "COMPOUND", "objectshape_8h.html#a03bd6f804505b7b4af1f39260a8e3d26", null ],
     [ "EPS", "objectshape_8h.html#a6ebf6899d6c1c8b7b9d09be872c05aae", null ],
     [ "ERYTHROCYTE", "objectshape_8h.html#a2995f77081acce9b5c07ed7645f484a6", null ],
