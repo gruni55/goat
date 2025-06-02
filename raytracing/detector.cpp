@@ -244,6 +244,7 @@ namespace GOAT
 
 		DetectorPlane::DetectorPlane(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> n, double d, int N)
 		{
+			type = DETECTOR_PLANE;
 			this->n = n / abs(n);
 			if (abs(this->n % GOAT::maths::ex) > 1E-5)
 				e1 = GOAT::maths::ex - (GOAT::maths::ex * n) * n;
@@ -251,9 +252,7 @@ namespace GOAT
 				e1 = GOAT::maths::ey - (GOAT::maths::ey * n) * n;
 			e1 = e1 / abs(e1);
 			e2 = n % e1;
-			e2 = e2 / abs(e2);
-			// d1 = d / (double)N;
-			// d2 = d / (double)N;
+			e2 = e2 / abs(e2);			
 			d1 = d;
 			d2 = d;
 			this->P = P;
@@ -266,6 +265,7 @@ namespace GOAT
 
 		DetectorPlane::DetectorPlane(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> e1, GOAT::maths::Vector<double> e2, int n1, int n2)
 		{
+			type = DETECTOR_PLANE;
 			D = new GOAT::maths::Vector<std::complex<double> > *[n1];
 			for (int i = 0; i < n1; i++)
 				D[i] = new GOAT::maths::Vector<std::complex<double> >[n2];
@@ -289,8 +289,7 @@ namespace GOAT
 			else this->e2 = e2 / (double)(n2 - 1);
 
 			this->n = e1 % e2;
-			this->n = this->n / abs(this->n);
-			type = DETECTOR_PLANE;
+			this->n = this->n / abs(this->n);			
 		}
 
 		bool DetectorPlane::cross(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> k, int& i1, int& i2, double& l)

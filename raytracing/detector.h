@@ -3,8 +3,9 @@
 
 #include "vector.h"
 #include "box.h"
+#define DETECTOR_PLANE 20000
 #define DETECTOR_ANGLE 20001
-#define DETECTOR_PLANE 20002
+
 #include <iostream>
 #include <vector>
 
@@ -41,6 +42,7 @@ namespace GOAT
 		int N2(); ///< returns the dimension of the array in the second direction
 		double D1(); ///< return the length in the first direction
 		double D2(); ///< return the length in the second direction
+
 		int Type() { return type; } ///< returns kind of detector
 		/**
 		* @load detector data from file
@@ -66,10 +68,10 @@ namespace GOAT
 		maths::Vector<double> gete1() { return e1; } ///< returns the direction of the first axis of the detector
 		maths::Vector<double> gete2() { return e2; } ///< returns the direction of the second axis of the detector
 	protected:
-		maths::Vector<double> e1;
-		maths::Vector<double> e2;
-		maths::Vector<double> P;
-		maths::Vector<double> n;
+		maths::Vector<double> e1; ///< unit vector in the first direction 
+		maths::Vector<double> e2; ///< unit vector in the second direction
+		maths::Vector<double> P; ///< Position of the detector
+		maths::Vector<double> n;  
 		void init(int n1, int n2); ///< initialise array (for internal use only)
 		double d1=0, d2=0;
 		int n1=0, n2=0;

@@ -1206,6 +1206,14 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     writeObject(i);
                 scene->InsertEndChild(objects);
           }
+
+          if (S.nDet > 0)
+          {
+            detectors=doc.NewElement("Detectors");
+            for (int i=0; i<S.nDet; i++)
+                writeDetector(i);
+            scene->InsertEndChild(detectors);
+          }
           
           tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
 
@@ -1232,7 +1240,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   {
                   raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
                    lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
-                   lightSrc->SetAttribute("size", ls->D);
+                   lightSrc->SetAttribute("size", ls->D);                   
                   }
                   break;
 
@@ -1354,6 +1362,28 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             }
             objects->InsertEndChild(object);
             
+        }
+
+        void xmlWriter::writeDetector(int i)
+        {
+            auto detector = doc.NewElement("Detector");
+            int type=S.Det[i]->Type();
+            int typeh=type-20000;
+            detector->SetAttribute("type",detectorToken[typeh].c_str());
+            detector->InsertEndChild(writeVectorD("Position",S.Det[i]->position()));
+            detector->InsertEndChild(writeVectorD("Direction",S.Det[i]->norm()));
+            detector->SetAttribute("filename",S.Det[i]->fname.c_str());
+            S.Det[i]->save(S.Det[i]->fname.c_str());
+            switch (type)
+            {
+                case DETECTOR_PLANE : 
+                    {
+                     auto det=(raytracing::DetectorPlane *) S.Det[i];
+                     detector->SetAttribute("d",det->D1()); // we assume, that d1=d2 
+                     detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2                            
+                    }
+            }
+            detectors->InsertEndChild(detector);
         }
 
         tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)

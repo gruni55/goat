@@ -171,6 +171,7 @@ namespace GOAT
 			private:
 				void writeLightSrc(int i); ///< write the i-th light source to the file
 				void writeObject(int i); ///< write the i-th object to the file
+				void writeDetector(int i); ///< write the i-th detector to the file
 				
 
 				/**
