@@ -25,6 +25,9 @@ namespace GOAT
 #define SQRT3 1.73205080756887729352744634150587236694280525381038062805580  /// SQRT(3)
 #endif
 
+#define OBJECTSHAPE_SURFACE_FILETYPE_NONE -1
+#define OBJECTSHAPE_SURFACE_FILETYPE_SRF 0
+#define OBJECTSHAPE_SURFACE_FILETYPE_STL 1
 
 
         /* Klasse, die eine ObjectShape repr�sentiert, die aus Dreiecken zusammengebaut ist. Die Dreiecke werden durch die Klasse \ref refdreieck "triangle"
@@ -134,14 +137,12 @@ namespace GOAT
 
             void clearS(); ///< clears the internal list of triangles
             //  string getFName() {return FName; }
-            std::string getFName() { return FName; } ///< returns the current file name
+            std::string getFilename() { return FName; } ///< returns the current file name
             void setFilename(std::string FName) ///< set the current file name
             {
-                this->FName = FName;
-                //if (this->FName!=0) delete[] this->FName;
-                // this->FName=new char[strlen(FName)+1];
-                // strcpy(this->FName,FName);
+                this->FName = FName;                
             }
+
             // Operatoren 
             surface& operator=(const surface&);
 
@@ -171,12 +172,12 @@ namespace GOAT
             void setCenter2CoM(); ///< Sets the Position to the center of mass (CoM)
             int getCurrentIndex() { return currentIndex; } ///< Returns the index of the triangle that was last hit.
             triangle& getTriangle(int i) { return S[i]; } ///< Returns the i-th triangle in the internal triangle list.
+            int filetype=OBJECTSHAPE_SURFACE_FILETYPE_NONE; ///< type of the file connected with this surface object
 
             // protected:
             maths::Vector<double> currentnorm;  ///< Normal vector of the triangle that was last hit
             int currentIndex; ///< Index of the triangle that was last hit.
-            std::string FName; ///< File name (used to save the internal triangle list)
-            // char *FName ;
+            std::string FName; ///< File name (used to save the internal triangle list)          
             void initBounds(maths::Vector<double>& pul, maths::Vector<double>& por); ///< Calculates the bounding box (=circumferent cuboid) but without rotation. The cuboid is represented by the upper right corner (por) and the lower left corner (pul).
 
 #ifdef WITH_OCTREE

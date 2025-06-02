@@ -49,6 +49,8 @@ namespace GOAT
 			VortexPlate& operator =  (VortexPlate& f);
 			VortexPlate& operator = (VortexPlate f);
 			void scale(double sf); ///< Set the scaling factor (the half axis will be multiplied by this factor)
+			int order() {return m;} ///< returns the order (~topological charge)
+			double vortexHeight() {return dh; } ///< returns the height of the vortex structure 
 		protected :
 			double h = 1.0; ///< height of the vortex (without vortex structure)
 			double r = 1.0; ///< radius of the vortex

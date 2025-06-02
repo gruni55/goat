@@ -79,36 +79,89 @@ namespace GOAT
 		class xmlReader
 		{
 			public:
-			//	void readXML(const char* fname,char* path=nullptr); ///< function to read the file and store 
+			 /**
+			  * @brief read the XML-file
+			  * This methode reads the XML-file 
+			  * @param fname the filename
+			  * @param path path of the XML-file. If path is empty, the path will be extracted from the filename. With this, the library is able to 
+			  * handle relative paths for the files used e.g. for the detectors
+			  */
 				void readXML(std::string fname, std::string path = "");
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
 
 			private:				
-                void readScene();
-				void readLightSources();
-				void readCommands();
-				void readObjects();
-				void readDetectors();
-				void doCalculations();
-                void doPulseCalculation(tinyxml2::XMLElement* objEll); 
+                void readScene(); ///< read the entire Scene
+				void readLightSources(); ///< (used in readScene) read the light sources from the file
+				void readCommands(); ///< (used in readXML) read and execute the commands for calculation
+				void readObjects(); ///< (used in readScene) read the objects from the file
+				void readDetectors(); ///< (used in readScene) read the detectors from the file (deprecated ?)
+				void doCalculations(); ///< (used in readScene) read and execute the commands for calculation
+                void doPulseCalculation(tinyxml2::XMLElement* objEll); ///< (used in doCalculations) to pulsed Calculation (rt + integral)
 				void doPulseCalculation_rt(tinyxml2::XMLElement* objEll); ///< do pulse Calculation with raytracing only
-				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0);
+				/**
+				 * @brief read double vector from file
+				 * This method reads a 3D-Vector from the XML-file represented by the corresponding XMLElement 
+				 * @param ell XML-Element to read from
+				 * @param x default parameter for x-component (if not given in the file)
+				 * @param y default parameter for y-component (if not given in the file)
+				 * @param z default parameter for z-component (if not given in the file)
+				 * @return double 3D vector
+				 */
+				GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, double x = 0, double y = 0, double z = 0); 
+
+				/**
+				 * @brief read double vector from file
+				 * This method reads a 3D-Vector from the XML-file represented by the corresponding XMLElement. The default value for 
+				 * not given attributes is 0 for all components
+				 * @param[in] ell XML-Element to read from
+				 * @param[out] xmlError error number from tinyxml
+				 */
                 GOAT::maths::Vector<double> readVector(tinyxml2::XMLElement* ell, int& xmlError);
+
+				/**
+				 * @brief read double vector from file
+				 * This method reads a complex valued 3D-Vector from the XML-file represented by the corresponding XMLElement. The default value for 
+				 * not given attributes is 0 for all components
+				 * @param[in] ell XML-Element to read from
+				 * @param[out] xmlError error number from tinyxml
+				 * @return complex 3D vector
+				 */
                 GOAT::maths::Vector<std::complex<double> > readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError);
+				
+				/**
+				 * @brief read complex value from file
+				 * This method reads a complex value from file with given default values for the real and the imaginary part
+				 * @param ell XML-Element to read from
+				 * @param defre default value for the real part
+				 * @param defim default value for the imaginary part 
+				 * @return complex value
+				 */
 				std::complex<double> readCmplx(tinyxml2::XMLElement* ell, double defre=0.0, double defim=0.0 );
+
+				/**
+				 * @brief read complex value from file
+				 * This method reads a complex value from file with given default values for the real and the imaginary part
+				 * @param[in] ell XML-Element to read from
+				 * @param[out] xmlError error number from tinyxml
+				 * @return complex value
+				 */
                 std::complex<double> readCmplx(tinyxml2::XMLElement* ell, int& xmlError);
-				tinyxml2::XMLNode* rootElement;
-				tinyxml2::XMLElement* sceneElement;				
-				tinyxml2::XMLElement* calculationElement;
-				std::vector<GOAT::raytracing::ObjectShape*> Obj;
-				std::vector<GOAT::raytracing::Detector*> Det;
-				std::vector< GOAT::raytracing::LightSrc*> LS;
-				int numObj = 0;
-				int numLS = 0;
-				int numDet = 0;
-				std::string path;
+
+				tinyxml2::XMLNode* rootElement; ///< pointer to root element of the XML
+				tinyxml2::XMLElement* sceneElement;	 ///< pointer to the scene element of the XML			 
+				tinyxml2::XMLElement* calculationElement; ///< pointer to the calculation elemeent of the XML
+				std::vector<GOAT::raytracing::ObjectShape*> Obj; ///< vector, which carries all objects (as pointers)
+				std::vector<GOAT::raytracing::Detector*> Det; ///< vector, which carries all detectors (as pointers)
+				std::vector< GOAT::raytracing::LightSrc*> LS; ///< vector, which carries all light sources (as pointers)
+				int numObj = 0; ///< number of objects
+				int numLS = 0; ///< number of light sources
+				int numDet = 0; ///< number of detectors
+				std::string path; ///< path of the XML-File
 
 		};
+
+
+
 
         class xmlWriter
         {
@@ -116,17 +169,42 @@ namespace GOAT
                 xmlWriter(GOAT::raytracing::Scene S);
                 void write (std::string fname);
 			private:
-				void writeLightSrc(int i);
+				void writeLightSrc(int i); ///< write the i-th light source to the file
+				void writeObject(int i); ///< write the i-th object to the file
+				
+
+				/**
+				 * @brief write double vector to file
+				 * This method writes a double 3D vector to XML-file
+				 * @param name Element name of the vector
+				 * @param v double vector
+				 * @return pointer to the corresponding XMLElemment
+				 */
 				tinyxml2::XMLElement* writeVectorD(std::string name, maths::Vector<double> v);
+				
+				/**
+				 * @brief write complex vector to file
+				 * This method writes a complex 3D vector to XML-file
+				 * @param name Element name of the vector
+				 * @param v double vector
+				 * @return pointer to the corresponding XMLElemment
+				 */
 				tinyxml2::XMLElement* writeVectorC(std::string name, maths::Vector<std::complex<double>> v);
+
+				/**
+				 * @brief write complex number to file
+				 * This method writes a complex number to the XML-file
+				 * @param  name Element name of the complex number
+				 * @param z complex number 
+				 */
 				tinyxml2::XMLElement* writeComplex(std::string name, std::complex<double> z);
-                GOAT::raytracing::Scene S;
-                tinyxml2::XMLDocument doc;
-				tinyxml2::XMLElement* root;
-				tinyxml2::XMLElement* scene;
-				tinyxml2::XMLElement* lightSrcs;
-				tinyxml2::XMLElement* objects;
-				tinyxml2::XMLElement* detectors;
+                GOAT::raytracing::Scene S; ///< the scene
+                tinyxml2::XMLDocument doc; ///< the xml document
+				tinyxml2::XMLElement* root; ///< root XML Element
+				tinyxml2::XMLElement* scene; ///< XML Element to the Scene section
+				tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
+				tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
+				tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
         };
 	}
 }

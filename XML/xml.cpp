@@ -10,6 +10,7 @@
 #include "raytrace_inel.h"
 #include <chrono>
 #include <goodies.h>
+#include <filesystem>
 #define tl(s) GOAT::maths::tl(s)	
 
 namespace GOAT
@@ -37,12 +38,20 @@ namespace GOAT
 			setlocale(LC_NUMERIC, "C");
 			tinyxml2::XMLDocument doc;
             
-            
+            // check, if path is given separatly 
             if (path.size() >0)
           //  if (strlen(path)>0)
             {
                 std::string fstr = std::string(path) + "/" + std::string(fname);
                 fname = fstr.c_str();
+            }
+            else // path is not given separatly => try to extract it from the filename
+            {
+                std::filesystem::path p(fname);
+                std::filesystem::path dir=p.parent_path();
+                std::filesystem::path filename=p.filename();
+                path=dir.string();
+                fname=filename.string();
             }
 
 			tinyxml2::XMLError eResult=doc.LoadFile(fname.c_str());                        
@@ -153,6 +162,7 @@ namespace GOAT
 					size = lsEll->DoubleAttribute("size", 10.0);
                  
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
+                    
                     power = lsEll->DoubleAttribute("power", 1.0);
                     Pol[0]=Pold[0];
                     Pol[1]=Pold[1];
@@ -421,8 +431,7 @@ namespace GOAT
 												else lensparms.right.curvature = GOAT::raytracing::flat;
 												lensparms.right.R = rightEll->DoubleAttribute("R", 0.0);
                                             	lensparms.offset = objEll->DoubleAttribute("offset", 0.0);
-												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);
-
+												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);                                                
 
 
 												Obj.push_back(new GOAT::raytracing::sphericLens(Pos,n,lensparms));
@@ -1179,17 +1188,25 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           scene=doc.NewElement("Scene");
           scene->SetAttribute("r0", "1E4");
           root->InsertEndChild(scene);
-          
+          std::cout << "no. of light sources: "<< S.nLS << std::endl;
           if (S.nLS > 0)
           {
+            std::cout << "write light sources" << std::endl;
               tinyxml2::XMLElement* lightSrc;
               lightSrcs = doc.NewElement("LightSources");
                for (int i = 0; i < S.nLS; i++)
-              {
-                   writeLightSrc(i);
-              }
+                   writeLightSrc(i);              
                scene->InsertEndChild(lightSrcs);
           }
+
+          if (S.nObj > 0)
+          {
+               objects=doc.NewElement("Objects");
+               for (int i=0; i<S.nObj; i++)
+                    writeObject(i);
+                scene->InsertEndChild(objects);
+          }
+          
           tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
 
 
@@ -1207,7 +1224,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
             lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));
             lightSrc->InsertEndChild(writeVectorC("Polarisation", S.LS[i]->Pol));
-           
+            
             switch (type)
             {
               case raytracing::LIGHTSRC_SRCTYPE_PLANE:
@@ -1240,6 +1257,105 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             lightSrcs->InsertEndChild(lightSrc);
         }
 
+        void xmlWriter::writeObject(int i)
+        {
+            auto object = doc.NewElement("Object");
+            int typeh = S.Obj[i]->type-10000;
+            int type = S.Obj[i]->type;
+
+
+            // ---------------- global parameters ----------------
+            object->SetAttribute("type",objectToken[typeh].c_str());                        
+            object->InsertEndChild(writeVectorD("Position", S.Obj[i]->P));
+            object->SetAttribute("alpha",S.Obj[i]->Ealpha/M_PI*180.0);
+            object->SetAttribute("beta",S.Obj[i]->Ebeta/M_PI*180.0);
+            object->SetAttribute("gamma",S.Obj[i]->Egamma/M_PI*180.0);
+            object->SetAttribute("isactive",S.Obj[i]->isActive());
+            object->InsertEndChild(writeComplex("n",S.Obj[i]->n));            
+            object->SetAttribute("scaling",S.Obj[i]->sf);
+
+            // --------------- special parameters ----------------
+            switch (type) 
+            {
+                case OBJECTSHAPE_ELLIPSOID : 
+                    {
+                    auto obj=(raytracing::Ellipsoid *) S.Obj[i];
+                        object->InsertEndChild(writeVectorD("Dimension",obj->r));
+                    }
+                    break;
+                case OBJECTSHAPE_SURFACE : 
+                    {
+                    auto obj=(raytracing::surface *) S.Obj[i];
+                        std::string ft;
+                         switch (obj->filetype)
+                         {
+                            case OBJECTSHAPE_SURFACE_FILETYPE_STL : ft=".stl"; break;
+                            case OBJECTSHAPE_SURFACE_FILETYPE_SRF : ft=".srf"; break;                            
+                         }
+
+                        if (obj->filetype!=OBJECTSHAPE_SURFACE_FILETYPE_NONE) object->SetAttribute("filetype",ft.c_str());
+                        object->SetAttribute("filename",obj->getFilename().c_str());
+                    }
+                    break;
+                case OBJECTSHAPE_CONE : break;
+                case OBJECTSHAPE_ASPHERIC_LENS : break;
+                case OBJECTSHAPE_SPHERIC_LENS : 
+                    {
+                        auto obj=(raytracing::sphericLens *) S.Obj[i];
+                        raytracing::lensParms lensparms = obj->getParms();        
+                        std::cout << "-> radius=" << lensparms.radius << std::endl;                                        
+                        object->SetAttribute("radius",lensparms.radius);
+                        object->SetAttribute("offset",lensparms.offset);
+
+                        auto left= doc.NewElement("left");
+                        switch (lensparms.left.curvature)
+                        {
+                            case raytracing::convex : left->SetAttribute("Curvature","convex"); break;                           
+                            case raytracing::concave : left->SetAttribute("Curvature","concave"); break; 
+                            case raytracing::flat : left->SetAttribute("Curvature","flat"); break;
+                        }
+                        left->SetAttribute("R",lensparms.left.R);
+                        object->InsertEndChild(left);
+
+                        auto right= doc.NewElement("right");
+                        switch (lensparms.right.curvature)
+                        {
+                            case raytracing::convex : right->SetAttribute("Curvature","convex"); break;                           
+                            case raytracing::concave : right->SetAttribute("Curvature","concave"); break; 
+                            case raytracing::flat : right->SetAttribute("Curvature","flat"); break;
+                        }
+                        right->SetAttribute("R",lensparms.right.R);
+                        object->InsertEndChild(right);                        
+                    }
+                    break;
+
+                case OBJECTSHAPE_BOX: 
+                    {
+                    auto obj=(raytracing::Box *) S.Obj[i];
+                        object->InsertEndChild(writeVectorD("Dimension",obj->d));
+                    }
+                    break;
+                case OBJECTSHAPE_CYLINDER: 
+                    {
+                    auto obj=(raytracing::Cylinder *) S.Obj[i];
+                        object->SetAttribute("height",obj->height());
+                        object->SetAttribute("radius",obj->radius());
+                    }
+                    break;                
+                case OBJECTSHAPE_VORTEX_PLATE: 
+                    {
+                        auto obj=(raytracing::VortexPlate *) S.Obj[i];
+                        object->SetAttribute("height",obj->height());
+                        object->SetAttribute("radius",obj->radius());
+                        object->SetAttribute("m",obj->order());
+                        object->SetAttribute("dh",obj->vortexHeight());
+                    }
+                break;
+            }
+            objects->InsertEndChild(object);
+            
+        }
+
         tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)
         {
             auto vell = doc.NewElement(name.c_str());
@@ -1265,5 +1381,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             cell->SetAttribute("imag", imag(z));
             return cell;
         }
+
+
 	}
 }

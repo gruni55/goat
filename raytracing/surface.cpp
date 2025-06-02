@@ -184,7 +184,7 @@ int surface::createsurface()
 int surface::createsurface(std::string FName)
 {
 	maths::Vector<double> P1, P2, P3;
-
+filetype=filetype=OBJECTSHAPE_SURFACE_FILETYPE_SRF;
    std::ifstream is;
 //  if (this->FName!=0) delete this->FName;
   int Nc = FName.length() + 1;
@@ -245,6 +245,7 @@ int surface::importBinSTL(std::string FName)
 	is.open (FName, std::ios::binary);
 	if (is.good())
 	{
+    filetype=OBJECTSHAPE_SURFACE_FILETYPE_STL;
 	is.read (str,80);
 	anz=readLE_int32(is);
 	//if (this->FName!=0) delete[] this->FName;

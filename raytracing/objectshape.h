@@ -28,11 +28,12 @@ namespace GOAT {
 #define OBJECTSHAPE_CONE          10002 ///< Shape is a cone
 #define OBJECTSHAPE_ASPHERIC_LENS 10003 ///< Shape is an aspheric lens
 #define OBJECTSHAPE_SPHERIC_LENS  10004 ///< Shape is a spheric lens
-#define OBJECTSHAPE_CYLINDER      10005 ///< Shape is a cylinder
-#define OBJECTSHAPE_VORTEX_PLATE  10006 ///< Shape is a vortex plate
+#define OBJECTSHAPE_BOX           10005 ///< Shape is a box  
+#define OBJECTSHAPE_CYLINDER      10006 ///< Shape is a cylinder
+#define OBJECTSHAPE_VORTEX_PLATE  10007 ///< Shape is a vortex plate
 
 
-#define FUNSURF      2  
+#define FUNSURF          2  
 #define SUPERELLIPSOID_D 17 
 #define SUPERELLIPSOID   4
 #define ZYLINDER     5
@@ -47,7 +48,7 @@ namespace GOAT {
 #define NINCTYPES    14
 #define LINSE	     15
 #define ZYLINDER_HEXAGONAL 16
-#define OBJECTSHAPE_BOX         3
+#define BOX         3
 #define EPS 1E-10*r0
 
 
