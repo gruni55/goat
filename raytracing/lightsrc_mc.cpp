@@ -370,12 +370,13 @@ namespace GOAT
 			this->wvl = wvl;
 			this->size = size;
 			this->density = size / ((double)N);
-			Pol = maths::Vector<std::complex<double> >(0, 1, 0);
+			
 			this->D = size;
 			this->D1 = size;
                         this->D2=1; 
 			this->direction = direction / abs(direction);
 			this->k = k;
+			setPol(maths::Vector<std::complex<double> >(0, 1, 0));
 		}
 
 		GOAT::maths::Vector<double> LightSrcLine_mc::genStartingPos()

@@ -3,8 +3,6 @@
 
 #include "vector.h"
 #include "box.h"
-#define DETECTOR_PLANE 20000
-#define DETECTOR_ANGLE 20001
 
 #include <iostream>
 #include <vector>
@@ -13,6 +11,10 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+		#define DETECTOR_PLANE 20000
+		#define DETECTOR_ANGLE 20001
+
+
 		/**
 		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
 		 */

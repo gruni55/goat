@@ -3,12 +3,12 @@
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/debug)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/release)
 
-if(NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_BUILD_TYPE "Release")
-  message(STATUS "Build type not specified: Use Release by default")
-else() 
-  message(STATUS "Build type is set to Debug")
-endif(NOT CMAKE_BUILD_TYPE)
+#if(NOT CMAKE_BUILD_TYPE)
+#  set(CMAKE_BUILD_TYPE "Release")
+#  message(STATUS "Build type not specified: Use Release by default")
+#else() 
+#  message(STATUS "Build type is set to Debug")
+#endif(NOT CMAKE_BUILD_TYPE)
 
 add_executable (raytest raytest.cpp)
 target_compile_definitions (raytest PUBLIC CALC_PATH)

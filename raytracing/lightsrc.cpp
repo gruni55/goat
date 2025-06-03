@@ -305,8 +305,9 @@ namespace  GOAT
 			this->type = LIGHTSRC_SRCTYPE_PLANE;
 			setk(maths::ez);
 			this->raytype = raytype;
+			/*
 			this->Pol = Pol;
-			initPol = Pol;
+			initPol = Pol;*/
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
@@ -315,6 +316,7 @@ namespace  GOAT
 			this->N = N; 
 			this->n0 = 1.0;			
 			numObjs = 0;
+			setPol(Pol);
 			reset();
 		}
 
@@ -328,8 +330,8 @@ namespace  GOAT
 			this->density = LS.density;
 			this->type = LIGHTSRC_SRCTYPE_PLANE;			
 			this->raytype = LS.raytype;
-			setPol(LS.Pol);
-			
+			this->initPol = LS.initPol;
+			this->Pol = LS.Pol;
 			this->r0 = LS.r0;
 			this->wvl = LS.wvl;
 			this->D = LS.D;
@@ -684,7 +686,7 @@ namespace  GOAT
 			this->density = D / ((double)N);
 			this->type = LIGHTSRC_SRCTYPE_GAUSS;			
 			this->raytype = raytype;
-			this->Pol = Pol;
+			
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->D = D;
@@ -696,7 +698,7 @@ namespace  GOAT
 			this->N = N;
 			this->P0 = P0;
 			this->suppress_phase_progress = suppress_phase_progress;
-			
+			setPol(Pol);
 			reset();
 		}
         void LightSrcGauss::setk(maths::Vector<double> k) 

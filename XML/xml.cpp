@@ -162,7 +162,7 @@ namespace GOAT
 					size = lsEll->DoubleAttribute("size", 10.0);
                  
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
-                    
+                 
                     power = lsEll->DoubleAttribute("power", 1.0);
                     Pol[0]=Pold[0];
                     Pol[1]=Pold[1];
@@ -255,7 +255,9 @@ namespace GOAT
                                                           rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                            ls=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax,Pol);
 														   GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
+                                                           std::cout << "1 Pold=" << ls->Pol << "\t" << ls->initPol << std::endl;
 														   ls->setk(k);
+                                                           std::cout << "2 Pold=" << ls->Pol << "\t" << ls->initPol << std::endl;
                                                            LS.push_back(ls);
 														   break;
                                                         }

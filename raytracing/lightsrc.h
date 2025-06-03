@@ -98,6 +98,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int rayType() { return raytype; }  ///< returns the current ray type
 			void setR0(double r0); ///< sets the radius of the calculation sphere
 			double getDensity() { return density; } ///< returns the ray density, i.e. the number of rays per unit length (=D/N)
+			maths::Vector<std::complex<double>> getInitPol() { return initPol; }
 			void setD(double D) ///< sets the width of the light source
 			{
 				this->density = D / ((double)N);
@@ -131,6 +132,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double getWavelength() { return wvl; }
 			void setWavenumber(double k0) { this->k0 = k0; wvl = 2.0 * M_PI / k0; }
 			double getWavenumber() { return k0; }
+			
 			void setPol(maths::Vector<std::complex<double> > pol); ///< sets the polarisation 
 			void setPos(maths::Vector<double> P); ///< sets the position of the light source. This is the center of the square area of the light source
 			maths::Vector<double> getPos() { return Pos; }  ///< returns the position of the light source. This is the center of the square area of the light source
@@ -156,7 +158,8 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double D1, D2;      ///< width in the e1- and the e2-direction (used only for _mc versions of LightSrc)
 			maths::Vector<double> e1, e2;  ///< unit vectors that span the light source area 
 			int raytype;        ///< Strahltyp : ray oder ISTRAHL (=RAY oder IRAY)
-			int polType;        ///< Polarisationsrichtung (s.o.)  
+			int polType;        ///< Polarisationsrichtung (s.o.)
+			maths::Vector<std::complex<double> > initPol; ///< Polarisation, if the k-Vector points in z-direction
 			double Pall;        ///< overall Power  
 			friend class LightSrcPlane;
 			friend class LightSrcGauss;
@@ -166,12 +169,13 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			void adjustDirection();
 			double getIsum1() { return Isum1; }
 			double getIsum2() { return Isum2; }
+			
 		protected:
 			double wvl;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 			maths::Vector<double> rotVec=maths::Vector<double>(1,0,0); ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
-			maths::Vector<std::complex<double> > initPol; ///< Polarisation, if the k-Vector points in z-direction
 			double Isum1, Isum2;
+			
 		};
 
 
