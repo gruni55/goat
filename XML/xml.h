@@ -86,9 +86,10 @@ namespace GOAT
 			  * @param path path of the XML-file. If path is empty, the path will be extracted from the filename. With this, the library is able to 
 			  * handle relative paths for the files used e.g. for the detectors
 			  */
-				void readXML(std::string fname, std::string path = "");
+				void readXML(std::string fname, bool calc_enabled=true, std::string path = "");
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
-
+				void setEnableCalculation(bool enable) { calculation_enabled=enable;}
+				bool isCalculationEnabled() {return calculation_enabled;}
 			private:				
                 void readScene(); ///< read the entire Scene
 				void readLightSources(); ///< (used in readScene) read the light sources from the file
@@ -157,7 +158,7 @@ namespace GOAT
 				int numLS = 0; ///< number of light sources
 				int numDet = 0; ///< number of detectors
 				std::string path; ///< path of the XML-File
-
+				bool calculation_enabled=true; 
 		};
 
 
@@ -206,6 +207,7 @@ namespace GOAT
 				tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
 				tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
 				tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
+				
         };
 	}
 }

@@ -28,8 +28,9 @@ namespace GOAT
         }
 
 		// void xmlReader::readXML(const char* fname, char* path)
-        void xmlReader::readXML(std::string fname, std::string path)
+        void xmlReader::readXML(std::string fname, bool calc_enabled, std::string path)
 		{
+            setEnableCalculation(calc_enabled);
             std::ofstream os;
             os.open("test.log");
             os << "Filename :" << fname << std::flush << std::endl;
@@ -94,7 +95,7 @@ namespace GOAT
                 /* Now, let's look for objects */
 				readObjects();
 
-                doCalculations();
+                if (calculation_enabled) doCalculations();
 			}		
 		}
 
@@ -159,6 +160,7 @@ namespace GOAT
 					Pos = readVector(lsEll->FirstChildElement("Position"));
 					numRays = lsEll->IntAttribute("numRays", 100);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
+                    std::cout << "read: Wavelength:" << wavelength << std::endl;
 					size = lsEll->DoubleAttribute("size", 10.0);
                  
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);

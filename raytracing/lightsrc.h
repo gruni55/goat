@@ -117,6 +117,13 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 				reset();
 			}
 
+			void setNumRaysRT (int numRaysRT)
+			{
+				this->numRaysRT=numRaysRT;
+			}
+
+			int getNumRaysRT () {return numRaysRT; }
+
 
 
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
@@ -144,7 +151,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
 			maths::Vector<double> k;   ///< main direction of the light source   
-			int N=100;  ///< number of rays (per direction)
+			int N=10000;  ///< number of rays (per direction)
 			int i1; ///< first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
@@ -171,10 +178,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			double getIsum2() { return Isum2; }
 			
 		protected:
-			double wvl;         ///< wavelength
+			double wvl=1;         ///< wavelength
 			double k0;			///< wavenumber (i.e. \f$ \frac{2\pi}{\lambda}\f$ 
 			maths::Vector<double> rotVec=maths::Vector<double>(1,0,0); ///< Vector which holds the spherical coordinates \f$r\f$, \f$\vartheta\f$  and \f$\varphi\f$ of the direction vector k
 			double Isum1, Isum2;
+			int numRaysRT=20; ///< used in GOATvis to determine number of rays for ray representation
 			
 		};
 

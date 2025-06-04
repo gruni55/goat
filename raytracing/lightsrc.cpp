@@ -37,6 +37,7 @@ namespace  GOAT
 			Pall = 0.0;
 			i1 = 0;
 			i2 = 0;
+			numRaysRT=20;
 		}
 		LightSrc::LightSrc(const LightSrc& L)
 		{
@@ -55,6 +56,7 @@ namespace  GOAT
 			k0 = L.k0;
 			P0 = L.P0;
 			numObjs = L.numObjs;
+			numRaysRT=L.numRaysRT;
 			Obj = L.Obj;
 			// copyFormList(Ein,L.Ein,numObjs);
 			D = L.D;
