@@ -1,8 +1,4 @@
 cmake_minimum_required (VERSION 3.5)
-
-project (goat)
-# include (CTest)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -15,6 +11,15 @@ if(CMAKE_CXX_COMPILER_LOADED)
              ${CMAKE_COMPILER_IS_GNUCXX}")
   #  add_compile_options(-std=c++17)
    endif()
+
+if(UNIX)
+      if (NOT DEFINED CMAKE_BUILD_TYPE OR CMAKE_BUILD_TYPE STREQUAL "")
+          set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Release")
+      endif()
+endif()
+project (goat)
+# include (CTest)
+
 
 
 #if (NOT CMAKE_CONFIGURATION_TYPES)
