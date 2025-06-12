@@ -455,6 +455,7 @@ namespace  GOAT
 			
 			this->raytype = raytype;
 			this->Pol = Pol;
+			this->initPol = Pol;
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->rmin = rmin;
