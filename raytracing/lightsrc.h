@@ -317,7 +317,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			std::complex<double> calcStartPhase(maths::Vector<double> P); 
 			void reset()
 			{			
-				polType = LIGHTSRC_POL_Y; // ???
+				polType = LIGHTSRC_POL_Y; // ???				
 				k = focuspos - Pos;
 				k = k / abs(k);
 				e1 = k % maths::ez;
@@ -341,6 +341,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 				zeta = atan(f / z0);
 				R = f * (1 + z0 * z0 / (f * f));
 				k0 = 2.0 * M_PI / wvl;
+				std::cout << "Gauss: k=" << k << std::endl;
 			}
 
 			double calcw(double z) ///< calculates the beam waist of the light beam at the distance z from the focal point, returns the value and sets the corrsponding local variable w (needed for next(), only for internal use)
@@ -367,7 +368,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			std::complex<double> Normfak;
 			maths::Vector<double> focuspos; ///< focal position	
 			double z0;				 ///< Rayleigh length (for internal use only)
-			maths::Vector<double> k;		 ///< direction of the gaussian beam
+//			maths::Vector<double> k;		 ///< direction of the gaussian beam
 			double w;				 ///< radius of the beam (for internal use only)
 			double NA;				 ///< numerical aperture (normalized by the intermediate refractive index)
 			double zeta;			 ///< Gouy phase 
