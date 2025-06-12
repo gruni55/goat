@@ -22,7 +22,7 @@ namespace GOAT
 		}
 
 		void Detector::init(int n1, int n2)
-		{
+		{		  
 			D = new GOAT::maths::Vector<std::complex<double> > *[n1];
 			for (int i = 0; i < n1; i++)
 				D[i] = new GOAT::maths::Vector<std::complex<double> >[n2];
@@ -100,8 +100,30 @@ namespace GOAT
 
 		int Detector::N1() { return n1; }
 		int Detector::N2() { return n2; }
-		double Detector::D1() { return d1; }
-		double Detector::D2() { return d2; }
+        void Detector::setN1(int n1)
+        {
+			clear();
+			this->n1=n1;
+			init(n1,n2);
+        }
+
+		void Detector::setN2(int n2)
+        {
+			clear();
+			this->n2=n2;
+			init(n1,n2);
+        }
+
+        void Detector::setN(int n1, int n2)
+        {
+			clear();
+			this->n1=n1;
+			this->n2=n2;
+			init(n1,n2);
+        }
+
+        double Detector::D1() { return d1; }
+        double Detector::D2() { return d2; }
 
 		void Detector::save(const char* fn)
 		{
