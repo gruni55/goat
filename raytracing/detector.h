@@ -49,6 +49,12 @@ namespace GOAT
 		double D1(); ///< return the length in the first direction
 		double D2(); ///< return the length in the second direction		
 
+		void setD(double d1, double d2);
+
+		void setD1(double d1);
+
+		void setD2(double d2);
+
 		int Type() { return type; } ///< returns kind of detector
 		/**
 		* @load detector data from file

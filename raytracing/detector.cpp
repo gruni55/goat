@@ -124,6 +124,10 @@ namespace GOAT
 
         double Detector::D1() { return d1; }
         double Detector::D2() { return d2; }
+		void Detector::setD(double d1, double d2) { this->d1 = d1; this->d2 = d2; }
+		void Detector::setD1(double d1) { this->d1 = d1;}
+		void Detector::setD2(double d2) { this->d2 = d2; }
+
 
 		void Detector::save(const char* fn)
 		{
