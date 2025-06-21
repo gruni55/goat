@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "box.h"
+#include <chrono>
 
 #define TREE_RECURSIONS 4
 
@@ -236,6 +237,7 @@ int surface::importBinSTL(std::string FName)
 	int i,j;
 	int anz;
 	char str[255];
+	char header[80];
 	maths::Vector<double> P1,P2,P3,n;
 	maths::Vector<double> cm;
 	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
@@ -246,8 +248,8 @@ int surface::importBinSTL(std::string FName)
 	if (is.good())
 	{
     filetype=OBJECTSHAPE_SURFACE_FILETYPE_STL;
-	is.read (str,80);
-	anz=readLE_int32(is);
+	is.read (header,80);
+	anz= readLE_int32(is);
 	//if (this->FName!=0) delete[] this->FName;
 	//this->FName=new char[strlen(FName)+1];
 	// sprintf (this->FName,"%s",FName);
@@ -732,6 +734,7 @@ surface operator * (const maths::Matrix<double> &M, const surface &s)
 /** No descriptions */
 void surface::scale (double sf)
 {
+	auto start = std::chrono::high_resolution_clock::now();
   std::cout << "sf=" << sf << "\t this->sf=" << this->sf << std::endl;
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
@@ -753,7 +756,10 @@ maths::Vector<double> por, pul;
 		for (int i = 0; i < numTriangles; i++)
 			addTriangleToTriangle(Tree, S[i]);
 #endif 
+		auto end = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
+		std::cout << "Dauer: " << duration.count() << " ms" << std::endl;
 }
 /** No descriptions */
 /*double surface::isInHost(void)
@@ -897,11 +903,15 @@ double surface::volume()
 void surface::setPos (maths::Vector<double> r)
 {
  //Vector<double> dP=P-r;
- P=r;
+	maths::Vector<double> dP = r - P;
+	P=r;
+	pul = pul + dP;
+	por = por + dP;
  /*for (int i=0; i<numTriangles; i++)
    for (int j=0; j<3; j++)
   S[i].P[j]+=dP;*/ 
- initQuad();
+ // initQuad();
+ 
 }
 
 

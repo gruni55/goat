@@ -218,13 +218,32 @@ namespace GOAT
 			//d[2]=h;
 			return f;
 		}
-		
+
+		uint32_t readLE_uint32(std::istream& is)
+		{
+			unsigned char d[4];
+			is.read(reinterpret_cast<char*>(d), 4);
+			if (is.gcount() != 4) {
+				throw std::runtime_error("Fehler: konnte keine 4 Bytes für uint32 lesen");
+			}
+			return static_cast<uint32_t>(d[0]) |
+				(static_cast<uint32_t>(d[1]) << 8) |
+				(static_cast<uint32_t>(d[2]) << 16) |
+				(static_cast<uint32_t>(d[3]) << 24);
+		}
+
 		int readLE_int32(std::istream& is)
+		{
+			return static_cast<int>(readLE_uint32(is));
+		}
+
+		
+		/*int readLE_int32(std::istream& is)
 		{
 			unsigned char d[4];
 			is.read((char*)d, 4);
 			int i = d[0] + d[1] * 256 + d[2] * 65536 + d[3] * 16777216;
 			return i;
-		}
+		}*/
 	}
 }
