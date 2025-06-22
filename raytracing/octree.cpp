@@ -23,7 +23,7 @@ namespace GOAT
 
 					O->isLeaf = false;
 
-					for (int i = 0; i < 8; i++) addTriangleToTriangle((Octree<triangle> *) O->child[i], D, rek + 1);
+					for (int i = 0; i < 8; i++) addTriangleToTriangle(O->child[i].get(), D, rek + 1);
 				}
 			}
 			else // maximale Rekursionstiefe erreicht => Dreieck hinzufügen
@@ -31,9 +31,7 @@ namespace GOAT
 				O->isLeaf = true;
 				if (checkTriangleBoxIntersection(O->BBox, D))
 				{
-					if (O->nElements == 0) O->Element = (triangle*)malloc(sizeof(triangle));
-					else O->Element = (triangle*)realloc(O->Element, sizeof(triangle) * (O->nElements + 1));
-					O->Element[O->nElements] = D;					
+					O->Element.push_back(D);
 					O->nElements++;
 				}
 			}

@@ -1,3 +1,12 @@
+#pragma message("🧪 surface.cpp wird kompiliert")
+
+#ifdef _OPENMP
+#  pragma message("✅ Kompiliert MIT OpenMP")
+#else
+#  pragma message("❌ Kompiliert OHNE OpenMP")
+#endif
+
+
 #pragma strict_gs_check(on)
 #include "surface.h"
 #include "misc.h"
@@ -5,7 +14,10 @@
 #include <string.h>
 #include "box.h"
 #include <chrono>
-
+#include <iostream>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 #define TREE_RECURSIONS 4
 
 
@@ -231,6 +243,9 @@ maths::Vector<double> por, pul;
   return 0;
 }
 
+
+
+#ifndef WITH_OPENMP
 int surface::importBinSTL(std::string FName)
 {
 	std::ifstream is;
@@ -241,7 +256,7 @@ int surface::importBinSTL(std::string FName)
 	maths::Vector<double> P1,P2,P3,n;
 	maths::Vector<double> cm;
 	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
-	std::cout << "% Lese:" << FName << std::endl;
+	std::cout << "% (NO OpenMP: Lese:" << FName << std::endl;
 	if (numTriangles!=0) delete[] S;
 
 	is.open (FName, std::ios::binary);
@@ -326,6 +341,113 @@ int surface::importBinSTL(std::string FName)
           return -1; 
         }
 }
+#else
+int surface::importBinSTL(std::string FName)
+{
+	omp_set_num_threads(12);
+	#ifdef _OPENMP
+std::cout << "OpenMP aktiviert (" << omp_get_max_threads() << " Threads)" << std::endl;
+#else
+std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
+#endif
+
+
+	std::ifstream is(FName, std::ios::binary);
+	if (!is.good()) {
+		std::cerr << "STL-Datei konnte nicht geöffnet werden: " << FName << std::endl;
+		return -1;
+	}
+
+	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
+	std::cout << "% Lese: " << FName << std::endl;
+
+	char header[80];
+	is.read(header, 80);
+	int anz = readLE_int32(is);
+
+	if (anz <= 0) {
+		std::cerr << "Ungültige Dreiecksanzahl: " << anz << std::endl;
+		return -1;
+	}
+
+	if (numTriangles > 0)
+		delete[] S;
+
+	numTriangles = anz;
+	S = new triangle[anz];
+	this->FName = FName;
+	this->filetype = OBJECTSHAPE_SURFACE_FILETYPE_STL;
+
+	// Definition der STL-Rohstruktur (50 Bytes)
+#pragma pack(push, 1)
+	struct STLTriangleRaw {
+		float normal[3];
+		float vertex1[3];
+		float vertex2[3];
+		float vertex3[3];
+		uint16_t attributeByteCount;
+	};
+#pragma pack(pop)
+
+	// Dreiecke blockweise lesen
+	std::vector<STLTriangleRaw> rawTriangles(anz);
+	is.read(reinterpret_cast<char*>(rawTriangles.data()), anz * sizeof(STLTriangleRaw));
+	is.close();
+
+	// Parallelisiertes Parsen (optional: mit OpenMP)
+#pragma omp parallel
+	{
+#pragma omp single
+		{
+			std::cout << "Laufzeit-Threads: " << omp_get_num_threads() << std::endl;
+		}
+	}
+
+	auto start = std::chrono::high_resolution_clock::now();
+	 #pragma omp parallel for  schedule(dynamic)
+		for (int i = 0; i < anz; ++i) {
+			const auto& raw = rawTriangles[i];
+			maths::Vector<double> n, P1, P2, P3;
+			for (int j = 0; j < 3; ++j) {
+				n[j] = static_cast<double>(raw.normal[j]);
+				P1[j] = static_cast<double>(raw.vertex1[j]);
+				P2[j] = static_cast<double>(raw.vertex2[j]);
+				P3[j] = static_cast<double>(raw.vertex3[j]);
+			}
+			/*triangle t(P1, P2, P3);
+			t.setnorm(n);  // Normale aus Datei übernehmen*/
+			triangle& t=S[i];
+			t.P[0] = P1;
+			t.P[1] = P2;
+			t.P[2] = P3;
+			t.setnorm();
+			// S[i] = t;
+		}
+	// Nachbereitung
+	setCenter(P);
+	initQuad();
+	auto ende = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> dauer = ende - start;
+	std::cout << "Duration for pure loading STL-file: " << dauer.count() << " s" << std::endl;
+#ifdef WITH_OCTREE
+	maths::Vector<double> pul, por;
+	initBounds(pul, por);
+	maths::Vector<double> d = por - pul;
+	maths::Vector<double> mid = (pul + por) / 2.0;
+	Tree.BBox = Box(mid, d, this->n);
+	Tree.createTree();
+	for (int i = 0; i < numTriangles; ++i)
+		addTriangleToTriangle(Tree, S[i]);
+#endif
+
+	std::cout << "% STL-Datei erfolgreich importiert (" << anz << " Dreiecke)" << std::endl;
+	std::cout << "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
+	auto endeOctree = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> dauerOctree = endeOctree - ende;
+	std::cout << "Duration for building Octree: " << dauerOctree.count() << " s" << std::endl;
+	return 0;
+}
+#endif
 
 bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &k, maths::Vector<double> &p)
 {

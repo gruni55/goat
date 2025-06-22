@@ -29,6 +29,7 @@ namespace GOAT
 #define OBJECTSHAPE_SURFACE_FILETYPE_SRF 0
 #define OBJECTSHAPE_SURFACE_FILETYPE_STL 1
 
+       
 
         /* Klasse, die eine ObjectShape repr�sentiert, die aus Dreiecken zusammengebaut ist. Die Dreiecke werden durch die Klasse \ref refdreieck "triangle"
         beschrieben */

@@ -38,19 +38,24 @@ namespace GOAT
             this->path = path;
 			setlocale(LC_NUMERIC, "C");
 			tinyxml2::XMLDocument doc;
-            
+            std::cout << "fname=" << fname << "\tpath=" << path << std::endl;
             // check, if path is given separatly 
             if (path.size() >0)
-          //  if (strlen(path)>0)
             {
                 std::string fstr = std::string(path) + "/" + std::string(fname);
                 fname = fstr.c_str();
             }
             else // path is not given separatly => try to extract it from the filename
             {
+                
                 std::filesystem::path p(fname);
                 std::filesystem::path dir=p.parent_path();
                 std::filesystem::path filename=p.filename();
+                if (p.is_absolute())
+                {
+                    dir = "";
+                    std::cout << "path is absolute" << std::endl;
+                }
                 path=dir.string();
                 fname=filename.string();
             }
@@ -380,9 +385,13 @@ namespace GOAT
                                                 if (path.size()>0)
                                                 {
                                                     std::string sep = "/";
+                                                    std::filesystem::path p(fileName);
+                                                    if (p.is_relative())
                                                     fileName = path + sep + fileName;
                                                     std::cout << "fileName:" << fileName << std::endl;
                                                 }
+
+                                                
 
 												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
 											}
@@ -393,8 +402,12 @@ namespace GOAT
                                                 std::cout << "path.size()=" << path.size() << std::endl;
                                                 if (path.size() > 0)
                                                 {
-                                                    std::string sep = "/";
-                                                    fileName = path + sep + fileName;
+                                                    std::filesystem::path p(fileName);
+                                                    if (p.is_relative())
+                                                    {
+                                                        std::string sep = "/";
+                                                        fileName = path + sep + fileName;
+                                                    }
                                                     std::cout << "fileName:" << fileName << std::endl;
                                                 }
 												if (!fileName.empty())

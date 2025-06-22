@@ -19,17 +19,16 @@ set (
 		     pulsecalculation_rt.h asphericLens.h sphericLens.h lens.h constants.h cone.h cylinder.h vortex.h)
 
 add_compile_definitions (WITH_SUPERGITTER)
-
-if (WITHOUT_OPENMP) 
-	message (STATUS "OpenMP support skipped due to parameter \"WITHOUT_OPENMP\"")
-else()
+option(WITH_OPENMP "Enable OpenMP parallelization" OFF)
+if (WITH_OPENMP) 
 	find_package(OpenMP)
         if (OpenMP_FOUND)   
 #	if (OPENMP_CXX_FOUND)
  		message (STATUS "OpenMP found")
                 add_library (goat_raytracing_mp  ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )
 	        target_compile_options (goat_raytracing_mp PUBLIC ${OpenMP_CXX_FLAGS})
-                target_compile_definitions (goat_raytracing_mp PUBLIC WITH_OCTREE)
+                target_compile_definitions (goat_raytracing_mp PUBLIC WITH_OCTREE WITH_OPENMP)
+				target_link_libraries(goat_raytracing_mp PUBLIC OpenMP::OpenMP_CXX) # <- WICHTIG!
                 target_include_directories (goat_raytracing_mp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)  
 		install(TARGETS goat_raytracing_mp 
                 RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
@@ -39,6 +38,8 @@ else()
 	else()
 		message (WARNING "OpenMP not found - Calculation without parallelization")
 	endif()
+else()
+message (STATUS "OpenMP support skipped due to parameter \"WITHOUT_OPENMP\"")
 endif()
 message (STATUS "Write libraries to:  ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}" )
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS}  )
