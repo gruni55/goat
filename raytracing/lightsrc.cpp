@@ -640,9 +640,7 @@ namespace  GOAT
 		{
 			if (numObjs > 0)
 			{
-				/*	 for (int i=0; i<numObjs; i++)
-						 delete Ein[i];
-					 delete[] Ein;*/
+				Obj.clear();
 				numObjs = 0;
 			}
 		}

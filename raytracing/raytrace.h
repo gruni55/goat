@@ -33,6 +33,7 @@ namespace GOAT
 			void addObject(ObjectShape* Obj); ///< add single object to scene
 			void addObjectList(int nobj, std::vector<ObjectShape*> obj); ///< add a list of objects to scene, nobj: number of objects
 			void removeObject(int index); ///< removes object with index "index" from object list
+			void removeObject(ObjectShape* obj); ///< removes object, identified by its pointer from object list
 			void removeAllObjects(); ///< removes all objects from the scene
 			void addLightSource(LightSrc* ls) { addLightSource(ls, raytype); } ///< add single lightsource to scene
 			void addLightSource(LightSrc* ls, int raytype); ///< add single lightsource to scene and determine ray type
