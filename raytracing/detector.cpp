@@ -22,8 +22,11 @@ namespace GOAT
 			init(n1, n2);
 		}
 
+		
 		void Detector::init(int n1, int n2)
-		{		  			
+		{	
+			D.clear();
+			D.shrink_to_fit();	  			
 			this->n1 = n1;
 			this->n2 = n2;
 			  D.resize(n1);
@@ -90,6 +93,7 @@ namespace GOAT
 		void Detector::clear()
 		{			
 				D.clear();
+				D.shrink_to_fit();
 				n1 = 0;
 				n2 = 0;			
 		}
@@ -144,29 +148,53 @@ namespace GOAT
 
 		bool Detector::load(const char* fn)
 		{
-			int nl1, nl2;
+			// Vorherige Daten sicher löschen
+			D.clear();
+			D.shrink_to_fit();
+			n1 = 0;
+			n2 = 0;
+
+			// Datei existiert?
 			if (!std::filesystem::exists(fn)) return false;
-			std::ifstream is(fn);						
+
+			std::ifstream is(fn);
 			if (!is.is_open()) return false;
+
 			std::string str;
-			is >> str;
-			if (str.compare("%n1") != 0) return false; // something went wrong, first parameter is not n1
-			is >> nl1;
+			int nl1 = 0, nl2 = 0;
 
+			// %n1 lesen
 			is >> str;
-			if (str.compare("%n2") != 0) return false; // something went wrong, second parameter is not n2
-			is >> nl2;
+			if (str != "%n1" || !(is >> nl1) || nl1 <= 0) return false;
 
-			if ((nl1 != n1) || (nl2 != n2)) return false; // n1 or n2 in file don't correspond to n1 or n2 from class
-			for (int i1 = 0; i1 < n1; i1++)
+			// %n2 lesen
+			is >> str;
+			if (str != "%n2" || !(is >> nl2) || nl2 <= 0) return false;
+
+			// Speicher allozieren
+			D.resize(nl1);
+			for (int i = 0; i < nl1; ++i)
+				D[i].resize(nl2);
+
+			// Daten einlesen
+			for (int i1 = 0; i1 < nl1; ++i1)
 			{
-				for (int i2 = 0; i2 < n2; i2++)
+				for (int i2 = 0; i2 < nl2; ++i2)
 				{
-
-					is >> D[i1][i2];
+					if (!(is >> D[i1][i2]))
+					{
+						std::cerr << "Fehler beim Einlesen von D[" << i1 << "][" << i2 << "]" << std::endl;
+						return false;
+					}
 				}
 			}
+
+			// Nur bei Erfolg interne Dimensionen setzen
+			n1 = nl1;
+			n2 = nl2;
+
 			is.close();
+			return true;
 		}
 
 		void Detector::saveabs(const char* fn)
