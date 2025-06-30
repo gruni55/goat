@@ -61,7 +61,7 @@ namespace GOAT
 			int nDet = 0; ///< Number of detectors
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
-			double r0=1E+100; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
+			double r0=1000; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
 			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 		};
@@ -156,8 +156,8 @@ namespace GOAT
 			void trace(); ///< If no Filename is given, the starting and endpoint of each ray step is stored in two arrays named P1 and P2
 			void setShowOutgoingRays(bool show); ///< if true, Rays, which going out of an object without hidding a second one will be stored
 			bool getShowOutgoingRays(); ///< Returns true, if Rays, which going out of an object without hidding a second one will be stored
-			maths::Vector<double>* P1; ///< Here, the starting points of each step are stored if no filename is given
-			maths::Vector<double>* P2; ///< Here, the ending points of each step are stored if no filename is given
+			std::vector<maths::Vector<double>> P1; ///< Here, the starting points of each step are stored if no filename is given
+			std::vector<maths::Vector<double>> P2; ///< Here, the ending points of each step are stored if no filename is given
 			int numRays=0; ///< Number of rays stored
 		private:
 			void traceLeaveObject();

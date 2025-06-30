@@ -57,7 +57,7 @@ namespace GOAT
 
 		int Type() { return type; } ///< returns kind of detector
 		/**
-		* @load detector data from file
+		* @load detector data from filexmlReader::readDetectors()
 		* This function loads detector data from file. It expects a complex vector format. The first line has to start with "%n1 " followed by the number
 		* of items in e1-direction. The second row must start with "%n2" followed by the number of items in e2-direction.  
 		*/
@@ -67,7 +67,8 @@ namespace GOAT
 		void savePhase(const char* fn, int coord);  ///< stores the content (phase of one component of the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 		void savereal(const char* fn, int coord); ///< stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
 		void saveimag(const char* fn, int coord); ///< stores the content (imaginary part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn 
-			maths::Vector<std::complex<double> >** D=nullptr; ///< Here, the data will be stored
+		std::vector <std::vector<maths::Vector<std::complex<double>>>> D; ///< Here, the data will be stored
+		//	maths::Vector<std::complex<double> >** D=nullptr; ///< Here, the data will be stored
 			maths::Vector<double> position() { return P; } ///< returns the position of the detector 
 			maths::Vector<double> norm() { return n; } ///< returns the normal vector of the detectors surface
 		friend std::ostream& operator << (std::ostream& os, Detector& D);

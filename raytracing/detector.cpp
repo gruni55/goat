@@ -1,6 +1,8 @@
 #include "detector.h"
 #include "matrix.h"
 #include "constants.h"
+#include <iostream>
+#include <filesystem>
 
 namespace GOAT
 {
@@ -12,8 +14,7 @@ namespace GOAT
 			d1 = 0;
 			d2 = 0;
 			n1 = 0;
-			n2 = 0;
-			D = 0;
+			n2 = 0;			
 		}
 
 		Detector::Detector(int n1, int n2)
@@ -22,42 +23,43 @@ namespace GOAT
 		}
 
 		void Detector::init(int n1, int n2)
-		{		  
-			D = new GOAT::maths::Vector<std::complex<double> > *[n1];
-			for (int i = 0; i < n1; i++)
-				D[i] = new GOAT::maths::Vector<std::complex<double> >[n2];
+		{		  			
 			this->n1 = n1;
 			this->n2 = n2;
+			  D.resize(n1);
+    				for (int i = 0; i < n1; ++i)
+        			D[i].resize(n2);
 		}
 
 		Detector::Detector(const Detector& Det)
 		{
-			if (Det.n1 > 0)
-			{
+			init (Det.n1, Det.n2);
 				init(Det.n1, Det.n2);
 				for (int i1 = 0; i1 < n1; i1++)
 					for (int i2 = 0; i2 < n2; i2++)
-						this->D[i1][i2] = Det.D[i1][i2];
-			}
+						D[i1][i2] = Det.D[i1][i2];			
 			n = Det.n;
 			e1 = Det.e1;
 			e2 = Det.e2;
 			P = Det.P;
+			type=Det.type;
 		}
 
 		Detector& Detector::operator = (const Detector& Det)
 		{
-			if (Det.n1 > 0)
+			if (this != &Det)
 			{
 				init(Det.n1, Det.n2);
 				for (int i1 = 0; i1 < n1; i1++)
 					for (int i2 = 0; i2 < n2; i2++)
-						this->D[i1][i2] = Det.D[i1][i2];
-			}
+						D[i1][i2] = Det.D[i1][i2];
+			
 			n = Det.n;
 			e1 = Det.e1;
 			e2 = Det.e2;
 			P = Det.P;
+			type=Det.type;
+			}
 			return *this;
 		}
 
@@ -86,16 +88,10 @@ namespace GOAT
 		}
 
 		void Detector::clear()
-		{
-			if (n1 > 0)
-			{
-				for (int i1 = 0; i1 < n1; i1++)
-					delete[] D[i1];
-				delete[] D;
-				D = 0;
+		{			
+				D.clear();
 				n1 = 0;
-				n2 = 0;
-			}
+				n2 = 0;			
 		}
 
 		int Detector::N1() { return n1; }
@@ -149,10 +145,10 @@ namespace GOAT
 		bool Detector::load(const char* fn)
 		{
 			int nl1, nl2;
-			std::ifstream is;
-			is.open(fn);
+			if (!std::filesystem::exists(fn)) return false;
+			std::ifstream is(fn);						
+			if (!is.is_open()) return false;
 			std::string str;
-			if (!is.good()) return false;
 			is >> str;
 			if (str.compare("%n1") != 0) return false; // something went wrong, first parameter is not n1
 			is >> nl1;
@@ -263,8 +259,7 @@ namespace GOAT
 		DetectorPlane::DetectorPlane(void)
 		{
 			n1 = 0;
-			n2 = 0;
-			D = 0;
+			n2 = 0;			
 			type = DETECTOR_PLANE;
 		}
 

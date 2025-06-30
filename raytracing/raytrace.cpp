@@ -645,7 +645,7 @@ namespace GOAT
 
 		void Raytrace_Path::trace(std::string FName)
 		{
-			//S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
+			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			os.open(FName);
 			storeInFile = true;
 			Raytrace::trace();
@@ -654,15 +654,12 @@ namespace GOAT
 
 		void Raytrace_Path::trace()
 		{
+			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			storeInFile = false;
-			if (numRays > 0)
-			{
-				if (P1 != 0) free(P1);
-				if (P2 != 0) free(P2);
-			}
-			numRays = 0;
+			P1.clear();
+			P2.clear();
 			Raytrace::trace();
-			numRays--;
+			numRays = static_cast<int>(P1.size());
 		}
 
 		void Raytrace_Path::setShowOutgoingRays(bool show)
@@ -691,18 +688,8 @@ namespace GOAT
 				os << PStart << "\t" << PStop << std::endl;
 			else
 			{
-				if (numRays == 0)
-				{
-					P1 = (maths::Vector<double> *) malloc(sizeof(maths::Vector<double>));
-					P2 = (maths::Vector<double> *) malloc(sizeof(maths::Vector<double>));
-				}
-				else
-				{
-					P1 = (maths::Vector<double> *) realloc(P1, sizeof(maths::Vector<double>) * (numRays + 1));
-					P2 = (maths::Vector<double> *) realloc(P2, sizeof(maths::Vector<double>) * (numRays + 1));
-				}
-				P1[numRays] = PStart;
-				P2[numRays] = PStop;
+				P1.push_back(PStart);
+				P2.push_back(PStop);
 				numRays++;
 			}
 		}
