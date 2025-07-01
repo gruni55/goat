@@ -691,8 +691,8 @@ void surface::initQuad()
 	  /*cout << "xmin=" << xmin << "   xmax=" << xmax;
 	  cout << "  ymin=" << ymin << "   ymax=" << ymax;
 	  cout << "  zmin=" << zmin << "   zmax=" << zmax << endl; */
-	  pul = maths::Vector<double>(xmin, ymin, zmin) * sf + P;
-	  por = maths::Vector<double>(xmax, ymax, zmax) * sf + P;
+	  pul = maths::Vector<double>(xmin, ymin, zmin) + P;
+	  por = maths::Vector<double>(xmax, ymax, zmax) + P;
 	  std::cout << "pul=" << pul << "    por=" << por << std::endl;
   }
 }

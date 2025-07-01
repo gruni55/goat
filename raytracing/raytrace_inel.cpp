@@ -79,7 +79,7 @@ namespace GOAT
 				std::cout << "start initialization...";
 				initExcitation();
 				std::cout << "done." << std::endl;
-				S.setRaytype(LIGHTSRC_RAYTYPE_RAY);
+				S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 				std::cout << "start raytracing...";
 				Raytrace::trace();
 				std::cout << "done." << std::endl;

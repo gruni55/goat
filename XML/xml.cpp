@@ -1241,7 +1241,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             
             auto lightSrc = doc.NewElement("LightSource");
             int type = S.LS[i]->type;
-            int typeh = type < 10 ? type : type - 5;
+            int typeh = type < 10 ? type-1 : type - 5;
             std::cout << "typeh=" << typeh << "\ttype=" << type << std::endl;
             lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
             lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
