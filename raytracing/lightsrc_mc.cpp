@@ -258,6 +258,14 @@ namespace GOAT
             rayCounter=0;
         }
 
+		void LightSrcGauss_mc::setD(double D)
+		{
+			double z = abs(Pos - focuspos);
+			double w = calcw(z);
+			stddev = w * M_SQRT1_2;
+			D1 = D;
+			D2 = D;
+		}
 
 		LightSrcPlane_mc::LightSrcPlane_mc(const LightSrcPlane_mc &L) : LightSrcPlane(L)
 		{

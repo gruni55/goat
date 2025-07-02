@@ -33,7 +33,7 @@ namespace GOAT
         * directions (e1,e2) used for the calculation of the inelastic scattering. Default values: n=P/|P|,   
         */
 
-        typedef struct
+         struct RRTParms
         {
             maths::Vector<double> P; ///< reference point of the detector
             maths::Vector<double> n; ///< direction of detection (backwards), by default set to n=P/|P|, but can be changed
@@ -41,7 +41,7 @@ namespace GOAT
             double wvlinel=1.0; ///< Wavelength of the inelastic scattering
             int radiationType = INEL_RADIATION_TYPE_RAMAN; ///< Type of inelastic scattering: INEL_RADIATION_TYPE_FLOURESCENCE for flourescence, i.e. unpolarized or INEL_RADIATION_TYPE_RAMAN (default) for Raman scattering (polarized) 
             int coherency = INEL_RADIATION_INCOHERENT; ///< Scattering is coherent INEL_RADIATION_COHERENT or incoherent INEL_RADIATION_INCOHERENT
-        } RRTParms;
+        } ;
 
 
         /**

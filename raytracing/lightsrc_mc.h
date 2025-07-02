@@ -35,7 +35,8 @@ namespace GOAT
                 int next(Ray_pow& S);
                 int next (IRay& S);
                 int next(tubedRay& ray);
-                void reset();                
+                void reset();             
+                void setD(double D);
                 // int next (tubedRay &S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 double stddev;
