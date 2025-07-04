@@ -5,7 +5,9 @@
 #include "raytrace_field_usp.h"
 #include <vector>
 #include "superarray.h"
-
+#include <sstream>
+#include <locale>
+#include <iomanip>
 
 
 namespace GOAT
@@ -80,11 +82,11 @@ namespace GOAT
 			private:	
 				/* In this function the default values (trafoparms) for the calculations are set as follows:
 				* dt  : 1E-14s
-				* wvl : 1.0µm
+				* wvl : 1.0ï¿½m
 				* nI  : 1
 				* 
 				*/
-				void setDefaults();				
+				void setDefaults();								
                 void calcTrafoParms();
 				// std::vector< std::vector<SuperArray<std::vector<gridEntry> > > > SA;
 				double domega; ///< spectral resolution

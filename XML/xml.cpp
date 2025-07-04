@@ -11,6 +11,8 @@
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
+
+
 #define tl(s) GOAT::maths::tl(s)	
 
 namespace GOAT
@@ -1203,7 +1205,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           root=doc.NewElement("Root");
           doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
-          scene->SetAttribute("r0", "1E4");
+          scene->SetAttribute("r0", formatDouble(S.r0).c_str());
           root->InsertEndChild(scene);
           std::cout << "no. of light sources: "<< S.nLS << std::endl;
           if (S.nLS > 0)
@@ -1245,7 +1247,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             std::cout << "typeh=" << typeh << "\ttype=" << type << std::endl;
             lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
             lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
-            lightSrc->SetAttribute("wavelength", S.LS[i]->getWavelength());
+            lightSrc->SetAttribute("wavelength", formatDouble(S.LS[i]->getWavelength()).c_str());
 
             lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));
             lightSrc->InsertEndChild(writeVectorC("Polarisation", S.LS[i]->Pol));
@@ -1257,7 +1259,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   {
                   raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
                    lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
-                   lightSrc->SetAttribute("size", ls->D);                   
+                   lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());                   
                   }
                   break;
 
@@ -1265,8 +1267,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               case raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC:
               {
                   raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
-                  lightSrc->SetAttribute("size", ls->D);
-                  lightSrc->SetAttribute("w0", ls->w0);
+                  lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());
+                  lightSrc->SetAttribute("w0", formatDouble(ls->w0).c_str());
               }
               break;
 
@@ -1274,8 +1276,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
               {
                   raytracing::LightSrcRing* ls = (raytracing::LightSrcRing*)S.LS[i];
-                  lightSrc->SetAttribute("rmin", ls->getRmin());
-                  lightSrc->SetAttribute("rmax", ls->getRmax());
+                  lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
+                  lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
                   lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
               }
             }
@@ -1292,12 +1294,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             // ---------------- global parameters ----------------
             object->SetAttribute("type",objectToken[typeh].c_str());                        
             object->InsertEndChild(writeVectorD("Position", S.Obj[i]->P));
-            object->SetAttribute("alpha",S.Obj[i]->Ealpha/M_PI*180.0);
-            object->SetAttribute("beta",S.Obj[i]->Ebeta/M_PI*180.0);
-            object->SetAttribute("gamma",S.Obj[i]->Egamma/M_PI*180.0);
+            object->SetAttribute("alpha",formatDouble(S.Obj[i]->Ealpha/M_PI*180.0).c_str());
+            object->SetAttribute("beta",formatDouble(S.Obj[i]->Ebeta/M_PI*180.0).c_str());
+            object->SetAttribute("gamma",formatDouble(S.Obj[i]->Egamma/M_PI*180.0).c_str());
             object->SetAttribute("isactive",S.Obj[i]->isActive());
             object->InsertEndChild(writeComplex("n",S.Obj[i]->n));            
-            object->SetAttribute("scaling",S.Obj[i]->sf);
+            object->SetAttribute("scaling",formatDouble(S.Obj[i]->sf).c_str());
 
             // --------------- special parameters ----------------
             switch (type) 
@@ -1329,8 +1331,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         auto obj=(raytracing::sphericLens *) S.Obj[i];
                         raytracing::lensParms lensparms = obj->getParms();        
                         std::cout << "-> radius=" << lensparms.radius << std::endl;                                        
-                        object->SetAttribute("radius",lensparms.radius);
-                        object->SetAttribute("offset",lensparms.offset);
+                        object->SetAttribute("radius",formatDouble(lensparms.radius).c_str());
+                        object->SetAttribute("offset",formatDouble(lensparms.offset).c_str());
 
                         auto left= doc.NewElement("left");
                         switch (lensparms.left.curvature)
@@ -1339,7 +1341,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                             case raytracing::concave : left->SetAttribute("Curvature","concave"); break; 
                             case raytracing::flat : left->SetAttribute("Curvature","flat"); break;
                         }
-                        left->SetAttribute("R",lensparms.left.R);
+                        left->SetAttribute("R",formatDouble(lensparms.left.R).c_str());
                         object->InsertEndChild(left);
 
                         auto right= doc.NewElement("right");
@@ -1349,7 +1351,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                             case raytracing::concave : right->SetAttribute("Curvature","concave"); break; 
                             case raytracing::flat : right->SetAttribute("Curvature","flat"); break;
                         }
-                        right->SetAttribute("R",lensparms.right.R);
+                        right->SetAttribute("R",formatDouble(lensparms.right.R).c_str());
                         object->InsertEndChild(right);                        
                     }
                     break;
@@ -1363,17 +1365,17 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 case OBJECTSHAPE_CYLINDER: 
                     {
                     auto obj=(raytracing::Cylinder *) S.Obj[i];
-                        object->SetAttribute("height",obj->height());
-                        object->SetAttribute("radius",obj->radius());
+                        object->SetAttribute("height",formatDouble(obj->height()).c_str());
+                        object->SetAttribute("radius",formatDouble(obj->radius()).c_str());
                     }
                     break;                
                 case OBJECTSHAPE_VORTEX_PLATE: 
                     {
                         auto obj=(raytracing::VortexPlate *) S.Obj[i];
-                        object->SetAttribute("height",obj->height());
-                        object->SetAttribute("radius",obj->radius());
+                        object->SetAttribute("height",formatDouble(obj->height()).c_str());
+                        object->SetAttribute("radius",formatDouble(obj->radius()).c_str());
                         object->SetAttribute("m",obj->order());
-                        object->SetAttribute("dh",obj->vortexHeight());
+                        object->SetAttribute("dh",formatDouble(obj->vortexHeight()).c_str());
                     }
                 break;
             }
@@ -1396,7 +1398,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 case DETECTOR_PLANE : 
                     {
                      auto det=(raytracing::DetectorPlane *) S.Det[i];
-                     detector->SetAttribute("d",det->D1()); // we assume, that d1=d2 
+                     detector->SetAttribute("d",formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
                      detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2                            
                     }
             }
@@ -1406,9 +1408,9 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)
         {
             auto vell = doc.NewElement(name.c_str());
-            vell->SetAttribute("x", v[0]);
-            vell->SetAttribute("y", v[1]);
-            vell->SetAttribute("z", v[2]);
+            vell->SetAttribute("x", formatDouble(v[0]).c_str());
+            vell->SetAttribute("y", formatDouble(v[1]).c_str());
+            vell->SetAttribute("z", formatDouble(v[2]).c_str());
             return vell;
         }
 
@@ -1424,8 +1426,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         tinyxml2::XMLElement* xmlWriter::writeComplex(std::string name, std::complex<double> z)
         {
             auto cell = doc.NewElement(name.c_str());
-            cell->SetAttribute("real", real(z));
-            cell->SetAttribute("imag", imag(z));
+            cell->SetAttribute("real", formatDouble(real(z)).c_str());
+            cell->SetAttribute("imag", formatDouble(imag(z)).c_str());
             return cell;
         }
 

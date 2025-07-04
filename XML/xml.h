@@ -13,6 +13,9 @@
  *********************************************************************/
 #include <string>
 #include <vector>
+#include <sstream>
+#include <locale>
+#include <iomanip>
 namespace GOAT
 {
 	namespace XML
@@ -170,6 +173,13 @@ namespace GOAT
                 xmlWriter(GOAT::raytracing::Scene S);
                 void write (std::string fname);
 			private:
+			inline std::string formatDouble(double val, int precision = 17) 
+				{
+ 					   std::ostringstream oss;
+    					oss.imbue(std::locale::classic()); // Erzwingt "." statt "," als Dezimaltrennzeichen
+    					oss << std::fixed << std::setprecision(precision) << val;
+    					return oss.str();
+				}
 				void writeLightSrc(int i); ///< write the i-th light source to the file
 				void writeObject(int i); ///< write the i-th object to the file
 				void writeDetector(int i); ///< write the i-th detector to the file
