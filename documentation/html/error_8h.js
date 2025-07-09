@@ -10,5 +10,5 @@ var error_8h =
     [ "NOT_FOUND", "error_8h.html#a33bfc1f995233887a0414369c36936b8", null ],
     [ "REALLOC_ERR", "error_8h.html#af75b71c8fffbbfbfd5cbf20748a50542", null ],
     [ "SUPERGITTER", "error_8h.html#a01fe41f7daf244522bc4d73d3dc8d182", null ],
-    [ "error", "error_8h.html#a2efae30d20027e8582eb3353eaa57508", null ]
+    [ "GOAT::raytracing::error", "namespace_g_o_a_t_1_1raytracing.html#a2efae30d20027e8582eb3353eaa57508", null ]
 ];

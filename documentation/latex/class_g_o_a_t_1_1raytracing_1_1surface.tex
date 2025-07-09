@@ -110,8 +110,7 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab9982660e631
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80d327c030210dfb48e0def8e0a4584b}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
 \begin{DoxyCompactList}\small\item\em sets scaling of the shape by the factor sf \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_abe5c88dadc5d9f8a1aa3dac5850e0bea}{set\+Active}} (bool active)
-\begin{DoxyCompactList}\small\item\em sets flag if the object is inelastic active, i.\+e. it will be considered for inelastic calculation ~\newline
- \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em sets flag if the object is inelastic active, i.\+e. it will be considered for inelastic calculation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ad1d2c3e671857267c9f374712f24e051}{set\+Alpha}} (double Alpha)
 \begin{DoxyCompactList}\small\item\em sets rotation angle around x-\/axis \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a57dfe94c2dbc1d33009e39af2fa59774}{set\+Beta}} (double Beta)
@@ -146,8 +145,7 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec2
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff}{filetype}} =\mbox{\hyperlink{surface_8h_ab0b3fb01ba6b7796f388033896813583}{OBJECTSHAPE\+\_\+\+SURFACE\+\_\+\+FILETYPE\+\_\+\+NONE}}
 \begin{DoxyCompactList}\small\item\em type of the file connected with this surface object \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}}
-\begin{DoxyCompactList}\small\item\em File name (used to save the internal triangle list) ~\newline
- \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em File name (used to save the internal triangle list) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}{num\+Triangles}} = 0
 \begin{DoxyCompactList}\small\item\em number of triangles \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}
@@ -186,8 +184,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e5
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a5ff765220b51e3967a5f94211996bf71}{rho}}
 \begin{DoxyCompactList}\small\item\em mass density in $ kg/m^3 $ \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}} =1
-\begin{DoxyCompactList}\small\item\em scaling factor, it is used to scale the shape of the object ~\newline
- \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em scaling factor, it is used to scale the shape of the object \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3a94d86ef25c4b89069e46f7fa1f224d}{type}}
 \begin{DoxyCompactList}\small\item\em type of the object \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}} =true
@@ -197,8 +194,7 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b
 \doxysubsection{Detailed Description}
 This class represents objects those surface is described by triangles. 
 
-The surface class represents a volume object, whose surface is described by triangles. This method is often used by CAD programs, therefore a function is provided to import binary stl files. The surface class has also a simple proprietary file format\+: The first entry is the number of triangles in the file. Than, the information about the triangles follows. Each triangle is described by the components of the corner vectors. Therefore the file looks like\+:  $
-\newline
+The surface class represents a volume object, whose surface is described by triangles. This method is often used by CAD programs, therefore a function is provided to import binary stl files. The surface class has also a simple proprietary file format\+: The first entry is the number of triangles in the file. Than, the information about the triangles follows. Each triangle is described by the components of the corner vectors. Therefore the file looks like\+:          $\newline
 \begin{array}{ccccccccc}
 \text{<number of triangles>} & & & & & & & & \\
 \text{<number of triangles>} & & & & & & & & \\
@@ -208,38 +204,40 @@ x_{10} & y_{10} & z_{10} & x_{11} & y_{11} & z_{11} &  x_{12} &  y_{12} & z_{12}
 \end{array}
 $ The intersection points are calculated with help of an octree procedure to enhance the calculation speed for the intersection point finding. 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00054}{54}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00055}{55}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_doc-constructors}
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f}\label{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
 \index{surface@{surface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{surface()}{surface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a5e2c2bded5d08472e87ae50200d35b6f} 
+GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729}\label{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
 \index{surface@{surface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{surface()}{surface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Oh }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_ac504e325698d575901385d2f2aebb729} 
+GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Oh}{}\end{DoxyParamCaption})}
 
 
 
 Empty surface object with position Oh. 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9}\label{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
 \index{surface@{surface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{surface()}{surface()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&}]{Su }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_af73083d3fc44437a0940bbdf8944a7a9} 
+GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&}]{Su}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8fbfb1b0efa357dec4ad013174135bb8}\label{class_g_o_a_t_1_1raytracing_1_1surface_a8fbfb1b0efa357dec4ad013174135bb8} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8fbfb1b0efa357dec4ad013174135bb8}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
 \index{surface@{surface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{surface()}{surface()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P,  }\item[{std\+::complex$<$ double $>$}]{n,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ex = {\ttfamily GOAT\+:\+:maths\+:\+:ex},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ey = {\ttfamily GOAT\+:\+:maths\+:\+:ey},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ez = {\ttfamily GOAT\+:\+:maths\+:\+:ez} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a8fbfb1b0efa357dec4ad013174135bb8} 
+GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{, }\item[{std\+::complex$<$ double $>$}]{n}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha}{ = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ex}{ = {\ttfamily GOAT\+:\+:maths\+:\+:ex}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ey}{ = {\ttfamily GOAT\+:\+:maths\+:\+:ey}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ez}{ = {\ttfamily GOAT\+:\+:maths\+:\+:ez}}\end{DoxyParamCaption})}
 
 Constructor for an empty surface object.
 
@@ -258,11 +256,11 @@ Constructor for an empty surface object.
 {\em Ez} & direction of the third axis of the local coordinate system (usually ez) \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aa60372944805b1049fca28e7f4e45839}\label{class_g_o_a_t_1_1raytracing_1_1surface_aa60372944805b1049fca28e7f4e45839} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aa60372944805b1049fca28e7f4e45839}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!surface@{surface}}
 \index{surface@{surface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{surface()}{surface()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
-{\footnotesize\ttfamily GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P,  }\item[{std\+::complex$<$ double $>$}]{n,  }\item[{int}]{num,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ex = {\ttfamily maths\+:\+:ex},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ey = {\ttfamily maths\+:\+:ey},  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ez = {\ttfamily maths\+:\+:ez} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_aa60372944805b1049fca28e7f4e45839} 
+GOAT\+::raytracing\+::surface\+::surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{, }\item[{std\+::complex$<$ double $>$}]{n}{, }\item[{int}]{num}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*}}]{list}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha}{ = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ex}{ = {\ttfamily maths\+:\+:ex}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ey}{ = {\ttfamily maths\+:\+:ey}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ez}{ = {\ttfamily maths\+:\+:ez}}\end{DoxyParamCaption})}
 
 Constructor for an object, whose surface is described by a list of triangles
 
@@ -287,12 +285,14 @@ Constructor for an object, whose surface is described by a list of triangles
 \end{DoxyParams}
 
 
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a}\label{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!addTriangle@{addTriangle}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!addTriangle@{addTriangle}}
 \index{addTriangle@{addTriangle}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{addTriangle()}{addTriangle()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::add\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*}}]{S,  }\item[{int}]{num }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a385b2e58251d10ad94c42c2edfb54b9a} 
+void GOAT\+::raytracing\+::surface\+::add\+Triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*}}]{S}{, }\item[{int}]{num}{}\end{DoxyParamCaption})}
 
 
 
@@ -305,11 +305,11 @@ Adds triangles to the internal list of triangles.
 {\em num} & number of triangles to add \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b}\label{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!binRead@{binRead}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!binRead@{binRead}}
 \index{binRead@{binRead}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{binRead()}{binRead()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a0f342eb9be63f1f9b821d52a3506198b} 
+void GOAT\+::raytracing\+::surface\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -319,11 +319,11 @@ Reads object from binary file represented by istream is.
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a2756cf7b7104f7a81785020de21a2f15}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9}\label{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!binWrite@{binWrite}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!binWrite@{binWrite}}
 \index{binWrite@{binWrite}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a4954db414b03cc168d60d5e7786ffae9} 
+void GOAT\+::raytracing\+::surface\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -333,11 +333,11 @@ Writes object to binary file represented by ostream os.
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a514bdeef6396ff0cb259f38e5e29cf40}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a35a9894f1772d52cf27bff659bce170e}\label{class_g_o_a_t_1_1raytracing_1_1surface_a35a9894f1772d52cf27bff659bce170e} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!calcCoM@{calcCoM}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a35a9894f1772d52cf27bff659bce170e}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!calcCoM@{calcCoM}}
 \index{calcCoM@{calcCoM}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{calcCoM()}{calcCoM()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::calc\+CoM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a35a9894f1772d52cf27bff659bce170e} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::calc\+CoM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -347,61 +347,61 @@ calculates center of mass (needed by set\+Center2\+CoM () )
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6f9c3fb38ae7c01d441e8d81cdb5456b}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2}\label{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!clearS@{clearS}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!clearS@{clearS}}
 \index{clearS@{clearS}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{clearS()}{clearS()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::clearS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a3c9ee2a13c4bcf690c98a3c69a7bc8e2} 
+void GOAT\+::raytracing\+::surface\+::clearS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 clears the internal list of triangles 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9ddc416b1637a1a8e89f058bde70ce52}\label{class_g_o_a_t_1_1raytracing_1_1surface_a9ddc416b1637a1a8e89f058bde70ce52} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!computeInertia@{computeInertia}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9ddc416b1637a1a8e89f058bde70ce52}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!computeInertia@{computeInertia}}
 \index{computeInertia@{computeInertia}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{computeInertia()}{computeInertia()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::compute\+Inertia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a9ddc416b1637a1a8e89f058bde70ce52} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::compute\+Inertia (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Calculates the inertia of the object. 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130}\label{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!createsurface@{createsurface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!createsurface@{createsurface}}
 \index{createsurface@{createsurface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{createsurface()}{createsurface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::createsurface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_ad66280966130a8e2358c926af82b1130} 
+int GOAT\+::raytracing\+::surface\+::createsurface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Creates a list of triangles, which describes the surface, from standard input. 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46}\label{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!createsurface@{createsurface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!createsurface@{createsurface}}
 \index{createsurface@{createsurface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{createsurface()}{createsurface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::createsurface (\begin{DoxyParamCaption}\item[{std\+::string}]{FName }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a36c51c771871f67b25efdb2223cabd46} 
+int GOAT\+::raytracing\+::surface\+::createsurface (\begin{DoxyParamCaption}\item[{std\+::string}]{FName}{}\end{DoxyParamCaption})}
 
 
 
 reads the triangle list from a file (proprietary file format, SRF) 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867}\label{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!exportSRF@{exportSRF}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!exportSRF@{exportSRF}}
 \index{exportSRF@{exportSRF}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{exportSRF()}{exportSRF()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::export\+SRF (\begin{DoxyParamCaption}\item[{std\+::string}]{FName }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a8eea2802e6b0951b6404858c55cd0867} 
+void GOAT\+::raytracing\+::surface\+::export\+SRF (\begin{DoxyParamCaption}\item[{std\+::string}]{FName}{}\end{DoxyParamCaption})}
 
 
 
 export triangle list to proprietary file format SRF 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887}\label{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getCurrentIndex@{getCurrentIndex}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getCurrentIndex@{getCurrentIndex}}
 \index{getCurrentIndex@{getCurrentIndex}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{getCurrentIndex()}{getCurrentIndex()}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::get\+Current\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916fdf7865e40e887} 
+int GOAT\+::raytracing\+::surface\+::get\+Current\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -409,13 +409,13 @@ Returns the index of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00173}{173}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00174}{174}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40}\label{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getFilename@{getFilename}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getFilename@{getFilename}}
 \index{getFilename@{getFilename}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{getFilename()}{getFilename()}}
-{\footnotesize\ttfamily std\+::string GOAT\+::raytracing\+::surface\+::get\+Filename (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40} 
+std\+::string GOAT\+::raytracing\+::surface\+::get\+Filename (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -423,13 +423,13 @@ returns the current file name
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00140}{140}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00141}{141}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}\label{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getMinMax@{getMinMax}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getMinMax@{getMinMax}}
 \index{getMinMax@{getMinMax}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{getMinMax()}{getMinMax()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::get\+Min\+Max (\begin{DoxyParamCaption}\item[{double \&}]{min,  }\item[{double \&}]{max }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269} 
+void GOAT\+::raytracing\+::surface\+::get\+Min\+Max (\begin{DoxyParamCaption}\item[{double \&}]{min}{, }\item[{double \&}]{max}{}\end{DoxyParamCaption})}
 
 
 
@@ -442,11 +442,11 @@ Returns the smallest and largest edge length of the triangles stored in the surf
 {\em max} & largest edge length \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a10e04122f52957ea831ace36b93bab98}\label{class_g_o_a_t_1_1raytracing_1_1surface_a10e04122f52957ea831ace36b93bab98} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getTriangle@{getTriangle}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a10e04122f52957ea831ace36b93bab98}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getTriangle@{getTriangle}}
 \index{getTriangle@{getTriangle}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{getTriangle()}{getTriangle()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& GOAT\+::raytracing\+::surface\+::get\+Triangle (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a10e04122f52957ea831ace36b93bab98} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& GOAT\+::raytracing\+::surface\+::get\+Triangle (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -454,33 +454,33 @@ Returns the i-\/th triangle in the internal triangle list.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00174}{174}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00175}{175}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80}\label{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!importBinSTL@{importBinSTL}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!importBinSTL@{importBinSTL}}
 \index{importBinSTL@{importBinSTL}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{importBinSTL()}{importBinSTL()}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::import\+Bin\+STL (\begin{DoxyParamCaption}\item[{std\+::string}]{FName }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80} 
+int GOAT\+::raytracing\+::surface\+::import\+Bin\+STL (\begin{DoxyParamCaption}\item[{std\+::string}]{FName}{}\end{DoxyParamCaption})}
 
 
 
 import triangle list from binary STL-\/file 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7}\label{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!initBounds@{initBounds}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!initBounds@{initBounds}}
 \index{initBounds@{initBounds}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{initBounds()}{initBounds()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::init\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{pul,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{por }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a1987f1e8a070b394852e2f9092b3bca7} 
+void GOAT\+::raytracing\+::surface\+::init\+Bounds (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{pul}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{por}{}\end{DoxyParamCaption})}
 
 
 
 Calculates the bounding box (=circumferent cuboid) but without rotation. The cuboid is represented by the upper right corner (por) and the lower left corner (pul). 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2}\label{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!initQuad@{initQuad}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!initQuad@{initQuad}}
 \index{initQuad@{initQuad}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{initQuad()}{initQuad()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::init\+Quad (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_ae9e67b2f8412c8aa8da4c021c01454e2} 
+void GOAT\+::raytracing\+::surface\+::init\+Quad (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -490,11 +490,11 @@ Boundaries of the circumferent cuboid is calculated. The cuboid is represented b
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aa1478ba256f588aa0af5cb5ff7b70977}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76}\label{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!isInside@{isInside}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!isInside@{isInside}}
 \index{isInside@{isInside}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{isInside()}{isInside()}}
-{\footnotesize\ttfamily bool GOAT\+::raytracing\+::surface\+::is\+Inside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a483f0b332eae2f159ff53524927fce76} 
+bool GOAT\+::raytracing\+::surface\+::is\+Inside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -504,11 +504,11 @@ checks if point P is inside the object
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8338a7937b4cfe43900f975dd6bd539e}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab}\label{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!next@{next}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!next@{next}}
 \index{next@{next}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{next()}{next()}}
-{\footnotesize\ttfamily bool GOAT\+::raytracing\+::surface\+::next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{r,  }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{k,  }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a698bb09971856b62acc423b15fd3ccab} 
+bool GOAT\+::raytracing\+::surface\+::next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{r}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{k}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -530,11 +530,11 @@ true if there is an intersection point otherwise false
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae19071ea0777fc2ea1aad5ceb917c5d7}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ab49437b3866ee343c8616b69af922f24}\label{class_g_o_a_t_1_1raytracing_1_1surface_ab49437b3866ee343c8616b69af922f24} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!norm@{norm}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ab49437b3866ee343c8616b69af922f24}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!norm@{norm}}
 \index{norm@{norm}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{norm()}{norm()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_ab49437b3866ee343c8616b69af922f24} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::surface\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -544,27 +544,27 @@ Surface normal at point P (There is no check, if P is on the surface. This funct
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afa28a4c4f4206fc11e0fca0e45bbbf03}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24}\label{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!nosurface@{nosurface}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!nosurface@{nosurface}}
 \index{nosurface@{nosurface}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{nosurface()}{nosurface()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} GOAT\+::raytracing\+::surface\+::nosurface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a5ad87e8fcbae25bc4a6dd593eada7c24} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} GOAT\+::raytracing\+::surface\+::nosurface (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 returns copy of the object without triangles 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a7c71ef82c41543e0707d4389a63aba59}\label{class_g_o_a_t_1_1raytracing_1_1surface_a7c71ef82c41543e0707d4389a63aba59} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!operator=@{operator=}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a7c71ef82c41543e0707d4389a63aba59}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!operator=@{operator=}}
 \index{operator=@{operator=}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \& GOAT\+::raytracing\+::surface\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&}]{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a7c71ef82c41543e0707d4389a63aba59} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \& GOAT\+::raytracing\+::surface\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}} \&}]{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b}\label{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!scale@{scale}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!scale@{scale}}
 \index{scale@{scale}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{scale()}{scale()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::scale (\begin{DoxyParamCaption}\item[{double}]{sf }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_af66b05bd4bacfc78ec5f5dc13b36441b} 
+void GOAT\+::raytracing\+::surface\+::scale (\begin{DoxyParamCaption}\item[{double}]{sf}{}\end{DoxyParamCaption})}
 
 
 
@@ -575,27 +575,27 @@ scale the lengths of all triangles
 {\em sf} & scaling factor \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96}\label{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setCenter@{setCenter}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setCenter@{setCenter}}
 \index{setCenter@{setCenter}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setCenter()}{setCenter()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::set\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a68a72d971373c6184e3a75294b10fb96} 
+void GOAT\+::raytracing\+::surface\+::set\+Center (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328}\label{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setCenter2CoM@{setCenter2CoM}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setCenter2CoM@{setCenter2CoM}}
 \index{setCenter2CoM@{setCenter2CoM}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setCenter2CoM()}{setCenter2CoM()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::set\+Center2\+CoM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad6525bc9c8d5ccb328} 
+void GOAT\+::raytracing\+::surface\+::set\+Center2\+CoM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 Sets the Position to the center of mass (CoM) 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933}\label{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setFilename@{setFilename}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setFilename@{setFilename}}
 \index{setFilename@{setFilename}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setFilename()}{setFilename()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::set\+Filename (\begin{DoxyParamCaption}\item[{std\+::string}]{FName }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933} 
+void GOAT\+::raytracing\+::surface\+::set\+Filename (\begin{DoxyParamCaption}\item[{std\+::string}]{FName}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 \begin{DoxyParams}{Parameters}
@@ -604,13 +604,13 @@ Sets the Position to the center of mass (CoM)
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00141}{141}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00142}{142}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}\label{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
 \index{setPos@{setPos}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::set\+Pos (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{double}]{y,  }\item[{double}]{z }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c} 
+void GOAT\+::raytracing\+::surface\+::set\+Pos (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
@@ -622,13 +622,13 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a85ee33
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00165}{165}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00166}{166}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}\label{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
 \index{setPos@{setPos}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427} 
+void GOAT\+::raytracing\+::surface\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -638,11 +638,11 @@ Set position of the object to r.
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afacfdc0e51e3a4f42aadba59cad1fe1f}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd}\label{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setr0@{setr0}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setr0@{setr0}}
 \index{setr0@{setr0}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setr0()}{setr0()}}
-{\footnotesize\ttfamily void GOAT\+::raytracing\+::surface\+::setr0 (\begin{DoxyParamCaption}\item[{double}]{r0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a8b3d0047979d533291db3fa99816d8cd} 
+void GOAT\+::raytracing\+::surface\+::setr0 (\begin{DoxyParamCaption}\item[{double}]{r0}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -652,11 +652,11 @@ sets the radius of the calculation sphere (necessary only if this class is used 
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aaa870a967b9600080330bc372b38a8c2}{GOAT\+::raytracing\+::\+Object\+Shape}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893fa239eae3ff300d36}\label{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893fa239eae3ff300d36} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!volume@{volume}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893fa239eae3ff300d36}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!volume@{volume}}
 \index{volume@{volume}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{volume()}{volume()}}
-{\footnotesize\ttfamily double GOAT\+::raytracing\+::surface\+::volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893fa239eae3ff300d36} 
+double GOAT\+::raytracing\+::surface\+::volume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
 
@@ -668,12 +668,14 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a14a259
 
 
 
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec299a9144cf2d79}\label{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec299a9144cf2d79} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!currentIndex@{currentIndex}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec299a9144cf2d79}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!currentIndex@{currentIndex}}
 \index{currentIndex@{currentIndex}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{currentIndex}{currentIndex}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::current\+Index}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a8208a14eaba0fa56ec299a9144cf2d79} 
+int GOAT\+::raytracing\+::surface\+::current\+Index}
 
 
 
@@ -681,13 +683,13 @@ Index of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00179}{179}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00180}{180}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43}\label{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!currentnorm@{currentnorm}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!currentnorm@{currentnorm}}
 \index{currentnorm@{currentnorm}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{currentnorm}{currentnorm}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::surface\+::currentnorm}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::surface\+::currentnorm}
 
 
 
@@ -695,13 +697,13 @@ Normal vector of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00178}{178}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00179}{179}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff}\label{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!filetype@{filetype}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!filetype@{filetype}}
 \index{filetype@{filetype}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{filetype}{filetype}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::filetype =\mbox{\hyperlink{surface_8h_ab0b3fb01ba6b7796f388033896813583}{OBJECTSHAPE\+\_\+\+SURFACE\+\_\+\+FILETYPE\+\_\+\+NONE}}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff} 
+int GOAT\+::raytracing\+::surface\+::filetype =\mbox{\hyperlink{surface_8h_ab0b3fb01ba6b7796f388033896813583}{OBJECTSHAPE\+\_\+\+SURFACE\+\_\+\+FILETYPE\+\_\+\+NONE}}}
 
 
 
@@ -709,28 +711,27 @@ type of the file connected with this surface object
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00175}{175}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00176}{176}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}\label{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!FName@{FName}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!FName@{FName}}
 \index{FName@{FName}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{FName}{FName}}
-{\footnotesize\ttfamily std\+::string GOAT\+::raytracing\+::surface\+::\+FName}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50} 
+std\+::string GOAT\+::raytracing\+::surface\+::\+FName}
 
 
 
-File name (used to save the internal triangle list) ~\newline
- 
+File name (used to save the internal triangle list) 
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00180}{180}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00181}{181}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}\label{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!numTriangles@{numTriangles}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!numTriangles@{numTriangles}}
 \index{numTriangles@{numTriangles}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{numTriangles}{numTriangles}}
-{\footnotesize\ttfamily int GOAT\+::raytracing\+::surface\+::num\+Triangles = 0}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07} 
+int GOAT\+::raytracing\+::surface\+::num\+Triangles = 0}
 
 
 
@@ -738,13 +739,13 @@ number of triangles
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00111}{111}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00112}{112}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}\label{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531} 
-\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!S@{S}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!S@{S}}
 \index{S@{S}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{S}{S}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::surface\+::S}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::surface\+::S}
 
 
 
@@ -752,7 +753,7 @@ list of all triangles
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00110}{110}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00111}{111}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 
 

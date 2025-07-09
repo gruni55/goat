@@ -25,7 +25,6 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_gauss =
     [ "setWvl", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a4b4e8f320ff4b40d1d784ae5ea0caf0e", null ],
     [ "f", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad85a71bde9dca01a088ab7f61c3c9bf8", null ],
     [ "focuspos", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81", null ],
-    [ "k", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ae866addddafef9b9bc8ef79bcfc75d82", null ],
     [ "NA", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#aeaebbb9ba49182ab8ae074900c5aa81d", null ],
     [ "Normfak", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a76af486df8be7443fb6012d8392bc8bd", null ],
     [ "R", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#ad114232eaf11a5f5ffaa39e58c4dbe02", null ],

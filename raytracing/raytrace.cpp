@@ -119,7 +119,7 @@ namespace GOAT
 				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
 				PStop = ray->getP();			
-	//			std::cout << PStart << "  " << PStop << std::endl;
+				// std::cout << PStart << "  " << PStop << "\t" << objIndex << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 				// search a hit with a detector within the last step       				
@@ -175,7 +175,8 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 						    copyRay(tray, ray);			
-							//std::cout <<  PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;							
+							//std::cout << "n=" << S.Obj[objIndex]->n << "\t";
+							//std::cout << ray->getk() << "\t"<< PStart << "\t" << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
 

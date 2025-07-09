@@ -8,8 +8,8 @@ var tubedray_8h =
     [ "IN_Plane", "tubedray_8h.html#a76cff632b82eccb287e1cec30a56078f", null ],
     [ "KEIN_SCHNITTPUNKT", "tubedray_8h.html#adecb25a5942951bc8245d9d8f41ec7bc", null ],
     [ "OHNE_GAUSS", "tubedray_8h.html#a5c0b83dfddb62507d79b2da824ecb90b", null ],
-    [ "binRead", "tubedray_8h.html#a51330ebe5ad6c304bc1e95bc295463c9", null ],
-    [ "binWrite", "tubedray_8h.html#a610ed718b81a03c50e105d8563414305", null ],
-    [ "operator<<", "tubedray_8h.html#a5dd123d966e019d094f789cab5714dbd", null ],
-    [ "ohne_gauss", "tubedray_8h.html#a7123161c2477beec6bb0171e7833655b", null ]
+    [ "GOAT::raytracing::binRead", "namespace_g_o_a_t_1_1raytracing.html#a51330ebe5ad6c304bc1e95bc295463c9", null ],
+    [ "GOAT::raytracing::binWrite", "namespace_g_o_a_t_1_1raytracing.html#a610ed718b81a03c50e105d8563414305", null ],
+    [ "GOAT::raytracing::operator<<", "namespace_g_o_a_t_1_1raytracing.html#a5dd123d966e019d094f789cab5714dbd", null ],
+    [ "GOAT::raytracing::ohne_gauss", "namespace_g_o_a_t_1_1raytracing.html#a7123161c2477beec6bb0171e7833655b", null ]
 ];

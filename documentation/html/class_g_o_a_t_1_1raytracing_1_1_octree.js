@@ -13,11 +13,11 @@ var class_g_o_a_t_1_1raytracing_1_1_octree =
     [ "trimOctree", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a7a19546669d1dbd1b1f38c6ae5402015", null ],
     [ "trimOctree", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a3a393f26127f14e4dfb30eef711f58b9", null ],
     [ "BBox", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a5328c8b7440f58abd52e47b783da1250", null ],
-    [ "child", "class_g_o_a_t_1_1raytracing_1_1_octree.html#ae171809abd1f3356dd7f6ca7af68d19b", null ],
-    [ "Element", "class_g_o_a_t_1_1raytracing_1_1_octree.html#aa0d5aeec879f26bffd2c58cffc0e9f7a", null ],
+    [ "child", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a3aa6bec41c4889add383d68c649002db", null ],
+    [ "Element", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a547f0b4dd035089fb22b6173c22cd719", null ],
     [ "isLeaf", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a99dfd6a0f07719c46207bd4549aeaf6a", null ],
     [ "MAX_RECURSIONS", "class_g_o_a_t_1_1raytracing_1_1_octree.html#ad5a7dff08fb8ba179d4061b1131eabd9", null ],
-    [ "nChilds", "class_g_o_a_t_1_1raytracing_1_1_octree.html#aa3ebcc07ed1be8abcc56deb0d6cb68ce", null ],
-    [ "nElements", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a755e9d274278208f79274edf81839ca0", null ],
+    [ "nChilds", "class_g_o_a_t_1_1raytracing_1_1_octree.html#a1809f8131beabba319b55670749a12b5", null ],
+    [ "nElements", "class_g_o_a_t_1_1raytracing_1_1_octree.html#ad0469c3602637684e2965640ab070849", null ],
     [ "parent", "class_g_o_a_t_1_1raytracing_1_1_octree.html#ab759a2409014bc59f2dd89d680a82385", null ]
 ];

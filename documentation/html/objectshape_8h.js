@@ -28,6 +28,6 @@ var objectshape_8h =
     [ "SUPERELLIPSOID_N", "objectshape_8h.html#ab293b58743e4ec8b7f4ea230db113c1b", null ],
     [ "ZYLINDER", "objectshape_8h.html#a90722650e914ef6bb7c1ff89fd14d7a4", null ],
     [ "ZYLINDER_HEXAGONAL", "objectshape_8h.html#acdf5a8b1c8c983079c06e7d864e7c190", null ],
-    [ "computeInertia", "objectshape_8h.html#ad67b352e4ab64229e6e4a847e8e332aa", null ],
-    [ "intersectionTest", "objectshape_8h.html#a8b8cd1de490988811ee3a543696e90b7", null ]
+    [ "GOAT::raytracing::computeInertia", "namespace_g_o_a_t_1_1raytracing.html#ad67b352e4ab64229e6e4a847e8e332aa", null ],
+    [ "GOAT::raytracing::intersectionTest", "namespace_g_o_a_t_1_1raytracing.html#a8b8cd1de490988811ee3a543696e90b7", null ]
 ];

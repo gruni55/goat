@@ -55,11 +55,11 @@ namespace GOAT
                 std::filesystem::path filename=p.filename();
                 if (p.is_absolute())
                 {
-                    dir = "";
+                    dir = ""; 
                     std::cout << "path is absolute" << std::endl;
                 }
                 path=dir.string();
-                fname=filename.string();
+               // fname=filename.string();
             }
 
 			tinyxml2::XMLError eResult=doc.LoadFile(fname.c_str());                        

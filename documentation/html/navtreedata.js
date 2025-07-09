@@ -66,32 +66,32 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_x_m_l_2tinyxml2_8h.html",
-"class_g_o_a_t_1_1maths_1_1_vector.html#aa54d7c127a200476153797900de499e0",
-"class_g_o_a_t_1_1raytracing_1_1_detector.html#aac78aec259b6fc6054ade98ee0df25fd",
-"class_g_o_a_t_1_1raytracing_1_1_i_ray.html#ae89a67598dd13a855d9c5d86d222750f",
-"class_g_o_a_t_1_1raytracing_1_1_light_src_line.html#a6031eb7b7bdd999161bff7355d1d94ac",
-"class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a950b456e0f6ac23a28fb565950056f0a",
-"class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a9192c4ad19fe2d9caff693c182afb525",
-"class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#a7fb8c40bb671d29a6f3fe69d5f7c60c2",
-"class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a22fa327f33d8f94e738776eb7e9c401f",
-"class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#aed8dadf2d47bcd0fc8f73d3d37aa635f",
-"class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html#aa354792bb9d30a9cfd0c4a325882e5ef",
-"class_g_o_a_t_1_1raytracing_1_1triangle.html#a778e375a2c8aa07592b8661dbdfb5719",
-"classtinyxml2_1_1_dyn_array.html#abb25593c9f051748e0f30ed179b510e1",
-"classtinyxml2_1_1_x_m_l_attribute.html#a09f3de63524b73b846af8d8656b90d6c",
-"classtinyxml2_1_1_x_m_l_declaration.html#a0a577a5e971b59b321cae12e5b61df55",
-"classtinyxml2_1_1_x_m_l_document.html#afda4b2e340326fca89dc9edbd505cb3b",
-"classtinyxml2_1_1_x_m_l_element.html#ab1f4be2332e27dc640e9b6abd01d64dd",
-"classtinyxml2_1_1_x_m_l_node.html#a2e5be935080ffbed146aed27cd2ab0dc",
-"classtinyxml2_1_1_x_m_l_printer.html#a3256cf3523d4898b91abb18b924be04c",
-"classtinyxml2_1_1_x_m_l_visitor.html#a14e4748387c34bf53d24e8119bb1f292",
-"lightsrc_8h.html#abc7038f3a29d4d789d978e4f7a2c347d",
-"namespace_g_o_a_t_1_1maths.html#af4bb98f52dbc0a9ce9246ef6de25d602",
-"namespacetinyxml2.html#a1fbf88509c3ac88c09117b1947414e08a522abcd16b7144d8f4498eb7f091a1ef",
-"struct_g_o_a_t_1_1raytracing_1_1_gauss.html#a9e1fc28d0eb1de61db89bc22e7ab2f99",
-"surface_8h.html#adf476c5ac64d648999ccad582e80a39c",
-"xml_8h.html#ad729ba2c20589b0e82f26dfbcf07828e"
+"class_g_o_a_t_1_1raytracing_1_1_box.html#a4c8d1087116da03242dab5b68ca8dd37",
+"class_g_o_a_t_1_1raytracing_1_1_detector.html#af5d01033606a9ea685f8ae620758452a",
+"class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f",
+"class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html#a39dd6c0034fa3e58572d4d3fa1634e0a",
+"class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ac6f4e0e6e591f1617c38ee037074dd9a",
+"class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a9c263d1e971845eb8a28e66221ea3bdc",
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html#a9b801f620b0e31932a25db71566b1420",
+"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae5ed2dc22965839e3b06f18dc49fad83",
+"class_g_o_a_t_1_1raytracing_1_1_trafo.html#a7eefe8268de50c077fa8fe80272c823f",
+"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a582e02cfc8f3ba1d38deb36f71f02810",
+"class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a11757c0162063dd3149547e35ba88fc4",
+"class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a9c2bd14ae40f1ad4e302341da586d4ee",
+"classtinyxml2_1_1_str_pair.html#a42614004014a697ecef54bed0f18de77",
+"classtinyxml2_1_1_x_m_l_attribute.html#ae001da9e4e0f727c44f2aadbfb325a7a",
+"classtinyxml2_1_1_x_m_l_document.html#a57400f816dbe7799ece33615ead9ab76",
+"classtinyxml2_1_1_x_m_l_element.html#a45444eb21f99ca46101545992dc2e927",
+"classtinyxml2_1_1_x_m_l_element.html#afe6cfefb48f8fbcb29a790f2042b55a4",
+"classtinyxml2_1_1_x_m_l_node.html#a9417e1f8a9787ae27741605493514b18",
+"classtinyxml2_1_1_x_m_l_printer.html#ac07169d58b465214a2b1fa306e617c26",
+"functions_func_m.html",
+"namespace_g_o_a_t_1_1maths.html#abf733bc02cc16d0f04573660a692ff83",
+"namespacemembers_func_n.html",
+"struct_g_o_a_t_1_1raytracing_1_1_mem_info.html#aa8cf00ff6a1f4880a014d2fbe019b9d8",
+"x64-_release_01_07_with_01_open_m_p_08_2_c_make_files_2_show_includes_2foo_8h.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

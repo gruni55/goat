@@ -274,6 +274,7 @@ int surface::importBinSTL(std::string FName)
 	numTriangles=anz;
 	std::cout << "% Lese " << anz << "  Dreiecke" << std::endl;
 
+	
 	for (i=0; i<anz && !is.eof(); i++)
 	{
 		// is.read(str,12);  // Dreiecksnormale --> wird eh neu berechnet 
@@ -300,6 +301,8 @@ int surface::importBinSTL(std::string FName)
 		 P3[j]=readLE_float32(is);
 		 cm[j]+=P3[j];
 		}
+
+		
 	    cm=cm/anz/3.0;
 		is.read(str,2);
 		S[i]=triangle(P1,P2,P3);		
@@ -329,8 +332,9 @@ int surface::importBinSTL(std::string FName)
 		{
 			
 			addTriangleToTriangle(Tree, S[i]);
+			
 		}		
-	
+		
 #endif 
 	std::cout <<  "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
 	return 0;
@@ -436,6 +440,11 @@ std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
 	maths::Vector<double> mid = (pul + por) / 2.0;
 	Tree.BBox = Box(mid, d, this->n);
 	Tree.createTree();
+	/*std::cout << "SAVE FILE " << std::endl;
+	std::ofstream os("C:\\Users\\weigt\\Documents\\data\\Felix\\triangles.dat");
+	for (int i = 0; i < numTriangles; ++i)
+		os << S[i] << std::endl;
+	os.close();*/
 	for (int i = 0; i < numTriangles; ++i)
 		addTriangleToTriangle(Tree, S[i]);
 #endif
