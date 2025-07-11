@@ -148,15 +148,17 @@ namespace GOAT
 
 		bool Detector::load(const char* fn)
 		{
+			// Datei existiert?
+			if (!std::filesystem::exists(fn)) return false;
+
+
 			// Vorherige Daten sicher löschen
 			D.clear();
 			D.shrink_to_fit();
 			n1 = 0;
 			n2 = 0;
 
-			// Datei existiert?
-			if (!std::filesystem::exists(fn)) return false;
-
+			
 			std::ifstream is(fn);
 			if (!is.is_open()) return false;
 
@@ -334,6 +336,18 @@ namespace GOAT
 
 			this->n = e1 % e2;
 			this->n = this->n / abs(this->n);			
+		}
+
+		void DetectorPlane::setNorm(maths::Vector<double> n)
+		{
+			this->n = n / abs(n);
+			if (abs(this->n % GOAT::maths::ex) > 1E-5)
+				e1 = GOAT::maths::ex - (GOAT::maths::ex * n) * n;
+			else
+				e1 = GOAT::maths::ey - (GOAT::maths::ey * n) * n;
+			e1 = e1 / abs(e1);
+			e2 = n % e1;
+			e2 = e2 / abs(e2);						
 		}
 
 		bool DetectorPlane::cross(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> k, int& i1, int& i2, double& l)

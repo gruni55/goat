@@ -116,6 +116,7 @@ namespace GOAT
 		 * \param n2 number of cells in e2 direction
 		 */
 		DetectorPlane(maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
+		void setNorm(maths::Vector<double> n); ///< set the normal on the detector
 		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector		
 	};
 

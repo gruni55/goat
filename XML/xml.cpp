@@ -134,7 +134,7 @@ namespace GOAT
                                                      Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d,n));
 													 Det[numDet]->fname = filename;
 													 S.addDetector(Det[numDet]);
-                                                     Det[numDet]->load(filename.c_str());
+                                                    Det[numDet]->load(filename.c_str());
                                                     numDet++;
                                                     std::cout << "Detector filename=" << filename << std::endl;
 													}
