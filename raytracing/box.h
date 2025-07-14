@@ -79,12 +79,15 @@ namespace GOAT
 				por = bounds[1];
 			}
 			void setPos(double x, double y, double z) { setPos(maths::Vector<double>(x, y, z)); } ///< sets the position P and the corresponding bounds
+			maths::Vector<double> getD() const { return d; } ///< getthe Size of the box as a vector with its edge lenghts
 			void setD(maths::Vector<double> D) ///< sets the extensions in x-, y- and z-direction
 			{
 				d = D;
 				bounds[0] = P - d / 2.0;
 				bounds[1] = P + d / 2.0;
 			}
+
+			
 
 			maths::Vector<double> bounds[2];  ///< positions of the two opposite corners  (with box in the center)
 			maths::Vector<double> d; ///< extensions of the box in x-, y- and z-direction

@@ -124,6 +124,9 @@ namespace GOAT
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
          SuperArray& operator = (const SuperArray &S); ///< Assignment operator
          void clear(); ///< Clear the SuperArray and release the allocated memory
+         void reinit(double r0, INDEX_TYPE n);
+         void reinit(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz);
+     
          void allockugel(); 
 
          /**
@@ -411,7 +414,7 @@ namespace GOAT
 
     template <class T> T& SuperArray<T>::operator () (int i, INDEX_TYPE ix, INDEX_TYPE iy, INDEX_TYPE iz, bool isEinKoord)
     {
-        maths::Vector<int> Pi = maths::Vector<int>(ix, iy, iz);
+        maths::Vector<INDEX_TYPE> Pi = maths::Vector<INDEX_TYPE>(ix, iy, iz);
         if (type == IN_OBJECT)
         {
             if (G[i].size() == 0)
@@ -634,15 +637,48 @@ namespace GOAT
         }
     }
 
+    template<class T>
+    inline void SuperArray<T>::reinit(double r0, INDEX_TYPE n)
+    {
+        reinit(r0, n, n, n);
+    }
+
+    template <class T>
+    void SuperArray<T>::reinit(double new_r0,
+        INDEX_TYPE nx,
+        INDEX_TYPE ny,
+        INDEX_TYPE nz
+      )
+    {
+        // 1. Alte Daten freigeben
+        this->clear();
+
+        // 2. Parameter übernehmen
+        this->r0 = new_r0;
+        this->nges = maths::Vector<INDEX_TYPE>(nx, ny, nz);
+      
+
+        // 3. Zellabstände neu berechnen
+        double B = 2.0 * this->r0;
+        this->d = maths::Vector<double>(B / nx, B / ny, B / nz);
+
+        // 4. Falls IN_HOST, das Kugel-Gitter (Host-Grid) neu allokieren
+        if (this->type & IN_HOST)
+        {
+            this->allockugel();
+        }
+    }
+
+
     template <class T> void SuperArray<T>::copy(const SuperArray<T>& S)  // MUSS DRINGEND GE�NDERT WERDEN !
     {
         clear();
         addInc(S.Obj, S.numObjs);
         for (int i = 0; i < numObjs; i++)
             if (Obj[i]->isActive())
-                for (int ix = 0; ix < n[i][0]; ix++)
-                    for (int iy = 0; iy < n[i][1]; iy++)
-                        for (int iz = 0; iz < n[i][2]; iz++)
+                for (INDEX_TYPE ix = 0; ix < n[i][0]; ix++)
+                    for (INDEX_TYPE iy = 0; iy < n[i][1]; iy++)
+                        for (INDEX_TYPE iz = 0; iz < n[i][2]; iz++)
                             G[i][ix][iy][iz] = S.G[i][ix][iy][iz];
         K = S.K;
         Pul = S.Pul;

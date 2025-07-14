@@ -23,7 +23,7 @@ int main(int argc, char** argv)
 
 
 // 	xmlr.readXML("H:\\github\\goat\\examplesXML\\full.xml");
-/*	GOAT::raytracing::Raytrace_Path rp(xmlr.S);
-	rp.trace("H:\\data\\path.dat"); */
+	GOAT::raytracing::Raytrace_pure rp(xmlr.S);
+	rp.trace(); 
 	return 0;
 }
