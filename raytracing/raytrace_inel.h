@@ -71,7 +71,7 @@ namespace GOAT
         {
         public:
             Raytrace_Inel();
-            Raytrace_Inel(const Scene &S, int n); ///< Constructor for the inelastic scattering raytracer. @param S contains the scene and @param is the number of subdivisions per direction of the virtual array used to store the data (electric field distributiion)
+            Raytrace_Inel(const Scene &S); ///< Constructor for the inelastic scattering raytracer. @param S contains the scene and @param is the number of subdivisions per direction of the virtual array used to store the data (electric field distributiion)
             /**
             * @brief Calculates inelastic scattering
             * 
@@ -113,6 +113,8 @@ namespace GOAT
             {
                 return this->SGE;
             }
+
+             void setScene(const Scene& S);
         private:
             std::complex<double>  gewichte(maths::Vector<std::complex<double> > E, maths::Vector<std::complex<double> > p);
             void initExcitation();
@@ -123,8 +125,8 @@ namespace GOAT
             void saveRRT();
             void traceRRT();
             int calcphase;
-            SuperArray<maths::Vector<std::complex<double> > >* SGRRT1;
-            SuperArray<maths::Vector<std::complex<double> > >* SGRRT2;
+            SuperArray<maths::Vector<std::complex<double> > >* SGRRT1 = nullptr;
+            SuperArray<maths::Vector<std::complex<double> > >* SGRRT2 = nullptr;
             
             bool* active;
             int n;

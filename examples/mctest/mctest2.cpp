@@ -25,7 +25,8 @@ int main(int argc, char* argv[])
     S.setnS(1.0);
     S.setr0(500);
     S.LS[0]->setNumRays(100000);
-    GOAT::raytracing::Raytrace_Inel ri(S,2500);    
+    S.setNumberOfCellsPerDirection(2500);
+    GOAT::raytracing::Raytrace_Inel ri(S);    
     ri.setNumReflex(2);
     ri.setExcitationFieldOnly();
     GOAT::raytracing::RRTParms rrtparms;

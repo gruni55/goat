@@ -104,6 +104,9 @@ namespace GOAT
          *
          */
          bool addInc (ObjectShape *E,const bool isAbsolute=false);  // Einschluss hinzufuegen (isAbsolute s.o.) 
+         void removeObject(int i); 
+         void setActive(int i);
+         void setInactive(int i);
          maths::Vector<INDEX_TYPE> gitterpunkt (maths::Vector<double> P);
          bool inObject (maths::Vector<double> P, int i); ///< checks if \p P is inside the i-th object (p in real coordinates)
          bool inObject (maths::Vector<INDEX_TYPE> Pi, int i); ///< checks if \p Pi is inside the i-th object (pi in indices)
@@ -159,12 +162,27 @@ namespace GOAT
          maths::Matrix<double> H, R; ///< Transformation matrices in the local array coordinate system and backwards
          bool write(std::string fname);
          bool read(std::string fname);
+
+         /**  set the number of cells per direction */
+         void setNumberOfCellsPerDirection(INDEX_TYPE no) {
+             // Ensure the parameter is valid and reinitialize the grid with the given number of cells per direction  
+             if (no > 0) {
+                 reinit(r0, no, no, no);
+             }
+             else {
+                 Error = INVALID_PARAMETER; // Set an error code for invalid input  
+             }
+         }
+
+         
+             void arrangeGrids();
     };
 
     /* Specialization of Superarray for use together with std::vector<gridEntry> */
     template<> void SuperArray<std::vector<GOAT::raytracing::gridEntry> >::clear();
     template <class T> T dummy;
-   
+    
+ 
     /*------------------------- IMPLEMENTATION --------------------------------------*/
 
     template<> bool SuperArray<GOAT::maths::Vector<std::complex<double> > >::write(std::string fname);
@@ -224,6 +242,27 @@ namespace GOAT
         return ok;
     }
 
+    template<class T>
+    inline void SuperArray<T>::setInactive(int i)
+    {
+        removeObject(i);
+    }
+
+    template<class T>
+    inline void GOAT::raytracing::SuperArray<T>::setActive(int i)
+    {
+        if (G[i].size() == 0) G[i].resize(n[i][0] + 1);
+            for (INDEX_TYPE ix = 0; ix < n[i][0] + 1; ix++)
+            {
+                G[i][ix].resize(n[i][1] + 1);
+
+                for (INDEX_TYPE iy = 0; iy < n[i][1] + 1; iy++)
+                {
+                    G[i][ix][iy].resize(n[i][2] + 1);
+                }
+            }
+    }
+
     template <class T> maths::Vector<INDEX_TYPE> SuperArray<T>::gitterpunkt(maths::Vector<double> P)
     {
         maths::Vector<INDEX_TYPE> pi, ph;
@@ -242,6 +281,44 @@ namespace GOAT
         return pi;
     }
 
+    /**
+     This method rearranges all grids after a change of r0 or the number of cells per direction
+    */
+    template <class T> void SuperArray<T>::arrangeGrids()
+    {
+        clear();
+        maths::Vector<INDEX_TYPE> pul, por, N, hn;
+        maths::Vector<double> h, O;
+        O = maths::Vector<double>(-r0, -r0, -r0);
+        d = 2.0 * r0 * maths::Vector<double>(1.0 / (double)nges[0], 1.0 / (double)nges[1], 1.0 / (double)nges[2]);
+        std::cerr << "[arrangeGrids] d=" << d << "\tr0=" << r0 << "\tnges=(" << nges[0] << "," << nges[1] << "," << nges[2] << ")" << std::endl;
+        
+        for (int i = 0; i < numObjs; i++)
+        {
+            Obj[i]->initQuad();
+;            h = ceil(ediv(Obj[i]->por, d)) - floor(ediv(Obj[i]->pul, d));
+            hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+            n.push_back(hn);
+            
+            h = floor(ediv(Obj[i]->pul + maths::Vector<double>(r0, r0, r0), d));
+            Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
+
+            if (Obj[i]->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
+            {
+                G[i].resize(n[i][0] + 1);
+                for (INDEX_TYPE ix = 0; ix < n[i][0] + 1; ix++)
+                {
+                    G[i][ix].resize(n[i][1] + 1);
+
+                    for (INDEX_TYPE iy = 0; iy < n[i][1] + 1; iy++)
+                    {
+                        G[i][ix][iy].resize(n[i][2] + 1);
+                    }
+                }
+            }
+        }
+    }
+    
     template <class T> bool SuperArray<T>::addInc(ObjectShape* E, const bool isAbsolute)
     {
        
@@ -252,9 +329,7 @@ namespace GOAT
         maths::Vector<double> h, O;
         O = maths::Vector<double>(-r0, -r0, -r0);
 
-       /* smi = sysmem();
-        mi = memstat();
-        */
+      
         h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
 
         hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0]+1, (INDEX_TYPE)h[1]+1, (INDEX_TYPE)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
@@ -305,6 +380,23 @@ namespace GOAT
         iscleared = false;
         return true;
     }
+
+    template<class T>
+    inline void SuperArray<T>::removeObject(int i)
+    {
+        if (G[i].size() > 0)
+        {
+            for (int ix = n[i][0]; ix >= 0; ix--)
+            {
+                for (int iy = n[i][1]; iy >= 0; iy--)
+                    G[i][ix][iy].clear();
+                G[i][ix].clear();
+            } // for ix    
+            G[i].clear();
+        } // if (G[i]!=NULL)
+    }
+
+
 
     template <class T> bool SuperArray<T>::inObject(maths::Vector<double> P, int i) // da muss noch was gemacht werden
     {
@@ -449,25 +541,25 @@ namespace GOAT
             if (Pi[0] < 0) { Error = NOT_FOUND; return dummy; }//maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[1] < 0) { Error = NOT_FOUND; return dummy; } //maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[2] < 0) {
-                std::cout << "Pi[2]=" << Pi[2] << std::endl;
+     //           std::cout << "Pi[2]=" << Pi[2] << std::endl;
                   Error = NOT_FOUND; return dummy; } // maths::Vector<std::complex<double> > (0,0,0);
             if (Pi[0] >= n[i][0])
             {
-                std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
+       //         std::cout << "PROBLEM: Pi[0]=" << Pi[0] << "\tn[i][0]=" << n[i][0] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[1] >= n[i][1])
             {
-                std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
+      //          std::cout << "PROBLEM: Pi[1]=" << Pi[1] << "\tn[i][1]=" << n[i][1] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy; //maths::Vector<std::complex<double> > (0,0,0);
             }
 
             if (Pi[2] >= n[i][2])
             {
-               std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
+        //       std::cout << "PROBLEM: Pi[1]=" << Pi[2] << "\tn[i][2]=" << n[i][2] <<  std::endl;
                 Error = SUPERGITTER;
                  return dummy;
             }
@@ -578,7 +670,7 @@ namespace GOAT
         int anzx, anzx2;
         anzx = nges[0];
         anzx2 = nges[0] / 2;
-        if (!iscleared)
+     //   if (!iscleared)
         if (type == IN_OBJECT)
         {
             if (numObjs > 0)
@@ -650,17 +742,13 @@ namespace GOAT
         INDEX_TYPE nz
       )
     {
-        // 1. Alte Daten freigeben
-        this->clear();
-
+        this->nges = maths::Vector<INDEX_TYPE>(nx, ny, nz);
         // 2. Parameter übernehmen
         this->r0 = new_r0;
-        this->nges = maths::Vector<INDEX_TYPE>(nx, ny, nz);
-      
+        // 1. Alte Daten freigeben
+        this->arrangeGrids();
 
-        // 3. Zellabstände neu berechnen
-        double B = 2.0 * this->r0;
-        this->d = maths::Vector<double>(B / nx, B / ny, B / nz);
+        
 
         // 4. Falls IN_HOST, das Kugel-Gitter (Host-Grid) neu allokieren
         if (this->type & IN_HOST)

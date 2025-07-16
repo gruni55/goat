@@ -26,7 +26,7 @@ namespace GOAT
 		}
 
 		Raytrace_Inel::Raytrace_Inel()
-		{
+		{			
 			active = 0;
 			SGE = 0;
 			SGRRT1 = 0;
@@ -38,19 +38,21 @@ namespace GOAT
 			calcphase = INEL_CALCPHASE_EXCITATION;
 		}
 
-		Raytrace_Inel::Raytrace_Inel(const Scene& S, int n = 500) : Raytrace((Scene)S)
+		Raytrace_Inel::Raytrace_Inel(const Scene& S) : Raytrace((Scene)S)
 		{
 			SGRRT1 = 0;
 			SGRRT2 = 0;
 			nLSExcit = 0;
 			LSExcit = 0;
-			this->n = n;
+			n = S.NumCellsPerDir;
 			SGE = 0;
 			iR = 0;
 			calcphase = INEL_CALCPHASE_EXCITATION;
 			active = new bool[S.nObj];
-			for (int i = 0; i < S.nObj; i++) active[i] = true;
+			for (int i = 0; i < S.nObj; i++) active[i] = S.Obj[i]->isActive();
+			
 			sceneChanged(S);
+			initExcitation();
 		}
 
 		std::complex<double>  Raytrace_Inel::gewichte(maths::Vector<std::complex<double> > E, maths::Vector<std::complex<double> > p)
@@ -77,7 +79,7 @@ namespace GOAT
 			{
 				std::cout << "starting calculation excitation field" << std::endl;
 				std::cout << "start initialization...";
-				initExcitation();
+				if (SGE==nullptr) initExcitation();
 				std::cout << "done." << std::endl;
 				S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 				std::cout << "start raytracing...";
@@ -151,8 +153,47 @@ namespace GOAT
 			// Wenn die Anzahl der Objekte ge�ndert wird, werden die Listen mit den inelastischen Brechungsindizes 
 			// und den Polarisierbarkeiten auf die Defaultwerte zur�ckgesetzt 
 			
-			calcphase = INEL_CALCPHASE_EXCITATION; 
+			// calcphase = INEL_CALCPHASE_EXCITATION; 
 			Raytrace::setScene(S);	
+			if (SGE != nullptr) SGE->arrangeGrids();
+			if (calcphase != INEL_CALCPHASE_EXCITATION)
+			{
+				if (SGRRT1 != nullptr) SGRRT1->arrangeGrids();
+				if (SGRRT2 != nullptr) SGRRT2->arrangeGrids();
+			}
+			
+		}
+
+		void Raytrace_Inel::setScene(const Scene& S)
+		{
+			calcphase = INEL_CALCPHASE_EXCITATION;
+			
+			INDEX_TYPE currentNoOfCellsPerDir = S.getNumberOfCellsPerDirection();
+			if ((this->S.r0 != SGE->r0) || (this->S.getNumberOfCellsPerDirection() != currentNoOfCellsPerDir))
+			{
+				if (SGE != nullptr)
+				{
+					SGE->r0 = S.r0;
+					SGE->setNumberOfCellsPerDirection(currentNoOfCellsPerDir);
+				}
+
+				if (calcphase != INEL_CALCPHASE_EXCITATION_ONLY)
+				{
+					if (SGRRT1 != nullptr)
+					{
+						SGRRT1->r0 = S.r0;
+						SGRRT1->setNumberOfCellsPerDirection(currentNoOfCellsPerDir);
+					}
+
+
+					if (SGRRT2 != nullptr)
+					{
+						SGRRT2->r0 = S.r0;
+						SGRRT2->setNumberOfCellsPerDirection(currentNoOfCellsPerDir);
+					}
+				}
+			}
+			Raytrace::setScene(S);
 		}
 		
 		void Raytrace_Inel::exportExcitation(std::string fname, int savetype)
@@ -171,19 +212,27 @@ namespace GOAT
 
 		void Raytrace_Inel::initExcitation()
 		{
-			if (S.nObj > 0)
+
+			if (SGE == nullptr)
 			{
 				SGE = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX];
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
-				{
 					SGE[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
+
+				
+			}			
+
+			if (S.nObj != SGE[0].numObjs)
+			{
+				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
+				{
+					SGE[i].clear();
 					for (int j = 0; j < S.nObj; j++)
 					{
 						SGE[i].addInc(S.Obj[j]);
 					}
 				}
 			}
-			
 		}
 
 		void Raytrace_Inel::initRRT()
@@ -206,6 +255,8 @@ namespace GOAT
 				}
 			}
 		}
+
+		
 
 		void Raytrace_Inel::traceExcitation()
 		{

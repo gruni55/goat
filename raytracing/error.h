@@ -28,7 +28,7 @@ namespace GOAT
  #define IMHOST 5
  #define KUGELGITTER_K 6
  #define NOT_FOUND 7
- 
+ #define INVALID_PARAMETER 9
  #ifndef ERROR_H
  #define ERROR_H
  void error (int nerr, std::string msg);

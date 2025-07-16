@@ -741,7 +741,8 @@ namespace GOAT
 									fname = "dummy";
 								}
 								int n = objEll->IntAttribute("n",500);
-									GOAT::raytracing::Raytrace_Inel rt(S,n);									
+                                S.setNumberOfCellsPerDirection(n);
+									GOAT::raytracing::Raytrace_Inel rt(S);									
 									bool fieldonly=true;
 								
 									const char *str = objEll->Attribute("FieldOnly");

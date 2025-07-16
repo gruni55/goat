@@ -64,6 +64,9 @@ namespace GOAT
 			double r0=1000; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
 			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
+			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
+			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
+			void setNumberOfCellsPerDirection(INDEX_TYPE no)  { NumCellsPerDir = no; }
 		};
 
 

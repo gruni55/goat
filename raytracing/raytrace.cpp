@@ -604,6 +604,7 @@ namespace GOAT
 			Det = S.Det;
 			nDet = S.nDet;
 			suppress_phase_progress = S.suppress_phase_progress;
+			NumCellsPerDir = S.NumCellsPerDir;
 		}
 
 		void Scene::setRaytype(int raytype)
