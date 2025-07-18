@@ -79,6 +79,7 @@ namespace GOAT
 			if (sceneElement != NULL)
 			{
 				double dv;
+                int iv;
 
 				dv = sceneElement->DoubleAttribute("r0", 1000.0);    // reading the radius of the calculation sphere (if not: default 1000)
 				S.setr0(dv);
@@ -91,6 +92,9 @@ namespace GOAT
 					double im = ell->DoubleAttribute("imag", 0.0);
 					S.setnS(std::complex<double>(re, im));
 				}
+
+                iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
+                S.setNumberOfCellsPerDirection(iv);
 
 				/* look for the detectors */
 				readDetectors();
@@ -156,6 +160,7 @@ namespace GOAT
                GOAT::maths::Vector<double> Pold;
 			   GOAT::maths::Vector<double> Pos;
 				int numRays;
+                int numRaysRT;
 				double wavelength;
 				double size;
                 double power;
@@ -166,6 +171,7 @@ namespace GOAT
 					typeStr = lsEll->Attribute("type");
 					Pos = readVector(lsEll->FirstChildElement("Position"));
 					numRays = lsEll->IntAttribute("numRays", 100);
+                    numRaysRT = lsEll->IntAttribute("numRaysRT", 10);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
                     std::cout << "read: Wavelength:" << wavelength << std::endl;
 					size = lsEll->DoubleAttribute("size", 10.0);
@@ -288,6 +294,9 @@ namespace GOAT
 
 
 					}
+                    LS[numLS]->setNumRays(numRays);
+                    LS[numLS]->setNumRaysRT(numRaysRT);
+
                    LS[numLS]->P0 = power;
 					numLS++;
             
@@ -1207,6 +1216,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
           scene->SetAttribute("r0", formatDouble(S.r0).c_str());
+          scene->SetAttribute("nCellsPerDir", S.getNumberOfCellsPerDirection());
           root->InsertEndChild(scene);
           std::cout << "no. of light sources: "<< S.nLS << std::endl;
           if (S.nLS > 0)
@@ -1248,6 +1258,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             std::cout << "typeh=" << typeh << "\ttype=" << type << std::endl;
             lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
             lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
+            lightSrc->SetAttribute("numRaysRT", S.LS[i]->getNumRaysRT());
             lightSrc->SetAttribute("wavelength", formatDouble(S.LS[i]->getWavelength()).c_str());
 
             lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));

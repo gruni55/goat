@@ -105,6 +105,7 @@ namespace GOAT
          */
          bool addInc (ObjectShape *E,const bool isAbsolute=false);  // Einschluss hinzufuegen (isAbsolute s.o.) 
          void removeObject(int i); 
+         void removeAllObjects();
          void setActive(int i);
          void setInactive(int i);
          maths::Vector<INDEX_TYPE> gitterpunkt (maths::Vector<double> P);
@@ -384,6 +385,7 @@ namespace GOAT
     template<class T>
     inline void SuperArray<T>::removeObject(int i)
     {
+
         if (G[i].size() > 0)
         {
             for (int ix = n[i][0]; ix >= 0; ix--)
@@ -395,7 +397,20 @@ namespace GOAT
             G[i].clear();
         } // if (G[i]!=NULL)
     }
+    template<class T>
+    inline void SuperArray<T>::removeAllObjects()
+    {
+        for (int i = 0; i < Obj.size(); i++)
+        {
+            removeObject(i);
+        }
 
+        Obj.clear();
+        Obj.shrink_to_fit();
+        numObjs = 0;
+
+       
+    }
 
 
     template <class T> bool SuperArray<T>::inObject(maths::Vector<double> P, int i) // da muss noch was gemacht werden

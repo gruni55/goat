@@ -50,6 +50,7 @@ namespace GOAT
 			void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
+			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
@@ -59,6 +60,7 @@ namespace GOAT
 			int nObj = 0; ///< Number of objects in the scene
 			int nLS = 0;  ///< Number of light sources
 			int nDet = 0; ///< Number of detectors
+			int nReflex = 0; ///< Number of reflections
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
 			double r0=1000; ///< Radius of the calculation space. All rays are followed within this calculation sphere.

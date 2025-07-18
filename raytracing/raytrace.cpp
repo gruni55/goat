@@ -591,6 +591,11 @@ namespace GOAT
 			this->nSRRT = nS;
 		}
 
+		void Scene::setNumReflex(int numReflex)
+		{
+			this->nReflex = numReflex;
+		}
+
 		Scene::Scene(const Scene& S)
 		{
 			LSRRT = S.LSRRT;
@@ -605,6 +610,7 @@ namespace GOAT
 			nDet = S.nDet;
 			suppress_phase_progress = S.suppress_phase_progress;
 			NumCellsPerDir = S.NumCellsPerDir;
+			nReflex = S.nReflex;
 		}
 
 		void Scene::setRaytype(int raytype)
@@ -620,8 +626,8 @@ namespace GOAT
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 				{
-					LS[i]->clearObjects();
-					LS[i]->ObjectList(nObj, Obj);
+				/*	LS[i]->clearObjects();
+					LS[i]->ObjectList(nObj, Obj); */
 					LS[i]->reset();
 				}
 		}

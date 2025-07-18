@@ -57,14 +57,23 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
   Naming convention: The name of all elements which have childs like light sources, objects also position and direction etc. start with uppercase letters. In case a name consists of more than one word (like "numRays" for number of rays) the subsequent words start with uppercase letters. 
    
  \chapter{Scene}
- Within this section, all elements like light sources, objects and detectors are described. The scene has the parameter: the radius of the calculation space r0.
-   
- \section{Light sources}
- All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
-
- \vspace{1em}
+ Within this section, all elements like light sources, objects and detectors are described. The scene has the following parameters: the radius of the calculation space r0.
+ 
+  \vspace{1em}
  \textbf{Parameters used for all light sources} \\
  
+ \begin{tabular}{c|m{3cm}|c|c}
+ Parameter name & description  & possible value & default value\\ 
+ \hline
+ r0 & Radius of the calculation space & integer number & 1000 \\
+ \hline
+ nCellsPerDir & Number of cells per direction & integer number & 1000 \\
+ \hline 
+    \end{tabular} 
+ \section{Light sources}
+ All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
+ \vspace{1em}
+ \textbf{Parameters used for all light sources} \\
  \begin{tabular}{c|m{3cm}|c|c}
  Parameter name & description  & possible value & default value\\ 
  \hline
@@ -73,6 +82,8 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  position & \parbox{3cm}{position of the light source\\(center of the area)} & 3D vector & (0,0,0) \\
  \hline
  NumRays & \parbox{3cm}{Number of rays per calculation step} & integer number & 100 \\
+ \hline
+ NumRaysRT & \parbox{3cm}{Number of rays for ray representation} & integer number & 10 \\
  \hline
 wavelength\footnote{For pulsed calculation, this wavelength will be overwritten} & Wavelength of the light source &  floating point number & 1.0 \\
 \hline

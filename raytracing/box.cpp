@@ -31,6 +31,7 @@ namespace GOAT
 			calcDiag();
 			type = OBJECTSHAPE_BOX;
 			isOctree = B.isOctree;
+			initQuad();
 		}
 
 		Box::Box(const maths::Vector<double>& P,
@@ -44,11 +45,12 @@ namespace GOAT
 		{
 			bounds[0] = -1.0 * d / 2.0;
 			bounds[1] = d / 2.0;
-			pul = P + bounds[0];
-			por = P + bounds[1];
+			pul = bounds[0];
+			por = bounds[1];
 			this->d = d;
 			this->r0 = r0;
 			type = OBJECTSHAPE_BOX;
+			initQuad();
 			calcDiag();
 		}
 
@@ -60,6 +62,7 @@ namespace GOAT
 			d = maths::Vector<double>(fabs(bound1[0] - bound0[0]), fabs(bound1[1] - bound0[1]), fabs(bound1[2] - bound0[2]));
 			calcDiag();
 			type = OBJECTSHAPE_BOX;
+			initQuad();
 		}
 
 
@@ -542,8 +545,11 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> b0 = H * bounds[0];
 			maths::Vector<double> b1 = H * bounds[1];
-			por = P + maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
-			pul = P + maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));
+		    /*por = P + maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
+			pul = P + maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));*/
+
+			por = P + maths::Vector<double>(d[0] / 2.0, d[1] / 2.0, d[2] / 2.0);
+			pul = P - maths::Vector<double>(d[0] / 2.0, d[1] / 2.0, d[2] / 2.0);
 		}
 
 		void Box::setr0(double r0)

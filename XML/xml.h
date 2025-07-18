@@ -22,9 +22,12 @@ namespace GOAT
 	{
 		#define numXMLRootElements   3
 		#define XML_NONE         -1 
-		#define XML_SCENE_LIGHTSOURCES 0
-		#define XML_SCENE_OBJECTS      1
-		#define XML_SCENE_DETECTORS    2
+		#define	XML_SCENE_R0		   0
+		#define	XML_SCENE_NS 1
+		#define XML_SCENE_NCELLS 2
+		#define XML_SCENE_LIGHTSOURCES 3
+		#define XML_SCENE_OBJECTS      4
+		#define XML_SCENE_DETECTORS    5
 
 		#define numXML_LS_TYPES   4
 		#define XML_LS_TYPE_PLANE    0
@@ -35,8 +38,8 @@ namespace GOAT
 
 
 
-		const std::string sceneXMLElements[] = { "r0","ns","lightsources","objects","detectors" };
-		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays" };
+		const std::string sceneXMLElements[] = { "r0","ns","CellsPerDir","lightsources","objects","detectors"};
+		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays","numraysRT"};
 		const std::string LSXMLTYPES[] = {"plane","gaussian","plane_mc","gaussian_mc"};
 		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc" };
 	

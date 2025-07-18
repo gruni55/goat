@@ -148,29 +148,31 @@ namespace GOAT
 			else saveRRT(); 
 		}
 
-		void Raytrace_Inel::sceneChanged(const Scene &S)
-		{ 
+		void Raytrace_Inel::sceneChanged(const Scene& S)
+		{
 			// Wenn die Anzahl der Objekte ge�ndert wird, werden die Listen mit den inelastischen Brechungsindizes 
 			// und den Polarisierbarkeiten auf die Defaultwerte zur�ckgesetzt 
-			
+
 			// calcphase = INEL_CALCPHASE_EXCITATION; 
-			Raytrace::setScene(S);	
+			// Raytrace::setScene(S);	
 			if (SGE != nullptr) SGE->arrangeGrids();
 			if (calcphase != INEL_CALCPHASE_EXCITATION)
 			{
 				if (SGRRT1 != nullptr) SGRRT1->arrangeGrids();
 				if (SGRRT2 != nullptr) SGRRT2->arrangeGrids();
 			}
-			
+			//setScene(S);
 		}
 
 		void Raytrace_Inel::setScene(const Scene& S)
 		{
 			calcphase = INEL_CALCPHASE_EXCITATION;
-			
+			int nCells = S.getNumberOfCellsPerDirection();
+			if (SGE == nullptr) SGE = new raytracing::SuperArray<maths::Vector<std::complex<double>>>(S.r0, n, n, n);
 			INDEX_TYPE currentNoOfCellsPerDir = S.getNumberOfCellsPerDirection();
 			if ((this->S.r0 != SGE->r0) || (this->S.getNumberOfCellsPerDirection() != currentNoOfCellsPerDir))
 			{
+				setNumReflex(S.nReflex);
 				if (SGE != nullptr)
 				{
 					SGE->r0 = S.r0;
@@ -193,7 +195,12 @@ namespace GOAT
 					}
 				}
 			}
+			SGE->removeAllObjects();
+		//	int nObj = SGE->Obj.size();
+		//	for (int i = 0; i < nObj; i++) SGE->removeObject(i);
+			for (int i = 0; i < S.nObj; i++) SGE->addInc(S.Obj[i]);
 			Raytrace::setScene(S);
+			//sceneChanged(S);
 		}
 		
 		void Raytrace_Inel::exportExcitation(std::string fname, int savetype)
@@ -212,7 +219,7 @@ namespace GOAT
 
 		void Raytrace_Inel::initExcitation()
 		{
-
+			std::cerr << "[initExcitation]" << std::endl;
 			if (SGE == nullptr)
 			{
 				SGE = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX];
