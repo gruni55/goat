@@ -1187,7 +1187,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             return std::complex<double> (re,im);
         }
 
-        GOAT::maths::Vector<std::complex<double> > xmlReader::readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError)
+        GOAT::maths::Vector<std::complex<double> > xmlReader::readCmplxVector (tinyxml2::XMLElement* ell, int& xmlError) 
         {
           std::complex<double> x,y,z;
           int errorX, errorY, errorZ;
@@ -1202,9 +1202,9 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         }
 
         /*------------------------------- XML-Writer Implementation ----------------------------------------- */
-        xmlWriter::xmlWriter(GOAT::raytracing::Scene S)
+        xmlWriter::xmlWriter(const GOAT::raytracing::Scene &scene) : S(scene)
         {
-            this->S=S;
+           //  this->S=S;
         }
 
         void xmlWriter::write (std::string fname)

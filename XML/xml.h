@@ -173,7 +173,7 @@ namespace GOAT
         class xmlWriter
         {
 			public:
-                xmlWriter(GOAT::raytracing::Scene S);
+                xmlWriter(const GOAT::raytracing::Scene &S);
                 void write (std::string fname);
 			private:
 			inline std::string formatDouble(double val, int precision = 17) 
@@ -213,7 +213,7 @@ namespace GOAT
 				 * @param z complex number 
 				 */
 				tinyxml2::XMLElement* writeComplex(std::string name, std::complex<double> z);
-                GOAT::raytracing::Scene S; ///< the scene
+                const GOAT::raytracing::Scene &S; ///< the scene
                 tinyxml2::XMLDocument doc; ///< the xml document
 				tinyxml2::XMLElement* root; ///< root XML Element
 				tinyxml2::XMLElement* scene; ///< XML Element to the Scene section

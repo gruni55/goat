@@ -339,31 +339,34 @@ namespace GOAT
 		
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
+			maths::Vector<double> b[2];
+			b[0] = bounds[0] - P;
+			b[1] = bounds[1] - P;
 
 			maths::Vector<double> k = H * K;
 			maths::Vector<double> p = H * (ps-P); // gefährlich, muss man nochmal überprüfen
 			double tmin, tmax;
 			if (k[0] >= 0)
 			{
-				tmin = (bounds[0][0] - p[0]) / k[0];
-				tmax = (bounds[1][0] - p[0]) / k[0];
+				tmin = (b[0][0] - p[0]) / k[0];
+				tmax = (b[1][0] - p[0]) / k[0];
 			}
 			else
 			{
-				tmin = (bounds[1][0] - p[0]) / k[0];
-				tmax = (bounds[0][0] - p[0]) / k[0];
+				tmin = (b[1][0] - p[0]) / k[0];
+				tmax = (b[0][0] - p[0]) / k[0];
 			}
 
 			double tymin, tymax;
 			if (k[1] >= 0)
 			{
-				tymin = (bounds[0][1] - p[1]) / k[1];
-				tymax = (bounds[1][1] - p[1]) / k[1];
+				tymin = (b[0][1] - p[1]) / k[1];
+				tymax = (b[1][1] - p[1]) / k[1];
 			}
 			else
 			{
-				tymin = (bounds[1][1] - p[1]) / k[1];
-				tymax = (bounds[0][1] - p[1]) / k[1];
+				tymin = (b[1][1] - p[1]) / k[1];
+				tymax = (b[0][1] - p[1]) / k[1];
 			}
 
 			//        cout << ps << "    " << tmin << "  " << tymax << "   " << tymax << "   " << tymin << "   " << tmax << endl; 
@@ -376,13 +379,13 @@ namespace GOAT
 			double tzmin, tzmax;
 			if (k[2] >= 0)
 			{
-				tzmin = (bounds[0][2] - p[2]) / k[2];
-				tzmax = (bounds[1][2] - p[2]) / k[2];
+				tzmin = (b[0][2] - p[2]) / k[2];
+				tzmax = (b[1][2] - p[2]) / k[2];
 			}
 			else
 			{
-				tzmin = (bounds[1][2] - p[2]) / k[2];
-				tzmax = (bounds[0][2] - p[2]) / k[2];
+				tzmin = (b[1][2] - p[2]) / k[2];
+				tzmax = (b[0][2] - p[2]) / k[2];
 			}
 			if (((tmin > tzmax) || (tzmin > tmax)) ) { pout = ps; return false; }
 			if (k[2] != 0)

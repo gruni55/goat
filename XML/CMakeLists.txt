@@ -1,5 +1,5 @@
-set (XML_HDRS xml.h xmltoken.h tinyxml2.h)
-set (XML_SRCS xml.cpp xmltoken.cpp tinyxml2.cpp)
+set (XML_HDRS xml.h xmltoken.h tinyxml2.h storageBackend.h)
+set (XML_SRCS xml.cpp xmltoken.cpp tinyxml2.cpp storageBackend.cpp)
 
 add_library (goat_xml ${XML_SRCS} ${XML_HDRS} )
 
