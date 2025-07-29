@@ -50,6 +50,8 @@ tubedRay::tubedRay(const tubedRay& ray)
     inObject = ray.inObject;
     isValid = ray.isValid;   
     getunnelt = false;
+    status = ray.status;
+    suppress_phase_progress=ray.suppress_phase_progress;
 }
 
 tubedRay::~tubedRay(){
@@ -94,7 +96,7 @@ void tubedRay::checkObjectIntersection(int Index[5], maths::Vector<double> *Pmin
 tubedRay::tubedRay(Plane E, const maths::Vector<double> &p, double dy, double dz,
          const maths::Vector<std::complex<double> > &Pol,
          std::complex<double>  n0, double r0, double k0,
-         const int Anzein, ObjectShape **Einschluss,bool logRay)
+         const int Anzein, std::vector<ObjectShape*>Einschluss,bool logRay)
 {
  g.isGauss=false;
  GOAT::maths::Matrix<double> D;
@@ -129,7 +131,7 @@ tubedRay::tubedRay(Plane E, const maths::Vector<double> &p, double dy, double dz
 tubedRay::tubedRay(const maths::Vector<double> &p, double dy, double dz,
          const maths::Vector<std::complex<double> > &Pol, const maths::Vector<double> &K,
          std::complex<double>  n0, double r0, double k0,
-         const int Anzein, ObjectShape **Einschluss,bool logRay)
+         const int Anzein, std::vector<ObjectShape*>Einschluss,bool logRay)
 {
  g.isGauss=false;
  this->logRay=logRay;
@@ -205,7 +207,7 @@ bool tubedRay::next()
   }
   
   objIndex=Index[4];
-  
+  if (!suppress_phase_progress)
   for (int i = 0; i < 5; i++) E[i] = E[i]  *exp(I * k0 * n * abs(R[i] - P[i]));
   
  }
@@ -214,7 +216,8 @@ bool tubedRay::next()
   for (int i=0;i<5;i++)
   {
    Obj[objIndex]->next(P[i],k[i],R[i]);
-   E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
+   if (!suppress_phase_progress)
+        E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
   }
  
  }
@@ -238,7 +241,7 @@ void tubedRay::refract(maths::Vector<double> *N, std::complex<double>  n1, std::
  maths::Matrix<double> D;
  maths::Vector <double> n,e0,e1,e2;
  double alpha, gamma;
- double  beta;
+ std::complex<double>  beta;
  isValid=true;
    for (int i=0; i<5; i++)
  {
@@ -253,10 +256,12 @@ void tubedRay::refract(maths::Vector<double> *N, std::complex<double>  n1, std::
   alpha= std::acos(det);
   if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
 
-  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  // beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta = asin((std::complex<double>)real(n1) / real(n2) * sin(alpha));
+  if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
   isValid=isValid ; //&& (fabs(beta)>EPS_WINKEL);
 //  if (real(n1/n2*sin(alpha))>=1.0) cout << "P=" << P[4] << "    " << n1/n2*sin(alpha) << endl;
-  gamma=beta-alpha;
+  gamma=real(beta)-alpha;
   //if (real(n2)<real(n1)) { e2=-e2;}
   s=1.0;
   trafo(e0,e1,e2,H,R);
@@ -379,7 +384,7 @@ void tubedRay::refract(maths::Vector<double> N, std::complex<double>  n1, std::c
  maths::Matrix<double> D;
  maths::Vector <double> n,e0,e1,e2;
  double ha,alpha, gamma;
- double  beta;
+ std::complex<double>  beta;
 
   n=N/abs(N);
   isValid=true;
@@ -396,9 +401,11 @@ void tubedRay::refract(maths::Vector<double> N, std::complex<double>  n1, std::c
        if (alpha>M_PI/2.0) { alpha=M_PI-alpha; e2=-e2; }
   }
 
-  beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  // beta=real(asin((std::complex<double>)real(n1)/real(n2)*sin(alpha)));
+  beta = asin((std::complex<double>)real(n1) / real(n2) * sin(alpha));
+  if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
  //  isValid=isValid && fabs(beta)>EPS_WINKEL;  // HÄH ????
-  gamma=beta-alpha;
+  gamma=real(beta)-alpha;
   s=1.0;
   trafo(e0,e1,e2,H,R);
 
@@ -523,8 +530,8 @@ GOAT::maths::Matrix<std::complex<double> > tubedRay::Fresnel_reflect (double alp
  double  n12;
  double  beta;
  n12=real(n2)/real(n1);
- int l;
- double x;
+
+
  beta=real(asin((std::complex<double> ) sin(alpha) / n12));
   
  
@@ -599,13 +606,9 @@ void tubedRay::initElectricField (const maths::Vector<std::complex<double> >& Po
 AnzRays, double dx, Plane Eb)
 {
   double dx2=dx/2.0;
-  char Str[255];
-  double w2,R,b,w02,z;
-  double l,r,r2;
+  char Str[255]; 
   maths::Vector<double> h,hr;
-  bool found;
-  isValid=true;
-  double x1,x2,xn,p;
+  isValid=true;  
   maths::Vector<double> rh;
   int i;
   if (!getunnelt)

@@ -1,0 +1,111 @@
+\doxysection{raytracing/tubedray.h File Reference}
+\hypertarget{tubedray_8h}{}\label{tubedray_8h}\index{raytracing/tubedray.h@{raytracing/tubedray.h}}
+{\ttfamily \#include "{}raybase.\+h"{}}\newline
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include "{}resutil.\+h"{}}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include "{}matrix.\+h"{}}\newline
+{\ttfamily \#include "{}plane.\+h"{}}\newline
+{\ttfamily \#include "{}objectshape.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{GOAT\+::raytracing\+::\+Gauss}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{GOAT\+::raytracing\+::tubed\+Ray}}
+\begin{DoxyCompactList}\small\item\em This class represents a ray with a finite cross section. class \doxylink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}\+: This class represents a ray with a finite cross section. Therefore it is defined by four edge rays and one probe ray in the middle. Therefore, selffocusing of the ray can be considered. Each of these rays has its own electric field and directional vector. The probe ray is used to decide wether an object is hidden or not. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1tubed_ray_buffer}{GOAT\+::raytracing\+::tubed\+Ray\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}{EPS\+\_\+\+WINKEL}}~0
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}{GESCHNITTEN}}~0
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}{IN\+\_\+\+Plane}}~1
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}{KEIN\+\_\+\+SCHNITTPUNKT}}~-\/1
+\item 
+\#define \mbox{\hyperlink{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}{OHNE\+\_\+\+GAUSS}}
+\begin{DoxyCompactList}\small\item\em output operator for the Gauss structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{GOAT\+::raytracing\+::bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \&Gs, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em write the \doxylink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss} structure to a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{GOAT\+::raytracing\+::bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs, std\+::ofstream \&os)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5dd123d966e019d094f789cab5714dbd}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs)
+\begin{DoxyCompactList}\small\item\em read the \doxylink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss} structure from a binary file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7123161c2477beec6bb0171e7833655b}{GOAT\+::raytracing\+::ohne\+\_\+gauss}} = \{ 0,\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0,0,0),\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$(0,0,0),false \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{tubedray_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{tubedray_8h_a7d91e88410257b42d7e2c1db13909757}\index{tubedray.h@{tubedray.h}!EPS\_WINKEL@{EPS\_WINKEL}}
+\index{EPS\_WINKEL@{EPS\_WINKEL}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{EPS\_WINKEL}{EPS\_WINKEL}}
+{\footnotesize\ttfamily \label{tubedray_8h_a7d91e88410257b42d7e2c1db13909757} 
+\#define EPS\+\_\+\+WINKEL~0}
+
+
+
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00033}{33}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+
+\Hypertarget{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0}\index{tubedray.h@{tubedray.h}!GESCHNITTEN@{GESCHNITTEN}}
+\index{GESCHNITTEN@{GESCHNITTEN}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{GESCHNITTEN}{GESCHNITTEN}}
+{\footnotesize\ttfamily \label{tubedray_8h_a5cb74ae13f3c1e2151101fec2567cef0} 
+\#define GESCHNITTEN~0}
+
+
+
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00029}{29}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+
+\Hypertarget{tubedray_8h_a76cff632b82eccb287e1cec30a56078f}\index{tubedray.h@{tubedray.h}!IN\_Plane@{IN\_Plane}}
+\index{IN\_Plane@{IN\_Plane}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{IN\_Plane}{IN\_Plane}}
+{\footnotesize\ttfamily \label{tubedray_8h_a76cff632b82eccb287e1cec30a56078f} 
+\#define IN\+\_\+\+Plane~1}
+
+
+
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00030}{30}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+
+\Hypertarget{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc}\index{tubedray.h@{tubedray.h}!KEIN\_SCHNITTPUNKT@{KEIN\_SCHNITTPUNKT}}
+\index{KEIN\_SCHNITTPUNKT@{KEIN\_SCHNITTPUNKT}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{KEIN\_SCHNITTPUNKT}{KEIN\_SCHNITTPUNKT}}
+{\footnotesize\ttfamily \label{tubedray_8h_adecb25a5942951bc8245d9d8f41ec7bc} 
+\#define KEIN\+\_\+\+SCHNITTPUNKT~-\/1}
+
+
+
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00028}{28}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+
+\Hypertarget{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b}\index{tubedray.h@{tubedray.h}!OHNE\_GAUSS@{OHNE\_GAUSS}}
+\index{OHNE\_GAUSS@{OHNE\_GAUSS}!tubedray.h@{tubedray.h}}
+\doxysubsubsection{\texorpdfstring{OHNE\_GAUSS}{OHNE\_GAUSS}}
+{\footnotesize\ttfamily \label{tubedray_8h_a5c0b83dfddb62507d79b2da824ecb90b} 
+\#define OHNE\+\_\+\+GAUSS}
+
+
+
+output operator for the Gauss structure 
+
+
+
+Definition at line \mbox{\hyperlink{tubedray_8h_source_l00077}{77}} of file \mbox{\hyperlink{tubedray_8h_source}{tubedray.\+h}}.
+

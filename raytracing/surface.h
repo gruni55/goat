@@ -11,6 +11,7 @@
 #include "objectshape.h"
 #include <string.h>
 #include "triangle.h"
+
 #ifdef WITH_OCTREE
 #include "octree.h"
 #endif
@@ -24,9 +25,13 @@ namespace GOAT
 #define SQRT3 1.73205080756887729352744634150587236694280525381038062805580  /// SQRT(3)
 #endif
 
+#define OBJECTSHAPE_SURFACE_FILETYPE_NONE -1
+#define OBJECTSHAPE_SURFACE_FILETYPE_SRF 0
+#define OBJECTSHAPE_SURFACE_FILETYPE_STL 1
 
+       
 
-        /* Klasse, die eine ObjectShape repräsentiert, die aus Dreiecken zusammengebaut ist. Die Dreiecke werden durch die Klasse \ref refdreieck "triangle"
+        /* Klasse, die eine ObjectShape reprï¿½sentiert, die aus Dreiecken zusammengebaut ist. Die Dreiecke werden durch die Klasse \ref refdreieck "triangle"
         beschrieben */
         /**
         @brief This class represents objects those surface is described by triangles
@@ -70,9 +75,9 @@ namespace GOAT
             surface(const maths::Vector<double>& P,
                 std::complex<double>  n,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez
+                const maths::Vector<double> Ex = GOAT::maths::ex,
+                const maths::Vector<double> Ey = GOAT::maths::ey,
+                const maths::Vector<double> Ez = GOAT::maths::ez
             );
 
             /**
@@ -91,9 +96,9 @@ namespace GOAT
                 std::complex<double>  n,
                 int num, triangle* list,
                 const maths::Matrix<std::complex<double> > alpha = maths::CUNITY,
-                const maths::Vector<double>& Ex = maths::ex,
-                const maths::Vector<double>& Ey = maths::ey,
-                const maths::Vector<double>& Ez = maths::ez);
+                const maths::Vector<double> Ex = maths::ex,
+                const maths::Vector<double> Ey = maths::ey,
+                const maths::Vector<double> Ez = maths::ez);
 
             // ~surface();
             maths::Vector<double> calcCoM(); /// calculates center of mass
@@ -103,7 +108,7 @@ namespace GOAT
              * @param max largest edge length
              */
             void getMinMax(double& min, double& max);
-            triangle* S = 0; ///< list of all triangles
+            triangle* S ; ///< list of all triangles
             int numTriangles = 0; ///< number of triangles 
 
             // Erzeugen der Dreiecksliste
@@ -121,9 +126,9 @@ namespace GOAT
             int importBinSTL(std::string FName); ///< import triangle list from binary STL-file
             void exportSRF(std::string FName);   ///< export triangle list to proprietary file format SRF
             // Andere Hilfsfunktionen
-            // 1. Rückgabe einer Klasse mit leerem S
+            // 1. Rï¿½ckgabe einer Klasse mit leerem S
             surface nosurface(); ///< returns copy of the object without triangles
-            // 2. Hinzufügen einer Liste S 
+            // 2. Hinzufï¿½gen einer Liste S 
             /**
              * @brief Adds triangles to the internal list of triangles.
              * @param  S list of triangles
@@ -133,14 +138,12 @@ namespace GOAT
 
             void clearS(); ///< clears the internal list of triangles
             //  string getFName() {return FName; }
-            std::string getFName() { return FName; } ///< returns the current file name
+            std::string getFilename() { return FName; } ///< returns the current file name
             void setFilename(std::string FName) ///< set the current file name
             {
-                this->FName = FName;
-                //if (this->FName!=0) delete[] this->FName;
-                // this->FName=new char[strlen(FName)+1];
-                // strcpy(this->FName,FName);
+                this->FName = FName;                
             }
+
             // Operatoren 
             surface& operator=(const surface&);
 
@@ -170,21 +173,19 @@ namespace GOAT
             void setCenter2CoM(); ///< Sets the Position to the center of mass (CoM)
             int getCurrentIndex() { return currentIndex; } ///< Returns the index of the triangle that was last hit.
             triangle& getTriangle(int i) { return S[i]; } ///< Returns the i-th triangle in the internal triangle list.
+            int filetype=OBJECTSHAPE_SURFACE_FILETYPE_NONE; ///< type of the file connected with this surface object
 
             // protected:
             maths::Vector<double> currentnorm;  ///< Normal vector of the triangle that was last hit
             int currentIndex; ///< Index of the triangle that was last hit.
-            std::string FName; ///< File name (used to save the internal triangle list)
-            // char *FName ;
+            std::string FName; ///< File name (used to save the internal triangle list)          
             void initBounds(maths::Vector<double>& pul, maths::Vector<double>& por); ///< Calculates the bounding box (=circumferent cuboid) but without rotation. The cuboid is represented by the upper right corner (por) and the lower left corner (pul).
 
 #ifdef WITH_OCTREE
-            // #include "Octree.hpp"
-            //
-
             Octree<triangle> Tree;
-            // Octree<triangle>
-          //::Section cube;
+            int octreeRecursions=5;
+            void setOctreeRecursiondepth (int octreeRecursions);
+            int getOctreeRecursiondepth() {return Tree.MAX_RECURSIONS; }
 #endif
         };
 
@@ -225,7 +226,7 @@ namespace GOAT
          * @param t height of the tip
          * @param M rotation matrix
          */
-        surface& generateBullet(double a, double h, double t, maths::Matrix<double> M = maths::UNITY); /// Generiert einen hexagonalen Zylinder mit Seitenlänge a und Höhe h und einer pyramidalen Spitze 
+        surface& generateBullet(double a, double h, double t, maths::Matrix<double> M = maths::UNITY); /// Generiert einen hexagonalen Zylinder mit Seitenlï¿½nge a und Hï¿½he h und einer pyramidalen Spitze 
 
         /**
          * @brief generates a triangulated ellipsoid
@@ -250,7 +251,8 @@ namespace GOAT
          * @return min shortest side length
          * @return max longest side length
          */
-        void getMinMax(int numTriangles, triangle* S, double& min, double& max);
+        void getMinMax(int numTriangles, triangle *S, double& min, double& max);
+
     }
 }
 #endif

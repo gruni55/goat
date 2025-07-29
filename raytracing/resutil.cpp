@@ -206,7 +206,7 @@ namespace GOAT
         }
 
         void checkObjectIntersection(maths::Vector<double>& anf, const maths::Vector<double>& end,
-            StrahlInfo& S, int numObj, EinschlussInfo* Obj,
+            StrahlInfo& S, int numObj, objectInfo* Obj,
             maths::Vector<double>& Ps, int& Index)
             /*
               Sucht nach dem naechsten Einschluss auf dem Weg des Strahls zwischen
@@ -246,7 +246,7 @@ namespace GOAT
         }
 
         void checkObjectIntersection(double r0, maths::Vector<double>& anf, const maths::Vector<double>& end,
-            StrahlInfo& S, int numObj, EinschlussInfo* Obj,
+            StrahlInfo& S, int numObj, objectInfo* Obj,
             maths::Vector<double>& Ps, int& Index)
             /*
               Sucht nach dem naechsten Einschluss auf dem Weg des Strahls zwischen
@@ -287,7 +287,7 @@ namespace GOAT
             Ps = anf + lmin * S.k;
         }
         void checkObjectIntersection(double r0, maths::Vector<double>& anf, const maths::Vector<double>& end,
-            const maths::Vector<double> k, int numObj, EinschlussInfo* Obj,
+            const maths::Vector<double> k, int numObj, objectInfo* Obj,
             maths::Vector<double>& Ps, int& Index)
             /*
               Sucht nach dem naechsten Einschluss auf dem Weg des Strahls zwischen
@@ -591,14 +591,14 @@ namespace GOAT
             return Erg;
         }
 
-        std::ostream& operator << (std::ostream& os, EinschlussInfo E)
+        std::ostream& operator << (std::ostream& os, objectInfo E)
         {
             os << "P=" << E.P << std::endl;
             os << "n=" << E.n << "     a=" << E.a << std::endl;
             return os;
         }
 
-        bool operator == (EinschlussInfo a, EinschlussInfo b)
+        bool operator == (objectInfo a, objectInfo b)
         {
             return (a.P == b.P) && (a.n == b.n) && (a.a == b.a) && (a.alpha == b.alpha);
         }

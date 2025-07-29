@@ -3,7 +3,7 @@
 #include "box.h"
 #include "vector.h"
 #include <iostream>
-
+#include <memory>
 
 namespace GOAT
 {
@@ -30,10 +30,10 @@ namespace GOAT
 			bool isLeaf; ///< Sign wether the Octree is a leaf or not. 
 			Octree()
 			{
-				parent = 0;
-				child = 0;
+				/*parent = 0;
+				child = 0;*/
 				nChilds = 0;
-				Element = 0;
+	//			Element = 0;
 				nElements = 0;
 				isLeaf = false;
 				MAX_RECURSIONS = 3;
@@ -59,29 +59,29 @@ namespace GOAT
 			 * \param d Vector, where each component is the corresponding side length
 			 */
 			void setBoundingBox(maths::Vector<double> MP, maths::Vector<double> d);
-
+			void setRecursiondepth(int max_recursions);
 			Octree<T>* parent;
-			Octree<T>** child;
-			T* Element;
-			int nElements, nChilds;
+
+			std::vector<std::unique_ptr<Octree<T>>> child;
+			std::vector<T> Element;
+			size_t nElements, nChilds;
 			int MAX_RECURSIONS;
 			Box BBox;
 		};
 
 		template <class T> Octree<T>::Octree(const Octree& O)
 		{
-			parent = (Octree<T> *) malloc(sizeof(Octree<T>));
-			parent = O.parent;
+			if (O.parent)
+				parent = O.parent;
+			else
+				parent = nullptr;
 			nChilds = O.nChilds;
-			child = (Octree <T> **) malloc(sizeof(Octree<T> *) * O.nChilds);
-			for (int i = 0; i < nChilds; i++)
-			{
-				child[i] = new Octree<T>(*O.child[i]);
-			}
+			for (const auto& ptr : O.child)
+				child.push_back(std::make_unique<Octree<T>>(*ptr));
 
-			Element = (T*)malloc(sizeof(T) * nElements);
-			for (int j = 0; j < nElements; j++)
-				Element[j] = O.Element[j];
+			Element = O.Element;
+			nElements = Element.size();
+			
 			MAX_RECURSIONS = O.MAX_RECURSIONS;
 			BBox = O.BBox;
 			isLeaf = O.isLeaf;
@@ -90,7 +90,7 @@ namespace GOAT
 		template <class T> void Octree<T>::delElements()
 		{
 			if (nElements > 0)
-				free(Element);
+				Element.clear();
 			nElements = 0;
 		}
 
@@ -105,74 +105,62 @@ namespace GOAT
 		{
 			int hnChilds = nChilds;
 			bool valid[8] = { true,true,true,true,true,true, true,true };
-			for (int i = 0; i < nElements; i++)
+			for (size_t i = 0; i < child.size(); i++)
 			{
-				if (child[i]->isLeaf)
-				{
-					if (child[i]->nElements == 0)
+				
+					if (child[i]->isLeaf && child[i]->Element.empty())
 					{
-						delete child[i];
-						child[i] = 0;
+					
+						child[i].reset();
 						valid[i] = false;
 						nChilds--;
 					}
-				}
+				
 				else
 					child[i]->trimOctree(rek + 1);
 			}
 
-			if (hnChilds < nChilds) // Kinder wurden gelöscht ==> umsortieren notwendig
+			if (hnChilds < nChilds) // Kinder wurden gelï¿½scht ==> umsortieren notwendig
 			{
-				Octree<T>** hChild = 0;
+				std::vector<std::unique_ptr<Octree<T> > > hChild;
 				int i = 0;
 				for (int j = 0; j < hnChilds; j++)
 				{
 					if (valid[j])
 					{
-						hChild = (Octree<T> **) realloc(hChild, sizeof(Octree<T> *) * (i + 1));
-						hChild[i] = child[j];
+						hChild.push_back(std::move(child[j]));
 						i++;
 					}
 				}
-				for (i = 0; i < nChilds; i++)
-					child[i] = hChild[i];
-				free(hChild);
+
+				child = std::move(hChild);
+				nChilds = child.size();
 			}
 		}
 
 
 		template <class T> void Octree<T>::delAllChilds()
 		{
-			for (int i = 0; i < 8; i++)
-			{
-				if (child[i] != 0)
-				{
-					if (child[i]->isLeaf) {
-						child[i]->delElements();
-						delete child[i];
-						child[i] = 0;
-					}
-					else child[i]->delAllChilds();
-				}
-			}
+			child.clear();
+			nChilds = 0;
 		}
 
 		template <class T> void Octree<T>::delChild(int i)
 		{
 			child[i]->delAllChilds();
-			delete child[i];
-			child[i] = 0;
 		}
 
 		template <class T> void Octree<T>::createChilds()
 		{
 			int sx, sy, sz;
 			maths::Vector<double> P, d;
-			child = (Octree<T> **) malloc(sizeof(Octree<T> *) * 8);
+			child.clear();
 			for (int i = 0; i < 8; i++)
 			{
-				child[i] = new Octree<T>();
-				child[i]->parent = this;
+				
+				auto newChild = std::make_unique<Octree<T>>();
+				newChild->parent = this;
+
 				switch (i)
 				{
 				case 0: sx = -1; sy = -1; sz = -1; break;
@@ -186,7 +174,10 @@ namespace GOAT
 				}
 				P = BBox.P + maths::Vector<double>(sx * BBox.d[0] / 4.0, sy * BBox.d[1] / 4.0, sz * BBox.d[2] / 4.0);
 				d = BBox.d / 2.0;
-				child[i]->BBox = Box(P, d, BBox.n);
+				newChild->BBox = Box(P, d, BBox.n);
+
+				child.push_back(std::move(newChild));
+
 			}
 			nChilds = 8;
 		}
@@ -211,6 +202,16 @@ namespace GOAT
 		template <class T> void Octree<T>::setBoundingBox(maths::Vector<double> MP, maths::Vector<double> d)
 		{
 			BBox = Box(MP, d, 1.0);
+		}
+
+		template <class T> void Octree<T>:: setRecursiondepth(int max_recursions)
+		{			
+			// delete the whole tree...
+			delAllChilds();
+			delElements();
+
+			// ... and recreate it with the new number of
+            // createTree(max_recursions);
 		}
 
 

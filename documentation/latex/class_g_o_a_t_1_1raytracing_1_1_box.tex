@@ -1,0 +1,566 @@
+\doxysection{GOAT\+::raytracing\+::Box Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_box}{}\label{class_g_o_a_t_1_1raytracing_1_1_box}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+
+
+class which represents a box (cuboid). It is derived by class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape} This class is mainly used for the octree calculation, but can also be used for general purposes  
+
+
+
+
+{\ttfamily \#include $<$box.\+h$>$}
+
+Inheritance diagram for GOAT\+::raytracing\+::Box\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1_box}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a5bcb0938544105d00b5bc39ce2a1b37d}{bin\+Read}} (std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em reads object from a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a0e93f79a4102c28a1cb6fdc8f373edd6}{bin\+Write}} (std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em writes object to a binary file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a7a0120069fff3e329527569034cf5a79}{Box}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a14e730dc927b0bc770637470480b2415}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&B)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a448022e1cfcf691be9805e62c424dd78}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a8b0c56202c77308d8e9a4c7fb1c01817}{d}}, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}}=1.\+0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}=\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ex=maths\+::ex, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ey=maths\+::ey, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ Ez=maths\+::ez)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_aa294d14e2f644d878bb48dff9a1d7259}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ bound0, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ bound1)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a838ee9852f0eb2d13a7a2599c029f4f0}{Box}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&F)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ad11495eee63f1845dede5d0d7ef11551}{calc\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em calculates center of mass (needed by set\+Center2\+CoM () ) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a632ab4515b5c2d556aaa6ac7aadd993f}{calc\+Diag}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a2dee405436916c044a9ede3ff6ae74a7}{distance}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k)
+\begin{DoxyCompactList}\small\item\em calculates the distance between a ray, described by the position vector p and its directional vector k \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_adb82dce6d42711328e30a14ad5f6daf5}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em returns a vector with the side lengths as its components \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_aae74d3d4684ad4e09cfbbc870b3d885f}{init\+Quad}} ()
+\begin{DoxyCompactList}\small\item\em calculates the circumferent cuboid \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac0b7b14bf65f7bc00703a44b5ed80079}{is\+Inside}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ps)
+\begin{DoxyCompactList}\small\item\em returns true, if Ps is inside the box \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a13890a9a46b8ff2328c61792ec2356ad}{next}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&pout)
+\begin{DoxyCompactList}\small\item\em calculates the next crossing point between a ray represented by the position \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac17cf6f48a4d228fe79e4207aadad831}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p)
+\begin{DoxyCompactList}\small\item\em normal vector at the position p \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab5b68ca8dd37}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em sets scaling factor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163}{setD}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ D)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2}{set\+Octree}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}{is\+Octree}})
+\begin{DoxyCompactList}\small\item\em box belongs to an octree calculation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00}{set\+Pos}} (double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em sets the position P and the corresponding bounds \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ac25e0837e9313b8fed01138888f77cf3}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
+\begin{DoxyCompactList}\small\item\em sets reference point P \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ad031bb445df22fc7e9e206d9eb3bdeae}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}})
+\begin{DoxyCompactList}\small\item\em sets the radius of the calculation sphere \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e02336b6b2089f3f6}{volume}} ()
+\begin{DoxyCompactList}\small\item\em returns the volume of the box \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a265d02b00384f2985a91101aa0315740}{\texorpdfstring{$\sim$}{\string~}\+Box}} ()
+\begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af744675d71f2057bf0ef01ebc86e11dd}{getn}} ()
+\begin{DoxyCompactList}\small\item\em returns refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae0dac278872d9239bd4a81e9da7362b8}{getninel}} ()
+\begin{DoxyCompactList}\small\item\em returns refractive index \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3cab025468e85edef9a561fa68362578}{get\+Visible}} ()
+\begin{DoxyCompactList}\small\item\em show the visiblity state (used in GOATvis) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adca97d288a36effec8dca8bb7fc84c64}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em returns true if the object should be considered for inelastic calculation \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a950b456e0f6ac23a28fb565950056f0a}{is\+Outside\+World}} ()
+\begin{DoxyCompactList}\small\item\em Test if bounding box is (partly) outside the calculation space. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_abe773b7e8f51d22aa2b7c54e7362b529}{Object\+Shape}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aea6f1712433bedcaf169a6e4c3e12ada}{Object\+Shape}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}}, std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ex=maths\+::ex, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ey=maths\+::ey, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&Ez=maths\+::ez, const int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3a94d86ef25c4b89069e46f7fa1f224d}{type}}=-\/1)
+\begin{DoxyCompactList}\small\item\em Constructor, as template for all derived classes. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6e2383ca474a0861b6330c966a780daf}{Object\+Shape}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&F)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab9982660e631c9eb95f82e850ef4ca7e}{rotate}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ A, double phi)
+\begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, A\+: rotation axis, phi\+: angle for rotation around A \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80d327c030210dfb48e0def8e0a4584b}{scale}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}})
+\begin{DoxyCompactList}\small\item\em sets scaling of the shape by the factor sf \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_abe5c88dadc5d9f8a1aa3dac5850e0bea}{set\+Active}} (bool active)
+\begin{DoxyCompactList}\small\item\em sets flag if the object is inelastic active, i.\+e. it will be considered for inelastic calculation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ad1d2c3e671857267c9f374712f24e051}{set\+Alpha}} (double Alpha)
+\begin{DoxyCompactList}\small\item\em sets rotation angle around x-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a57dfe94c2dbc1d33009e39af2fa59774}{set\+Beta}} (double Beta)
+\begin{DoxyCompactList}\small\item\em sets rotation angle around y-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3f6373ede9fd7a2ec0de275ccaeaa672}{set\+Center}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
+\begin{DoxyCompactList}\small\item\em sets Center to P (check, if function is necessary) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af5781b19014f03d74906d39f28b17179}{set\+Center2\+CoM}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the center of mass (CoM) and sets the object\textquotesingle{}s reference point to the CoM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a60da2229c903fba2b43e5525aff78f6d}{set\+Gamma}} (double Gamma)
+\begin{DoxyCompactList}\small\item\em sets rotation angle around z-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab5e94ad3bb17728c8a0a0cff0cfde9d4}{set\+Matrix}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}, double beta, double gamma)
+\begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, alpha, beta, gamma\+: angles (rotation around x-\/, y-\/ and z-\/axis) to calculate transformation matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a119b9ab94e45933e35c4c390f4823037}{set\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}})
+\begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, H\+: transformation matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ad23781aca0ab37c1889a1d8ac90206a3}{setn}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}})
+\begin{DoxyCompactList}\small\item\em sets refractive index \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adb988c87e41ece281760b2105db00a0d}{setninel}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a76dc26a105e7cde433d62f95ea27023a}{ninel}})
+\begin{DoxyCompactList}\small\item\em sets refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a87735677f226d2b3ac62f5eb1e2bf878}{set\+Pol\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}})
+\begin{DoxyCompactList}\small\item\em sets polarisability matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a661edeaddb24518110c9752efc1bddb6}{set\+Visible}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}})
+\begin{DoxyCompactList}\small\item\em set visiblity (used in GOATvis) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afe01f045f24afe4b8af91a3ba136d7b3}{Type}} ()
+\begin{DoxyCompactList}\small\item\em returns the object\textquotesingle{}s type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a541ad66f0847b74433d0d7abb51ee7db}{bounds}} \mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em positions of the two opposite corners (with box in the center) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a8b0c56202c77308d8e9a4c7fb1c01817}{d}}
+\begin{DoxyCompactList}\small\item\em extensions of the box in x-\/, y-\/ and z-\/direction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_af6bdb9fddc0933d31f66396aef873485}{diag}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em diagonal \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3efbe58f8f5d97b6f139a4151beb01a6}{Active}}
+\begin{DoxyCompactList}\small\item\em should the object be considered for inelastic (RRT) calculations? \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}
+\begin{DoxyCompactList}\small\item\em polarisability matrix \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af3481368d551465f5538ce47fb4ec88f}{e}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em unity vectors, describing the directions of the local coordinate system \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a62a5aa80820775d3ce2b49ffb8c69e59}{Ealpha}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a9d92a8b0c9340c0a280d7daafb9a639d}{Ebeta}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80352486f88244ece3187b713a0d75c2}{Egamma}}
+\begin{DoxyCompactList}\small\item\em angles through which the object was rotated (around the x-\/ (Ealpha), then the y-\/ (Ebeta) and finally the z-\/axis (Egamma)) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}}
+\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}
+\begin{DoxyCompactList}\small\item\em refractive index of the object \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a76dc26a105e7cde433d62f95ea27023a}{ninel}}
+\begin{DoxyCompactList}\small\item\em refractive index of the object, used for inelastic (RRT) calculation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}}
+\begin{DoxyCompactList}\small\item\em position of the object \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a372963153380dd68772fd0d213da1a3e}{por}}
+\begin{DoxyCompactList}\small\item\em corners of the circumferent cuboid (lower left corner and upper right corner) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a7563e04424687ffa01dc559f1c487134}{pul}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a91f6a122e15b8af8ae0b60b5b3c35e10}{R}}
+\begin{DoxyCompactList}\small\item\em matrices for the transformation in the local coordinate system (H) and back to the calculation system (R) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac6f4e0e6e591f1617c38ee037074dd9a}{r0}}
+\begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a5ff765220b51e3967a5f94211996bf71}{rho}}
+\begin{DoxyCompactList}\small\item\em mass density in $ kg/m^3 $ \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}} =1
+\begin{DoxyCompactList}\small\item\em scaling factor, it is used to scale the shape of the object \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3a94d86ef25c4b89069e46f7fa1f224d}{type}}
+\begin{DoxyCompactList}\small\item\em type of the object \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}} =true
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}{is\+Octree}} = false
+\begin{DoxyCompactList}\small\item\em used for \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} calculation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class which represents a box (cuboid). It is derived by class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape} This class is mainly used for the octree calculation, but can also be used for general purposes 
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00016}{16}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a7a0120069fff3e329527569034cf5a79}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!Box@{Box}}
+\index{Box@{Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a7a0120069fff3e329527569034cf5a79} 
+GOAT\+::raytracing\+::\+Box\+::\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a838ee9852f0eb2d13a7a2599c029f4f0}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!Box@{Box}}
+\index{Box@{Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a838ee9852f0eb2d13a7a2599c029f4f0} 
+GOAT\+::raytracing\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \&}]{F}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a14e730dc927b0bc770637470480b2415}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!Box@{Box}}
+\index{Box@{Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a14e730dc927b0bc770637470480b2415} 
+GOAT\+::raytracing\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \&}]{B}{}\end{DoxyParamCaption})}
+
+
+
+copy constructor 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a448022e1cfcf691be9805e62c424dd78}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!Box@{Box}}
+\index{Box@{Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a448022e1cfcf691be9805e62c424dd78} 
+GOAT\+::raytracing\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{d}{, }\item[{std\+::complex$<$ double $>$}]{n}{, }\item[{double}]{r0}{ = {\ttfamily 1.0}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$}]{alpha}{ = {\ttfamily \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af316adec18961903cfe77123f8ebe110}{maths\+::\+CUNITY}}}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ex}{ = {\ttfamily maths\+:\+:ex}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ey}{ = {\ttfamily maths\+:\+:ey}, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Ez}{ = {\ttfamily maths\+:\+:ez}}\end{DoxyParamCaption})}
+
+Main constructor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & Position of the box (mid point) \\
+\hline
+{\em d} & Vector with the edge lengths in x-\/, y-\/ and z-\/direction \\
+\hline
+{\em n} & (Complex) refractive index \\
+\hline
+{\em r0} & Radius of the calculation sphere (needed by the next routine) \\
+\hline
+{\em alpha} & Polarisability matrix \\
+\hline
+{\em Ex} & Local coordinate system (first axis, usually x) \\
+\hline
+{\em Ey} & Local coordinate system (second axis, usually y) \\
+\hline
+{\em Ez} & Local coordinate system (third axis, usually z) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_aa294d14e2f644d878bb48dff9a1d7259}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!Box@{Box}}
+\index{Box@{Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{Box()}{Box()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_aa294d14e2f644d878bb48dff9a1d7259} 
+GOAT\+::raytracing\+::\+Box\+::\+Box (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{bound0}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{bound1}{}\end{DoxyParamCaption})}
+
+This constructor is mainly intented for internal use in the octree algorithm, therefore the refractive index is not set (it keeps on the default value). The \doxylink{class_g_o_a_t_1_1raytracing_1_1_box}{Box} is defined by two opposite corners (minimal and maximal x,y and z coordinates) stored in the vectors bound0 and bound1. Location vector p is set to zero. is\+Octree will be set to true 
+\begin{DoxyParams}{Parameters}
+{\em bound0} & corner with the lowest x,y and z coordinates \\
+\hline
+{\em bound1} & corner with the highest x,y and z coordinates \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a265d02b00384f2985a91101aa0315740}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!````~Box@{\texorpdfstring{$\sim$}{\string~}Box}}
+\index{````~Box@{\texorpdfstring{$\sim$}{\string~}Box}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Box()}{\string~Box()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a265d02b00384f2985a91101aa0315740} 
+GOAT\+::raytracing\+::\+Box\+::\texorpdfstring{$\sim$}{\string~}\+Box (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+destructor 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a5bcb0938544105d00b5bc39ce2a1b37d}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!binRead@{binRead}}
+\index{binRead@{binRead}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{binRead()}{binRead()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a5bcb0938544105d00b5bc39ce2a1b37d} 
+void GOAT\+::raytracing\+::\+Box\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+reads object from a binary file 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a2756cf7b7104f7a81785020de21a2f15}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a0e93f79a4102c28a1cb6fdc8f373edd6}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!binWrite@{binWrite}}
+\index{binWrite@{binWrite}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a0e93f79a4102c28a1cb6fdc8f373edd6} 
+void GOAT\+::raytracing\+::\+Box\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+writes object to a binary file 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a514bdeef6396ff0cb259f38e5e29cf40}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ad11495eee63f1845dede5d0d7ef11551}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!calcCoM@{calcCoM}}
+\index{calcCoM@{calcCoM}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{calcCoM()}{calcCoM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ad11495eee63f1845dede5d0d7ef11551} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Box\+::calc\+CoM (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+calculates center of mass (needed by set\+Center2\+CoM () ) 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6f9c3fb38ae7c01d441e8d81cdb5456b}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00092}{92}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a632ab4515b5c2d556aaa6ac7aadd993f}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!calcDiag@{calcDiag}}
+\index{calcDiag@{calcDiag}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{calcDiag()}{calcDiag()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a632ab4515b5c2d556aaa6ac7aadd993f} 
+void GOAT\+::raytracing\+::\+Box\+::calc\+Diag (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00066}{66}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a2dee405436916c044a9ede3ff6ae74a7}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!distance@{distance}}
+\index{distance@{distance}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a2dee405436916c044a9ede3ff6ae74a7} 
+double GOAT\+::raytracing\+::\+Box\+::distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{k}{}\end{DoxyParamCaption})}
+
+
+
+calculates the distance between a ray, described by the position vector p and its directional vector k 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_adb82dce6d42711328e30a14ad5f6daf5}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!getSize@{getSize}}
+\index{getSize@{getSize}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_adb82dce6d42711328e30a14ad5f6daf5} 
+double GOAT\+::raytracing\+::\+Box\+::get\+Size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns a vector with the side lengths as its components 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00063}{63}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_aae74d3d4684ad4e09cfbbc870b3d885f}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!initQuad@{initQuad}}
+\index{initQuad@{initQuad}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{initQuad()}{initQuad()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_aae74d3d4684ad4e09cfbbc870b3d885f} 
+void GOAT\+::raytracing\+::\+Box\+::init\+Quad (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+calculates the circumferent cuboid 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aa1478ba256f588aa0af5cb5ff7b70977}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ac0b7b14bf65f7bc00703a44b5ed80079}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!isInside@{isInside}}
+\index{isInside@{isInside}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{isInside()}{isInside()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ac0b7b14bf65f7bc00703a44b5ed80079} 
+bool GOAT\+::raytracing\+::\+Box\+::is\+Inside (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{Ps}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+returns true, if Ps is inside the box 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8338a7937b4cfe43900f975dd6bd539e}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a13890a9a46b8ff2328c61792ec2356ad}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!next@{next}}
+\index{next@{next}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{next()}{next()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a13890a9a46b8ff2328c61792ec2356ad} 
+bool GOAT\+::raytracing\+::\+Box\+::next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{k}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{pout}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+calculates the next crossing point between a ray represented by the position 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae19071ea0777fc2ea1aad5ceb917c5d7}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ac17cf6f48a4d228fe79e4207aadad831}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!norm@{norm}}
+\index{norm@{norm}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ac17cf6f48a4d228fe79e4207aadad831} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Box\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+normal vector at the position p 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afa28a4c4f4206fc11e0fca0e45bbbf03}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab5b68ca8dd37}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!scale@{scale}}
+\index{scale@{scale}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a4c8d1087116da03242dab5b68ca8dd37} 
+void GOAT\+::raytracing\+::\+Box\+::scale (\begin{DoxyParamCaption}\item[{double}]{sf}{}\end{DoxyParamCaption})}
+
+
+
+sets scaling factor 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setD@{setD}}
+\index{setD@{setD}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{setD()}{setD()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_af118488914bba38fb025b4387a3e3163} 
+void GOAT\+::raytracing\+::\+Box\+::setD (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{D}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em D} & sets the extensions in x-\/, y-\/ and z-\/direction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00082}{82}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setOctree@{setOctree}}
+\index{setOctree@{setOctree}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{setOctree()}{setOctree()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_af03be8f063473bbc88b7f0dda532c2d2} 
+void GOAT\+::raytracing\+::\+Box\+::set\+Octree (\begin{DoxyParamCaption}\item[{bool}]{is\+Octree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+box belongs to an octree calculation 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00093}{93}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setPos@{setPos}}
+\index{setPos@{setPos}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a3ba12d0e89ac42454e511ca875ec6a00} 
+void GOAT\+::raytracing\+::\+Box\+::set\+Pos (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+sets the position P and the corresponding bounds 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a85ee33a5b1a3655e075dd5996b1c2065}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00081}{81}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ac25e0837e9313b8fed01138888f77cf3}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setPos@{setPos}}
+\index{setPos@{setPos}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ac25e0837e9313b8fed01138888f77cf3} 
+void GOAT\+::raytracing\+::\+Box\+::set\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+sets reference point P 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afacfdc0e51e3a4f42aadba59cad1fe1f}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00073}{73}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ad031bb445df22fc7e9e206d9eb3bdeae}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!setr0@{setr0}}
+\index{setr0@{setr0}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{setr0()}{setr0()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ad031bb445df22fc7e9e206d9eb3bdeae} 
+void GOAT\+::raytracing\+::\+Box\+::setr0 (\begin{DoxyParamCaption}\item[{double}]{r0}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+sets the radius of the calculation sphere 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aaa870a967b9600080330bc372b38a8c2}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e02336b6b2089f3f6}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!volume@{volume}}
+\index{volume@{volume}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{volume()}{volume()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e02336b6b2089f3f6} 
+double GOAT\+::raytracing\+::\+Box\+::volume (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the volume of the box 
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a14a259332938faaf3743a309e1b88e12}{GOAT\+::raytracing\+::\+Object\+Shape}}.
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00062}{62}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a541ad66f0847b74433d0d7abb51ee7db}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!bounds@{bounds}}
+\index{bounds@{bounds}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{bounds}{bounds}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a541ad66f0847b74433d0d7abb51ee7db} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Box\+::bounds\mbox{[}2\mbox{]}}
+
+
+
+positions of the two opposite corners (with box in the center) 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00089}{89}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a8b0c56202c77308d8e9a4c7fb1c01817}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!d@{d}}
+\index{d@{d}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{d}{d}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a8b0c56202c77308d8e9a4c7fb1c01817} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Box\+::d}
+
+
+
+extensions of the box in x-\/, y-\/ and z-\/direction 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00090}{90}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_af6bdb9fddc0933d31f66396aef873485}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!diag@{diag}}
+\index{diag@{diag}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{diag}{diag}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_af6bdb9fddc0933d31f66396aef873485} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Box\+::diag\mbox{[}3\mbox{]}}
+
+
+
+diagonal 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00091}{91}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3}\index{GOAT::raytracing::Box@{GOAT::raytracing::Box}!isOctree@{isOctree}}
+\index{isOctree@{isOctree}!GOAT::raytracing::Box@{GOAT::raytracing::Box}}
+\doxysubsubsection{\texorpdfstring{isOctree}{isOctree}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_box_a50a4267dafce4e9062ce3f278adff0b3} 
+bool GOAT\+::raytracing\+::\+Box\+::is\+Octree = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+used for \doxylink{class_g_o_a_t_1_1raytracing_1_1_octree}{Octree} calculation 
+
+
+
+Definition at line \mbox{\hyperlink{box_8h_source_l00021}{21}} of file \mbox{\hyperlink{box_8h_source}{box.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{box_8h}{box.\+h}}\end{DoxyCompactItemize}

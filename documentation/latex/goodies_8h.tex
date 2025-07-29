@@ -1,0 +1,36 @@
+\doxysection{maths/goodies.h File Reference}
+\hypertarget{goodies_8h}{}\label{goodies_8h}\index{maths/goodies.h@{maths/goodies.h}}
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cctype$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{GOAT\+::maths}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a0042b79a72458da973662aa6aed15536}{GOAT\+::maths\+::abs}} (std\+::complex$<$ double $>$ x)
+\begin{DoxyCompactList}\small\item\em absolute value of the complex valued variable x \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ae212dff150480d4308ab6d0430b6521c}{GOAT\+::maths\+::findmax}} (std\+::vector$<$ double $>$ d, std\+::size\+\_\+t \&index)
+\begin{DoxyCompactList}\small\item\em finds maximum in data This function finds the maximal value inside a vector \end{DoxyCompactList}\item 
+std\+::size\+\_\+t \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a08502f966048a9ac1a3351a4560fc916}{GOAT\+::maths\+::\+FWHM}} (std\+::vector$<$ double $>$ d, std\+::size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em estimates the full width at half maximum of a peak around at the position inside a vector The function gives back the full width at half maximum (FWHM) by finding the first point with less than (or equal to) the half of the maximal value left and right from position index inside the vector d \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a713591c4a62eb4e59b7274e2f51da270}{GOAT\+::maths\+::mean}} (std\+::vector$<$ double $>$ d)
+\begin{DoxyCompactList}\small\item\em Calculates the mean of the data stored in d. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_ac142460e9abee07ad1aa82bab55908de}{GOAT\+::maths\+::moving\+Avg}} (std\+::vector$<$ double $>$ d, int n)
+\begin{DoxyCompactList}\small\item\em calculates the moving average of the data Calculates the (unweighted) moving average over the data stored in d. The average will be calculated over n elements \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a21e5c5b81ace492e721f4c83d3db0882}{GOAT\+::maths\+::newton\+\_\+root}} (std\+::function$<$ double(double)$>$ f, std\+::function$<$ double(double)$>$ df, double x0=0, double eps=std\+::numeric\+\_\+limits$<$ double $>$\+::min())
+\item 
+double \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_a161539674a9eab813146902f5442473f}{GOAT\+::maths\+::sqr}} (double x)
+\begin{DoxyCompactList}\small\item\em square of x \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_acf1de9fa5bd909a98d9e0162d5b1ca79}{GOAT\+::maths\+::testnan}} (double x)
+\begin{DoxyCompactList}\small\item\em tests x on NaN \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_af42a4b7ab808cc5aeeee3724672da1f1}{GOAT\+::maths\+::tl}} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Converts string into lowercase This function converts all characters in a string into lower case. \end{DoxyCompactList}\end{DoxyCompactItemize}

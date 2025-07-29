@@ -4,7 +4,9 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-		/** This class provides a ray which carries a special power*/
+		/**
+		* @brief This class provides a ray which carries a special power
+		*/
 		class Ray_pow :
 			public IRay
 		{
@@ -26,7 +28,10 @@ namespace GOAT
 			Ray_pow(double pow, const maths::Vector<double>& p,
 				const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
 				std::complex<double>  n0, double r0, double k0,
-				const int numObjs, ObjectShape** Einschluss);
+				const int numObjs, std::vector<ObjectShape*> Einschluss);
+			/**
+			* @brief Copy constructor
+			*/
 			Ray_pow(const Ray_pow& r) : IRay(r)
 			{
 				this->Pow = r.Pow;
@@ -57,8 +62,8 @@ namespace GOAT
 			 */
 			void refract(maths::Matrix<std::complex<double> > FT, maths::Vector<double> N, std::complex<double> n1, std::complex<double> n2);
 			~Ray_pow(void);
-			double Pow;
-			friend std::ostream& operator << (std::ostream& os, Ray_pow S);
+			double Pow; ///< Power held by the ray in Watts
+			friend std::ostream& operator << (std::ostream& os, Ray_pow S); ///< output operator
 		};
 	}
 }

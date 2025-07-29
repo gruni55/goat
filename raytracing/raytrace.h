@@ -5,7 +5,8 @@
 #include "vector.h"
 #include "detector.h"
 #include "raybase.h"
-
+#include "superarray.h"
+#include <vector>
 
 namespace GOAT
 {
@@ -16,7 +17,7 @@ namespace GOAT
 		#define RAYTRACER_TYPE_OT   2	
 		#define RAYTRACER_TYPE_PURE  3
 
-
+		#define MAX_RECURSIONS 20
 		#define RAYTRACE_MAX_REFLEXIONS 2
 		/**
 		 * @brief Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings.
@@ -28,18 +29,20 @@ namespace GOAT
 		public:
 			Scene();  ///< Standard constructor 
 			Scene(const Scene& S); ///< Copy constructor
+			void setPhaseProgress(bool suppress_phase_progress);
 			void addObject(ObjectShape* Obj); ///< add single object to scene
-			void addObjectList(int nobj, ObjectShape** obj); ///< add a list of objects to scene, nobj: number of objects
+			void addObjectList(int nobj, std::vector<ObjectShape*> obj); ///< add a list of objects to scene, nobj: number of objects
 			void removeObject(int index); ///< removes object with index "index" from object list
+			void removeObject(ObjectShape* obj); ///< removes object, identified by its pointer from object list
 			void removeAllObjects(); ///< removes all objects from the scene
 			void addLightSource(LightSrc* ls) { addLightSource(ls, raytype); } ///< add single lightsource to scene
 			void addLightSource(LightSrc* ls, int raytype); ///< add single lightsource to scene and determine ray type
 			void removeLightSrc(int index); ///< remove one light source from the scene
 			void removeAllLightSources(); ///< removes all light sources from the scene
 			void addLightSourceRRT(LightSrc* ls, maths::Vector<std::complex<double> >Pol1, maths::Vector<std::complex<double> >Pol2);
-			void addLightSourceList(int nls, LightSrc** ls); ///< add list of lightsources, nls: number of lightsources
+			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
 			void addDetector(Detector* D); ///< add single detector to scene
-			void addDetectorList(int nDet, Detector** D); ///< add a list of detectors to the scene, nDet: number of detectors to add
+			void addDetectorList(int nDet, std::vector< Detector*> D); ///< add a list of detectors to the scene, nDet: number of detectors to add
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
@@ -47,19 +50,25 @@ namespace GOAT
 			void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
+			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
-			ObjectShape** Obj;   ///< List of all objects within the scene
-			LightSrc** LS; ///< List of all light sources 
+			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
+			std::vector<LightSrc*> LS; ///< List of all light sources 
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
-			Detector** Det; ///< List of detectors, which are storing the electric field inside a defined area
+			std::vector< Detector*> Det; ///< List of detectors, which are storing the electric field inside a defined area
 			int nObj = 0; ///< Number of objects in the scene
 			int nLS = 0;  ///< Number of light sources
 			int nDet = 0; ///< Number of detectors
+			int nReflex = 0; ///< Number of reflections
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
-			double r0; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
-			int raytype; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			double r0=1000; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
+			int raytype=LIGHTSRC_RAYTYPE_IRAY; ///< Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided 	             
+			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
+			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
+			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
+			void setNumberOfCellsPerDirection(INDEX_TYPE no)  { NumCellsPerDir = no; }
 		};
 
 
@@ -86,6 +95,7 @@ namespace GOAT
 			int lost; ///< Rays unintentionally get lost, e.g. due to total internal reflection 
 			int currentObj; ///< Number of the last object hit  (no object hit: -1)
 			int currentLS; ///< Number of the current light source, which is currently in the calculation process
+			GOAT::maths::Vector<INDEX_TYPE> currentIndex= GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
 			maths::Vector<double> PStart, PStop; ///< Start and end point of the last step
 			maths::Vector<std::complex<double> > EStart, EStop; ///< Start and end value of the electric field 
 			maths::Vector<std::complex<double> > EStart2, EStop2;  ///< Start and end value of the electric field (second ray in IRay)
@@ -105,13 +115,14 @@ namespace GOAT
 			bool useRRTParms; ///< Flag which tells the raytracing procedure if the RRT parameters of scene or the normal parameters are used within the calculation
 			int type=RAYTRACER_TYPE_NONE; ///< Flag which shows which type of raytracer is selected
 
-		private:
+		
 			/** @param ray: ray which should be traced, @param Reflexions: counter for the number of reflexions made within the ray tracing process.
 				This parameter is needed to stop calculation after the maximal number of reflexions  @param recur: counter which will be set to the current recursion depth*/
-			void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
+			virtual void traceOneRay(RayBase* ray, int& Reflexions, int& recur); ///< traces one ray 
+			virtual void reset();
 			void copyRay(RayBase*& dest, RayBase* src);
 			RayBase* ray; ///< current ray 
-			RayBase* tray; ///< transmitted ray
+			RayBase* tray; ///< transmitted ray		
 			bool Abbruch; ///< flag to stop calculation
 			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
 		};
@@ -150,8 +161,8 @@ namespace GOAT
 			void trace(); ///< If no Filename is given, the starting and endpoint of each ray step is stored in two arrays named P1 and P2
 			void setShowOutgoingRays(bool show); ///< if true, Rays, which going out of an object without hidding a second one will be stored
 			bool getShowOutgoingRays(); ///< Returns true, if Rays, which going out of an object without hidding a second one will be stored
-			maths::Vector<double>* P1; ///< Here, the starting points of each step are stored if no filename is given
-			maths::Vector<double>* P2; ///< Here, the ending points of each step are stored if no filename is given
+			std::vector<maths::Vector<double>> P1; ///< Here, the starting points of each step are stored if no filename is given
+			std::vector<maths::Vector<double>> P2; ///< Here, the ending points of each step are stored if no filename is given
 			int numRays=0; ///< Number of rays stored
 		private:
 			void traceLeaveObject();
@@ -163,7 +174,11 @@ namespace GOAT
 			bool storeInFile = false;
 
 		};
-
+		/**
+		* @brief This class makes a raytracing without any output (except detectors)
+		* In this ray tracing class no reactions at the surface is included. 
+		* It is intended for calculation only with detectors
+		*/
 		class Raytrace_pure : public Raytrace
 		{
 		public:

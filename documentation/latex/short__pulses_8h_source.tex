@@ -1,0 +1,60 @@
+\doxysection{short\+\_\+pulses.\+h}
+\hypertarget{short__pulses_8h_source}{}\label{short__pulses_8h_source}\index{raytracing/short\_pulses.h@{raytracing/short\_pulses.h}}
+\mbox{\hyperlink{short__pulses_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raytracing_2raytrace_8h}{raytrace.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{refractive__index__functions_8h}{refractive\_index\_functions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00009}00009\ \{}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00011}00011\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00012}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{00012}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range}{wavelengthRange}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00014}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a785002e1477c70c6b510cbc797c26a09}{00014}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a785002e1477c70c6b510cbc797c26a09}{wvlStart}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00015}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a6b61ea83d573e2b3260618d8a9750529}{00015}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a6b61ea83d573e2b3260618d8a9750529}{wvlStop}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00016}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a8208ccbc344e5871d06a909de92d6b89}{00016}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1wavelength_range_a8208ccbc344e5871d06a909de92d6b89}{dWvl}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00022}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry}{00022}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry}{rayListEntry}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00024}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry_a49a56e164c2bd2080c4afcb22b05bca4}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry_a49a56e164c2bd2080c4afcb22b05bca4}{refIndex}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00025}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry_acdd652913f98eaa0fc8e0070ecdc764d}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<std::complex<double>}}\ >\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1ray_list_entry_acdd652913f98eaa0fc8e0070ecdc764d}{E}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00029}00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00030}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{indexList}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00032}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list_afd678fee92ad5065ac7295b89bc02c69}{00032}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list_afd678fee92ad5065ac7295b89bc02c69}{startIndex}};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00033}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list_a6e17a591c28a0fe78f183344c8f5d1f2}{00033}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list_a6e17a591c28a0fe78f183344c8f5d1f2}{stopIndex}};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00036}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0a867c910b71dfc7547cf14bad7a2860}{00036}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a0a867c910b71dfc7547cf14bad7a2860}{log2n}}=10;\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00037}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}{00037}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aaf5fa9b87aedaf0e11691c32e524e1a6}{standard\_pulse\_width}}\ =\ 1E-\/9;\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00045}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ac305fddaf146cbce3730fb7ff5662cbf}{shortPulse}}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00055}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ac305fddaf146cbce3730fb7ff5662cbf}{00055}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ac305fddaf146cbce3730fb7ff5662cbf}{shortPulse}}(std::vector<wavelengthRange>\ WvlRanges,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}},\ std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad9f8a6c0a91e3952bba041284283f648}{nList}});}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00056}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a87e3e22504af25a1dda36e2ceeb4b0e6}{00056}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a87e3e22504af25a1dda36e2ceeb4b0e6}{setPulseWidth}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{double}\ pulseWidth);\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00057}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5ddc590b3418a6170baa7dde47437386}{00057}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5ddc590b3418a6170baa7dde47437386}{startRaytracing}}();\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00060}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a0bb93cad8825da7cea0fd95a256eb769}{00060}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<wavelengthRange>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a0bb93cad8825da7cea0fd95a256eb769}{wvlRanges}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00061}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a53fa14e3055e0af948ae89e0816d5963}{00061}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a53fa14e3055e0af948ae89e0816d5963}{numWvlRanges}}\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00062}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{00062}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a04758b33a90f5f377d8b48b85f6627ae}{S}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00063}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad9f8a6c0a91e3952bba041284283f648}{00063}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::function<std::complex<double>(\textcolor{keywordtype}{double})\ >\ >\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad9f8a6c0a91e3952bba041284283f648}{nList}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00064}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5a43d7dc18c355d921f36021f9e1e4d5}{00064}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<rayListEntry>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_a5a43d7dc18c355d921f36021f9e1e4d5}{rayList}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00065}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aaa07d911730cc39588da85577fe032f3}{00065}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aaa07d911730cc39588da85577fe032f3}{LSwidth}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00066}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad66e7ed4f925c5827eb69d7f5210cc6d}{00066}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<\ maths::Vector<std::complex<double>}}\ >\ >\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_ad66e7ed4f925c5827eb69d7f5210cc6d}{field}};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00067}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aa0724719e173538ec44167f60230666b}{00067}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1short_pulse_aa0724719e173538ec44167f60230666b}{bitLT}};\ }
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{short__pulses_8h_source_l00070}00070\ \}}
+
+\end{DoxyCode}

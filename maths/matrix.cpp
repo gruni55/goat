@@ -173,7 +173,7 @@ namespace GOAT
 
         Matrix<double> rotMatrix(const Vector<double> a, double gamma)
             /*
-              erstellt die rotMatrix für eine Drehung um einen Winkel gamma
+              erstellt die rotMatrix fï¿½r eine Drehung um einen Winkel gamma
               die Drehachse wird durch den Vektor a dargestellt
               (Drehrichtung: gegen den Uhrzeigersinn)
             */
@@ -218,8 +218,8 @@ namespace GOAT
         {
             Matrix<double> Erg;
             Erg(0, 0) = 1.0;
-            Erg(1, 1) = cos(phi);  Erg(1, 2) = sin(phi);
-            Erg(2, 1) = -sin(phi); Erg(2, 2) = cos(phi);
+            Erg(1, 1) = cos(phi);  Erg(1, 2) = -sin(phi);
+            Erg(2, 1) = sin(phi); Erg(2, 2) = cos(phi);
             return Erg;
         }
 
@@ -242,7 +242,7 @@ namespace GOAT
             Matrix<double>& H,
             Matrix<double>& R)
             /*
-              Berechnung von (H)in- und (R)ücktransformationsmatrix aus dem kartesischen
+              Berechnung von (H)in- und (R)ï¿½cktransformationsmatrix aus dem kartesischen
               Koordinatensystem in das von e0,e1 und e2 gebildete System
 
             */

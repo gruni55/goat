@@ -1,0 +1,402 @@
+\doxysection{GOAT\+::raytracing\+::grid Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1grid}{}\label{class_g_o_a_t_1_1raytracing_1_1grid}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+
+
+This class provides a grid used for inelastic scattering calculation.  
+
+
+
+
+{\ttfamily \#include $<$grid.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a90f6089e8deb26c736c99e0386d3b9f9}{grid}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a78046f08ce9ab02c3a7acfa3c072d30e}{grid}} (int nx, int ny, int nz, double r)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aefc2ea221f41351b2cbffac293265364}{grid}} (int nx, int ny, int nz, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abe97cd308c1bff758d005ef95d0e8d74}{gridpunkt}} (double x0, double y0, double z0)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a5fe2cd82087305c84113d7ea760d1399}{gridpunkt}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afa58ddce3ff94204c53275efc7bae46b}{in\+\_\+kugel}} (int ix, int iy, int iz)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a647ade9e24e1d12d12a3ab7167c7c457}{init\+\_\+grid}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aac4109e1fbb12864591cf4ed59abe838}{init\+\_\+grid}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} \texorpdfstring{$\ast$}{*}ein, int anzein)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_acd0491a97549ce3531f0d4872fb53501}{in\+Object}} (int ix, int iy, int iz, \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} ein)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c}{operator()}} (int i, int j, int k)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a72ad4f966fde60c5cb231d9d59be51a6}{operator()}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \&P)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a8a87808b2258a72d7b877c5e46bcb93f}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&g)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a9f4f81afffce9f9da266df391f6d439d}{set\+\_\+parms}} (int nx, int ny, int nz, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a33d3ecbf8c745b7a3a47e42a9dac0854}{show\+\_\+grid}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_abf5ecf3d936ef00c6594e6a845c0a8ba}{show\+\_\+grid}} (char \texorpdfstring{$\ast$}{*}fname)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_afcdb33e9d155bf8a2d3477ac74fa5dc0}{\texorpdfstring{$\sim$}{\string~}grid}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aec00c69eea937c0f6e3e2b0ab5e63a06}{DUMMY}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a4fd6564282fe10fda859ba0831ffd091}{dx}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a49c3aae123e173fe684bb0ba936e2b82}{dy}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ad5bf869d4950747ed0f96a826588a15d}{dz}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ac8b0930e221928664495c7600e39dfb1}{nxmax}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a70dba2212e164f830a27fcebbcb0b600}{nymax}}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a6e8d2ee927d7bd0bbba9274070121eee}{nzmax}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a3ce537789afb302bbe9623bcccca4dd5}{rP}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}{xmax}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}{ymax}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}{zmax}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a6baf780fd102ef858c08d8e98975d694}{delarray}} ()
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a4b3a90fbf7e33f5b35b121cbee4e2dd6}{is\+Inside}} (int ix, int iy, int iz, double x0, double y0, double z0, double r0)
+\begin{DoxyCompactList}\small\item\em Function for testing of inside Tests, if the cell with indices {\ttfamily ix}, {\ttfamily iy} and {\ttfamily iz} lies inside a sphere of radius {\ttfamily r0} and the center coordinates with the world coordinates {\ttfamily x0}, {\ttfamily y0} and {\ttfamily z0}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aa399ee7d06dcd6f8a35cfa1b2a07eea6}{is\+Inside}} (int ix, int iy, int iz, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P, double r0)
+\begin{DoxyCompactList}\small\item\em Function for testing of inside Tests, if the cell with indices {\ttfamily ix}, {\ttfamily iy} and {\ttfamily iz} lies inside a sphere of radius {\ttfamily r0} and the center at {\ttfamily p}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a41f53de7c59a91191ee951590640fb90}{newarray}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_aac265c8770e0b9e2ee450691cb8618ea}{dx2}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_ae1a911aba31820525bfa1ef2013e2498}{dy2}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_a20a893c92e08b7c0e137ae692d19fb62}{dz2}}
+\begin{DoxyCompactList}\small\item\em {\ttfamily dx2}, {\ttfamily dy2}, {\ttfamily dz2} half of the side length in x-\/, y-\/ and z-\/direction \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid_af456ba2ef9b8534fc4c53a70d4d99f85}{gridarray}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class provides a grid used for inelastic scattering calculation. 
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00022}{22}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a90f6089e8deb26c736c99e0386d3b9f9}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!grid@{grid}}
+\index{grid@{grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{grid()}{grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a90f6089e8deb26c736c99e0386d3b9f9} 
+GOAT\+::raytracing\+::grid\+::grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_aefc2ea221f41351b2cbffac293265364}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!grid@{grid}}
+\index{grid@{grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{grid()}{grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_aefc2ea221f41351b2cbffac293265364} 
+GOAT\+::raytracing\+::grid\+::grid (\begin{DoxyParamCaption}\item[{int}]{nx}{, }\item[{int}]{ny}{, }\item[{int}]{nz}{, }\item[{double}]{xmax}{, }\item[{double}]{ymax}{, }\item[{double}]{zmax}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a78046f08ce9ab02c3a7acfa3c072d30e}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!grid@{grid}}
+\index{grid@{grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{grid()}{grid()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a78046f08ce9ab02c3a7acfa3c072d30e} 
+GOAT\+::raytracing\+::grid\+::grid (\begin{DoxyParamCaption}\item[{int}]{nx}{, }\item[{int}]{ny}{, }\item[{int}]{nz}{, }\item[{double}]{r}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_afcdb33e9d155bf8a2d3477ac74fa5dc0}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!````~grid@{\texorpdfstring{$\sim$}{\string~}grid}}
+\index{````~grid@{\texorpdfstring{$\sim$}{\string~}grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}grid()}{\string~grid()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_afcdb33e9d155bf8a2d3477ac74fa5dc0} 
+GOAT\+::raytracing\+::grid\+::\texorpdfstring{$\sim$}{\string~}grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a6baf780fd102ef858c08d8e98975d694}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!delarray@{delarray}}
+\index{delarray@{delarray}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{delarray()}{delarray()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a6baf780fd102ef858c08d8e98975d694} 
+void GOAT\+::raytracing\+::grid\+::delarray (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_abe97cd308c1bff758d005ef95d0e8d74}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!gridpunkt@{gridpunkt}}
+\index{gridpunkt@{gridpunkt}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{gridpunkt()}{gridpunkt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_abe97cd308c1bff758d005ef95d0e8d74} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ GOAT\+::raytracing\+::grid\+::gridpunkt (\begin{DoxyParamCaption}\item[{double}]{x0}{, }\item[{double}]{y0}{, }\item[{double}]{z0}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a5fe2cd82087305c84113d7ea760d1399}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!gridpunkt@{gridpunkt}}
+\index{gridpunkt@{gridpunkt}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{gridpunkt()}{gridpunkt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a5fe2cd82087305c84113d7ea760d1399} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ GOAT\+::raytracing\+::grid\+::gridpunkt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_afa58ddce3ff94204c53275efc7bae46b}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!in\_kugel@{in\_kugel}}
+\index{in\_kugel@{in\_kugel}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{in\_kugel()}{in\_kugel()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_afa58ddce3ff94204c53275efc7bae46b} 
+int GOAT\+::raytracing\+::grid\+::in\+\_\+kugel (\begin{DoxyParamCaption}\item[{int}]{ix}{, }\item[{int}]{iy}{, }\item[{int}]{iz}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a647ade9e24e1d12d12a3ab7167c7c457}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!init\_grid@{init\_grid}}
+\index{init\_grid@{init\_grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{init\_grid()}{init\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a647ade9e24e1d12d12a3ab7167c7c457} 
+void GOAT\+::raytracing\+::grid\+::init\+\_\+grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_aac4109e1fbb12864591cf4ed59abe838}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!init\_grid@{init\_grid}}
+\index{init\_grid@{init\_grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{init\_grid()}{init\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_aac4109e1fbb12864591cf4ed59abe838} 
+void GOAT\+::raytracing\+::grid\+::init\+\_\+grid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}} \texorpdfstring{$\ast$}{*}}]{ein}{, }\item[{int}]{anzein}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_acd0491a97549ce3531f0d4872fb53501}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!inObject@{inObject}}
+\index{inObject@{inObject}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{inObject()}{inObject()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_acd0491a97549ce3531f0d4872fb53501} 
+int GOAT\+::raytracing\+::grid\+::in\+Object (\begin{DoxyParamCaption}\item[{int}]{ix}{, }\item[{int}]{iy}{, }\item[{int}]{iz}{, }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1object_info}{object\+Info}}}]{ein}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a4b3a90fbf7e33f5b35b121cbee4e2dd6}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!isInside@{isInside}}
+\index{isInside@{isInside}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{isInside()}{isInside()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a4b3a90fbf7e33f5b35b121cbee4e2dd6} 
+int GOAT\+::raytracing\+::grid\+::is\+Inside (\begin{DoxyParamCaption}\item[{int}]{ix}{, }\item[{int}]{iy}{, }\item[{int}]{iz}{, }\item[{double}]{x0}{, }\item[{double}]{y0}{, }\item[{double}]{z0}{, }\item[{double}]{r0}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function for testing of inside Tests, if the cell with indices {\ttfamily ix}, {\ttfamily iy} and {\ttfamily iz} lies inside a sphere of radius {\ttfamily r0} and the center coordinates with the world coordinates {\ttfamily x0}, {\ttfamily y0} and {\ttfamily z0}. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_aa399ee7d06dcd6f8a35cfa1b2a07eea6}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!isInside@{isInside}}
+\index{isInside@{isInside}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{isInside()}{isInside()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_aa399ee7d06dcd6f8a35cfa1b2a07eea6} 
+int GOAT\+::raytracing\+::grid\+::is\+Inside (\begin{DoxyParamCaption}\item[{int}]{ix}{, }\item[{int}]{iy}{, }\item[{int}]{iz}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{double}]{r0}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Function for testing of inside Tests, if the cell with indices {\ttfamily ix}, {\ttfamily iy} and {\ttfamily iz} lies inside a sphere of radius {\ttfamily r0} and the center at {\ttfamily p}. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a41f53de7c59a91191ee951590640fb90}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!newarray@{newarray}}
+\index{newarray@{newarray}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{newarray()}{newarray()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a41f53de7c59a91191ee951590640fb90} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::grid\+::newarray (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!operator()@{operator()}}
+\index{operator()@{operator()}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a12d38d98df1fb172edf243778fe5cf5c} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::raytracing\+::grid\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i}{, }\item[{int}]{j}{, }\item[{int}]{k}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a72ad4f966fde60c5cb231d9d59be51a6}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!operator()@{operator()}}
+\index{operator()@{operator()}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a72ad4f966fde60c5cb231d9d59be51a6} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::raytracing\+::grid\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ int $>$ \&}]{P}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a8a87808b2258a72d7b877c5e46bcb93f}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!operator=@{operator=}}
+\index{operator=@{operator=}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a8a87808b2258a72d7b877c5e46bcb93f} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \& GOAT\+::raytracing\+::grid\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}} \&}]{g}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a9f4f81afffce9f9da266df391f6d439d}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!set\_parms@{set\_parms}}
+\index{set\_parms@{set\_parms}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{set\_parms()}{set\_parms()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a9f4f81afffce9f9da266df391f6d439d} 
+void GOAT\+::raytracing\+::grid\+::set\+\_\+parms (\begin{DoxyParamCaption}\item[{int}]{nx}{, }\item[{int}]{ny}{, }\item[{int}]{nz}{, }\item[{int}]{xmax}{, }\item[{int}]{ymax}{, }\item[{int}]{zmax}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a33d3ecbf8c745b7a3a47e42a9dac0854}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!show\_grid@{show\_grid}}
+\index{show\_grid@{show\_grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{show\_grid()}{show\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a33d3ecbf8c745b7a3a47e42a9dac0854} 
+void GOAT\+::raytracing\+::grid\+::show\+\_\+grid (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_abf5ecf3d936ef00c6594e6a845c0a8ba}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!show\_grid@{show\_grid}}
+\index{show\_grid@{show\_grid}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{show\_grid()}{show\_grid()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_abf5ecf3d936ef00c6594e6a845c0a8ba} 
+void GOAT\+::raytracing\+::grid\+::show\+\_\+grid (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{fname}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_aec00c69eea937c0f6e3e2b0ab5e63a06}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!DUMMY@{DUMMY}}
+\index{DUMMY@{DUMMY}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{DUMMY}{DUMMY}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_aec00c69eea937c0f6e3e2b0ab5e63a06} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ GOAT\+::raytracing\+::grid\+::\+DUMMY}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00049}{49}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a4fd6564282fe10fda859ba0831ffd091}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dx@{dx}}
+\index{dx@{dx}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dx}{dx}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a4fd6564282fe10fda859ba0831ffd091} 
+double GOAT\+::raytracing\+::grid\+::dx}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_aac265c8770e0b9e2ee450691cb8618ea}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dx2@{dx2}}
+\index{dx2@{dx2}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dx2}{dx2}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_aac265c8770e0b9e2ee450691cb8618ea} 
+double GOAT\+::raytracing\+::grid\+::dx2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00042}{42}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a49c3aae123e173fe684bb0ba936e2b82}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dy@{dy}}
+\index{dy@{dy}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dy}{dy}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a49c3aae123e173fe684bb0ba936e2b82} 
+double GOAT\+::raytracing\+::grid\+::dy}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_ae1a911aba31820525bfa1ef2013e2498}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dy2@{dy2}}
+\index{dy2@{dy2}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dy2}{dy2}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_ae1a911aba31820525bfa1ef2013e2498} 
+double GOAT\+::raytracing\+::grid\+::dy2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00042}{42}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_ad5bf869d4950747ed0f96a826588a15d}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dz@{dz}}
+\index{dz@{dz}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dz}{dz}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_ad5bf869d4950747ed0f96a826588a15d} 
+double GOAT\+::raytracing\+::grid\+::dz}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a20a893c92e08b7c0e137ae692d19fb62}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!dz2@{dz2}}
+\index{dz2@{dz2}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{dz2}{dz2}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a20a893c92e08b7c0e137ae692d19fb62} 
+double GOAT\+::raytracing\+::grid\+::dz2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+{\ttfamily dx2}, {\ttfamily dy2}, {\ttfamily dz2} half of the side length in x-\/, y-\/ and z-\/direction 
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00042}{42}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_af456ba2ef9b8534fc4c53a70d4d99f85}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!gridarray@{gridarray}}
+\index{gridarray@{gridarray}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{gridarray}{gridarray}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_af456ba2ef9b8534fc4c53a70d4d99f85} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::grid\+::gridarray\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00025}{25}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_ac8b0930e221928664495c7600e39dfb1}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!nxmax@{nxmax}}
+\index{nxmax@{nxmax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{nxmax}{nxmax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_ac8b0930e221928664495c7600e39dfb1} 
+int GOAT\+::raytracing\+::grid\+::nxmax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00047}{47}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a70dba2212e164f830a27fcebbcb0b600}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!nymax@{nymax}}
+\index{nymax@{nymax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{nymax}{nymax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a70dba2212e164f830a27fcebbcb0b600} 
+int GOAT\+::raytracing\+::grid\+::nymax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00047}{47}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a6e8d2ee927d7bd0bbba9274070121eee}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!nzmax@{nzmax}}
+\index{nzmax@{nzmax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{nzmax}{nzmax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a6e8d2ee927d7bd0bbba9274070121eee} 
+int GOAT\+::raytracing\+::grid\+::nzmax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00047}{47}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a3ce537789afb302bbe9623bcccca4dd5}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!rP@{rP}}
+\index{rP@{rP}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{rP}{rP}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a3ce537789afb302bbe9623bcccca4dd5} 
+double GOAT\+::raytracing\+::grid\+::rP}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00046}{46}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!xmax@{xmax}}
+\index{xmax@{xmax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{xmax}{xmax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a20ded0daab5df2cf05ee78eb506c6e8a} 
+double GOAT\+::raytracing\+::grid\+::xmax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!ymax@{ymax}}
+\index{ymax@{ymax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{ymax}{ymax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_ae62f766fd598fb6464fe8143485db801} 
+double GOAT\+::raytracing\+::grid\+::ymax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331}\index{GOAT::raytracing::grid@{GOAT::raytracing::grid}!zmax@{zmax}}
+\index{zmax@{zmax}!GOAT::raytracing::grid@{GOAT::raytracing::grid}}
+\doxysubsubsection{\texorpdfstring{zmax}{zmax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1grid_a2a3a261615c6f9f9360d0d108ff48331} 
+double GOAT\+::raytracing\+::grid\+::zmax}
+
+
+
+Definition at line \mbox{\hyperlink{grid_8h_source_l00048}{48}} of file \mbox{\hyperlink{grid_8h_source}{grid.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{grid_8h}{grid.\+h}}\end{DoxyCompactItemize}

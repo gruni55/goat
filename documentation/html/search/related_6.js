@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['trace_655',['trace',['../class_matrix.html#af80afe30e71c36f91065d46ae75f79d1',1,'Matrix']]],
-  ['transpose_656',['transpose',['../class_matrix.html#ad49add03b74ffaceddaafae2bdc85a75',1,'Matrix']]]
+  ['sqrt_0',['sqrt',['../class_g_o_a_t_1_1maths_1_1_vector.html#a6d077c31ce811385d86678f3ec474d66',1,'GOAT::maths::Vector']]],
+  ['surface_1',['surface',['../class_g_o_a_t_1_1raytracing_1_1triangle.html#afdcbdf8214e6486a003c58017083f706',1,'GOAT::raytracing::triangle']]]
 ];

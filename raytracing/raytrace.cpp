@@ -5,7 +5,7 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-#define MAX_RECURSIONS 20
+
 		Raytrace::Raytrace()
 		{
 			init();
@@ -38,6 +38,7 @@ namespace GOAT
 			int Reflexions = 0;
 			int recursions = 0;
 			lost = 0;
+			
 			switch (S.raytype)
 			{
 			case LIGHTSRC_RAYTYPE_IRAY: ray = new IRay; tray = new IRay;  break;
@@ -47,16 +48,19 @@ namespace GOAT
 			}
 
 			if (!useRRTParms)
-				for (int i = 0; i < S.nLS; i++) // Schleife über die Lichtquellen
+				for (int i = 0; i < S.nLS; i++) // Schleife ï¿½ber die Lichtquellen
 				{
 					S.resetLS();
 					do
 					{
+//						std::cout << "%---------------------------------" << std::endl;
 						currentLS = i;
 						Abbruch = false;
 						Reflexions = 0;
 						statusLS = S.LS[i]->next(ray);
 						recursions = 0;
+						ray->status = RAYBASE_STATUS_FIRST_STEP;
+						ray->suppress_phase_progress = S.suppress_phase_progress;
 						traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
 					} while (statusLS != LIGHTSRC_IS_LAST_RAY);
 					//	delete ray;
@@ -71,6 +75,7 @@ namespace GOAT
 					Abbruch = false;
 					Reflexions = 0;
 					statusLS = S.LSRRT->next(ray);
+					ray->suppress_phase_progress = S.suppress_phase_progress;
 					recursions = 0;
 					traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
 				} while (statusLS != LIGHTSRC_IS_LAST_RAY);
@@ -81,84 +86,125 @@ namespace GOAT
 
 
 		void Raytrace::traceOneRay(RayBase* ray, int& Reflexions, int& recur)
-		{
+		{          
+			double fak;   
+			int hObj;              
+			double pjump=0;
+			maths::Vector<double> CP[4];
+			tubedRay hray1, hray2;
 			RayBase* tray = 0;
 			double stepSize;
 			bool Abbruch = false;
 			int objIndex;
 			Abbruch = recur > MAX_RECURSIONS;
-			recur++;
-
-			while ((Reflexions <= numReflex) && (!Abbruch))
+			recur++;					
+			while ((Reflexions <= numReflex) && (!Abbruch)   && (abs2(ray->getE()) > 1E-20) )
 			{
-
+				ray->status = RAYBASE_STATUS_NONE;
+				// save first the infos at the beginning of the next step
 				int oldObjIndex = ray->objectIndex();
-
 				EStart = ray->getE();
-				PStart = ray->getP();
-
+				PStart = ray->getP();		
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				 hray1=*(tubedRay *)ray;
+				
 
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStart2 = ((IRay*)ray)->E2;
 				if (S.raytype == LIGHTSRC_RAYTYPE_PRAY) PowIn = ((Ray_pow*)ray)->Pow;
-				Abbruch = !ray->next();
-				objIndex = ray->objectIndex();
+
+				Abbruch = !ray->next();		// Is there no further crossing with an object ?		
+				Abbruch = Abbruch || (abs(EStart) < 10.0 * std::numeric_limits<double>::min()); // Stop, if absolute value of the electric field is smaller than 10*smallest number
+				
+				// save now the infos about the state after the step
+				objIndex = ray->objectIndex();				
 				EStop = ray->getE();
-				PStop = ray->getP();
-
-
+				PStop = ray->getP();			
+				// std::cout << PStart << "  " << PStop << "\t" << objIndex << std::endl;
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
-
+				// search a hit with a detector within the last step       				
 				if (S.nDet > 0)
 				{
 					int i1, i2;
-					double l;
+					double l;					
 					stepSize = abs(PStop - PStart);
-					std::complex<double> n;
+					std::complex<double> n;					
 					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
 					else n = S.nS;
 					for (int i = 0; i < S.nDet; i++)
 					{
-						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
-							if ((l <= stepSize) && (l > 0)) S.Det[i]->D[i1][i2] += EStart * exp(I * ray->k0 * n * l);
+                        if (S.Det[i]->cross(PStart, kin, i1, i2, l))
+						{            
+							  //  std::cout << "l=" << l << std::endl;
+							    if (abs(PStop-PStart)>l)
+								{
+							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
+								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
+								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
+							  // std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
+								}
+//								
+						}
 					}
 				}
-
-				if (abs(PStart - PStop) / S.r0 < 1E-10)
+			    // do we use tubed ray and is there a phase jump to be considered? 
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
 				{
-					Abbruch = true;
-					lost++;
+					hray2 = *(tubedRay*)ray;
+					pjump = hray2.pjump(hray1.P, hray2.P, CP);
 				}
 
+				
+				if ((S.raytype == LIGHTSRC_RAYTYPE_RAY) && (!S.suppress_phase_progress))
+				{
+					((tubedRay*)ray)->E[4] *= exp(I * pjump);
+				}
+
+			/*	if (abs(PStart - PStop) / S.r0 < 10.0 * std::numeric_limits<double>::min()) // if the step is less than 1E-10 times the world radius the program assumes, that the ray hasn't moved => stop calculation
+				{
+					Abbruch = true;
+					lost++;					
+				}*/
+				
 				if (!Abbruch)
 				{
-					if (ray->isInObject()) // Strahl befindet sich im Objekt
-					{
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+					if (ray->isInObject()) // Is the ray inside an object ?
+					{						
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
 						else
 						{
-							copyRay(tray, ray);
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+							ray->status = RAYBASE_STATUS_NONE;
+						    copyRay(tray, ray);			
+							//std::cout << "n=" << S.Obj[objIndex]->n << "\t";
+							//std::cout << ray->getk() << "\t"<< PStart << "\t" << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);							
 						}
+
 						kref = ray->getk();
 						ktrans = tray->getk();
+
 						if (S.raytype == LIGHTSRC_RAYTYPE_PRAY)
 						{
 							PowRef = ((Ray_pow*)ray)->Pow;
 							PowTrans = ((Ray_pow*)tray)->Pow;
 						}
+						currentObj = objIndex;
 						traceLeaveObject();
-						int tReflexions = 0;
-						currentObj = ray->objIndex;
-						traceOneRay(tray, tReflexions, recur);
-
+						int tReflexions = Reflexions;
+						hObj=currentObj;
+						if (tray->status!=RAYBASE_STATUS_TIR)  traceOneRay(tray, Reflexions, recur);
+						Reflexions = tReflexions;
+						currentObj=hObj;
 						Reflexions++;
 						//delete tray;
 					}
 					else
-						if (objIndex > -1)
-						{
+						if (objIndex > -1) // an object was hit
+						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+                              //    std::cout << "n=" << n << std::endl;
+						    // std::cout << PStop << "\t" << n << std::endl;
+			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
@@ -166,9 +212,10 @@ namespace GOAT
 							}
 							else
 							{
-								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								copyRay(tray, ray);								
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);																
 							}
+
 							kref = ray->getk();
 							ktrans = tray->getk();
 							currentObj = objIndex;
@@ -178,11 +225,18 @@ namespace GOAT
 								PowTrans = ((Ray_pow*)tray)->Pow;
 							}
 							traceEnterObject();
-							int tReflexions = 0;
-							traceOneRay(tray, Reflexions, recur);
-							//delete tray;
+							ray->status = RAYBASE_STATUS_NONE;
+							tray->status = RAYBASE_STATUS_NONE;
+							int tReflexions = 1;
+							hObj=currentObj;
+							if (tray->status != RAYBASE_STATUS_TIR)
+							{
+								tReflexions = Reflexions;								
+								traceOneRay(tray, Reflexions, recur);
+								Reflexions = tReflexions;
+							}
+							currentObj=hObj;
 							Reflexions++;
-							Abbruch = true;
 						}
 						else
 						{
@@ -190,7 +244,8 @@ namespace GOAT
 							Abbruch = true;
 						}
 				}
-				if (tray != 0) { delete tray; tray = 0; }
+				if (tray != 0) { delete tray; tray = 0; }			
+
 			}
 		}
 
@@ -271,8 +326,8 @@ namespace GOAT
 				L[j] = maths::dzero;
 				for (int i = 0; i < S.nLS; i++)
 				{
-					F[j] += f[i][j] / I * S.LS[i]->P0 * real(S.nS) / c_light;
-					L[j] += l[i][j] * 1E-6 / I * S.LS[i]->P0 * real(S.nS) / c_light;
+					F[j] += f[i][j] / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
+					L[j] += l[i][j] * 1E-6 / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
 				}
 			}
 			for (int i = 0; i < S.nLS; i++)
@@ -317,31 +372,40 @@ namespace GOAT
 		Scene::Scene()
 		{
 			nLS = 0;
-			LS = 0;
 			nObj = 0;
-			Obj = 0;
-			r0 = DBL_MAX;
-			nS = 1.0;
-			raytype = LIGHTSRC_RAYTYPE_RAY;
-			LS = 0;
+			nS = 1.0;			
 			LSRRT = 0;
 			nDet = 0;
+		}
+
+		void Scene::setPhaseProgress(bool suppress_phase_progress)
+		{
+			this->suppress_phase_progress = suppress_phase_progress;
+			for (int i = 0; i < nLS; i++)
+				LS[i]->suppress_phase_progress = suppress_phase_progress;
 		}
 
 
 		void Scene::addObject(ObjectShape* obj)
 		{
-			if (nObj == 0)
-				Obj = (ObjectShape**)malloc(sizeof(ObjectShape*));
-			else
-				Obj = (ObjectShape**)realloc(Obj, sizeof(ObjectShape*) * (nObj + 1));
-			Obj[nObj] = obj;
+			
 			obj->r0 = r0;
 			obj->initQuad();
+			Obj.push_back(obj);
+			int intersect = -1;
+		//	std::cout << "pul=" << obj->pul << "   por=" << obj->por << "  P=" << obj->P << std::endl;
+			if (obj->isOutsideWorld())
+				std::cerr << "Object " << nObj << " might be (partly) outside the calculation space, please check!" << std::endl;
+			for (int i = 0; (i < nObj) && (intersect==-1); i++)
+				if (intersectionTest(*Obj[i], *obj)) intersect = i;
+			if (intersect > -1) std::cerr << "Object " << nObj << " may intersect with object " << intersect << " - Please check !" << std::endl;
+			// add Object to light source(s) 
+			for (int i = 0; i < nLS; i++)
+				LS[i]->addObject(obj); 
 			nObj++;
 		}
 
-		void Scene::addObjectList(int nobj, ObjectShape** obj)
+		void Scene::addObjectList(int nobj, std::vector< ObjectShape*> obj)
 		{
 			for (int i = 0; i < nobj; i++)
 				addObject(obj[i]);
@@ -351,7 +415,8 @@ namespace GOAT
 		{
 			if (nObj > 0)
 			{
-				free(Obj);
+				Obj.clear();
+				Obj.shrink_to_fit();
 				for (int i = 0; i < nLS; i++)  // remove objects from all light sources
 					LS[i]->clearObjects();
 				nObj = 0;
@@ -369,13 +434,26 @@ namespace GOAT
 			}
 		}
 
+		void Scene::removeObject(ObjectShape* obj)
+		{
+			for (std::vector<raytracing::ObjectShape*>::iterator it = Obj.begin(); it != Obj.end(); ++it)
+				if (*it == obj)
+				{
+					delete* it;
+					Obj.erase(it);
+					break;
+				}
+			nObj = Obj.size();
+		}
+
 
 		void Scene::addLightSource(LightSrc* ls, int raytype)
 		{
-			if (nLS == 0)
+			/*if (nLS == 0)
 				LS = (LightSrc**)malloc(sizeof(LightSrc));
 			else
-				LS = (LightSrc**)realloc(LS, sizeof(LightSrc) * (nLS + 1));
+				LS = (LightSrc**)realloc(LS, sizeof(LightSrc) * (nLS + 1));*/
+			LS.push_back(ls);
 			/*
 				switch (ls->type)
 				{
@@ -383,12 +461,14 @@ namespace GOAT
 				case LIGHTSRC_SRCTYPE_GAUSS: LS[nLS] = new LightSrcGauss(*(LightSrcGauss*)ls); break;
 				}
 				*/
-			LS[nLS] = ls;
+			
+			// LS[nLS] = ls;
 			LS[nLS]->clearObjects();
 			if (nObj > 0) LS[nLS]->ObjectList(nObj, Obj);
 			LS[nLS]->raytype = raytype;
 			LS[nLS]->setR0(r0);
 			LS[nLS]->setN0(nS);
+			LS[nLS]->suppress_phase_progress = suppress_phase_progress;		
 			nLS++;
 		}
 
@@ -407,7 +487,9 @@ namespace GOAT
 		{
 			if (nLS > 0)
 			{
-				free(LS);
+			   //  free(LS);
+				LS.clear();
+				LS.shrink_to_fit();
 				nLS = 0;
 			}
 		}
@@ -431,7 +513,7 @@ namespace GOAT
 			LSRRT->Pol2 = Pol2;
 		}
 
-		void Scene::addLightSourceList(int nls, LightSrc** ls)
+		void Scene::addLightSourceList(int nls, std::vector<LightSrc*> ls)
 		{
 			for (int i = 0; i < nls; i++)
 			{
@@ -442,15 +524,11 @@ namespace GOAT
 
 		void Scene::addDetector(Detector* D)
 		{
-			if (nDet == 0)
-				Det = (Detector**)malloc(sizeof(Detector));
-			else
-				Det = (Detector**)realloc(Det, sizeof(Detector) * (nDet + 1));
-			Det[nDet] = D;
+			Det.push_back(D);
 			nDet++;
 		}
 
-		void Scene::addDetectorList(int nDet, Detector** D)
+		void Scene::addDetectorList(int nDet, std::vector<Detector *> D)
 		{
 			for (int i = 0; i < nDet; i++) addDetector(D[i]);
 		}
@@ -467,8 +545,9 @@ namespace GOAT
 			{
 				/*for (int i = 0; i < nDet; i++)
 					delete Det[i];*/
-				free(Det);
-				nDet = 0;
+				Det.clear();
+				Det.shrink_to_fit();
+;				nDet = 0;
 			}
 		}
 
@@ -512,6 +591,11 @@ namespace GOAT
 			this->nSRRT = nS;
 		}
 
+		void Scene::setNumReflex(int numReflex)
+		{
+			this->nReflex = numReflex;
+		}
+
 		Scene::Scene(const Scene& S)
 		{
 			LSRRT = S.LSRRT;
@@ -524,6 +608,9 @@ namespace GOAT
 			raytype = S.raytype;
 			Det = S.Det;
 			nDet = S.nDet;
+			suppress_phase_progress = S.suppress_phase_progress;
+			NumCellsPerDir = S.NumCellsPerDir;
+			nReflex = S.nReflex;
 		}
 
 		void Scene::setRaytype(int raytype)
@@ -539,8 +626,8 @@ namespace GOAT
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 				{
-					LS[i]->clearObjects();
-					LS[i]->ObjectList(nObj, Obj);
+				/*	LS[i]->clearObjects();
+					LS[i]->ObjectList(nObj, Obj); */
 					LS[i]->reset();
 				}
 		}
@@ -548,6 +635,10 @@ namespace GOAT
 		int Scene::testLS()
 		{
 			return -1;
+		}
+
+		void Raytrace::reset()
+		{
 		}
 
 		Raytrace_Path::Raytrace_Path() : Raytrace()
@@ -562,7 +653,7 @@ namespace GOAT
 
 		void Raytrace_Path::trace(std::string FName)
 		{
-			//S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
+			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			os.open(FName);
 			storeInFile = true;
 			Raytrace::trace();
@@ -571,15 +662,12 @@ namespace GOAT
 
 		void Raytrace_Path::trace()
 		{
+			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
 			storeInFile = false;
-			if (numRays > 0)
-			{
-				if (P1 != 0) free(P1);
-				if (P2 != 0) free(P2);
-			}
-			numRays = 0;
+			P1.clear();
+			P2.clear();
 			Raytrace::trace();
-			numRays--;
+			numRays = static_cast<int>(P1.size());
 		}
 
 		void Raytrace_Path::setShowOutgoingRays(bool show)
@@ -608,18 +696,8 @@ namespace GOAT
 				os << PStart << "\t" << PStop << std::endl;
 			else
 			{
-				if (numRays == 0)
-				{
-					P1 = (maths::Vector<double> *) malloc(sizeof(maths::Vector<double>));
-					P2 = (maths::Vector<double> *) malloc(sizeof(maths::Vector<double>));
-				}
-				else
-				{
-					P1 = (maths::Vector<double> *) realloc(P1, sizeof(maths::Vector<double>) * (numRays + 1));
-					P2 = (maths::Vector<double> *) realloc(P2, sizeof(maths::Vector<double>) * (numRays + 1));
-				}
-				P1[numRays] = PStart;
-				P2[numRays] = PStop;
+				P1.push_back(PStart);
+				P2.push_back(PStop);
 				numRays++;
 			}
 		}

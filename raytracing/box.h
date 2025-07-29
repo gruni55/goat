@@ -3,16 +3,16 @@
 #include <iostream>
 
 
-/**  
-* @brief class which represents a box (cuboid). It is derived by class ObjectShape    
-* This class is mainly used for the octree calculation. 
-*/
 
 
 namespace GOAT
 {
 	namespace raytracing
 	{
+		/**
+		* @brief class which represents a box (cuboid). It is derived by class ObjectShape
+        * This class is mainly used for the octree calculation, but can also be used for general purposes
+		*/
 		class Box :
 			public ObjectShape
 		{
@@ -44,6 +44,13 @@ namespace GOAT
 				const maths::Vector<double> Ex = maths::ex,
 				const maths::Vector<double> Ey = maths::ey,
 				const maths::Vector<double> Ez = maths::ez);
+			/**
+			* This constructor is mainly intented for internal use in the octree algorithm, therefore the refractive index is not set (it keeps on the default value). The Box is defined by two opposite corners (minimal and maximal x,y and z coordinates) stored 
+			* in the vectors bound0 and bound1. Location vector p is set to zero. isOctree will be set to true
+			* \param bound0 corner with the lowest x,y and z coordinates
+			* \param bound1 corner with the highest x,y and z coordinates
+			*/
+			Box(const maths::Vector<double> bound0, const maths::Vector<double> bound1); 
 			~Box(); ///< destructor
 			void binWrite(std::ofstream& os);  ///< writes object to a binary file
 			void binRead(std::ifstream& is);   ///< reads object from a binary file
@@ -68,8 +75,11 @@ namespace GOAT
 				P = r;
 				bounds[0] = P - d / 2.0;
 				bounds[1] = P + d / 2.0;
+				pul = bounds[0];
+				por = bounds[1];
 			}
 			void setPos(double x, double y, double z) { setPos(maths::Vector<double>(x, y, z)); } ///< sets the position P and the corresponding bounds
+			maths::Vector<double> getD() const { return d; } ///< getthe Size of the box as a vector with its edge lenghts
 			void setD(maths::Vector<double> D) ///< sets the extensions in x-, y- and z-direction
 			{
 				d = D;
@@ -77,11 +87,13 @@ namespace GOAT
 				bounds[1] = P + d / 2.0;
 			}
 
-			maths::Vector<double> bounds[2];  ///< positions of the two opposite corners  
+			
+
+			maths::Vector<double> bounds[2];  ///< positions of the two opposite corners  (with box in the center)
 			maths::Vector<double> d; ///< extensions of the box in x-, y- and z-direction
 			maths::Vector<double> diag[3]; ///< diagonal 
 			maths::Vector<double> calcCoM() { return maths::dzero; }
-			void setOctree(bool isOctree) { this->isOctree = isOctree; } ///< box belongs to an octree calculation
+			void setOctree(bool isOctree) { this->isOctree = isOctree; } ///< box belongs to an octree calculation		
 		};
 
 		std::ostream& operator<< (std::ostream& os, Box B); ///< output operator for the Box class

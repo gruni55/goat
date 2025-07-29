@@ -1,0 +1,26 @@
+\doxysection{raytracing/gridentry.h File Reference}
+\hypertarget{gridentry_8h}{}\label{gridentry_8h}\index{raytracing/gridentry.h@{raytracing/gridentry.h}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{GOAT\+::raytracing\+::grid\+Entry}}
+\begin{DoxyCompactList}\small\item\em Structure which holds all steps from the light source to the grid point In this structure every step is stored from the light source to the grid point and additonally the electric field at the grid point. For the electric field determination, only the Fresnel matrices, which describes the interaction between the ray and the object\textquotesingle{}s surface, will be considered This structure is needed within the ultrashort pulse calculation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{GOAT\+::raytracing\+::step\+Entry}}
+\begin{DoxyCompactList}\small\item\em Structure to store the information about one raytracing step In this structure, the information about a single raytracing step is stored. It is used within the ultrashort pulse calculation process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab46854f36d1a43ea458ce4fddd41002a}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} \&ge)
+\item 
+std\+::ostream \& \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8600fec99ef4bc330ac28608d6de80df}{GOAT\+::raytracing\+::operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry}} \&se)
+\begin{DoxyCompactList}\small\item\em operator \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} Output operator for the \doxylink{struct_g_o_a_t_1_1raytracing_1_1step_entry}{step\+Entry} structure \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -1,5 +1,6 @@
 #include "box.h"
 #include <limits>
+#include<cfloat>
 
 constexpr double FloatInf = std::numeric_limits<double>::infinity();
 
@@ -30,6 +31,7 @@ namespace GOAT
 			calcDiag();
 			type = OBJECTSHAPE_BOX;
 			isOctree = B.isOctree;
+			initQuad();
 		}
 
 		Box::Box(const maths::Vector<double>& P,
@@ -41,12 +43,26 @@ namespace GOAT
 			const maths::Vector<double> Ey,
 			const maths::Vector<double> Ez) : ObjectShape(P, n, alpha, Ex, Ey, Ez)
 		{
-			bounds[0] = P - d / 2.0;
-			bounds[1] = P + d / 2.0;
+			bounds[0] = -1.0 * d / 2.0;
+			bounds[1] = d / 2.0;
+			pul = bounds[0];
+			por = bounds[1];
 			this->d = d;
 			this->r0 = r0;
 			type = OBJECTSHAPE_BOX;
+			initQuad();
 			calcDiag();
+		}
+
+		Box::Box(const maths::Vector<double> bound0, const maths::Vector<double> bound1)
+		{
+			bounds[0] = bound0;
+			bounds[1] = bound1;
+			this->isOctree = true;
+			d = maths::Vector<double>(fabs(bound1[0] - bound0[0]), fabs(bound1[1] - bound0[1]), fabs(bound1[2] - bound0[2]));
+			calcDiag();
+			type = OBJECTSHAPE_BOX;
+			initQuad();
 		}
 
 
@@ -74,6 +90,8 @@ namespace GOAT
 			d.binWrite(os);
 			bounds[0].binWrite(os);
 			bounds[1].binWrite(os);
+			pul = P + bounds[0];
+			por = P + bounds[1];
 		}
 
 		void Box::binRead(std::ifstream& is)
@@ -105,8 +123,8 @@ namespace GOAT
 			double sfold = this->sf;
 			this->sf = sf;
 			d = d * sf / sfold;
-			bounds[0] = P - d / 2.0;
-			bounds[1] = P + d / 2.0;
+			bounds[0] = - d / 2.0;
+			bounds[1] = d / 2.0;
 			calcDiag();
 			initQuad();
 		}
@@ -265,40 +283,95 @@ namespace GOAT
 		}
 		*/
 
-#define BOX_EPS 1E-10
+ #define BOX_EPS 1E-10
+// #define BOX_EPS DBL_MIN
 
+		/*
 		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
 		{
+			bool inside = true;
+			char quadrant[3];
+			int i;
+			int whichPlane;
+			double lnew;
+			double lmin;
+			double candidatePlane[3];
 			maths::Vector<double> k = H * K;
-			maths::Vector<double> p = H * (ps - P);
+			maths::Vector<double> p = H * (ps - P); // gefährlich, muss man nochmal überprüfen
 
+			// first, find the candidate planes in the corresponding directions
+			for (i = 0; i < 3; i++)
+				if (p[i] < bounds[0][i])
+				{
+					candidatePlane[i] = bounds[0][i];
+				}
+				else
+					if (p[i] < bounds[1][i])
+					{
+						if (k[i] < 0) candidatePlane[i] = bounds[0][i];
+						else candidatePlane[i] = bounds[1][i];
+					}
+					else candidatePlane[i] = bounds[1][i];
+
+			lmin = -1;
+
+			if (k[0] != 0) lmin = (candidatePlane[0] - p[0]) / k[0];
+			if (k[1] != 0)
+			{
+				lnew = (candidatePlane[1] - p[1]) / k[1];
+				if ((lnew < lmin) || (lmin <= DBL_MIN)) lmin = lnew;
+			}
+			if (k[2] != 0)
+			{
+				lnew = (candidatePlane[2] - p[2]) / k[2];
+				if ((lnew < lmin) || (lmin <= DBL_MIN)) lmin = lnew;
+			}
+
+			if ( (lmin <= DBL_MIN) || (lmin>2.0*r0) )
+			{
+				pout = ps;
+				return false;
+			}
+		
+			pout = ps + K * lmin;
+			return true;
+		}*/
+		
+		bool Box::next(const maths::Vector<double>& ps, const maths::Vector<double>& K, maths::Vector<double>& pout)
+		{
+			maths::Vector<double> b[2];
+			b[0] = bounds[0] - P;
+			b[1] = bounds[1] - P;
+
+			maths::Vector<double> k = H * K;
+			maths::Vector<double> p = H * (ps-P); // gefährlich, muss man nochmal überprüfen
 			double tmin, tmax;
 			if (k[0] >= 0)
 			{
-				tmin = (bounds[0][0] - p[0]) / k[0];
-				tmax = (bounds[1][0] - p[0]) / k[0];
+				tmin = (b[0][0] - p[0]) / k[0];
+				tmax = (b[1][0] - p[0]) / k[0];
 			}
 			else
 			{
-				tmin = (bounds[1][0] - p[0]) / k[0];
-				tmax = (bounds[0][0] - p[0]) / k[0];
+				tmin = (b[1][0] - p[0]) / k[0];
+				tmax = (b[0][0] - p[0]) / k[0];
 			}
 
 			double tymin, tymax;
 			if (k[1] >= 0)
 			{
-				tymin = (bounds[0][1] - p[1]) / k[1];
-				tymax = (bounds[1][1] - p[1]) / k[1];
+				tymin = (b[0][1] - p[1]) / k[1];
+				tymax = (b[1][1] - p[1]) / k[1];
 			}
 			else
 			{
-				tymin = (bounds[1][1] - p[1]) / k[1];
-				tymax = (bounds[0][1] - p[1]) / k[1];
+				tymin = (b[1][1] - p[1]) / k[1];
+				tymax = (b[0][1] - p[1]) / k[1];
 			}
 
 			//        cout << ps << "    " << tmin << "  " << tymax << "   " << tymax << "   " << tymin << "   " << tmax << endl; 
 
-			if ((tmin > tymax) || (tymin > tmax)) { pout = ps; return false; }
+			if (((tmin > tymax) || (tymin > tmax)) ) { pout = ps; return false; }
 
 			if (tymin > tmin) tmin = tymin;
 			if (tymax < tmax) tmax = tymax;
@@ -306,33 +379,38 @@ namespace GOAT
 			double tzmin, tzmax;
 			if (k[2] >= 0)
 			{
-				tzmin = (bounds[0][2] - p[2]) / k[2];
-				tzmax = (bounds[1][2] - p[2]) / k[2];
+				tzmin = (b[0][2] - p[2]) / k[2];
+				tzmax = (b[1][2] - p[2]) / k[2];
 			}
 			else
 			{
-				tzmin = (bounds[1][2] - p[2]) / k[2];
-				tzmax = (bounds[0][2] - p[2]) / k[2];
+				tzmin = (b[1][2] - p[2]) / k[2];
+				tzmax = (b[0][2] - p[2]) / k[2];
 			}
-			if ((tmin > tzmax) || (tzmin > tmax)) { pout = ps; return false; }
-			if (tzmin > tmin) tmin = tzmin;
-			if (tzmax < tmax) tmax = tzmax;
-			if (tmin > BOX_EPS)
+			if (((tmin > tzmax) || (tzmin > tmax)) ) { pout = ps; return false; }
+			if (k[2] != 0)
 			{
+				if (tzmin > tmin) tmin = tzmin;
+				if (tzmax < tmax) tmax = tzmax;
+			}
+			if (tmin > BOX_EPS)
+			{				
 				pout = ps + K * tmin;
+			//	std::cout << ps << "\t tmax2=" << tmin << std::endl;
 				return true;
 			}
 
 			if (tmax > BOX_EPS)
 			{
 				pout = ps + K * tmax;
+			//	std::cout << ps << "\t tmax2=" << tmax << std::endl;
 				return true;
 			}
 
 			pout = ps;
 			return false;
 		}
-
+		
 		/*
 		 double tnear=-INFINITY;
 		 double tfar = INFINITY;
@@ -446,20 +524,13 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 	maths::Vector<double>p = ps - P;
 			p = H * p;
-			/*	if (fabs(p[0] - d[0] / 2.0) < EPS) { cout << "n=" << ex << endl; return ex; }
-				if (fabs(p[0] + d[0] / 2.0) < EPS) { cout << "n=" << -ex << endl; return -ex; }
-				if (fabs(p[1] - d[1] / 2.0) < EPS) { cout << "n=" << ey << endl; return  ey; }
-				if (fabs(p[1] + d[1] / 2.0) < EPS) { cout << "n=" << -ey << endl; return -ey; }
-				if (fabs(p[2] - d[2] / 2.0) < EPS) { cout << "n=" << ez << endl; return ez; }
-				if (fabs(p[2] + d[2] / 2.0) < EPS) { cout << "n=" << -ez << endl; return -ez;  } */
-
+  
 			if (fabs(p[0] - d[0] / 2.0) < EPS) return R * maths::ex;
 			if (fabs(p[0] + d[0] / 2.0) < EPS) return -R * maths::ex;
 			if (fabs(p[1] - d[1] / 2.0) < EPS) return  R * maths::ey;
 			if (fabs(p[1] + d[1] / 2.0) < EPS) return -R * maths::ey;
 			if (fabs(p[2] - d[2] / 2.0) < EPS) return R * maths::ez;
 			if (fabs(p[2] + d[2] / 2.0) < EPS) return -R * maths::ez;
-			//        cout << "n=" << zero << "   ps=" << ps << "   p=" << p << "   d=" << d << "    p[0] - d[0] / 2.0=" << p[0] - d[0] / 2.0 << endl;
 			return maths::one;
 		}
 
@@ -477,8 +548,11 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		{
 			maths::Vector<double> b0 = H * bounds[0];
 			maths::Vector<double> b1 = H * bounds[1];
-			por = maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2])) + P;
-			pul = maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2])) + P;
+		    /*por = P + maths::Vector<double>(std::max(b0[0], b1[0]), std::max(b0[1], b1[1]), std::max(b0[2], b1[2]));
+			pul = P + maths::Vector<double>(std::min(b0[0], b1[0]), std::min(b0[1], b1[1]), std::min(b0[2], b1[2]));*/
+
+			por = P + maths::Vector<double>(d[0] / 2.0, d[1] / 2.0, d[2] / 2.0);
+			pul = P - maths::Vector<double>(d[0] / 2.0, d[1] / 2.0, d[2] / 2.0);
 		}
 
 		void Box::setr0(double r0)
@@ -491,6 +565,7 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 			this->r0 = r0;
 		}
 
+		
 		std::ostream& operator<< (std::ostream& os, Box B)
 		{
 			os << B.P << "  " << B.d << std::endl;

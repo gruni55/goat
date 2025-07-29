@@ -18,15 +18,22 @@
 #include "matrix.h"
 #include "vector.h"
 
-#include "resutil.h"
 #include <fstream>
 // #include <time.h>
 namespace GOAT {
     namespace raytracing {
 #define OBJECTSHAPE_NO_SHAPE    -1  //F/< No shape defined
-#define OBJECTSHAPE_ELLIPSOID    0  ///< Shape is ellipsoid 
-#define OBJECTSHAPE_SURFACE      1 ///< Shape is triangulated surface
-#define FUNSURF      2  
+#define OBJECTSHAPE_ELLIPSOID     10000  ///< Shape is an ellipsoid 
+#define OBJECTSHAPE_SURFACE       10001 ///< Shape is triangulated surface
+#define OBJECTSHAPE_CONE          10002 ///< Shape is a cone
+#define OBJECTSHAPE_ASPHERIC_LENS 10003 ///< Shape is an aspheric lens
+#define OBJECTSHAPE_SPHERIC_LENS  10004 ///< Shape is a spheric lens
+#define OBJECTSHAPE_BOX           10005 ///< Shape is a box  
+#define OBJECTSHAPE_CYLINDER      10006 ///< Shape is a cylinder
+#define OBJECTSHAPE_VORTEX_PLATE  10007 ///< Shape is a vortex plate
+
+
+#define FUNSURF          2  
 #define SUPERELLIPSOID_D 17 
 #define SUPERELLIPSOID   4
 #define ZYLINDER     5
@@ -41,7 +48,7 @@ namespace GOAT {
 #define NINCTYPES    14
 #define LINSE	     15
 #define ZYLINDER_HEXAGONAL 16
-#define OBJECTSHAPE_BOX         3
+#define BOX         3
 #define EPS 1E-10*r0
 
 
@@ -59,7 +66,7 @@ namespace GOAT {
             @brief Constructor, as template for all derived classes.
             @param P position of the object (reference point)
             @param n refractive index (complex)
-            @alpha polarisabilty matrix#include "raytrace.h"
+            @alpha polarizability matrix
             @param Ex, Ey, Ez direction of the object's coordinate system (default values: ex, ey and ez)
             @type  type of the object, defines the shape (default value: -1, no shape)
             */
@@ -75,7 +82,7 @@ namespace GOAT {
 
             virtual void binWrite(std::ofstream& os) = 0;                    ///< binary writing to file   
             virtual void binRead(std::ifstream& os) = 0;                     ///< binary reading from file
-            virtual void scale(double sf) = 0;                                ///< sets scaling of the shape by the factor sf
+            void scale(double sf);                                ///< sets scaling of the shape by the factor sf
             virtual bool next(const maths::Vector<double>& p, const maths::Vector<double>& k,
                 maths::Vector<double>& pout) = 0; ///< searches for the next (nearest) intersection of a ray with the object, p: current position of the ray, k: direction of the ray, pout: position of the crossing point. Returns true, if a crossing point was found.
 
@@ -85,7 +92,7 @@ namespace GOAT {
 
             void setCenter(maths::Vector<double> P);                                ///< sets Center to P (check, if function is necessary)
             void setCenter2CoM(); ///< Calculates the center of mass (CoM) and sets the object's reference point to the CoM
-
+            bool isOutsideWorld(); ///< Test if bounding box is (partly) outside the calculation space
             int Type() { return type; }                                         ///< returns the object's type
             virtual void initQuad() = 0;                                      ///< calculates the circumferent cuboid (needed e.g. for the inelastic scattering calculations)
             virtual  void setr0(double r0) = 0;                                 ///< defines the radius of the calculation sphere
@@ -101,11 +108,13 @@ namespace GOAT {
             std::complex<double> getninel() { return ninel; }                      ///< returns refractive index
             std::complex<double> getn() { return n; }                              ///< returns refractive index for inelastic (RRT) calculation
             void setPolMatrix(maths::Matrix<std::complex<double> >alpha) { this->alpha = alpha; }   ///< sets polarisability matrix
-            bool isActive() { return inelactive; }                                 ///< returns true if the object should be considered for inelastic calculation
-            void setActive(bool active) { inelactive = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
+            bool isActive() { return Active; }                                 ///< returns true if the object should be considered for inelastic calculation
+            void setActive(bool active) { Active = active; }                      ///< sets flag if the object is inelastic active, i.e. it will be considered for inelastic calculation   
             void setAlpha(double Alpha) { setMatrix(Alpha, Ebeta, Egamma); }   ///< sets rotation angle around x-axis
             void setBeta(double Beta) { setMatrix(Ealpha, Beta, Egamma); }     ///< sets rotation angle around y-axis 
             void setGamma(double Gamma) { setMatrix(Ealpha, Ebeta, Gamma); }   ///< sets rotation angle around z-axis
+            void setVisible(bool visible) { this->visible = visible; } ///< set visiblity (used in GOATvis)
+            bool getVisible() { return visible; } ///< show the visiblity state (used in GOATvis)
             maths::Vector<double> P;                       ///< position of the object
             maths::Matrix<double> H, R;                     ///< matrices for the transformation in the local coordinate system (H) and back to the calculation system (R)
             std::complex<double>  n;                ///< refractive index of the object
@@ -116,12 +125,19 @@ namespace GOAT {
             maths::Vector<double> e[3];        ///< unity vectors, describing the directions of the local coordinate system
             double Ealpha, Ebeta, Egamma; ///< angles through which the object was rotated (around the x- (Ealpha), then the y- (Ebeta) and finally the z-axis (Egamma))
             double r0;                  ///< radius of the calculation sphere 
-            double sf;         ///< scaling factor, it is used to scale the shape of the object     
-            bool inelactive;   ///< should the object be considered for inelastic (RRT) calculations?
+            double sf=1;         ///< scaling factor, it is used to scale the shape of the object     
+            bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
             double rho;        ///< mass density in \f$ kg/m^3 \f$
+            /*
+            * @brief Used in the visualization part (GOATvis) => if true object will be visualized
+            * If this parameter is true, GOATvis will show the full representation of the object in the scene dialog otherwise only the bounding box is shown.
+            * This parameter can be used e.g. for very heavy surface object to safe memory.
+            */
+            bool visible=true; 
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
+        bool intersectionTest(ObjectShape& A, ObjectShape& B); ///< Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other) 
     }
 }
 

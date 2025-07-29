@@ -53,30 +53,32 @@ namespace GOAT
 			}
 		}
 
-		void copyFormList(ObjectShape**& d, ObjectShape** s, int anz)
+		void copyFormList(std::vector<ObjectShape*>& d, std::vector<ObjectShape*> s, int anz)
 		{
 			/*
 			  Kopiert die Einschluss-Liste s in die neue Liste d
 			*/
 			//	cout << "COPY OBJECT LIST" << endl;
-			if ((anz > 0) && (s != 0))
+			ObjectShape* os;
+			if ((anz > 0) && (!s.empty() ))
 			{
-				d = (ObjectShape**)malloc(sizeof(ObjectShape*) * anz);
 				for (int i = 0; i < anz; i++)
 				{
 					switch (s[i]->type)
 					{
-					case OBJECTSHAPE_ELLIPSOID: d[i] = new Ellipsoid(*((Ellipsoid*)s[i])); break;
-					case OBJECTSHAPE_SURFACE: d[i] = new surface(*((surface*)s[i])); break;
-					case OBJECTSHAPE_BOX: d[i] = new Box(*((Box*)s[i])); break;
+					case OBJECTSHAPE_ELLIPSOID: os = new Ellipsoid(*((Ellipsoid*)s[i])); break;
+					case OBJECTSHAPE_SURFACE: os = new surface(*((surface*)s[i])); break;
+					case OBJECTSHAPE_BOX: os = new Box(*((Box*)s[i])); break;
 					}
-					d[i]->initQuad();
+
+					os->initQuad();
+					d.push_back(os);
 					//   sprintf (d[i]->Beschreibung,"%s",s[i]->Beschreibung); 
 				}
 			}
 		}
 
-		void binWriteIncList(std::ofstream& os, ObjectShape** E, int anz)
+		void binWriteIncList(std::ofstream& os, std::vector<ObjectShape*>E, int anz)
 		{
 			os.write((char*)&anz, (char)sizeof(anz));
 			if (anz > 0)
@@ -95,20 +97,20 @@ namespace GOAT
 			}
 		}
 
-		void binReadIncList(std::ifstream& is, ObjectShape**& E, int anz)
+		void binReadIncList(std::ifstream& is, std::vector<ObjectShape*>& E, int anz)
 		{
 			int Anz;
 			is.read((char*)&Anz, (char)sizeof(Anz));
 //			std::cout << "ANZ=" << Anz << std::endl;
+			ObjectShape* os;
 			if (anz > 0)
 			{
-				E = (ObjectShape**)malloc(sizeof(ObjectShape*) * anz);
 				for (int i = 0; i < anz; i++)
 				{
-					binReadInc(is, E[i], true);
+					binReadInc(is, os, true);
+					E.push_back(os);
 				}
-			}
-			else E = 0;
+			}			
 		}
 
 		void binReadInc(std::ifstream& is, ObjectShape*& E, bool isNew)
@@ -201,28 +203,47 @@ namespace GOAT
 			return exp(-I * k0 * r * r / 2.0 / R) * exp(I * (zeta - k0 * z));
 		}
 
+		
 		float readLE_float32(std::istream& is)
 		{
 			char* d;
-			char h;
 			float f;
 			d = (char*)&f;
 			is.read(d, 4);
-			/*h=d[3];
-			d[3]=d[0];
-			d[0]=h;
-			h=d[1];
-			d[1]=d[2];
-			d[2]=h;*/
+			//h=d[3];
+			//d[3]=d[0];
+			//d[0]=h;
+			//h=d[1];
+			//d[1]=d[2];
+			//d[2]=h;
 			return f;
 		}
 
+		uint32_t readLE_uint32(std::istream& is)
+		{
+			unsigned char d[4];
+			is.read(reinterpret_cast<char*>(d), 4);
+			if (is.gcount() != 4) {
+				throw std::runtime_error("Fehler: konnte keine 4 Bytes für uint32 lesen");
+			}
+			return static_cast<uint32_t>(d[0]) |
+				(static_cast<uint32_t>(d[1]) << 8) |
+				(static_cast<uint32_t>(d[2]) << 16) |
+				(static_cast<uint32_t>(d[3]) << 24);
+		}
+
 		int readLE_int32(std::istream& is)
+		{
+			return static_cast<int>(readLE_uint32(is));
+		}
+
+		
+		/*int readLE_int32(std::istream& is)
 		{
 			unsigned char d[4];
 			is.read((char*)d, 4);
 			int i = d[0] + d[1] * 256 + d[2] * 65536 + d[3] * 16777216;
 			return i;
-		}
+		}*/
 	}
 }

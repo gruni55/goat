@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['k_583',['k',['../class_i_ray.html#a75a8efea79e7888408555c2fd1797563',1,'IRay::k()'],['../class_light_src.html#a7dfa787bf399dfd05cebcc5e241fe96d',1,'LightSrc::k()'],['../class_light_src_gauss.html#a3596a5a0eec70e652f574ccabc59e094',1,'LightSrcGauss::k()'],['../structtubed_ray_buffer.html#a6ba767ed4cd2773c7ed1c3da10c38155',1,'tubedRayBuffer::k()'],['../struct_gauss.html#a506b72aadc2ed4f2d4d98b0c99d26fc0',1,'Gauss::k()']]],
-  ['k0_584',['k0',['../class_ray_base.html#a452923470162d5499657d0673d2860e5',1,'RayBase']]],
-  ['kin_585',['kin',['../class_raytrace.html#ac972c3fedfeb290e09a502595945986d',1,'Raytrace']]],
-  ['kref_586',['kref',['../class_raytrace.html#acc67b939c693f1ca3e07c06107cc47c7',1,'Raytrace']]],
-  ['ktrans_587',['ktrans',['../class_raytrace.html#a5b0023c40617973f16512f49f59017e4',1,'Raytrace']]]
+  ['h_0',['H',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a11534d77c465d2dc31b1a3c11b5d2984',1,'GOAT::raytracing::ObjectShape::H'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a6ecd550fcf73453fc1df5811d7879bf3',1,'GOAT::raytracing::SuperArray::H'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a49cbf16738f2841da3b8ca8039e47f93',1,'GOAT::raytracing::SuperGrid::H']]],
+  ['h_1',['h',['../class_g_o_a_t_1_1raytracing_1_1_cylinder.html#a20353aba868a96a664a4ee8a3cea38b6',1,'GOAT::raytracing::Cylinder::h'],['../class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#a3f33cc4ed3820a5ee9819ced4152995d',1,'GOAT::raytracing::VortexPlate::h']]],
+  ['height_2',['height',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#adf529fc0ea872206c2de512f9d3a674e',1,'GOAT::raytracing::Cone']]]
 ];

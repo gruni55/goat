@@ -1,0 +1,55 @@
+\doxysection{raytracing/raytrace\+\_\+inel.h File Reference}
+\hypertarget{raytrace__inel_8h}{}\label{raytrace__inel_8h}\index{raytracing/raytrace\_inel.h@{raytracing/raytrace\_inel.h}}
+{\ttfamily \#include "{}raytrace.\+h"{}}\newline
+{\ttfamily \#include "{}superarray.\+h"{}}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{GOAT\+::raytracing\+::\+Raytrace\+\_\+\+Inel}}
+\begin{DoxyCompactList}\small\item\em Class for calculating inelastic scattering (Raman) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{GOAT\+::raytracing\+::\+RRTParms}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a1eadf92a6f76e3f9640a40e413a34e88}{GOAT\+::raytracing\+::calc\+Det\+Dir\+Parms}} (double theta, double phi, double wvlinel)
+\begin{DoxyCompactList}\small\item\em Calculates the parameters for the detector with help of the spherical coordinates theta and phi This function generates a \doxylink{struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms}{RRTParms} structure for a scattering detection in the direction determined by the spherical coordinates theta and phi. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a66b93943735f5cef623e1040b5f3f158}{GOAT\+::raytracing\+::\+INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a642a0f27308887e6f6ec0ba44e163ad3}{GOAT\+::raytracing\+::\+INEL\+\_\+\+CALCPHASE\+\_\+\+EXCITATION\+\_\+\+ONLY}} =3
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad069c44d8da77fb043df5b3dfc3b5796}{GOAT\+::raytracing\+::\+INEL\+\_\+\+CALCPHASE\+\_\+\+RRT}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa31cf64798301226fdc61731b61d3c0e}{GOAT\+::raytracing\+::\+INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+ABS}} =0
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a91d45c9c1aa31d5e0c51952fe8968b30}{GOAT\+::raytracing\+::\+INEL\+\_\+\+EXPORT\+\_\+\+EXCITATION\+\_\+\+FIELD\+\_\+\+VECTOR}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{GOAT\+::raytracing\+::\+INEL\+\_\+\+MAX\+\_\+\+NREFLEX}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa075e0ea8969172b7e13d605a0450900}{GOAT\+::raytracing\+::\+INEL\+\_\+\+RADIATION\+\_\+\+COHERENT}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a64c897376bb9ecd65abd4744d4552feb}{GOAT\+::raytracing\+::\+INEL\+\_\+\+RADIATION\+\_\+\+INCOHERENT}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac08b3979e5153d9aaaf98a5bb82a5eac}{GOAT\+::raytracing\+::\+INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+FLOURESCENCE}} =1
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a548cd54bead3903260a3bcf856a26a83}{GOAT\+::raytracing\+::\+INEL\+\_\+\+RADIATION\+\_\+\+TYPE\+\_\+\+RAMAN}} =2
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a47f9dd0afb47482398836a52768a03cb}{GOAT\+::raytracing\+::\+INEL\+\_\+\+SAVE\+\_\+\+ABSE}} =1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Here you can find raytracing routines used for inelastic scattering The file provides classes for inelastic scattering, but also for calculating the internal fields inside objects or in the whole calculation sphere 
+
+Definition in file \mbox{\hyperlink{raytrace__inel_8h_source}{raytrace\+\_\+inel.\+h}}.
+

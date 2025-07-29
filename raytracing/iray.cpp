@@ -57,13 +57,7 @@ namespace GOAT
                 }
             }
             found = (a > 0);
-            return found;
-            /*found=true;
-            for (int j=0; (j<=3) && found; j++)
-             for (int i=j+1; (i<=4) && found; i++)
-              found=found && (Index[j]==Index[i]);*/
-              //    isValid=found; 
-
+            return found;           
         }
 
 
@@ -99,7 +93,7 @@ namespace GOAT
         IRay::IRay(const maths::Vector<double>& p,
             const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
             std::complex<double>  n0, double r0, double k0,
-            const int numObj, ObjectShape** obj)
+            const int numObj, std::vector<ObjectShape*> obj)
         {
             double l;
             E1 = maths::czero;
@@ -118,6 +112,7 @@ namespace GOAT
             objIndex = -1;
             OK = maths::dzero;
             isValid = true;
+            suppress_phase_progress = false;
         }
 
 
@@ -138,15 +133,21 @@ namespace GOAT
                 }
 
                 objIndex = Index;
-                E1 = E1 * exp(I * k0 * n * abs(R - P));
-                E2 = E2 * exp(I * k0 * n * abs(R - P));
+                if (!suppress_phase_progress)
+                {
+                    E1 = E1 * exp(I * k0 * n * abs(R - P));
+                    E2 = E2 * exp(I * k0 * n * abs(R - P));
+                }
                 //  this->P=R;
             }
             else
             {
                 found = Obj[objIndex]->next(P, k, R);
-                E1 = E1 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
-                E2 = E2 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                if (!suppress_phase_progress)
+                {
+                    E1 = E1 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                    E2 = E2 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                }
             }
 
             this->P = R;
@@ -172,6 +173,7 @@ namespace GOAT
             alpha = std::acos(nk);
             if (alpha > M_PI / 2.0) { alpha = M_PI - alpha; e2 = -e2; }
             beta = asin((std::complex<double>) real(n1) / real(n2) * sin(alpha));
+            if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
             gamma = real(beta) - alpha;
             //if (real(n2)<real(n1)) { e2=-e2;}
             s = 1.0;
@@ -236,11 +238,13 @@ namespace GOAT
                     Erg.OK = Obj[objIndex]->P;
                     Erg.objIndex = objIndex;
                     Erg.refract(n, n1, n2);
+                    Erg.suppress_phase_progress = suppress_phase_progress;
                     objIndex = -1;
                 } // if objIndex!=-1
                 else // Reflexion an der Partikeloberfläche
                 {
                     Erg = *this;
+                    Erg.suppress_phase_progress = suppress_phase_progress;
                     Erg.inObject = false;
                     Erg.objIndex = -1;
                     Erg.n = n2;

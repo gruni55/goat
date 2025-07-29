@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['detector_314',['Detector',['../class_detector.html',1,'']]],
-  ['detectorplane_315',['DetectorPlane',['../class_detector_plane.html',1,'']]]
+  ['block_0',['Block',['../structtinyxml2_1_1_mem_pool_t_1_1_block.html',1,'tinyxml2::MemPoolT']]],
+  ['box_1',['Box',['../class_g_o_a_t_1_1raytracing_1_1_box.html',1,'GOAT::raytracing']]]
 ];

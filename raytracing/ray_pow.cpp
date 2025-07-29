@@ -12,7 +12,7 @@ namespace GOAT
         Ray_pow::Ray_pow(double pow, const maths::Vector<double>& p,
             const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
             std::complex<double>  n0, double r0, double k0,
-            const int numObjs = 0, ObjectShape** Objs = NULL) : IRay(p, Pol, K, n0, r0, k0, numObjs, Objs)
+            const int numObjs = 0, std::vector<ObjectShape*> Objs = std::vector<ObjectShape*>()) : IRay(p, Pol, K, n0, r0, k0, numObjs, Objs)
         {
             this->Pow = pow;
             E1 = Pol / abs(Pol);
@@ -34,7 +34,7 @@ namespace GOAT
              /* Erst mal die Fresnelmatrix für Reflexion berechnen */
 
             double nk = n * k / (abs(n) * abs(k));
-            double h;
+           
             if (nk < 0) { n = -n; nk = -nk; }
             getKSystem(n, k, e0, e1, e2);
             if (nk > 1.0) nk = 1.0;
@@ -148,6 +148,7 @@ namespace GOAT
             //  cout << "n=" << n << "   nk=" << nk << "   alpha=" << alpha << endl;
             if (alpha > M_PI / 2.0) { alpha = M_PI - alpha; e2 = -e2; }
             beta = asin((std::complex<double>) std::real(n1) / real(n2) * sin(alpha));
+            if (imag(beta) > 1E-10) status = RAYBASE_STATUS_TIR;
             gamma = real(beta) - alpha;
             s = 1.0;
             trafo(e0, e1, e2, H, R);

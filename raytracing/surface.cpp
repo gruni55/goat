@@ -1,10 +1,23 @@
+#pragma message("🧪 surface.cpp wird kompiliert")
+
+#ifdef _OPENMP
+#  pragma message("✅ Kompiliert MIT OpenMP")
+#else
+#  pragma message("❌ Kompiliert OHNE OpenMP")
+#endif
+
+
 #pragma strict_gs_check(on)
 #include "surface.h"
 #include "misc.h"
 #include <stdio.h>
 #include <string.h>
 #include "box.h"
-
+#include <chrono>
+#include <iostream>
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 #define TREE_RECURSIONS 4
 
 
@@ -49,31 +62,24 @@ surface::surface(const surface &Su):ObjectShape(Su)
     
 //  cout << "weiter" << endl;
   initQuad(); 
-  #ifdef WITH_OCTREE
-  maths::Vector<double> pul, por;
-  initBounds(pul,por);
-  maths::Vector<double> d = por - pul;
-  double h = d[0];
-  if (d[1] > h) h = d[1];
-  if (d[2] > h) h = d[2];
- // cout << "pul=" << pul << "   por=" << por << endl;
-/*  cout << "CREATE NEW OCTREE" << endl;
-  cout << "d=" << d << endl;
-  cout << "numTriangles=" << numTriangles << endl;*/
- /* cube = Octree<triangle>::Section(P, d, 1.0, h);
-  Tree.setRootSection(cube);
-  Tree.build(S, numTriangles);*/
-  Tree.BBox = Box(maths::dzero, d, n);
-  Tree.BBox.setOctree(true);
-  Tree.createTree(TREE_RECURSIONS);
-  for (int i = 0; i < numTriangles; i++)
-  {
-	  addTriangleToTriangle(Tree, S[i]);
-  }
-  Tree.trimOctree();
+#ifdef WITH_OCTREE
+maths::Vector<double> pul, por;
+initBounds(pul,por);
+maths::Vector<double> d = por - pul;
+double h = d[0];
+if (d[1] > h) h = d[1];
+if (d[2] > h) h = d[2];
+Tree.BBox = Box(maths::dzero, d, n);
+Tree.BBox.setOctree(true);
+Tree.createTree(TREE_RECURSIONS);
+for (int i = 0; i < numTriangles; i++)
+{
+  addTriangleToTriangle(Tree, S[i]);
+}
+Tree.trimOctree();
 /*  cout << "%TREE Begins ------------------" << endl;
-  cout << Tree << endl;
-  cout << "%TREE END ---------------------" << endl;*/
+cout << Tree << endl;
+cout << "%TREE END ---------------------" << endl;*/
 #endif 
 //     sprintf (FName,"%s",Su.FName);
 
@@ -94,13 +100,13 @@ surface::surface(maths::Vector<double> Oh) : ObjectShape()
 surface::surface(const maths::Vector<double> &P,
                 std::complex<double>  n,
           const maths::Matrix<std::complex<double> > alpha,
-          const maths::Vector<double> &Ex,
-          const maths::Vector<double> &Ey,
-          const maths::Vector<double> &Ez
+          const maths::Vector<double> Ex,
+          const maths::Vector<double> Ey,
+          const maths::Vector<double> Ez
          )
-: ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
+ : ObjectShape (P, n, alpha, Ex, Ey, Ez, OBJECTSHAPE_SURFACE)
 {
- r0=1.0;
+ r0 = 1.0;
   sf=1.0;
   numTriangles=0;
   S=NULL;
@@ -115,12 +121,12 @@ surface::surface(const maths::Vector<double> &P,
                 std::complex<double>  n,
           int anz, triangle* list,
           const maths::Matrix<std::complex<double> > alpha,
-          const maths::Vector<double> &Ex,
-          const maths::Vector<double> &Ey,
-          const maths::Vector<double> &Ez)
+          const maths::Vector<double> Ex,
+          const maths::Vector<double> Ey,
+          const maths::Vector<double> Ez)
 : ObjectShape (P, n, alpha, Ex, Ey, Ez,OBJECTSHAPE_SURFACE)
 {
- trafo (Ex,Ey,Ez,H,R);
+ trafo(Ex, Ey, Ez, H, R);
  this->P=P;
  this->numTriangles=anz;
  S=new triangle[numTriangles];
@@ -140,12 +146,8 @@ surface::surface(const maths::Vector<double> &P,
  for (int i = 0; i < numTriangles; i++)
 	 addTriangleToTriangle(Tree, S[i]);
  // Tree.trimOctree();
- /*cube = Octree<triangle>::Section(P, d, 1.0, h);
- cout << "bounds:" << cube.bounds[0] << "    " << cube.bounds[1] << endl; 
- Tree.setRootSection(cube);
- Tree.build(S, numTriangles);*/
 #endif 
-
+	
 }
 /*
 surface::~surface()
@@ -195,7 +197,7 @@ int surface::createsurface()
 int surface::createsurface(std::string FName)
 {
 	maths::Vector<double> P1, P2, P3;
-
+filetype=filetype=OBJECTSHAPE_SURFACE_FILETYPE_SRF;
    std::ifstream is;
 //  if (this->FName!=0) delete this->FName;
   int Nc = FName.length() + 1;
@@ -232,7 +234,7 @@ maths::Vector<double> por, pul;
 	if (d[1] > h) h = d[1];
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
-		Tree.BBox = Box(Ph, 1.05 * d, this->n);
+		Tree.BBox = Box(Ph, d, this->n);
 		Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
@@ -241,25 +243,28 @@ maths::Vector<double> por, pul;
   return 0;
 }
 
+
+
+#ifndef WITH_OPENMP
 int surface::importBinSTL(std::string FName)
 {
 	std::ifstream is;
-	int dummy;
 	int i,j;
 	int anz;
-	float data;
 	char str[255];
+	char header[80];
 	maths::Vector<double> P1,P2,P3,n;
 	maths::Vector<double> cm;
 	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
-	std::cout << "% Lese:" << FName << std::endl;
+	std::cout << "% (NO OpenMP: Lese:" << FName << std::endl;
 	if (numTriangles!=0) delete[] S;
 
 	is.open (FName, std::ios::binary);
 	if (is.good())
 	{
-	is.read (str,80);
-	anz=readLE_int32(is);
+    filetype=OBJECTSHAPE_SURFACE_FILETYPE_STL;
+	is.read (header,80);
+	anz= readLE_int32(is);
 	//if (this->FName!=0) delete[] this->FName;
 	//this->FName=new char[strlen(FName)+1];
 	// sprintf (this->FName,"%s",FName);
@@ -269,6 +274,7 @@ int surface::importBinSTL(std::string FName)
 	numTriangles=anz;
 	std::cout << "% Lese " << anz << "  Dreiecke" << std::endl;
 
+	
 	for (i=0; i<anz && !is.eof(); i++)
 	{
 		// is.read(str,12);  // Dreiecksnormale --> wird eh neu berechnet 
@@ -296,18 +302,16 @@ int surface::importBinSTL(std::string FName)
 		 cm[j]+=P3[j];
 		}
 
-		cm=cm/anz/3.0;
+		
+	    cm=cm/anz/3.0;
 		is.read(str,2);
-		S[i]=triangle(P1,P2,P3);
+		S[i]=triangle(P1,P2,P3);		
 		S[i].setnorm(n); // Glauben wir mal, dass die Oberfl�chennormale im STL-File richtig ist !
 	}
 	
-	initQuad();
+	initQuad();	
 	std::cout << "% por=" << por << "    pul=" << pul << std::endl;
 	is.close();
-/*	setCenter2CoM();
-	setCenter(P); */
-	P = maths::dzero;
 	setCenter(P);
 	std::cout << "% P=" << P << std::endl;
         initQuad();
@@ -321,12 +325,16 @@ int surface::importBinSTL(std::string FName)
 	maths::Vector<double> hd(h,h,h);
 		// hd = (pul + por) / 2.0;
 //		Tree.BBox = Box(dzero, Vector<double>(20,20,20), this->n);
-		Tree.BBox = Box(P, d, this->n);
+		Tree.BBox = Box((pul+por)/2.0, d, this->n);
     	Tree.createTree();
 		
 		for (int i = 0; i < numTriangles; i++)
+		{
+			
 			addTriangleToTriangle(Tree, S[i]);
-	
+			
+		}		
+		
 #endif 
 	std::cout <<  "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
 	return 0;
@@ -337,6 +345,118 @@ int surface::importBinSTL(std::string FName)
           return -1; 
         }
 }
+#else
+int surface::importBinSTL(std::string FName)
+{
+	omp_set_num_threads(12);
+	#ifdef _OPENMP
+std::cout << "OpenMP aktiviert (" << omp_get_max_threads() << " Threads)" << std::endl;
+#else
+std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
+#endif
+
+
+	std::ifstream is(FName, std::ios::binary);
+	if (!is.good()) {
+		std::cerr << "STL-Datei konnte nicht geöffnet werden: " << FName << std::endl;
+		return -1;
+	}
+
+	std::cout << "% ---------------------------- IMPORT STL-FILE --------------------------------" << std::endl;
+	std::cout << "% Lese: " << FName << std::endl;
+
+	char header[80];
+	is.read(header, 80);
+	int anz = readLE_int32(is);
+
+	if (anz <= 0) {
+		std::cerr << "Ungültige Dreiecksanzahl: " << anz << std::endl;
+		return -1;
+	}
+
+	if (numTriangles > 0)
+		delete[] S;
+
+	numTriangles = anz;
+	S = new triangle[anz];
+	this->FName = FName;
+	this->filetype = OBJECTSHAPE_SURFACE_FILETYPE_STL;
+
+	// Definition der STL-Rohstruktur (50 Bytes)
+#pragma pack(push, 1)
+	struct STLTriangleRaw {
+		float normal[3];
+		float vertex1[3];
+		float vertex2[3];
+		float vertex3[3];
+		uint16_t attributeByteCount;
+	};
+#pragma pack(pop)
+
+	// Dreiecke blockweise lesen
+	std::vector<STLTriangleRaw> rawTriangles(anz);
+	is.read(reinterpret_cast<char*>(rawTriangles.data()), anz * sizeof(STLTriangleRaw));
+	is.close();
+
+	// Parallelisiertes Parsen (optional: mit OpenMP)
+#pragma omp parallel
+	{
+#pragma omp single
+		{
+			std::cout << "Laufzeit-Threads: " << omp_get_num_threads() << std::endl;
+		}
+	}
+
+	auto start = std::chrono::high_resolution_clock::now();
+	 #pragma omp parallel for  schedule(dynamic)
+		for (int i = 0; i < anz; ++i) {
+			const auto& raw = rawTriangles[i];
+			maths::Vector<double> n, P1, P2, P3;
+			for (int j = 0; j < 3; ++j) {
+				n[j] = static_cast<double>(raw.normal[j]);
+				P1[j] = static_cast<double>(raw.vertex1[j]);
+				P2[j] = static_cast<double>(raw.vertex2[j]);
+				P3[j] = static_cast<double>(raw.vertex3[j]);
+			}
+			/*triangle t(P1, P2, P3);
+			t.setnorm(n);  // Normale aus Datei übernehmen*/
+			triangle& t=S[i];
+			t.P[0] = P1;
+			t.P[1] = P2;
+			t.P[2] = P3;
+			t.setnorm();
+			// S[i] = t;
+		}
+	// Nachbereitung
+	setCenter(P);
+	initQuad();
+	auto ende = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> dauer = ende - start;
+	std::cout << "Duration for pure loading STL-file: " << dauer.count() << " s" << std::endl;
+#ifdef WITH_OCTREE
+	maths::Vector<double> pul, por;
+	initBounds(pul, por);
+	maths::Vector<double> d = por - pul;
+	maths::Vector<double> mid = (pul + por) / 2.0;
+	Tree.BBox = Box(mid, d, this->n);
+	Tree.createTree();
+	/*std::cout << "SAVE FILE " << std::endl;
+	std::ofstream os("C:\\Users\\weigt\\Documents\\data\\Felix\\triangles.dat");
+	for (int i = 0; i < numTriangles; ++i)
+		os << S[i] << std::endl;
+	os.close();*/
+	for (int i = 0; i < numTriangles; ++i)
+		addTriangleToTriangle(Tree, S[i]);
+#endif
+
+	std::cout << "% STL-Datei erfolgreich importiert (" << anz << " Dreiecke)" << std::endl;
+	std::cout << "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
+	auto endeOctree = std::chrono::high_resolution_clock::now();
+	std::chrono::duration<double> dauerOctree = endeOctree - ende;
+	std::cout << "Duration for building Octree: " << dauerOctree.count() << " s" << std::endl;
+	return 0;
+}
+#endif
 
 bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &k, maths::Vector<double> &p)
 {
@@ -351,7 +471,7 @@ bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &
 
 #ifndef WITH_OCTREE
   double thilf,t;
-  Vector<double> rhilf, philf, khilf;
+  GOAT::maths::Vector<double> rhilf, philf, khilf;
   bool found=false;
   rhilf = H*(r - P);
   khilf = H*k;
@@ -428,8 +548,26 @@ bool surface::next(const maths::Vector<double> &r, const maths::Vector<double> &
 	  return true;
   }*/
   return false;
+
+  
+
 #endif
 }
+
+#ifdef WITH_OCTREE
+void surface::setOctreeRecursiondepth(int octreeRecursions)
+{
+  
+  Tree.createTree(octreeRecursions);
+		
+  for (int i = 0; i < numTriangles; i++)
+  {
+    
+    addTriangleToTriangle(Tree, S[i]);
+  }		
+}
+
+#endif
 
 bool surface::isInside(const maths::Vector<double> &p)
 {
@@ -439,10 +577,6 @@ bool surface::isInside(const maths::Vector<double> &p)
   {
     hilf2 = S[i].P[2]-p;
     hilf = (S[i].n*hilf2);
-  /*  std::cout << "Dreieck" << i << ": " << S[i] << std::endl;
-    std::cout << "n:" << S[i].n << std::endl;
-    std::cout << "hilf2:" << hilf2 << std::endl;
-    std::cout << "hilf:" << hilf << std::endl;*/
     if(hilf<0.0)
       return false;
   }
@@ -568,7 +702,7 @@ void surface::initQuad()
 	  cout << "  zmin=" << zmin << "   zmax=" << zmax << endl; */
 	  pul = maths::Vector<double>(xmin, ymin, zmin) + P;
 	  por = maths::Vector<double>(xmax, ymax, zmax) + P;
-	  // cout << "pul=" << pul << "    por=" << por << endl;
+	  std::cout << "pul=" << pul << "    por=" << por << std::endl;
   }
 }
 
@@ -731,9 +865,32 @@ surface operator * (const maths::Matrix<double> &M, const surface &s)
 /** No descriptions */
 void surface::scale (double sf)
 {
+	auto start = std::chrono::high_resolution_clock::now();
+  std::cout << "sf=" << sf << "\t this->sf=" << this->sf << std::endl;
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
  this->sf=sf;
+initQuad();
+#ifdef WITH_OCTREE
+maths::Vector<double> por, pul;
+        initBounds(pul,por);
+
+	maths::Vector<double> d = por - pul;
+	maths::Vector<double> Ph = (por + pul) / 2.0;
+	double h = d[0];
+	if (d[1] > h) h = d[1];
+	if (d[2] > h) h = d[2];
+		maths::Vector<double> hd(h,h,h);
+		Tree.BBox = Box(Ph, d, this->n);
+		Tree.createTree(5);
+		
+		for (int i = 0; i < numTriangles; i++)
+			addTriangleToTriangle(Tree, S[i]);
+#endif 
+		auto end = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+		std::cout << "Dauer: " << duration.count() << " ms" << std::endl;
 }
 /** No descriptions */
 /*double surface::isInHost(void)
@@ -786,8 +943,7 @@ void surface::binWrite (std::ofstream &os)
  char c;
  for (int i=0; i<=FName.length(); i++)
  {
-  c=FName[i];
-  // std::cout << "c=" << c << std::endl;
+  c=FName[i];  
  os.write ((char *) &c, 1);
  }
  for (int i=0; i<numTriangles; i++)
@@ -821,7 +977,6 @@ void surface::binRead (std::ifstream &is)
   is.read ((char *) &c, 1);
   FName=FName + c;
  } 
-//  cout << "FName=" << FName << endl; 
  S=new triangle[numTriangles];
  for (int i=0; i<numTriangles; i++)
  {
@@ -879,11 +1034,15 @@ double surface::volume()
 void surface::setPos (maths::Vector<double> r)
 {
  //Vector<double> dP=P-r;
- P=r;
+	maths::Vector<double> dP = r - P;
+	P=r;
+	pul = pul + dP;
+	por = por + dP;
  /*for (int i=0; i<numTriangles; i++)
    for (int j=0; j<3; j++)
   S[i].P[j]+=dP;*/ 
- initQuad();
+ // initQuad();
+ 
 }
 
 
@@ -908,20 +1067,19 @@ maths::Vector<double> surface::calcCoM()
 		int_z+=F*Fz*n;
 //                cout << "i=" << i << "   F=" << F << "   Fx=" << Fx << "   Fy=" << Fy << "   Fz=" << Fz << "   n=" << n << endl;
 	}
-	// std::cout << "% Gesamtfl�che :" << Fges << std::endl;
 	maths::Vector<double> P= maths::Vector<double>(int_x,int_y,int_z)/V;
 	return P;
 }
 
 void surface::setCenter(maths::Vector<double> P)
 {
-	// std::cout << "% P= " << P << "     anzp=" << numTriangles << std::endl;
-	for (int i=0; i<numTriangles; i++)
+	this->P = P;
+	/*for (int i = 0; i<numTriangles; i++)
 	{
 		S[i].P[0]=S[i].P[0]-P;
 		S[i].P[1]=S[i].P[1]-P;
 		S[i].P[2]=S[i].P[2]-P;
-	}
+	}*/
 }
 
 inline void Subexpressions (double w0,double w1, double w2, double &f1, double &f2, double &f3, double &g0, double &g1, double &g2)

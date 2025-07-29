@@ -9,8 +9,6 @@
 
 #pragma once
 #include <complex>
-#include "fresnel.h"
-#include "resutil.h"
 #include "vector.h"
 #include "matrix.h"
 #include "plane.h"
@@ -50,7 +48,7 @@ namespace GOAT
 			IRay(const maths::Vector<double>& p,
 				const maths::Vector<std::complex<double> >& Pol, const maths::Vector<double>& K,
 				std::complex<double>  n0, double r0, double k0,
-				const int numObj = 0, ObjectShape** obj = NULL);
+				const int numObj = 0, std::vector<ObjectShape*> obj = std::vector<ObjectShape*>() );
 			IRay(const IRay& r)
 			{
 				this->E1 = r.E1;
@@ -69,6 +67,8 @@ namespace GOAT
 				this->OK = r.OK;
 				this->P = r.P;
 				this->r0 = r.r0;
+				this->status = r.status;
+				this->suppress_phase_progress = r.suppress_phase_progress;
 			}
 
 

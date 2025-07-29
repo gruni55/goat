@@ -1,0 +1,196 @@
+\doxysection{inel\+\_\+calc.\+h}
+\hypertarget{inel__calc_8h_source}{}\label{inel__calc_8h_source}\index{raytracing/inel\_calc.h@{raytracing/inel\_calc.h}}
+\mbox{\hyperlink{inel__calc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <complex>}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00006}00006\ \textcolor{preprocessor}{\#ifdef\ WITH\_SUPERGITTER}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{superarray_8h}{superarray.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00008}00008\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{grid_8h}{grid.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{plane_8h}{plane.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <cfloat>}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00012}00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00015}00015\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Berechnet\ den\ Punkt\ ix,iy\ eines\ Einstrahlgrids,\ welches\ sich\ im\ Abstand\ r}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ unter\ einem\ Winkel\ theta,phi\ vor\ dem\ Partikel\ befindet}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00018}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{00018}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{startpunkt}}(\textcolor{keywordtype}{int}\ ix,\ \textcolor{keywordtype}{int}\ iy,\ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\&\ git,\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ r,\ \textcolor{keywordtype}{double}\ theta,\ \textcolor{keywordtype}{double}\ phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Berechnet\ den\ Punkt\ ix,iy\ eines\ Einstrahlgrids,\ welches\ sich}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ unter\ einem\ Winkel\ theta,phi\ direkt\ vor\ dem\ Partikel\ befindet}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00023}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3354af56968c114ec07b65447a6b3149}{00023}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd2844b68e9b64f4aae1cd96ece84416}{startpunkt}}(\textcolor{keywordtype}{int}\ ix,\ \textcolor{keywordtype}{int}\ iy,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\&\ git,}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta,\ \textcolor{keywordtype}{double}\ phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dreht\ den\ Vektor\ vein\ um\ theta\ und\ um\ phi}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00027}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa2c10abf3567b9c6d1278d0cb230a91b}{00027}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa2c10abf3567b9c6d1278d0cb230a91b}{drehvektor}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ vein,\ \textcolor{keywordtype}{double}\ theta,\ \textcolor{keywordtype}{double}\ phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Dreht\ den\ Vektor\ vein\ um\ phi}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00030}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aec0a6f2fbfd541c66caa3d287643e66f}{00030}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aec0a6f2fbfd541c66caa3d287643e66f}{drehphivektor}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ vein,\ \textcolor{keywordtype}{double}\ phi);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Gibt\ den\ Ursprung\ eines\ Einstrahlgrids\ wieder,\ dessen\ Mittelpunkt\ um\ \ }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Winkel\ theta,phi\ gedreht\ wurde\ und\ das\ urspr{\ucr}nglich\ um\ dr\ {\ucr}ber\ der\ Ebene\ }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ z\ =\ git.zmax\ lag.\ Wird\ in\ der\ Routine\ startpunkt\ benoetigt}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00035}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a707151b319c4d4f021367442ed773518}{00035}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a707151b319c4d4f021367442ed773518}{ursprungrot}}(\textcolor{keywordtype}{double}\ dr,\ \textcolor{keywordtype}{double}\ theta,\ \textcolor{keywordtype}{double}\ phi,\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \&exrot,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \&eyrot,\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1grid}{grid}}\ \&git);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Berechnet\ die\ eigentliche\ Strahlverfolgung\ im\ grid\ git\ bei\ Einstrahlung\ \ }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ an\ dem\ Startpunkt\ p0\ \ in\ Richtung\ k0}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00043}00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#ifdef\ WITH\_SUPERGITTER}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00044}00044\ \textcolor{preprocessor}{\#define\ SGN(x)\ (x<0)\ ?\ -\/1\ :\ (x>0)}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<maths::Vector<std::complex<double>}}\ >\ >\ verfolgung(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray}}<\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector}}<std::complex<double>\ >\ >\&git);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ }}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00050}00050\ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\ \&git,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\&currentIndex);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{class}\ T>\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\ \&git,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\&\ currentIndex,\ \textcolor{keywordtype}{double}\ eps);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00053}00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00054}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{00054}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ d,\ \textcolor{keywordtype}{double}\ eps=1E-\/50);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00055}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a18c50570e2c4dd81964653db0aad4228}{00055}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}\ E,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0s,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0s,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ d,\ \textcolor{keywordtype}{double}\ eps=1E-\/50);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00061}00061\ \ \ \ \ \ \textcolor{comment}{//\ \ \ maths::Vector<double>\ pnext(maths::Vector<double>\ p0,\ maths::Vector<double>\ k0,\ maths::Vector<double>\ d);}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ IMPLEMENTATION\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00066}\mbox{\hyperlink{inel__calc_8h_afc19f5a2cbaecacb28d7b5297e877622}{00066}}\ \textcolor{preprocessor}{\#define\ NUM\_EPS\ 1E-\/10}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00068}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a2d0aa4b08e734a2e0be88b108a9d11a6}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\&\ git,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\&\ currentIndex)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambdax,\ lambday,\ lambdaz,\ lambda;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ double\ signx,\ signy,\ signz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sx,\ sy,\ sz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\ index;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentIndex[0]\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ nx\ =\ (p0[0]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ ny\ =\ (p0[1]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ nz\ =\ (p0[2]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentIndex\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}(nx,\ ny,\ nz);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signx\ =\ SGN(k0[0]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signy\ =\ SGN(k0[1]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signz\ =\ SGN(k0[2]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ index[0]\ =\ currentIndex[0]\ +\ signx;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ index[1]\ =\ currentIndex[1]\ +\ signy;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ index[2]\ =\ currentIndex[2]\ +\ signz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ lambdax\ =\ (index[0]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[0]\ -\/\ p0[0]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ lambday\ =\ (index[1]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[1]\ -\/\ p0[1]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ lambdaz\ =\ (index[2]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[2]\ -\/\ p0[2]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ fabs\ avoids\ question\ after\ k0[i]=0\ which\ can\ result\ into\ -\/inf\ !}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(lambdax)\ <\ fabs(lambday))}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdax;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambday;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fabs(lambdaz)\ <\ lambda)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdaz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ currentIndex[i]\ =\ index[i];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ p0\ +\ lambda\ *\ k0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00116}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_acd0c986375d07696fadb4f7c6295b8b2}{00116}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad50f2c5043ea0088aa17fd446c428a37}{pnext}}(\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ p0,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ k0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{SuperArray<T>}}\&\ git,\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\&\ currentIndex,\ \textcolor{keywordtype}{double}\ eps)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambdax\ =\ DBL\_MAX;\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambday\ =\ DBL\_MAX;\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ lambdaz\ =\ DBL\_MAX,\ lambda;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ double\ signx,\ signy,\ signz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sx,\ sy,\ sz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}\ index;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ if\ (currentIndex[0]\ ==\ -\/1)}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ nx\ =\ (p0[0]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ ny\ =\ (p0[1]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\_TYPE}}\ nz\ =\ (p0[2]\ +\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentIndex\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT::maths::Vector<INDEX\_TYPE>}}(nx,\ ny,\ nz);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signx\ =\ SGN(k0[0]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signy\ =\ SGN(k0[1]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ signz\ =\ SGN(k0[2]);}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index[0]\ =\ currentIndex[0]\ +\ signx;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index[1]\ =\ currentIndex[1]\ +\ signy;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index[2]\ =\ currentIndex[2]\ +\ signz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k0[0]\ !=\ 0)\ lambdax\ =\ ((double)index[0]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[0]\ -\/\ p0[0]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[0];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k0[1]\ !=\ 0)\ lambday\ =\ ((double)index[1]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[1]\ -\/\ p0[1]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[1];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k0[2]\ !=\ 0)\ lambdaz\ =\ ((double)index[2]\ *\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a81c178ce8c6973fde33a9ba9b66a5074}{d}}[2]\ -\/\ p0[2]\ -\/\ git.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array_a3263196c671bc65be7565dd45be653b6}{r0}})\ /\ k0[2];}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ std::cout\ <<\ "{}pnext:\ "{}\ <<\ p0<<\ "{}:"{}\ <<\ k0\ <<\ "{}/"{}\ <<\ lambdax\ <<\ "{},"{}\ <<\ lambday\ <<\ "{},"{}\ <<\ lambdaz\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdax\ <\ lambday)\ \&\&\ (lambdax\ >\ 10.0*DBL\_MIN))}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdax;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambday;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((lambdaz\ <\ lambda)\ \&\&\ (lambdaz\ >\ 10.0\ *\ DBL\_MIN)\ ||\ lambda\ <\ 10.0\ *\ DBL\_MIN)}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdaz;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ currentIndex[i]\ =\ index[i];\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}currentIndex="{}\ <<\ currentIndex\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \ p0\ +\ lambda\ *\ k0;}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00166}00166\ \textcolor{comment}{\ \ \ \ \ \ \ \ maths::Vector<double>\ pnext(maths::Vector<double>\ p0,\ maths::Vector<double>\ k0,\ maths::Vector<double>\ d)}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00167}00167\ \textcolor{comment}{\ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00168}00168\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ double\ lambdax,\ lambday,\ lambdaz,\ lambda;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00169}00169\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ double\ signx,\ signy,\ signz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00170}00170\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ double\ sx,\ sy,\ sz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00171}00171\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00172}00172\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ signx\ =\ SGN(k0[0]);}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00173}00173\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ signy\ =\ SGN(k0[1]);}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00174}00174\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ signz\ =\ SGN(k0[2]);}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00175}00175\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00176}00176\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ int\ nx\ =\ floor(p0[0]\ /\ d[0])\ +\ signx;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00177}00177\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ int\ ny\ =\ floor(p0[1]\ /\ d[1])\ +\ signy;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00178}00178\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ int\ nz\ =\ floor(p0[2]\ /\ d[2])\ +\ signz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00179}00179\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00180}00180\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lambdax\ =\ (nx\ *\ d[0]\ -\/\ p0[0]\ )\ /\ k0[0];}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00181}00181\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lambday\ =\ (ny\ *\ d[1]\ -\/\ p0[1]\ )\ /\ k0[1];}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00182}00182\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ lambdaz\ =\ (nz\ *\ d[2]\ -\/\ p0[2]\ )\ /\ k0[2];}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00183}00183\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00184}00184\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ //\ fabs\ avoids\ question\ after\ k0[i]=0\ which\ can\ result\ into\ -\/inf\ !}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00185}00185\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (fabs(lambdax)\ <\ fabs(lambday))}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00186}00186\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdax;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00187}00187\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ else}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00188}00188\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambday;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00189}00189\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ if\ (fabs(lambdaz)\ <\ lambda)}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00190}00190\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lambda\ =\ lambdaz;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00191}00191\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ return\ \ p0\ +\ lambda\ *\ k0;}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00192}00192\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{inel__calc_8h_source_l00195}00195\ \}}
+
+\end{DoxyCode}

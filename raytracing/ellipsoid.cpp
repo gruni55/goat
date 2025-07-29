@@ -1,5 +1,6 @@
 #include "ellipsoid.h"
 #include "matrix.h"
+#include <cfloat>
 
 namespace GOAT
 {
@@ -48,18 +49,17 @@ namespace GOAT
         }
 
         void Ellipsoid::scale(double sf)
-        {
+        {           
             double sfold = this->sf;
             this->sf = sf;
             r = r * sf / sfold;
             r_2 = GOAT::maths::Vector<double>(1.0 / (r[0] * r[0]), 1.0 / (r[1] * r[1]), 1.0 / (r[2] * r[2]));
-            initQuad();
+            initQuad();            
         }
 
         bool Ellipsoid::next(const GOAT::maths::Vector<double>& Ps, const GOAT::maths::Vector<double>& K,
             GOAT::maths::Vector<double>& pout)
-        {
-            bool innen;
+        {            
             double A, B, C;
             double l1, l2, l;
             GOAT::maths::Vector<double> n, k, p = Ps - P;
@@ -67,8 +67,8 @@ namespace GOAT
             k = H * K;
             pout = Ps;
             n = norm(Ps);
-            /* cout.precision (10);
-             cout << "P=" << P << "   Ps=" << Ps << "  k=" << K << "   n=" << n << "  |p|=" << abs(p)  << "  phi=" << acos (fabs(K*n))/M_PI*180.0 << endl;*/
+             // std::cout.precision (10);
+            //  std::cout << "P=" << P << "   Ps=" << Ps << "  k=" << K << "   n=" << n << "  |p|=" << abs(p)  << "  phi=" << acos (fabs(K*n))/M_PI*180.0 << std::endl;
 
             GOAT::maths::Vector<double> k2 = GOAT::maths::Vector<double>(k[0] * k[0], k[1] * k[1], k[2] * k[2]);
             GOAT::maths::Vector<double> p2 = GOAT::maths::Vector<double>(p[0] * p[0], p[1] * p[1], p[2] * p[2]);
@@ -77,14 +77,15 @@ namespace GOAT
             C = p2 * r_2 - 1.0;
 
             l1 = B * B - 4.0 * A * C;
-            if (l1 <= 0.0) { /*cout << "l1=" << l1 << "  kein Schnittpunkt" << endl;*/ return false; }
+            if (l1 <= 0.0) { /* std::cout << "Ps =" << Ps << "\tl1=" << l1 << "  kein Schnittpunkt" << std::endl;*/ return false; }
             l2 = (-B + sqrt(l1)) / (2.0 * A);
             l1 = (-B - sqrt(l1)) / (2.0 * A);
-            //  cout << "l1=" << l1 << "   l2=" << l2;
-            if (l1 / r0 <= 1E-10) l = l2; else l = l1;
+              
+            if (l1 <= 1E-10 ) l = l2; else l = l1;
             //    cout << "    l=" << l << endl;
-            if (l <= 1E-6 * r0) { /*cout << "NICHT genommen" << endl;*/   return false; }
+            if (l <= 1E-10) {  /* std::cout << "l=" << l << "\tl1 =" << l1 << "\tl2=" << l2 << "\tNICHT genommen" << std::endl;*/   return false; }
             pout = Ps + l * K;
+          //  std::cout << "l1=" << l1 << "\tl2=" << l2 << "\tl=" << l << std::endl;
             //  cout << "GENOMMEN: pout=" << pout << endl;
             return true;
         }
@@ -332,8 +333,8 @@ namespace GOAT
             os << "%r=" << E.r << std::endl;
             os << "%P=" << E.P << std::endl;
             os << "%Ealpha=" << E.Ealpha / M_PI * 180.0
-                << "°   Ebeta=" << E.Ebeta / M_PI * 180.0
-                << "°   Egamma=" << E.Egamma / M_PI * 180.0 << "°" << std::endl;
+                << "ï¿½   Ebeta=" << E.Ebeta / M_PI * 180.0
+                << "ï¿½   Egamma=" << E.Egamma / M_PI * 180.0 << "ï¿½" << std::endl;
             return os;
         }
 
@@ -398,7 +399,7 @@ namespace GOAT
             I(0, 0) = 1.0 / 5.0 * (r[1] * r[1] + r[2] * r[2]);
             I(1, 1) = 1.0 / 5.0 * (r[0] * r[0] + r[2] * r[2]);
             I(2, 2) = 1.0 / 5.0 * (r[0] * r[0] + r[1] * r[1]);
-            return I / 1E-12; // 1E-12, da r hier in µm angegeben wird, ich will aber I in m²
+            return I / 1E-12; // 1E-12, da r hier in ï¿½m angegeben wird, ich will aber I in mï¿½
         }
     }
 }

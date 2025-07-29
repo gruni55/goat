@@ -35,5 +35,9 @@ The names of the libraries are:
 > - **goat_raytracing.lib** : here are all the raytracing functions and representations
 > - **goat_maths.lib** : here are all basic mathemical functions and operators (Matrix and Vector template classes)
 
+## XML Support
+
+Scenes and calculations can be stored in a XML file. More details can be found [here](XML.md)
+
 
 

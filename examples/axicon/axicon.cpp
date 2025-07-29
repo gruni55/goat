@@ -14,13 +14,15 @@ int main(int argc, char** argv)
 {
 	// Light source definitions
 	GOAT::maths::Vector<double> LSPos = -10000.0 * GOAT::maths::ez;      // Position of the light source
-	GOAT::maths::Vector<double> focusPos(0, 0, 70000.0);  // Position of the focus
-	int numRays = 801;                       // number of rays (per direction)  
+	GOAT::maths::Vector<double> focusPos(0, 0, 10000.0);  // Position of the focus
+	int numRays = 1000000;                       // number of rays (per direction)  
 	double wvl = 1.0;                        // wavelength
 	double waist = 8000.0;                   // waist diameter in µm 
 	double LSsize = 15000.0;                  // size of the light source in µm 
 
-	GOAT::raytracing::LightSrcGauss LS(LSPos, numRays, wvl,waist,focusPos,LSsize); // initialize gaussian light source
+//	GOAT::raytracing::LightSrcGauss_mc LS(LSPos, numRays, wvl,waist,focusPos,LSsize); // initialize gaussian light source
+        GOAT::raytracing::LightSrcPlane_mc LS (LSPos, numRays, wvl, LSsize);
+        LS.setk(GOAT::maths::ez);  
 	LS.setPol(GOAT::maths::Vector<std::complex<double> >(1.0, 0.0, 0.0));
 	// Object (axicon) definitions
 	GOAT::maths::Vector<double> objPos = GOAT::maths::dzero;           // Position of the axicon
@@ -29,10 +31,10 @@ int main(int argc, char** argv)
 	surf.createsurface("axicon_2000.srf");           
 
 	// Detector definition
-	GOAT::maths::Vector<double> detPos(0, 0, 35000.0);    // Position of the detector
+	GOAT::maths::Vector<double> detPos(0, 0, 52500.0);    // Position of the detector
 	GOAT::maths::Vector<double> detNorm(0, 0, -1);        // Surface normal of the detector
-	double detSize = 20000.0;                // Size of the detector
-	int detGridsize = 2001;                  // Number of Pixels (per direction) of the detector
+	double detSize = 2000.0;                // Size of the detector
+	int detGridsize = 201;                  // Number of Pixels (per direction) of the detector
 	GOAT::raytracing::DetectorPlane dp( detPos, -detNorm, detSize, detGridsize);
 	GOAT::raytracing::DetectorPlane dp2(-5000.0*GOAT::maths::ez, -detNorm, detSize, detGridsize);
 
