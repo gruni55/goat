@@ -1,0 +1,40 @@
+\doxysection{lens.\+h}
+\hypertarget{lens_8h_source}{}\label{lens_8h_source}\index{raytracing/lens.h@{raytracing/lens.h}}
+\mbox{\hyperlink{lens_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{vector_8h}{vector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{matrix_8h}{matrix.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00010}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977}{Curvature}}\ \{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde}{convex}},\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f}{concave}},\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a08c1e55b3536de3b5a21da3561f85218}{flat}}\};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00011}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad7d4120c7b6cac967e489acd76a688a9}{00011}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977}{Curvature}}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad7d4120c7b6cac967e489acd76a688a9}{int2Curvature}}\ (\textcolor{keywordtype}{int}\ index);\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00016}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{00016}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{lensa}}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \{\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00022}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_ae6409b87bfbd710d0000059db293c931}{00022}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_ae6409b87bfbd710d0000059db293c931}{P}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00023}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_a91f0d2e597ef3632c5ca67c73175e081}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_a91f0d2e597ef3632c5ca67c73175e081}{R}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00024}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_ac36a1c5b4f93ea8a419b57630dda6e74}{00024}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_ac36a1c5b4f93ea8a419b57630dda6e74}{shift}}\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00025}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_a9c4dd85b4a12a6f6872534ceaa223ea4}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977}{Curvature}}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa_a9c4dd85b4a12a6f6872534ceaa223ea4}{curvature}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00026}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{00026}}\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lensSide}};}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00034}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{00034}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00036}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_aa78c66475b72a58d04ba871abb97167e}{00036}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lensSide}}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_aa78c66475b72a58d04ba871abb97167e}{left}},\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_ac31570b0b22e6cac67467dd1814f3988}{right}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00037}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_a4efc8da57cc54d1a2d3097c0048113f1}{00037}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_a4efc8da57cc54d1a2d3097c0048113f1}{offset}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00038}\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_ae74a02048e162db152aa061a16c4da8e}{00038}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms_ae74a02048e162db152aa061a16c4da8e}{radius}};\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \}\ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lensParms}};}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00041}00041\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00042}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{00042}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{binWrite}}(\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lensSide}}\ ls,\ std::ofstream\&\ os);\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00043}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{00043}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{binWrite}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lensParms}}\ lp,\ std::ofstream\&\ os);\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00044}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{00044}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{binRead}}(\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lensSide}}\ ls,\ std::ifstream\&\ is);\ }
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00045}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{00045}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{binRead}}(\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lensParms}}\ lp,\ std::ifstream\&\ is);}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lens_8h_source_l00047}00047\ \}}
+
+\end{DoxyCode}

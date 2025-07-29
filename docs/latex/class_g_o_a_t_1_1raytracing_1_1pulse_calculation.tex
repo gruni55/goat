@@ -1,0 +1,816 @@
+\doxysection{GOAT\+::raytracing\+::pulse\+Calculation\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{}\label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+
+
+This class provides functionality to calculate field distributions for short pulses.  
+
+
+
+
+{\ttfamily \#include $<$pulsecalculation.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}{calc\+Trafo\+Parms}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acae13e789813041bb22e4ae78958f479}{field}} (double t)
+\begin{DoxyCompactList}\small\item\em This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a91f93ba9589cddeb6a32477f360fea5a}{field}} (double t, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae9aa117382e489ad02df53b446bf8065}{settings}}=\mbox{\hyperlink{pulsecalculation_8h_abe2ab0c4ebf3d14b5a4610839ad7e930}{PULSECALCULATION\+\_\+\+CLEAR\+\_\+\+SA}})
+\begin{DoxyCompactList}\small\item\em This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc}{field\+Calculation}} ()
+\begin{DoxyCompactList}\small\item\em This function makes the raytracing (normally only used internally) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc}{field\+Calculation}} ()
+\begin{DoxyCompactList}\small\item\em This function makes the raytracing (normally only used internally) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00}{field\+Calculation}} (double omega)
+\begin{DoxyCompactList}\small\item\em This function makes one raytracing step at frequency omega. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00}{field\+Calculation}} (double omega)
+\begin{DoxyCompactList}\small\item\em This function makes one raytracing step at frequency omega. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842}{find\+Hit\+Time}} (int Obj\+No)
+\begin{DoxyCompactList}\small\item\em Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842}{find\+Hit\+Time}} (int Obj\+No)
+\begin{DoxyCompactList}\small\item\em Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searching the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd}{get\+Number\+Of\+Threads}} ()
+\begin{DoxyCompactList}\small\item\em get the number of threads used for the calculation \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813}{get\+Num\+Cells\+Per\+Direction}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}{get\+Reference\+Time}} ()
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}{get\+Trafo\+Parms}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab9f84e7aa5343bb137c0e63f8f6b3162}{pulse\+Calculation}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18}{pulse\+Calculation}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}{S}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18}{pulse\+Calculation}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}{S}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Clears all arrays. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Clears all arrays. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba}{set\+Bandwidth}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1}{d\+Wvl}})
+\begin{DoxyCompactList}\small\item\em Set Bandwith of the light source(s) Approximately,. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba}{set\+Bandwidth}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1}{d\+Wvl}})
+\begin{DoxyCompactList}\small\item\em Set Bandwith of the light source(s) Approximately,. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101}{set\+Center\+Wavelength}} (double wvl)
+\begin{DoxyCompactList}\small\item\em Set center wavelength of the pulse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101}{set\+Center\+Wavelength}} (double wvl)
+\begin{DoxyCompactList}\small\item\em Set center wavelength of the pulse. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}{set\+Defaults}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6}{set\+Number\+Of\+Threads}} (int n)
+\begin{DoxyCompactList}\small\item\em set the number of threads used for the calculation \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{num\+Reflex}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{num\+Reflex}})
+\begin{DoxyCompactList}\small\item\em set the number of internal reflections to be considered \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3}{set\+Num\+Wavelengths\+Per\+Range}} (int nS)
+\begin{DoxyCompactList}\small\item\em Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3}{set\+Num\+Wavelengths\+Per\+Range}} (int nS)
+\begin{DoxyCompactList}\small\item\em Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749}{set\+Pulse\+Width}} (double dt)
+\begin{DoxyCompactList}\small\item\em Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749}{set\+Pulse\+Width}} (double dt)
+\begin{DoxyCompactList}\small\item\em Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10}{set\+Reference\+Time}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10}{set\+Reference\+Time}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9}{set\+Refractive\+Index\+Functions}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ n\+List)
+\begin{DoxyCompactList}\small\item\em sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9}{set\+Refractive\+Index\+Functions}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ n\+List)
+\begin{DoxyCompactList}\small\item\em sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea}{set\+Repetition\+Rate}} (double rep)
+\begin{DoxyCompactList}\small\item\em Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea}{set\+Repetition\+Rate}} (double rep)
+\begin{DoxyCompactList}\small\item\em Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810}{set\+Spatial\+Resolution}} (double dx)
+\begin{DoxyCompactList}\small\item\em sets the spatial resolution to a value near to dx \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810}{set\+Spatial\+Resolution}} (double dx)
+\begin{DoxyCompactList}\small\item\em sets the spatial resolution to a value near to dx \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed}{set\+Spectral\+Ranges}} (int n)
+\begin{DoxyCompactList}\small\item\em Number of spectral ranges in which one raytracing calculation is made. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed}{set\+Spectral\+Ranges}} (int n)
+\begin{DoxyCompactList}\small\item\em set the number of spectral ranges in which one raytracing calculation is made \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_add07a3e14c61a5cf8f3fee2abf2b6510}{domega}}
+\begin{DoxyCompactList}\small\item\em spectral resolution \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a58f9f484c306bc04dede3616e35a4895}{d\+RWvl}}
+\begin{DoxyCompactList}\small\item\em spectral width of one subdivision \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1}{d\+Wvl}} =0.\+02
+\begin{DoxyCompactList}\small\item\em spectral width of the light (default 20nm) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420}{nn}}
+\begin{DoxyCompactList}\small\item\em number of cells over the whole width of the calculation space (i.\+e. 2\texorpdfstring{$\ast$}{*}r0). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}{num\+Reflex}} = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab96fdfe7a64171357845d8ebc561c6ac}{raytracing\+Done}} = false
+\begin{DoxyCompactList}\small\item\em If true, the raytracing part was done and the field calculation starts directly. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aeb2125566c8c97657c64a9e3252c2905}{rt}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aaf5e6d66b88ca83f602bf8d71bda359c}{rt}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}{S}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7b741d539f2fdd6d001d4ad7b66a737e}{SA}}
+\begin{DoxyCompactList}\small\item\em Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a848a316b1f0ae2e7a14e7fe840a36707}{SAres}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9bfbc3d84a7f2ac383463909437f77b3}{trafo}}
+\item 
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f}{trafoparms}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}{tref}} = 0.\+0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}{calc\+Trafo\+Parms}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}{set\+Defaults}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a41754b3d9a149ae05575cf601c511afc}{field\+Calls}} = 0
+\begin{DoxyCompactList}\small\item\em how many times was field called (after last reset) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a860f25fcc210798a26c7f6f8f95eb11c}{number\+\_\+of\+\_\+threads}} =5
+\begin{DoxyCompactList}\small\item\em number of threads used for calculation \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae9aa117382e489ad02df53b446bf8065}{settings}} =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class GOAT\+::raytracing\+::pulse\+Calculation$<$ T $>$}
+This class provides functionality to calculate field distributions for short pulses. 
+
+The class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of functionsis required, which describe the wavelength dependence of all objects and the surrounding medium. Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.\+0µm and the pulse width 10fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} SAres, which holds the electric field at a certain time t which was given to the class by calling the function field
+
+This class calculates the field distribution for a short pulsed light source. Also dispersion is considered, therefore a list of functions is required, which describe the wavelength dependence of all objects and the surrounding medium. Since short pulses are considered, the light has a spectral width, which depends on the pulse width (Fourier transform). For the pulse a gaussian shape is assumed. All lengths and the wavelength is given in micro meters. The default wavelength is set to 1.\+0{$\mu$}m and the default pulse width 100fs. As spectral width, the full width at half maximum (FWHM) is used. The result is stored in a \doxylink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array} trafo.\+SAres, which holds the electric field at a certain time t which was given to the class by calling the function field. For the calculation, the spectral range is divided into divisions. For each division, one raytracing is done with the central wavelength. Here, for all steps (one step is the path between the light source and the next surface or the distance between subsequent surfaces) the step length and an information about the material will be stored. With this informations, the electric field at each point of interest within this wavelength range is calculated. Within this calculation step, the wavelength range can be subdivided in a number of wavelength steps. Here it is considered, that even though the wavelength is changed from step to step, we consider that the path of the ray is not changing. At the end, all contributions for all wavelength divisions are summed up to get the overall electric field. Comment\+: The number of divisions and subdivision changes the repetition rate. 
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00026}{26}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab9f84e7aa5343bb137c0e63f8f6b3162}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!pulseCalculation@{pulseCalculation}}
+\index{pulseCalculation@{pulseCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pulseCalculation()}{pulseCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab9f84e7aa5343bb137c0e63f8f6b3162} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::pulse\+Calculation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!pulseCalculation@{pulseCalculation}}
+\index{pulseCalculation@{pulseCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pulseCalculation()}{pulseCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::pulse\+Calculation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}}]{S}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!pulseCalculation@{pulseCalculation}}
+\index{pulseCalculation@{pulseCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pulseCalculation()}{pulseCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4121f620a103dc3e7896f714f0a03d18} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::pulse\+Calculation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}}]{S}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!calcTrafoParms@{calcTrafoParms}}
+\index{calcTrafoParms@{calcTrafoParms}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{calcTrafoParms()}{calcTrafoParms()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::calc\+Trafo\+Parms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!calcTrafoParms@{calcTrafoParms}}
+\index{calcTrafoParms@{calcTrafoParms}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{calcTrafoParms()}{calcTrafoParms()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a23f6b4a78e0d5f9fc0e3d88257464671} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::calc\+Trafo\+Parms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acae13e789813041bb22e4ae78958f479}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!field@{field}}
+\index{field@{field}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{field()}{field()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_acae13e789813041bb22e4ae78958f479} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})}
+
+
+
+This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a91f93ba9589cddeb6a32477f360fea5a}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!field@{field}}
+\index{field@{field}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{field()}{field()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a91f93ba9589cddeb6a32477f360fea5a} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field (\begin{DoxyParamCaption}\item[{double}]{t}{, }\item[{int}]{settings}{ = {\ttfamily \mbox{\hyperlink{pulsecalculation_8h_abe2ab0c4ebf3d14b5a4610839ad7e930}{PULSECALCULATION\+\_\+\+CLEAR\+\_\+\+SA}}}}\end{DoxyParamCaption})}
+
+
+
+This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!fieldCalculation@{fieldCalculation}}
+\index{fieldCalculation@{fieldCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fieldCalculation()}{fieldCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field\+Calculation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function makes the raytracing (normally only used internally) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!fieldCalculation@{fieldCalculation}}
+\index{fieldCalculation@{fieldCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fieldCalculation()}{fieldCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb33f64d20aae006b436c17ba53393cc} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field\+Calculation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+This function makes the raytracing (normally only used internally) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!fieldCalculation@{fieldCalculation}}
+\index{fieldCalculation@{fieldCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fieldCalculation()}{fieldCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field\+Calculation (\begin{DoxyParamCaption}\item[{double}]{omega}{}\end{DoxyParamCaption})}
+
+
+
+This function makes one raytracing step at frequency omega. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!fieldCalculation@{fieldCalculation}}
+\index{fieldCalculation@{fieldCalculation}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fieldCalculation()}{fieldCalculation()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac864eab5a5abcbb977f1b205d757be00} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field\+Calculation (\begin{DoxyParamCaption}\item[{double}]{omega}{}\end{DoxyParamCaption})}
+
+
+
+This function makes one raytracing step at frequency omega. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!findHitTime@{findHitTime}}
+\index{findHitTime@{findHitTime}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findHitTime()}{findHitTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::find\+Hit\+Time (\begin{DoxyParamCaption}\item[{int}]{Obj\+No}{}\end{DoxyParamCaption})}
+
+
+
+Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searchíng the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!findHitTime@{findHitTime}}
+\index{findHitTime@{findHitTime}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findHitTime()}{findHitTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a5e1705691106d1aca4940e47ff764842} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::find\+Hit\+Time (\begin{DoxyParamCaption}\item[{int}]{Obj\+No}{}\end{DoxyParamCaption})}
+
+
+
+Make an estimation, when the pulse hits the object the first time Often it is a problem, to find the pulse in the time domain, especially for very short pulses. This function gives an estimation, by searching the first element of the array around the chosen object which was hit by a ray. Then, the time the light needs to travel from the light source until this point will be calculated. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getNumberOfThreads@{getNumberOfThreads}}
+\index{getNumberOfThreads@{getNumberOfThreads}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumberOfThreads()}{getNumberOfThreads()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_abfc066ab02e04267151fdb68a79225fd} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::get\+Number\+Of\+Threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+get the number of threads used for the calculation 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getNumCellsPerDirection@{getNumCellsPerDirection}}
+\index{getNumCellsPerDirection@{getNumCellsPerDirection}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumCellsPerDirection()}{getNumCellsPerDirection()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aa63163a1eca72c40aaa3d5ed73c2a813} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::get\+Num\+Cells\+Per\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00090}{90}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getReferenceTime@{getReferenceTime}}
+\index{getReferenceTime@{getReferenceTime}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getReferenceTime()}{getReferenceTime()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac65123797a27d721c93d987df280aac4} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::get\+Reference\+Time (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00085}{85}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!getTrafoParms@{getTrafoParms}}
+\index{getTrafoParms@{getTrafoParms}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getTrafoParms()}{getTrafoParms()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a54cd68802a1b2ec7ca617eafac81968c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::get\+Trafo\+Parms (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00084}{84}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!reset@{reset}}
+\index{reset@{reset}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all arrays. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!reset@{reset}}
+\index{reset@{reset}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_adb7060cab84ce09b2d454603c5f2a91b} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Clears all arrays. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setBandwidth@{setBandwidth}}
+\index{setBandwidth@{setBandwidth}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setBandwidth()}{setBandwidth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Bandwidth (\begin{DoxyParamCaption}\item[{double}]{d\+Wvl}{}\end{DoxyParamCaption})}
+
+
+
+Set Bandwith of the light source(s) Approximately,. 
+
+\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\] Set Bandwith of the light source(s) \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setBandwidth@{setBandwidth}}
+\index{setBandwidth@{setBandwidth}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setBandwidth()}{setBandwidth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aea22feb4962c16e09159069bdf1b87ba} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Bandwidth (\begin{DoxyParamCaption}\item[{double}]{d\+Wvl}{}\end{DoxyParamCaption})}
+
+
+
+Set Bandwith of the light source(s) Approximately,. 
+
+\[\frac{\Delta\lambda}{\lamda}=\frac{\Delta\omega}{\omega}\Rightarrow \Delta\omega=\Delta\lambda \cdot \frac{2\pi c}{\lambda^2}\] Set Bandwith of the light source(s) \Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setCenterWavelength@{setCenterWavelength}}
+\index{setCenterWavelength@{setCenterWavelength}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setCenterWavelength()}{setCenterWavelength()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Center\+Wavelength (\begin{DoxyParamCaption}\item[{double}]{wvl}{}\end{DoxyParamCaption})}
+
+
+
+Set center wavelength of the pulse. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setCenterWavelength@{setCenterWavelength}}
+\index{setCenterWavelength@{setCenterWavelength}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setCenterWavelength()}{setCenterWavelength()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a2f13d3b4a32831ff00a721b50f878101} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Center\+Wavelength (\begin{DoxyParamCaption}\item[{double}]{wvl}{}\end{DoxyParamCaption})}
+
+
+
+Set center wavelength of the pulse. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setDefaults@{setDefaults}}
+\index{setDefaults@{setDefaults}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setDefaults()}{setDefaults()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Defaults (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setDefaults@{setDefaults}}
+\index{setDefaults@{setDefaults}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setDefaults()}{setDefaults()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a3cd1d93f3da22bc934c4d26c1a1e76b4} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Defaults (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumberOfThreads@{setNumberOfThreads}}
+\index{setNumberOfThreads@{setNumberOfThreads}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumberOfThreads()}{setNumberOfThreads()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a752d0c1eca35b876bac8bd643b84ade6} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Number\+Of\+Threads (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+set the number of threads used for the calculation 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumReflex@{setNumReflex}}
+\index{setNumReflex@{setNumReflex}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumReflex()}{setNumReflex()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Num\+Reflex (\begin{DoxyParamCaption}\item[{int}]{num\+Reflex}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumReflex@{setNumReflex}}
+\index{setNumReflex@{setNumReflex}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumReflex()}{setNumReflex()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a721cfdbaba7b605ca00fc5d2cac3cc92} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Num\+Reflex (\begin{DoxyParamCaption}\item[{int}]{num\+Reflex}{}\end{DoxyParamCaption})}
+
+
+
+set the number of internal reflections to be considered 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumWavelengthsPerRange@{setNumWavelengthsPerRange}}
+\index{setNumWavelengthsPerRange@{setNumWavelengthsPerRange}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumWavelengthsPerRange()}{setNumWavelengthsPerRange()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Num\+Wavelengths\+Per\+Range (\begin{DoxyParamCaption}\item[{int}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setNumWavelengthsPerRange@{setNumWavelengthsPerRange}}
+\index{setNumWavelengthsPerRange@{setNumWavelengthsPerRange}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setNumWavelengthsPerRange()}{setNumWavelengthsPerRange()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a767f6897321b1450eccab5463925c9e3} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Num\+Wavelengths\+Per\+Range (\begin{DoxyParamCaption}\item[{int}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+Set number of wavelengths per range. For the calculation, the spectral range is subdivided into a number of wavelength ranges. This method set the number of wavelength steps per spectral range. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setPulseWidth@{setPulseWidth}}
+\index{setPulseWidth@{setPulseWidth}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setPulseWidth()}{setPulseWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Pulse\+Width (\begin{DoxyParamCaption}\item[{double}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setPulseWidth@{setPulseWidth}}
+\index{setPulseWidth@{setPulseWidth}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setPulseWidth()}{setPulseWidth()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8c8d0eeefb4cffb531fbc0ef9f0fd749} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Pulse\+Width (\begin{DoxyParamCaption}\item[{double}]{dt}{}\end{DoxyParamCaption})}
+
+
+
+Sets the spectral width according to the pulse width and adjusts the widht of the subdivisions. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setReferenceTime@{setReferenceTime}}
+\index{setReferenceTime@{setReferenceTime}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setReferenceTime()}{setReferenceTime()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Reference\+Time (\begin{DoxyParamCaption}\item[{double}]{tref}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setReferenceTime@{setReferenceTime}}
+\index{setReferenceTime@{setReferenceTime}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setReferenceTime()}{setReferenceTime()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9a893e243028abfb227fe97a8f4dbe10} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Reference\+Time (\begin{DoxyParamCaption}\item[{double}]{tref}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setRefractiveIndexFunctions@{setRefractiveIndexFunctions}}
+\index{setRefractiveIndexFunctions@{setRefractiveIndexFunctions}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setRefractiveIndexFunctions()}{setRefractiveIndexFunctions()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Refractive\+Index\+Functions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$}]{n\+List}{}\end{DoxyParamCaption})}
+
+
+
+sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setRefractiveIndexFunctions@{setRefractiveIndexFunctions}}
+\index{setRefractiveIndexFunctions@{setRefractiveIndexFunctions}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setRefractiveIndexFunctions()}{setRefractiveIndexFunctions()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae76945286fe854124de33184af62add9} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Refractive\+Index\+Functions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$}]{n\+List}{}\end{DoxyParamCaption})}
+
+
+
+sets the list of functions, which describe the wavelength dependend refractive index (length must be number of objects + 1) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setRepetitionRate@{setRepetitionRate}}
+\index{setRepetitionRate@{setRepetitionRate}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setRepetitionRate()}{setRepetitionRate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Repetition\+Rate (\begin{DoxyParamCaption}\item[{double}]{rep}{}\end{DoxyParamCaption})}
+
+
+
+Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setRepetitionRate@{setRepetitionRate}}
+\index{setRepetitionRate@{setRepetitionRate}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setRepetitionRate()}{setRepetitionRate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a8f9f4d72ca6c316bf92ff6848a20e1ea} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Repetition\+Rate (\begin{DoxyParamCaption}\item[{double}]{rep}{}\end{DoxyParamCaption})}
+
+
+
+Set the repetition rate (in fs) The repetition rate is the frequency resolution within the calculation. This function sets trafoparms\+::nS to the next integer value. The used repetition rate used in the calculation is then given by bandwith df/(n\+I\texorpdfstring{$\ast$}{*}nS) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setSpatialResolution@{setSpatialResolution}}
+\index{setSpatialResolution@{setSpatialResolution}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSpatialResolution()}{setSpatialResolution()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Spatial\+Resolution (\begin{DoxyParamCaption}\item[{double}]{dx}{}\end{DoxyParamCaption})}
+
+
+
+sets the spatial resolution to a value near to dx 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setSpatialResolution@{setSpatialResolution}}
+\index{setSpatialResolution@{setSpatialResolution}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSpatialResolution()}{setSpatialResolution()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a582e02cfc8f3ba1d38deb36f71f02810} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Spatial\+Resolution (\begin{DoxyParamCaption}\item[{double}]{dx}{}\end{DoxyParamCaption})}
+
+
+
+sets the spatial resolution to a value near to dx 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setSpectralRanges@{setSpectralRanges}}
+\index{setSpectralRanges@{setSpectralRanges}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSpectralRanges()}{setSpectralRanges()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Spectral\+Ranges (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+Number of spectral ranges in which one raytracing calculation is made. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!setSpectralRanges@{setSpectralRanges}}
+\index{setSpectralRanges@{setSpectralRanges}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSpectralRanges()}{setSpectralRanges()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ac845e83b2bb83abb76864d7bad6bc5ed} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::set\+Spectral\+Ranges (\begin{DoxyParamCaption}\item[{int}]{n}{}\end{DoxyParamCaption})}
+
+
+
+set the number of spectral ranges in which one raytracing calculation is made 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_add07a3e14c61a5cf8f3fee2abf2b6510}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!domega@{domega}}
+\index{domega@{domega}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{domega}{domega}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_add07a3e14c61a5cf8f3fee2abf2b6510} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::domega}
+
+
+
+spectral resolution 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00085}{85}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a58f9f484c306bc04dede3616e35a4895}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!dRWvl@{dRWvl}}
+\index{dRWvl@{dRWvl}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dRWvl}{dRWvl}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a58f9f484c306bc04dede3616e35a4895} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::d\+RWvl}
+
+
+
+spectral width of one subdivision 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00087}{87}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!dWvl@{dWvl}}
+\index{dWvl@{dWvl}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dWvl}{dWvl}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a6d8ac3dadc8022a8c506dc76a7a872c1} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::d\+Wvl =0.\+02}
+
+
+
+spectral width of the light (default 20nm) 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00086}{86}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a41754b3d9a149ae05575cf601c511afc}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!fieldCalls@{fieldCalls}}
+\index{fieldCalls@{fieldCalls}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{fieldCalls}{fieldCalls}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a41754b3d9a149ae05575cf601c511afc} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::field\+Calls = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+how many times was field called (after last reset) 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00113}{113}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!nn@{nn}}
+\index{nn@{nn}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{nn}{nn}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4a0b331e61bc6d67e51bc5287e665420} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::nn}
+
+
+
+number of cells over the whole width of the calculation space (i.\+e. 2\texorpdfstring{$\ast$}{*}r0). 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00088}{88}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a860f25fcc210798a26c7f6f8f95eb11c}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!number\_of\_threads@{number\_of\_threads}}
+\index{number\_of\_threads@{number\_of\_threads}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{number\_of\_threads}{number\_of\_threads}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a860f25fcc210798a26c7f6f8f95eb11c} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::number\+\_\+of\+\_\+threads =5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+number of threads used for calculation 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00114}{114}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!numReflex@{numReflex}}
+\index{numReflex@{numReflex}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{numReflex}{numReflex}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a0d0da5e4b00abd7a2d1861f74a15683b} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::num\+Reflex = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a59f2a6ba40c3150123f9084868670383}{INEL\+\_\+\+MAX\+\_\+\+NREFLEX}}}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00095}{95}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab96fdfe7a64171357845d8ebc561c6ac}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!raytracingDone@{raytracingDone}}
+\index{raytracingDone@{raytracingDone}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{raytracingDone}{raytracingDone}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ab96fdfe7a64171357845d8ebc561c6ac} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::raytracing\+Done = false}
+
+
+
+If true, the raytracing part was done and the field calculation starts directly. 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00091}{91}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aeb2125566c8c97657c64a9e3252c2905}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!rt@{rt}}
+\index{rt@{rt}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rt}{rt}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aeb2125566c8c97657c64a9e3252c2905} 
+template$<$class T$>$ \\
+T \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::rt}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00070}{70}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aaf5e6d66b88ca83f602bf8d71bda359c}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!rt@{rt}}
+\index{rt@{rt}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rt}{rt}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_aaf5e6d66b88ca83f602bf8d71bda359c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace__usp}{Raytrace\+\_\+usp}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::rt}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00080}{80}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!S@{S}}
+\index{S@{S}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{S}{S}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a4c305f25cea330e97973e35ea91d80d7} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::S}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00089}{89}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7b741d539f2fdd6d001d4ad7b66a737e}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!SA@{SA}}
+\index{SA@{SA}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SA}{SA}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7b741d539f2fdd6d001d4ad7b66a737e} 
+template$<$class T$>$ \\
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1grid_entry}{grid\+Entry}} $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::\+SA}
+
+
+
+Here, all infos are stored to calculate the pulse (step lengths, index of the medium etc.) 
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00069}{69}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a848a316b1f0ae2e7a14e7fe840a36707}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!SAres@{SAres}}
+\index{SAres@{SAres}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SAres}{SAres}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a848a316b1f0ae2e7a14e7fe840a36707} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::\+SAres}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00068}{68}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae9aa117382e489ad02df53b446bf8065}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!settings@{settings}}
+\index{settings@{settings}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ae9aa117382e489ad02df53b446bf8065} 
+template$<$class T$>$ \\
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::settings =0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalculation_8h_source_l00093}{93}} of file \mbox{\hyperlink{pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9bfbc3d84a7f2ac383463909437f77b3}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!trafo@{trafo}}
+\index{trafo@{trafo}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{trafo}{trafo}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a9bfbc3d84a7f2ac383463909437f77b3} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_trafo}{Trafo}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::trafo}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00067}{67}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!trafoparms@{trafoparms}}
+\index{trafoparms@{trafoparms}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{trafoparms}{trafoparms}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_a7f6849411c7246b1a472a2bcb705f03f} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_trafo_parms}{Trafo\+Parms}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::trafoparms}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00093}{93}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf}\index{GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}!tref@{tref}}
+\index{tref@{tref}!GOAT::raytracing::pulseCalculation$<$ T $>$@{GOAT::raytracing::pulseCalculation$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{tref}{tref}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1pulse_calculation_ad73ca4b15ae4248cdadebcfd953cd0bf} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{GOAT\+::raytracing\+::pulse\+Calculation}}$<$ T $>$\+::tref = 0.\+0}
+
+
+
+Definition at line \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source_l00094}{94}} of file \mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h_source}{pulsecalculation.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/pulsecalc\+\_\+with\+\_\+template/\mbox{\hyperlink{pulsecalc__with__template_2pulsecalculation_8h}{pulsecalculation.\+h}}\item 
+raytracing/\mbox{\hyperlink{pulsecalculation_8h}{pulsecalculation.\+h}}\end{DoxyCompactItemize}

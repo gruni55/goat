@@ -1,0 +1,80 @@
+\doxysection{xmltoken.\+h}
+\hypertarget{xmltoken_8h_source}{}\label{xmltoken_8h_source}\index{XML/xmltoken.h@{XML/xmltoken.h}}
+\mbox{\hyperlink{xmltoken_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lightsrc_8h}{lightsrc.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00004}00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l}{XML}}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00010}\mbox{\hyperlink{xmltoken_8h_a4ec71fa8aaaf51a14f1bcb4224bb90de}{00010}}\ \textcolor{preprocessor}{\#define\ numLightSourceToken\ 12}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00011}\mbox{\hyperlink{xmltoken_8h_a0b27f62752a0045622bfd5979c21a70e}{00011}}\ \textcolor{preprocessor}{\#define\ numObjectToken\ \ \ \ \ \ 8\ }}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00012}\mbox{\hyperlink{xmltoken_8h_a8e46f1f6bcdd9bd7ff104a653b8b7e43}{00012}}\ \textcolor{preprocessor}{\#define\ numDetectorToken\ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00013}\mbox{\hyperlink{xmltoken_8h_a560224a9afe28815563376b219a1a6a0}{00013}}\ \textcolor{preprocessor}{\#define\ numCalculationToken\ 6}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00014}\mbox{\hyperlink{xmltoken_8h_abd0e0e0e48a4abdd1b31e138345336de}{00014}}\ \textcolor{preprocessor}{\#define\ numRefractiveIndexToken\ 6}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00016}\mbox{\hyperlink{xmltoken_8h_ab35d1c13a6aed51658fba4171a717829}{00016}}\ \textcolor{preprocessor}{\#define\ TOKEN\_NOT\_FOUND\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\/1}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00017}\mbox{\hyperlink{xmltoken_8h_a5d29ecc5ad4a8a86e2c8a7f9df6cbc46}{00017}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_PLANE\ \ \ \ \ \ \ \ \ 0}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00018}\mbox{\hyperlink{xmltoken_8h_a630ff3850463d99e7f6998d7a78f96d9}{00018}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_GAUSSIAN\ \ \ \ \ \ 1}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00019}\mbox{\hyperlink{xmltoken_8h_a481625701d044eef9f57be8cfd5a76ba}{00019}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_RING\ \ \ \ \ \ \ \ \ \ 2}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00020}\mbox{\hyperlink{xmltoken_8h_ac2a296e2a858e85560081f19531fc4c5}{00020}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_TOPHAT\ \ \ \ \ \ \ \ 3}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00021}\mbox{\hyperlink{xmltoken_8h_ac00d1df4b350233d932d0ff6445e2486}{00021}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_PLANE\_MC\ \ \ \ \ \ 4}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00022}\mbox{\hyperlink{xmltoken_8h_abfdb64ed1ae7035db19ea29652fbc2ef}{00022}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC\ \ \ 5}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00023}\mbox{\hyperlink{xmltoken_8h_a258d4685797e03a5e3eba091e126dca2}{00023}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_RING\_MC\ \ \ \ \ \ \ 6}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00024}\mbox{\hyperlink{xmltoken_8h_a67e7664f654bf7ea9444315894720d28}{00024}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC\ 7}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00025}\mbox{\hyperlink{xmltoken_8h_ac7d665f38c5101f4d021478188d08453}{00025}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_LINE\ \ \ \ \ \ \ \ \ \ 8}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00026}\mbox{\hyperlink{xmltoken_8h_a36a7f4da7fcc50f31de8393181fd8049}{00026}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_LINE\_MC\ \ \ \ \ \ \ 9}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00027}\mbox{\hyperlink{xmltoken_8h_ac9027afda0248e314f931181f672d556}{00027}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_POINT\ \ \ \ \ \ \ \ \ 10}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00028}\mbox{\hyperlink{xmltoken_8h_ac6097e5533f8c19d5b3790116a74f1b0}{00028}}\ \textcolor{preprocessor}{\#define\ TOKEN\_LIGHTSOURCE\_POINT\_MC\ \ \ \ \ \ 11}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00031}\mbox{\hyperlink{xmltoken_8h_a0323cf2944b5068eb235d02c2ba82ccb}{00031}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_ELLIPSOID\ \ \ \ \ \ \ \ 100}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00032}\mbox{\hyperlink{xmltoken_8h_ae0cc9b82a25748439ebac9264b046a96}{00032}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_SURFACE\ \ \ \ \ \ \ \ \ \ 101}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00033}\mbox{\hyperlink{xmltoken_8h_aa8122ccaef5dbdaf8e1456319091f95c}{00033}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_CONE\ \ \ \ \ \ \ \ \ \ \ \ \ 102}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00034}\mbox{\hyperlink{xmltoken_8h_a323686993fbb40e3d63728ba2e0a3779}{00034}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_ASPHERIC\_LENS\ \ \ \ 103}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00035}\mbox{\hyperlink{xmltoken_8h_af69718fe99959a6ba1d12b4003135011}{00035}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_SPHERIC\_LENS\ \ \ \ \ 104}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00036}\mbox{\hyperlink{xmltoken_8h_ae70cd0a280b835dffa74075f597cdeeb}{00036}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_BOX\ \ \ \ \ \ \ \ \ \ \ \ \ \ 105}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00037}\mbox{\hyperlink{xmltoken_8h_a0b82a53abe583029a3ad78ba9aebdc71}{00037}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_CYLINDER\ \ \ \ \ \ \ \ \ 106}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00038}\mbox{\hyperlink{xmltoken_8h_a304101afb804b340c633840a4cb6f812}{00038}}\ \textcolor{preprocessor}{\#define\ TOKEN\_OBJECT\_VORTEX\_PLATE\ \ \ \ \ 107}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00040}\mbox{\hyperlink{xmltoken_8h_ab36f28430a3eba4ec71858001efeaea4}{00040}}\ \textcolor{preprocessor}{\#define\ TOKEN\_DETECTOR\_PLANE\ \ \ \ \ \ \ \ \ \ 150}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00042}\mbox{\hyperlink{xmltoken_8h_aea07f4c4ac4c9085a3570563a5aed1a9}{00042}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_PURE\ \ \ \ \ \ \ \ 200}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00043}\mbox{\hyperlink{xmltoken_8h_afcb3dd1e6e76906701c2e30b76032032}{00043}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_PATH\ \ \ \ \ \ \ \ 201}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00044}\mbox{\hyperlink{xmltoken_8h_a67de9052c78b59c390cb6a5af0538451}{00044}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_PULSE\ \ \ \ \ \ \ 202}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00045}\mbox{\hyperlink{xmltoken_8h_a6533ad242d100316e975bff8f08c752d}{00045}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_PULSE\_FIELD\ 203}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00046}\mbox{\hyperlink{xmltoken_8h_a0f981569c43651fe0d9367a29623cdbb}{00046}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_INELASTIC\ \ \ 204}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00047}\mbox{\hyperlink{xmltoken_8h_a1e5b89056bb8b19b449408ea903d649b}{00047}}\ \textcolor{preprocessor}{\#define\ TOKEN\_CALCULATION\_FIELD\ \ \ \ \ \ \ 205}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00049}\mbox{\hyperlink{xmltoken_8h_af1387f3418cfb7cff25e304d7098fcd4}{00049}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_AIR\ \ \ \ 300}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00050}\mbox{\hyperlink{xmltoken_8h_aae3ba90a879902860e44aef6cff5a001}{00050}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_GLASS\ \ 301}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00051}\mbox{\hyperlink{xmltoken_8h_aeee5d8450d0f87c14c5ae020623f0d64}{00051}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_BK7\ \ \ \ 302}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00052}\mbox{\hyperlink{xmltoken_8h_adf6ed62249f2731257bc1afc242a61ce}{00052}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_LASF55\ 303}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00053}\mbox{\hyperlink{xmltoken_8h_a9263c37a83e9f9517f74ccdf5b7f472b}{00053}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_VACUUM\ 304}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00054}\mbox{\hyperlink{xmltoken_8h_a7990dd684c5b0422d9b38de3b0315057}{00054}}\ \textcolor{preprocessor}{\#define\ TOKEN\_REFRACTIVE\_INDEX\_PMMA\ \ \ 305}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00059}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{00059}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{lightSourceToken}}\ =\ \{\ \textcolor{stringliteral}{"{}plane"{}},\textcolor{stringliteral}{"{}gaussian"{}},\textcolor{stringliteral}{"{}ring"{}},\textcolor{stringliteral}{"{}tophat"{}},\textcolor{stringliteral}{"{}plane\_mc"{}},\textcolor{stringliteral}{"{}gaussian\_mc"{}},\textcolor{stringliteral}{"{}ring\_mc"{}},\textcolor{stringliteral}{"{}gaussian\_ring\_mc"{}},\textcolor{stringliteral}{"{}line"{}},\textcolor{stringliteral}{"{}line\_mc"{}},\textcolor{stringliteral}{"{}point"{}},\textcolor{stringliteral}{"{}point\_mc"{}}\};}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00060}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{00060}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{objectToken}}\ =\ \{\ \textcolor{stringliteral}{"{}ellipsoid"{}},\textcolor{stringliteral}{"{}surface"{}},\textcolor{stringliteral}{"{}cone"{}},\textcolor{stringliteral}{"{}aspheric\_lens"{}},\textcolor{stringliteral}{"{}spheric\_lens"{}},\textcolor{stringliteral}{"{}box"{}},\textcolor{stringliteral}{"{}cylinder"{}},\textcolor{stringliteral}{"{}vortex\_plate"{}}\};}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00061}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}{00061}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}{detectorToken}}\ =\ \{\textcolor{stringliteral}{"{}plane"{}}\};}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00062}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{00062}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculationToken}}\ =\ \{\ \textcolor{stringliteral}{"{}pure"{}},\textcolor{stringliteral}{"{}path"{}},\textcolor{stringliteral}{"{}pulse"{}},\textcolor{stringliteral}{"{}pulse\_field"{}},\textcolor{stringliteral}{"{}inelastic"{}},\textcolor{stringliteral}{"{}field"{}}\};}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00063}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}{00063}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::string>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}{refractiveIndexToken}}\ =\ \{\ \textcolor{stringliteral}{"{}air"{}},\textcolor{stringliteral}{"{}glass"{}},\textcolor{stringliteral}{"{}bk7"{}},\textcolor{stringliteral}{"{}lasf55"{}},\textcolor{stringliteral}{"{}vacuum"{}},\textcolor{stringliteral}{"{}pmma"{}}\ \};}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00065}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{00065}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{mapString2LightSourceToken}}(std::string\ str);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00066}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{00066}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{mapString2ObjectToken}}(std::string\ str);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00067}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}{00067}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}{mapString2DetectorToken}}(std::string\ str);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00068}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{00068}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{mapString2CalculationToken}}(std::string\ str);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00069}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}{mapString2RefractiveIndexToken}}(std::string\ str);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00070}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}{00070}}\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}{str\_tolower}}(std::string\ s);\ }
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00071}\mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}{addFunction2IndexList}}(std::vector<\ std::function<\ std::complex<\ double\ >(\textcolor{keywordtype}{double})\ >\ >\&\ nList,\ \textcolor{keywordtype}{int}\ refIndexToken);}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{xmltoken_8h_source_l00074}00074\ }
+
+\end{DoxyCode}

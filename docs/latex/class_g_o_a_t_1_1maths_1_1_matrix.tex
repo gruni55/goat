@@ -1,0 +1,695 @@
+\doxysection{GOAT\+::maths\+::Matrix\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_g_o_a_t_1_1maths_1_1_matrix}{}\label{class_g_o_a_t_1_1maths_1_1_matrix}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+
+
+This class represents a threedimensional (numeric) \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} as a template.  
+
+
+
+
+{\ttfamily \#include $<$matrix.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9444c1efda7640fa78a1962524128e5b}{bin\+Read}} (std\+::ifstream \&is)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a7e374c27c03abf580bbeb559bb2dd644}{bin\+Write}} (std\+::ofstream \&os)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a261d5545d9c1ddca68c70e8c545b1c94}{clear}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9b3f9007da7429e5ef78445270830b60}{Matrix}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aa76dc79e85b3ab5074489d7bd04a83ed}{Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ a, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ b, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ c)
+\begin{DoxyCompactList}\small\item\em Main constructor for the template class \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}. This constructor uses three vectors as parameters, which represents the three columns of the matrix. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a141814359f38a28db7b1438688b5523f}{operator!=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}})
+\item 
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5016854637ae912ba741559d0686f4b7}{operator()}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em This operator returns the value of the j-\/th element in the i-\/th column. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_afeb234d996467ed28b52da699b7f023a}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a4bcc2b3688744a2187a0f9e5cb1d9e2a}{operator==}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}} \mbox{[}3\mbox{]}\mbox{[}3\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ac9244dbb542b5f2849b4859e85f48c49}{cut\+Matrix}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}{M}}, int i, int j)
+\begin{DoxyCompactList}\small\item\em This function returns a matrix where all elements of the i-\/th column and the j-\/th row set to zero. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aaf64d99c408b323083c1f40a25c1a5e6}{det}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the determinant of the matrix A. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9e9429796e80c08b15cfd163de04f6f5}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_adc2669b2494036b37d38733b96cb19bd}{invert}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&A, bool \&invertable)
+\begin{DoxyCompactList}\small\item\em Calculates the inverse of a matrix, if possible. \end{DoxyCompactList}\item 
+std\+::ostream \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ae982f5b0ece98c06892ea9f5ac363028}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Output of the matrix into an ostream Output in the form\+: M00 M01 M02 M10 M11 M12 M20 M21 M22. \end{DoxyCompactList}\item 
+std\+::istream \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_abb2b6f636fe6065b3393688ce51b1d76}{operator$>$$>$}} (std\+::istream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Input of the matrix from an istream. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_af80afe30e71c36f91065d46ae75f79d1}{trace}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the trace of matrix A, i.\+e. the sum over all diagonal elements. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ad49add03b74ffaceddaafae2bdc85a75}{transpose}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\begin{DoxyCompactList}\small\item\em Calculates the transpose of the matrix A. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{special operators}
+These operators are the common definitions of the corresponding matrix operations \begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a006ebd25df6f5070a53df8b2a3431592}{operator+}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a4007f769129b7adf497ebd581c183204}{operator+=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ae7448962533b477f927691b36779ee2d}{operator-\/}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_ae3f69db9b96ab16ebc7d14fc29c4d9ca}{operator-\/=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a88e7e7b2afd30405dd6599f0ad7eebf0}{operator\texorpdfstring{$\ast$}{*}=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a3bfa7da4cffda3c8b52787ed3341e494}{operator/=}} (const T \&x)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aa96f0f9725d8fea62f1e7648c4458457}{operator\texorpdfstring{$\ast$}{*}=}} (const T \&x)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a5665c385ae2843aa1b0434c1e03233a7}{operator-\/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&B)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a987ec347864c562e168efb8f273d1cbe}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&B)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_aa07f1c199851ca78ce1150ff75933bb8}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A, const T \&x)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a956aae5e90d9ed38032fc69913db1561}{operator\texorpdfstring{$\ast$}{*}}} (const T \&x, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a9fadb924d9cad9fb05a30f4a04583d3c}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \&r)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_a8829affaaeb2fcf9d0a9b69b743d2552}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \&r, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix_af1d5ccd4328a26f2e0a5af433450a0cd}{operator/}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \&A, const T \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class GOAT\+::maths\+::\+Matrix$<$ T $>$}
+This class represents a threedimensional (numeric) \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} as a template. 
+
+The \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} class represents a template class for 3x3 numeric matrices. Operators for standard matrix operation are provided. This class is intended to work with the \doxylink{class_g_o_a_t_1_1maths_1_1_vector}{Vector} template class defined in this SDK. 
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00022}{22}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a9b3f9007da7429e5ef78445270830b60}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a9b3f9007da7429e5ef78445270830b60} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00025}{25}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_aa76dc79e85b3ab5074489d7bd04a83ed}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Matrix()}{Matrix()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_aa76dc79e85b3ab5074489d7bd04a83ed} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::\+Matrix (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$}]{a}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$}]{b}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$}]{c}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Main constructor for the template class \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}. This constructor uses three vectors as parameters, which represents the three columns of the matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & first column \\
+\hline
+{\em b} & second column \\
+\hline
+{\em c} & third column \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00054}{54}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a9444c1efda7640fa78a1962524128e5b}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!binRead@{binRead}}
+\index{binRead@{binRead}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{binRead()}{binRead()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a9444c1efda7640fa78a1962524128e5b} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & reads the \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} from a binary file, represented by is \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00039}{39}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a7e374c27c03abf580bbeb559bb2dd644}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!binWrite@{binWrite}}
+\index{binWrite@{binWrite}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a7e374c27c03abf580bbeb559bb2dd644} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & writes the \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} into a binary file, represented by os \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00032}{32}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a261d5545d9c1ddca68c70e8c545b1c94}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!clear@{clear}}
+\index{clear@{clear}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a261d5545d9c1ddca68c70e8c545b1c94} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00378}{378}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a141814359f38a28db7b1438688b5523f}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a141814359f38a28db7b1438688b5523f} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{M}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & negative comparison operator, returns false, if at least one of the components are not equal \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00082}{82}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a5016854637ae912ba741559d0686f4b7}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a5016854637ae912ba741559d0686f4b7} 
+template$<$class T$>$ \\
+T \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i}{, }\item[{int}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This operator returns the value of the j-\/th element in the i-\/th column. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & index of the column \\
+\hline
+{\em j} & index of the row \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00096}{96}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a88e7e7b2afd30405dd6599f0ad7eebf0}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a88e7e7b2afd30405dd6599f0ad7eebf0} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & multiplication with matrix A \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00136}{136}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_aa96f0f9725d8fea62f1e7648c4458457}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_aa96f0f9725d8fea62f1e7648c4458457} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const T \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & multiplication with a scalar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00160}{160}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a006ebd25df6f5070a53df8b2a3431592}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a006ebd25df6f5070a53df8b2a3431592} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & adding two matrices (same type) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00102}{102}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a4007f769129b7adf497ebd581c183204}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a4007f769129b7adf497ebd581c183204} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & subtract one matrix from this matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00111}{111}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_ae7448962533b477f927691b36779ee2d}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_ae7448962533b477f927691b36779ee2d} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00119}{119}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_ae3f69db9b96ab16ebc7d14fc29c4d9ca}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_ae3f69db9b96ab16ebc7d14fc29c4d9ca} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & subtraction operator \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00128}{128}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a3bfa7da4cffda3c8b52787ed3341e494}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a3bfa7da4cffda3c8b52787ed3341e494} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator/= (\begin{DoxyParamCaption}\item[{const T \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & division by a scalar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00152}{152}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_afeb234d996467ed28b52da699b7f023a}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_afeb234d996467ed28b52da699b7f023a} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} \& \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & assignment operator \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00064}{64}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a4bcc2b3688744a2187a0f9e5cb1d9e2a}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator==@{operator==}}
+\index{operator==@{operator==}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a4bcc2b3688744a2187a0f9e5cb1d9e2a} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & comparison operator (two matrices are equal, if all components are exactly the same) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00073}{73}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+
+
+\label{doc-related-members}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_ac9244dbb542b5f2849b4859e85f48c49}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!cutMatrix@{cutMatrix}}
+\index{cutMatrix@{cutMatrix}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cutMatrix}{cutMatrix}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_ac9244dbb542b5f2849b4859e85f48c49} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} cut\+Matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{M}{, }\item[{int}]{i}{, }\item[{int}]{j}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+This function returns a matrix where all elements of the i-\/th column and the j-\/th row set to zero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em M} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} \\
+\hline
+{\em i} & column \\
+\hline
+{\em j} & row \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Exchanged matrix 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00319}{319}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_aaf64d99c408b323083c1f40a25c1a5e6}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!det@{det}}
+\index{det@{det}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{det}{det}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_aaf64d99c408b323083c1f40a25c1a5e6} 
+template$<$class T$>$ \\
+T det (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Calculates the determinant of the matrix A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Determinant of A 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00302}{302}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a9e9429796e80c08b15cfd163de04f6f5}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!invert@{invert}}
+\index{invert@{invert}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{invert}{invert}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a9e9429796e80c08b15cfd163de04f6f5} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} invert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Calculates the inverse of a matrix, if possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} to invert \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inverse of matrix A, if A is invertable, otherwise the function returns a zero matrix. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00372}{372}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_adc2669b2494036b37d38733b96cb19bd}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!invert@{invert}}
+\index{invert@{invert}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{invert}{invert}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_adc2669b2494036b37d38733b96cb19bd} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} invert (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{bool \&}]{invertable}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Calculates the inverse of a matrix, if possible. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{in}}  & {\em A} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} to invert \\
+\hline
+\mbox{\texttt{out}}  & {\em invertable} & true, if A is invertable otherwise false \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Inverse of matrix A, if A is invertable, otherwise the function returns a zero matrix. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00342}{342}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a987ec347864c562e168efb8f273d1cbe}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a987ec347864c562e168efb8f273d1cbe} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{B}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & multiplication of two matrices (same type) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00178}{178}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_aa07f1c199851ca78ce1150ff75933bb8}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_aa07f1c199851ca78ce1150ff75933bb8} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{const T \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & multiplication of matrix with a scalar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00188}{188}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a9fadb924d9cad9fb05a30f4a04583d3c}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a9fadb924d9cad9fb05a30f4a04583d3c} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \&}]{r}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & multiplication of a matrix with a vector \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00206}{206}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a956aae5e90d9ed38032fc69913db1561}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a956aae5e90d9ed38032fc69913db1561} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const T \&}]{x}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & multiplication of scalar with a matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00197}{197}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a8829affaaeb2fcf9d0a9b69b743d2552}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}}{operator*}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a8829affaaeb2fcf9d0a9b69b743d2552} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{Vector}}$<$ T $>$ \&}]{r}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & multiplication of a vector with a matrix \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00215}{215}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a5665c385ae2843aa1b0434c1e03233a7}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/}{operator-}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a5665c385ae2843aa1b0434c1e03233a7} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{B}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em B} & subtraction of two matrices (same type) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00169}{169}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_af1d5ccd4328a26f2e0a5af433450a0cd}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator/@{operator/}}
+\index{operator/@{operator/}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator/}{operator/}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_af1d5ccd4328a26f2e0a5af433450a0cd} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} operator/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{, }\item[{const T \&}]{x}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & division of a matrix with a scalar \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00224}{224}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_ae982f5b0ece98c06892ea9f5ac363028}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_ae982f5b0ece98c06892ea9f5ac363028} 
+template$<$class T$>$ \\
+std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Output of the matrix into an ostream Output in the form\+: M00 M01 M02 M10 M11 M12 M20 M21 M22. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em os} & stream \\
+\hline
+{\em A} & matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+changed stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00244}{244}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_abb2b6f636fe6065b3393688ce51b1d76}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$>$$>$}{operator>>}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_abb2b6f636fe6065b3393688ce51b1d76} 
+template$<$class T$>$ \\
+std\+::istream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{is}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Input of the matrix from an istream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is} & stream \\
+\hline
+{\em A} & matrix \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+changed stream 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00258}{258}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_af80afe30e71c36f91065d46ae75f79d1}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!trace@{trace}}
+\index{trace@{trace}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{trace}{trace}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_af80afe30e71c36f91065d46ae75f79d1} 
+template$<$class T$>$ \\
+T trace (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Calculates the trace of matrix A, i.\+e. the sum over all diagonal elements. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+trace 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00288}{288}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_ad49add03b74ffaceddaafae2bdc85a75}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!transpose@{transpose}}
+\index{transpose@{transpose}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{transpose}{transpose}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_ad49add03b74ffaceddaafae2bdc85a75} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}} transpose (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix}}$<$ T $>$ \&}]{A}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Calculates the transpose of the matrix A. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em A} & \doxylink{class_g_o_a_t_1_1maths_1_1_matrix}{Matrix} to be transposed (represented by Aij) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+transposed matrix (=Aji) 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00273}{273}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437}\index{GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}!M@{M}}
+\index{M@{M}!GOAT::maths::Matrix$<$ T $>$@{GOAT::maths::Matrix$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1maths_1_1_matrix_a5cfec052508138d8a22c70c8626e6437} 
+template$<$class T$>$ \\
+T \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{GOAT\+::maths\+::\+Matrix}}$<$ T $>$\+::M\mbox{[}3\mbox{]}\mbox{[}3\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{matrix_8h_source_l00385}{385}} of file \mbox{\hyperlink{matrix_8h_source}{matrix.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+maths/\mbox{\hyperlink{matrix_8h}{matrix.\+h}}\end{DoxyCompactItemize}

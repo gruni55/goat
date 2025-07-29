@@ -1,0 +1,55 @@
+\doxysection{storage\+Backend.\+h}
+\hypertarget{storage_backend_8h_source}{}\label{storage_backend_8h_source}\index{XML/storageBackend.h@{XML/storageBackend.h}}
+\mbox{\hyperlink{storage_backend_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00001}00001\ \textcolor{comment}{//\ goat/storage/IStorageInterfaces.hpp}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00002}00002\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00007}00007\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}\ \{}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}\ \{}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}};\ \ \textcolor{comment}{//\ Forward?Deklaration\ deines\ Datenmodells}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00012}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage}{00012}}\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1storage}{storage}}\ \{}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00019}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{00019}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}}\ \{}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00021}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader_aeff3f5d03661becc0d17a86c16dfe0d3}{00021}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader_aeff3f5d03661becc0d17a86c16dfe0d3}{\string~IReader}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00025}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader_a4fb7e99b584b5d9b0a425e413d424c16}{00025}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader_a4fb7e99b584b5d9b0a425e413d424c16}{read}}(\textcolor{keyword}{const}\ std::string\&\ filename)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00029}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{ReaderFactory}}\ =\ std::unique\_ptr<IReader>(*)();}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00032}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a2a900437bb9fd117c7b116d4896c2af3}{00032}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a2a900437bb9fd117c7b116d4896c2af3}{registerReader}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{ReaderFactory}}\ factory);}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00035}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_adbbfe8f8aafbc45dd75a523473f13c07}{00035}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<IReader>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_adbbfe8f8aafbc45dd75a523473f13c07}{createReader}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Writer?Interface}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00041}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{00041}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}}\ \{}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00043}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer_a5622674b116d70b9f54bbcc35e55b580}{00043}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer_a5622674b116d70b9f54bbcc35e55b580}{\string~IWriter}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00046}\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer_a2ffcbb7c13a4b249b1b2256e420b472c}{00046}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer_a2ffcbb7c13a4b249b1b2256e420b472c}{write}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{raytracing::Scene}}\&\ scene,}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ filename)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00051}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{00051}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{WriterFactory}}\ =\ std::unique\_ptr<IWriter>(*)();}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00054}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a99d2d5493bf999803af1cd995e3addab}{00054}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a99d2d5493bf999803af1cd995e3addab}{registerWriter}}(\textcolor{keyword}{const}\ std::string\&\ name,\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{WriterFactory}}\ factory);}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00057}\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_af1cc03c584c434a523318ca8f10d93f5}{00057}}\ \ \ \ \ \ \ \ \ std::unique\_ptr<IWriter>\ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_af1cc03c584c434a523318ca8f10d93f5}{createWriter}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00059}00059\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ storage}}
+\DoxyCodeLine{\Hypertarget{storage_backend_8h_source_l00060}00060\ \}\ \textcolor{comment}{//\ namespace\ GOAT}}
+
+\end{DoxyCode}

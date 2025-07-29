@@ -1,0 +1,105 @@
+\doxysection{GOAT\+::storage Namespace Reference}
+\hypertarget{namespace_g_o_a_t_1_1storage}{}\label{namespace_g_o_a_t_1_1storage}\index{GOAT::storage@{GOAT::storage}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{Reader\+Factory}} = std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}}$>$(\texorpdfstring{$\ast$}{*})()
+\begin{DoxyCompactList}\small\item\em Funktionszeiger-\/\+Typ für Reader?Factories (erzeugt std\+::unique\+\_\+ptr$<$\+IReader$>$) \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{Writer\+Factory}} = std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}}$>$(\texorpdfstring{$\ast$}{*})()
+\begin{DoxyCompactList}\small\item\em Funktionszeiger-\/\+Typ für Writer?Factories (erzeugt std\+::unique\+\_\+ptr$<$\+IWriter$>$) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_adbbfe8f8aafbc45dd75a523473f13c07}{create\+Reader}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Erzeugt per String?Lookup den passenden Reader. \end{DoxyCompactList}\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}} $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_af1cc03c584c434a523318ca8f10d93f5}{create\+Writer}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Erzeugt per String?Lookup den passende Writer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a2a900437bb9fd117c7b116d4896c2af3}{register\+Reader}} (const std\+::string \&name, \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{Reader\+Factory}} factory)
+\begin{DoxyCompactList}\small\item\em Registriert eine Reader?Factory unter dem Schlüssel {\ttfamily name} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a99d2d5493bf999803af1cd995e3addab}{register\+Writer}} (const std\+::string \&name, \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{Writer\+Factory}} factory)
+\begin{DoxyCompactList}\small\item\em Registriert eine Writer?Factory unter dem Schlüssel {\ttfamily name} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-typedef-members}
+\Hypertarget{namespace_g_o_a_t_1_1storage_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}\index{GOAT::storage@{GOAT::storage}!ReaderFactory@{ReaderFactory}}
+\index{ReaderFactory@{ReaderFactory}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{ReaderFactory}{ReaderFactory}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{GOAT\+::storage\+::\+Reader\+Factory}} = std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}}$>$(\texorpdfstring{$\ast$}{*})()}
+
+
+
+Funktionszeiger-\/\+Typ für Reader?Factories (erzeugt std\+::unique\+\_\+ptr$<$\+IReader$>$) 
+
+
+
+Definition at line \mbox{\hyperlink{storage_backend_8h_source_l00029}{29}} of file \mbox{\hyperlink{storage_backend_8h_source}{storage\+Backend.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}\index{GOAT::storage@{GOAT::storage}!WriterFactory@{WriterFactory}}
+\index{WriterFactory@{WriterFactory}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{WriterFactory}{WriterFactory}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{GOAT\+::storage\+::\+Writer\+Factory}} = std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}}$>$(\texorpdfstring{$\ast$}{*})()}
+
+
+
+Funktionszeiger-\/\+Typ für Writer?Factories (erzeugt std\+::unique\+\_\+ptr$<$\+IWriter$>$) 
+
+
+
+Definition at line \mbox{\hyperlink{storage_backend_8h_source_l00051}{51}} of file \mbox{\hyperlink{storage_backend_8h_source}{storage\+Backend.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_g_o_a_t_1_1storage_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1storage_adbbfe8f8aafbc45dd75a523473f13c07}\index{GOAT::storage@{GOAT::storage}!createReader@{createReader}}
+\index{createReader@{createReader}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{createReader()}{createReader()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_adbbfe8f8aafbc45dd75a523473f13c07} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_reader}{IReader}} $>$ GOAT\+::storage\+::create\+Reader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Erzeugt per String?Lookup den passenden Reader. 
+
+\Hypertarget{namespace_g_o_a_t_1_1storage_af1cc03c584c434a523318ca8f10d93f5}\index{GOAT::storage@{GOAT::storage}!createWriter@{createWriter}}
+\index{createWriter@{createWriter}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{createWriter()}{createWriter()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_af1cc03c584c434a523318ca8f10d93f5} 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_g_o_a_t_1_1storage_1_1_i_writer}{IWriter}} $>$ GOAT\+::storage\+::create\+Writer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Erzeugt per String?Lookup den passende Writer. 
+
+\Hypertarget{namespace_g_o_a_t_1_1storage_a2a900437bb9fd117c7b116d4896c2af3}\index{GOAT::storage@{GOAT::storage}!registerReader@{registerReader}}
+\index{registerReader@{registerReader}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{registerReader()}{registerReader()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_a2a900437bb9fd117c7b116d4896c2af3} 
+void GOAT\+::storage\+::register\+Reader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a9436e6c3ac78fe6c17882d464bddfe3b}{Reader\+Factory}}}]{factory}{}\end{DoxyParamCaption})}
+
+
+
+Registriert eine Reader?Factory unter dem Schlüssel {\ttfamily name} 
+
+\Hypertarget{namespace_g_o_a_t_1_1storage_a99d2d5493bf999803af1cd995e3addab}\index{GOAT::storage@{GOAT::storage}!registerWriter@{registerWriter}}
+\index{registerWriter@{registerWriter}!GOAT::storage@{GOAT::storage}}
+\doxysubsubsection{\texorpdfstring{registerWriter()}{registerWriter()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1storage_a99d2d5493bf999803af1cd995e3addab} 
+void GOAT\+::storage\+::register\+Writer (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1storage_a031110b70252ba3b704d8d95d7ffacd4}{Writer\+Factory}}}]{factory}{}\end{DoxyParamCaption})}
+
+
+
+Registriert eine Writer?Factory unter dem Schlüssel {\ttfamily name} 
+

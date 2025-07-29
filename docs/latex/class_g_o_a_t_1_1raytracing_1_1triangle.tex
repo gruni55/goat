@@ -1,0 +1,370 @@
+\doxysection{GOAT\+::raytracing\+::triangle Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle}{}\label{class_g_o_a_t_1_1raytracing_1_1triangle}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+
+
+This class describes a triangle, represented by its corner points. It is intented for internal purposes. The triangle class is mainly used in class surface.  
+
+
+
+
+{\ttfamily \#include $<$triangle.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a84c9d979a645b7b02a5085a03ff62691}{area}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a1226d439654a955695d3a159ebeb4434}{bin\+Read}} (std\+::ifstream \&is)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a3e78013d36f96f6be8966d40ef50b7b8}{bin\+Write}} (std\+::ofstream \&os)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a9bd467e181fc4afe58d07b149cd4fe4d}{calc\+Intersection\+Point}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, double \&t, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, double eps=1E-\/5)
+\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_ada34fa1f84dba6c4d718d78b45bcfa03}{calc\+Intersection\+Point}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&p, double eps=1E-\/5)
+\begin{DoxyCompactList}\small\item\em Calculates the intersection point between the triangle and a straight line represented by a point r and the direction vector k. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a9c308a9a78f23867e31385964b878d79}{calc\+Side\+Vectors}} ()
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a797b9edd0254b731fa41ea5d64949cd4}{distance}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ p, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ k)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a131dfd13975b2ff400c9bc579511e434}{getnorm}} (void)
+\begin{DoxyCompactList}\small\item\em returns the surface normal n \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a081ccfafe73992a4b687f39a4c91a076}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&dr)
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a5831c404751ca281dba4eb2a202a131e}{operator\mbox{[}$\,$\mbox{]}}} (int i)
+\item 
+const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a908944aedd21622b9e2beb3aaa279f2e}{operator\mbox{[}$\,$\mbox{]}}} (int i) const
+\begin{DoxyCompactList}\small\item\em Operator, gives back the Position of i-\/th corner. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a44e6d30b2d033f60cfa6c7e58549c1c6}{setnorm}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a6d78162cb895140ba468de673fc73d62}{n}})
+\begin{DoxyCompactList}\small\item\em sets the surface normal n to the given value \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a9a9f002e4f2999394aac250a93e2a3eb}{setnorm}} (void)
+\begin{DoxyCompactList}\small\item\em calculates the surface normal n with help of the corner points \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_acf0b6ae77e7ba0209e698c5388d8f572}{triangle}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_acd55e87162f22fa46825f26ccd02c9ca}{triangle}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&d)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a9ab1e622c1b72a0cb91d65bb74f8a592}{triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ ip1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ ip2, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ ip3, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_aef826060f8aaff71f3a590fff6abe4a1}{P}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a0285f85d3b4807792389316a53e7c787}{triangle}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P2, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ P3)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a34c92da6302755ac8116eb328b646952}{\texorpdfstring{$\sim$}{\string~}triangle}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a778e375a2c8aa07592b8661dbdfb5719}{f}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em vectors which represents the sides of the triangle. For details refer to function \doxylink{class_g_o_a_t_1_1raytracing_1_1triangle_a9c308a9a78f23867e31385964b878d79}{calc\+Side\+Vectors()} \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a6d78162cb895140ba468de673fc73d62}{n}}
+\begin{DoxyCompactList}\small\item\em normal of the triangle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_aef826060f8aaff71f3a590fff6abe4a1}{P}} \mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em corner points of the triangle \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a8fa6940dbf62a810919060a470957857}{u}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_a0720ecd482306a1a5d89197d291ee34f}{v}}
+\begin{DoxyCompactList}\small\item\em auxiliary variables for internal use \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle_afdcbdf8214e6486a003c58017083f706}{surface}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class describes a triangle, represented by its corner points. It is intented for internal purposes. The triangle class is mainly used in class surface. 
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00012}{12}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_acf0b6ae77e7ba0209e698c5388d8f572}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_acf0b6ae77e7ba0209e698c5388d8f572} 
+GOAT\+::raytracing\+::triangle\+::triangle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a0285f85d3b4807792389316a53e7c787}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a0285f85d3b4807792389316a53e7c787} 
+GOAT\+::raytracing\+::triangle\+::triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P2}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P3}{}\end{DoxyParamCaption})}
+
+Constructor of the class triangle 
+\begin{DoxyParams}{Parameters}
+{\em P1,P2,P3} & \+: corner points of the triangle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a9ab1e622c1b72a0cb91d65bb74f8a592}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a9ab1e622c1b72a0cb91d65bb74f8a592} 
+GOAT\+::raytracing\+::triangle\+::triangle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{ip1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{ip2}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{ip3}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{}\end{DoxyParamCaption})}
+
+Constructor of the class triangle, the triangle is represented by a reference point and the three distance vectors between the reference point and the three corners of the triangle. 
+\begin{DoxyParams}{Parameters}
+{\em P0} & reference point \\
+\hline
+{\em ip1,ip2,ip3} & \+: Vectors from the reference point P0 to the corner points \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_acd55e87162f22fa46825f26ccd02c9ca}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!triangle@{triangle}}
+\index{triangle@{triangle}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{triangle()}{triangle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_acd55e87162f22fa46825f26ccd02c9ca} 
+GOAT\+::raytracing\+::triangle\+::triangle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a34c92da6302755ac8116eb328b646952}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!````~triangle@{\texorpdfstring{$\sim$}{\string~}triangle}}
+\index{````~triangle@{\texorpdfstring{$\sim$}{\string~}triangle}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}triangle()}{\string~triangle()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a34c92da6302755ac8116eb328b646952} 
+GOAT\+::raytracing\+::triangle\+::\texorpdfstring{$\sim$}{\string~}triangle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a84c9d979a645b7b02a5085a03ff62691}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!area@{area}}
+\index{area@{area}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{area()}{area()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a84c9d979a645b7b02a5085a03ff62691} 
+double GOAT\+::raytracing\+::triangle\+::area (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+this function returns the surface area of the triangle 
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00023}{23}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a1226d439654a955695d3a159ebeb4434}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!binRead@{binRead}}
+\index{binRead@{binRead}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{binRead()}{binRead()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a1226d439654a955695d3a159ebeb4434} 
+void GOAT\+::raytracing\+::triangle\+::bin\+Read (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a3e78013d36f96f6be8966d40ef50b7b8}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!binWrite@{binWrite}}
+\index{binWrite@{binWrite}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a3e78013d36f96f6be8966d40ef50b7b8} 
+void GOAT\+::raytracing\+::triangle\+::bin\+Write (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a9bd467e181fc4afe58d07b149cd4fe4d}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!calcIntersectionPoint@{calcIntersectionPoint}}
+\index{calcIntersectionPoint@{calcIntersectionPoint}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{calcIntersectionPoint()}{calcIntersectionPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a9bd467e181fc4afe58d07b149cd4fe4d} 
+int GOAT\+::raytracing\+::triangle\+::calc\+Intersection\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{r}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{k}{, }\item[{double \&}]{t}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{, }\item[{double}]{eps}{ = {\ttfamily 1E-\/5}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_ada34fa1f84dba6c4d718d78b45bcfa03}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!calcIntersectionPoint@{calcIntersectionPoint}}
+\index{calcIntersectionPoint@{calcIntersectionPoint}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{calcIntersectionPoint()}{calcIntersectionPoint()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_ada34fa1f84dba6c4d718d78b45bcfa03} 
+int GOAT\+::raytracing\+::triangle\+::calc\+Intersection\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{r}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{k}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{p}{, }\item[{double}]{eps}{ = {\ttfamily 1E-\/5}}\end{DoxyParamCaption})}
+
+
+
+Calculates the intersection point between the triangle and a straight line represented by a point r and the direction vector k. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & reference point on the straight line \\
+\hline
+{\em k} & direction vector of the straight line \\
+\hline
+{\em p} & intersection point (return parameter) \\
+\hline
+{\em eps} & accuracy (optional) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: no intersection found 1\+: intersection point found 
+\end{DoxyReturn}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a9c308a9a78f23867e31385964b878d79}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!calcSideVectors@{calcSideVectors}}
+\index{calcSideVectors@{calcSideVectors}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{calcSideVectors()}{calcSideVectors()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a9c308a9a78f23867e31385964b878d79} 
+void GOAT\+::raytracing\+::triangle\+::calc\+Side\+Vectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00031}{31}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a797b9edd0254b731fa41ea5d64949cd4}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!distance@{distance}}
+\index{distance@{distance}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a797b9edd0254b731fa41ea5d64949cd4} 
+double GOAT\+::raytracing\+::triangle\+::distance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{p}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{k}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a131dfd13975b2ff400c9bc579511e434}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!getnorm@{getnorm}}
+\index{getnorm@{getnorm}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{getnorm()}{getnorm()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a131dfd13975b2ff400c9bc579511e434} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::triangle\+::getnorm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+returns the surface normal n 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a081ccfafe73992a4b687f39a4c91a076}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!operator=@{operator=}}
+\index{operator=@{operator=}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a081ccfafe73992a4b687f39a4c91a076} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& GOAT\+::raytracing\+::triangle\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \&}]{dr}{}\end{DoxyParamCaption})}
+
+
+
+Assignment operator. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a5831c404751ca281dba4eb2a202a131e}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a5831c404751ca281dba4eb2a202a131e} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \& GOAT\+::raytracing\+::triangle\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})}
+
+This operator returns the i-\/th corner point of the triangle 
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of the i-\/th corner 
+\end{DoxyReturn}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a908944aedd21622b9e2beb3aaa279f2e}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a908944aedd21622b9e2beb3aaa279f2e} 
+const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \& GOAT\+::raytracing\+::triangle\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption}) const}
+
+
+
+Operator, gives back the Position of i-\/th corner. 
+
+This operator returns the i-\/th corner point of the triangle 
+\begin{DoxyParams}{Parameters}
+{\em i} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of the i-\/th corner 
+\end{DoxyReturn}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a44e6d30b2d033f60cfa6c7e58549c1c6}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!setnorm@{setnorm}}
+\index{setnorm@{setnorm}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{setnorm()}{setnorm()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a44e6d30b2d033f60cfa6c7e58549c1c6} 
+void GOAT\+::raytracing\+::triangle\+::setnorm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the surface normal n to the given value 
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00049}{49}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a9a9f002e4f2999394aac250a93e2a3eb}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!setnorm@{setnorm}}
+\index{setnorm@{setnorm}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{setnorm()}{setnorm()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a9a9f002e4f2999394aac250a93e2a3eb} 
+void GOAT\+::raytracing\+::triangle\+::setnorm (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+calculates the surface normal n with help of the corner points 
+
+
+
+\label{doc-related-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_doc-related-members}
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_afdcbdf8214e6486a003c58017083f706}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!surface@{surface}}
+\index{surface@{surface}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{surface}{surface}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_afdcbdf8214e6486a003c58017083f706} 
+friend class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface}{surface}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00081}{81}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a778e375a2c8aa07592b8661dbdfb5719}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!f@{f}}
+\index{f@{f}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a778e375a2c8aa07592b8661dbdfb5719} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::triangle\+::f\mbox{[}3\mbox{]}}
+
+
+
+vectors which represents the sides of the triangle. For details refer to function \doxylink{class_g_o_a_t_1_1raytracing_1_1triangle_a9c308a9a78f23867e31385964b878d79}{calc\+Side\+Vectors()} 
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00018}{18}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a6d78162cb895140ba468de673fc73d62}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!n@{n}}
+\index{n@{n}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a6d78162cb895140ba468de673fc73d62} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::triangle\+::n}
+
+
+
+normal of the triangle 
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00017}{17}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_aef826060f8aaff71f3a590fff6abe4a1}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!P@{P}}
+\index{P@{P}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{P}{P}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_aef826060f8aaff71f3a590fff6abe4a1} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::triangle\+::P\mbox{[}3\mbox{]}}
+
+
+
+corner points of the triangle 
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00016}{16}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a8fa6940dbf62a810919060a470957857}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!u@{u}}
+\index{u@{u}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a8fa6940dbf62a810919060a470957857} 
+double GOAT\+::raytracing\+::triangle\+::u}
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00015}{15}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1triangle_a0720ecd482306a1a5d89197d291ee34f}\index{GOAT::raytracing::triangle@{GOAT::raytracing::triangle}!v@{v}}
+\index{v@{v}!GOAT::raytracing::triangle@{GOAT::raytracing::triangle}}
+\doxysubsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1triangle_a0720ecd482306a1a5d89197d291ee34f} 
+double GOAT\+::raytracing\+::triangle\+::v}
+
+
+
+auxiliary variables for internal use 
+
+
+
+Definition at line \mbox{\hyperlink{triangle_8h_source_l00015}{15}} of file \mbox{\hyperlink{triangle_8h_source}{triangle.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{triangle_8h}{triangle.\+h}}\end{DoxyCompactItemize}

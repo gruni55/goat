@@ -1,0 +1,518 @@
+\doxysection{XML/xmltoken.h File Reference}
+\hypertarget{xmltoken_8h}{}\label{xmltoken_8h}\index{XML/xmltoken.h@{XML/xmltoken.h}}
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}lightsrc.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l}{GOAT\+::\+XML}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a560224a9afe28815563376b219a1a6a0}{num\+Calculation\+Token}}~6
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a8e46f1f6bcdd9bd7ff104a653b8b7e43}{num\+Detector\+Token}}~1
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a4ec71fa8aaaf51a14f1bcb4224bb90de}{num\+Light\+Source\+Token}}~12
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a0b27f62752a0045622bfd5979c21a70e}{num\+Object\+Token}}~8
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_abd0e0e0e48a4abdd1b31e138345336de}{num\+Refractive\+Index\+Token}}~6
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a1e5b89056bb8b19b449408ea903d649b}{TOKEN\+\_\+\+CALCULATION\+\_\+\+FIELD}}~205
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a0f981569c43651fe0d9367a29623cdbb}{TOKEN\+\_\+\+CALCULATION\+\_\+\+INELASTIC}}~204
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_afcb3dd1e6e76906701c2e30b76032032}{TOKEN\+\_\+\+CALCULATION\+\_\+\+PATH}}~201
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a67de9052c78b59c390cb6a5af0538451}{TOKEN\+\_\+\+CALCULATION\+\_\+\+PULSE}}~202
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a6533ad242d100316e975bff8f08c752d}{TOKEN\+\_\+\+CALCULATION\+\_\+\+PULSE\+\_\+\+FIELD}}~203
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_aea07f4c4ac4c9085a3570563a5aed1a9}{TOKEN\+\_\+\+CALCULATION\+\_\+\+PURE}}~200
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ab36f28430a3eba4ec71858001efeaea4}{TOKEN\+\_\+\+DETECTOR\+\_\+\+PLANE}}~150
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a630ff3850463d99e7f6998d7a78f96d9}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN}}~1
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_abfdb64ed1ae7035db19ea29652fbc2ef}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN\+\_\+\+MC}}~5
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a67e7664f654bf7ea9444315894720d28}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN\+\_\+\+RING\+\_\+\+MC}}~7
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ac7d665f38c5101f4d021478188d08453}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+LINE}}~8
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a36a7f4da7fcc50f31de8393181fd8049}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+LINE\+\_\+\+MC}}~9
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a5d29ecc5ad4a8a86e2c8a7f9df6cbc46}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+PLANE}}~0
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ac00d1df4b350233d932d0ff6445e2486}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+PLANE\+\_\+\+MC}}~4
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ac9027afda0248e314f931181f672d556}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+POINT}}~10
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ac6097e5533f8c19d5b3790116a74f1b0}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+POINT\+\_\+\+MC}}~11
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a481625701d044eef9f57be8cfd5a76ba}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+RING}}~2
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a258d4685797e03a5e3eba091e126dca2}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+RING\+\_\+\+MC}}~6
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ac2a296e2a858e85560081f19531fc4c5}{TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+TOPHAT}}~3
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ab35d1c13a6aed51658fba4171a717829}{TOKEN\+\_\+\+NOT\+\_\+\+FOUND}}~-\/1
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a323686993fbb40e3d63728ba2e0a3779}{TOKEN\+\_\+\+OBJECT\+\_\+\+ASPHERIC\+\_\+\+LENS}}~103
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ae70cd0a280b835dffa74075f597cdeeb}{TOKEN\+\_\+\+OBJECT\+\_\+\+BOX}}~105
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_aa8122ccaef5dbdaf8e1456319091f95c}{TOKEN\+\_\+\+OBJECT\+\_\+\+CONE}}~102
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a0b82a53abe583029a3ad78ba9aebdc71}{TOKEN\+\_\+\+OBJECT\+\_\+\+CYLINDER}}~106
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a0323cf2944b5068eb235d02c2ba82ccb}{TOKEN\+\_\+\+OBJECT\+\_\+\+ELLIPSOID}}~100
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_af69718fe99959a6ba1d12b4003135011}{TOKEN\+\_\+\+OBJECT\+\_\+\+SPHERIC\+\_\+\+LENS}}~104
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_ae0cc9b82a25748439ebac9264b046a96}{TOKEN\+\_\+\+OBJECT\+\_\+\+SURFACE}}~101
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a304101afb804b340c633840a4cb6f812}{TOKEN\+\_\+\+OBJECT\+\_\+\+VORTEX\+\_\+\+PLATE}}~107
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_af1387f3418cfb7cff25e304d7098fcd4}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+AIR}}~300
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_aeee5d8450d0f87c14c5ae020623f0d64}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+BK7}}~302
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_aae3ba90a879902860e44aef6cff5a001}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+GLASS}}~301
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_adf6ed62249f2731257bc1afc242a61ce}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+LASF55}}~303
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a7990dd684c5b0422d9b38de3b0315057}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+PMMA}}~305
+\item 
+\#define \mbox{\hyperlink{xmltoken_8h_a9263c37a83e9f9517f74ccdf5b7f472b}{TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+VACUUM}}~304
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}{GOAT\+::\+XML\+::add\+Function2\+Index\+List}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \&n\+List, int ref\+Index\+Token)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a8e15acb4a5efd7a716d2ef76e612f118}{GOAT\+::\+XML\+::map\+String2\+Calculation\+Token}} (std\+::string str)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_adf1b8d3a0604ae886b12d8132015564d}{GOAT\+::\+XML\+::map\+String2\+Detector\+Token}} (std\+::string str)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a4fe5b4ae343ca608415724f5d633b482}{GOAT\+::\+XML\+::map\+String2\+Light\+Source\+Token}} (std\+::string str)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d0393e}{GOAT\+::\+XML\+::map\+String2\+Object\+Token}} (std\+::string str)
+\item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}{GOAT\+::\+XML\+::map\+String2\+Refractive\+Index\+Token}} (std\+::string str)
+\item 
+std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}{GOAT\+::\+XML\+::str\+\_\+tolower}} (std\+::string s)
+\begin{DoxyCompactList}\small\item\em converts all letters in s into lower case (taken from \href{https://en.cppreference.com/w/cpp/string/byte/tolower}{\texttt{https\+://en.\+cppreference.\+com/w/cpp/string/byte/tolower}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{GOAT\+::\+XML\+::calculation\+Token}} = \{ "{}pure"{},"{}path"{},"{}pulse"{},"{}pulse\+\_\+field"{},"{}inelastic"{},"{}field"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}{GOAT\+::\+XML\+::detector\+Token}} = \{"{}plane"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}{GOAT\+::\+XML\+::light\+Source\+Token}} = \{ "{}plane"{},"{}gaussian"{},"{}ring"{},"{}tophat"{},"{}plane\+\_\+mc"{},"{}gaussian\+\_\+mc"{},"{}ring\+\_\+mc"{},"{}gaussian\+\_\+ring\+\_\+mc"{},"{}line"{},"{}line\+\_\+mc"{},"{}point"{},"{}point\+\_\+mc"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{GOAT\+::\+XML\+::object\+Token}} = \{ "{}ellipsoid"{},"{}surface"{},"{}cone"{},"{}aspheric\+\_\+lens"{},"{}spheric\+\_\+lens"{},"{}box"{},"{}cylinder"{},"{}vortex\+\_\+plate"{}\}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}{GOAT\+::\+XML\+::refractive\+Index\+Token}} = \{ "{}air"{},"{}glass"{},"{}bk7"{},"{}lasf55"{},"{}vacuum"{},"{}pmma"{} \}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{xmltoken_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{xmltoken_8h_a560224a9afe28815563376b219a1a6a0}\index{xmltoken.h@{xmltoken.h}!numCalculationToken@{numCalculationToken}}
+\index{numCalculationToken@{numCalculationToken}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{numCalculationToken}{numCalculationToken}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a560224a9afe28815563376b219a1a6a0} 
+\#define num\+Calculation\+Token~6}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00013}{13}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a8e46f1f6bcdd9bd7ff104a653b8b7e43}\index{xmltoken.h@{xmltoken.h}!numDetectorToken@{numDetectorToken}}
+\index{numDetectorToken@{numDetectorToken}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{numDetectorToken}{numDetectorToken}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a8e46f1f6bcdd9bd7ff104a653b8b7e43} 
+\#define num\+Detector\+Token~1}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00012}{12}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a4ec71fa8aaaf51a14f1bcb4224bb90de}\index{xmltoken.h@{xmltoken.h}!numLightSourceToken@{numLightSourceToken}}
+\index{numLightSourceToken@{numLightSourceToken}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{numLightSourceToken}{numLightSourceToken}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a4ec71fa8aaaf51a14f1bcb4224bb90de} 
+\#define num\+Light\+Source\+Token~12}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00010}{10}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a0b27f62752a0045622bfd5979c21a70e}\index{xmltoken.h@{xmltoken.h}!numObjectToken@{numObjectToken}}
+\index{numObjectToken@{numObjectToken}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{numObjectToken}{numObjectToken}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a0b27f62752a0045622bfd5979c21a70e} 
+\#define num\+Object\+Token~8}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00011}{11}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_abd0e0e0e48a4abdd1b31e138345336de}\index{xmltoken.h@{xmltoken.h}!numRefractiveIndexToken@{numRefractiveIndexToken}}
+\index{numRefractiveIndexToken@{numRefractiveIndexToken}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{numRefractiveIndexToken}{numRefractiveIndexToken}}
+{\footnotesize\ttfamily \label{xmltoken_8h_abd0e0e0e48a4abdd1b31e138345336de} 
+\#define num\+Refractive\+Index\+Token~6}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00014}{14}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a1e5b89056bb8b19b449408ea903d649b}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_FIELD@{TOKEN\_CALCULATION\_FIELD}}
+\index{TOKEN\_CALCULATION\_FIELD@{TOKEN\_CALCULATION\_FIELD}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_FIELD}{TOKEN\_CALCULATION\_FIELD}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a1e5b89056bb8b19b449408ea903d649b} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+FIELD~205}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00047}{47}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a0f981569c43651fe0d9367a29623cdbb}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_INELASTIC@{TOKEN\_CALCULATION\_INELASTIC}}
+\index{TOKEN\_CALCULATION\_INELASTIC@{TOKEN\_CALCULATION\_INELASTIC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_INELASTIC}{TOKEN\_CALCULATION\_INELASTIC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a0f981569c43651fe0d9367a29623cdbb} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+INELASTIC~204}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00046}{46}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_afcb3dd1e6e76906701c2e30b76032032}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_PATH@{TOKEN\_CALCULATION\_PATH}}
+\index{TOKEN\_CALCULATION\_PATH@{TOKEN\_CALCULATION\_PATH}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_PATH}{TOKEN\_CALCULATION\_PATH}}
+{\footnotesize\ttfamily \label{xmltoken_8h_afcb3dd1e6e76906701c2e30b76032032} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+PATH~201}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00043}{43}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a67de9052c78b59c390cb6a5af0538451}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_PULSE@{TOKEN\_CALCULATION\_PULSE}}
+\index{TOKEN\_CALCULATION\_PULSE@{TOKEN\_CALCULATION\_PULSE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_PULSE}{TOKEN\_CALCULATION\_PULSE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a67de9052c78b59c390cb6a5af0538451} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+PULSE~202}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00044}{44}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a6533ad242d100316e975bff8f08c752d}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_PULSE\_FIELD@{TOKEN\_CALCULATION\_PULSE\_FIELD}}
+\index{TOKEN\_CALCULATION\_PULSE\_FIELD@{TOKEN\_CALCULATION\_PULSE\_FIELD}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_PULSE\_FIELD}{TOKEN\_CALCULATION\_PULSE\_FIELD}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a6533ad242d100316e975bff8f08c752d} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+PULSE\+\_\+\+FIELD~203}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00045}{45}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_aea07f4c4ac4c9085a3570563a5aed1a9}\index{xmltoken.h@{xmltoken.h}!TOKEN\_CALCULATION\_PURE@{TOKEN\_CALCULATION\_PURE}}
+\index{TOKEN\_CALCULATION\_PURE@{TOKEN\_CALCULATION\_PURE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_CALCULATION\_PURE}{TOKEN\_CALCULATION\_PURE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_aea07f4c4ac4c9085a3570563a5aed1a9} 
+\#define TOKEN\+\_\+\+CALCULATION\+\_\+\+PURE~200}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00042}{42}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ab36f28430a3eba4ec71858001efeaea4}\index{xmltoken.h@{xmltoken.h}!TOKEN\_DETECTOR\_PLANE@{TOKEN\_DETECTOR\_PLANE}}
+\index{TOKEN\_DETECTOR\_PLANE@{TOKEN\_DETECTOR\_PLANE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_DETECTOR\_PLANE}{TOKEN\_DETECTOR\_PLANE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ab36f28430a3eba4ec71858001efeaea4} 
+\#define TOKEN\+\_\+\+DETECTOR\+\_\+\+PLANE~150}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00040}{40}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a630ff3850463d99e7f6998d7a78f96d9}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_GAUSSIAN@{TOKEN\_LIGHTSOURCE\_GAUSSIAN}}
+\index{TOKEN\_LIGHTSOURCE\_GAUSSIAN@{TOKEN\_LIGHTSOURCE\_GAUSSIAN}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_GAUSSIAN}{TOKEN\_LIGHTSOURCE\_GAUSSIAN}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a630ff3850463d99e7f6998d7a78f96d9} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN~1}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00018}{18}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_abfdb64ed1ae7035db19ea29652fbc2ef}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC@{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC@{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC}{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_abfdb64ed1ae7035db19ea29652fbc2ef} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN\+\_\+\+MC~5}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00022}{22}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a67e7664f654bf7ea9444315894720d28}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC@{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC@{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC}{TOKEN\_LIGHTSOURCE\_GAUSSIAN\_RING\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a67e7664f654bf7ea9444315894720d28} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+GAUSSIAN\+\_\+\+RING\+\_\+\+MC~7}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00024}{24}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ac7d665f38c5101f4d021478188d08453}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_LINE@{TOKEN\_LIGHTSOURCE\_LINE}}
+\index{TOKEN\_LIGHTSOURCE\_LINE@{TOKEN\_LIGHTSOURCE\_LINE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_LINE}{TOKEN\_LIGHTSOURCE\_LINE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ac7d665f38c5101f4d021478188d08453} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+LINE~8}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00025}{25}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a36a7f4da7fcc50f31de8393181fd8049}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_LINE\_MC@{TOKEN\_LIGHTSOURCE\_LINE\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_LINE\_MC@{TOKEN\_LIGHTSOURCE\_LINE\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_LINE\_MC}{TOKEN\_LIGHTSOURCE\_LINE\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a36a7f4da7fcc50f31de8393181fd8049} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+LINE\+\_\+\+MC~9}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00026}{26}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a5d29ecc5ad4a8a86e2c8a7f9df6cbc46}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_PLANE@{TOKEN\_LIGHTSOURCE\_PLANE}}
+\index{TOKEN\_LIGHTSOURCE\_PLANE@{TOKEN\_LIGHTSOURCE\_PLANE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_PLANE}{TOKEN\_LIGHTSOURCE\_PLANE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a5d29ecc5ad4a8a86e2c8a7f9df6cbc46} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+PLANE~0}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00017}{17}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ac00d1df4b350233d932d0ff6445e2486}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_PLANE\_MC@{TOKEN\_LIGHTSOURCE\_PLANE\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_PLANE\_MC@{TOKEN\_LIGHTSOURCE\_PLANE\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_PLANE\_MC}{TOKEN\_LIGHTSOURCE\_PLANE\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ac00d1df4b350233d932d0ff6445e2486} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+PLANE\+\_\+\+MC~4}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00021}{21}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ac9027afda0248e314f931181f672d556}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_POINT@{TOKEN\_LIGHTSOURCE\_POINT}}
+\index{TOKEN\_LIGHTSOURCE\_POINT@{TOKEN\_LIGHTSOURCE\_POINT}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_POINT}{TOKEN\_LIGHTSOURCE\_POINT}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ac9027afda0248e314f931181f672d556} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+POINT~10}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00027}{27}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ac6097e5533f8c19d5b3790116a74f1b0}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_POINT\_MC@{TOKEN\_LIGHTSOURCE\_POINT\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_POINT\_MC@{TOKEN\_LIGHTSOURCE\_POINT\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_POINT\_MC}{TOKEN\_LIGHTSOURCE\_POINT\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ac6097e5533f8c19d5b3790116a74f1b0} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+POINT\+\_\+\+MC~11}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00028}{28}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a481625701d044eef9f57be8cfd5a76ba}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_RING@{TOKEN\_LIGHTSOURCE\_RING}}
+\index{TOKEN\_LIGHTSOURCE\_RING@{TOKEN\_LIGHTSOURCE\_RING}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_RING}{TOKEN\_LIGHTSOURCE\_RING}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a481625701d044eef9f57be8cfd5a76ba} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+RING~2}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00019}{19}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a258d4685797e03a5e3eba091e126dca2}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_RING\_MC@{TOKEN\_LIGHTSOURCE\_RING\_MC}}
+\index{TOKEN\_LIGHTSOURCE\_RING\_MC@{TOKEN\_LIGHTSOURCE\_RING\_MC}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_RING\_MC}{TOKEN\_LIGHTSOURCE\_RING\_MC}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a258d4685797e03a5e3eba091e126dca2} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+RING\+\_\+\+MC~6}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00023}{23}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ac2a296e2a858e85560081f19531fc4c5}\index{xmltoken.h@{xmltoken.h}!TOKEN\_LIGHTSOURCE\_TOPHAT@{TOKEN\_LIGHTSOURCE\_TOPHAT}}
+\index{TOKEN\_LIGHTSOURCE\_TOPHAT@{TOKEN\_LIGHTSOURCE\_TOPHAT}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_LIGHTSOURCE\_TOPHAT}{TOKEN\_LIGHTSOURCE\_TOPHAT}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ac2a296e2a858e85560081f19531fc4c5} 
+\#define TOKEN\+\_\+\+LIGHTSOURCE\+\_\+\+TOPHAT~3}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00020}{20}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ab35d1c13a6aed51658fba4171a717829}\index{xmltoken.h@{xmltoken.h}!TOKEN\_NOT\_FOUND@{TOKEN\_NOT\_FOUND}}
+\index{TOKEN\_NOT\_FOUND@{TOKEN\_NOT\_FOUND}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_NOT\_FOUND}{TOKEN\_NOT\_FOUND}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ab35d1c13a6aed51658fba4171a717829} 
+\#define TOKEN\+\_\+\+NOT\+\_\+\+FOUND~-\/1}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00016}{16}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a323686993fbb40e3d63728ba2e0a3779}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_ASPHERIC\_LENS@{TOKEN\_OBJECT\_ASPHERIC\_LENS}}
+\index{TOKEN\_OBJECT\_ASPHERIC\_LENS@{TOKEN\_OBJECT\_ASPHERIC\_LENS}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_ASPHERIC\_LENS}{TOKEN\_OBJECT\_ASPHERIC\_LENS}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a323686993fbb40e3d63728ba2e0a3779} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+ASPHERIC\+\_\+\+LENS~103}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00034}{34}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ae70cd0a280b835dffa74075f597cdeeb}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_BOX@{TOKEN\_OBJECT\_BOX}}
+\index{TOKEN\_OBJECT\_BOX@{TOKEN\_OBJECT\_BOX}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_BOX}{TOKEN\_OBJECT\_BOX}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ae70cd0a280b835dffa74075f597cdeeb} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+BOX~105}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00036}{36}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_aa8122ccaef5dbdaf8e1456319091f95c}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_CONE@{TOKEN\_OBJECT\_CONE}}
+\index{TOKEN\_OBJECT\_CONE@{TOKEN\_OBJECT\_CONE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_CONE}{TOKEN\_OBJECT\_CONE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_aa8122ccaef5dbdaf8e1456319091f95c} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+CONE~102}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00033}{33}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a0b82a53abe583029a3ad78ba9aebdc71}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_CYLINDER@{TOKEN\_OBJECT\_CYLINDER}}
+\index{TOKEN\_OBJECT\_CYLINDER@{TOKEN\_OBJECT\_CYLINDER}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_CYLINDER}{TOKEN\_OBJECT\_CYLINDER}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a0b82a53abe583029a3ad78ba9aebdc71} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+CYLINDER~106}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00037}{37}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a0323cf2944b5068eb235d02c2ba82ccb}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_ELLIPSOID@{TOKEN\_OBJECT\_ELLIPSOID}}
+\index{TOKEN\_OBJECT\_ELLIPSOID@{TOKEN\_OBJECT\_ELLIPSOID}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_ELLIPSOID}{TOKEN\_OBJECT\_ELLIPSOID}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a0323cf2944b5068eb235d02c2ba82ccb} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+ELLIPSOID~100}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00031}{31}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_af69718fe99959a6ba1d12b4003135011}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_SPHERIC\_LENS@{TOKEN\_OBJECT\_SPHERIC\_LENS}}
+\index{TOKEN\_OBJECT\_SPHERIC\_LENS@{TOKEN\_OBJECT\_SPHERIC\_LENS}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_SPHERIC\_LENS}{TOKEN\_OBJECT\_SPHERIC\_LENS}}
+{\footnotesize\ttfamily \label{xmltoken_8h_af69718fe99959a6ba1d12b4003135011} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+SPHERIC\+\_\+\+LENS~104}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00035}{35}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_ae0cc9b82a25748439ebac9264b046a96}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_SURFACE@{TOKEN\_OBJECT\_SURFACE}}
+\index{TOKEN\_OBJECT\_SURFACE@{TOKEN\_OBJECT\_SURFACE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_SURFACE}{TOKEN\_OBJECT\_SURFACE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_ae0cc9b82a25748439ebac9264b046a96} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+SURFACE~101}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00032}{32}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a304101afb804b340c633840a4cb6f812}\index{xmltoken.h@{xmltoken.h}!TOKEN\_OBJECT\_VORTEX\_PLATE@{TOKEN\_OBJECT\_VORTEX\_PLATE}}
+\index{TOKEN\_OBJECT\_VORTEX\_PLATE@{TOKEN\_OBJECT\_VORTEX\_PLATE}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_OBJECT\_VORTEX\_PLATE}{TOKEN\_OBJECT\_VORTEX\_PLATE}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a304101afb804b340c633840a4cb6f812} 
+\#define TOKEN\+\_\+\+OBJECT\+\_\+\+VORTEX\+\_\+\+PLATE~107}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00038}{38}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_af1387f3418cfb7cff25e304d7098fcd4}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_AIR@{TOKEN\_REFRACTIVE\_INDEX\_AIR}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_AIR@{TOKEN\_REFRACTIVE\_INDEX\_AIR}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_AIR}{TOKEN\_REFRACTIVE\_INDEX\_AIR}}
+{\footnotesize\ttfamily \label{xmltoken_8h_af1387f3418cfb7cff25e304d7098fcd4} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+AIR~300}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00049}{49}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_aeee5d8450d0f87c14c5ae020623f0d64}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_BK7@{TOKEN\_REFRACTIVE\_INDEX\_BK7}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_BK7@{TOKEN\_REFRACTIVE\_INDEX\_BK7}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_BK7}{TOKEN\_REFRACTIVE\_INDEX\_BK7}}
+{\footnotesize\ttfamily \label{xmltoken_8h_aeee5d8450d0f87c14c5ae020623f0d64} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+BK7~302}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00051}{51}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_aae3ba90a879902860e44aef6cff5a001}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_GLASS@{TOKEN\_REFRACTIVE\_INDEX\_GLASS}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_GLASS@{TOKEN\_REFRACTIVE\_INDEX\_GLASS}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_GLASS}{TOKEN\_REFRACTIVE\_INDEX\_GLASS}}
+{\footnotesize\ttfamily \label{xmltoken_8h_aae3ba90a879902860e44aef6cff5a001} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+GLASS~301}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00050}{50}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_adf6ed62249f2731257bc1afc242a61ce}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_LASF55@{TOKEN\_REFRACTIVE\_INDEX\_LASF55}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_LASF55@{TOKEN\_REFRACTIVE\_INDEX\_LASF55}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_LASF55}{TOKEN\_REFRACTIVE\_INDEX\_LASF55}}
+{\footnotesize\ttfamily \label{xmltoken_8h_adf6ed62249f2731257bc1afc242a61ce} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+LASF55~303}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00052}{52}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a7990dd684c5b0422d9b38de3b0315057}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_PMMA@{TOKEN\_REFRACTIVE\_INDEX\_PMMA}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_PMMA@{TOKEN\_REFRACTIVE\_INDEX\_PMMA}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_PMMA}{TOKEN\_REFRACTIVE\_INDEX\_PMMA}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a7990dd684c5b0422d9b38de3b0315057} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+PMMA~305}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00054}{54}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{xmltoken_8h_a9263c37a83e9f9517f74ccdf5b7f472b}\index{xmltoken.h@{xmltoken.h}!TOKEN\_REFRACTIVE\_INDEX\_VACUUM@{TOKEN\_REFRACTIVE\_INDEX\_VACUUM}}
+\index{TOKEN\_REFRACTIVE\_INDEX\_VACUUM@{TOKEN\_REFRACTIVE\_INDEX\_VACUUM}!xmltoken.h@{xmltoken.h}}
+\doxysubsubsection{\texorpdfstring{TOKEN\_REFRACTIVE\_INDEX\_VACUUM}{TOKEN\_REFRACTIVE\_INDEX\_VACUUM}}
+{\footnotesize\ttfamily \label{xmltoken_8h_a9263c37a83e9f9517f74ccdf5b7f472b} 
+\#define TOKEN\+\_\+\+REFRACTIVE\+\_\+\+INDEX\+\_\+\+VACUUM~304}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00053}{53}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+

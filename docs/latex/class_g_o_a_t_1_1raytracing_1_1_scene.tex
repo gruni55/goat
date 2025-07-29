@@ -1,0 +1,897 @@
+\doxysection{GOAT\+::raytracing\+::Scene Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene}{}\label{class_g_o_a_t_1_1raytracing_1_1_scene}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+
+
+Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} base class. All objects are described by classes derived from the virtual class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}.  
+
+
+
+
+{\ttfamily \#include $<$raytrace.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}{add\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*}D)
+\begin{DoxyCompactList}\small\item\em add single detector to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}{add\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*}D)
+\begin{DoxyCompactList}\small\item\em add single detector to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83}{add\+Detector\+List}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}}, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ D)
+\begin{DoxyCompactList}\small\item\em add a list of detectors to the scene, n\+Det\+: number of detectors to add \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83}{add\+Detector\+List}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}}, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ D)
+\begin{DoxyCompactList}\small\item\em add a list of detectors to the scene, n\+Det\+: number of detectors to add \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls)
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls)
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene and determine ray type \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}{add\+Light\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
+\begin{DoxyCompactList}\small\item\em add single lightsource to scene and determine ray type \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35}{add\+Light\+Source\+List}} (int nls, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ ls)
+\begin{DoxyCompactList}\small\item\em add list of lightsources, nls\+: number of lightsources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35}{add\+Light\+Source\+List}} (int nls, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ ls)
+\begin{DoxyCompactList}\small\item\em add list of lightsources, nls\+: number of lightsources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}{add\+Light\+Source\+RRT}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol2)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}{add\+Light\+Source\+RRT}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}ls, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol1, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$Pol2)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59}{add\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}{Obj}})
+\begin{DoxyCompactList}\small\item\em add single object to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59}{add\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}{Obj}})
+\begin{DoxyCompactList}\small\item\em add single object to scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098}{add\+Object\+List}} (int nobj, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ obj)
+\begin{DoxyCompactList}\small\item\em add a list of objects to scene, nobj\+: number of objects \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098}{add\+Object\+List}} (int nobj, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ obj)
+\begin{DoxyCompactList}\small\item\em add a list of objects to scene, nobj\+: number of objects \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}{clean\+All\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}{clean\+All\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a03b69ae865739c6319eebd187b7903cd}{get\+Number\+Of\+Cells\+Per\+Direction}} () const
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em remove all detectors from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em remove all detectors from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}{remove\+All\+Light\+Sources}} ()
+\begin{DoxyCompactList}\small\item\em removes all light sources from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}{remove\+All\+Light\+Sources}} ()
+\begin{DoxyCompactList}\small\item\em removes all light sources from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}{remove\+All\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em removes all objects from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}{remove\+All\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em removes all objects from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}{remove\+Detector}} (int index)
+\begin{DoxyCompactList}\small\item\em remove detector "{}index"{} from detector list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}{remove\+Detector}} (int index)
+\begin{DoxyCompactList}\small\item\em remove detector "{}index"{} from detector list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}{remove\+Light\+Src}} (int index)
+\begin{DoxyCompactList}\small\item\em remove one light source from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}{remove\+Light\+Src}} (int index)
+\begin{DoxyCompactList}\small\item\em remove one light source from the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}{remove\+Object}} (int index)
+\begin{DoxyCompactList}\small\item\em removes object with index "{}index"{} from object list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}{remove\+Object}} (int index)
+\begin{DoxyCompactList}\small\item\em removes object with index "{}index"{} from object list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac}{remove\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}obj)
+\begin{DoxyCompactList}\small\item\em removes object, identified by its pointer from object list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac}{remove\+Object}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}obj)
+\begin{DoxyCompactList}\small\item\em removes object, identified by its pointer from object list \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}{reset\+LS}} ()
+\begin{DoxyCompactList}\small\item\em reset all light sources. That means the counters for the rays within of the light sources are set to the first ray \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}{reset\+LS}} ()
+\begin{DoxyCompactList}\small\item\em reset all light sources. That means the counters for the rays within of the light sources are set to the first ray \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}{Scene}} ()
+\begin{DoxyCompactList}\small\item\em Standard constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}{Scene}} ()
+\begin{DoxyCompactList}\small\item\em Standard constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}{Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&S)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}{Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&S)
+\begin{DoxyCompactList}\small\item\em Copy constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3}{setnS}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}{nS}})
+\begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3}{setnS}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}{nS}})
+\begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1}{setn\+SRRT}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}{nS}})
+\begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1}{setn\+SRRT}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}{nS}})
+\begin{DoxyCompactList}\small\item\em set the refractive index of the filling material in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a354a634bde433c9d818a4d563a30cb12}{set\+Number\+Of\+Cells\+Per\+Direction}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} no)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4b0ae03b7e225a6a4fdb1123601b68e8}{set\+Num\+Reflex}} (int num\+Reflex)
+\begin{DoxyCompactList}\small\item\em set the number of reflections per ray considered in the raytracing \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}})
+\begin{DoxyCompactList}\small\item\em set the radius of the calculation space \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}{setr0}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}})
+\begin{DoxyCompactList}\small\item\em set the radius of the calculation space \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8}{set\+Raytype}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
+\begin{DoxyCompactList}\small\item\em set the ray type for all light sources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8}{set\+Raytype}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}})
+\begin{DoxyCompactList}\small\item\em set the ray type for all light sources \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793}{test\+LS}} ()
+\begin{DoxyCompactList}\small\item\em tests, if all lightsources are outside all objects (return value\+: -\/1, if every lightsource is outside, \texorpdfstring{$>$}{>}=0\+: number of the first lightsource which is inside) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793}{test\+LS}} ()
+\begin{DoxyCompactList}\small\item\em tests, if all lightsources are outside all objects (return value\+: -\/1, if every lightsource is outside, \texorpdfstring{$>$}{>}=0\+: number of the first lightsource which is inside) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_addf0fd3002976670f420adb5f57b4619}{Det}}
+\begin{DoxyCompactList}\small\item\em List of detectors, which are storing the electric field inside a defined area. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3125824e5945c12b60d6e149c93afc90}{LS}}
+\begin{DoxyCompactList}\small\item\em List of all light sources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3a9a7c3283d9c00a1b825934d6dfa111}{LSRRT}}
+\begin{DoxyCompactList}\small\item\em Light source for reversed ray tracing (RRT) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}} = 0
+\begin{DoxyCompactList}\small\item\em Number of detectors. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}{n\+LS}} = 0
+\begin{DoxyCompactList}\small\item\em Number of light sources. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}{n\+Obj}} = 0
+\begin{DoxyCompactList}\small\item\em Number of objects in the scene. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a99a08f9c738c1b399c3845d496964f46}{n\+Reflex}} = 0
+\begin{DoxyCompactList}\small\item\em Number of reflections. \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}{nS}}
+\begin{DoxyCompactList}\small\item\em refractive index of the surrounding medium, i.\+e. the medium between the objects \end{DoxyCompactList}\item 
+std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab78418e0ff8e3f3bc4f708f1b804e05e}{n\+SRRT}}
+\begin{DoxyCompactList}\small\item\em refractive index of the surrounding medium (RRT), i.\+e. the medium between the objects \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4fbc46aa9da18b52f22504469802988}{Num\+Cells\+Per\+Dir}} = 1
+\begin{DoxyCompactList}\small\item\em Number of cells per direction, used e.\+g. in raytrace\+\_\+\+Inel for the virtual space grid. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}{Obj}}
+\begin{DoxyCompactList}\small\item\em List of all objects within the scene. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}} =1000
+\begin{DoxyCompactList}\small\item\em Radius of the calculation space. All rays are followed within this calculation sphere. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}{raytype}} =\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}
+\begin{DoxyCompactList}\small\item\em Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}} = false
+\begin{DoxyCompactList}\small\item\em If true, phase progress is skipped. This is needed for short pulse calculations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} base class. All objects are described by classes derived from the virtual class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}. 
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00027}{27}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859} 
+GOAT\+::raytracing\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Standard constructor. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a} 
+GOAT\+::raytracing\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a63096febca08ac46656c6b41d5d28859} 
+GOAT\+::raytracing\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Standard constructor. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_aa49653461fc1bf8b3da4cd453847118a} 
+GOAT\+::raytracing\+::\+Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S}{}\end{DoxyParamCaption})}
+
+
+
+Copy constructor. 
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addDetector@{addDetector}}
+\index{addDetector@{addDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addDetector()}{addDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*}}]{D}{}\end{DoxyParamCaption})}
+
+
+
+add single detector to scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addDetector@{addDetector}}
+\index{addDetector@{addDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addDetector()}{addDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac4b174a99d541bd84292215418ee7e3f} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*}}]{D}{}\end{DoxyParamCaption})}
+
+
+
+add single detector to scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addDetectorList@{addDetectorList}}
+\index{addDetectorList@{addDetectorList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addDetectorList()}{addDetectorList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Detector\+List (\begin{DoxyParamCaption}\item[{int}]{n\+Det}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$}]{D}{}\end{DoxyParamCaption})}
+
+
+
+add a list of detectors to the scene, n\+Det\+: number of detectors to add 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addDetectorList@{addDetectorList}}
+\index{addDetectorList@{addDetectorList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addDetectorList()}{addDetectorList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ae5ed2dc22965839e3b06f18dc49fad83} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Detector\+List (\begin{DoxyParamCaption}\item[{int}]{n\+Det}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$}]{D}{}\end{DoxyParamCaption})}
+
+
+
+add a list of detectors to the scene, n\+Det\+: number of detectors to add 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSource@{addLightSource}}
+\index{addLightSource@{addLightSource}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSource()}{addLightSource()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add single lightsource to scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00038}{38}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSource@{addLightSource}}
+\index{addLightSource@{addLightSource}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSource()}{addLightSource()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add single lightsource to scene 
+
+
+
+Definition at line \mbox{\hyperlink{sic_2raytrace_8h_source_l00038}{38}} of file \mbox{\hyperlink{sic_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSource@{addLightSource}}
+\index{addLightSource@{addLightSource}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSource()}{addLightSource()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{, }\item[{int}]{raytype}{}\end{DoxyParamCaption})}
+
+
+
+add single lightsource to scene and determine ray type 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSource@{addLightSource}}
+\index{addLightSource@{addLightSource}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSource()}{addLightSource()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2fa8134a1594b1b9549c57b602ac67de} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{, }\item[{int}]{raytype}{}\end{DoxyParamCaption})}
+
+
+
+add single lightsource to scene and determine ray type 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSourceList@{addLightSourceList}}
+\index{addLightSourceList@{addLightSourceList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSourceList()}{addLightSourceList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source\+List (\begin{DoxyParamCaption}\item[{int}]{nls}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$}]{ls}{}\end{DoxyParamCaption})}
+
+
+
+add list of lightsources, nls\+: number of lightsources 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSourceList@{addLightSourceList}}
+\index{addLightSourceList@{addLightSourceList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSourceList()}{addLightSourceList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0b5633427ebb046a64f587334f7a1e35} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source\+List (\begin{DoxyParamCaption}\item[{int}]{nls}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$}]{ls}{}\end{DoxyParamCaption})}
+
+
+
+add list of lightsources, nls\+: number of lightsources 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSourceRRT@{addLightSourceRRT}}
+\index{addLightSourceRRT@{addLightSourceRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSourceRRT()}{addLightSourceRRT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source\+RRT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSourceRRT@{addLightSourceRRT}}
+\index{addLightSourceRRT@{addLightSourceRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addLightSourceRRT()}{addLightSourceRRT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab607b1615559e9d084afafa1ba41dd62} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Light\+Source\+RRT (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*}}]{ls}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addObject@{addObject}}
+\index{addObject@{addObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{Obj}{}\end{DoxyParamCaption})}
+
+
+
+add single object to scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addObject@{addObject}}
+\index{addObject@{addObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addObject()}{addObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a17d3ed359c4eb071fc903723fb686b59} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{Obj}{}\end{DoxyParamCaption})}
+
+
+
+add single object to scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addObjectList@{addObjectList}}
+\index{addObjectList@{addObjectList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addObjectList()}{addObjectList()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Object\+List (\begin{DoxyParamCaption}\item[{int}]{nobj}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+add a list of objects to scene, nobj\+: number of objects 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addObjectList@{addObjectList}}
+\index{addObjectList@{addObjectList}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{addObjectList()}{addObjectList()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2f0940d64816cb99bfc5714182078098} 
+void GOAT\+::raytracing\+::\+Scene\+::add\+Object\+List (\begin{DoxyParamCaption}\item[{int}]{nobj}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+add a list of objects to scene, nobj\+: number of objects 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!cleanAllDetectors@{cleanAllDetectors}}
+\index{cleanAllDetectors@{cleanAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{cleanAllDetectors()}{cleanAllDetectors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e} 
+void GOAT\+::raytracing\+::\+Scene\+::clean\+All\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!cleanAllDetectors@{cleanAllDetectors}}
+\index{cleanAllDetectors@{cleanAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{cleanAllDetectors()}{cleanAllDetectors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e} 
+void GOAT\+::raytracing\+::\+Scene\+::clean\+All\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a03b69ae865739c6319eebd187b7903cd}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfCellsPerDirection@{getNumberOfCellsPerDirection}}
+\index{getNumberOfCellsPerDirection@{getNumberOfCellsPerDirection}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumberOfCellsPerDirection()}{getNumberOfCellsPerDirection()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a03b69ae865739c6319eebd187b7903cd} 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} GOAT\+::raytracing\+::\+Scene\+::get\+Number\+Of\+Cells\+Per\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00070}{70}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllDetectors@{removeAllDetectors}}
+\index{removeAllDetectors@{removeAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllDetectors()}{removeAllDetectors()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+remove all detectors from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllDetectors@{removeAllDetectors}}
+\index{removeAllDetectors@{removeAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllDetectors()}{removeAllDetectors()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+remove all detectors from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllLightSources@{removeAllLightSources}}
+\index{removeAllLightSources@{removeAllLightSources}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllLightSources()}{removeAllLightSources()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Light\+Sources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+removes all light sources from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllLightSources@{removeAllLightSources}}
+\index{removeAllLightSources@{removeAllLightSources}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllLightSources()}{removeAllLightSources()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0dee625ebf1e7871a07480b1fd842670} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Light\+Sources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+removes all light sources from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllObjects@{removeAllObjects}}
+\index{removeAllObjects@{removeAllObjects}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllObjects()}{removeAllObjects()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+removes all objects from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllObjects@{removeAllObjects}}
+\index{removeAllObjects@{removeAllObjects}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeAllObjects()}{removeAllObjects()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a363d1b34c18f3505ce0f29e5e83b4fa2} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+All\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+removes all objects from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeDetector@{removeDetector}}
+\index{removeDetector@{removeDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeDetector()}{removeDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Detector (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+remove detector "{}index"{} from detector list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeDetector@{removeDetector}}
+\index{removeDetector@{removeDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeDetector()}{removeDetector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a4f8b53cd093ba33f9f8bf929f8b56575} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Detector (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+remove detector "{}index"{} from detector list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeLightSrc@{removeLightSrc}}
+\index{removeLightSrc@{removeLightSrc}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeLightSrc()}{removeLightSrc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Light\+Src (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+remove one light source from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeLightSrc@{removeLightSrc}}
+\index{removeLightSrc@{removeLightSrc}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeLightSrc()}{removeLightSrc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a47e89f24f1ec82222718f916ebb1bfe1} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Light\+Src (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+remove one light source from the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeObject@{removeObject}}
+\index{removeObject@{removeObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeObject()}{removeObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Object (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+removes object with index "{}index"{} from object list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeObject@{removeObject}}
+\index{removeObject@{removeObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeObject()}{removeObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a7ed06bb852bd8d2528a40060860ff3d8} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Object (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+removes object with index "{}index"{} from object list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeObject@{removeObject}}
+\index{removeObject@{removeObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeObject()}{removeObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+removes object, identified by its pointer from object list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeObject@{removeObject}}
+\index{removeObject@{removeObject}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{removeObject()}{removeObject()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab0dcd61f09f5e03faa419f7a4a5050ac} 
+void GOAT\+::raytracing\+::\+Scene\+::remove\+Object (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}}]{obj}{}\end{DoxyParamCaption})}
+
+
+
+removes object, identified by its pointer from object list 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!resetLS@{resetLS}}
+\index{resetLS@{resetLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{resetLS()}{resetLS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a} 
+void GOAT\+::raytracing\+::\+Scene\+::reset\+LS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+reset all light sources. That means the counters for the rays within of the light sources are set to the first ray 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!resetLS@{resetLS}}
+\index{resetLS@{resetLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{resetLS()}{resetLS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_afafc989d7f3c91c98533756b8c43053a} 
+void GOAT\+::raytracing\+::\+Scene\+::reset\+LS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+reset all light sources. That means the counters for the rays within of the light sources are set to the first ray 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setnS@{setnS}}
+\index{setnS@{setnS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setnS()}{setnS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3} 
+void GOAT\+::raytracing\+::\+Scene\+::setnS (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+set the refractive index of the filling material in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setnS@{setnS}}
+\index{setnS@{setnS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setnS()}{setnS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac110551c09db0c28fa60a45e3c3a01e3} 
+void GOAT\+::raytracing\+::\+Scene\+::setnS (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+set the refractive index of the filling material in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setnSRRT@{setnSRRT}}
+\index{setnSRRT@{setnSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setnSRRT()}{setnSRRT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1} 
+void GOAT\+::raytracing\+::\+Scene\+::setn\+SRRT (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+set the refractive index of the filling material in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setnSRRT@{setnSRRT}}
+\index{setnSRRT@{setnSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setnSRRT()}{setnSRRT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0c57718463bf070f86a3ed778fd29fa1} 
+void GOAT\+::raytracing\+::\+Scene\+::setn\+SRRT (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{nS}{}\end{DoxyParamCaption})}
+
+
+
+set the refractive index of the filling material in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a354a634bde433c9d818a4d563a30cb12}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setNumberOfCellsPerDirection@{setNumberOfCellsPerDirection}}
+\index{setNumberOfCellsPerDirection@{setNumberOfCellsPerDirection}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setNumberOfCellsPerDirection()}{setNumberOfCellsPerDirection()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a354a634bde433c9d818a4d563a30cb12} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Number\+Of\+Cells\+Per\+Direction (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{no}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00071}{71}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4b0ae03b7e225a6a4fdb1123601b68e8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setNumReflex@{setNumReflex}}
+\index{setNumReflex@{setNumReflex}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setNumReflex()}{setNumReflex()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a4b0ae03b7e225a6a4fdb1123601b68e8} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Num\+Reflex (\begin{DoxyParamCaption}\item[{int}]{num\+Reflex}{}\end{DoxyParamCaption})}
+
+
+
+set the number of reflections per ray considered in the raytracing 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setPhaseProgress@{setPhaseProgress}}
+\index{setPhaseProgress@{setPhaseProgress}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setPhaseProgress()}{setPhaseProgress()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Phase\+Progress (\begin{DoxyParamCaption}\item[{bool}]{suppress\+\_\+phase\+\_\+progress}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setPhaseProgress@{setPhaseProgress}}
+\index{setPhaseProgress@{setPhaseProgress}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setPhaseProgress()}{setPhaseProgress()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Phase\+Progress (\begin{DoxyParamCaption}\item[{bool}]{suppress\+\_\+phase\+\_\+progress}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setr0@{setr0}}
+\index{setr0@{setr0}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setr0()}{setr0()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00} 
+void GOAT\+::raytracing\+::\+Scene\+::setr0 (\begin{DoxyParamCaption}\item[{double}]{r0}{}\end{DoxyParamCaption})}
+
+
+
+set the radius of the calculation space 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setr0@{setr0}}
+\index{setr0@{setr0}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setr0()}{setr0()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ae8eb76a00dab82c48bfb832069a02f00} 
+void GOAT\+::raytracing\+::\+Scene\+::setr0 (\begin{DoxyParamCaption}\item[{double}]{r0}{}\end{DoxyParamCaption})}
+
+
+
+set the radius of the calculation space 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setRaytype@{setRaytype}}
+\index{setRaytype@{setRaytype}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setRaytype()}{setRaytype()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Raytype (\begin{DoxyParamCaption}\item[{int}]{raytype}{}\end{DoxyParamCaption})}
+
+
+
+set the ray type for all light sources 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setRaytype@{setRaytype}}
+\index{setRaytype@{setRaytype}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setRaytype()}{setRaytype()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a8f018a93f0e2152a6c3964826b7067b8} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Raytype (\begin{DoxyParamCaption}\item[{int}]{raytype}{}\end{DoxyParamCaption})}
+
+
+
+set the ray type for all light sources 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!testLS@{testLS}}
+\index{testLS@{testLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{testLS()}{testLS()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793} 
+int GOAT\+::raytracing\+::\+Scene\+::test\+LS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+tests, if all lightsources are outside all objects (return value\+: -\/1, if every lightsource is outside, \texorpdfstring{$>$}{>}=0\+: number of the first lightsource which is inside) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!testLS@{testLS}}
+\index{testLS@{testLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{testLS()}{testLS()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a50209c96b2914e30c5c076691c3bc793} 
+int GOAT\+::raytracing\+::\+Scene\+::test\+LS (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+tests, if all lightsources are outside all objects (return value\+: -\/1, if every lightsource is outside, \texorpdfstring{$>$}{>}=0\+: number of the first lightsource which is inside) 
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_addf0fd3002976670f420adb5f57b4619}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Det@{Det}}
+\index{Det@{Det}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Det}{Det}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_addf0fd3002976670f420adb5f57b4619} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::\+Det}
+
+
+
+List of detectors, which are storing the electric field inside a defined area. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00059}{59}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3125824e5945c12b60d6e149c93afc90}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!LS@{LS}}
+\index{LS@{LS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{LS}{LS}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a3125824e5945c12b60d6e149c93afc90} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::\+LS}
+
+
+
+List of all light sources. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00057}{57}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3a9a7c3283d9c00a1b825934d6dfa111}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!LSRRT@{LSRRT}}
+\index{LSRRT@{LSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{LSRRT}{LSRRT}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a3a9a7c3283d9c00a1b825934d6dfa111} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Scene\+::\+LSRRT}
+
+
+
+Light source for reversed ray tracing (RRT) 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00058}{58}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nDet@{nDet}}
+\index{nDet@{nDet}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nDet}{nDet}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600} 
+int GOAT\+::raytracing\+::\+Scene\+::n\+Det = 0}
+
+
+
+Number of detectors. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00062}{62}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nLS@{nLS}}
+\index{nLS@{nLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nLS}{nLS}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c} 
+int GOAT\+::raytracing\+::\+Scene\+::n\+LS = 0}
+
+
+
+Number of light sources. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00061}{61}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nObj@{nObj}}
+\index{nObj@{nObj}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nObj}{nObj}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e} 
+int GOAT\+::raytracing\+::\+Scene\+::n\+Obj = 0}
+
+
+
+Number of objects in the scene. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00060}{60}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a99a08f9c738c1b399c3845d496964f46}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nReflex@{nReflex}}
+\index{nReflex@{nReflex}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nReflex}{nReflex}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a99a08f9c738c1b399c3845d496964f46} 
+int GOAT\+::raytracing\+::\+Scene\+::n\+Reflex = 0}
+
+
+
+Number of reflections. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00063}{63}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nS@{nS}}
+\index{nS@{nS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nS}{nS}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea} 
+std\+::complex$<$ double $>$ GOAT\+::raytracing\+::\+Scene\+::nS}
+
+
+
+refractive index of the surrounding medium, i.\+e. the medium between the objects 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00064}{64}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab78418e0ff8e3f3bc4f708f1b804e05e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nSRRT@{nSRRT}}
+\index{nSRRT@{nSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nSRRT}{nSRRT}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab78418e0ff8e3f3bc4f708f1b804e05e} 
+std\+::complex$<$ double $>$ GOAT\+::raytracing\+::\+Scene\+::n\+SRRT}
+
+
+
+refractive index of the surrounding medium (RRT), i.\+e. the medium between the objects 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00065}{65}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac4fbc46aa9da18b52f22504469802988}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!NumCellsPerDir@{NumCellsPerDir}}
+\index{NumCellsPerDir@{NumCellsPerDir}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{NumCellsPerDir}{NumCellsPerDir}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac4fbc46aa9da18b52f22504469802988} 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} GOAT\+::raytracing\+::\+Scene\+::\+Num\+Cells\+Per\+Dir = 1}
+
+
+
+Number of cells per direction, used e.\+g. in raytrace\+\_\+\+Inel for the virtual space grid. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00069}{69}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Obj@{Obj}}
+\index{Obj@{Obj}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{Obj}{Obj}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::\+Obj}
+
+
+
+List of all objects within the scene. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00056}{56}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!r0@{r0}}
+\index{r0@{r0}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{r0}{r0}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e} 
+double GOAT\+::raytracing\+::\+Scene\+::r0 =1000}
+
+
+
+Radius of the calculation space. All rays are followed within this calculation sphere. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00066}{66}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!raytype@{raytype}}
+\index{raytype@{raytype}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{raytype}{raytype}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a} 
+int GOAT\+::raytracing\+::\+Scene\+::raytype =\mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\+\_\+\+RAYTYPE\+\_\+\+IRAY}}}
+
+
+
+Type of the rays created by the light source. More detailed information about the available ray types and their meaning is provided. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00067}{67}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!suppress\_phase\_progress@{suppress\_phase\_progress}}
+\index{suppress\_phase\_progress@{suppress\_phase\_progress}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{suppress\_phase\_progress}{suppress\_phase\_progress}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83} 
+bool GOAT\+::raytracing\+::\+Scene\+::suppress\+\_\+phase\+\_\+progress = false}
+
+
+
+If true, phase progress is skipped. This is needed for short pulse calculations. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00068}{68}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{raytracing_2raytrace_8h}{raytrace.\+h}}\item 
+sic/\mbox{\hyperlink{sic_2raytrace_8h}{raytrace.\+h}}\end{DoxyCompactItemize}

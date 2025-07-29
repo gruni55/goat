@@ -1,0 +1,204 @@
+\doxysection{XML/xml.h File Reference}
+\hypertarget{xml_8h}{}\label{xml_8h}\index{XML/xml.h@{XML/xml.h}}
+{\ttfamily \#include "{}tinyxml2.\+h"{}}\newline
+{\ttfamily \#include "{}raytrace.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}xmltoken.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$locale$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{GOAT\+::\+XML\+::xml\+Reader}}
+\begin{DoxyCompactList}\small\item\em This class provides functionality to read a XML-\/file This function reads the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} file . It can also perform calculations. Beware\+: The parser is case sensitive. Element names starting with capital letters (except of "{}real"{} and "{}imag"{} for complex numbers), whereas values are always lower case The structure of the XML-\/\+File is as follows (the order of the subdivision may be changed)\+: Signs\+: o\+: optional, n\+: necessary, i\+: independend parameters, i.\+e. this parameter is valid for all types Values\+: float\+: floating point number int\+: integer number bool\+: possible values\+: true or false. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer}{GOAT\+::\+XML\+::xml\+Writer}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l}{GOAT\+::\+XML}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{xml_8h_ad729ba2c20589b0e82f26dfbcf07828e}{num\+XML\+\_\+\+LS\+\_\+\+TYPES}}~4
+\item 
+\#define \mbox{\hyperlink{xml_8h_af0d3110eddf628bf7ec827130ea10c0c}{num\+XMLRoot\+Elements}}~3
+\item 
+\#define \mbox{\hyperlink{xml_8h_abb55ad027dba791a5acc8635a060bf06}{XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+GAUSS}}~1
+\item 
+\#define \mbox{\hyperlink{xml_8h_afaa7c354ae2a04e82d9bacb6bf420068}{XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+GAUSS\+\_\+\+MC}}~3
+\item 
+\#define \mbox{\hyperlink{xml_8h_ab3960f0a83bbcc04754525cba592ade1}{XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+PLANE}}~0
+\item 
+\#define \mbox{\hyperlink{xml_8h_ade6cc60c9321b36d487d19f5100fb245}{XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+PLANE\+\_\+\+MC}}~2
+\item 
+\#define \mbox{\hyperlink{xml_8h_aeff7905a8295cc492b98bee112eaa112}{XML\+\_\+\+NONE}}~-\/1
+\item 
+\#define \mbox{\hyperlink{xml_8h_a129fe0365555a1805be5f3b82d3d7beb}{XML\+\_\+\+SCENE\+\_\+\+DETECTORS}}~5
+\item 
+\#define \mbox{\hyperlink{xml_8h_ad11e69b29c27d5effed5ce7ea374c715}{XML\+\_\+\+SCENE\+\_\+\+LIGHTSOURCES}}~3
+\item 
+\#define \mbox{\hyperlink{xml_8h_ae2b9720f1146a0afd467da3961e97638}{XML\+\_\+\+SCENE\+\_\+\+NCELLS}}~2
+\item 
+\#define \mbox{\hyperlink{xml_8h_af37556018c4f8a6f743828f76490e8ad}{XML\+\_\+\+SCENE\+\_\+\+NS}}~1
+\item 
+\#define \mbox{\hyperlink{xml_8h_a98b0aea49e5b3ae1565d0f38ae8a29ff}{XML\+\_\+\+SCENE\+\_\+\+OBJECTS}}~4
+\item 
+\#define \mbox{\hyperlink{xml_8h_ac66431455c885f4b8e77c99706c627f7}{XML\+\_\+\+SCENE\+\_\+\+R0}}~0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a609183d889d51dbdacec453d5d2dd13f}{GOAT\+::\+XML\+::find\+Extension}} (std\+::string fname, std\+::string extension)
+\begin{DoxyCompactList}\small\item\em check if the fname has a given extension This function checks if the fname ends with a given extension \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a2e2e6f4b5dc4d6302a3c4f9d2abff8ac}{GOAT\+::\+XML\+::\+LSTYPES}} \mbox{[}$\,$\mbox{]} = \{ "{}plane"{},"{}gaussian"{},"{}ring"{},"{}tophat"{},"{}line"{},"{}point"{},"{}plane\+\_\+mc"{},"{}gaussian\+\_\+mc"{},"{}ring\+\_\+mc"{},"{}line\+\_\+mc"{},"{}point\+\_\+mc"{} \}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}{GOAT\+::\+XML\+::\+LSXMLAttributes}} \mbox{[}$\,$\mbox{]} = \{ "{}type"{},"{}size"{},"{}wavelength"{},"{}numrays"{},"{}numrays\+RT"{}\}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}{GOAT\+::\+XML\+::\+LSXMLTYPES}} \mbox{[}$\,$\mbox{]} = \{"{}plane"{},"{}gaussian"{},"{}plane\+\_\+mc"{},"{}gaussian\+\_\+mc"{}\}
+\item 
+const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{GOAT\+::\+XML\+::scene\+XMLElements}} \mbox{[}$\,$\mbox{]} = \{ "{}r0"{},"{}ns"{},"{}Cells\+Per\+Dir"{},"{}lightsources"{},"{}objects"{},"{}detectors"{}\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-define-members}
+\Hypertarget{xml_8h_doc-define-members}
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{xml_8h_ad729ba2c20589b0e82f26dfbcf07828e}\index{xml.h@{xml.h}!numXML\_LS\_TYPES@{numXML\_LS\_TYPES}}
+\index{numXML\_LS\_TYPES@{numXML\_LS\_TYPES}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{numXML\_LS\_TYPES}{numXML\_LS\_TYPES}}
+{\footnotesize\ttfamily \label{xml_8h_ad729ba2c20589b0e82f26dfbcf07828e} 
+\#define num\+XML\+\_\+\+LS\+\_\+\+TYPES~4}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00032}{32}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_af0d3110eddf628bf7ec827130ea10c0c}\index{xml.h@{xml.h}!numXMLRootElements@{numXMLRootElements}}
+\index{numXMLRootElements@{numXMLRootElements}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{numXMLRootElements}{numXMLRootElements}}
+{\footnotesize\ttfamily \label{xml_8h_af0d3110eddf628bf7ec827130ea10c0c} 
+\#define num\+XMLRoot\+Elements~3}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00023}{23}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_abb55ad027dba791a5acc8635a060bf06}\index{xml.h@{xml.h}!XML\_LS\_TYPE\_GAUSS@{XML\_LS\_TYPE\_GAUSS}}
+\index{XML\_LS\_TYPE\_GAUSS@{XML\_LS\_TYPE\_GAUSS}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_LS\_TYPE\_GAUSS}{XML\_LS\_TYPE\_GAUSS}}
+{\footnotesize\ttfamily \label{xml_8h_abb55ad027dba791a5acc8635a060bf06} 
+\#define XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+GAUSS~1}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00034}{34}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_afaa7c354ae2a04e82d9bacb6bf420068}\index{xml.h@{xml.h}!XML\_LS\_TYPE\_GAUSS\_MC@{XML\_LS\_TYPE\_GAUSS\_MC}}
+\index{XML\_LS\_TYPE\_GAUSS\_MC@{XML\_LS\_TYPE\_GAUSS\_MC}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_LS\_TYPE\_GAUSS\_MC}{XML\_LS\_TYPE\_GAUSS\_MC}}
+{\footnotesize\ttfamily \label{xml_8h_afaa7c354ae2a04e82d9bacb6bf420068} 
+\#define XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+GAUSS\+\_\+\+MC~3}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00036}{36}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_ab3960f0a83bbcc04754525cba592ade1}\index{xml.h@{xml.h}!XML\_LS\_TYPE\_PLANE@{XML\_LS\_TYPE\_PLANE}}
+\index{XML\_LS\_TYPE\_PLANE@{XML\_LS\_TYPE\_PLANE}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_LS\_TYPE\_PLANE}{XML\_LS\_TYPE\_PLANE}}
+{\footnotesize\ttfamily \label{xml_8h_ab3960f0a83bbcc04754525cba592ade1} 
+\#define XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+PLANE~0}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00033}{33}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_ade6cc60c9321b36d487d19f5100fb245}\index{xml.h@{xml.h}!XML\_LS\_TYPE\_PLANE\_MC@{XML\_LS\_TYPE\_PLANE\_MC}}
+\index{XML\_LS\_TYPE\_PLANE\_MC@{XML\_LS\_TYPE\_PLANE\_MC}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_LS\_TYPE\_PLANE\_MC}{XML\_LS\_TYPE\_PLANE\_MC}}
+{\footnotesize\ttfamily \label{xml_8h_ade6cc60c9321b36d487d19f5100fb245} 
+\#define XML\+\_\+\+LS\+\_\+\+TYPE\+\_\+\+PLANE\+\_\+\+MC~2}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00035}{35}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_aeff7905a8295cc492b98bee112eaa112}\index{xml.h@{xml.h}!XML\_NONE@{XML\_NONE}}
+\index{XML\_NONE@{XML\_NONE}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_NONE}{XML\_NONE}}
+{\footnotesize\ttfamily \label{xml_8h_aeff7905a8295cc492b98bee112eaa112} 
+\#define XML\+\_\+\+NONE~-\/1}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00024}{24}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_a129fe0365555a1805be5f3b82d3d7beb}\index{xml.h@{xml.h}!XML\_SCENE\_DETECTORS@{XML\_SCENE\_DETECTORS}}
+\index{XML\_SCENE\_DETECTORS@{XML\_SCENE\_DETECTORS}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_DETECTORS}{XML\_SCENE\_DETECTORS}}
+{\footnotesize\ttfamily \label{xml_8h_a129fe0365555a1805be5f3b82d3d7beb} 
+\#define XML\+\_\+\+SCENE\+\_\+\+DETECTORS~5}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00030}{30}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_ad11e69b29c27d5effed5ce7ea374c715}\index{xml.h@{xml.h}!XML\_SCENE\_LIGHTSOURCES@{XML\_SCENE\_LIGHTSOURCES}}
+\index{XML\_SCENE\_LIGHTSOURCES@{XML\_SCENE\_LIGHTSOURCES}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_LIGHTSOURCES}{XML\_SCENE\_LIGHTSOURCES}}
+{\footnotesize\ttfamily \label{xml_8h_ad11e69b29c27d5effed5ce7ea374c715} 
+\#define XML\+\_\+\+SCENE\+\_\+\+LIGHTSOURCES~3}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00028}{28}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_ae2b9720f1146a0afd467da3961e97638}\index{xml.h@{xml.h}!XML\_SCENE\_NCELLS@{XML\_SCENE\_NCELLS}}
+\index{XML\_SCENE\_NCELLS@{XML\_SCENE\_NCELLS}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_NCELLS}{XML\_SCENE\_NCELLS}}
+{\footnotesize\ttfamily \label{xml_8h_ae2b9720f1146a0afd467da3961e97638} 
+\#define XML\+\_\+\+SCENE\+\_\+\+NCELLS~2}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00027}{27}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_af37556018c4f8a6f743828f76490e8ad}\index{xml.h@{xml.h}!XML\_SCENE\_NS@{XML\_SCENE\_NS}}
+\index{XML\_SCENE\_NS@{XML\_SCENE\_NS}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_NS}{XML\_SCENE\_NS}}
+{\footnotesize\ttfamily \label{xml_8h_af37556018c4f8a6f743828f76490e8ad} 
+\#define XML\+\_\+\+SCENE\+\_\+\+NS~1}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00026}{26}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_a98b0aea49e5b3ae1565d0f38ae8a29ff}\index{xml.h@{xml.h}!XML\_SCENE\_OBJECTS@{XML\_SCENE\_OBJECTS}}
+\index{XML\_SCENE\_OBJECTS@{XML\_SCENE\_OBJECTS}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_OBJECTS}{XML\_SCENE\_OBJECTS}}
+{\footnotesize\ttfamily \label{xml_8h_a98b0aea49e5b3ae1565d0f38ae8a29ff} 
+\#define XML\+\_\+\+SCENE\+\_\+\+OBJECTS~4}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00029}{29}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{xml_8h_ac66431455c885f4b8e77c99706c627f7}\index{xml.h@{xml.h}!XML\_SCENE\_R0@{XML\_SCENE\_R0}}
+\index{XML\_SCENE\_R0@{XML\_SCENE\_R0}!xml.h@{xml.h}}
+\doxysubsubsection{\texorpdfstring{XML\_SCENE\_R0}{XML\_SCENE\_R0}}
+{\footnotesize\ttfamily \label{xml_8h_ac66431455c885f4b8e77c99706c627f7} 
+\#define XML\+\_\+\+SCENE\+\_\+\+R0~0}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00025}{25}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
