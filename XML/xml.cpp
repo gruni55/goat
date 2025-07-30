@@ -1216,7 +1216,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
           scene->SetAttribute("r0", formatDouble(S.r0).c_str());
-          scene->SetAttribute("nCellsPerDir", S.getNumberOfCellsPerDirection());
+          scene->SetAttribute("nCellsPerDir", static_cast<int64_t> (S.getNumberOfCellsPerDirection()));
           root->InsertEndChild(scene);
           std::cout << "no. of light sources: "<< S.nLS << std::endl;
           if (S.nLS > 0)
