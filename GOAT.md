@@ -1,43 +1,73 @@
-# GOAT
+# GOAT – Geometrical Optics Application Tool
 
-Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform. Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform. 
+**GOAT** is a modular, scene-based C++ library for flexible simulation of electric fields and intensity distributions using geometrical optics, including explicit phase calculation for the simulation of interference phenomena.
 
-The library consists of an abstract ray tracer that can be adapted to the needs. 
-Thereby interfaces are offered, which are called whenever a ray hits an object or emerges from it. To describe the setup in a simple way, a scene consisting of light sources and objects is defined before each calculation. Like the raytracers themselves, base classes are available for this purpose, from which the concrete object and light source types can be derived. As an example, the light source types for Gaussian rays and top hats are available. Ellipsoids are available as object shapes. Furthermore, shapes can be imported from binary STL files. 
+## Why GOAT?
 
-To make the mathematical description as simple as possible, a vector as well as a matrix template class for a 3D calculation was developed. 
+In optical modeling, each new problem often requires starting from scratch. **GOAT** solves this by providing a reusable, extensible library designed for a wide range of optical tasks. Its architecture is scene-based and modular, allowing you to combine and extend components as needed.
 
-The library is divided into two parts: 
+## Key Features
 
-> - The basic mathematical functions in the template classes Matrix and Vector, which describes three dimensional matrices and vector and the corresponding operators (the include files can be found in the folder : /maths)
-> - The main raytracer together with the light source and object representations (the include files can be found in the folder:  /raytracing)
+- **Abstract, extensible ray tracer:**  
+  Easily adapt the ray tracing engine to your problem.
+- **Scene architecture:**  
+  Define a simulation by specifying light sources and objects in a scene.
+- **Flexible interfaces:**  
+  Extend base classes for your own object and light source types.
+- **Ready-made sources and shapes:**  
+  Gaussian beams, top-hat sources, ellipsoids, and import of binary STL shapes.
+- **Efficient 3D math classes:**  
+  Matrix and Vector templates for mathematical operations (in `/maths`).
+- **Parallel processing for large STL files:**  
+  The `goat_raytracing_mp.lib` library offers **OpenMP support** to accelerate the loading and processing of large STL files.
 
-take also a look into README.txt
+## Library Structure
 
-## Installation instructions
+- **goat_maths.lib:**  
+  Mathematical basics: 3D vector and matrix classes with operators.
+- **goat_raytracing.lib:**  
+  Ray tracing engine, light sources, object representations.
+- **goat_raytracing_mp.lib:**  
+  Same as `goat_raytracing.lib`, but with **OpenMP parallelization** for efficient loading and handling of large STL geometries.
 
-For a proper installation, cmake is highly recommended. You can download it from (https://cmake.org/)
-and of course, a working C++-Compiler (We tested it on Windows with Visual Studio Community Edition 2019 and on Linux with gcc)
+## Documentation
 
-open a console window a 
+- **Full API documentation (Doxygen):**  
+  [https://gruni55.github.io/goat/html/](https://gruni55.github.io/goat/html/)  
+  Also included locally in `/docs`.
 
-change to your GOAT directory 
-type "cmake ." (don't forget the dot!) 
+For more information, see [README.txt](README.txt).
 
-Cmake automatically recognizes the corresponding compiler system. For the Visual Studio, a corresponding project file will be generated and for the gcc a Makefile is created. 
+## Installation
 
-Newer versions of Visual Studio (e.g. VS 2019) supports cmake directly, so you can just open the GOAT directory with VS
+**Requirements:**  
+- [CMake](https://cmake.org/) (recommended)
+- C++17 compatible compiler (tested: Visual Studio 2019+, GCC)
+- For `goat_raytracing_mp.lib`: OpenMP support enabled in your compiler.
 
-After compiling, the libraries can be found in /lib
+**Build steps:**  
+1. Open a terminal / console.
+2. Navigate to your GOAT directory.
+3. Run:  cmake .
+*(Don’t forget the dot!)*
 
-The names of the libraries are:
+CMake detects your system and generates project files or a Makefile.
+- **Windows (VS 2019+):** Open the GOAT directory directly with Visual Studio, or use CMake as above.
+- **Linux:** Run `make` after `cmake`.
 
-> - **goat_raytracing.lib** : here are all the raytracing functions and representations
-> - **goat_maths.lib** : here are all basic mathemical functions and operators (Matrix and Vector template classes)
+Libraries will be created in `/lib`.
 
 ## XML Support
 
-Scenes and calculations can be stored in a XML file. More details can be found [here](XML.md)
+Scenes and calculation setups can be saved and loaded as XML files.  
+See [XML.md](XML.md) for details.
 
+---
 
+**Citation:**  
+If you use GOAT in your work, please cite:  
+Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf,  
+*"GOAT: a multipurpose optical simulation tool,"*  
+J. Opt. Soc. Am. B 39, 2061-2065 (2022).  
+[https://doi.org/10.1364/JOSAB.457951](https://opg.optica.org/josab/fulltext.cfm?uri=josab-39-8-2061&id=477834)
 
