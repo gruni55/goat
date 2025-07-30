@@ -1,7 +1,0 @@
-var gridentry_8h =
-[
-    [ "GOAT::raytracing::gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", "struct_g_o_a_t_1_1raytracing_1_1grid_entry" ],
-    [ "GOAT::raytracing::stepEntry", "struct_g_o_a_t_1_1raytracing_1_1step_entry.html", "struct_g_o_a_t_1_1raytracing_1_1step_entry" ],
-    [ "GOAT::raytracing::operator<<", "namespace_g_o_a_t_1_1raytracing.html#ab46854f36d1a43ea458ce4fddd41002a", null ],
-    [ "GOAT::raytracing::operator<<", "namespace_g_o_a_t_1_1raytracing.html#a8600fec99ef4bc330ac28608d6de80df", null ]
-];
