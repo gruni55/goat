@@ -37,7 +37,7 @@ endif()
 target_include_directories (sphere PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 
 install(TARGETS sphere
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 )

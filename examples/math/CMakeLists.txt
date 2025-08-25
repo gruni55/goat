@@ -22,7 +22,7 @@ target_include_directories (testmath PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths)
 target_link_libraries (testmath goat_maths)
 
 install(TARGETS testmath
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
+                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 )
