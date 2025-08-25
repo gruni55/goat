@@ -1,0 +1,128 @@
+\begin{filecontents*}{refs.bib}
+@misc{dumas2005nonlinear,
+  author = {Dumas, Éric},
+  title  = {About nonlinear geometric optics},
+  year   = {2005},
+  eprint = {math/0511629},
+  archivePrefix = {arXiv},
+  primaryClass = {math.AP},
+  url    = {https://arxiv.org/abs/math/0511629}
+}
+
+@article{couairon2007femtosecond,
+  author  = {Couairon, Arnaud and Mysyrowicz, André},
+  title   = {Femtosecond filamentation in transparent media},
+  journal = {Physics Reports},
+  year    = {2007},
+  volume  = {441},
+  pages   = {47--189},
+  doi     = {10.1016/j.physrep.2006.12.005},
+  url     = {https://www.sciencedirect.com/science/article/abs/pii/S037015730700021X}
+}
+
+@article{kolesik2004nonlinear,
+  author  = {Kolesik, Miroslav and Moloney, Jerome V.},
+  title   = {Nonlinear optical pulse propagation simulation: From Maxwell’s to unidirectional equations},
+  journal = {Physical Review E},
+  year    = {2004},
+  volume  = {70},
+  number  = {3},
+  pages   = {036604},
+  doi     = {10.1103/PhysRevE.70.036604},
+  url     = {https://link.aps.org/doi/10.1103/PhysRevE.70.036604}
+}
+
+@article{berge2007ultrashort,
+  author  = {Bergé, Luc and Skupin, Stefan and Nuter, Romain and Kasparian, Jér{\^o}me and Wolf, Jean-Pierre},
+  title   = {Ultrashort filaments of light in weakly ionized, optically transparent media},
+  journal = {Reports on Progress in Physics},
+  year    = {2007},
+  volume  = {70},
+  number  = {10},
+  pages   = {1633--1713},
+  doi     = {10.1088/0034-4885/70/10/R03},
+  url     = {https://acms.arizona.edu/FemtoTheory/MK_personal/opti583/literature/Berge_Rep_Prog_Phys.pdf}
+}
+
+@article{brabec1997singlecycle,
+  author  = {Brabec, Thomas and Krausz, Ferenc},
+  title   = {Nonlinear Optical Pulse Propagation in the Single-Cycle Regime},
+  journal = {Physical Review Letters},
+  year    = {1997},
+  volume  = {78},
+  number  = {17},
+  pages   = {3282--3285},
+  doi     = {10.1103/PhysRevLett.78.3282},
+  url     = {https://link.aps.org/doi/10.1103/PhysRevLett.78.3282}
+}
+
+@book{agrawal2012nonlinear,
+  author    = {Agrawal, Govind P.},
+  title     = {Nonlinear Fiber Optics},
+  edition   = {5},
+  year      = {2012},
+  publisher = {Academic Press},
+  isbn      = {9780123970237},
+  url       = {https://shop.elsevier.com/books/nonlinear-fiber-optics/agrawal/978-0-12-397023-7}
+}
+\end{filecontents*}
+
+\documentclass[a4paper,11pt]{article}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{microtype}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Nichtlineare, spektral aufgelöste geometrische Optik: Kuratierte Literatur und Kurzfassungen}
+\author{Zusammenstellung für GOAT}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Ziel}
+Diese Liste versammelt Kernreferenzen zu (i) nichtlinearer geometrischer Optik (WKB/Eikonal), (ii) ultrakurzer Pulspropagation und Filamentierung, sowie (iii) Standardmodellen (NLSE/UPPE, Faseroptik), um einen hybriden, strahlenbasierten, spektral aufgelösten Ansatz wie in \emph{GOAT} theoretisch einzuordnen.
+
+\section*{Kurzfassungen}
+
+\paragraph{Dumas (2005) \cite{dumas2005nonlinear}}
+\textbf{Thema:} Überblick über \emph{nonlinear geometric optics} (NGO).
+\textbf{Kernidee:} Asymptotische WKB-Entwicklungen für schwach nichtlineare Wellengleichungen führen zu nichtlinearen Eikonal- und Transportgleichungen. 
+\textbf{Relevanz:} Legt den mathematischen Rahmen, um intensitätsabhängige Phasen (\(n(I)\)) konsistent in einer Strahlenbeschreibung zu führen (Stabilität/Gültigkeitsbereich).
+
+\paragraph{Couairon \& Mysyrowicz (2007) \cite{couairon2007femtosecond}}
+\textbf{Thema:} Umfassendes Review zu Femtosekunden-Filamentierung in transparenten Medien.
+\textbf{Kernidee:} Konkurrenz von Kerr-Selbstfokussierung, Plasma-Defokussierung, Dis\-per\-sion und Nichtlinearverlusten; Modelllandschaft von vereinfachten Ray-/Momentenmodellen bis UPPE.
+\textbf{Relevanz:} Zeigt, wie strahlennahe Modelle Selbstfokussierung qualitativ/quantitativ erfassen und wo feldbasierte Beschreibung nötig wird.
+
+\paragraph{Kolesik \& Moloney (2004) \cite{kolesik2004nonlinear}}
+\textbf{Thema:} Ableitung und Einsatz unidirektionaler Wellengleichungen (UPPE) aus Maxwell.
+\textbf{Kernidee:} Nahtloser Übergang zwischen Hüllgleichungen und vektorieller Vollfeldbeschreibung; breitbandige, nichtlineare Pulse, inkl.\ Disper\-sion/Raman/Plasma.
+\textbf{Relevanz:} Referenz für die „Ground-Truth“-Feldmodelle; ideal als Benchmark für deinen strahlenbasierten Hybrid (Kosten/Genauigkeit).
+
+\paragraph{Bergé et al. (2007) \cite{berge2007ultrashort}}
+\textbf{Thema:} Review zu ultrakurzen Filamenten in schwach ionisierten Medien.
+\textbf{Kernidee:} Dynamik von Selbstfokussierung, Schockbildung, Superkontinuum; Skalenlängen (\(L_\text{NL}, L_\text{disp}\)) und Stabilit"atskriterien.
+\textbf{Relevanz:} Liefert praxisnahe Skalen/Parameter, um Schrittweiten und LoD in einem strahlenbasierten Split-Step-Ansatz zu wählen.
+
+\paragraph{Brabec \& Krausz (1997) \cite{brabec1997singlecycle}}
+\textbf{Thema:} Einhüllengleichung im Single-Cycle-Regime (UPPE-Vorläufer).
+\textbf{Kernidee:} Allgemeine, erste-Ordnung-Gleichung längs der Ausbreitung, gültig bis in Ein-Zyklus-Pulse; konsistente Behandlung starker Breitbandigkeit.
+\textbf{Relevanz:} Fundament für zeit-/frequenzgemischte Operator-Splittings (Fourier in \(t\), Propagation längs \(s\)); direkt kompatibel mit spektral aufgelösten Strahlen.
+
+\paragraph{Agrawal (2012) \cite{agrawal2012nonlinear}}
+\textbf{Thema:} Standardwerk der nichtlinearen Faseroptik (NLSE/GNLSE).
+\textbf{Kernidee:} Systematische Behandlung von Kerr, Raman, Selbst-Steepening, Disper\-sion; numerische Split-Step-Fourier-Verfahren.
+\textbf{Relevanz:} Blaupause für die \emph{zeitdomänen} Nichtlinear-Operatoren (SPM/XPM, Raman-Faltung, TPA) in deinem strahlenbasierten Split-Step.
+
+\bigskip
+\noindent\textbf{Hinweis zur Einordnung.} Dein Ansatz (\emph{geometrische Optik mit Phaseninformation + Fourier-Pulse + lokaler NL-Operator}) schließt die Lücke zwischen NGO-Theorie und feldbasierten Modellen: Strahlen liefern Geometrie/Selbstfokussierung; die spektrale Zeithandhabung erlaubt SPM/XPM/Raman effizient, solange Diffraktion/Interferenz nicht dominieren.
+
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
+\end{document}
