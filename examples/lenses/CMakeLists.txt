@@ -29,12 +29,7 @@ else()
 	   target_link_libraries (lenses goat_raytracing goat_maths)	
 endif()
 
-
-install(TARGETS lenses
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
-                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                )
+goat_install (TARGETS lenses)
 
 message (STATUS "LIB Library: ${LIBDIR}")
 #add_executable (testbox "testbox.cpp")

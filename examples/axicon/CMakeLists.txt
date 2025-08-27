@@ -38,8 +38,4 @@ else()
    target_link_libraries (axicon_with_box goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
 endif()
 
-install(TARGETS axicon axicon2 axicon_with_box
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
-                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                )
+goat_install (TARGETS axicon2 axicon_with_box)

@@ -30,9 +30,6 @@ target_compile_definitions (mirror PUBLIC CALC_PATH)
 target_include_directories (mirror PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (mirror goat_raytracing goat_maths)
 
-install(TARGETS mirror conepath stlexample raytest 
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
-                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                )
+goat_install (TARGETS mirror conepath stlexample raytest)
+
 

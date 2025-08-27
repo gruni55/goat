@@ -21,9 +21,4 @@ find_library (NAMES goat_raytracing PATHS ../../lib)
 target_include_directories (layers PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (layers goat_raytracing goat_maths)
 
-
-install(TARGETS layers
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
-                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                )
+goat_install (TARGETS layers)

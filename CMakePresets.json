@@ -1,0 +1,43 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 23 },
+  "configurePresets": [
+    {
+      "name": "vs-win",
+      "displayName": "VS 2022 x64 (multi-config)",
+      "generator": "Visual Studio 17 2022",
+      "architecture": { "value": "x64" },
+      "toolset": { "value": "host=x64" },
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}",
+        "WITH_OPENMP": { "type": "BOOL", "value": true },
+        "WITH_SUPERGITTER": { "type": "BOOL", "value": true },
+        "WITH_OCTREE": { "type": "BOOL", "value": true }
+      }
+    },
+    {
+      "name": "ninja-win",
+      "displayName": "Ninja (single-config)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_INSTALL_PREFIX": "${sourceDir}",
+        "WITH_OPENMP": { "type": "BOOL", "value": true },
+        "WITH_SUPERGITTER": { "type": "BOOL", "value": true },
+        "WITH_OCTREE": { "type": "BOOL", "value": true }
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "vs-Debug",   "configurePreset": "vs-win",   "configuration": "Debug" },
+    { "name": "vs-Release", "configurePreset": "vs-win",   "configuration": "Release" },
+    { "name": "ninja",      "configurePreset": "ninja-win" }
+  ],
+  "installPresets": [
+    { "name": "install-vs-Debug",   "configurePreset": "vs-win",   "configuration": "Debug",   "prefix": "${sourceDir}" },
+    { "name": "install-vs-Release", "configurePreset": "vs-win",   "configuration": "Release", "prefix": "${sourceDir}" },
+    { "name": "install-ninja",      "configurePreset": "ninja-win","prefix": "${sourceDir}" }
+  ]
+}

@@ -29,8 +29,4 @@ add_executable (otexample example_one_sphere.cpp)
 target_include_directories (otexample PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (otexample goat_raytracing goat_maths)
 
-install(TARGETS otexample
-                RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
-                LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
-                )
+goat_install (TARGETS otexample)

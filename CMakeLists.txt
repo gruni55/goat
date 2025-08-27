@@ -2,6 +2,35 @@ cmake_minimum_required (VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(GNUInstallDirs)
+
+# Subdir-Genex für Debug/Release
+set(GOAT_CFG_SUBDIR
+  "$<IF:$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>,$<CONFIG:MinSizeRel>>,Release,Debug>"
+)
+
+function(goat_install)
+  set(options)
+  set(oneValueArgs)
+  set(multiValueArgs TARGETS)
+  cmake_parse_arguments(GOATINST "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+  if(NOT GOATINST_TARGETS)
+    message(FATAL_ERROR "goat_install() benötigt TARGETS")
+  endif()
+
+  install(TARGETS ${GOATINST_TARGETS}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}/${GOAT_CFG_SUBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/${GOAT_CFG_SUBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/${GOAT_CFG_SUBDIR}
+  )
+endfunction()
+
+
+set(GOAT_CFG_SUBDIR
+  "$<IF:$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>,$<CONFIG:MinSizeRel>>,Release,Debug>"
+)
+
 option(WITH_OPENMP      "Enable OpenMP support"         ON)
 option(WITH_SUPERGITTER "Enable Supergitter features"   ON)
 option(WITH_OCTREE      "Enable Octree features"        ON)
@@ -40,18 +69,18 @@ project (goat)
 #        #endif()
 #    endif()
 #endif()
-add_subdirectory (maths) 
-add_subdirectory (raytracing)
-add_subdirectory (examples/ot)
-add_subdirectory (examples/paths)
-add_subdirectory (examples/layers)
-add_subdirectory (examples/axicon)
-add_subdirectory (examples/mctest)
-add_subdirectory (examples/usptest)
-add_subdirectory (examples/sphere)
+add_subdirectory (maths) #
+add_subdirectory (raytracing) #
+add_subdirectory (examples/ot) #
+add_subdirectory (examples/paths) #
+add_subdirectory (examples/layers) #
+add_subdirectory (examples/axicon) #
+add_subdirectory (examples/mctest) # 
+add_subdirectory (examples/usptest) #
+add_subdirectory (examples/sphere) #
 ## add_subdirectory (examples/math)
-add_subdirectory (examplesXML)
-add_subdirectory (examples/lenses)
-add_subdirectory (XML)
+add_subdirectory (examplesXML) #
+add_subdirectory (examples/lenses) # 
+add_subdirectory (XML) #
 ## add_subdirectory (test)
 
