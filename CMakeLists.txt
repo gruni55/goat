@@ -2,6 +2,10 @@ cmake_minimum_required (VERSION 3.5)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+option(WITH_OPENMP      "Enable OpenMP support"         ON)
+option(WITH_SUPERGITTER "Enable Supergitter features"   ON)
+option(WITH_OCTREE      "Enable Octree features"        ON)
+
 if(CMAKE_CXX_COMPILER_LOADED)
      message(STATUS "Compiler path: ${CMAKE_CXX_COMPILER}")
      message(STATUS "Compiler ID: ${CMAKE_CXX_COMPILER_ID}")
