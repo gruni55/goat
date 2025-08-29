@@ -21,7 +21,7 @@ namespace GOAT
         * functions are necessary which calculate the complex-valued refractive index from the wavelength. These functions are
         * stored in the element nList. 
         */
-        typedef struct 
+        typedef struct TrafoParms
         {
             int nI=4;                     ///< defines the number of spectral ranges
             int nS=200;                ///< number of subdivision per spectral range   
@@ -33,7 +33,7 @@ namespace GOAT
             double dt=100;                  ///< width of the pulse (in femto seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
             int number_of_threads=5; ///< number of threads which should be used for calculation
-        } TrafoParms;
+        } ;
 
         
         /*! \brief This class calculates the time dependence of a field which calculated before.

@@ -133,7 +133,8 @@ namespace GOAT {
             * If this parameter is true, GOATvis will show the full representation of the object in the scene dialog otherwise only the bounding box is shown.
             * This parameter can be used e.g. for very heavy surface object to safe memory.
             */
-            bool visible=true; 
+            bool visible=true;
+            std::function <std::complex<double>(double)>  nfunc;
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
