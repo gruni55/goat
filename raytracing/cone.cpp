@@ -1,4 +1,4 @@
-#include "cone.h"
+﻿#include "cone.h"
 namespace GOAT
 {
 	namespace raytracing
@@ -28,9 +28,102 @@ namespace GOAT
 			sideLen = height / cosCA;
 		}
 
-#define EPS 1E-10
+#define EPS_T        1e-10   // nur t > EPS_T akzeptieren (Ray bias)
+#define TAU          1e-10   // ~0 für Koeffizienten
+#define TOL          1e-10   // Geometrische Toleranz
+#define TOL_D        1e-16   // Diskriminanten-Toleranz
+#define GRAZE_COS_MIN 1e-6   // Minimale |cos(theta)|, um Grazing zu akzeptieren (klein => schärfere Ablehnung)
 
-		bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
+		bool Cone::next(const maths::Vector<double>& ps,
+			const maths::Vector<double>& ks,
+			maths::Vector<double>& pout)
+		{
+			// Welt -> lokales Kegelsystem (Basiszentrum am Ursprung, Spitze bei z=h)
+			maths::Vector<double> p = H * (ps - P);
+			maths::Vector<double> k = H * ks;
+
+			const double r = radius, h = height;
+			const double s = r / h, s2 = s * s;
+
+			auto in_z_range = [&](double t) {
+				double z = p[2] + t * k[2];
+				return z >= -TOL && z <= h + TOL;
+				};
+
+			// ---- Mantel-Quadratik: A t^2 + B t + C = 0
+			double hpz = h - p[2];
+			double A = (k[0] * k[0] + k[1] * k[1]) - s2 * (k[2] * k[2]);
+			double B = 2.0 * (p[0] * k[0] + p[1] * k[1] + s2 * hpz * k[2]);
+			double C = (p[0] * p[0] + p[1] * p[1]) - s2 * (hpz * hpz);
+
+			// Kandidaten t's
+			double t_lat = std::numeric_limits<double>::infinity();
+			double t_bas = std::numeric_limits<double>::infinity();
+
+			// --- Mantel: A!=0 und D>0 (Tangente & Sliding vermeiden)
+			if (std::fabs(A) >= TAU) {
+				double D = B * B - 4.0 * A * C;
+				if (D > TOL_D) { // **Tangentialfall ausgeschlossen**
+					double sD = std::sqrt(D);
+					double t1 = (-B - sD) / (2.0 * A);
+					double t2 = (-B + sD) / (2.0 * A);
+
+					auto accept_mantel = [&](double t) {
+						if (t <= EPS_T || !in_z_range(t)) return false;
+						// **Sliding-Guard**: |n·k| / (|n||k|) >= GRAZE_COS_MIN
+						double x = p[0] + t * k[0];
+						double y = p[1] + t * k[1];
+						double z = p[2] + t * k[2];
+						maths::Vector<double> n(x, y, s2 * (h - z));  // ∇F/2
+						double nk = std::fabs(n[0] * k[0] + n[1] * k[1] + n[2] * k[2]);
+						double nn = std::sqrt(n[0] * n[0] + n[1] * n[1] + n[2] * n[2]);
+						double kk = std::sqrt(k[0] * k[0] + k[1] * k[1] + k[2] * k[2]);
+						if (nn < TAU || kk < TAU) return false;
+						double cosAbs = nk / (nn * kk);
+						if (cosAbs < GRAZE_COS_MIN) return false; // **verwirf Strahlen entlang der Fläche**
+						return true;
+						};
+
+					if (accept_mantel(t1)) t_lat = std::min(t_lat, t1);
+					if (accept_mantel(t2)) t_lat = std::min(t_lat, t2);
+				}
+				// sonst: kein Manteltreffer (Tangente/keiner)
+			}
+			// A≈0 => Richtung „Mantel-generatrix“ -> **Sliding** ⇒ bewusst verwerfen
+
+			// ---- Boden: z=0, nur echte Schnitte (keine Tangente/Parallelität)
+			if (std::fabs(k[2]) > TAU) {
+				double tB = -p[2] / k[2];
+				if (tB > EPS_T) {
+					double x = p[0] + tB * k[0];
+					double y = p[1] + tB * k[1];
+					double rr = x * x + y * y;
+					// Kreis **ohne Rand** (Tangente ausschließen)
+					if (rr < r * r - TOL) {
+						// **Sliding-Guard am Boden**: |kz| groß genug (nicht nahezu parallel)
+						double kk = std::sqrt(k[0] * k[0] + k[1] * k[1] + k[2] * k[2]);
+						double cosAbs = std::fabs(k[2]) / (kk > TAU ? kk : 1.0);
+						if (cosAbs >= GRAZE_COS_MIN) {
+							t_bas = tB;
+						}
+					}
+				}
+			}
+			else {
+				// k nahezu parallel zur Bodenebene -> Sliding -> verwerfen
+				// (Optional: 2D-Fall, wenn p[2]≈0, könntest du echte Durchschnitte prüfen, hier gewollt verwerfen.)
+			}
+
+			// ---- kleinsten gültigen Treffer wählen
+			double t = std::min(t_lat, t_bas);
+			if (!std::isfinite(t)) return false;
+
+			// Weltkoordinate zurückgeben (immer ks benutzen, nicht lokales k!)
+			pout = ps + t * ks;
+			return true;
+		}
+
+		/*bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
 		{
 			maths::Vector<double> n,n1, e1, e2;
 			maths::Vector<double> p = H * (ps - P);
@@ -117,7 +210,7 @@ namespace GOAT
 			return false;
 
 		}
-
+		*/
 		/*
 		bool Cone::next(const maths::Vector<double>& ps, const maths::Vector<double>& ks, maths::Vector<double>& pout)
 		{
@@ -190,24 +283,59 @@ namespace GOAT
 			return -1;
 		}
 
-		maths::Vector<double> Cone::norm(const maths::Vector<double>& ps)
+		maths::Vector<double> Cone::norm(const maths::Vector<double>& ps) 
 		{
+			maths::Vector<double> n;
 			maths::Vector<double> p = H * (ps - P);
 			
-			
-			if (fabs(p[2]) > 0)
-			{
-				maths::Vector<double> e2 = maths::ez;
-				maths::Vector<double> e1 = maths::norm(p - p[2] * e2);				
-				return maths::norm(cos(coneAngle) * e1 + sin(coneAngle) * e2);
-			}
-			return -R * maths::ez;
+			if (fabs(p[2]) < 1E-10) return -R * maths::ez;
+			// const double TOL = 1e-12;
+
+			// Punkt ins lokale Kegelsystem
+			maths::Vector<double> pL = H * (ps - P);
+
+			// Spitze (Apex) im lokalen System
+			maths::Vector<double> T(0.0, 0.0, height);
+
+			// Achse (Einheitsvektor in z)
+			maths::Vector<double> A(0.0, 0.0, 1.0);
+
+			// Generator-Richtung (Apex -> Punkt)
+			maths::Vector<double> v = pL - T;
+			double vlen = std::sqrt(v * v);
+			if (vlen < TOL) return maths::Vector<double>(0, 0, 0);
+			maths::Vector<double> khat = v / vlen;
+
+			// Azimutale Tangente (Achse × radial)
+			maths::Vector<double> r = v - (v * A) * A;
+			maths::Vector<double> ttheta = A % r;
+			double tlen = std::sqrt(ttheta * ttheta);
+			if (tlen < TOL) return maths::Vector<double>(0, 0, 0);
+			ttheta /= tlen;
+
+			// Normale (ttheta × khat)
+			maths::Vector<double> nL = ttheta % khat;
+			double nlen = std::sqrt(nL * nL);
+			if (nlen < TOL) return maths::Vector<double>(0, 0, 0);
+			nL /= nlen;
+
+			// zurück in den Weltraum (H ist Rotation ⇒ inverse = transpose)
+			maths::Vector<double> nW = R * nL;
+			double nWlen = std::sqrt(nW * nW);
+			if (nWlen > TOL) nW /= nWlen;
+
+			return nW;
+		
 		}
 
+
+
+		
 
 		void Cone::setRadius(double radius)
 		{
 			this->radius = radius;
+			coneAngle = atan(radius / height);
 			initQuad();
 		}
 
@@ -219,6 +347,7 @@ namespace GOAT
 		void Cone::setHeight(double height)
 		{
 			this->height = height;
+			coneAngle = atan(radius / height);
 			initQuad();
 		}
 
