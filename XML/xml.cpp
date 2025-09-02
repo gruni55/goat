@@ -366,7 +366,8 @@ namespace GOAT
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					int type = mapString2ObjectToken(typeStr);
 					switch (type)
-					{
+					{ 
+
 					case TOKEN_OBJECT_ELLIPSOID: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
 													Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
@@ -1336,7 +1337,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         object->SetAttribute("filename",obj->getFilename().c_str());
                     }
                     break;
-                case OBJECTSHAPE_CONE : break;
+                case OBJECTSHAPE_CONE : 
+                {
+                    auto obj = (raytracing::Cone*)S.Obj[i];
+                    object->SetAttribute("height", obj->getHeight());
+                    object->SetAttribute("radius", obj->getRadius());
+                }
+                    break;
                 case OBJECTSHAPE_ASPHERIC_LENS : break;
                 case OBJECTSHAPE_SPHERIC_LENS : 
                     {

@@ -446,7 +446,7 @@ namespace GOAT
                  
                void Cone::setConeAngle (double coneAngle)
                {
-                height=radius * tan (coneAngle);
+                height=radius / tan (coneAngle);
                 init();
                 initQuad();
                }
