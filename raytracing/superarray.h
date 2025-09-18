@@ -329,9 +329,10 @@ namespace GOAT
         maths::Vector<INDEX_TYPE> pul, por, N, hn;
         maths::Vector<double> h, O;
         O = maths::Vector<double>(-r0, -r0, -r0);
-
-      
-        h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
+        double b = 2.0 * r0;
+        d = maths::Vector<double>(b / (double)(nges[0] - 1), b / (double)(nges[1] - 1), b / (double)(nges[2] - 1));
+      //   h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
+        h = ceil(ediv(E->por-E->pul, d)) ;
 
         hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0]+1, (INDEX_TYPE)h[1]+1, (INDEX_TYPE)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
 

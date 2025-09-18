@@ -107,7 +107,7 @@ namespace GOAT
             void resetCalculation() { calcphase = INEL_CALCPHASE_EXCITATION; } ///< forces the calculation of the excited field when calling trace(RRTParms D)
             void setExcitationFieldOnly() { calcphase = INEL_CALCPHASE_EXCITATION_ONLY; } ///< Sets calculation phase so, that for the next call of trace(RRTParms D), only the excitation field is calculated.
             void unsetExcitationFieldOnly() { calcphase = INEL_CALCPHASE_RRT;  } ///< sets calculation phase in the way, that also the inelastic calculation will be done
-            SuperArray<maths::Vector<std::complex<double> > >* SGE;  ///< Here, the exciting field is stored 
+            SuperArray<maths::Vector<std::complex<double> > >* SGE=nullptr;  ///< Here, the exciting field is stored 
              SuperArray<GOAT::maths::Vector<std::complex<double>>>*
                 GetFieldArray() 
             {

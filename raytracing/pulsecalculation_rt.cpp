@@ -4,6 +4,11 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+		pulseCalculation_rt::pulseCalculation_rt()
+		{
+			setDefaults();
+		}
+
 		pulseCalculation_rt::pulseCalculation_rt(Scene S)
 		{
 			this->S = S;

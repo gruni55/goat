@@ -17,6 +17,7 @@ namespace GOAT
 		class pulseCalculation_rt
 		{
 		public:
+			pulseCalculation_rt();
 			pulseCalculation_rt(Scene S);
 			void setDefaults();
 			TrafoParms trafoparms;

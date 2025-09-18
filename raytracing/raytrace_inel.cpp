@@ -166,6 +166,7 @@ namespace GOAT
 
 		void Raytrace_Inel::setScene(const Scene& S)
 		{
+			this->S = S;
 			calcphase = INEL_CALCPHASE_EXCITATION;
 			int nCells = S.getNumberOfCellsPerDirection();
 			if (SGE == nullptr) SGE = new raytracing::SuperArray<maths::Vector<std::complex<double>>>(S.r0, n, n, n);

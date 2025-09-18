@@ -11,6 +11,7 @@
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
+#include "refractive_index_functions.h"
 
 
 #define tl(s) GOAT::maths::tl(s)	
@@ -510,7 +511,9 @@ namespace GOAT
 
 					}
 					double sf=objEll->DoubleAttribute("scaling",1);
-                    if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf); 
+                    if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf);
+                    Obj[numObj]->nfunc = GOAT::raytracing::n_Vacuum;
+                    Obj[numObj]->setPos(Pos);
 					numObj++;
 				} // while loop
 
