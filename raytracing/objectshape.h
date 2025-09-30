@@ -51,6 +51,7 @@ namespace GOAT {
 #define BOX         3
 #define EPS 1E-10*r0
 
+        enum class NFUNCTYPE { vacuum, air, bk7, silica, lasf5, pmma };
 
         /**
         * @brief Abstract base class for all volume objects
@@ -135,6 +136,7 @@ namespace GOAT {
             */
             bool visible=true;
             std::function <std::complex<double>(double)>  nfunc;
+            NFUNCTYPE nfuncType=NFUNCTYPE::vacuum;
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
