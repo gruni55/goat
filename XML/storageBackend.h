@@ -3,6 +3,8 @@
 
 #include <string>
 #include <memory>
+#include "superarray.h"
+#include "pulsedialog.h"
 
 namespace GOAT {
     namespace raytracing {
@@ -43,8 +45,12 @@ namespace GOAT {
             virtual ~IWriter() = default;
 
             /// Schreibt das Scene?Objekt in die Datei `filename`.
-            virtual void write(const raytracing::Scene& scene,
-                const std::string& filename) = 0;
+            virtual void write(
+                const GOAT::raytracing::Scene& scene,
+                GOAT::raytracing::SuperArray<GOAT::maths::Vector<std::complex<double>>>* sa,
+                GOAT::visualization::VTK::pulseParameters& pp,     // gleiche cv/ref-Qualifizierung
+                const std::string& filename
+            ) = 0;
         };
 
         /// Funktionszeiger-Typ für Writer?Factories (erzeugt std::unique_ptr<IWriter>)
