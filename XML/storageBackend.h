@@ -4,12 +4,24 @@
 #include <string>
 #include <memory>
 #include "superarray.h"
-#include "pulsedialog.h"
+
 
 namespace GOAT {
     namespace raytracing {
         class Scene;  // Forward?Deklaration deines Datenmodells
+        typedef struct pulseParameters
+        {
+            double pulseWidth = 100.0;
+            double spatialResolution = 1.0;
+            int numReflex = 0;
+            double wvl = 1.0;
+            double repRate = 10.0;
+            int spectralRanges = 1;
+            double time = 100;
+        };
     }
+
+    
 
     namespace storage {
 
@@ -48,7 +60,7 @@ namespace GOAT {
             virtual void write(
                 const GOAT::raytracing::Scene& scene,
                 GOAT::raytracing::SuperArray<GOAT::maths::Vector<std::complex<double>>>* sa,
-                GOAT::visualization::VTK::pulseParameters& pp,     // gleiche cv/ref-Qualifizierung
+                raytracing::pulseParameters& pp,     // gleiche cv/ref-Qualifizierung
                 const std::string& filename
             ) = 0;
         };
