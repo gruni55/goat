@@ -73,6 +73,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			LightSrc(const LightSrc&); ///< Copy constructor
 			void clearObjects(); ///< clear object list
 			void addObject(ObjectShape* obj);  ///< add single object to the object list
+			void removeObject(ObjectShape* obj); ///< remove object from the object list
 			void ObjectList(int Anz, std::vector<ObjectShape*> Obj);  ///< import object list
 			/// 
 

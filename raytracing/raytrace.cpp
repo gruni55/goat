@@ -436,10 +436,13 @@ namespace GOAT
 
 		void Scene::removeObject(ObjectShape* obj)
 		{
+			for (int i = 0; i < nLS; i++)
+				LS[i]->removeObject(obj);
+
 			for (std::vector<raytracing::ObjectShape*>::iterator it = Obj.begin(); it != Obj.end(); ++it)
 				if (*it == obj)
 				{
-					delete* it;
+					// delete* it;
 					Obj.erase(it);
 					break;
 				}

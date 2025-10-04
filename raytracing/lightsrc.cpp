@@ -37,7 +37,7 @@ namespace  GOAT
 			Pall = 0.0;
 			i1 = 0;
 			i2 = 0;
-			numRaysRT=20;
+			numRaysRT = 20;
 		}
 		LightSrc::LightSrc(const LightSrc& L)
 		{
@@ -46,7 +46,7 @@ namespace  GOAT
 			density = L.density;
 			e1 = L.e1;
 			e2 = L.e2;
-			setk(L.k);			
+			setk(L.k);
 			i1 = L.i1;
 			i2 = L.i2;
 			Pol = L.Pol;
@@ -56,7 +56,7 @@ namespace  GOAT
 			k0 = L.k0;
 			P0 = L.P0;
 			numObjs = L.numObjs;
-			numRaysRT=L.numRaysRT;
+			numRaysRT = L.numRaysRT;
 			Obj = L.Obj;
 			// copyFormList(Ein,L.Ein,numObjs);
 			D = L.D;
@@ -68,10 +68,10 @@ namespace  GOAT
 			N = L.N;
 			Pall = 0;
 			suppress_phase_progress = L.suppress_phase_progress;
-			
+
 		}
 
-		void LightSrc::setk(const maths::Vector<double>& k) 
+		void LightSrc::setk(const maths::Vector<double>& k)
 		{
 			this->k = k / abs(k);
 			e1 = k % maths::ez;
@@ -79,7 +79,7 @@ namespace  GOAT
 			e2 = k % e1;
 			e1 = e1 / abs(e1);
 			e2 = e2 / abs(e2);
-            rotVec=maths::cart2sphere (k);
+			rotVec = maths::cart2sphere(k);
 			adjustDirection();
 		}
 
@@ -226,45 +226,45 @@ namespace  GOAT
 				copyFormList(this->Ein,Ein,Anz);*/
 		}
 
-        void LightSrc::setPol(maths::Vector<std::complex<double>> pol)
-        { 
-			initPol = pol; 			
+		void LightSrc::setPol(maths::Vector<std::complex<double>> pol)
+		{
+			initPol = pol;
 			adjustDirection();
 		}
 
-        void LightSrc::setPos(maths::Vector<double> P)
-        {
+		void LightSrc::setPos(maths::Vector<double> P)
+		{
 
 			Pos = P;
 		}
 
-        void LightSrc::adjustDirection()
-        {
+		void LightSrc::adjustDirection()
+		{
 			// Adjust polarisation vector
-			maths::Vector<double> polReal=maths::real(initPol);
-			maths::Vector<double> polImag=maths::imag(initPol);
+			maths::Vector<double> polReal = maths::real(initPol);
+			maths::Vector<double> polImag = maths::imag(initPol);
 
-             
-			maths::Vector<double> sCoord;			
+
+			maths::Vector<double> sCoord;
 			maths::Vector<double> polRealnew, polImagnew;
 
 			// note: (r,theta,phi) => sCoord
 			//       (dr,dtheta,dphi) => rotVec 
 
-            sCoord = maths::cart2sphere(polReal);			
-			polRealnew[0]=cos(rotVec[2])*cos(rotVec[1])*polReal[0]-sin(rotVec[2])*cos(rotVec[1])*polReal[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
-			polRealnew[1]=sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polReal[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polReal[2];
-			polRealnew[2]=cos(rotVec[1])*polReal[2]-sCoord[0]*sin(sCoord[1])*sin(rotVec[1]);
-			
+			sCoord = maths::cart2sphere(polReal);
+			polRealnew[0] = cos(rotVec[2]) * cos(rotVec[1]) * polReal[0] - sin(rotVec[2]) * cos(rotVec[1]) * polReal[1] + cos(sCoord[2] + rotVec[2]) * sin(rotVec[1]) * polReal[2];
+			polRealnew[1] = sin(rotVec[2]) * cos(rotVec[1]) * sCoord[0] + cos(rotVec[2]) * cos(rotVec[1]) * polReal[1] + sin(sCoord[2] + rotVec[2]) * sin(rotVec[1]) * polReal[2];
+			polRealnew[2] = cos(rotVec[1]) * polReal[2] - sCoord[0] * sin(sCoord[1]) * sin(rotVec[1]);
+
 			sCoord = maths::cart2sphere(polImag);
-			polImagnew[0]=cos(rotVec[2])*cos(rotVec[1])*polImag[0]-sin(rotVec[2])*cos(rotVec[1])*polImag[1]+cos(sCoord[2]+rotVec[2])*sin(rotVec[1])*polImag[2];
-			polImagnew[1]= sin(rotVec[2])*cos(rotVec[1])*sCoord[0]+cos(rotVec[2])*cos(rotVec[1])*polImag[1]+sin(sCoord[2]+rotVec[2])*sin(rotVec[1])*polImag[2];
-			polImagnew[2]=cos(rotVec[1])*polImag[2]-sCoord[0]*sin(sCoord[1])*sin(rotVec[1]);
+			polImagnew[0] = cos(rotVec[2]) * cos(rotVec[1]) * polImag[0] - sin(rotVec[2]) * cos(rotVec[1]) * polImag[1] + cos(sCoord[2] + rotVec[2]) * sin(rotVec[1]) * polImag[2];
+			polImagnew[1] = sin(rotVec[2]) * cos(rotVec[1]) * sCoord[0] + cos(rotVec[2]) * cos(rotVec[1]) * polImag[1] + sin(sCoord[2] + rotVec[2]) * sin(rotVec[1]) * polImag[2];
+			polImagnew[2] = cos(rotVec[1]) * polImag[2] - sCoord[0] * sin(sCoord[1]) * sin(rotVec[1]);
 
-			Pol=maths::Vector<std::complex<double> >(polRealnew[0]+I*polImagnew[0],polRealnew[1]+I*polImagnew[1],polRealnew[2]+I*polImagnew[2]);		
-        }
+			Pol = maths::Vector<std::complex<double> >(polRealnew[0] + I * polImagnew[0], polRealnew[1] + I * polImagnew[1], polRealnew[2] + I * polImagnew[2]);
+		}
 
-        void LightSrc::setObject(ObjectShape* O, int i)
+		void LightSrc::setObject(ObjectShape* O, int i)
 			/**
 			   O : Pointer of the object
 			   i : Index of the object, which will be changed. The object will be inserted at the end of the object list, if i<0 or larger than the number of objects.
@@ -315,8 +315,8 @@ namespace  GOAT
 			this->D = D;
 			this->D1 = D;
 			this->D2 = D;
-			this->N = N; 
-			this->n0 = 1.0;			
+			this->N = N;
+			this->n0 = 1.0;
 			numObjs = 0;
 			setPol(Pol);
 			reset();
@@ -330,7 +330,7 @@ namespace  GOAT
 
 			this->Pos = LS.Pos;
 			this->density = LS.density;
-			this->type = LIGHTSRC_SRCTYPE_PLANE;			
+			this->type = LIGHTSRC_SRCTYPE_PLANE;
 			this->raytype = LS.raytype;
 			this->initPol = LS.initPol;
 			this->Pol = LS.Pol;
@@ -370,10 +370,10 @@ namespace  GOAT
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
-			S = IRay(P, Pol*sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol ;
-			S.E2 = Pol2 ;
+			S.E1 = Pol;
+			S.E2 = Pol2;
 			// S.init_Efeld(E,Pol);
 			i1++;
 
@@ -434,13 +434,13 @@ namespace  GOAT
 			numObjs = 0;
 			e1 = maths::ex;
 			e2 = maths::ey;
-			D1=2.0 * rmax;
- 			D2=2.0 * rmax;
-                        D=2.0 * rmax;
+			D1 = 2.0 * rmax;
+			D2 = 2.0 * rmax;
+			D = 2.0 * rmax;
 			reset();
 		}
 
-		LightSrcRing::LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin, double rmax, maths::Vector<std::complex<double> > Pol, int raytype , double r0) : LightSrc()
+		LightSrcRing::LightSrcRing(maths::Vector<double> Pos, int N, double wvl, double rmin, double rmax, maths::Vector<std::complex<double> > Pol, int raytype, double r0) : LightSrc()
 		{
 			setk(maths::ez);
 			e1 = maths::ex;
@@ -452,14 +452,14 @@ namespace  GOAT
 			D = 2.0 * rmax;
 			D1 = 2.0 * rmax;
 			D2 = 2.0 * rmax;
-			
+
 			this->raytype = raytype;
 			this->Pol = Pol;
 			this->initPol = Pol;
 			this->r0 = r0;
 			this->wvl = wvl;
 			this->rmin = rmin;
-			this->rmax = rmax;			
+			this->rmax = rmax;
 			this->N = N;
 			this->n0 = 1.0;
 			numObjs = 0;
@@ -468,15 +468,15 @@ namespace  GOAT
 
 		void LightSrcRing::setRmin(double rmin)
 		{
-			if (rmin<rmax) this->rmin=rmin;
+			if (rmin < rmax) this->rmin = rmin;
 		}
 
 		void LightSrcRing::setRmax(double rmax)
 		{
-			this->rmax=rmax;
-			D=rmax/(double)N;
-			D1=2.0*rmax;
-			D2=D1;
+			this->rmax = rmax;
+			D = rmax / (double)N;
+			D1 = 2.0 * rmax;
+			D2 = D1;
 			density = 2.0 * rmax / ((double)N);
 		}
 
@@ -510,25 +510,24 @@ namespace  GOAT
 					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 				}
 				else found = true;
-			} 
-			while (!found);
+			} while (!found);
 			P = Pos + P;
 
-				E.e1 = e1;
-				E.e2 = e2;
-				E.n = k;
-				S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-				S.suppress_phase_progress = suppress_phase_progress;
-				S.E1 = Pol / (N * N);
-				S.E2 = Pol2 / (N * N);
-				// S.init_Efeld(E,Pol);
-				i1++;
+			E.e1 = e1;
+			E.e2 = e2;
+			E.n = k;
+			S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+			S.suppress_phase_progress = suppress_phase_progress;
+			S.E1 = Pol / (N * N);
+			S.E2 = Pol2 / (N * N);
+			// S.init_Efeld(E,Pol);
+			i1++;
 
-				if (i1 * density > D1) {
-					i1 = 0; i2++; std::cout << "% i2=" << i2 << std::endl;
-				}
-				if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
-			
+			if (i1 * density > D1) {
+				i1 = 0; i2++; std::cout << "% i2=" << i2 << std::endl;
+			}
+			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
@@ -595,7 +594,7 @@ namespace  GOAT
 				else found = true;
 				P = Pos + P;
 			} while (!found);
-			
+
 			S = tubedRay(P, density, density, sqrt(Pow) * Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.setN0(n0);
@@ -615,7 +614,7 @@ namespace  GOAT
 			i1 = 0;
 			i2 = 0;
 			Pall = 0;
-            rayCounter=0;
+			rayCounter = 0;
 			Isum1 = 0;
 			Isum2 = 0;
 			switch (type)
@@ -629,7 +628,7 @@ namespace  GOAT
 		LightSrc::~LightSrc(void)
 		{
 			if (numObjs > 0) {
-				Obj.clear(); 
+				Obj.clear();
 				Obj.shrink_to_fit();
 			}
 			numObjs = 0;
@@ -643,6 +642,19 @@ namespace  GOAT
 				Obj.clear();
 				numObjs = 0;
 			}
+		}
+	
+
+		void LightSrc::removeObject(ObjectShape* obj)
+		{
+			for (std::vector<raytracing::ObjectShape*>::iterator it = Obj.begin(); it != Obj.end(); ++it)
+				if (*it == obj)
+				{
+					delete* it;
+					Obj.erase(it);
+					break;
+				}
+			numObjs = Obj.size();
 		}
 
 		LightSrcGauss::LightSrcGauss(void)
