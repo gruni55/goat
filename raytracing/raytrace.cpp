@@ -448,7 +448,32 @@ namespace GOAT
 				}
 			nObj = Obj.size();
 		}
+		
+		void Scene::removeDetector(Detector* det)
+		{
+	
+			for (std::vector<raytracing::Detector*>::iterator it = Det.begin(); it != Det.end(); ++it)
+				if (*it == det)
+				{
+					// delete* it;
+					Det.erase(it);
+					break;
+				}
+			nDet = Det.size();
+		}
 
+		void Scene::removeLightSource(LightSrc* ls)
+		{
+
+			for (std::vector<raytracing::LightSrc*>::iterator it = LS.begin(); it != LS.end(); ++it)
+				if (*it == ls)
+				{
+					// delete* it;
+					LS.erase(it);
+					break;
+				}
+			nLS = LS.size();
+		}
 
 		void Scene::addLightSource(LightSrc* ls, int raytype)
 		{

@@ -38,6 +38,7 @@ namespace GOAT
 			void addLightSource(LightSrc* ls) { addLightSource(ls, raytype); } ///< add single lightsource to scene
 			void addLightSource(LightSrc* ls, int raytype); ///< add single lightsource to scene and determine ray type
 			void removeLightSrc(int index); ///< remove one light source from the scene
+			void removeLightSource(LightSrc* ls);
 			void removeAllLightSources(); ///< removes all light sources from the scene
 			void addLightSourceRRT(LightSrc* ls, maths::Vector<std::complex<double> >Pol1, maths::Vector<std::complex<double> >Pol2);
 			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
@@ -45,6 +46,7 @@ namespace GOAT
 			void addDetectorList(int nDet, std::vector< Detector*> D); ///< add a list of detectors to the scene, nDet: number of detectors to add
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
+			void removeDetector(Detector* det);
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
 			void setr0(double r0); ///< set the radius of the calculation space
 			void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
