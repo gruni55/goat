@@ -305,7 +305,9 @@ int surface::importBinSTL(std::string FName)
 		
 	    cm=cm/anz/3.0;
 		is.read(str,2);
-		S[i]=triangle(P1,P2,P3);		
+		S[i]=triangle(P1,P2,P3);
+		n = (P2 - P1) % (P3 - P1);
+		n = n / abs(n);
 		S[i].setnorm(n); // Glauben wir mal, dass die Oberfl�chennormale im STL-File richtig ist !
 	}
 	

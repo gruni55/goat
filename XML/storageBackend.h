@@ -7,7 +7,8 @@
 
 
 namespace GOAT {
-    namespace raytracing {
+    namespace raytracing 
+    {
         class Scene;  // Forward?Deklaration deines Datenmodells
         typedef struct pulseParameters
         {
@@ -23,7 +24,8 @@ namespace GOAT {
 
     
 
-    namespace storage {
+    namespace storage  
+   {
 
         
         /**
