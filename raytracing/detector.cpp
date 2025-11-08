@@ -317,8 +317,10 @@ namespace GOAT
 		{
 			type = DETECTOR_PLANE;
 			init(n1, n2);
-			this->P = P;
-			/*for (int i = 0; i<3; i++)
+			this->P = P;			
+			d1 = abs(e1);
+			d2 = abs(e2);
+		/*for (int i = 0; i<3; i++)
 			{
 			 if (e1[i]!=0)
 			 this->e1[i]=1.0/e1[i]*n1;
@@ -328,14 +330,16 @@ namespace GOAT
 			 this->e2[i]=1.0/e2[i]*n2;
 			 else this->e2[i]=0;
 			}*/
-			if (n1 == 1) this->e1 = e1;
+           /*if (n1 == 1) this->e1 = e1;
 			else this->e1 = e1 / (double)(n1 - 1);
 
 			if (n2 == 1) this->e2 = e2;
 			else this->e2 = e2 / (double)(n2 - 1);
-
+			*/
+			e1 /= abs(e1);
+			e2 /= abs(e2);
 			this->n = e1 % e2;
-			this->n = this->n / abs(this->n);			
+			this->n /= abs(this->n);			
 		}
 
 		void DetectorPlane::setNorm(maths::Vector<double> n)
