@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>GOAT (Geometrical optics application tool): GOAT</title>
+<title>GOAT (Geometrical optics application tool): GOAT – Geometrical Optics Application Tool</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,39 +95,78 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">GOAT </div></div>
+  <div class="headertitle"><div class="title">GOAT – Geometrical Optics Application Tool </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__g_o_a_t"></a></p>
-<p>Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform. Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform.</p>
-<p>The library consists of an abstract ray tracer that can be adapted to the needs. Thereby interfaces are offered, which are called whenever a ray hits an object or emerges from it. To describe the setup in a simple way, a scene consisting of light sources and objects is defined before each calculation. Like the raytracers themselves, base classes are available for this purpose, from which the concrete object and light source types can be derived. As an example, the light source types for Gaussian rays and top hats are available. Ellipsoids are available as object shapes. Furthermore, shapes can be imported from binary STL files.</p>
-<p>To make the mathematical description as simple as possible, a vector as well as a matrix template class for a 3D calculation was developed.</p>
-<p>The library is divided into two parts:</p>
-<blockquote class="doxtable">
-<ul>
-<li>The basic mathematical functions in the template classes Matrix and Vector, which describes three dimensional matrices and vector and the corresponding operators (the include files can be found in the folder : /maths)</li>
-<li>The main raytracer together with the light source and object representations (the include files can be found in the folder: /raytracing) </li>
-</ul>
-</blockquote>
-<p>take also a look into README.txt</p>
+<p><b>GOAT</b> is a modular, scene-based C++ library for flexible simulation of electric fields and intensity distributions using geometrical optics, including explicit phase calculation for the simulation of interference phenomena.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
-Installation instructions</h1>
-<p>For a proper installation, cmake is highly recommended. You can download it from (<a href="https://cmake.org/">https://cmake.org/</a>) and of course, a working C++-Compiler (We tested it on Windows with Visual Studio Community Edition 2019 and on Linux with gcc)</p>
-<p>open a console window a</p>
-<p>change to your GOAT directory type "cmake ." (don't forget the dot!)</p>
-<p>Cmake automatically recognizes the corresponding compiler system. For the Visual Studio, a corresponding project file will be generated and for the gcc a Makefile is created.</p>
-<p>Newer versions of Visual Studio (e.g. VS 2019) supports cmake directly, so you can just open the GOAT directory with VS</p>
-<p>After compiling, the libraries can be found in /lib</p>
-<p>The names of the libraries are:</p>
-<blockquote class="doxtable">
-<ul>
-<li><b>goat_raytracing.lib</b> : here are all the raytracing functions and representations</li>
-<li><b>goat_maths.lib</b> : here are all basic mathemical functions and operators (Matrix and Vector template classes) </li>
-</ul>
-</blockquote>
+Why GOAT?</h1>
+<p>In optical modeling, each new problem often requires starting from scratch. <b>GOAT</b> solves this by providing a reusable, extensible library designed for a wide range of optical tasks. Its architecture is scene-based and modular, allowing you to combine and extend components as needed.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Key Features</h1>
+<ul>
+<li><b>Abstract, extensible ray tracer:</b> <br  />
+ Easily adapt the ray tracing engine to your problem.</li>
+<li><b>Scene architecture:</b> <br  />
+ Define a simulation by specifying light sources and objects in a scene.</li>
+<li><b>Flexible interfaces:</b> <br  />
+ Extend base classes for your own object and light source types.</li>
+<li><b>Ready-made sources and shapes:</b> <br  />
+ Gaussian beams, top-hat sources, ellipsoids, and import of binary STL shapes.</li>
+<li><b>Efficient 3D math classes:</b> <br  />
+ Matrix and Vector templates for mathematical operations (in <span class="tt">/maths</span>).</li>
+<li><b>Parallel processing for large STL files:</b> <br  />
+ The <span class="tt">goat_raytracing_mp.lib</span> library offers <b>OpenMP support</b> to accelerate the loading and processing of large STL files.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Library Structure</h1>
+<ul>
+<li><b>goat_maths.lib:</b> <br  />
+ Mathematical basics: 3D vector and matrix classes with operators.</li>
+<li><b>goat_raytracing.lib:</b> <br  />
+ Ray tracing engine, light sources, object representations.</li>
+<li><b>goat_raytracing_mp.lib:</b> <br  />
+ Same as <span class="tt">goat_raytracing.lib</span>, but with <b>OpenMP parallelization</b> for efficient loading and handling of large STL geometries.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Documentation</h1>
+<ul>
+<li><b>Full API documentation (Doxygen):</b> <br  />
+ <a href="https://gruni55.github.io/goat/html/">https://gruni55.github.io/goat/html/</a> <br  />
+ Also included locally in <span class="tt">/docs</span>.</li>
+</ul>
+<p>For more information, see <a href="README.txt">README.txt</a>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Installation</h1>
+<p><b>Requirements:</b> <br  />
+</p><ul>
+<li><a href="https://cmake.org/">CMake</a> (recommended)</li>
+<li>C++17 compatible compiler (tested: Visual Studio 2019+, GCC)</li>
+<li>For <span class="tt">goat_raytracing_mp.lib</span>: OpenMP support enabled in your compiler.</li>
+</ul>
+<p><b>Build steps:</b> <br  />
+</p><ol type="1">
+<li>Open a terminal / console.</li>
+<li>Navigate to your GOAT directory.</li>
+<li>Run: cmake . <em>(Don’t forget the dot!)</em></li>
+</ol>
+<p>CMake detects your system and generates project files or a Makefile.</p><ul>
+<li><b>Windows (VS 2019+):</b> Open the GOAT directory directly with Visual Studio, or use CMake as above.</li>
+<li><b>Linux:</b> Run <span class="tt">make</span> after <span class="tt">cmake</span>.</li>
+</ul>
+<p>Libraries will be created in <span class="tt">/lib</span>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 XML Support</h1>
-<p>Scenes and calculations can be stored in a XML file. More details can be found <a class="el" href="md__x_m_l.html">here</a> </p>
+<p>Scenes and calculation setups can be saved and loaded as XML files. <br  />
+ See <a class="el" href="md__x_m_l.html">XML.md</a> for details.</p>
+<hr  />
+<p><b>Citation:</b> <br  />
+ If you use GOAT in your work, please cite: <br  />
+ Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf, <br  />
+ <em>"GOAT: a multipurpose optical simulation tool,"</em> <br  />
+ J. Opt. Soc. Am. B 39, 2061-2065 (2022). <br  />
+ <a href="https://opg.optica.org/josab/fulltext.cfm?uri=josab-39-8-2061&amp;id=477834">https://doi.org/10.1364/JOSAB.457951</a> </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

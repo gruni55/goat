@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['installation_20instructions_0',['Installation instructions',['../index.html#autotoc_md1',1,'']]],
-  ['instructions_1',['Installation instructions',['../index.html#autotoc_md1',1,'']]]
+  ['documentation_0',['Documentation',['../index.html#autotoc_md4',1,'']]]
 ];

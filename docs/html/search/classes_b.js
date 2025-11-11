@@ -1,17 +1,11 @@
 var searchData=
 [
-  ['ray_5fpow_0',['Ray_pow',['../class_g_o_a_t_1_1raytracing_1_1_ray__pow.html',1,'GOAT::raytracing']]],
-  ['raybase_1',['RayBase',['../class_g_o_a_t_1_1raytracing_1_1_ray_base.html',1,'GOAT::raytracing']]],
-  ['raylistentry_2',['rayListEntry',['../struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html',1,'GOAT::raytracing']]],
-  ['raytrace_3',['Raytrace',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html',1,'GOAT::raytracing']]],
-  ['raytrace_5ffield_4',['Raytrace_Field',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___field.html',1,'GOAT::raytracing']]],
-  ['raytrace_5ffield_5fusp_5',['Raytrace_Field_usp',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___field__usp.html',1,'GOAT::raytracing']]],
-  ['raytrace_5finel_6',['Raytrace_Inel',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html',1,'GOAT::raytracing']]],
-  ['raytrace_5fot_7',['Raytrace_OT',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t.html',1,'GOAT::raytracing']]],
-  ['raytrace_5fpath_8',['Raytrace_Path',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html',1,'GOAT::raytracing']]],
-  ['raytrace_5fpure_9',['Raytrace_pure',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html',1,'GOAT::raytracing']]],
-  ['raytrace_5fusp_10',['Raytrace_usp',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html',1,'GOAT::raytracing']]],
-  ['raytrace_5fusp_5frt_11',['Raytrace_usp_rt',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html',1,'GOAT::raytracing']]],
-  ['rrtparms_12',['RRTParms',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html',1,'GOAT::raytracing']]],
-  ['rrtparmsinfo_13',['RRTParmsInfo',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html',1,'GOAT::raytracing']]]
+  ['plane_0',['Plane',['../class_g_o_a_t_1_1raytracing_1_1_plane.html',1,'GOAT::raytracing']]],
+  ['point_1',['Point',['../struct_g_o_a_t_1_1raytracing_1_1_point.html',1,'GOAT::raytracing']]],
+  ['pulsecalculation_2',['pulseCalculation',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html',1,'GOAT::raytracing']]],
+  ['pulsecalculation_3c_20raytrace_5ffield_5fusp_20_3e_3',['pulseCalculation&lt; Raytrace_field_usp &gt;',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html',1,'GOAT::raytracing']]],
+  ['pulsecalculation_5ffield_4',['pulseCalculation_Field',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html',1,'GOAT::raytracing']]],
+  ['pulsecalculation_5ffield_5',['pulseCalculation_field',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html',1,'GOAT::raytracing']]],
+  ['pulsecalculation_5frt_6',['pulseCalculation_rt',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html',1,'GOAT::raytracing']]],
+  ['pulseparameters_7',['pulseParameters',['../struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html',1,'GOAT::raytracing']]]
 ];

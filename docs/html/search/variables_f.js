@@ -30,5 +30,6 @@ var searchData=
   ['pstop_27',['PStop',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ad241d69a060b7c36a170e59627dd920c',1,'GOAT::raytracing::Raytrace']]],
   ['pul_28',['Pul',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a5e862b8542faf7eff6fc8671d4f538ae',1,'GOAT::raytracing::SuperArray::Pul'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a9382553d1ba745ed576ba6086c9baf84',1,'GOAT::raytracing::SuperGrid::Pul']]],
   ['pul_29',['pul',['../class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a7563e04424687ffa01dc559f1c487134',1,'GOAT::raytracing::ObjectShape']]],
-  ['pulsecalculation_5fnot_5fclear_5fresult_30',['PULSECALCULATION_NOT_CLEAR_RESULT',['../namespace_g_o_a_t_1_1raytracing.html#a35b77cfead80a1270e41c3a7480eedd3',1,'GOAT::raytracing']]]
+  ['pulsecalculation_5fnot_5fclear_5fresult_30',['PULSECALCULATION_NOT_CLEAR_RESULT',['../namespace_g_o_a_t_1_1raytracing.html#a35b77cfead80a1270e41c3a7480eedd3',1,'GOAT::raytracing']]],
+  ['pulsewidth_31',['pulseWidth',['../struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#ae8486c56144279680fc989773f82c40d',1,'GOAT::raytracing::pulseParameters']]]
 ];

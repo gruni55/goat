@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['support_0',['XML Support',['../index.html#autotoc_md2',1,'']]]
+  ['features_0',['Key Features',['../index.html#autotoc_md2',1,'']]]
 ];

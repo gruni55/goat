@@ -130,6 +130,8 @@ Classes</h2></td></tr>
 <tr class="memitem:indexList" id="r_indexList"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1index_list.html">indexList</a></td></tr>
 <tr class="memitem:IRay" id="r_IRay"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html">IRay</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class represents a single ray.  <a href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Kirchhoff" id="r_Kirchhoff"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html">Kirchhoff</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class makes a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html" title="This class makes a Kirchhoff calculation This class is directly connect with a Detector....">Kirchhoff</a> calculation This class is directly connect with a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a>. The calculation itself works as follows: At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral.  <a href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#details">More...</a><br /></td></tr>
 <tr class="memitem:lensa" id="r_lensa"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensa.html">lensa</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat.  <a href="struct_g_o_a_t_1_1raytracing_1_1lensa.html#details">More...</a><br /></td></tr>
 <tr class="memitem:lensParms" id="r_lensParms"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a></td></tr>
@@ -172,6 +174,7 @@ Classes</h2></td></tr>
 <tr class="memitem:pulseCalculation_5Ffield" id="r_pulseCalculation_5Ffield"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html">pulseCalculation_field</a></td></tr>
 <tr class="memitem:pulseCalculation_5Frt" id="r_pulseCalculation_5Frt"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html">pulseCalculation_rt</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides pulse calculation (only with ray tracing) The pulses from a mode-locked laser can be described by series of frequency modes. The electric field at a certain location at time t can be described by \( \vec E(\vec r,t)=\sum\).  <a href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#details">More...</a><br /></td></tr>
+<tr class="memitem:pulseParameters" id="r_pulseParameters"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html">pulseParameters</a></td></tr>
 <tr class="memitem:Ray_5Fpow" id="r_Ray_5Fpow"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray__pow.html">Ray_pow</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a ray which carries a special power.  <a href="class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#details">More...</a><br /></td></tr>
 <tr class="memitem:RayBase" id="r_RayBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a></td></tr>
@@ -237,6 +240,16 @@ Enumerations</h2></td></tr>
 <tr class="memitem:aa4fd198b39861231289725c0b422e977" id="r_aa4fd198b39861231289725c0b422e977"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4fd198b39861231289725c0b422e977">Curvature</a> { <a class="el" href="#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde">convex</a>
 , <a class="el" href="#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f">concave</a>
 , <a class="el" href="#aa4fd198b39861231289725c0b422e977a08c1e55b3536de3b5a21da3561f85218">flat</a>
+ }</td></tr>
+<tr class="memitem:a908c9806482f099109a7c1b45769c153" id="r_a908c9806482f099109a7c1b45769c153"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a908c9806482f099109a7c1b45769c153">NFUNCTYPE</a> { <br />
+&#160;&#160;<a class="el" href="#a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc">vacuum</a>
+, <a class="el" href="#a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e">air</a>
+, <a class="el" href="#a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4">bk7</a>
+, <a class="el" href="#a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710">silica</a>
+, <br />
+&#160;&#160;<a class="el" href="#a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f">lasf5</a>
+, <a class="el" href="#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2">pmma</a>
+<br />
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -547,6 +560,38 @@ Variables</h2></td></tr>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="lens_8h_source.html#l00010">10</a> of file <a class="el" href="lens_8h_source.html">lens.h</a>.</p>
+
+</div>
+</div>
+<a id="a908c9806482f099109a7c1b45769c153" name="a908c9806482f099109a7c1b45769c153"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908c9806482f099109a7c1b45769c153">&#9670;&#160;</a></span>NFUNCTYPE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a908c9806482f099109a7c1b45769c153">GOAT::raytracing::NFUNCTYPE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc" name="a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc"></a>vacuum&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e" name="a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e"></a>air&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4" name="a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4"></a>bk7&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710" name="a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710"></a>silica&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f" name="a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f"></a>lasf5&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2" name="a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2"></a>pmma&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00054">54</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -2863,7 +2908,7 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00943">943</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00944">944</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>

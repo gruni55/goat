@@ -13,8 +13,9 @@ namespace GOAT
 			std::cout << "e1=" << this->e1 << "\t e2=" << this->e2 << std::endl;
 		}
 
-		void Kirchhoff::calc(DetectorPlane* det)
+		void Kirchhoff::calc(DetectorPlane* det, bool clear)
 		{
+			if (clear) clean();
 			std::cout << "det->D1() = " << det->D1()	<< "   det->N1() = " << det->N1() << std::endl;
 			// Kirchhoff - Ebene
 			maths::Vector<double> P,Pc;
@@ -41,8 +42,14 @@ namespace GOAT
 					maths::Vector<double> P =
 						Pc + (i1 / (double)n1 - 0.5) * l1 * e1
 						   + (i2 / (double)n2  - 0.5) * l2 * e2;
-					Dref[i1][i2] = point(det, P);
+					Dref[i1][i2] += point(det, P);
 				}
+		}
+
+		void Kirchhoff::calc(std::vector<DetectorPlane*> detList)
+		{
+			for (auto det : detList)
+				calc(det);
 		}
 
 		maths::Vector<std::complex<double> > Kirchhoff::point(DetectorPlane* det, maths::Vector<double> P)

@@ -42,6 +42,8 @@ var class_g_o_a_t_1_1raytracing_1_1_object_shape =
     [ "Egamma", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a80352486f88244ece3187b713a0d75c2", null ],
     [ "H", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a11534d77c465d2dc31b1a3c11b5d2984", null ],
     [ "n", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#ae057ae324569a6b3173df578ba79a0d1", null ],
+    [ "nfunc", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a6357a1ccf1d0b7b30d9b053deafc27a6", null ],
+    [ "nfuncType", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#af767e032ff41403b15bc2802d86ece87", null ],
     [ "ninel", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a76dc26a105e7cde433d62f95ea27023a", null ],
     [ "P", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a770b3c392c4794e74d0f5823d4aa56e6", null ],
     [ "por", "class_g_o_a_t_1_1raytracing_1_1_object_shape.html#a372963153380dd68772fd0d213da1a3e", null ],

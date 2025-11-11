@@ -14,6 +14,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "gridentry.h", "gridentry_8h.html", "gridentry_8h" ],
     [ "inel_calc.h", "inel__calc_8h.html", "inel__calc_8h" ],
     [ "iray.h", "iray_8h.html", "iray_8h" ],
+    [ "kirchhoff.h", "kirchhoff_8h.html", "kirchhoff_8h" ],
     [ "lens.h", "lens_8h.html", "lens_8h" ],
     [ "lightsrc.h", "lightsrc_8h.html", "lightsrc_8h" ],
     [ "lightsrc_mc.h", "lightsrc__mc_8h.html", "lightsrc__mc_8h" ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['changelog_0',['changelog',['../md_changelog.html',1,'']]]
+  ['application_20tool_0',['GOAT – Geometrical Optics Application Tool',['../index.html',1,'']]]
 ];

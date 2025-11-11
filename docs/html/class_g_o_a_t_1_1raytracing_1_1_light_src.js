@@ -29,6 +29,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src =
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#aeb4acde5ce380120ba8535c7da03ad8a", null ],
     [ "ObjectList", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a481580e0318e1e98fc259cdb3835342e", null ],
     [ "rayType", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a8e6778e8ad0b657a290215d1b318f880", null ],
+    [ "removeObject", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a8f1561dbea40810b3054eb9e79a2cac5", null ],
     [ "reset", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#aaebdb75999da8229dcdc15a225735d6f", null ],
     [ "setD", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a664a87ff8f3114e0ac873f261f3f6e17", null ],
     [ "setD", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a42fde6bad2bb23033fc1cd76027b1ec6", null ],

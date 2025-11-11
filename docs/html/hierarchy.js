@@ -5,7 +5,9 @@ var hierarchy =
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Block", "structtinyxml2_1_1_mem_pool_t_1_1_block.html", null ],
     [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
-      [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", null ]
+      [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", [
+        [ "GOAT::raytracing::Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", null ]
+      ] ]
     ] ],
     [ "tinyxml2::DynArray< T, INITIAL_SIZE >", "classtinyxml2_1_1_dyn_array.html", null ],
     [ "GOAT::raytracing::Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", null ],
@@ -67,6 +69,7 @@ var hierarchy =
     ] ],
     [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
     [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ],
+    [ "GOAT::raytracing::pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [
         [ "GOAT::raytracing::Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", null ]

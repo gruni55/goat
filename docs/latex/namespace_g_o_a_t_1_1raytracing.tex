@@ -38,6 +38,8 @@ struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1index_list}{index\+List}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}}
 \begin{DoxyCompactList}\small\item\em This class represents a single ray. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff}}
+\begin{DoxyCompactList}\small\item\em This class makes a \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation This class is directly connect with a \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}. The calculation itself works as follows\+: At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{lensa}}
 \begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}
@@ -86,6 +88,8 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field}{
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt}{pulse\+Calculation\+\_\+rt}}
 \begin{DoxyCompactList}\small\item\em This class provides pulse calculation (only with ray tracing) The pulses from a mode-\/locked laser can be described by series of frequency modes. The electric field at a certain location at time t can be described by $ \vec E(\vec r,t)=\sum$. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1pulse_parameters}{pulse\+Parameters}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\+\_\+pow}}
 \begin{DoxyCompactList}\small\item\em This class provides a ray which carries a special power. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}}
@@ -161,6 +165,16 @@ typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{GOAT\+::r
 enum \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977}{Curvature}} \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde}{convex}}
 , \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f}{concave}}
 , \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa4fd198b39861231289725c0b422e977a08c1e55b3536de3b5a21da3561f85218}{flat}}
+ \}
+\item 
+enum class \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153}{NFUNCTYPE}} \{ \newline
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc}{vacuum}}
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e}{air}}
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4}{bk7}}
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710}{silica}}
+, \newline
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f}{lasf5}}
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2}{pmma}}
  \}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
@@ -577,6 +591,42 @@ flat&\\
 
 
 Definition at line \mbox{\hyperlink{lens_8h_source_l00010}{10}} of file \mbox{\hyperlink{lens_8h_source}{lens.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153}\index{GOAT::raytracing@{GOAT::raytracing}!NFUNCTYPE@{NFUNCTYPE}}
+\index{NFUNCTYPE@{NFUNCTYPE}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{NFUNCTYPE}{NFUNCTYPE}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153} 
+enum class \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153}{GOAT\+::raytracing\+::\+NFUNCTYPE}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{vacuum@{vacuum}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!vacuum@{vacuum}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc} 
+vacuum&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{air@{air}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!air@{air}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e} 
+air&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{bk7@{bk7}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!bk7@{bk7}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4} 
+bk7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{silica@{silica}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!silica@{silica}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710} 
+silica&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{lasf5@{lasf5}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!lasf5@{lasf5}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f} 
+lasf5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pmma@{pmma}!GOAT::raytracing@{GOAT::raytracing}}\index{GOAT::raytracing@{GOAT::raytracing}!pmma@{pmma}}}\Hypertarget{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2}\label{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2} 
+pmma&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{objectshape_8h_source_l00054}{54}} of file \mbox{\hyperlink{objectshape_8h_source}{objectshape.\+h}}.
 
 
 
@@ -1416,7 +1466,7 @@ std\+::ostream \& GOAT\+::raytracing\+::operator$<$$<$ (\begin{DoxyParamCaption}
 
 
 
-Definition at line \mbox{\hyperlink{superarray_8h_source_l00943}{943}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
+Definition at line \mbox{\hyperlink{superarray_8h_source_l00944}{944}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_acb6bfac6c739ca3120a555473a4073c9}\index{GOAT::raytracing@{GOAT::raytracing}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!GOAT::raytracing@{GOAT::raytracing}}

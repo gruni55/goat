@@ -15,6 +15,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "gridEntry", "struct_g_o_a_t_1_1raytracing_1_1grid_entry.html", "struct_g_o_a_t_1_1raytracing_1_1grid_entry" ],
     [ "indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", "struct_g_o_a_t_1_1raytracing_1_1index_list" ],
     [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", "class_g_o_a_t_1_1raytracing_1_1_i_ray" ],
+    [ "Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff" ],
     [ "lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", "struct_g_o_a_t_1_1raytracing_1_1lensa" ],
     [ "lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
     [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
@@ -39,6 +40,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
     [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],
     [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt" ],
+    [ "pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters" ],
     [ "Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", "class_g_o_a_t_1_1raytracing_1_1_ray__pow" ],
     [ "RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", "class_g_o_a_t_1_1raytracing_1_1_ray_base" ],
     [ "rayListEntry", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry.html", "struct_g_o_a_t_1_1raytracing_1_1ray_list_entry" ],
@@ -76,6 +78,14 @@ var namespace_g_o_a_t_1_1raytracing =
       [ "convex", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde", null ],
       [ "concave", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f", null ],
       [ "flat", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a08c1e55b3536de3b5a21da3561f85218", null ]
+    ] ],
+    [ "NFUNCTYPE", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153", [
+      [ "vacuum", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc", null ],
+      [ "air", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a3c4588116394d2164657875b7430907e", null ],
+      [ "bk7", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4", null ],
+      [ "silica", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710", null ],
+      [ "lasf5", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f", null ],
+      [ "pmma", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2", null ]
     ] ],
     [ "abs2", "namespace_g_o_a_t_1_1raytracing.html#a2298e2f2f25875138b3fdb5336d1586f", null ],
     [ "acos", "namespace_g_o_a_t_1_1raytracing.html#a1839fcc0ea840509470fdfc67964f355", null ],

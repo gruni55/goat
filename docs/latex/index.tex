@@ -1,45 +1,75 @@
-\chapter{GOAT }
-\hypertarget{index}{}\label{index}\index{GOAT@{GOAT}}
+\chapter{GOAT – Geometrical Optics Application Tool }
+\hypertarget{index}{}\label{index}\index{GOAT – Geometrical Optics Application Tool@{GOAT – Geometrical Optics Application Tool}}
 \label{index_md__g_o_a_t}%
 \Hypertarget{index_md__g_o_a_t}%
 
 
-Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform. Geometric optics provides a flexible tool for calculating a variety of optical tasks. If you change from one problem to another, you often have to start again from the beginning. To prevent this, a programming library has been developed that provides a flexible, customizable platform.
-
-The library consists of an abstract ray tracer that can be adapted to the needs. Thereby interfaces are offered, which are called whenever a ray hits an object or emerges from it. To describe the setup in a simple way, a scene consisting of light sources and objects is defined before each calculation. Like the raytracers themselves, base classes are available for this purpose, from which the concrete object and light source types can be derived. As an example, the light source types for Gaussian rays and top hats are available. Ellipsoids are available as object shapes. Furthermore, shapes can be imported from binary STL files.
-
-To make the mathematical description as simple as possible, a vector as well as a matrix template class for a 3D calculation was developed.
-
-The library is divided into two parts\+:
-
-\begin{quote}
+{\bfseries{\doxylink{namespace_g_o_a_t}{GOAT}}} is a modular, scene-\/based C++ library for flexible simulation of electric fields and intensity distributions using geometrical optics, including explicit phase calculation for the simulation of interference phenomena.\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Why GOAT?}{Why GOAT?}}\label{index_autotoc_md1}
+In optical modeling, each new problem often requires starting from scratch. {\bfseries{\doxylink{namespace_g_o_a_t}{GOAT}}} solves this by providing a reusable, extensible library designed for a wide range of optical tasks. Its architecture is scene-\/based and modular, allowing you to combine and extend components as needed.\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Key Features}{Key Features}}\label{index_autotoc_md2}
 
 \begin{DoxyItemize}
-\item The basic mathematical functions in the template classes Matrix and Vector, which describes three dimensional matrices and vector and the corresponding operators (the include files can be found in the folder \+: /maths)
-\item The main raytracer together with the light source and object representations (the include files can be found in the folder\+: /raytracing) 
-\end{DoxyItemize}\end{quote}
-
-
-take also a look into README.\+txt\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Installation instructions}{Installation instructions}}\label{index_autotoc_md1}
-For a proper installation, cmake is highly recommended. You can download it from (\href{https://cmake.org/}{\texttt{https\+://cmake.\+org/}}) and of course, a working C++-\/\+Compiler (We tested it on Windows with Visual Studio Community Edition 2019 and on Linux with gcc)
-
-open a console window a
-
-change to your \doxylink{namespace_g_o_a_t}{GOAT} directory type "{}cmake ."{} (don\textquotesingle{}t forget the dot!)
-
-Cmake automatically recognizes the corresponding compiler system. For the Visual Studio, a corresponding project file will be generated and for the gcc a Makefile is created.
-
-Newer versions of Visual Studio (e.\+g. VS 2019) supports cmake directly, so you can just open the \doxylink{namespace_g_o_a_t}{GOAT} directory with VS
-
-After compiling, the libraries can be found in /lib
-
-The names of the libraries are\+:
-
-\begin{quote}
+\item {\bfseries{Abstract, extensible ray tracer\+:}} ~\newline
+ Easily adapt the ray tracing engine to your problem.
+\item {\bfseries{Scene architecture\+:}} ~\newline
+ Define a simulation by specifying light sources and objects in a scene.
+\item {\bfseries{Flexible interfaces\+:}} ~\newline
+ Extend base classes for your own object and light source types.
+\item {\bfseries{Ready-\/made sources and shapes\+:}} ~\newline
+ Gaussian beams, top-\/hat sources, ellipsoids, and import of binary STL shapes.
+\item {\bfseries{Efficient 3D math classes\+:}} ~\newline
+ Matrix and Vector templates for mathematical operations (in {\ttfamily /maths}).
+\item {\bfseries{Parallel processing for large STL files\+:}} ~\newline
+ The {\ttfamily goat\+\_\+raytracing\+\_\+mp.\+lib} library offers {\bfseries{Open\+MP support}} to accelerate the loading and processing of large STL files.
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Library Structure}{Library Structure}}\label{index_autotoc_md3}
 
 \begin{DoxyItemize}
-\item {\bfseries{goat\+\_\+raytracing.\+lib}} \+: here are all the raytracing functions and representations
-\item {\bfseries{goat\+\_\+maths.\+lib}} \+: here are all basic mathemical functions and operators (Matrix and Vector template classes) 
-\end{DoxyItemize}\end{quote}
-\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{XML Support}{XML Support}}\label{index_autotoc_md2}
-Scenes and calculations can be stored in a XML file. More details can be found \doxysectlink{md__x_m_l}{here}{0} 
+\item {\bfseries{goat\+\_\+maths.\+lib\+:}} ~\newline
+ Mathematical basics\+: 3D vector and matrix classes with operators.
+\item {\bfseries{goat\+\_\+raytracing.\+lib\+:}} ~\newline
+ Ray tracing engine, light sources, object representations.
+\item {\bfseries{goat\+\_\+raytracing\+\_\+mp.\+lib\+:}} ~\newline
+ Same as {\ttfamily goat\+\_\+raytracing.\+lib}, but with {\bfseries{Open\+MP parallelization}} for efficient loading and handling of large STL geometries.
+\end{DoxyItemize}\hypertarget{index_autotoc_md4}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item {\bfseries{Full API documentation (Doxygen)\+:}} ~\newline
+ \href{https://gruni55.github.io/goat/html/}{\texttt{https\+://gruni55.\+github.\+io/goat/html/}} ~\newline
+ Also included locally in {\ttfamily /docs}.
+\end{DoxyItemize}
+
+For more information, see \href{README.txt}{\texttt{README.\+txt}}.\hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Installation}{Installation}}\label{index_autotoc_md5}
+{\bfseries{Requirements\+:}} ~\newline
+
+\begin{DoxyItemize}
+\item \href{https://cmake.org/}{\texttt{CMake}} (recommended)
+\item C++17 compatible compiler (tested\+: Visual Studio 2019+, GCC)
+\item For {\ttfamily goat\+\_\+raytracing\+\_\+mp.\+lib}\+: Open\+MP support enabled in your compiler.
+\end{DoxyItemize}
+
+{\bfseries{Build steps\+:}} ~\newline
+
+\begin{DoxyEnumerate}
+\item Open a terminal / console.
+\item Navigate to your \doxylink{namespace_g_o_a_t}{GOAT} directory.
+\item Run\+: cmake . {\itshape (Don’t forget the dot!)}
+\end{DoxyEnumerate}
+
+CMake detects your system and generates project files or a Makefile.
+\begin{DoxyItemize}
+\item {\bfseries{Windows (VS 2019+)\+:}} Open the \doxylink{namespace_g_o_a_t}{GOAT} directory directly with Visual Studio, or use CMake as above.
+\item {\bfseries{Linux\+:}} Run {\ttfamily make} after {\ttfamily cmake}.
+\end{DoxyItemize}
+
+Libraries will be created in {\ttfamily /lib}.\hypertarget{index_autotoc_md6}{}\doxysection{\texorpdfstring{XML Support}{XML Support}}\label{index_autotoc_md6}
+Scenes and calculation setups can be saved and loaded as XML files. ~\newline
+ See \doxysectlink{md__x_m_l}{XML.md}{0} for details.
+
+\DoxyHorRuler{0}
+
+
+{\bfseries{Citation\+:}} ~\newline
+ If you use \doxylink{namespace_g_o_a_t}{GOAT} in your work, please cite\+: ~\newline
+ Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf, ~\newline
+ {\itshape "{}\+GOAT\+: a multipurpose optical simulation tool,"{}} ~\newline
+ J. Opt. Soc. Am. B 39, 2061-\/2065 (2022). ~\newline
+ \href{https://opg.optica.org/josab/fulltext.cfm?uri=josab-39-8-2061&id=477834}{\texttt{https\+://doi.\+org/10.\+1364/\+JOSAB.\+457951}} 

@@ -1,5 +1,6 @@
 var class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt =
 [
+    [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a9e57f655c8087e61fb6827b3734f91a6", null ],
     [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#ab63a432e126cb7854540668a1387024f", null ],
     [ "calcTrafoParms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#aed5d55f022d5a65a96c47ad781313a54", null ],
     [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a575386dab7671ef234d86be755073ea1", null ],
