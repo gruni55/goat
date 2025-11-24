@@ -94,8 +94,7 @@ int main(int argc, char** argv)
 	maths::Vector<double> LSPos = -10000.0 * maths::ez;
 	int numRays = 10000000;
 	// numRays = 10;
-	double wvl = 1;
-	raytracing::LightSrcRing_mc LS(LSPos, numRays, wvl, 0, 125);
+	double wvl = 1;	raytracing::LightSrcRing_mc LS(LSPos, numRays, wvl, 0, 500);
 	LS.setk(maths::ez);
 	LS.setPol(maths::Vector<std::complex<double>>(1.0, 0.0, 0.0));
 	LS.setNumRays(numRays);
@@ -112,7 +111,7 @@ int main(int argc, char** argv)
 	const double eps_um = 1.0;
 	maths::Vector<double> detPos(0, 0, height_um + eps_um);
 	maths::Vector<double> detNorm(0, 0, -1);
-	double detSize = 250.0;  int detGridsize = 250;
+	double detSize = 1000.0;  int detGridsize = 250;
 	raytracing::DetectorPlane det(detPos, detNorm, detSize, detGridsize);
 
 	// ---- Scene ----
@@ -139,14 +138,15 @@ int main(int argc, char** argv)
 
 	maths::Vector<double> P;
 	int n = 250; // number of cells/direction
-	double l = 250; // edge length
+	double l = 50; // edge length
 	// maths::Vector<double> Pc(0, 0, 14000);
 	 maths::Vector<double> Pc(0, 0, height_um+1000);
 
 	raytracing::Kirchhoff kh(wvl, Pc, maths::ex * l, maths::ey * l, n, n);
 	
 	det.save("C:\\tmp\\detector.dat");
-	kh.calc((raytracing::DetectorPlane *)&det);
+	kh.addDetector((raytracing::DetectorPlane*)&det);
+	kh.calc();
 	auto end2 = std::chrono::high_resolution_clock::now();
 	auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(end2 - end);
 	std::cout << "Kirchhoff calculation took: " << duration2.count() << "ms" << std::endl;
