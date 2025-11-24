@@ -11,8 +11,9 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-		#define DETECTOR_PLANE 20000
-		#define DETECTOR_ANGLE 20001
+		#define DETECTOR_PLANE		20000
+		#define DETECTOR_ANGLE		20001
+		#define DETECTOR_KIRCHHOFF	20002	
 
 
 		/**

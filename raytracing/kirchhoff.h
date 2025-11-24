@@ -23,24 +23,32 @@ namespace GOAT
 			  * \param n2: number of cells in e2-direction
 			  */
 			  Kirchhoff(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
-
-			  /**
-			  *  @brief This method make the calculation
-			  * With this method, the calculation of the Kirchhoff-integral will be performed for one detector. 
-			  * \param det: a pointer to the detector, which acts as the source
-			  */
-			  void calc(DetectorPlane* det, bool clear=true);
-
-			  /**
-			  * @brief Do the Kirchhoff calculation with more than one detector as source
-			  */
-			  void calc(std::vector<DetectorPlane*> detList);
+			  void addDetector(DetectorPlane* det);
+			  void addDetectorList(std::vector<DetectorPlane*> detList);
+			  void delDetector(DetectorPlane* det);
+			  void clearSources();
+			  void calc(bool clear = true);
+			  void setNumberOfThreads(int noThreads);
+			  int numberOfThreads() { return noThreads; }
 
 		private:
+			/**
+			 *  @brief This method make the calculation
+			 * With this method, the calculation of the Kirchhoff-integral will be performed for one detector.
+			 * \param det: a pointer to the detector, which acts as the source
+			 */
+			void calc(DetectorPlane* det, bool clear = true);
+
+			/**
+			* @brief Do the Kirchhoff calculation with more than one detector as source
+			*/
+			void calc(std::vector<DetectorPlane*> detList);
+
 			double k;
 			double wvl;
 			maths::Vector<std::complex<double> > point(DetectorPlane* det, maths::Vector<double> P);
-
+			std::vector<DetectorPlane*> sources;
+			int noThreads = 8;
 		};
 	}
 }

@@ -9,10 +9,45 @@ namespace GOAT
 			k = 2.0 * M_PI / wvl;
 			this->e1 = e1 / abs(e1);
 			this->e2 = e2 / abs(e2);
-			this->wvl = wvl;
-			std::cout << "e1=" << this->e1 << "\t e2=" << this->e2 << std::endl;
+			this->wvl = wvl;			
+			type = DETECTOR_KIRCHHOFF;
+			std::cout << "e1=" << this->e1 << "\t e2=" << this->e2 << "\t type=" << type << std::endl;
 		}
 
+		void Kirchhoff::addDetector(DetectorPlane* det)
+		{
+			sources.push_back(det);
+		}
+
+		void Kirchhoff::addDetectorList(std::vector<DetectorPlane*> detList)
+		{
+			for (auto det : detList)
+				sources.push_back(det);
+		}
+
+		void Kirchhoff::delDetector(DetectorPlane* det)
+		{
+			sources.erase(std::remove(sources.begin(), sources.end(), det), sources.end());
+		}
+
+		void Kirchhoff::clearSources()
+		{
+			sources.clear();
+		}
+
+		void Kirchhoff::setNumberOfThreads(int noThreads)
+		{
+			int maxThreads = omp_get_max_threads();
+			if (noThreads > maxThreads) this->noThreads = maxThreads;
+			else this->noThreads = noThreads;
+		}
+
+		void Kirchhoff::calc(bool clear)
+		{
+			if (clear) clean();
+			for (auto det : sources)
+				calc(det,false);			
+		}
 		void Kirchhoff::calc(DetectorPlane* det, bool clear)
 		{
 			if (clear) clean();
@@ -34,7 +69,7 @@ namespace GOAT
 		/*	const double invN1 = (n1 > 0) ? 1.0 / n1 : 0.0;
 			const double invN2 = (n2 > 0) ? 1.0 / n2 : 0.0;
 		*/
-#pragma omp parallel for collapse(2) schedule(static) default(none) shared(n1, n2, e1, e2, l1, l2, Pc, det, Dref)
+#pragma omp parallel for collapse(2) schedule(static) default(none) shared(n1, n2, e1, e2, l1, l2, Pc, det, Dref) num_threads(noThreads)
 			for (int i1=0; i1<n1; i1++)
 				for (int i2 = 0; i2 < n2; i2++)
 				{
@@ -49,7 +84,7 @@ namespace GOAT
 		void Kirchhoff::calc(std::vector<DetectorPlane*> detList)
 		{
 			for (auto det : detList)
-				calc(det);
+				calc(det,false);
 		}
 
 		maths::Vector<std::complex<double> > Kirchhoff::point(DetectorPlane* det, maths::Vector<double> P)
