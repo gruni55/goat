@@ -74,8 +74,9 @@ void makeHole(GOAT::raytracing::DetectorPlane& P, double radius)
 	int ri2;
 	int rn2 = rn * rn;
 	int ix, iy;
-#pragma omp for collapse(6)
+ #pragma omp parallel for
 	for (int i1 = n1 / 2 - rn; i1 <= n1 / 2 + rn; i1++)
+        {
 		for (int i2 = n2 / 2 - rn; i2 <= n2 / 2 + rn; i2++)
 		{
 			ix = i1 - n1 / 2;
@@ -83,6 +84,7 @@ void makeHole(GOAT::raytracing::DetectorPlane& P, double radius)
 			ri2 = ix * ix + iy * iy;
 			if (ri2<=rn2) P.D[i1][i2] = GOAT::maths::Vector<std::complex<double> >(0.0, 1.0, 0.0);
 		}
+      }
 }
 
 
@@ -108,11 +110,12 @@ int main(int argc, char** argv)
 	std::complex<double> nCone = 1.5;
 	raytracing::Cone c(conePos, radius_um, height_um, nCone);
 	c.setConeAngle(80.0 / 180.0 * M_PI);
+        height_um=c.getHeight();
 	// ---- Detector (faces source) ----
 	const double eps_um = 1.0;
 	maths::Vector<double> detPos(0, 0, height_um + eps_um);
 	maths::Vector<double> detNorm(0, 0, -1);
-	double detSize = 250.0;  int detGridsize = 250;
+	double detSize = 1000.0;  int detGridsize = 1000;
 	raytracing::DetectorPlane det(detPos, detNorm, detSize, detGridsize);
 
 	// ---- Scene ----
@@ -139,17 +142,17 @@ int main(int argc, char** argv)
 
 	maths::Vector<double> P;
 	int n = 250; // number of cells/direction
-	double l = 250; // edge length
+	double l = 50; // edge length
 	// maths::Vector<double> Pc(0, 0, 14000);
 	 maths::Vector<double> Pc(0, 0, height_um+1000);
 
 	raytracing::Kirchhoff kh(wvl, Pc, maths::ex * l, maths::ey * l, n, n);
 	
-	det.save("C:\\tmp\\detector.dat");
+	det.save("/home/weigel/data/detector.dat");
 	kh.calc((raytracing::DetectorPlane *)&det);
 	auto end2 = std::chrono::high_resolution_clock::now();
 	auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(end2 - end);
 	std::cout << "Kirchhoff calculation took: " << duration2.count() << "ms" << std::endl;
-	kh.save("C:\\tmp\\axicon.dat");
+	kh.save("/home/weigel/data/axicon.dat");
 	
 }
