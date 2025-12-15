@@ -16,10 +16,37 @@
 #include <sstream>
 #include <locale>
 #include <iomanip>
+#include <variant>
 namespace GOAT
 {
 	namespace XML
 	{
+		using parameterValue = std::variant<int, long long, double, bool, std::string>; ///< Type for parameter values
+		
+		/** 
+		* @brief Structure to store a calculation parameter
+		* name is the name of the parameter, value is its value
+		*/
+		struct calculationParam 
+		{
+			std::string name;
+			parameterValue value;
+		};
+
+		void createXMLElementWithParam(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* parent, const calculationParam& param);
+
+		/**
+		* @brief Structure to store a calculation job
+		* type is the type of calculation (e.g. "pulse", "kirchhoff"), id is an optional identifier for the job
+		* 
+		*/
+		struct calculationJob {
+			int type;   // z.B. "pulse", "kirchhoff"
+			std::string id;     // optional, z.B. "job1" (kann leer sein)
+			std::vector<calculationParam> params;
+		};
+
+
 		#define numXMLRootElements   3
 		#define XML_NONE         -1 
 		#define	XML_SCENE_R0		   0
@@ -175,7 +202,9 @@ namespace GOAT
 			public:
                 xmlWriter(const GOAT::raytracing::Scene &S);
                 void write (std::string fname);
+				std::string prepareRequest(std::vector<calculationJob> &jobs);
 			private:
+				void buildDOM(tinyxml2::XMLDocument &doc); ///< build the entire XML structure
 			inline std::string formatDouble(double val, int precision = 17) 
 				{
  					   std::ostringstream oss;
@@ -183,10 +212,10 @@ namespace GOAT
     					oss << std::fixed << std::setprecision(precision) << val;
     					return oss.str();
 				}
-				void writeLightSrc(int i); ///< write the i-th light source to the file
-				void writeObject(int i); ///< write the i-th object to the file
-				void writeDetector(int i); ///< write the i-th detector to the file
-				
+				void addLightSrc2DOM(tinyxml2::XMLDocument &doc, tinyxml2::XMLElement*  lightSrcs, int i); ///< write the i-th light source to the file
+				void addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i); ///< write the i-th object to the file
+				void addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i); ///< write the i-th detector to the file
+				void addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement *calculations, calculationJob job); ///< write a calculation job to the file
 
 				/**
 				 * @brief write double vector to file
@@ -195,7 +224,7 @@ namespace GOAT
 				 * @param v double vector
 				 * @return pointer to the corresponding XMLElemment
 				 */
-				tinyxml2::XMLElement* writeVectorD(std::string name, maths::Vector<double> v);
+				tinyxml2::XMLElement* addVectorD2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<double> v);
 				
 				/**
 				 * @brief write complex vector to file
@@ -204,7 +233,7 @@ namespace GOAT
 				 * @param v double vector
 				 * @return pointer to the corresponding XMLElemment
 				 */
-				tinyxml2::XMLElement* writeVectorC(std::string name, maths::Vector<std::complex<double>> v);
+				tinyxml2::XMLElement* addVectorC2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<std::complex<double>> v);
 
 				/**
 				 * @brief write complex number to file
@@ -212,15 +241,8 @@ namespace GOAT
 				 * @param  name Element name of the complex number
 				 * @param z complex number 
 				 */
-				tinyxml2::XMLElement* writeComplex(std::string name, std::complex<double> z);
+				tinyxml2::XMLElement* addComplex2DOM(tinyxml2::XMLDocument& doc, std::string name, std::complex<double> z);
                 const GOAT::raytracing::Scene &S; ///< the scene
-                tinyxml2::XMLDocument doc; ///< the xml document
-				tinyxml2::XMLElement* root; ///< root XML Element
-				tinyxml2::XMLElement* scene; ///< XML Element to the Scene section
-				tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
-				tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
-				tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
-				
         };
 	}
 }

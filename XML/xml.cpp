@@ -12,7 +12,10 @@
 #include <goodies.h>
 #include <filesystem>
 #include "refractive_index_functions.h"
-
+#include <sstream>
+#include <iomanip>
+#include <locale>
+#include <cmath>
 
 #define tl(s) GOAT::maths::tl(s)	
 
@@ -20,6 +23,50 @@ namespace GOAT
 {
 	namespace XML
 	{
+        inline std::string formatDouble(double value, int precision = 17)
+        {
+            // Optional: NaN / Inf explizit behandeln
+            if (std::isnan(value)) return "nan";
+            if (std::isinf(value)) return (value > 0) ? "inf" : "-inf";
+
+            std::ostringstream oss;
+            oss.imbue(std::locale::classic());   // erzwingt '.' als Dezimaltrennzeichen
+            oss << std::setprecision(precision) << value;
+            return oss.str();
+        }
+
+        void createXMLElementWithParam(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* parent, const calculationParam& param)
+        {
+            tinyxml2::XMLElement* paramElement = doc.NewElement("Param");
+            paramElement->SetAttribute("name", param.name.c_str());
+            if (std::holds_alternative<int>(param.value))
+            {
+                paramElement->SetAttribute("type", "int");
+                paramElement->SetAttribute("value", std::get<int>(param.value));
+            }
+            else if (std::holds_alternative<long long>(param.value))
+            {
+                paramElement->SetAttribute("type", "longlong");
+                paramElement->SetAttribute("value", std::get<long long>(param.value));
+            }
+            else if (std::holds_alternative<double>(param.value))
+            {
+                paramElement->SetAttribute("type", "double");
+                paramElement->SetAttribute("value", formatDouble(std::get<double>(param.value)).c_str());
+            }
+            else if (std::holds_alternative<bool>(param.value))
+            {
+                paramElement->SetAttribute("type", "bool");
+                paramElement->SetAttribute("value", std::get<bool>(param.value) ? "true" : "false");
+            }
+            else if (std::holds_alternative<std::string>(param.value))
+            {
+                paramElement->SetAttribute("type", "string");
+                paramElement->SetAttribute("value", std::get<std::string>(param.value).c_str());
+            }
+			parent->InsertEndChild(paramElement);
+        }
+
 
         bool findExtension (std::string fname, std::string extension)
         {
@@ -1051,7 +1098,6 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 {
                     double offset = objEll->DoubleAttribute("timeOffset", 0);
                     int objEstimate = objEll->IntAttribute("estimateTimeForObject", 0);                    
-//                    time = pc.findHitTime(objEstimate);                    
                     std::cout << "estimated time: " << time << std::endl << std::flush;
                     time+= offset;
                 }
@@ -1097,20 +1143,6 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     } while (!cancel); // while ( (d>D) || (loopno<2));
                   if (hStr != NULL) corrOS.close();
                 }
-/*
-                else
-                {                    
-                    pc.field(time);
-                    for (int i = 0; i < S.nObj; i++)
-                      {
-                        if (S.Obj[i]->isActive())
-                        {
-                            fullfname = fname + std::to_string(i) + ".dat";
-                            GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
-                        }
-                      }
-                }
-*/
             }
             else
                 std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
@@ -1211,11 +1243,53 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
            //  this->S=S;
         }
 
-        void xmlWriter::write (std::string fname)
+        void xmlWriter::write(std::string fname)
         {
+			tinyxml2::XMLDocument doc;
+            std::cout << "write :" << fname << std::endl;
+            buildDOM(doc);
+            tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
+        }
+
+        std::string xmlWriter::prepareRequest(std::vector<calculationJob>& jobs)
+        {
+			tinyxml2::XMLDocument doc;
+			auto calculations=doc.NewElement("Calculations");
+
+			buildDOM(doc);
+            for (const auto& job : jobs)
+            {
+				auto calculation = doc.NewElement("Calculation");
+				calculation->SetAttribute("type", calculationToken[job.type - 200].c_str());
+                addCalculation2DOM(doc, calculation, job);
+				calculations->InsertEndChild(calculation);
+            }
+            auto* root = doc.RootElement();
+            root->InsertEndChild(calculations);
+			tinyxml2::XMLPrinter printer;
+            doc.Print(&printer);
+
+            std::string request(printer.CStr(), printer.CStrSize() - 1);
+            return request;
+        }
+
+        void xmlWriter::addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* calculations, calculationJob job)
+        {
+             
+			// calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
+            for (auto param : job.params)
+                createXMLElementWithParam(doc, calculations, param);           
+        }
+
+        void xmlWriter::buildDOM (tinyxml2::XMLDocument &doc)
+        {
+            tinyxml2::XMLElement* root; ///< root XML Element
+            tinyxml2::XMLElement* scene; ///< XML Element to the Scene section
+            tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
+            tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
+            tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
             tinyxml2::XMLDeclaration* decl = doc.NewDeclaration(R"(xml version="1.0" encoding="utf-8")");
             doc.InsertFirstChild(decl);
-            std::cout << "write :" << fname << std::endl;
           root=doc.NewElement("Root");
           doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
@@ -1229,7 +1303,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               tinyxml2::XMLElement* lightSrc;
               lightSrcs = doc.NewElement("LightSources");
                for (int i = 0; i < S.nLS; i++)
-                   writeLightSrc(i);              
+                   addLightSrc2DOM(doc, lightSrcs, i);              
                scene->InsertEndChild(lightSrcs);
           }
 
@@ -1237,7 +1311,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           {
                objects=doc.NewElement("Objects");
                for (int i=0; i<S.nObj; i++)
-                    writeObject(i);
+                    addObject2DOM(doc, objects, i);
                 scene->InsertEndChild(objects);
           }
 
@@ -1245,15 +1319,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           {
             detectors=doc.NewElement("Detectors");
             for (int i=0; i<S.nDet; i++)
-                writeDetector(i);
+                addDetector2DOM(doc, detectors, i);
             scene->InsertEndChild(detectors);
           }
-          
-          tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
-
-
         }
-        void xmlWriter::writeLightSrc(int i)
+
+        void xmlWriter::addLightSrc2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* lightSrcs, int i)
         {
             
             auto lightSrc = doc.NewElement("LightSource");
@@ -1265,8 +1336,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             lightSrc->SetAttribute("numRaysRT", S.LS[i]->getNumRaysRT());
             lightSrc->SetAttribute("wavelength", formatDouble(S.LS[i]->getWavelength()).c_str());
 
-            lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));
-            lightSrc->InsertEndChild(writeVectorC("Polarisation", S.LS[i]->Pol));
+            lightSrc->InsertEndChild(addVectorD2DOM(doc, "Position", S.LS[i]->Pos));
+            lightSrc->InsertEndChild(addVectorC2DOM(doc, "Polarisation", S.LS[i]->Pol));
             
             switch (type)
             {
@@ -1274,7 +1345,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               case raytracing::LIGHTSRC_SRCTYPE_PLANE_MC:
                   {
                   raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
-                   lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+                   lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
                    lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());                   
                   }
                   break;
@@ -1294,13 +1365,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   raytracing::LightSrcRing* ls = (raytracing::LightSrcRing*)S.LS[i];
                   lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
                   lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
-                  lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
               }
             }
             lightSrcs->InsertEndChild(lightSrc);
         }
 
-        void xmlWriter::writeObject(int i)
+        void xmlWriter::addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i)
         {
             auto object = doc.NewElement("Object");
             int typeh = S.Obj[i]->type-10000;
@@ -1309,12 +1380,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
             // ---------------- global parameters ----------------
             object->SetAttribute("type",objectToken[typeh].c_str());                        
-            object->InsertEndChild(writeVectorD("Position", S.Obj[i]->P));
+            object->InsertEndChild(addVectorD2DOM(doc,"Position", S.Obj[i]->P));
             object->SetAttribute("alpha",formatDouble(S.Obj[i]->Ealpha/M_PI*180.0).c_str());
             object->SetAttribute("beta",formatDouble(S.Obj[i]->Ebeta/M_PI*180.0).c_str());
             object->SetAttribute("gamma",formatDouble(S.Obj[i]->Egamma/M_PI*180.0).c_str());
             object->SetAttribute("isactive",S.Obj[i]->isActive());
-            object->InsertEndChild(writeComplex("n",S.Obj[i]->n));            
+            object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->n));            
             object->SetAttribute("scaling",formatDouble(S.Obj[i]->sf).c_str());
 
             // --------------- special parameters ----------------
@@ -1323,7 +1394,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 case OBJECTSHAPE_ELLIPSOID : 
                     {
                     auto obj=(raytracing::Ellipsoid *) S.Obj[i];
-                        object->InsertEndChild(writeVectorD("Dimension",obj->r));
+                        object->InsertEndChild(addVectorD2DOM(doc, "Dimension",obj->r));
                     }
                     break;
                 case OBJECTSHAPE_SURFACE : 
@@ -1381,7 +1452,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 case OBJECTSHAPE_BOX: 
                     {
                     auto obj=(raytracing::Box *) S.Obj[i];
-                        object->InsertEndChild(writeVectorD("Dimension",obj->d));
+                        object->InsertEndChild(addVectorD2DOM(doc, "Dimension",obj->d));
                     }
                     break;
                 case OBJECTSHAPE_CYLINDER: 
@@ -1405,14 +1476,14 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             
         }
 
-        void xmlWriter::writeDetector(int i)
+        void xmlWriter::addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i)
         {
             auto detector = doc.NewElement("Detector");
             int type=S.Det[i]->Type();
             int typeh=type-20000;
             detector->SetAttribute("type",detectorToken[typeh].c_str());
-            detector->InsertEndChild(writeVectorD("Position",S.Det[i]->position()));
-            detector->InsertEndChild(writeVectorD("Direction",S.Det[i]->norm()));
+            detector->InsertEndChild(addVectorD2DOM(doc, "Position",S.Det[i]->position()));
+            detector->InsertEndChild(addVectorD2DOM(doc, "Direction",S.Det[i]->norm()));
             detector->SetAttribute("filename",S.Det[i]->fname.c_str());
             S.Det[i]->save(S.Det[i]->fname.c_str());
             switch (type)
@@ -1427,7 +1498,9 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             detectors->InsertEndChild(detector);
         }
 
-        tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)
+        
+
+        tinyxml2::XMLElement* xmlWriter::addVectorD2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<double> v)
         {
             auto vell = doc.NewElement(name.c_str());
             vell->SetAttribute("x", formatDouble(v[0]).c_str());
@@ -1436,16 +1509,16 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             return vell;
         }
 
-        tinyxml2::XMLElement* xmlWriter::writeVectorC(std::string name, maths::Vector<std::complex<double> > v)
+        tinyxml2::XMLElement* xmlWriter::addVectorC2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<std::complex<double> > v)
         {
             auto vell = doc.NewElement(name.c_str());
-            vell->InsertEndChild(writeComplex("x", v[0]));
-            vell->InsertEndChild(writeComplex("y", v[1]));
-            vell->InsertEndChild(writeComplex("z", v[2]));
+            vell->InsertEndChild(addComplex2DOM(doc,"x", v[0]));
+            vell->InsertEndChild(addComplex2DOM(doc, "y", v[1]));
+            vell->InsertEndChild(addComplex2DOM(doc, "z", v[2]));
 
             return vell;
         }
-        tinyxml2::XMLElement* xmlWriter::writeComplex(std::string name, std::complex<double> z)
+        tinyxml2::XMLElement* xmlWriter::addComplex2DOM(tinyxml2::XMLDocument& doc, std::string name, std::complex<double> z)
         {
             auto cell = doc.NewElement(name.c_str());
             cell->SetAttribute("real", formatDouble(real(z)).c_str());
