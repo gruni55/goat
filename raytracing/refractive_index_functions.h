@@ -1,5 +1,6 @@
 #pragma once
 #include <complex>
+#include  <unordered_map>
 namespace GOAT
 {
 	namespace raytracing
@@ -62,5 +63,34 @@ namespace GOAT
 		std::complex<double> n_ABS(double wvl);
 
 		std::complex<double> n_test (double wvl);
+
+		using cplx = std::complex<double>;
+		using nFnPtr = cplx(*)(double);
+
+		static const std::unordered_map<std::string, nFnPtr> keyToN = {
+		{"air",   &n_Air},
+		{"bk7",   &n_BK7},
+		{"glass", &n_Glass},
+		{"fused_silica", &n_fused_silica},
+		{"vacuum", &n_Vacuum},
+		{"lasf55", &n_LASF55},
+		{"pmma", &n_PMMA},
+		{"abs", &n_ABS},
+		{"test", &n_test},
+		{"linear", &n_lin},
+		};
+
+		static const std::unordered_map<nFnPtr, std::string> nToKey = {
+			{&n_Air,   "air"},
+			{&n_Glass, "glass"},
+			{&n_BK7,   "bk7"},
+			{&n_fused_silica, "fused_silica"},
+			{&n_Vacuum, "vacuum"},
+			{&n_LASF55, "lasf55"},
+			{&n_PMMA, "pmma"},
+			{&n_ABS, "abs"},
+			{&n_test, "test"},
+			{&n_lin, "linear"},
+		};
 	}
 }

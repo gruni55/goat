@@ -17,6 +17,7 @@
 #include <locale>
 #include <iomanip>
 #include <variant>
+#include "fft.h"
 namespace GOAT
 {
 	namespace XML
@@ -33,7 +34,18 @@ namespace GOAT
 			parameterValue value;
 		};
 
+
+		
+
 		void createXMLElementWithParam(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* parent, const calculationParam& param);
+
+		struct pulseJobParms {
+			raytracing::TrafoParms trafo{};
+			std::vector<std::function<std::complex<double>(double)>> nFunc; 
+			int numLoops = 1;
+			double time = 0.0;
+			double offsetTime = 0.0;
+		};
 
 		/**
 		* @brief Structure to store a calculation job
@@ -43,8 +55,11 @@ namespace GOAT
 		struct calculationJob {
 			int type;   // z.B. "pulse", "kirchhoff"
 			std::string id;     // optional, z.B. "job1" (kann leer sein)
-			std::vector<calculationParam> params;
+			std::variant<pulseJobParms> parms;
+			// std::vector<calculationParam> params;
 		};
+
+		
 
 
 		#define numXMLRootElements   3
@@ -121,10 +136,16 @@ namespace GOAT
 			  */
 				void readXML(std::string fname, bool calc_enabled=true, std::string path = "");
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
+				std::vector<calculationJob> jobs; ///< calculation jobs read from the file are stored here
 				void setEnableCalculation(bool enable) { calculation_enabled=enable;}
 				bool isCalculationEnabled() {return calculation_enabled;}
+				bool readRequest(std::string &request);
+
+
 			private:				
                 void readScene(); ///< read the entire Scene
+				void readJobs(); ///< (used in readRequest) read the calculation jobs 
+				bool readParam(tinyxml2::XMLElement* paramEll, calculationParam &p); ///< (used in readJobs) read a calculation parameter
 				void readLightSources(); ///< (used in readScene) read the light sources from the file
 				void readCommands(); ///< (used in readXML) read and execute the commands for calculation
 				void readObjects(); ///< (used in readScene) read the objects from the file
@@ -181,7 +202,8 @@ namespace GOAT
 				 */
                 std::complex<double> readCmplx(tinyxml2::XMLElement* ell, int& xmlError);
 
-				tinyxml2::XMLNode* rootElement; ///< pointer to root element of the XML
+				tinyxml2::XMLDocument doc; ///< tinyxml document
+				tinyxml2::XMLElement* rootElement; ///< pointer to root element of the XML
 				tinyxml2::XMLElement* sceneElement;	 ///< pointer to the scene element of the XML			 
 				tinyxml2::XMLElement* calculationElement; ///< pointer to the calculation elemeent of the XML
 				std::vector<GOAT::raytracing::ObjectShape*> Obj; ///< vector, which carries all objects (as pointers)

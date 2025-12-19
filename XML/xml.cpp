@@ -87,8 +87,7 @@ namespace GOAT
             os.close();
             this->path = path;
 			setlocale(LC_NUMERIC, "C");
-			tinyxml2::XMLDocument doc;
-            std::cout << "fname=" << fname << "\tpath=" << path << std::endl;
+		    std::cout << "fname=" << fname << "\tpath=" << path << std::endl;
             // check, if path is given separatly 
             if (path.size() >0)
             {
@@ -121,7 +120,19 @@ namespace GOAT
 			
 		}
 
-		void xmlReader::readScene()
+        bool xmlReader::readRequest(std::string& request)
+        {
+         //   tinyxml2::XMLDocument doc;
+			calculation_enabled = false;
+            if (doc.Parse(request.c_str(), request.size()) != tinyxml2::XML_SUCCESS)
+                return false;
+			rootElement = doc.RootElement();
+			readScene();
+            readJobs();
+            return true;
+        }
+
+        void xmlReader::readScene()
 		{
 			sceneElement = rootElement->FirstChildElement("Scene");
 			if (sceneElement != NULL)
@@ -143,7 +154,7 @@ namespace GOAT
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
                 S.setNumberOfCellsPerDirection(iv);
-
+                S.nS = readCmplx(sceneElement->FirstChildElement("nS"),1.0);
 				/* look for the detectors */
 				readDetectors();
 
@@ -157,6 +168,89 @@ namespace GOAT
                 if (calculation_enabled) doCalculations();
 			}		
 		}
+
+         bool xmlReader::readParam(tinyxml2::XMLElement* paramEll, calculationParam &p)
+        {     
+            p.name=paramEll->Attribute("name");
+            std::string typeStr=paramEll->Attribute("type");
+            if (typeStr.compare("int")==0)
+            {
+                int val=paramEll->IntAttribute("value",0);
+                p.value=val;
+            }
+            else if (typeStr.compare("longlong")==0)
+            {
+                long long val=paramEll->Int64Attribute("value",0);
+                p.value=val;
+            }
+            else if (typeStr.compare("double")==0)
+            {
+                double val=paramEll->DoubleAttribute("value",0.0);
+                p.value=val;
+            }
+            else if (typeStr.compare("bool")==0)
+            {
+                bool val=paramEll->BoolAttribute("value",false);
+                p.value=val;
+            }
+            else if (typeStr.compare("string")==0)
+            {
+                std::string val=paramEll->Attribute("value");
+                p.value=val;
+            }
+            else 
+				return false;
+			return true;
+        }
+
+         void xmlReader::readJobs()
+         {
+             tinyxml2::XMLElement* ell = rootElement->FirstChildElement("Calculations");
+             if (ell != NULL)
+             {
+                 for (auto calcEll = ell->FirstChildElement("Calculation"); calcEll != NULL; calcEll = calcEll->NextSiblingElement("Calculation"))
+                 {
+                     calculationJob job;
+                     job.id = "";
+                     job.type = mapString2CalculationToken(calcEll->Attribute("type"));
+                     switch (job.type)
+                     {
+                     case TOKEN_CALCULATION_PULSE:
+                     {
+                         pulseJobParms parms;
+                         parms.trafo.wvl = calcEll->DoubleAttribute("wavelength", 1.0);
+                         parms.trafo.nR = calcEll->IntAttribute("numReflex", raytracing::INEL_MAX_NREFLEX);
+                         parms.trafo.dt = calcEll->DoubleAttribute("pulseWidth", 100.0);
+                         parms.trafo.nS = calcEll->IntAttribute("numSpectralRanges", 20);
+                         parms.trafo.repetitionTime = calcEll->DoubleAttribute("repetitionTime", 1000.0);
+                         parms.trafo.number_of_threads = calcEll->IntAttribute("numThreads", 5);
+                         parms.time = calcEll->DoubleAttribute("time", 0.0);
+                         parms.offsetTime = calcEll->DoubleAttribute("offsetTime", 0.0);
+                         int i = 0;
+						 auto refractiveIndexListEll = calcEll->FirstChildElement("RefractiveIndexList");
+                         for (auto obj = S.Obj.begin(); obj != S.Obj.end(); ++obj)
+                         {
+                             if ((*obj)->isActive())
+                             {
+                                 std::string name = "n" + std::to_string(i);         
+                                 //std::string funcname = refractiveIndexListEll->Attribute("n0");
+
+								  std::string funcname = refractiveIndexListEll->Attribute(name.c_str());
+                                 raytracing::nFnPtr fp = GOAT::raytracing::keyToN.at(funcname);  // fp ist cplx(*)(double)								
+								 parms.trafo.nList.push_back(fp);
+                             }
+                             i++;
+                         }
+						 job.parms = parms;
+                         jobs.push_back(job);
+                         break;
+                     }
+
+                     
+                     }
+                 }
+             }
+         }
 
         void xmlReader::readDetectors()
 		{
@@ -1254,18 +1348,17 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         std::string xmlWriter::prepareRequest(std::vector<calculationJob>& jobs)
         {
 			tinyxml2::XMLDocument doc;
-			auto calculations=doc.NewElement("Calculations");
+			
 
 			buildDOM(doc);
-            for (const auto& job : jobs)
-            {
-				auto calculation = doc.NewElement("Calculation");
-				calculation->SetAttribute("type", calculationToken[job.type - 200].c_str());
-                addCalculation2DOM(doc, calculation, job);
-				calculations->InsertEndChild(calculation);
-            }
+            auto calculations = doc.NewElement("Calculations");
             auto* root = doc.RootElement();
             root->InsertEndChild(calculations);
+            for (const auto& job : jobs)
+            {
+                addCalculation2DOM(doc, calculations, job);
+            }
+            
 			tinyxml2::XMLPrinter printer;
             doc.Print(&printer);
 
@@ -1275,11 +1368,45 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
         void xmlWriter::addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* calculations, calculationJob job)
         {
-             
-			// calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
-            for (auto param : job.params)
-                createXMLElementWithParam(doc, calculations, param);           
-        }
+			auto calculation = doc.NewElement("Calculation");
+            calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
+            switch (job.type)
+            {
+                case TOKEN_CALCULATION_PULSE:
+					calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
+                    calculation->SetAttribute("numReflex", std::get<pulseJobParms>(job.parms).trafo.nR);
+                    calculation->SetAttribute("numWavelengthsPerRange", std::get<pulseJobParms>(job.parms).trafo.nS);
+                    calculation->SetAttribute("pulseWidth", formatDouble(std::get<pulseJobParms>(job.parms).trafo.dt).c_str());
+                    calculation->SetAttribute("numSpectralRanges", std::get<pulseJobParms>(job.parms).trafo.nI);
+					calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
+                    calculation->SetAttribute("spatialResolution", formatDouble(std::get<pulseJobParms>(job.parms).trafo.spatialResolution).c_str());
+                    calculation->SetAttribute("repetitionTime", formatDouble(std::get<pulseJobParms>(job.parms).trafo.repetitionTime).c_str());
+					calculation->SetAttribute("numLoops", std::get<pulseJobParms>(job.parms).numLoops);
+                    int i = 0;
+					auto refractiveIndexList = doc.NewElement("RefractiveIndexList");
+                    for (auto obj=S.Obj.begin(); obj!=S.Obj.end(); ++obj)
+                    {
+                        if ((*obj)->isActive())
+                        {
+                            auto p = (*obj)->nfunc.target<raytracing::nFnPtr>();
+                            std::string entry= GOAT::raytracing::nToKey.at(*p);
+							std::string nStr = "n" + std::to_string(i);
+                            refractiveIndexList->SetAttribute(nStr.c_str(), entry.c_str());
+                        }
+                        i++;
+					}
+					calculation->InsertEndChild(refractiveIndexList);
+                    calculation->SetAttribute("time", std::get<pulseJobParms>(job.parms).time);
+                    calculation->SetAttribute("offsetTime", std::get<pulseJobParms>(job.parms).offsetTime);
+					break;
+                break;
+            }
+            calculations->InsertEndChild(calculation);
+		}
+
+
+
+
 
         void xmlWriter::buildDOM (tinyxml2::XMLDocument &doc)
         {
@@ -1295,6 +1422,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           scene=doc.NewElement("Scene");
           scene->SetAttribute("r0", formatDouble(S.r0).c_str());
           scene->SetAttribute("nCellsPerDir", static_cast<int64_t> (S.getNumberOfCellsPerDirection()));
+          scene->InsertEndChild(addComplex2DOM(doc, "nS", S.nS));
           root->InsertEndChild(scene);
           std::cout << "no. of light sources: "<< S.nLS << std::endl;
           if (S.nLS > 0)

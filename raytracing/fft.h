@@ -33,6 +33,8 @@ namespace GOAT
             double dt=100;                  ///< width of the pulse (in femto seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
             int number_of_threads=5; ///< number of threads which should be used for calculation
+			double repetitionTime = 100;    ///< repetition time of the pulse train (in femto seconds). If this value is >0, the pulse train will be considered in the calculation
+			double spatialResolution = 0.0;   ///< spatial resolution of the calculation grid (in µm). If this value is >0, the spatial resolution will be set in the calculation      
         } ;
 
         
