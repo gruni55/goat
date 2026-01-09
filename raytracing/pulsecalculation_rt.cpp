@@ -42,8 +42,8 @@ namespace GOAT
 			{
 				double omega0 = 2.0 * M_PI * C_LIGHT_MU_FS / trafoparms.wvl;
 				Domega = 5.0 * 4.0 * M_LN2 / trafoparms.dt;
-				std::cout << "Domega=" << Domega << std::endl;
-				double domega = Domega / (double)trafoparms.nI;
+				std::cout << "Domega=" << Domega << " trafoparms.nS=" << trafoparms.nS << std::endl;
+				double domega = Domega / (double)trafoparms.nS;
 				double omegaStart = omega0 - Domega / 2.0;
 				double omega;
 				double wvl1, wvl2;
@@ -56,7 +56,7 @@ namespace GOAT
 				double dw;
 
 				// loop over the frequency ranges
-				for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
+				for (int iOmega = 0; iOmega < trafoparms.nS; iOmega++)
 				{
 					omega = omegaStart + (double)iOmega * domega;
 					dw = omega - omega0;
@@ -118,6 +118,11 @@ namespace GOAT
 			{
 				trafoparms.nList = nList;
 				rt.setRefractiveIndexFunctions(nList);
+			}
+
+			void pulseCalculation_rt::setNumWavelengthsPerRange(int nS)
+			{
+				trafoparms.nS = nS;
 			}
 
 			void pulseCalculation_rt::setNumReflex(int numReflex)

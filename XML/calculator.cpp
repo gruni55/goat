@@ -29,6 +29,7 @@ namespace GOAT
                 pc.setNumReflex(parms.trafo.nR);
                 pc.setPulseWidth(parms.trafo.dt);
                 pc.setSpectralRanges(parms.trafo.nI);
+                pc.setNumWavelengthsPerRange(parms.trafo.nS);
                 
                 double repRate = parms.trafo.repetitionTime;
                 if (repRate > 0) pc.setRepetitionRate(repRate);

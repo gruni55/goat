@@ -221,8 +221,10 @@ namespace GOAT
                          parms.trafo.wvl = calcEll->DoubleAttribute("wavelength", 1.0);
                          parms.trafo.nR = calcEll->IntAttribute("numReflex", raytracing::INEL_MAX_NREFLEX);
                          parms.trafo.dt = calcEll->DoubleAttribute("pulseWidth", 100.0);
-                         parms.trafo.nS = calcEll->IntAttribute("numSpectralRanges", 20);
+                         parms.trafo.nI = calcEll->IntAttribute("numSpectralRanges", 20);
+						 parms.trafo.nS = calcEll->IntAttribute("numWavelengthsPerRange", 10);
                          parms.trafo.repetitionTime = calcEll->DoubleAttribute("repetitionTime", 1000.0);
+						 parms.trafo.spatialResolution = calcEll->DoubleAttribute("spatialResolution", 1.0);
                          parms.trafo.number_of_threads = calcEll->IntAttribute("numThreads", 5);
                          parms.time = calcEll->DoubleAttribute("time", 0.0);
                          parms.offsetTime = calcEll->DoubleAttribute("offsetTime", 0.0);
@@ -1114,9 +1116,10 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 //trafoparms = pc.getTrafoParms();
                 pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
                 pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
-                //pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
+                pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
                 pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
                 pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
+				std::cout << "[doPulseCalculation_rt] nS=" << trafoparms.nS << "\tnI=" << trafoparms.nI << std::endl;
                 //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
                 // pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
                 double repRate = objEll->DoubleAttribute("repetitionRate", -1);

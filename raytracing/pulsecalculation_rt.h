@@ -28,6 +28,7 @@ namespace GOAT
 			void setSpectralRanges(int nI);
 			void setSpatialResolution(double dx);
 			void setRefractiveIndexFunctions(std::vector<std::function<std::complex<double>(double)>> nList);
+			void setNumWavelengthsPerRange(int nS);
 			void setNumReflex(int numReflex);
 			void setPulseWidth(double dt);
 			void field(double t); ///< This function calculates the fields at time. Keep in mind, that it works only if the class has the list with the refractive index functions
