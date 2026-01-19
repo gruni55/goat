@@ -238,7 +238,7 @@ namespace GOAT
 				void addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i); ///< write the i-th object to the file
 				void addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i); ///< write the i-th detector to the file
 				void addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement *calculations, calculationJob job); ///< write a calculation job to the file
-
+				void addResult2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* results, calculationJob job); ///< write a data entry to the file
 				/**
 				 * @brief write double vector to file
 				 * This method writes a double 3D vector to XML-file

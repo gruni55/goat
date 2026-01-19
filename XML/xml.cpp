@@ -1355,11 +1355,14 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
 			buildDOM(doc);
             auto calculations = doc.NewElement("Calculations");
+            auto results = doc.NewElement("Data");
             auto* root = doc.RootElement();
             root->InsertEndChild(calculations);
+            root->InsertEndChild(results);
             for (const auto& job : jobs)
             {
                 addCalculation2DOM(doc, calculations, job);
+                addResult2DOM(doc, results, job);
             }
             
 			tinyxml2::XMLPrinter printer;
@@ -1407,6 +1410,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             calculations->InsertEndChild(calculation);
 		}
 
+        void xmlWriter::addResult2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* results, calculationJob job)
+        {
+            auto result = doc.NewElement("HDF5");
+                result->SetAttribute("filename","results.h5");
+                results->InsertEndChild(result);
+        }
+
 
 
 
@@ -1418,6 +1428,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
             tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
             tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
+            tinyxml2::XMLElement* dataEntries;
             tinyxml2::XMLDeclaration* decl = doc.NewDeclaration(R"(xml version="1.0" encoding="utf-8")");
             doc.InsertFirstChild(decl);
           root=doc.NewElement("Root");
@@ -1453,6 +1464,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 addDetector2DOM(doc, detectors, i);
             scene->InsertEndChild(detectors);
           }
+
+
         }
 
         void xmlWriter::addLightSrc2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* lightSrcs, int i)
