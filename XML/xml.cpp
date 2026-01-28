@@ -234,7 +234,7 @@ namespace GOAT
 						 auto refractiveIndexListEll = calcEll->FirstChildElement("RefractiveIndexList");
                          for (auto obj = S.Obj.begin(); obj != S.Obj.end(); ++obj)
                          {
-                             if ((*obj)->isActive())
+                          //   if ((*obj)->isActive())
                              {
                                  std::string name = "n" + std::to_string(i);         
                                  //std::string funcname = refractiveIndexListEll->Attribute("n0");
