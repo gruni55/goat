@@ -74,7 +74,8 @@ void makeHole(GOAT::raytracing::DetectorPlane& P, double radius)
 	int ri2;
 	int rn2 = rn * rn;
 	int ix, iy;
-#pragma omp for collapse(6)
+#pragma omp for 
+// collapse(6)
 	for (int i1 = n1 / 2 - rn; i1 <= n1 / 2 + rn; i1++)
 		for (int i2 = n2 / 2 - rn; i2 <= n2 / 2 + rn; i2++)
 		{

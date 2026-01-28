@@ -47,7 +47,9 @@ namespace GOAT
             else if (std::holds_alternative<long long>(param.value))
             {
                 paramElement->SetAttribute("type", "longlong");
-                paramElement->SetAttribute("value", std::get<long long>(param.value));
+		auto v = std::get<long long>(param.value);
+		paramElement->SetAttribute("value", static_cast<uint64_t>(v));
+                //paramElement->SetAttribute("value", std::get<long long>(param.value));
             }
             else if (std::holds_alternative<double>(param.value))
             {
