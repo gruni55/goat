@@ -7,6 +7,8 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae5cc2a41306a1cfe1833605475ad22d0}{prepare\+Request}} (std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}} $>$ \&jobs)
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35c80288abcef22}{write}} (std\+::string fname)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a7abc5bdececb61b11b5c5ea74f15e99a}{xml\+Writer}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{GOAT\+::raytracing\+::\+Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab26fed9871c03b7498d72b6e11c17b2a}{S}})
@@ -14,43 +16,37 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35
 \doxysubsubsection*{Private Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc}{format\+Double}} (double val, int precision=17)
-\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ad07d1f928fd0f993a0d2a15da718ffa0}{write\+Complex}} (std\+::string name, std\+::complex$<$ double $>$ z)
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aea82f44b01bc7fbf1d54f032fe88c65a}{add\+Calculation2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}calculations, \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}} job)
+\begin{DoxyCompactList}\small\item\em write a calculation job to the file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aab26ed61d14b981deacc8c9168cc5690}{add\+Complex2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, std\+::string name, std\+::complex$<$ double $>$ z)
 \begin{DoxyCompactList}\small\item\em write complex number to file This method writes a complex number to the XML-\/file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aa144dafe86c2582d29baeb28ef005422}{write\+Detector}} (int i)
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a05c8c29e52e163c4c425c8bb984480fd}{add\+Detector2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}detectors, int i)
 \begin{DoxyCompactList}\small\item\em write the i-\/th detector to the file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a215e07603bfc5d6cf96e3f75582bda03}{write\+Light\+Src}} (int i)
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a8b98aa1da8ff0887b96918f5af7bb96a}{add\+Light\+Src2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}light\+Srcs, int i)
 \begin{DoxyCompactList}\small\item\em write the i-\/th light source to the file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a5a9f3a66f7569fde8741153807b1dec5}{write\+Object}} (int i)
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a7eb300f7d14545897de77140675508ce}{add\+Object2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}objects, int i)
 \begin{DoxyCompactList}\small\item\em write the i-\/th object to the file \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a46b5e6466a912ccadb89e1c93ab27569}{write\+VectorC}} (std\+::string name, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ v)
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aaf944037c5a9ef35048542f9d5b15323}{add\+Result2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}results, \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}} job)
+\begin{DoxyCompactList}\small\item\em write a data entry to the file \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a585a9cfce80962aafa27084784409671}{add\+Vector\+C2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, std\+::string name, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ v)
 \begin{DoxyCompactList}\small\item\em write complex vector to file This method writes a complex 3D vector to XML-\/file \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a510d77668d6367835cdefc8b7e588a59}{write\+VectorD}} (std\+::string name, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
-\begin{DoxyCompactList}\small\item\em write double vector to file This method writes a double 3D vector to XML-\/file \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac1296cdd1f0ddac69bfdee73a23ffa74}{add\+Vector\+D2\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, std\+::string name, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ v)
+\begin{DoxyCompactList}\small\item\em write double vector to file This method writes a double 3D vector to XML-\/file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab71db6d08cf1158031ee844a09fabd8b}{build\+DOM}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc)
+\begin{DoxyCompactList}\small\item\em build the entire \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} structure \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc}{format\+Double}} (double val, int precision=17)
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac290eb9f6d073641f6e072f273a02892}{detectors}}
-\begin{DoxyCompactList}\small\item\em \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Detectors section. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_adc5cf756e039d5529c28903f2df7a978}{doc}}
-\begin{DoxyCompactList}\small\item\em the xml document \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_acd680aaec30aa7d73d912b1b8cef002d}{light\+Srcs}}
-\begin{DoxyCompactList}\small\item\em \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Light\+Sources section. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a74e5c98c5175321d776e1a0d0567701c}{objects}}
-\begin{DoxyCompactList}\small\item\em \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Objects section. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a2cfef433552659fa858f0fc554f687ff}{root}}
-\begin{DoxyCompactList}\small\item\em root \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element \end{DoxyCompactList}\item 
 const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{GOAT\+::raytracing\+::\+Scene}} \& \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab26fed9871c03b7498d72b6e11c17b2a}{S}}
-\begin{DoxyCompactList}\small\item\em the scene \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_afa9884c2992d7fc0cd95c5adaed4370a}{scene}}
-\begin{DoxyCompactList}\small\item\em \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Scene section. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em the scene \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00173}{173}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00222}{222}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 
@@ -68,27 +64,21 @@ GOAT\+::\+XML\+::xml\+Writer\+::xml\+Writer (\begin{DoxyParamCaption}\item[{cons
 \label{doc-func-members}
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!formatDouble@{formatDouble}}
-\index{formatDouble@{formatDouble}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{formatDouble()}{formatDouble()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc} 
-std\+::string GOAT\+::\+XML\+::xml\+Writer\+::format\+Double (\begin{DoxyParamCaption}\item[{double}]{val}{, }\item[{int}]{precision}{ = {\ttfamily 17}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aea82f44b01bc7fbf1d54f032fe88c65a}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addCalculation2DOM@{addCalculation2DOM}}
+\index{addCalculation2DOM@{addCalculation2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addCalculation2DOM()}{addCalculation2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aea82f44b01bc7fbf1d54f032fe88c65a} 
+void GOAT\+::\+XML\+::xml\+Writer\+::add\+Calculation2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{calculations}{, }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}}}]{job}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00179}{179}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+write a calculation job to the file 
 
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35c80288abcef22}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!write@{write}}
-\index{write@{write}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{write()}{write()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35c80288abcef22} 
-void GOAT\+::\+XML\+::xml\+Writer\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{fname}{}\end{DoxyParamCaption})}
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ad07d1f928fd0f993a0d2a15da718ffa0}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeComplex@{writeComplex}}
-\index{writeComplex@{writeComplex}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeComplex()}{writeComplex()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ad07d1f928fd0f993a0d2a15da718ffa0} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::write\+Complex (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{, }\item[{std\+::complex$<$ double $>$}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aab26ed61d14b981deacc8c9168cc5690}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addComplex2DOM@{addComplex2DOM}}
+\index{addComplex2DOM@{addComplex2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addComplex2DOM()}{addComplex2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aab26ed61d14b981deacc8c9168cc5690} 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::add\+Complex2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{std\+::string}]{name}{, }\item[{std\+::complex$<$ double $>$}]{z}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -101,41 +91,51 @@ write complex number to file This method writes a complex number to the XML-\/fi
 {\em z} & complex number \\
 \hline
 \end{DoxyParams}
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aa144dafe86c2582d29baeb28ef005422}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeDetector@{writeDetector}}
-\index{writeDetector@{writeDetector}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeDetector()}{writeDetector()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aa144dafe86c2582d29baeb28ef005422} 
-void GOAT\+::\+XML\+::xml\+Writer\+::write\+Detector (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a05c8c29e52e163c4c425c8bb984480fd}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addDetector2DOM@{addDetector2DOM}}
+\index{addDetector2DOM@{addDetector2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addDetector2DOM()}{addDetector2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a05c8c29e52e163c4c425c8bb984480fd} 
+void GOAT\+::\+XML\+::xml\+Writer\+::add\+Detector2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{detectors}{, }\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 write the i-\/th detector to the file 
 
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a215e07603bfc5d6cf96e3f75582bda03}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeLightSrc@{writeLightSrc}}
-\index{writeLightSrc@{writeLightSrc}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeLightSrc()}{writeLightSrc()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a215e07603bfc5d6cf96e3f75582bda03} 
-void GOAT\+::\+XML\+::xml\+Writer\+::write\+Light\+Src (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a8b98aa1da8ff0887b96918f5af7bb96a}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addLightSrc2DOM@{addLightSrc2DOM}}
+\index{addLightSrc2DOM@{addLightSrc2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addLightSrc2DOM()}{addLightSrc2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a8b98aa1da8ff0887b96918f5af7bb96a} 
+void GOAT\+::\+XML\+::xml\+Writer\+::add\+Light\+Src2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{light\+Srcs}{, }\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 write the i-\/th light source to the file 
 
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a5a9f3a66f7569fde8741153807b1dec5}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeObject@{writeObject}}
-\index{writeObject@{writeObject}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeObject()}{writeObject()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a5a9f3a66f7569fde8741153807b1dec5} 
-void GOAT\+::\+XML\+::xml\+Writer\+::write\+Object (\begin{DoxyParamCaption}\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a7eb300f7d14545897de77140675508ce}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addObject2DOM@{addObject2DOM}}
+\index{addObject2DOM@{addObject2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addObject2DOM()}{addObject2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a7eb300f7d14545897de77140675508ce} 
+void GOAT\+::\+XML\+::xml\+Writer\+::add\+Object2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{objects}{, }\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
 write the i-\/th object to the file 
 
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a46b5e6466a912ccadb89e1c93ab27569}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeVectorC@{writeVectorC}}
-\index{writeVectorC@{writeVectorC}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeVectorC()}{writeVectorC()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a46b5e6466a912ccadb89e1c93ab27569} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::write\+VectorC (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aaf944037c5a9ef35048542f9d5b15323}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addResult2DOM@{addResult2DOM}}
+\index{addResult2DOM@{addResult2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addResult2DOM()}{addResult2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_aaf944037c5a9ef35048542f9d5b15323} 
+void GOAT\+::\+XML\+::xml\+Writer\+::add\+Result2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{results}{, }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}}}]{job}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+write a data entry to the file 
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a585a9cfce80962aafa27084784409671}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addVectorC2DOM@{addVectorC2DOM}}
+\index{addVectorC2DOM@{addVectorC2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addVectorC2DOM()}{addVectorC2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a585a9cfce80962aafa27084784409671} 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::add\+Vector\+C2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{std\+::string}]{name}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -151,11 +151,11 @@ write complex vector to file This method writes a complex 3D vector to XML-\/fil
 \begin{DoxyReturn}{Returns}
 pointer to the corresponding XMLElemment 
 \end{DoxyReturn}
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a510d77668d6367835cdefc8b7e588a59}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!writeVectorD@{writeVectorD}}
-\index{writeVectorD@{writeVectorD}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{writeVectorD()}{writeVectorD()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a510d77668d6367835cdefc8b7e588a59} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::write\+VectorD (\begin{DoxyParamCaption}\item[{std\+::string}]{name}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac1296cdd1f0ddac69bfdee73a23ffa74}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!addVectorD2DOM@{addVectorD2DOM}}
+\index{addVectorD2DOM@{addVectorD2DOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{addVectorD2DOM()}{addVectorD2DOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac1296cdd1f0ddac69bfdee73a23ffa74} 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::add\+Vector\+D2\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{std\+::string}]{name}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{v}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -171,81 +171,43 @@ write double vector to file This method writes a double 3D vector to XML-\/file
 \begin{DoxyReturn}{Returns}
 pointer to the corresponding XMLElemment 
 \end{DoxyReturn}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab71db6d08cf1158031ee844a09fabd8b}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!buildDOM@{buildDOM}}
+\index{buildDOM@{buildDOM}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{buildDOM()}{buildDOM()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab71db6d08cf1158031ee844a09fabd8b} 
+void GOAT\+::\+XML\+::xml\+Writer\+::build\+DOM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+build the entire \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} structure 
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!formatDouble@{formatDouble}}
+\index{formatDouble@{formatDouble}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{formatDouble()}{formatDouble()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae116cc47178b2555e997c3ee5ea4e6bc} 
+std\+::string GOAT\+::\+XML\+::xml\+Writer\+::format\+Double (\begin{DoxyParamCaption}\item[{double}]{val}{, }\item[{int}]{precision}{ = {\ttfamily 17}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00230}{230}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae5cc2a41306a1cfe1833605475ad22d0}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!prepareRequest@{prepareRequest}}
+\index{prepareRequest@{prepareRequest}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{prepareRequest()}{prepareRequest()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ae5cc2a41306a1cfe1833605475ad22d0} 
+std\+::string GOAT\+::\+XML\+::xml\+Writer\+::prepare\+Request (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}} $>$ \&}]{jobs}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35c80288abcef22}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!write@{write}}
+\index{write@{write}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a78273399a841b3f4b35c80288abcef22} 
+void GOAT\+::\+XML\+::xml\+Writer\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{fname}{}\end{DoxyParamCaption})}
+
 
 
 \label{doc-variable-members}
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac290eb9f6d073641f6e072f273a02892}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!detectors@{detectors}}
-\index{detectors@{detectors}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{detectors}{detectors}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ac290eb9f6d073641f6e072f273a02892} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::detectors\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-\doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Detectors section. 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00222}{222}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_adc5cf756e039d5529c28903f2df7a978}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!doc@{doc}}
-\index{doc@{doc}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{doc}{doc}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_adc5cf756e039d5529c28903f2df7a978} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} GOAT\+::\+XML\+::xml\+Writer\+::doc\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-the xml document 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00217}{217}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_acd680aaec30aa7d73d912b1b8cef002d}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!lightSrcs@{lightSrcs}}
-\index{lightSrcs@{lightSrcs}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{lightSrcs}{lightSrcs}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_acd680aaec30aa7d73d912b1b8cef002d} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::light\+Srcs\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-\doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Light\+Sources section. 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00220}{220}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a74e5c98c5175321d776e1a0d0567701c}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!objects@{objects}}
-\index{objects@{objects}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{objects}{objects}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a74e5c98c5175321d776e1a0d0567701c} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::objects\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-\doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Objects section. 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00221}{221}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a2cfef433552659fa858f0fc554f687ff}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!root@{root}}
-\index{root@{root}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{root}{root}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_a2cfef433552659fa858f0fc554f687ff} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::root\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-root \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00218}{218}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_ab26fed9871c03b7498d72b6e11c17b2a}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!S@{S}}
 \index{S@{S}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
 \doxysubsubsection{\texorpdfstring{S}{S}}
@@ -258,21 +220,7 @@ the scene
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00216}{216}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_afa9884c2992d7fc0cd95c5adaed4370a}\index{GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}!scene@{scene}}
-\index{scene@{scene}!GOAT::XML::xmlWriter@{GOAT::XML::xmlWriter}}
-\doxysubsubsection{\texorpdfstring{scene}{scene}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_writer_afa9884c2992d7fc0cd95c5adaed4370a} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Writer\+::scene\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-\doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} Element to the Scene section. 
-
-
-
-Definition at line \mbox{\hyperlink{xml_8h_source_l00219}{219}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00267}{267}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 

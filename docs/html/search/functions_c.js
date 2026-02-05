@@ -35,5 +35,6 @@ var searchData=
   ['normalenform_32',['Normalenform',['../class_g_o_a_t_1_1raytracing_1_1_plane.html#aa76ff9dfaf7476080127bbe471966ea8',1,'GOAT::raytracing::Plane']]],
   ['normvol_33',['normVol',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a8267e3e562cb6c0f1bf529e8ce98c181',1,'GOAT::raytracing::tubedRay']]],
   ['nosurface_34',['nosurface',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a5ad87e8fcbae25bc4a6dd593eada7c24',1,'GOAT::raytracing::surface']]],
-  ['null_35',['null',['../namespace_g_o_a_t_1_1maths.html#a151155d7efac75db8f4d2b0f0b4c8627',1,'GOAT::maths']]]
+  ['null_35',['null',['../namespace_g_o_a_t_1_1maths.html#a151155d7efac75db8f4d2b0f0b4c8627',1,'GOAT::maths']]],
+  ['numberofthreads_36',['numberOfThreads',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#ae9634b8e0712fcf0b85363a63dda1058',1,'GOAT::raytracing::Kirchhoff']]]
 ];

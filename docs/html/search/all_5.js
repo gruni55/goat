@@ -47,11 +47,12 @@ var searchData=
   ['etheta_44',['etheta',['../namespace_g_o_a_t_1_1maths.html#a0b3b39eded5ee894cd1451263648d6ee',1,'GOAT::maths']]],
   ['evan_45',['evan',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ad9041c27a65236e8427b57f355d8c125',1,'GOAT::raytracing::GlobalParms']]],
   ['ex_46',['ex',['../vector_8h.html#aa39e54ccef74a255384ae21989f11022',1,'vector.h']]],
-  ['exp_47',['exp',['../class_g_o_a_t_1_1maths_1_1_vector.html#af27d3dbc56231c1030f868d162a327e9',1,'GOAT::maths::Vector']]],
-  ['exportexcitation_48',['exportExcitation',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a6fdb08a7e3cb36edd11dfab70569ca0b',1,'GOAT::raytracing::Raytrace_Inel::exportExcitation(std::string fname, int savetype=INEL_EXPORT_EXCITATION_FIELD_ABS)'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a6fdb08a7e3cb36edd11dfab70569ca0b',1,'GOAT::raytracing::Raytrace_Inel::exportExcitation(std::string fname, int savetype=INEL_EXPORT_EXCITATION_FIELD_ABS)']]],
-  ['exportsrf_49',['exportSRF',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867',1,'GOAT::raytracing::surface']]],
-  ['exy_50',['Exy',['../namespace_g_o_a_t_1_1raytracing.html#a5a279a8d429521b573b92ad894ecf6a9',1,'GOAT::raytracing']]],
-  ['exz_51',['Exz',['../namespace_g_o_a_t_1_1raytracing.html#afa2eec918e945f99918a6a2b23c2b4ca',1,'GOAT::raytracing']]],
-  ['ey_52',['ey',['../vector_8h.html#a56d8a5099eb4328d3a094331b89bc621',1,'vector.h']]],
-  ['ez_53',['ez',['../vector_8h.html#ae8cef987957a66194c27bf58d3f1b33e',1,'vector.h']]]
+  ['exec_47',['exec',['../class_g_o_a_t_1_1_x_m_l_1_1_calculator.html#a41ec4c1330132b6169f43828823f021d',1,'GOAT::XML::Calculator']]],
+  ['exp_48',['exp',['../class_g_o_a_t_1_1maths_1_1_vector.html#af27d3dbc56231c1030f868d162a327e9',1,'GOAT::maths::Vector']]],
+  ['exportexcitation_49',['exportExcitation',['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a6fdb08a7e3cb36edd11dfab70569ca0b',1,'GOAT::raytracing::Raytrace_Inel::exportExcitation(std::string fname, int savetype=INEL_EXPORT_EXCITATION_FIELD_ABS)'],['../class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a6fdb08a7e3cb36edd11dfab70569ca0b',1,'GOAT::raytracing::Raytrace_Inel::exportExcitation(std::string fname, int savetype=INEL_EXPORT_EXCITATION_FIELD_ABS)']]],
+  ['exportsrf_50',['exportSRF',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8eea2802e6b0951b6404858c55cd0867',1,'GOAT::raytracing::surface']]],
+  ['exy_51',['Exy',['../namespace_g_o_a_t_1_1raytracing.html#a5a279a8d429521b573b92ad894ecf6a9',1,'GOAT::raytracing']]],
+  ['exz_52',['Exz',['../namespace_g_o_a_t_1_1raytracing.html#afa2eec918e945f99918a6a2b23c2b4ca',1,'GOAT::raytracing']]],
+  ['ey_53',['ey',['../vector_8h.html#a56d8a5099eb4328d3a094331b89bc621',1,'vector.h']]],
+  ['ez_54',['ez',['../vector_8h.html#ae8cef987957a66194c27bf58d3f1b33e',1,'vector.h']]]
 ];

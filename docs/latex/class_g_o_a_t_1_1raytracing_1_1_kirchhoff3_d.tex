@@ -1,0 +1,206 @@
+\doxysection{GOAT\+::raytracing\+::Kirchhoff3D Class Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{}\label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+
+
+This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation especially for pulsed calculations. It needs a \doxylink{class_g_o_a_t_1_1raytracing_1_1_box}{Box} object to define the volume, where the field is calculated.  
+
+
+
+
+{\ttfamily \#include $<$kirchhoff.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a204010e518c11921c89f7955b234a97a}{add\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}det)
+\begin{DoxyCompactList}\small\item\em adds one detector as source \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a32644ddd8dbad3b027ab9708a5cd8372}{add\+Detector\+List}} (std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*} $>$ det\+List)
+\begin{DoxyCompactList}\small\item\em adds a list of detectors as sources \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aa08e3e5cda557f970fda6259ce7e6408}{calc}} (double wvl, int no\+Threads=8)
+\begin{DoxyCompactList}\small\item\em cleans the calculated field (sets all values to zero) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a6db99abae0547dc6e1bb581b46209821}{clean}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a04a272f847295d7529de99778ab4a3f0}{Kirchhoff3D}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_ad9bf3c194c92c8bb11996a79f8bad208}{box}}, int num\+Cells\+Per\+Dir)
+\begin{DoxyCompactList}\small\item\em constructor Constructs the \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{Kirchhoff3D} object with the box defining the calculation volume \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_af514a436f671b922b9d7e66c9a1412d9}{operator()}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} ix, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iy, \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} iz)
+\begin{DoxyCompactList}\small\item\em bracket operator to access the calculated field \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aac671c94d321223058c7effeb3b2f17e}{calc}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}det, double wvl, int num\+Threads, bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}}=true)
+\begin{DoxyCompactList}\small\item\em This method make the calculation With this method, the calculation of the Kirchhoff-\/integral will be performed for one detector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_ad9bf3c194c92c8bb11996a79f8bad208}{box}}
+\begin{DoxyCompactList}\small\item\em list of boxes defining the calculation volume \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_acf30a7efa8dc1c13c814b8eb0cf8e77f}{field3D}}
+\begin{DoxyCompactList}\small\item\em 3D array storing the calculated field \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a4f3d121a2f6180943bedf2e65656ceae}{sources}}
+\begin{DoxyCompactList}\small\item\em list of detectors acting as sources \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation especially for pulsed calculations. It needs a \doxylink{class_g_o_a_t_1_1raytracing_1_1_box}{Box} object to define the volume, where the field is calculated. 
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00064}{64}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a04a272f847295d7529de99778ab4a3f0}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!Kirchhoff3D@{Kirchhoff3D}}
+\index{Kirchhoff3D@{Kirchhoff3D}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{Kirchhoff3D()}{Kirchhoff3D()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a04a272f847295d7529de99778ab4a3f0} 
+GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::\+Kirchhoff3D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}} \texorpdfstring{$\ast$}{*}}]{box}{, }\item[{int}]{num\+Cells\+Per\+Dir}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+constructor Constructs the \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{Kirchhoff3D} object with the box defining the calculation volume 
+
+
+\begin{DoxyParams}{Parameters}
+{\em box} & \doxylink{class_g_o_a_t_1_1raytracing_1_1_box}{Box} object defining the calculation volume \\
+\hline
+{\em num\+Cells\+Per\+Dir} & number of cells per direction (the world koordinate system will be divided in num\+Cells\+Per\+Dir x num\+Cells\+Per\+Dir x num\+Cells\+Per\+Dir cells) constructor with the box defining the calculation volume \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a204010e518c11921c89f7955b234a97a}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!addDetector@{addDetector}}
+\index{addDetector@{addDetector}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{addDetector()}{addDetector()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a204010e518c11921c89f7955b234a97a} 
+void GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::add\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{det}{}\end{DoxyParamCaption})}
+
+
+
+adds one detector as source 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a32644ddd8dbad3b027ab9708a5cd8372}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!addDetectorList@{addDetectorList}}
+\index{addDetectorList@{addDetectorList}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{addDetectorList()}{addDetectorList()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a32644ddd8dbad3b027ab9708a5cd8372} 
+void GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::add\+Detector\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*} $>$}]{det\+List}{}\end{DoxyParamCaption})}
+
+
+
+adds a list of detectors as sources 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aac671c94d321223058c7effeb3b2f17e}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!calc@{calc}}
+\index{calc@{calc}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aac671c94d321223058c7effeb3b2f17e} 
+void GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{det}{, }\item[{double}]{wvl}{, }\item[{int}]{num\+Threads}{, }\item[{bool}]{clear}{ = {\ttfamily true}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+This method make the calculation With this method, the calculation of the Kirchhoff-\/integral will be performed for one detector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em det} & a pointer to the detector, which acts as the source \\
+\hline
+{\em clear} & if true, the field3D array will be cleared before calculation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aa08e3e5cda557f970fda6259ce7e6408}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!calc@{calc}}
+\index{calc@{calc}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_aa08e3e5cda557f970fda6259ce7e6408} 
+void GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::calc (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{int}]{no\+Threads}{ = {\ttfamily 8}}\end{DoxyParamCaption})}
+
+
+
+cleans the calculated field (sets all values to zero) 
+
+performs the calculation for the given wavelength wvl with no\+Threads threads \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a6db99abae0547dc6e1bb581b46209821}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!clean@{clean}}
+\index{clean@{clean}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{clean()}{clean()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a6db99abae0547dc6e1bb581b46209821} 
+void GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::clean (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00076}{76}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_af514a436f671b922b9d7e66c9a1412d9}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!operator()@{operator()}}
+\index{operator()@{operator()}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_af514a436f671b922b9d7e66c9a1412d9} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \& GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{ix}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iy}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}}]{iz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+bracket operator to access the calculated field 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ix} & index in x-\/direction \\
+\hline
+{\em iy} & index in y-\/direction \\
+\hline
+{\em iz} & index in z-\/direction \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00084}{84}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_ad9bf3c194c92c8bb11996a79f8bad208}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!box@{box}}
+\index{box@{box}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{box}{box}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_ad9bf3c194c92c8bb11996a79f8bad208} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box}{Box}}\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::box\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list of boxes defining the calculation volume 
+
+
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00094}{94}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_acf30a7efa8dc1c13c814b8eb0cf8e77f}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!field3D@{field3D}}
+\index{field3D@{field3D}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{field3D}{field3D}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_acf30a7efa8dc1c13c814b8eb0cf8e77f} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_super_array}{Super\+Array}}$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$ GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::field3D\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+3D array storing the calculated field 
+
+
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00096}{96}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a4f3d121a2f6180943bedf2e65656ceae}\index{GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}!sources@{sources}}
+\index{sources@{sources}!GOAT::raytracing::Kirchhoff3D@{GOAT::raytracing::Kirchhoff3D}}
+\doxysubsubsection{\texorpdfstring{sources}{sources}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d_a4f3d121a2f6180943bedf2e65656ceae} 
+std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}}\texorpdfstring{$\ast$}{*}$>$ GOAT\+::raytracing\+::\+Kirchhoff3\+D\+::sources\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+list of detectors acting as sources 
+
+
+
+Definition at line \mbox{\hyperlink{kirchhoff_8h_source_l00095}{95}} of file \mbox{\hyperlink{kirchhoff_8h_source}{kirchhoff.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{kirchhoff_8h}{kirchhoff.\+h}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_20structure_0',['Library Structure',['../index.html#autotoc_md3',1,'']]]
+  ['key_20features_0',['Key Features',['../index.html#autotoc_md2',1,'Key Features'],['../md__r_e_a_d_m_e.html#autotoc_md14',1,'Key Features']]]
 ];

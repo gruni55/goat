@@ -1,5 +1,7 @@
 var struct_g_o_a_t_1_1raytracing_1_1pulse_parameters =
 [
+    [ "numModes", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#aa5f4828f4de7f75667b1499f6ff20807", null ],
+    [ "numRays", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a93ff2a927e416b9e33389f36f0fb67b9", null ],
     [ "numReflex", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a30a2c5274a42768338e51c96537d9e4d", null ],
     [ "pulseWidth", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#ae8486c56144279680fc989773f82c40d", null ],
     [ "repRate", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a03653109fcb2da3489d6f40a917c92e0", null ],

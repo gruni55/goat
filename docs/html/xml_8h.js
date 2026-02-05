@@ -1,5 +1,8 @@
 var xml_8h =
 [
+    [ "GOAT::XML::calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job" ],
+    [ "GOAT::XML::calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param" ],
+    [ "GOAT::XML::pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms" ],
     [ "GOAT::XML::xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
     [ "GOAT::XML::xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ],
     [ "numXML_LS_TYPES", "xml_8h.html#ad729ba2c20589b0e82f26dfbcf07828e", null ],
@@ -15,6 +18,8 @@ var xml_8h =
     [ "XML_SCENE_NS", "xml_8h.html#af37556018c4f8a6f743828f76490e8ad", null ],
     [ "XML_SCENE_OBJECTS", "xml_8h.html#a98b0aea49e5b3ae1565d0f38ae8a29ff", null ],
     [ "XML_SCENE_R0", "xml_8h.html#ac66431455c885f4b8e77c99706c627f7", null ],
+    [ "GOAT::XML::parameterValue", "namespace_g_o_a_t_1_1_x_m_l.html#ae553187b28c4d8209c622029531c7946", null ],
+    [ "GOAT::XML::createXMLElementWithParam", "namespace_g_o_a_t_1_1_x_m_l.html#a3aa458142bce1724d9c0b530fda57f67", null ],
     [ "GOAT::XML::findExtension", "namespace_g_o_a_t_1_1_x_m_l.html#a609183d889d51dbdacec453d5d2dd13f", null ],
     [ "GOAT::XML::LSTYPES", "namespace_g_o_a_t_1_1_x_m_l.html#a2e2e6f4b5dc4d6302a3c4f9d2abff8ac", null ],
     [ "GOAT::XML::LSXMLAttributes", "namespace_g_o_a_t_1_1_x_m_l.html#aaf98f6e18eab176629a4332dd4bd1c6a", null ],

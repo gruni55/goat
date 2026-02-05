@@ -3,6 +3,9 @@ var hierarchy =
     [ "GOAT::raytracing::asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", null ],
     [ "GOAT::raytracing::asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", null ],
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Block", "structtinyxml2_1_1_mem_pool_t_1_1_block.html", null ],
+    [ "GOAT::XML::calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", null ],
+    [ "GOAT::XML::calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", null ],
+    [ "GOAT::XML::Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", null ],
     [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", [
@@ -18,6 +21,7 @@ var hierarchy =
     [ "GOAT::storage::IReader", "class_g_o_a_t_1_1storage_1_1_i_reader.html", null ],
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Item", "uniontinyxml2_1_1_mem_pool_t_1_1_item.html", null ],
     [ "GOAT::storage::IWriter", "class_g_o_a_t_1_1storage_1_1_i_writer.html", null ],
+    [ "GOAT::raytracing::Kirchhoff3D", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html", null ],
     [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", null ],
     [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
@@ -69,6 +73,7 @@ var hierarchy =
     ] ],
     [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
     [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ],
+    [ "GOAT::XML::pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", null ],
     [ "GOAT::raytracing::pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [

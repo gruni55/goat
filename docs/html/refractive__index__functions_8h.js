@@ -1,5 +1,7 @@
 var refractive__index__functions_8h =
 [
+    [ "GOAT::raytracing::cplx", "namespace_g_o_a_t_1_1raytracing.html#a62741f37aa1d810868fc4c60b9a202c7", null ],
+    [ "GOAT::raytracing::nFnPtr", "namespace_g_o_a_t_1_1raytracing.html#a844150dbdd173e5b32ad61f8e77a56ea", null ],
     [ "GOAT::raytracing::n_ABS", "namespace_g_o_a_t_1_1raytracing.html#ae4a60c62727d0f5c2c9bc11d3b72c844", null ],
     [ "GOAT::raytracing::n_Air", "namespace_g_o_a_t_1_1raytracing.html#a2be4834db583c1407765a36a7fe4e1bc", null ],
     [ "GOAT::raytracing::n_BK7", "namespace_g_o_a_t_1_1raytracing.html#a41e9823fd74c815082ed6de0958f8c14", null ],

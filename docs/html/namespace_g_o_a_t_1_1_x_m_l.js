@@ -1,8 +1,14 @@
 var namespace_g_o_a_t_1_1_x_m_l =
 [
+    [ "calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job" ],
+    [ "calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param" ],
+    [ "Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", "class_g_o_a_t_1_1_x_m_l_1_1_calculator" ],
+    [ "pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms" ],
     [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
     [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ],
+    [ "parameterValue", "namespace_g_o_a_t_1_1_x_m_l.html#ae553187b28c4d8209c622029531c7946", null ],
     [ "addFunction2IndexList", "namespace_g_o_a_t_1_1_x_m_l.html#a0a8ff46ee24452a295f4c81f6f78514e", null ],
+    [ "createXMLElementWithParam", "namespace_g_o_a_t_1_1_x_m_l.html#a3aa458142bce1724d9c0b530fda57f67", null ],
     [ "findExtension", "namespace_g_o_a_t_1_1_x_m_l.html#a609183d889d51dbdacec453d5d2dd13f", null ],
     [ "mapString2CalculationToken", "namespace_g_o_a_t_1_1_x_m_l.html#a8e15acb4a5efd7a716d2ef76e612f118", null ],
     [ "mapString2DetectorToken", "namespace_g_o_a_t_1_1_x_m_l.html#adf1b8d3a0604ae886b12d8132015564d", null ],

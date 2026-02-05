@@ -22,6 +22,7 @@ var annotated_dup =
         [ "indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", "struct_g_o_a_t_1_1raytracing_1_1index_list" ],
         [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", "class_g_o_a_t_1_1raytracing_1_1_i_ray" ],
         [ "Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff" ],
+        [ "Kirchhoff3D", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d" ],
         [ "lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", "struct_g_o_a_t_1_1raytracing_1_1lensa" ],
         [ "lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
         [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
@@ -84,6 +85,10 @@ var annotated_dup =
         [ "IWriter", "class_g_o_a_t_1_1storage_1_1_i_writer.html", "class_g_o_a_t_1_1storage_1_1_i_writer" ]
       ] ],
       [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [
+        [ "calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job" ],
+        [ "calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param" ],
+        [ "Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", "class_g_o_a_t_1_1_x_m_l_1_1_calculator" ],
+        [ "pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms" ],
         [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
         [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ]
       ] ]

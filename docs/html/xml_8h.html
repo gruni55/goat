@@ -106,11 +106,18 @@ $(function(){initNavTree('xml_8h.html','',''); });
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;locale&gt;</code><br />
 <code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;variant&gt;</code><br />
+<code>#include &quot;<a class="el" href="fft_8h_source.html">fft.h</a>&quot;</code><br />
 </div>
 <p><a href="xml_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
+<tr class="memitem:GOAT_3A_3AXML_3A_3AcalculationJob" id="r_GOAT_3A_3AXML_3A_3AcalculationJob"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html">GOAT::XML::calculationJob</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to store a calculation job type is the type of calculation (e.g. "pulse", "kirchhoff"), id is an optional identifier for the job.  <a href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html#details">More...</a><br /></td></tr>
+<tr class="memitem:GOAT_3A_3AXML_3A_3AcalculationParam" id="r_GOAT_3A_3AXML_3A_3AcalculationParam"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html">GOAT::XML::calculationParam</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to store a calculation parameter name is the name of the parameter, value is its value.  <a href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html#details">More...</a><br /></td></tr>
+<tr class="memitem:GOAT_3A_3AXML_3A_3ApulseJobParms" id="r_GOAT_3A_3AXML_3A_3ApulseJobParms"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html">GOAT::XML::pulseJobParms</a></td></tr>
 <tr class="memitem:GOAT_3A_3AXML_3A_3AxmlReader" id="r_GOAT_3A_3AXML_3A_3AxmlReader"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html">GOAT::XML::xmlReader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides functionality to read a XML-file This function reads the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a> file . It can also perform calculations. Beware: The parser is case sensitive. Element names starting with capital letters (except of "real" and "imag" for complex numbers), whereas values are always lower case The structure of the XML-File is as follows (the order of the subdivision may be changed): Signs: o: optional, n: necessary, i: independend parameters, i.e. this parameter is valid for all types Values: float: floating point number int: integer number bool: possible values: true or false.  <a href="class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#details">More...</a><br /></td></tr>
 <tr class="memitem:GOAT_3A_3AXML_3A_3AxmlWriter" id="r_GOAT_3A_3AXML_3A_3AxmlWriter"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html">GOAT::XML::xmlWriter</a></td></tr>
@@ -137,8 +144,14 @@ Macros</h2></td></tr>
 <tr class="memitem:a98b0aea49e5b3ae1565d0f38ae8a29ff" id="r_a98b0aea49e5b3ae1565d0f38ae8a29ff"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98b0aea49e5b3ae1565d0f38ae8a29ff">XML_SCENE_OBJECTS</a>&#160;&#160;&#160;4</td></tr>
 <tr class="memitem:ac66431455c885f4b8e77c99706c627f7" id="r_ac66431455c885f4b8e77c99706c627f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66431455c885f4b8e77c99706c627f7">XML_SCENE_R0</a>&#160;&#160;&#160;0</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ae553187b28c4d8209c622029531c7946" id="r_ae553187b28c4d8209c622029531c7946"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html#ae553187b28c4d8209c622029531c7946">GOAT::XML::parameterValue</a> = std::variant&lt;int, long long, double, bool, std::string&gt;</td></tr>
+<tr class="memdesc:ae553187b28c4d8209c622029531c7946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for parameter values.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a3aa458142bce1724d9c0b530fda57f67" id="r_a3aa458142bce1724d9c0b530fda57f67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html#a3aa458142bce1724d9c0b530fda57f67">GOAT::XML::createXMLElementWithParam</a> (<a class="el" href="classtinyxml2_1_1_x_m_l_document.html">tinyxml2::XMLDocument</a> &amp;doc, <a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *parent, const <a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html">calculationParam</a> &amp;param)</td></tr>
 <tr class="memitem:a609183d889d51dbdacec453d5d2dd13f" id="r_a609183d889d51dbdacec453d5d2dd13f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html#a609183d889d51dbdacec453d5d2dd13f">GOAT::XML::findExtension</a> (std::string fname, std::string extension)</td></tr>
 <tr class="memdesc:a609183d889d51dbdacec453d5d2dd13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">check if the fname has a given extension This function checks if the fname ends with a given extension  <br /></td></tr>
 </table><table class="memberdecls">
@@ -162,7 +175,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00032">32</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00074">74</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -178,7 +191,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00023">23</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00065">65</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +207,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00034">34</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00076">76</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -210,7 +223,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00036">36</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00078">78</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +239,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00033">33</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00075">75</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +255,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00035">35</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00077">77</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +271,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00024">24</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00066">66</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +287,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00030">30</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00072">72</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +303,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00028">28</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00070">70</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +319,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00027">27</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00069">69</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +335,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00026">26</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00068">68</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -338,7 +351,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00029">29</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00071">71</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -354,7 +367,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00025">25</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00067">67</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>

@@ -3,14 +3,29 @@
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}}
+\begin{DoxyCompactList}\small\item\em Structure to store a calculation job type is the type of calculation (e.\+g. "{}pulse"{}, "{}kirchhoff"{}), id is an optional identifier for the job. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_param}{calculation\+Param}}
+\begin{DoxyCompactList}\small\item\em Structure to store a calculation parameter name is the name of the parameter, value is its value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1_calculator}{Calculator}}
+\item 
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms}{pulse\+Job\+Parms}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader}{xml\+Reader}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to read a XML-\/file This function reads the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} file . It can also perform calculations. Beware\+: The parser is case sensitive. Element names starting with capital letters (except of "{}real"{} and "{}imag"{} for complex numbers), whereas values are always lower case The structure of the XML-\/\+File is as follows (the order of the subdivision may be changed)\+: Signs\+: o\+: optional, n\+: necessary, i\+: independend parameters, i.\+e. this parameter is valid for all types Values\+: float\+: floating point number int\+: integer number bool\+: possible values\+: true or false. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_writer}{xml\+Writer}}
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae553187b28c4d8209c622029531c7946}{parameter\+Value}} = std\+::variant$<$int, long long, double, bool, std\+::string$>$
+\begin{DoxyCompactList}\small\item\em Type for parameter values. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e}{add\+Function2\+Index\+List}} (std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \&n\+List, int ref\+Index\+Token)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a3aa458142bce1724d9c0b530fda57f67}{create\+XMLElement\+With\+Param}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&doc, \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}parent, const \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_param}{calculation\+Param}} \&param)
 \item 
 bool \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a609183d889d51dbdacec453d5d2dd13f}{find\+Extension}} (std\+::string fname, std\+::string extension)
 \begin{DoxyCompactList}\small\item\em check if the fname has a given extension This function checks if the fname ends with a given extension \end{DoxyCompactList}\item 
@@ -49,6 +64,25 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de
 \end{DoxyCompactItemize}
 
 
+\label{doc-typedef-members}
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae553187b28c4d8209c622029531c7946}\index{GOAT::XML@{GOAT::XML}!parameterValue@{parameterValue}}
+\index{parameterValue@{parameterValue}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{parameterValue}{parameterValue}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_ae553187b28c4d8209c622029531c7946} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae553187b28c4d8209c622029531c7946}{GOAT\+::\+XML\+::parameter\+Value}} = std\+::variant$<$int, long long, double, bool, std\+::string$>$}
+
+
+
+Type for parameter values. 
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00025}{25}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+
+
 \label{doc-func-members}
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_doc-func-members}
 \doxysubsection{Function Documentation}
@@ -57,6 +91,12 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de
 \doxysubsubsection{\texorpdfstring{addFunction2IndexList()}{addFunction2IndexList()}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a0a8ff46ee24452a295f4c81f6f78514e} 
 bool GOAT\+::\+XML\+::add\+Function2\+Index\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::function$<$ std\+::complex$<$ double $>$(double) $>$ $>$ \&}]{n\+List}{, }\item[{int}]{ref\+Index\+Token}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a3aa458142bce1724d9c0b530fda57f67}\index{GOAT::XML@{GOAT::XML}!createXMLElementWithParam@{createXMLElementWithParam}}
+\index{createXMLElementWithParam@{createXMLElementWithParam}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{createXMLElementWithParam()}{createXMLElementWithParam()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a3aa458142bce1724d9c0b530fda57f67} 
+void GOAT\+::\+XML\+::create\+XMLElement\+With\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \&}]{doc}{, }\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{parent}{, }\item[{const \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_param}{calculation\+Param}} \&}]{param}{}\end{DoxyParamCaption})}
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a609183d889d51dbdacec453d5d2dd13f}\index{GOAT::XML@{GOAT::XML}!findExtension@{findExtension}}
 \index{findExtension@{findExtension}!GOAT::XML@{GOAT::XML}}
@@ -161,7 +201,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSTYPES\mbox{[}$\,$\mbox{]} = \{ "{}plane
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00044}{44}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00086}{86}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\index{GOAT::XML@{GOAT::XML}!LSXMLAttributes@{LSXMLAttributes}}
 \index{LSXMLAttributes@{LSXMLAttributes}!GOAT::XML@{GOAT::XML}}
@@ -171,7 +211,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSXMLAttributes\mbox{[}$\,$\mbox{]} = \{ 
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00042}{42}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00084}{84}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}\index{GOAT::XML@{GOAT::XML}!LSXMLTYPES@{LSXMLTYPES}}
 \index{LSXMLTYPES@{LSXMLTYPES}!GOAT::XML@{GOAT::XML}}
@@ -181,7 +221,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSXMLTYPES\mbox{[}$\,$\mbox{]} = \{"{}pla
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00043}{43}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00085}{85}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}\index{GOAT::XML@{GOAT::XML}!objectToken@{objectToken}}
 \index{objectToken@{objectToken}!GOAT::XML@{GOAT::XML}}
@@ -211,5 +251,5 @@ const std\+::string GOAT\+::\+XML\+::scene\+XMLElements\mbox{[}$\,$\mbox{]} = \{
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00041}{41}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00083}{83}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 

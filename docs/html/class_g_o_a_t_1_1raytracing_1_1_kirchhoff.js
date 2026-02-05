@@ -1,8 +1,17 @@
 var class_g_o_a_t_1_1raytracing_1_1_kirchhoff =
 [
     [ "Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a577c31de400233ca9a16718a694d6a5f", null ],
-    [ "calc", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#ad590f1a60c528bb04496620c12945046", null ],
-    [ "point", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a068d7b5151b6924ee49abbb9131eed89", null ],
+    [ "addDetector", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#aaa4a7bfa41832845403980607bca0d9d", null ],
+    [ "addDetectorList", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#ab4cc537d8b8dd08328a230c810e7a322", null ],
+    [ "calc", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a162dceb936e5ff60be25c94bb49b1330", null ],
+    [ "calc", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a2ff92ef6b2d7fe7ade10979703d9895a", null ],
+    [ "calc", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a52acea0032198018fa72f98df79c41be", null ],
+    [ "clearSources", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a6d534194d15d0ea78b76d36207c4bff4", null ],
+    [ "delDetector", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#aef7cb5702d407553c6abe453ae93bd77", null ],
+    [ "numberOfThreads", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#ae9634b8e0712fcf0b85363a63dda1058", null ],
+    [ "setNumberOfThreads", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a21420efe7dd36601185f23380f2e8d40", null ],
     [ "k", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a3ad86fb7ca10a34f6765720c0a6e2145", null ],
+    [ "noThreads", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a72b299d95f8ad16f020dc90aa5ef5f67", null ],
+    [ "sources", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a972977d2a379f04b3c35d9e86ce062d8", null ],
     [ "wvl", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a6979539e7ae47b6af405d456b37fd5dd", null ]
 ];

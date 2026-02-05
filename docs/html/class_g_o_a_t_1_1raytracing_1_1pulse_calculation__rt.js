@@ -9,6 +9,7 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt =
     [ "setCenterWavelength", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#afdcbe6eaf47ef9269338222767a344ba", null ],
     [ "setDefaults", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a0a383bbe794a9933c660aa200401f094", null ],
     [ "setNumReflex", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a47a765e0f3700dd91f9a171502392d1e", null ],
+    [ "setNumWavelengthsPerRange", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a9dc800886a98d50e655fda0f0d6f5306", null ],
     [ "setPulseWidth", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a3f434f58827d536a89daa03645a741c0", null ],
     [ "setRefractiveIndexFunctions", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a8d674a98d13d747d23ac649122b00e78", null ],
     [ "setRepetitionRate", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a143a3f1aa84fd293b9503ccf6f627d45", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['index_5ftype_0',['INDEX_TYPE',['../namespace_g_o_a_t_1_1raytracing.html#a8b2f76584ad23aadae31780237b45e73',1,'GOAT::raytracing']]]
+  ['cplx_0',['cplx',['../namespace_g_o_a_t_1_1raytracing.html#a62741f37aa1d810868fc4c60b9a202c7',1,'GOAT::raytracing']]]
 ];

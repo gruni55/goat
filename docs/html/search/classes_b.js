@@ -7,5 +7,6 @@ var searchData=
   ['pulsecalculation_5ffield_4',['pulseCalculation_Field',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html',1,'GOAT::raytracing']]],
   ['pulsecalculation_5ffield_5',['pulseCalculation_field',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html',1,'GOAT::raytracing']]],
   ['pulsecalculation_5frt_6',['pulseCalculation_rt',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html',1,'GOAT::raytracing']]],
-  ['pulseparameters_7',['pulseParameters',['../struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html',1,'GOAT::raytracing']]]
+  ['pulsejobparms_7',['pulseJobParms',['../struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html',1,'GOAT::XML']]],
+  ['pulseparameters_8',['pulseParameters',['../struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html',1,'GOAT::raytracing']]]
 ];
