@@ -130,7 +130,9 @@ namespace GOAT
 		Kirchhoff3D::Kirchhoff3D(Box* box, int nn)
 		{
 			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, nn, nn, nn);
+			box->setActive(true);
 			field3D.addInc(box);
+			this->box = box;
 		}
 
 		void Kirchhoff3D::addDetector(DetectorPlane* det)

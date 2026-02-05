@@ -82,6 +82,10 @@ namespace GOAT
 			  * \param iz: index in z-direction
 			  */
 			  maths::Vector<std::complex<double>>& operator () (INDEX_TYPE ix, INDEX_TYPE iy, INDEX_TYPE iz) { return field3D(0, ix, iy, iz); }
+			  const SuperArray<maths::Vector<std::complex<double>>>& field() const {
+				  return field3D;
+			  }
+			  SuperArray<maths::Vector<std::complex<double>>> field3D; ///< 3D array storing the calculated field
 
 		  private:
 			  /**
@@ -93,7 +97,7 @@ namespace GOAT
 			  void calc(DetectorPlane* det, double wvl, int numThreads, bool clear = true);
 			  Box *box; ///< list of boxes defining the calculation volume
 			  std::vector<DetectorPlane*> sources; ///< list of detectors acting as sources
-			  SuperArray<maths::Vector<std::complex<double>>> field3D; ///< 3D array storing the calculated field
+			 
 		};
 	}
 }
