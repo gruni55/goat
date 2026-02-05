@@ -11,8 +11,8 @@ namespace GOAT
 
 		pulseCalculation_rt::pulseCalculation_rt(Scene S)
 		{
-			this->S = S;
 			setDefaults();
+			this->S = S;	
 		}
 
 		void pulseCalculation_rt::setDefaults()

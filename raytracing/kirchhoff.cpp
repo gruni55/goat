@@ -77,7 +77,7 @@ namespace GOAT
 					maths::Vector<double> P =
 						Pc + (i1 / (double)n1 - 0.5) * l1 * e1
 						   + (i2 / (double)n2  - 0.5) * l2 * e2;
-					Dref[i1][i2] += point(det, P);
+					Dref[i1][i2] += point(det, P, wvl);
 				}
 		}
 
@@ -87,7 +87,7 @@ namespace GOAT
 				calc(det,false);
 		}
 
-		maths::Vector<std::complex<double> > Kirchhoff::point(DetectorPlane* det, maths::Vector<double> P)
+		maths::Vector<std::complex<double> > point(DetectorPlane* det, maths::Vector<double> P, double wvl)
 		{
 			maths::Vector<double> R, Pc;
 			maths::Vector<double> d1, d2;
@@ -103,6 +103,7 @@ namespace GOAT
 			e1s /= abs(e1s);
 			auto e2s = det->gete2();
 			e2s /= abs(e2s);
+			double k = 2.0 * M_PI / wvl;
 			
 		//	std::cout << "n1=" << n1 << "\tn2=" << n2 << "\te1 = " << e1 << "\t d1 = " << d1 << "\t e2 = " << e2 << "\t d2 = " << d2 << "\tD1 = " << D1() << "\t D2 = " << D2() << std::endl;
 
@@ -125,5 +126,48 @@ namespace GOAT
 				}
 			return E;
 		}
-	}
-}
+
+		Kirchhoff3D::Kirchhoff3D(Box* box, int nn)
+		{
+			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, nn, nn, nn);
+			field3D.addInc(box);
+		}
+
+		void Kirchhoff3D::addDetector(DetectorPlane* det)
+		{
+			sources.push_back(det);
+		}
+
+		void Kirchhoff3D::addDetectorList(std::vector<DetectorPlane*> detList)
+		{
+			for (auto det : detList)
+				sources.push_back(det);
+		}
+
+		void Kirchhoff3D::calc(double wvl, int noThreads)
+		{
+			double k = 2.0 * M_PI / wvl;
+			for (auto det : sources)
+				calc(det, wvl,noThreads, false);
+		}
+
+		void Kirchhoff3D::calc(DetectorPlane* det, double wvl, int noThreads, bool clear)
+		{
+			if (clear) field3D.fill(maths::czero);
+			double d = box->r0 * 2.0 / (double)(field3D.nges[0] - 1);
+			maths::Vector<double> hd = box->d;
+			maths::Vector<double> Pc = box->P;
+			auto* field = &field3D;
+			for (auto det : sources)
+            #pragma omp parallel for collapse(3) schedule(static) default(none) shared(field,Pc,wvl,d,hd,det) num_threads(noThreads)
+			for (INDEX_TYPE ix=0; ix < field3D.n[0][0]; ix++)
+				for (INDEX_TYPE iy = 0; iy < field3D.n[0][1]; iy++)
+					for (INDEX_TYPE iz = 0; iz < field3D.n[0][2]; iz++)
+					{
+						maths::Vector<double> P = Pc + maths::Vector<double>((ix / (double)field3D.n[0][0] - 0.5) * hd[0], (iy / (double)field3D.n[0][1] - 0.5) * hd[1], (iz / (double)field3D.n[0][2] - 0.5) * hd[2]);
+						(*field)(0, ix, iy, iz) += point(det, P, wvl);
+					}
+		}
+
+	} // namespace raytracing
+} // namespace GOAT
