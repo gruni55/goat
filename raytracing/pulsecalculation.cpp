@@ -67,7 +67,7 @@ namespace GOAT
 		{
 			trafoparms.wvl = wvl;
 			trafoparms.omega0 = C_LIGHT_MU_FS / wvl * 2.0 * M_PI;
-                        calcTrafoParms();
+            calcTrafoParms();
 		}
 
 		void pulseCalculation::setBandwidth(double dWvl)
@@ -153,9 +153,6 @@ namespace GOAT
             std::cout << "% Domega=" << Domega << std::endl;
             std::cout << "% time=" << t << "fs" << std::endl;
 
-
-//			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
-//                        double Domega = 2.0 * M_PI * C_LIGHT_MU_FS dWvl / (trafoparms.wvl * trafoparms.wvl);
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega/2.0;
 			double omega;
