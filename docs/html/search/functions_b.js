@@ -17,5 +17,6 @@ var searchData=
   ['min3_14',['min3',['../namespace_g_o_a_t_1_1raytracing.html#abfc811755668dfce2bde8cdb2afc5f94',1,'GOAT::raytracing']]],
   ['minmax_15',['minmax',['../namespace_g_o_a_t_1_1raytracing.html#ab897ab2ef20c4648f524c0a62433fa36',1,'GOAT::raytracing::minmax(double a, double b)'],['../namespace_g_o_a_t_1_1raytracing.html#ac826726a7d875427f756221ffa734599',1,'GOAT::raytracing::minmax(double x, double dx, int &amp;min, int &amp;max)']]],
   ['movingavg_16',['movingAvg',['../namespace_g_o_a_t_1_1maths.html#ac142460e9abee07ad1aa82bab55908de',1,'GOAT::maths']]],
-  ['mult_17',['mult',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a725a427b1fe6e9de4976345629f0be62',1,'GOAT::raytracing::Detector']]]
+  ['mult_17',['mult',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a46b317068186af4bd36c38563ca89ce4',1,'GOAT::raytracing::Detector']]],
+  ['multalldetectors_18',['multAllDetectors',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a06df9cbd30c48e3d99880fc06615ebac',1,'GOAT::raytracing::Scene']]]
 ];

@@ -13,7 +13,7 @@ var class_g_o_a_t_1_1raytracing_1_1_detector =
     [ "gete2", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a506aa02007a25d4f4e5900878eaff8a1", null ],
     [ "init", "class_g_o_a_t_1_1raytracing_1_1_detector.html#aa0568bb93196cca1a1419ffff2c5a586", null ],
     [ "load", "class_g_o_a_t_1_1raytracing_1_1_detector.html#ae8191dfd76e1c12d3c203e35a24d771d", null ],
-    [ "mult", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a725a427b1fe6e9de4976345629f0be62", null ],
+    [ "mult", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a46b317068186af4bd36c38563ca89ce4", null ],
     [ "N1", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a2dabf05ac339477353ce7cb12f3285e7", null ],
     [ "N2", "class_g_o_a_t_1_1raytracing_1_1_detector.html#a876f56af1a2783b72d879f8b5c55496a", null ],
     [ "norm", "class_g_o_a_t_1_1raytracing_1_1_detector.html#ad94fb4c6954b3bb9bbdc46396eb1685b", null ],

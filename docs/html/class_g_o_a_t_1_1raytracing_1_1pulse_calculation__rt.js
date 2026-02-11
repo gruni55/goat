@@ -2,9 +2,14 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt =
 [
     [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a9e57f655c8087e61fb6827b3734f91a6", null ],
     [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#ab63a432e126cb7854540668a1387024f", null ],
+    [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a9e57f655c8087e61fb6827b3734f91a6", null ],
+    [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#ab63a432e126cb7854540668a1387024f", null ],
     [ "calcTrafoParms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#aed5d55f022d5a65a96c47ad781313a54", null ],
     [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a575386dab7671ef234d86be755073ea1", null ],
     [ "getNumCellsPerDirection", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a6c333a57d3fa0294fcd26e8ea5cf3b02", null ],
+    [ "initCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a63630b45b5a0ce0c44d740d82f3e73a4", null ],
+    [ "oneFrequency", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a38c5b51d56fbe20a2b1aba42bcb5b2b4", null ],
+    [ "oneFrequency", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a91f7cea20a96bcd6dbb53b49c715d7b2", null ],
     [ "setBandwidth", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a23cf0a3839e7ab17f472d5e644c272f5", null ],
     [ "setCenterWavelength", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#afdcbe6eaf47ef9269338222767a344ba", null ],
     [ "setDefaults", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a0a383bbe794a9933c660aa200401f094", null ],
@@ -21,5 +26,6 @@ var class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt =
     [ "numReflex", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a09418a2ba37b0d52d5b84b0ee8f875a6", null ],
     [ "rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#a3b45d14cc29969aecd6aaee432ed9334", null ],
     [ "S", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#aaaf7d6e88c0e1f1be5c6eba81dabf3ba", null ],
+    [ "sigma", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#aa073262ef0cbc0b85d04d681d2737129", null ],
     [ "trafoparms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html#ad5841ed58427890e7c3cd18c36697b74", null ]
 ];

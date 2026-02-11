@@ -41,6 +41,8 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
     [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],
     [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt" ],
+    [ "pulseCalculationBase", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base" ],
+    [ "pulseCalculationKirchhoff", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff" ],
     [ "pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters" ],
     [ "Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", "class_g_o_a_t_1_1raytracing_1_1_ray__pow" ],
     [ "RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", "class_g_o_a_t_1_1raytracing_1_1_ray_base" ],

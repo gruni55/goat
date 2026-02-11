@@ -6,6 +6,7 @@ var hierarchy =
     [ "GOAT::XML::calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", null ],
     [ "GOAT::XML::calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", null ],
     [ "GOAT::XML::Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", null ],
+    [ "GOAT::computeSettings", "struct_g_o_a_t_1_1compute_settings.html", null ],
     [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", [
@@ -72,7 +73,10 @@ var hierarchy =
       [ "GOAT::raytracing::pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", null ]
     ] ],
     [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
-    [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ],
+    [ "GOAT::raytracing::pulseCalculationBase", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html", [
+      [ "GOAT::raytracing::pulseCalculationKirchhoff", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff.html", null ],
+      [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ]
+    ] ],
     [ "GOAT::XML::pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", null ],
     [ "GOAT::raytracing::pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [

@@ -1,8 +1,10 @@
 var dir_19446fe9a19298740000c181fd65b800 =
 [
     [ "pulsecalc_with_template", "dir_f3b31d642f11f3bfc106bdf51eca694c.html", "dir_f3b31d642f11f3bfc106bdf51eca694c" ],
+    [ "sic", "dir_5466f186b356e453581a3aa4a9b56c79.html", "dir_5466f186b356e453581a3aa4a9b56c79" ],
     [ "asphericLens.h", "aspheric_lens_8h.html", "aspheric_lens_8h" ],
     [ "box.h", "box_8h.html", "box_8h" ],
+    [ "computeSettings.h", "compute_settings_8h.html", "compute_settings_8h" ],
     [ "cone.h", "cone_8h.html", "cone_8h" ],
     [ "constants.h", "constants_8h.html", "constants_8h" ],
     [ "cylinder.h", "cylinder_8h.html", "cylinder_8h" ],
@@ -24,7 +26,9 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "octree.h", "octree_8h.html", "octree_8h" ],
     [ "plane.h", "plane_8h.html", "plane_8h" ],
     [ "pulsecalculation.h", "pulsecalculation_8h.html", "pulsecalculation_8h" ],
+    [ "pulsecalculation_base.h", "pulsecalculation__base_8h.html", "pulsecalculation__base_8h" ],
     [ "pulsecalculation_field.h", "pulsecalculation__field_8h.html", "pulsecalculation__field_8h" ],
+    [ "pulsecalculation_kirchhoff.h", "raytracing_2pulsecalculation__kirchhoff_8h.html", "raytracing_2pulsecalculation__kirchhoff_8h" ],
     [ "pulsecalculation_rt.h", "pulsecalculation__rt_8h.html", "pulsecalculation__rt_8h" ],
     [ "ray_pow.h", "ray__pow_8h.html", "ray__pow_8h" ],
     [ "raybase.h", "raybase_8h.html", "raybase_8h" ],

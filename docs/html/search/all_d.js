@@ -34,6 +34,7 @@ var searchData=
   ['mode_31',['Mode',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54',1,'tinyxml2::StrPair::Mode'],['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54',1,'tinyxml2::StrPair::Mode']]],
   ['movingavg_32',['movingAvg',['../namespace_g_o_a_t_1_1maths.html#ac142460e9abee07ad1aa82bab55908de',1,'GOAT::maths']]],
   ['mu0_33',['mu0',['../namespace_g_o_a_t_1_1raytracing.html#ae5cf3649626c533161d7bd69c19f1ac9',1,'GOAT::raytracing']]],
-  ['mult_34',['mult',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a725a427b1fe6e9de4976345629f0be62',1,'GOAT::raytracing::Detector']]],
-  ['multi_35',['MULTI',['../resutil_8h.html#ac7b4d7c5e5a25aeee8c5b6b37f1d2ba6',1,'resutil.h']]]
+  ['mult_34',['mult',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a46b317068186af4bd36c38563ca89ce4',1,'GOAT::raytracing::Detector']]],
+  ['multalldetectors_35',['multAllDetectors',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a06df9cbd30c48e3d99880fc06615ebac',1,'GOAT::raytracing::Scene']]],
+  ['multi_36',['MULTI',['../resutil_8h.html#ac7b4d7c5e5a25aeee8c5b6b37f1d2ba6',1,'resutil.h']]]
 ];

@@ -1,0 +1,27 @@
+var class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base =
+[
+    [ "pulseCalculationBase", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a3ca4b15dfb0da59bc611b770f06309e5", null ],
+    [ "calcTrafoParms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a2210da558b891c655c3808847df477a3", null ],
+    [ "field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a2fc0162f8c02b4870e9a61b61412823d", null ],
+    [ "getNumCellsPerDirection", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#afa407ea922481b60d613796e152d7594", null ],
+    [ "initCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a3ccb5956d659a04fcd2e23d27a967e64", null ],
+    [ "oneFrequency", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a25ab6596262f62c4b4add1241674df82", null ],
+    [ "setBandwidth", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#aaf2c88f67c23a2439bc10d7bea58cb62", null ],
+    [ "setCenterWavelength", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#af38f8557fa1965c319c270e029d99729", null ],
+    [ "setComputeSettings", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a436f68089568f191f74eab7675f5d863", null ],
+    [ "setDefaults", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a3f17f1fa7d3875139e8b0cdb6190845c", null ],
+    [ "setNumReflex", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#af99e69cec9d37ffd34252403f3821821", null ],
+    [ "setNumWavelengthsPerRange", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#ace49a398b41d9926b989b3857f76dd8a", null ],
+    [ "setPulseWidth", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#abba48d5c7c9974eb1312d46379fbc87e", null ],
+    [ "setRefractiveIndexFunctions", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a6ce93a1e05e786dcaa790f7cdedfadb7", null ],
+    [ "setRepetitionRate", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a9a7c285924d5bf1af2330a9efb07f051", null ],
+    [ "setSpatialResolution", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a3ef639fb51c4d300a4b098636eeb3084", null ],
+    [ "setSpectralRanges", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#af0e1e03cd36f32f8b8a8de151677a5b3", null ],
+    [ "Domega", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#afd11da5bbe2c326c2db36a6cb19e40bb", null ],
+    [ "dWvl", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a37ca8b3deca9d98899f8007b89c42e81", null ],
+    [ "nn", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a3c099090ae74dfc3f8c9cd9127af3754", null ],
+    [ "numReflex", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#acdc7490b892b17c99d25bbff3314226c", null ],
+    [ "S", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a7ebee1f594f3b7e94e5d464c0d80981a", null ],
+    [ "settings", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#a8a777fd4521fca6828eaab1eeefd4a45", null ],
+    [ "trafoparms", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html#aa543ad74ca7a3219e9b5a0e0a9090499", null ]
+];
