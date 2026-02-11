@@ -66,7 +66,7 @@ namespace GOAT
 			return *this;
 		}
 
-		void Detector::mult(double fac)
+		void Detector::mult(std::complex<double> fac)
 		{
 			if (n1 > 0)
 			{

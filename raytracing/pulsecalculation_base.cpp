@@ -14,9 +14,9 @@ namespace GOAT
 	{
 	  trafoparms.dt = 100;
 	  trafoparms.wvl = 1.0;
-	  trafoparms.nI = 10;
+	  trafoparms.nI = 250;
 	  trafoparms.nR = 1;
-	  trafoparms.nS = 50;
+	  trafoparms.nS = 1;
 	  setPulseWidth(trafoparms.dt);
 	  setSpatialResolution(1.0);
 	  setCenterWavelength(trafoparms.wvl);

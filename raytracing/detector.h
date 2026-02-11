@@ -78,7 +78,7 @@ namespace GOAT
 		 * @brief Multiply with factor.
 		 * This functions multiplies all elements of the detector with the factor fac
 		 */
-		void mult(double fac); 
+		void mult(std::complex<double> fac); 
 		maths::Vector<double> gete1() { return e1; } ///< returns the direction of the first axis of the detector
 		maths::Vector<double> gete2() { return e2; } ///< returns the direction of the second axis of the detector
 	protected:

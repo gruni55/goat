@@ -570,6 +570,52 @@ namespace GOAT
 				for (int i = 0; i < nDet; i++) Det[i]->clean();
 		}
 
+		void Scene::addKirchhoff3D(Kirchhoff3D* K)
+		{
+			k3D.push_back(K);
+			nK3D++;
+		}
+
+		void Scene::addKirchhoff3DList(int nK3D, std::vector<Kirchhoff3D*> K)
+		{
+			for (auto k : K) addKirchhoff3D(k);
+		}
+
+		void Scene::removeKirchhoff3D(Kirchhoff3D* K)
+		{
+			for (std::vector<raytracing::Kirchhoff3D*>::iterator it = k3D.begin(); it != k3D.end(); ++it)
+				if (*it == K)
+				{
+					// delete* it;
+					k3D.erase(it);
+					break;
+				}
+			nK3D = k3D.size();			
+		}
+
+		void Scene::removeAllKirchhoff3D()
+		{
+			if (nK3D > 0)
+			{
+				/*for (int i = 0; i < nK3D; i++)
+					delete k3D[i];*/
+				k3D.clear();
+				k3D.shrink_to_fit();
+				nK3D = 0;
+			}
+		}
+
+		void Scene::removeKirchhoff3D(int index)
+		{
+			if ((index < nK3D) && (index >= 0))
+			{
+				for (int i = index; i < nK3D - 1; i++)
+					k3D[i] = k3D[i + 1];
+				nK3D--;
+				if (nK3D < 0) nK3D = 0;
+			}
+		}
+
 		void Scene::removeAllDetectors()
 		{
 			if (nDet > 0)
@@ -591,6 +637,13 @@ namespace GOAT
 				nDet--;
 				if (nDet < 0) nDet = 0;
 			}
+		}
+
+		void GOAT::raytracing::Scene::multAllDetectors(std::complex<double> factor)
+		{
+			if (nDet > 0)
+				for (int i = 0; i < nDet; i++)
+					Det[i]->mult(factor);
 		}
 
 
