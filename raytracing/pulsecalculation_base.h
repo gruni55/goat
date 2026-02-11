@@ -39,6 +39,7 @@ namespace GOAT
 		  void setNumWavelengthsPerRange(int nS); ///< sets the number of subdivision per spectral range. The spectral range is subdivided into nI spectral points, which are calculated separately. This parameter determines how many spectral points are calculated within each spectral range.
 		  void field(double t); ///< calculates the electric field at time t. 
 		  INDEX_TYPE getNumCellsPerDirection() { return nn; }  ///< returns the number of cells per direction, which is used for the calculation grid. The calculation grid is a square grid with nn x nn x nn cells, which covers the whole width of the calculation space (i.e. 2*r0).
+		  Scene S;
 
 	  protected:
 		  
@@ -50,7 +51,7 @@ namespace GOAT
 		  INDEX_TYPE  nn = 0;    ///< number of cells over the whole width of the calculation space (i.e. 2*r0).
 		  double dWvl = 0.02;  ///< spectral width of the light (default 20nm)
 		  double Domega = 0;  ///< spectral width in frequencies (unit: fs^-1)
-		  Scene S;
+		  
 		  computeSettings settings;
 	  };
    }

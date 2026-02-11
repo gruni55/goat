@@ -33,7 +33,21 @@ else()
 message (STATUS "create testKirchhoff3d WITHOUT OpenMP support")
 target_link_libraries (testKirchhoff3d goat_xml goat_raytracing goat_maths)
 endif()
-install(TARGETS testKirchhoff3d
+
+add_executable (testPulsedKirchhoff  "testPulsedKirchhoff.cpp")
+target_compile_definitions (testPulsedKirchhoff PUBLIC WITH_OCTREE WITH_SUPERGITTER)
+target_include_directories (testPulsedKirchhoff PUBLIC ${CMAKE_CURRENT_SOURCE} ../maths ../raytracing ../tinyxml2 ../XML)
+find_package (OpenMP)
+if (OpenMP_CXX_FOUND)
+message (STATUS "create testPulsedKirchhoff with OpenMP support")
+target_link_libraries (testPulsedKirchhoff  goat_xml goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)
+else()
+message (STATUS "create testKirchhoff3d WITHOUT OpenMP support")
+target_link_libraries (testPulsedKirchhoff goat_xml goat_raytracing goat_maths)
+endif()
+
+
+install(TARGETS testKirchhoff3d testPulsedKirchhoff
                 RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/$<CONFIG>
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}

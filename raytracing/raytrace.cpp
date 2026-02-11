@@ -695,6 +695,8 @@ namespace GOAT
 			suppress_phase_progress = S.suppress_phase_progress;
 			NumCellsPerDir = S.NumCellsPerDir;
 			nReflex = S.nReflex;
+			k3D = S.k3D;
+			nK3D = S.nK3D;
 		}
 
 		void Scene::setRaytype(int raytype)
