@@ -127,11 +127,12 @@ namespace GOAT
 			return E;
 		}
 
-		Kirchhoff3D::Kirchhoff3D(Box* box, int nn)
-		{
+		Kirchhoff3D::Kirchhoff3D(Box* box, INDEX_TYPE nn)
+		{		
 			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, nn, nn, nn);
 			box->setActive(true);
 			field3D.addInc(box);
+			fieldInitialized = true;
 			this->box = box;
 		}
 
@@ -146,6 +147,32 @@ namespace GOAT
 				sources.push_back(det);
 		}
 
+		void Kirchhoff3D::setR0(double r0)
+		{
+			if (r0 != box->r0)
+			{
+				box->r0 = r0;
+				std::cout << "[setR9]" << "\ttype=" << field3D.type << std::endl;
+
+				// field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
+				box->setActive(true);
+				field3D.reinit(r0, field3D.nges[0], field3D.nges[1], field3D.nges[2]);
+			}
+		}
+
+		void Kirchhoff3D::setNN(INDEX_TYPE nn)
+		{
+			std::cout << "[setNN]" << "\t nn=" << nn << "\ttype=" << field3D.type << std::endl;
+			field3D.setNumberOfCellsPerDirection(nn);
+			fieldInitialized = true;
+		}
+
+		void Kirchhoff3D::setSpatialResolution(double res)
+		{
+			INDEX_TYPE nn = (INDEX_TYPE)ceil(2.0 * box->r0 / res);
+			setNN(nn);
+		}
+
 		void Kirchhoff3D::calc(double wvl, int noThreads)
 		{
 			double k = 2.0 * M_PI / wvl;
@@ -155,6 +182,11 @@ namespace GOAT
 
 		void Kirchhoff3D::calc(DetectorPlane* det, double wvl, int noThreads, bool clear)
 		{
+			if (!fieldInitialized)
+			{
+				field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
+				fieldInitialized = true;
+			}
 			if (clear) field3D.fill(maths::czero);
 			double d = box->r0 * 2.0 / (double)(field3D.nges[0] - 1);
 			maths::Vector<double> hd = box->d;
@@ -162,13 +194,15 @@ namespace GOAT
 			auto* field = &field3D;
 			for (auto det : sources)
             #pragma omp parallel for collapse(3) schedule(static) default(none) shared(field,Pc,wvl,d,hd,det) num_threads(noThreads)
-			for (INDEX_TYPE ix=0; ix < field3D.n[0][0]; ix++)
-				for (INDEX_TYPE iy = 0; iy < field3D.n[0][1]; iy++)
-					for (INDEX_TYPE iz = 0; iz < field3D.n[0][2]; iz++)
+			for (INDEX_TYPE ix=0; ix < field->n[0][0]; ix++)
+				for (INDEX_TYPE iy = 0; iy < field->n[0][1]; iy++)
+				{
+					for (INDEX_TYPE iz = 0; iz < field->n[0][2]; iz++)
 					{
-						maths::Vector<double> P = Pc + maths::Vector<double>((ix / (double)field3D.n[0][0] - 0.5) * hd[0], (iy / (double)field3D.n[0][1] - 0.5) * hd[1], (iz / (double)field3D.n[0][2] - 0.5) * hd[2]);
+						maths::Vector<double> P = Pc + maths::Vector<double>((ix / (double)field->n[0][0] - 0.5) * hd[0], (iy / (double)field->n[0][1] - 0.5) * hd[1], (iz / (double)field->n[0][2] - 0.5) * hd[2]);
 						(*field)(0, ix, iy, iz) += point(det, P, wvl);
 					}
+				}
 		}
 
 	} // namespace raytracing

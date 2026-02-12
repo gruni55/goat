@@ -81,7 +81,14 @@ namespace GOAT
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
 			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
-			void setNumberOfCellsPerDirection(INDEX_TYPE no)  { NumCellsPerDir = no; }
+			void setNumberOfCellsPerDirection(INDEX_TYPE no)  
+			{ 
+				NumCellsPerDir = no;
+				for (auto& k : k3D)
+				{
+					k->setNN(NumCellsPerDir);
+				}
+			}
 		};
 
 

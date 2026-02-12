@@ -34,7 +34,7 @@ namespace GOAT
 			  void delDetector(DetectorPlane* det);
 			  void clearSources();
 			  void calc(bool clear = true);
-			  void setNumberOfThreads(int noThreads);
+			  void setNumberOfThreads(int noThreads);	
 			  int numberOfThreads() { return noThreads; }
 
 		private:
@@ -70,7 +70,10 @@ namespace GOAT
 			  * \param box: Box object defining the calculation volume
 			  * \param numCellsPerDir: number of cells per direction (the world koordinate system will be divided in numCellsPerDir x numCellsPerDir x numCellsPerDir cells)
 			  */
-			  explicit Kirchhoff3D(Box* box, int numCellsPerDir); ///< constructor with the box defining the calculation volume
+			  explicit Kirchhoff3D(Box* box, INDEX_TYPE numCellsPerDir); ///< constructor with the box defining the calculation volume
+			  void setR0(double r0); ///< sets the radius of the calculation sphere
+			  void setNN(INDEX_TYPE nn); ///< sets the number of cells per direction (the world koordinate system will be divided in nn x nn x nn cells)
+			  void setSpatialResolution(double res); ///< sets the spatial resolution (the length of the edge of one cell)
 			  void addDetector(DetectorPlane* det); ///< adds one detector as source
 			  void addDetectorList(std::vector<DetectorPlane*> detList); ///< adds a list of detectors as sources
 			  void clean() { field3D.fill(maths::czero); }; ///< cleans the calculated field (sets all values to zero)
@@ -97,6 +100,7 @@ namespace GOAT
 			  void calc(DetectorPlane* det, double wvl, int numThreads, bool clear = true);
 			  Box *box; ///< list of boxes defining the calculation volume
 			  std::vector<DetectorPlane*> sources; ///< list of detectors acting as sources
+			  bool fieldInitialized = false; ///< true, if the field3D array is initialized, otherwise false
 			 
 		};
 	}

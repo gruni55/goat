@@ -572,6 +572,7 @@ namespace GOAT
 
 		void Scene::addKirchhoff3D(Kirchhoff3D* K)
 		{
+			K->setR0(r0);
 			k3D.push_back(K);
 			nK3D++;
 		}
@@ -657,6 +658,10 @@ namespace GOAT
 			if (nObj > 0)
 				for (int i = 0; i < nObj; i++)
 					Obj[i]->setr0(r0);
+
+			if (nK3D > 0)
+				for (int i = 0; i < nK3D; i++)
+					k3D[i]->setR0(r0);
 		}
 
 		void Scene::setnS(std::complex<double> nS)

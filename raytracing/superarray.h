@@ -37,11 +37,10 @@ namespace GOAT
          SuperArray(const SuperArray& S)
          {
              Error = NO_ERRORS;
-             
              type = S.type;
              ywerte = S.ywerte;
              zwerte = S.zwerte;
-             numObjs = S.numObjs;
+             numObjs = S.numObjs;            
              Obj = S.Obj;
              G = S.G;
              K = S.K;
@@ -145,7 +144,7 @@ namespace GOAT
          int Error;  ///< Holds an error number 
          std::vector<ObjectShape*> Obj; ///< here are the objects
          int numObjs; ///< Number of objects
-         int type; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
+         int type=IN_OBJECT; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
          std::vector<int> ywerte;
          std::vector<std::vector<int> > zwerte;
          std::vector <std::vector <std::vector <std::vector <T> > > > G; ///< Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i
@@ -194,9 +193,7 @@ namespace GOAT
         R = maths::unity();
         Error = NO_ERRORS;
         numObjs = 0;
-        isequal = false;
-
-        type = IN_HOST;        
+        isequal = false;      
     }
 
     template <class T> SuperArray<T>::SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, const int typ)
@@ -297,10 +294,11 @@ namespace GOAT
         for (int i = 0; i < numObjs; i++)
         {
             Obj[i]->initQuad();
+			std::cout << "pul" << Obj[i]->pul << "\tpor=" << Obj[i]->por << "\td=" << d << std::endl;
 ;            h = ceil(ediv(Obj[i]->por, d)) - floor(ediv(Obj[i]->pul, d));
             hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
             n.push_back(hn);
-            
+			std::cout << "new  size n[" << i << "]=" << n[i][0] <<"," << n[i][1] << "," << n[i][2] << std::endl;
             h = floor(ediv(Obj[i]->pul + maths::Vector<double>(r0, r0, r0), d));
             Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
 

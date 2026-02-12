@@ -9,6 +9,14 @@ namespace GOAT
 	{
 	}
 
+	void pulseCalculationKirchhoff::setSpatialResolution(double dx)
+	{
+
+		pulseCalculationBase::setSpatialResolution(dx);
+	    S.setNumberOfCellsPerDirection(nn);
+		
+	}
+
 	void pulseCalculationKirchhoff::initCalculation(double& omegaStart, double& domega)  
 	{
 		pulseCalculationBase::initCalculation(omegaStart, domega);
@@ -38,15 +46,16 @@ namespace GOAT
 
 		for (int i = 0; i < S.nLS; i++)
 			rt.S.LS[i]->setWavelength(wvl);
-
+		std::cout << "Raytracing for frequency " << omega << " (wavelength " << wvl << " um) with weight " << weight << std::endl;
 		rt.trace();
+		//rt.S.Det[0]->save("C:\\tmp\\test.dat");
 		rt.S.multAllDetectors(weight);
-
+		std::cout << "Raytracing finished for frequency " << omega << std::endl;
 		for (int i = 0; i < rt.S.nK3D; i++)
 		{
 			rt.S.k3D[i]->calc(wvl);
 		}
-
+		
 
 	}
   }
