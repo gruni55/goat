@@ -20,9 +20,9 @@ namespace GOAT
 	void pulseCalculationKirchhoff::initCalculation(double& omegaStart, double& domega)  
 	{
 		pulseCalculationBase::initCalculation(omegaStart, domega);
-		rt = Raytrace_pure(S);
+		rt = Raytrace_pure(S);	
 		rt.setNumReflex(numReflex);
-		sigma = trafoparms.dt / (2.0 * M_LN2);
+		sigma = 2.3548 / trafoparms.dt;
 	}
 
 	void pulseCalculationKirchhoff::oneFrequency(double t, double omega, double omega0)
@@ -53,7 +53,7 @@ namespace GOAT
 		std::cout << "Raytracing finished for frequency " << omega << std::endl;
 		for (int i = 0; i < rt.S.nK3D; i++)
 		{
-			rt.S.k3D[i]->calc(wvl);
+			rt.S.k3D[i]->calc(wvl,settings.numThreads);
 		}
 		
 
