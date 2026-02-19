@@ -22,7 +22,7 @@ namespace GOAT
 		pulseCalculationBase::initCalculation(omegaStart, domega);
 		rt = Raytrace_pure(S);	
 		rt.setNumReflex(numReflex);
-		sigma = 2.3548 / trafoparms.dt;
+		sigma = 0.4247 * trafoparms.dt;
 	}
 
 	void pulseCalculationKirchhoff::oneFrequency(double t, double omega, double omega0)
