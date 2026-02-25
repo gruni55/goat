@@ -99,7 +99,7 @@ $(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_detector.html','','cla
 </div><!--header-->
 <div class="contents">
 
-<p>The abstract <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a> class provides an interface to a detector to store the information about the electric field into any kind of an array.  
+<p>The abstract <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a> class provides an interface to a detector to store the information about the electric field into any kind of an array. The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-ID, which can be set.  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="detector_8h_source.html">detector.h</a>&gt;</code></p>
@@ -134,6 +134,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae19029fb403fce9ca274c7b92364446a"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the direction of the first axis of the detector  <br /></td></tr>
 <tr class="memitem:a506aa02007a25d4f4e5900878eaff8a1" id="r_a506aa02007a25d4f4e5900878eaff8a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a506aa02007a25d4f4e5900878eaff8a1">gete2</a> ()</td></tr>
 <tr class="memdesc:a506aa02007a25d4f4e5900878eaff8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the direction of the second axis of the detector  <br /></td></tr>
+<tr class="memitem:a26280c1b6639c43fc2419ed84ba9de47" id="r_a26280c1b6639c43fc2419ed84ba9de47"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26280c1b6639c43fc2419ed84ba9de47">getID</a> ()</td></tr>
+<tr class="memdesc:a26280c1b6639c43fc2419ed84ba9de47"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the ID  <br /></td></tr>
 <tr class="memitem:ae8191dfd76e1c12d3c203e35a24d771d" id="r_ae8191dfd76e1c12d3c203e35a24d771d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8191dfd76e1c12d3c203e35a24d771d">load</a> (const char *fn)</td></tr>
 <tr class="memitem:a46b317068186af4bd36c38563ca89ce4" id="r_a46b317068186af4bd36c38563ca89ce4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b317068186af4bd36c38563ca89ce4">mult</a> (std::complex&lt; double &gt; fac)</td></tr>
 <tr class="memdesc:a46b317068186af4bd36c38563ca89ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multiply with factor. This functions multiplies all elements of the detector with the factor fac.  <br /></td></tr>
@@ -159,8 +161,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac78aec259b6fc6054ade98ee0df25fd" id="r_aac78aec259b6fc6054ade98ee0df25fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac78aec259b6fc6054ade98ee0df25fd">savereal</a> (const char *fn, int coord)</td></tr>
 <tr class="memdesc:aac78aec259b6fc6054ade98ee0df25fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn  <br /></td></tr>
 <tr class="memitem:a23c60cca93a507728f03ddd6bea19d05" id="r_a23c60cca93a507728f03ddd6bea19d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a23c60cca93a507728f03ddd6bea19d05">setD</a> (double <a class="el" href="#a18c46be7144806786003eaef47815a6d">d1</a>, double <a class="el" href="#aa849a37f952c61892592136249433a3c">d2</a>)</td></tr>
+<tr class="memdesc:a23c60cca93a507728f03ddd6bea19d05"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the length in the first direction (D1) and in the second direction (D2)  <br /></td></tr>
 <tr class="memitem:a940f7722f5b1f317ac7fadb82d5e7661" id="r_a940f7722f5b1f317ac7fadb82d5e7661"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a940f7722f5b1f317ac7fadb82d5e7661">setD1</a> (double <a class="el" href="#a18c46be7144806786003eaef47815a6d">d1</a>)</td></tr>
+<tr class="memdesc:a940f7722f5b1f317ac7fadb82d5e7661"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the length in the first direction  <br /></td></tr>
 <tr class="memitem:ad64bd58e4e0d079d08228f4e4d191062" id="r_ad64bd58e4e0d079d08228f4e4d191062"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad64bd58e4e0d079d08228f4e4d191062">setD2</a> (double <a class="el" href="#aa849a37f952c61892592136249433a3c">d2</a>)</td></tr>
+<tr class="memdesc:ad64bd58e4e0d079d08228f4e4d191062"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the length in the second direction  <br /></td></tr>
+<tr class="memitem:a98cdddc32c89b8d66850aec99b0af3b1" id="r_a98cdddc32c89b8d66850aec99b0af3b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98cdddc32c89b8d66850aec99b0af3b1">setID</a> (std::string <a class="el" href="#ae52723a74ef3475e0be83decf5b66e34">ID</a>)</td></tr>
+<tr class="memdesc:a98cdddc32c89b8d66850aec99b0af3b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the ID string  <br /></td></tr>
 <tr class="memitem:a2d0cb522695f25496d2ed8ebdbf34429" id="r_a2d0cb522695f25496d2ed8ebdbf34429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d0cb522695f25496d2ed8ebdbf34429">setN</a> (int <a class="el" href="#a16b6bbd23d51a516645b632346736183">n1</a>, int <a class="el" href="#add8a7e7dfcea189813df617c6b2d7b43">n2</a>)</td></tr>
 <tr class="memdesc:a2d0cb522695f25496d2ed8ebdbf34429"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the dimensions of the array  <br /></td></tr>
 <tr class="memitem:aa69da6ceb5e9940fcbd9f0170e65f6ec" id="r_aa69da6ceb5e9940fcbd9f0170e65f6ec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa69da6ceb5e9940fcbd9f0170e65f6ec">setN1</a> (int <a class="el" href="#a16b6bbd23d51a516645b632346736183">n1</a>)</td></tr>
@@ -192,6 +199,7 @@ Protected Attributes</h2></td></tr>
 <tr class="memdesc:a6b1044d35d59ba1f071c5c6f369ff61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">unit vector in the first direction  <br /></td></tr>
 <tr class="memitem:a69f64b412ca29d16aa3633ce54f4272c" id="r_a69f64b412ca29d16aa3633ce54f4272c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69f64b412ca29d16aa3633ce54f4272c">e2</a></td></tr>
 <tr class="memdesc:a69f64b412ca29d16aa3633ce54f4272c"><td class="mdescLeft">&#160;</td><td class="mdescRight">unit vector in the second direction  <br /></td></tr>
+<tr class="memitem:ae52723a74ef3475e0be83decf5b66e34" id="r_ae52723a74ef3475e0be83decf5b66e34"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae52723a74ef3475e0be83decf5b66e34">ID</a> = &quot;Detector&quot;</td></tr>
 <tr class="memitem:a05ff56a1899ade06c3e858ea32e32c03" id="r_a05ff56a1899ade06c3e858ea32e32c03"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05ff56a1899ade06c3e858ea32e32c03">n</a></td></tr>
 <tr class="memitem:a16b6bbd23d51a516645b632346736183" id="r_a16b6bbd23d51a516645b632346736183"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16b6bbd23d51a516645b632346736183">n1</a> =0</td></tr>
 <tr class="memitem:add8a7e7dfcea189813df617c6b2d7b43" id="r_add8a7e7dfcea189813df617c6b2d7b43"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add8a7e7dfcea189813df617c6b2d7b43">n2</a> =0</td></tr>
@@ -205,9 +213,10 @@ Friends</h2></td></tr>
 <tr class="memitem:a4c7f44d09a8498820a320c94e4c9d023" id="r_a4c7f44d09a8498820a320c94e4c9d023"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c7f44d09a8498820a320c94e4c9d023">operator&lt;&lt;</a> (std::ostream &amp;os, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html">Detector</a> &amp;<a class="el" href="#ad45fbe223785c0540662f0e47cda9e23">D</a>)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The abstract <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a> class provides an interface to a detector to store the information about the electric field into any kind of an array. </p>
+<div class="textblock"><p>The abstract <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a> class provides an interface to a detector to store the information about the electric field into any kind of an array. The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-ID, which can be set. </p>
+<dl class="section note"><dt>Note</dt><dd>{It should therefore be unique. At the moment, uniqueness is not yet checked. When using a class derived from the detector class in the kirchhoff class, the ID has to be unique !} </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00022">22</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00026">26</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a89412ac932f962c93f6768e00acb167a" name="a89412ac932f962c93f6768e00acb167a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89412ac932f962c93f6768e00acb167a">&#9670;&#160;</a></span>Detector() <span class="overload">[1/3]</span></h2>
@@ -444,7 +453,7 @@ Friends</h2></td></tr>
 
 <p>returns the direction of the first axis of the detector </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00082">82</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00086">86</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -473,7 +482,26 @@ Friends</h2></td></tr>
 
 <p>returns the direction of the second axis of the detector </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00083">83</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00087">87</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+
+</div>
+</div>
+<a id="a26280c1b6639c43fc2419ed84ba9de47" name="a26280c1b6639c43fc2419ed84ba9de47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26280c1b6639c43fc2419ed84ba9de47">&#9670;&#160;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GOAT::raytracing::Detector::getID </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the ID </p>
 
 </div>
 </div>
@@ -608,7 +636,7 @@ Friends</h2></td></tr>
 
 <p>returns the normal vector of the detectors surface </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00074">74</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00078">78</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -641,7 +669,7 @@ Friends</h2></td></tr>
 
 <p>bracket operator which gives the content inside the array determined by the indices i1 and i2 </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00029">29</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00033">33</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -687,7 +715,7 @@ Friends</h2></td></tr>
 
 <p>returns the position of the detector </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00073">73</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00077">77</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -817,6 +845,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>set the length in the first direction (D1) and in the second direction (D2) </p>
+
 </div>
 </div>
 <a id="a940f7722f5b1f317ac7fadb82d5e7661" name="a940f7722f5b1f317ac7fadb82d5e7661"></a>
@@ -834,6 +864,8 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>set the length in the first direction </p>
+
 </div>
 </div>
 <a id="ad64bd58e4e0d079d08228f4e4d191062" name="ad64bd58e4e0d079d08228f4e4d191062"></a>
@@ -850,6 +882,27 @@ Friends</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>set the length in the second direction </p>
+
+</div>
+</div>
+<a id="a98cdddc32c89b8d66850aec99b0af3b1" name="a98cdddc32c89b8d66850aec99b0af3b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98cdddc32c89b8d66850aec99b0af3b1">&#9670;&#160;</a></span>setID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::Detector::setID </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>ID</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the ID string </p>
 
 </div>
 </div>
@@ -939,7 +992,7 @@ Friends</h2></td></tr>
 
 <p>set the position of the detector </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00049">49</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00053">53</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -968,7 +1021,7 @@ Friends</h2></td></tr>
 
 <p>returns kind of detector </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00059">59</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00063">63</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -996,7 +1049,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00093">93</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00097">97</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1044,7 +1097,7 @@ Friends</h2></td></tr>
 
 <p>Here, the data will be stored. </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00071">71</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00075">75</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1068,7 +1121,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00090">90</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00094">94</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1092,7 +1145,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00090">90</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00094">94</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1118,7 +1171,7 @@ Friends</h2></td></tr>
 
 <p>unit vector in the first direction </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00085">85</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00089">89</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1144,7 +1197,7 @@ Friends</h2></td></tr>
 
 <p>unit vector in the second direction </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00086">86</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00090">90</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1160,7 +1213,31 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00076">76</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00080">80</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+
+</div>
+</div>
+<a id="ae52723a74ef3475e0be83decf5b66e34" name="ae52723a74ef3475e0be83decf5b66e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52723a74ef3475e0be83decf5b66e34">&#9670;&#160;</a></span>ID</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GOAT::raytracing::Detector::ID = &quot;Detector&quot;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00098">98</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1184,7 +1261,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00088">88</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00092">92</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1208,7 +1285,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00091">91</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00095">95</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1232,7 +1309,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00091">91</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00095">95</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1258,7 +1335,7 @@ Friends</h2></td></tr>
 
 <p>Position of the detector. </p>
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00087">87</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00091">91</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>
@@ -1282,7 +1359,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00092">92</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00096">96</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
 
 </div>
 </div>

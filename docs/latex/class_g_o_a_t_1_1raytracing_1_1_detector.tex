@@ -2,7 +2,7 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector}{}\label{class_g_o_a_t_1_1raytracing_1_1_detector}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
 
 
-The abstract \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector} class provides an interface to a detector to store the information about the electric field into any kind of an array.  
+The abstract \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector} class provides an interface to a detector to store the information about the electric field into any kind of an array. The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-\/\+ID, which can be set.  
 
 
 
@@ -38,6 +38,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ad2171375ff2757
 \begin{DoxyCompactList}\small\item\em returns the direction of the first axis of the detector \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a506aa02007a25d4f4e5900878eaff8a1}{gete2}} ()
 \begin{DoxyCompactList}\small\item\em returns the direction of the second axis of the detector \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a26280c1b6639c43fc2419ed84ba9de47}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em returns the ID \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ae8191dfd76e1c12d3c203e35a24d771d}{load}} (const char \texorpdfstring{$\ast$}{*}fn)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a46b317068186af4bd36c38563ca89ce4}{mult}} (std\+::complex$<$ double $>$ fac)
@@ -65,11 +67,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a496e1d121a74344d
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aac78aec259b6fc6054ade98ee0df25fd}{savereal}} (const char \texorpdfstring{$\ast$}{*}fn, int coord)
 \begin{DoxyCompactList}\small\item\em stores the content (real part of one component of the the electric field, coord determines the coordinate 0,1,2 for x,y,z) of the detector array in the file fn \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a23c60cca93a507728f03ddd6bea19d05}{setD}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a18c46be7144806786003eaef47815a6d}{d1}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61892592136249433a3c}{d2}})
-\item 
+\begin{DoxyCompactList}\small\item\em set the length in the first direction (D1) and in the second direction (D2) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a940f7722f5b1f317ac7fadb82d5e7661}{set\+D1}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a18c46be7144806786003eaef47815a6d}{d1}})
-\item 
+\begin{DoxyCompactList}\small\item\em set the length in the first direction \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ad64bd58e4e0d079d08228f4e4d191062}{set\+D2}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61892592136249433a3c}{d2}})
-\item 
+\begin{DoxyCompactList}\small\item\em set the length in the second direction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a98cdddc32c89b8d66850aec99b0af3b1}{set\+ID}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ae52723a74ef3475e0be83decf5b66e34}{ID}})
+\begin{DoxyCompactList}\small\item\em set the ID string \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a2d0cb522695f25496d2ed8ebdbf34429}{setN}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}{n2}})
 \begin{DoxyCompactList}\small\item\em set the dimensions of the array \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa69da6ceb5e9940fcbd9f0170e65f6ec}{set\+N1}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}})
@@ -105,6 +109,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61
 \begin{DoxyCompactList}\small\item\em unit vector in the first direction \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a69f64b412ca29d16aa3633ce54f4272c}{e2}}
 \begin{DoxyCompactList}\small\item\em unit vector in the second direction \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ae52723a74ef3475e0be83decf5b66e34}{ID}} = "{}Detector"{}
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}} =0
@@ -125,9 +131,14 @@ std\+::ostream \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a4c7
 
 
 \doxysubsection{Detailed Description}
-The abstract \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector} class provides an interface to a detector to store the information about the electric field into any kind of an array. 
+The abstract \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector} class provides an interface to a detector to store the information about the electric field into any kind of an array. The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-\/\+ID, which can be set. 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00022}{22}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+\begin{DoxyNote}{Note}
+\{It should therefore be unique. At the moment, uniqueness is not yet checked. When using a class derived from the detector class in the kirchhoff class, the ID has to be unique !\} 
+\end{DoxyNote}
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00026}{26}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 
 
@@ -249,7 +260,7 @@ returns the direction of the first axis of the detector
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00082}{82}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00086}{86}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a506aa02007a25d4f4e5900878eaff8a1}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!gete2@{gete2}}
 \index{gete2@{gete2}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -263,7 +274,17 @@ returns the direction of the second axis of the detector
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00083}{83}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00087}{87}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a26280c1b6639c43fc2419ed84ba9de47}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!getID@{getID}}
+\index{getID@{getID}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
+\doxysubsubsection{\texorpdfstring{getID()}{getID()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_a26280c1b6639c43fc2419ed84ba9de47} 
+std\+::string GOAT\+::raytracing\+::\+Detector\+::get\+ID (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+returns the ID 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_aa0568bb93196cca1a1419ffff2c5a586}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!init@{init}}
 \index{init@{init}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -323,7 +344,7 @@ returns the normal vector of the detectors surface
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00074}{74}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00078}{78}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_af5d01033606a9ea685f8ae620758452a}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!operator()@{operator()}}
 \index{operator()@{operator()}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -337,7 +358,7 @@ bracket operator which gives the content inside the array determined by the indi
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00029}{29}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00033}{33}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a72fe59ca71c1d40a883dce12101e533c}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!operator=@{operator=}}
 \index{operator=@{operator=}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -357,7 +378,7 @@ returns the position of the detector
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00073}{73}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00077}{77}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a0223428862dee5f02b62120ef6c2aba4}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!save@{save}}
 \index{save@{save}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -415,17 +436,39 @@ stores the content (real part of one component of the the electric field, coord 
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_a23c60cca93a507728f03ddd6bea19d05} 
 void GOAT\+::raytracing\+::\+Detector\+::setD (\begin{DoxyParamCaption}\item[{double}]{d1}{, }\item[{double}]{d2}{}\end{DoxyParamCaption})}
 
+
+
+set the length in the first direction (D1) and in the second direction (D2) 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a940f7722f5b1f317ac7fadb82d5e7661}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!setD1@{setD1}}
 \index{setD1@{setD1}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
 \doxysubsubsection{\texorpdfstring{setD1()}{setD1()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_a940f7722f5b1f317ac7fadb82d5e7661} 
 void GOAT\+::raytracing\+::\+Detector\+::set\+D1 (\begin{DoxyParamCaption}\item[{double}]{d1}{}\end{DoxyParamCaption})}
 
+
+
+set the length in the first direction 
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_ad64bd58e4e0d079d08228f4e4d191062}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!setD2@{setD2}}
 \index{setD2@{setD2}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
 \doxysubsubsection{\texorpdfstring{setD2()}{setD2()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_ad64bd58e4e0d079d08228f4e4d191062} 
 void GOAT\+::raytracing\+::\+Detector\+::set\+D2 (\begin{DoxyParamCaption}\item[{double}]{d2}{}\end{DoxyParamCaption})}
+
+
+
+set the length in the second direction 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a98cdddc32c89b8d66850aec99b0af3b1}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!setID@{setID}}
+\index{setID@{setID}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
+\doxysubsubsection{\texorpdfstring{setID()}{setID()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_a98cdddc32c89b8d66850aec99b0af3b1} 
+void GOAT\+::raytracing\+::\+Detector\+::set\+ID (\begin{DoxyParamCaption}\item[{std\+::string}]{ID}{}\end{DoxyParamCaption})}
+
+
+
+set the ID string 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a2d0cb522695f25496d2ed8ebdbf34429}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!setN@{setN}}
 \index{setN@{setN}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -469,7 +512,7 @@ set the position of the detector
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00049}{49}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00053}{53}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a9476d139164eb92ec5f9d5af8b1ccbe8}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!Type@{Type}}
 \index{Type@{Type}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -483,7 +526,7 @@ returns kind of detector
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00059}{59}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00063}{63}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 
 
@@ -498,7 +541,7 @@ friend class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{De
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00093}{93}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00097}{97}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a4c7f44d09a8498820a320c94e4c9d023}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -523,7 +566,7 @@ Here, the data will be stored.
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00071}{71}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00075}{75}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a18c46be7144806786003eaef47815a6d}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!d1@{d1}}
 \index{d1@{d1}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -533,7 +576,7 @@ double GOAT\+::raytracing\+::\+Detector\+::d1 =0\hspace{0.3cm}{\ttfamily [protec
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00090}{90}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00094}{94}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61892592136249433a3c}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!d2@{d2}}
 \index{d2@{d2}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -543,7 +586,7 @@ double GOAT\+::raytracing\+::\+Detector\+::d2 =0\hspace{0.3cm}{\ttfamily [protec
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00090}{90}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00094}{94}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a6b1044d35d59ba1f071c5c6f369ff61e}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!e1@{e1}}
 \index{e1@{e1}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -557,7 +600,7 @@ unit vector in the first direction
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00085}{85}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00089}{89}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a69f64b412ca29d16aa3633ce54f4272c}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!e2@{e2}}
 \index{e2@{e2}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -571,7 +614,7 @@ unit vector in the second direction
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00086}{86}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00090}{90}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a2f34cd660fc7aae58967c4e27f941dd1}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!fname@{fname}}
 \index{fname@{fname}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -581,7 +624,17 @@ std\+::string GOAT\+::raytracing\+::\+Detector\+::fname}
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00076}{76}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00080}{80}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_ae52723a74ef3475e0be83decf5b66e34}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!ID@{ID}}
+\index{ID@{ID}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_ae52723a74ef3475e0be83decf5b66e34} 
+std\+::string GOAT\+::raytracing\+::\+Detector\+::\+ID = "{}Detector"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00098}{98}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!n@{n}}
 \index{n@{n}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -591,7 +644,7 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00076}{76}} of file \mbo
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00088}{88}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00092}{92}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!n1@{n1}}
 \index{n1@{n1}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -601,7 +654,7 @@ int GOAT\+::raytracing\+::\+Detector\+::n1 =0\hspace{0.3cm}{\ttfamily [protected
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00091}{91}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00095}{95}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!n2@{n2}}
 \index{n2@{n2}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -611,7 +664,7 @@ int GOAT\+::raytracing\+::\+Detector\+::n2 =0\hspace{0.3cm}{\ttfamily [protected
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00091}{91}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00095}{95}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!P@{P}}
 \index{P@{P}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -625,7 +678,7 @@ Position of the detector.
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00087}{87}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00091}{91}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_a784f4d5e75a807750b96357f5f066859}\index{GOAT::raytracing::Detector@{GOAT::raytracing::Detector}!type@{type}}
 \index{type@{type}!GOAT::raytracing::Detector@{GOAT::raytracing::Detector}}
@@ -635,7 +688,7 @@ int GOAT\+::raytracing\+::\+Detector\+::type =-\/1\hspace{0.3cm}{\ttfamily [prot
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00092}{92}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00096}{96}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 
 

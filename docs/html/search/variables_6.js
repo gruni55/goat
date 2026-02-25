@@ -5,10 +5,11 @@ var searchData=
   ['field_2',['field',['../class_g_o_a_t_1_1raytracing_1_1short_pulse.html#ad66e7ed4f925c5827eb69d7f5210cc6d',1,'GOAT::raytracing::shortPulse']]],
   ['field3d_3',['field3D',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html#acf30a7efa8dc1c13c814b8eb0cf8e77f',1,'GOAT::raytracing::Kirchhoff3D']]],
   ['fieldcalls_4',['fieldCalls',['../class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a41754b3d9a149ae05575cf601c511afc',1,'GOAT::raytracing::pulseCalculation']]],
-  ['filetype_5',['filetype',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a724fae22c01f0a337592eb307548d4ff',1,'GOAT::raytracing::surface']]],
-  ['fname_6',['FName',['../class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50',1,'GOAT::raytracing::surface']]],
-  ['fname_7',['fname',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a2f34cd660fc7aae58967c4e27f941dd1',1,'GOAT::raytracing::Detector']]],
-  ['focuspos_8',['focuspos',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81',1,'GOAT::raytracing::LightSrcGauss']]],
-  ['free_9',['free',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c',1,'GOAT::raytracing::SysMemInfo']]],
-  ['freq_10',['freq',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a6d42a9394adb85e2a78c1c01cfd1446c',1,'GOAT::raytracing::Trafo']]]
+  ['fieldinitialized_5',['fieldInitialized',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html#ac52f2e3ce12cde85b61fa3b9ce808053',1,'GOAT::raytracing::Kirchhoff3D']]],
+  ['filetype_6',['filetype',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a724fae22c01f0a337592eb307548d4ff',1,'GOAT::raytracing::surface']]],
+  ['fname_7',['FName',['../class_g_o_a_t_1_1raytracing_1_1surface.html#aea8adbe7d5eda9eedb005aab8355eb50',1,'GOAT::raytracing::surface']]],
+  ['fname_8',['fname',['../class_g_o_a_t_1_1raytracing_1_1_detector.html#a2f34cd660fc7aae58967c4e27f941dd1',1,'GOAT::raytracing::Detector']]],
+  ['focuspos_9',['focuspos',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a57ed5d6a80660afbd9b06cc9033d8e81',1,'GOAT::raytracing::LightSrcGauss']]],
+  ['free_10',['free',['../struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html#a44fb7c70585e12e422794c246ed8709c',1,'GOAT::raytracing::SysMemInfo']]],
+  ['freq_11',['freq',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a6d42a9394adb85e2a78c1c01cfd1446c',1,'GOAT::raytracing::Trafo']]]
 ];

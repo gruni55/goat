@@ -1,8 +1,8 @@
 var searchData=
 [
   ['kart2sph_0',['kart2sph',['../namespace_g_o_a_t_1_1raytracing.html#a3394abb19bc4fe023c6aae72f792e55a',1,'GOAT::raytracing']]],
-  ['kirchhoff_1',['Kirchhoff',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a577c31de400233ca9a16718a694d6a5f',1,'GOAT::raytracing::Kirchhoff']]],
-  ['kirchhoff3d_2',['Kirchhoff3D',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html#a04a272f847295d7529de99778ab4a3f0',1,'GOAT::raytracing::Kirchhoff3D']]],
+  ['kirchhoff_1',['Kirchhoff',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a577c31de400233ca9a16718a694d6a5f',1,'GOAT::raytracing::Kirchhoff::Kirchhoff(double wvl, maths::Vector&lt; double &gt; P, maths::Vector&lt; double &gt; e1, maths::Vector&lt; double &gt; e2, int n1, int n2)'],['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a1952f180439594479e28cc9ea6108853',1,'GOAT::raytracing::Kirchhoff::Kirchhoff(double wvl, maths::Vector&lt; double &gt;P, maths::Vector&lt; double &gt; n, double d, int N)']]],
+  ['kirchhoff3d_2',['Kirchhoff3D',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html#ad29d94e694786c37455cc94c4437cb48',1,'GOAT::raytracing::Kirchhoff3D']]],
   ['kugelindex_3',['kugelindex',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1d8cf39c5b9a6d162ad5478edb0ab890',1,'GOAT::raytracing::SuperArray::kugelindex()'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#ae859fbb6abe95188c12276cb9c74b500',1,'GOAT::raytracing::SuperGrid::kugelindex()']]],
   ['kugelwert_4',['kugelwert',['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1bd85af32ee959e6d994a41ca237362f',1,'GOAT::raytracing::SuperArray::kugelwert(maths::Vector&lt; int &gt; Pi)'],['../class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1cf6450528d62fad161bab14a1100f0c',1,'GOAT::raytracing::SuperArray::kugelwert(int ix, int iy, int iz)'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a756eab919cbd260ec15e46cc05472318',1,'GOAT::raytracing::SuperGrid::kugelwert(maths::Vector&lt; int &gt; Pi)'],['../class_g_o_a_t_1_1raytracing_1_1_super_grid.html#a94b33cdd195639c98bc0bd86d3e9776c',1,'GOAT::raytracing::SuperGrid::kugelwert(int ix, int iy, int iz)']]]
 ];
