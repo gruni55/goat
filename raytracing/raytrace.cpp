@@ -570,6 +570,15 @@ namespace GOAT
 				for (int i = 0; i < nDet; i++) Det[i]->clean();
 		}
 
+		Detector *Scene::getDetector(std::string ID)
+		{
+			for (auto det : Det)
+			{
+				if (det->getID() == ID) return det;
+			}
+			return NULL;
+		}
+
 		void Scene::addKirchhoff3D(Kirchhoff3D* K)
 		{
 			K->setR0(r0);

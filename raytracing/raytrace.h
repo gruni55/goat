@@ -45,9 +45,10 @@ namespace GOAT
 			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
 			void addDetector(Detector* D); ///< add single detector to scene
 			void addDetectorList(int nDet, std::vector< Detector*> D); ///< add a list of detectors to the scene, nDet: number of detectors to add
+			Detector * getDetector(std::string ID); ///< returns a pointer to a detector in the scene identfied by its ID, if ID can't be found NULL it returned
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
-			void removeDetector(Detector* det);
+			void removeDetector(Detector* det); 
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
 			void multAllDetectors(std::complex<double> factor); ///< multiplies the content of all detectors with the given factor
 			void addKirchhoff3D(Kirchhoff3D* K); ///< add one Kirchhoff3D object to the scene, which are used e.g. in pulsed calculations 
@@ -63,6 +64,14 @@ namespace GOAT
 			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
+			int getNumberOfLightSources() { return nLS; } ///< returns the number of light sources in the scene
+			int getNumberOfObjects() { return nObj; } ///< returns the number of objects in the scene
+			int getNumberOfDetectors() { return nDet; } ///< returns the number of detectors in the scene
+			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
+			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
+			std::vector<Kirchhoff3D*> getKirchhoff3D() { return k3D; } ///< returns the list of all Kirchhoff3D objects in the scene
+			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
+
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
 			std::vector<LightSrc*> LS; ///< List of all light sources 
 			std::vector<Kirchhoff3D*> k3D; ///< List of all Kirchhoff objects, which are used for the inelastic scattering calculations

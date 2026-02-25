@@ -329,8 +329,8 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
  \vspace{1em} 
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
- \hline 
- type & type of the detector & "plane" & -- \\
+ \hline
+ ID & unique identifier & string & -- \\
  \hline
  Position & Center of the detector & 3D-vector & -- \\
  \hline
@@ -348,10 +348,30 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline 
+ type & type of the detector & "plane" & -- \\
+ \hline 
 d & width of the detector & double & 1 \\
 \hline
 n & no. of elements per direction & int & 1 \\ 
 \end{tabular}
+
+
+ \subsection{Kirchhoff}
+ type: \textbf{kirchhoff}
+ Especially in focal regions, pure raytracing may fail. Therefore, a Kirchhoff-Integral solution is introduced. 
+ \begin{equation}
+  \vec{E}(\vec{r})=\sum_l \int_{\text{Detector}_l} \vec{E}^i_0(\vec{r}_l) e^{i\vec{k}(\vec{r}-\vec{r}_l)} d\vec{r}_l 
+ \end{equation}
+ Each Kirchhoff detector uses at least one plane Detector as source. So in the XML a Kirchhoff detector has additional link-entries in the following form:
+   \lstset{language=XML}
+ \begin{lstlisting}
+ <Link ID="[Detector-ID]"/>
+   \end{lstlisting}
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+ wavelength & wavelength for the calculation & double & 1.0 
+ \end{tabular}
  
  \chapter {Calculations}
  Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "type" there are different calculations possible:

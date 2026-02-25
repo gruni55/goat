@@ -8,6 +8,7 @@
 #include "pulsecalculation_rt.h"
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
+#include "kirchhoff.h"
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
@@ -260,34 +261,100 @@ namespace GOAT
 		{
 			tinyxml2::XMLElement* ell;
 			ell = sceneElement->FirstChildElement("Detectors");
-            
+            std::vector<std::vector<std::string> > linkList;
 			if (ell != NULL)
 			{                
 				int n1, n2;
 				
-				for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
-				{
-					maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
-					maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
-					std::string typeStr;
-					typeStr = detEll->Attribute("type");                    
-					std::string filename;
-					filename = detEll->Attribute("filename");
+                for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
+                {
+                    maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
+                    std::cout << "Position:" << Pos << std::endl;
+                    maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
+                    std::string typeStr;
+                    typeStr = detEll->Attribute("type");
+                    std::string filename;
+                    filename = detEll->Attribute("filename");
+                    std::string ID = detEll->Attribute("ID");
 
-					int type = mapString2DetectorToken(typeStr);
-					switch (type)
-					{
-					  case TOKEN_DETECTOR_PLANE : 
-													{
-                                                     double d = detEll->DoubleAttribute("d", 1);
-													 int n = detEll->IntAttribute("n", 1);                             
-                                                     Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d,n));
-													 Det[numDet]->fname = filename;
-													 S.addDetector(Det[numDet]);
-                                                    Det[numDet]->load(filename.c_str());
-                                                    numDet++;
-                                                    std::cout << "Detector filename=" << filename << std::endl;
-													}
+                    int type = mapString2DetectorToken(typeStr);
+                    switch (type)
+                    {
+                    case TOKEN_DETECTOR_PLANE:
+                    {
+                        std::vector<std::string> dummy;
+                        linkList.push_back(dummy);
+                        double d = detEll->DoubleAttribute("d", 1);
+                        int n = detEll->IntAttribute("n", 1);
+                        Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d, n));
+                        Det[numDet]->fname = filename;
+                        S.addDetector(Det[numDet]);
+                        Det[numDet]->load(filename.c_str());
+                        Det[numDet]->setID(ID);
+                        numDet++;
+                        std::cout << "Detector filename=" << filename << std::endl;
+                    }
+                    break;
+                    }
+
+                }
+
+                for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
+                {
+                    maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
+                    std::cout << "Position:" << Pos << std::endl;
+                    maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
+                    std::string typeStr;
+                    typeStr = detEll->Attribute("type");
+                    std::string filename;
+                    filename = detEll->Attribute("filename");
+                    std::string ID = detEll->Attribute("ID");
+
+                    int type = mapString2DetectorToken(typeStr);
+                    switch (type)
+                    {
+                      case TOKEN_DETECTOR_KIRCHHOFF :
+                                                    {
+                                                        double d = detEll->DoubleAttribute("d", 1);
+                                                        int n = detEll->IntAttribute("n", 1);
+                                                        std::vector<raytracing::DetectorPlane *> sources;
+                                                        bool cancel = false;
+                                                        Det.push_back(new raytracing::Kirchhoff(1.0,Pos, Dir, d, n));
+                                                        double wvl = detEll->DoubleAttribute("wavelength", 1.0);
+														((raytracing::Kirchhoff*)Det[numDet])->setWavelength(wvl);
+                                                        for (auto link = detEll->FirstChildElement("Link"); (!cancel) &&  (link != NULL); link = link->NextSiblingElement("Link"))
+                                                        {
+                                                            std::string linkID = link->Attribute("ID");
+                                                            raytracing::Detector* det = S.getDetector(linkID);
+                                                            cancel = det == NULL; // check, if detector with ID exists
+                                                            if (!cancel)
+                                                            {
+																cancel = det->Type() != DETECTOR_PLANE; // check, if detector with ID is of type plane
+                                                                if (cancel) std::cerr << "Link to detector with ID=" << linkID << " should be used for Kirchhoff, but is not a plane detector!" << std::endl;
+                                                                else
+                                                                {
+                                                                    ((raytracing::Kirchhoff*)Det[numDet])->addDetector((raytracing::Kirchhoff*)det);
+																	std::cout << "Linking Kirchhoff detector with ID=" << ID << " to plane detector with ID=" << linkID << std::endl;
+                                                                }
+                                                            }
+                                                            else
+                                                                std::cerr << "Error: Kirchhoff detector has links to non-existing detectors. Skipping this detector." << std::endl;
+                                                        
+                                                            if (!cancel) sources.push_back((raytracing::DetectorPlane *)det);
+                                                            
+                                                        }
+
+                                                        Det[numDet]->setID(ID);
+                                                        S.addDetector(Det[numDet]);
+                                                        numDet++;
+
+                                                        if (!cancel) 
+                                                        {
+                                                            Det.push_back(new raytracing::Kirchhoff(1.0, Pos, Dir, d, n));
+                                                            ((raytracing::Kirchhoff*)Det[numDet])->addDetectorList(sources);
+                                                        }
+                                                      }
+                                                    break;
 													
 					}
 
@@ -1631,6 +1698,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             detector->InsertEndChild(addVectorD2DOM(doc, "Position",S.Det[i]->position()));
             detector->InsertEndChild(addVectorD2DOM(doc, "Direction",S.Det[i]->norm()));
             detector->SetAttribute("filename",S.Det[i]->fname.c_str());
+			detector->SetAttribute("ID", S.Det[i]->getID().c_str());
             S.Det[i]->save(S.Det[i]->fname.c_str());
             switch (type)
             {
@@ -1640,6 +1708,21 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                      detector->SetAttribute("d",formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
                      detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2                            
                     }
+                    break;
+                case DETECTOR_KIRCHHOFF : 
+                    {
+                     auto det=(raytracing::Kirchhoff *) S.Det[i];
+                     detector->SetAttribute("d",formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
+                     detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2 
+                     auto sources = det->getSources();
+                     for (auto src : sources)
+                     {
+                         auto srcEll = doc.NewElement("Link");
+						 srcEll->SetAttribute("ID", src->getID().c_str());
+						detector->InsertEndChild(srcEll);
+                     }
+                    }
+					break;
             }
             detectors->InsertEndChild(detector);
         }

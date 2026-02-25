@@ -127,7 +127,8 @@ namespace GOAT
 		void Detector::setD(double d1, double d2) { this->d1 = d1; this->d2 = d2; }
 		void Detector::setD1(double d1) { this->d1 = d1;}
 		void Detector::setD2(double d2) { this->d2 = d2; }
-
+		void Detector::setID(std::string ID) { this->ID = ID; }
+		std::string GOAT::raytracing::Detector::getID() { return ID; }
 
 		void Detector::save(const char* fn)
 		{

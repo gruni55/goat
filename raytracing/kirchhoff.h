@@ -29,6 +29,7 @@ namespace GOAT
 			  * \param n2: number of cells in e2-direction
 			  */
 			  Kirchhoff(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
+			  Kirchhoff(double wvl, maths::Vector<double>P, maths::Vector<double> n, double d, int N);
 			  void addDetector(DetectorPlane* det);
 			  void addDetectorList(std::vector<DetectorPlane*> detList);
 			  void delDetector(DetectorPlane* det);
@@ -36,6 +37,10 @@ namespace GOAT
 			  void calc(bool clear = true);
 			  void setNumberOfThreads(int noThreads);	
 			  int numberOfThreads() { return noThreads; }
+			  int numberOfSources() { return sources.size(); }
+			  std::vector<DetectorPlane*> getSources() { return sources; }
+			  double getWavelength() { return wvl; } 
+			  void setWavelength(double wvl) { this->wvl = wvl; }
 
 		private:
 			/**

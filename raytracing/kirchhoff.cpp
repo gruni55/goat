@@ -14,6 +14,13 @@ namespace GOAT
 			std::cout << "e1=" << this->e1 << "\t e2=" << this->e2 << "\t type=" << type << std::endl;
 		}
 
+		Kirchhoff::Kirchhoff(double wvl, maths::Vector<double> P, maths::Vector<double> n, double d, int N) : DetectorPlane(P, n, d, N)
+		{
+			k = 2.0 * M_PI / wvl;
+			this->wvl = wvl;
+			type = DETECTOR_KIRCHHOFF;
+		}
+
 		void Kirchhoff::addDetector(DetectorPlane* det)
 		{
 			sources.push_back(det);

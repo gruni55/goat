@@ -12,12 +12,16 @@ namespace GOAT
 	namespace raytracing
 	{
 		#define DETECTOR_PLANE		20000
-		#define DETECTOR_ANGLE		20001
-		#define DETECTOR_KIRCHHOFF	20002	
-
+		#define DETECTOR_KIRCHHOFF	20001	
+		#define DETECTOR_ANGLE		20002
 
 		/**
 		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
+		 * The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-ID, which can be set. 
+		 * 
+		 * \note {It should therefore be unique. At the moment, uniqueness is not yet checked. 
+		 * When using a class derived from the detector class in the kirchhoff 
+		 * class, the ID has to be unique !}  
 		 */
 	class Detector
 	{
@@ -50,11 +54,11 @@ namespace GOAT
 		double D1(); ///< return the length in the first direction
 		double D2(); ///< return the length in the second direction		
 
-		void setD(double d1, double d2);
-
-		void setD1(double d1);
-
-		void setD2(double d2);
+		void setD(double d1, double d2); ///< set the length in the first direction (D1) and in the second direction (D2)
+		void setD1(double d1); ///< set the length in the first direction
+		void setD2(double d2); ///< set the length in the second direction
+		void setID(std::string ID); ///< set the ID string
+		std::string getID(); ///< returns the ID
 
 		int Type() { return type; } ///< returns kind of detector
 		/**
@@ -91,6 +95,7 @@ namespace GOAT
 		int n1=0, n2=0;
 		int type=-1;
 		friend class DetectorPlane;
+		std::string ID = "Detector";
 	};
 
 

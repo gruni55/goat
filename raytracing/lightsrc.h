@@ -58,6 +58,9 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 		* LightSrc provides routines to pass these informations to the rays. These routines are only needed for calculations without
 		* the raytracing process, especially without the Scene class.
 		* 
+		* The orientation of the light source is defined by the direction vector k and the two orthogonal vectors e1 and e2, which are all perpendicular to each other. The rays are created in the area spanned by e1 and e2, which is centered around Pos. The direction of the rays is given by k. The polarisation of the rays is defined by the vector Pol, which is also perpendicular to k. The initial polarisation of the rays can be set using the setPol function, which sets the polarisation as if the direction would be in z-direction. 
+		* If the direction vector is changed using setk, the direction of the polarization is changed accordingly.
+		* 
 		* Polarisation: 
 		* @image html polarisation_rotation.png width=400px; 
 		* When calling the setPol function, the polarisation is set as if the direction would be in z-direction and afterwards the polarisation 
@@ -126,7 +129,17 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int getNumRaysRT () {return numRaysRT; }
 
 
-
+			/** 
+			* @brief With this method the direction of the lightsource will be set.
+			* The direction of the light source is defined by the direction vector k and the two orthogonal vectors e1 and e2, which are all perpendicular to each other. The rays are created in the area spanned by e1 and e2, which is centered around Pos. The direction of the rays is given by k. The polarisation of the rays is defined by the vector Pol, which is also perpendicular to k. 
+			* The initial polarisation of the rays can be set using the setPol function, which sets the polarisation as if the direction would be in z-direction. The vectors e1 and
+			* e2 will be set as follows: 
+			* \f{eqnarray*}{
+			*      \vec{e}_1 &=& \vec{k} \times \vec{e}_z \qquad \text{if} \quad |\vec{e}_1|>10^{-10} \quad \text{i.e. not parallel to } \vec{k} \text{ otherwise} \quad  \vec{e}_1 = \vec{k} \times \vec{e}_x \\
+			*      \vec{e}_2 &=& \vec{k} \times \vec{e}_1 
+			* \f}
+			* afterwards, the method adjustDirection() will be called, which adjusts the direction of the polarisation according to the new direction of the light source.
+			*/
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
 			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
