@@ -51,12 +51,28 @@ namespace GOAT
 			void removeDetector(Detector* det); 
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
 			void multAllDetectors(std::complex<double> factor); ///< multiplies the content of all detectors with the given factor
-			void addKirchhoff3D(Kirchhoff3D* K); ///< add one Kirchhoff3D object to the scene, which are used e.g. in pulsed calculations 
+			void setNumberOfCellsPerDirection(INDEX_TYPE no)  
+			{ 
+				NumCellsPerDir = no;
+#ifdef WITH_OPENMP
+				for (auto& k : k3D)
+				{
+					k->setNN(NumCellsPerDir);
+				}
+#endif
+			}
+
+
+#ifdef WITH_OPENMP
+						void addKirchhoff3D(Kirchhoff3D* K); ///< add one Kirchhoff3D object to the scene, which are used e.g. in pulsed calculations 
 			void addKirchhoff3DList(int nK, std::vector<Kirchhoff3D*> KList); ///< add a list of Kirchhoff3D objects to the scene, nK: number of Kirchhoff objects to add
 			void removeAllKirchhoff3D(); ///< remove all Kirchhoff3D objects from the scene
 			void removeKirchhoff3D(int index); ///< remove Kirchhoff3D object "index" from the scene
 			void removeKirchhoff3D(Kirchhoff3D* K); ///< remove Kirchhoff3D object, identified by its pointer from the scene
 			void cleanAllKirchhoff3D(); ///< clean all Kirchhoff3D objects, i.e. all values in the field3D array are set to zero, but the Kirchhoff3D objects remain in the scene
+			std::vector<Kirchhoff3D*> getKirchhoff3D() { return k3D; } ///< returns the list of all Kirchhoff3D objects in the scene
+			
+#endif		
 			void setr0(double r0); ///< set the radius of the calculation space
 			void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
@@ -69,13 +85,13 @@ namespace GOAT
 			int getNumberOfDetectors() { return nDet; } ///< returns the number of detectors in the scene
 			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
 			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
-			std::vector<Kirchhoff3D*> getKirchhoff3D() { return k3D; } ///< returns the list of all Kirchhoff3D objects in the scene
 			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
 
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
 			std::vector<LightSrc*> LS; ///< List of all light sources 
+#ifdef WITH_OPENMP
 			std::vector<Kirchhoff3D*> k3D; ///< List of all Kirchhoff objects, which are used for the inelastic scattering calculations
-
+#endif
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
 			std::vector< Detector*> Det; ///< List of detectors, which are storing the electric field inside a defined area
 			int nObj = 0; ///< Number of objects in the scene
@@ -90,14 +106,6 @@ namespace GOAT
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
 			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
-			void setNumberOfCellsPerDirection(INDEX_TYPE no)  
-			{ 
-				NumCellsPerDir = no;
-				for (auto& k : k3D)
-				{
-					k->setNN(NumCellsPerDir);
-				}
-			}
 		};
 
 

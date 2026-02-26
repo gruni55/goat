@@ -578,7 +578,7 @@ namespace GOAT
 			}
 			return NULL;
 		}
-
+#ifdef WITH_OPENMP
 		void Scene::addKirchhoff3D(Kirchhoff3D* K)
 		{
 			K->setR0(r0);
@@ -625,7 +625,7 @@ namespace GOAT
 				if (nK3D < 0) nK3D = 0;
 			}
 		}
-
+#endif
 		void Scene::removeAllDetectors()
 		{
 			if (nDet > 0)
@@ -668,9 +668,11 @@ namespace GOAT
 				for (int i = 0; i < nObj; i++)
 					Obj[i]->setr0(r0);
 
+#ifdef WITH_OPENMP
 			if (nK3D > 0)
 				for (int i = 0; i < nK3D; i++)
 					k3D[i]->setR0(r0);
+#endif
 		}
 
 		void Scene::setnS(std::complex<double> nS)
@@ -709,8 +711,10 @@ namespace GOAT
 			suppress_phase_progress = S.suppress_phase_progress;
 			NumCellsPerDir = S.NumCellsPerDir;
 			nReflex = S.nReflex;
+#ifdef WITH_OPENMP
 			k3D = S.k3D;
 			nK3D = S.nK3D;
+#endif
 		}
 
 		void Scene::setRaytype(int raytype)

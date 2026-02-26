@@ -1,26 +1,28 @@
 #CMAKE configuration file for ray library
 message ("Preparing library goat_raytracing")
-set (
-	RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp  
+set (RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp  
              lightsrc.cpp lightsrc_mc.cpp misc.cpp objectshape.cpp octree.cpp 
 		     raytrace.cpp ray_pow.cpp resutil.cpp surface.cpp triangle.cpp tubedray.cpp 
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp raytrace_field.cpp 
 		     raytrace_usp.cpp raytrace_field_usp.cpp raytrace_usp_rt.cpp plane.cpp pulsecalculation_base.cpp 
-			 pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp pulsecalculation_kirchhoff.cpp 
-			 gridentry.cpp asphericLens.cpp sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp refractive_index_functions.cpp
-			 kirchhoff.cpp)  
+		     pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp 
+	       	     gridentry.cpp asphericLens.cpp sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp 
+		     refractive_index_functions.cpp)
+			  
 
-set (
-	RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
+set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
                      lightsrc.h lightsrc_mc.h misc.h objectshape.h octree.h 
 		     raybase.h raytrace.h ray_pow.h resutil.h surface.h triangle.h tubedray.h 
 		     triangle_box_intersection.h  superarray.h supergrid.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field.h inel_calc.h 
 		     raytrace_usp_rt.h refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h 
-			 pulsecalculation_base.h pulsecalculation_rt.h pulsecalculation_kirchhoff.h asphericLens.h sphericLens.h lens.h constants.h cone.h 
-			 cylinder.h vortex.h kirchhoff.h)
+			 pulsecalculation_base.h pulsecalculation_rt.h asphericLens.h sphericLens.h lens.h constants.h cone.h 
+			 cylinder.h vortex.h)
 
+
+set (RAYTRACING_MP_SRCS ${RAYTRACING_SRCS} pulsecalculation_kirchhoff.cpp kirchhoff.cpp)
+set (RAYTRACING_MP_HDRS ${RAYTRACING_HDRS} pulsecalculation_kirchhoff.h kirchhoff.h)
 
 if (WITH_OCTREE)
 	message(STATUS "Octree calculation enabled")
@@ -35,10 +37,10 @@ if (WITH_OPENMP)
         if (OpenMP_FOUND)   
 #	if (OPENMP_CXX_FOUND)
  		message (STATUS "OpenMP found ==> creating goat_raytracing_mp library")
-                add_library (goat_raytracing_mp  ${RAYTRACING_SRCS} ${RAYTRACING_HDRS} )
+                add_library (goat_raytracing_mp  ${RAYTRACING_MP_SRCS} ${RAYTRACING_MP_HDRS} )
 	        target_compile_options (goat_raytracing_mp PUBLIC ${OpenMP_CXX_FLAGS})
                 target_compile_definitions (goat_raytracing_mp PUBLIC WITH_OCTREE WITH_OPENMP)
-				target_link_libraries(goat_raytracing_mp PUBLIC OpenMP::OpenMP_CXX) # <- WICHTIG!
+		target_link_libraries(goat_raytracing_mp PUBLIC OpenMP::OpenMP_CXX) # <- WICHTIG!
                 target_include_directories (goat_raytracing_mp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)  
 		goat_install (TARGETS goat_raytracing_mp)				
 	else()

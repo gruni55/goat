@@ -156,7 +156,9 @@ namespace GOAT
 				}
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
+#ifdef WITH_NP
                 S.setNumberOfCellsPerDirection(iv);
+#endif
                 S.nS = readCmplx(sceneElement->FirstChildElement("nS"),1.0);
 				/* look for the detectors */
 				readDetectors();
@@ -298,6 +300,7 @@ namespace GOAT
                     }
 
                 }
+#ifdef WITH_MP
 
                 for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
                 {
@@ -329,7 +332,7 @@ namespace GOAT
                                                             cancel = det == NULL; // check, if detector with ID exists
                                                             if (!cancel)
                                                             {
-																cancel = det->Type() != DETECTOR_PLANE; // check, if detector with ID is of type plane
+								cancel = det->Type() != DETECTOR_PLANE; // check, if detector with ID is of type plane
                                                                 if (cancel) std::cerr << "Link to detector with ID=" << linkID << " should be used for Kirchhoff, but is not a plane detector!" << std::endl;
                                                                 else
                                                                 {
@@ -341,7 +344,6 @@ namespace GOAT
                                                                 std::cerr << "Error: Kirchhoff detector has links to non-existing detectors. Skipping this detector." << std::endl;
                                                         
                                                             if (!cancel) sources.push_back((raytracing::DetectorPlane *)det);
-                                                            
                                                         }
 
                                                         Det[numDet]->setID(ID);
@@ -356,11 +358,14 @@ namespace GOAT
                                                       }
                                                     break;
 													
-					}
+			} // switch(type)
 
-				}
-			}
-		}
+		} // for...
+#endif
+
+	   } // if (ell != NULL)
+
+	}
 
 		void xmlReader::readLightSources()
 		{
@@ -966,7 +971,7 @@ namespace GOAT
 									fname = "dummy";
 								}
 								int n = objEll->IntAttribute("n",500);
-                                S.setNumberOfCellsPerDirection(n);
+                                				S.setNumberOfCellsPerDirection(n);
 									GOAT::raytracing::Raytrace_Inel rt(S);									
 									bool fieldonly=true;
 								
@@ -1709,6 +1714,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                      detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2                            
                     }
                     break;
+
+#ifdef WITH_MP
                 case DETECTOR_KIRCHHOFF : 
                     {
                      auto det=(raytracing::Kirchhoff *) S.Det[i];
@@ -1723,6 +1730,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                      }
                     }
 					break;
+#endif
             }
             detectors->InsertEndChild(detector);
         }
