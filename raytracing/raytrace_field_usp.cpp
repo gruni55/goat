@@ -42,7 +42,7 @@ namespace GOAT
 			stack.E = GOAT::maths::Vector<std::complex<double> >(0, 0, 0);
 			S.resetLS();
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
-		//	if (S.nObj > 0)
+		//	if (S.getNumberOfObjects() > 0)
 			{
 				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
@@ -61,7 +61,7 @@ namespace GOAT
 			}
 			stepEntry se;
 			se.l = abs(PStop - PStart);
-			if (oldObjIndex < 0) se.matIndex = S.nObj;
+			if (oldObjIndex < 0) se.matIndex = S.getNumberOfObjects();
 			else se.matIndex = oldObjIndex;  // We have to use the refractive index of the surrounding medium			
 			stack.step.push_back(se);
 		}
@@ -106,7 +106,7 @@ namespace GOAT
 
 
 					// set the right material index 
-					if (oldObjIndex < 0) ge.matIndex = S.nObj;
+					if (oldObjIndex < 0) ge.matIndex = S.getNumberOfObjects();
 					else ge.matIndex = oldObjIndex;
 
 					// put everything in the Array
@@ -201,7 +201,7 @@ namespace GOAT
 			}
 			
 			if (!useRRTParms)
-				for (int i = 0; i < S.nLS; i++) // Schleife �ber die Lichtquellen
+				for (int i = 0; i < S.getNumberOfLightSources(); i++) // Schleife �ber die Lichtquellen
 				{
 					S.resetLS();
 					do
@@ -273,7 +273,7 @@ namespace GOAT
 				kin = ray->getk();
 
 				// search a hit with a detector within the last step
-		/*	if (S.nDet > 0)
+		/*	if (S.getNumberOfDetectors() > 0)
 				{
 					int i1, i2;
 					double l;
@@ -281,7 +281,7 @@ namespace GOAT
 					std::complex<double> n;
 					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
 					else n = S.nS;
-					for (int i = 0; i < S.nDet; i++)
+					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
 						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{

@@ -41,10 +41,11 @@ namespace GOAT
 		rt.S.cleanAllDetectors();
 
 		rt.S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
-		for (int i = 0; i < S.nObj; i++)
+		int nObj = S.getNumberOfObjects();
+		for (int i = 0; i < nObj; i++)
 			rt.S.Obj[i]->setn(trafoparms.nList[i](wvl));
 
-		for (int i = 0; i < S.nLS; i++)
+		for (int i = 0; i < S.getNumberOfLightSources(); i++)
 			rt.S.LS[i]->setWavelength(wvl);
 		std::cout << "Raytracing for frequency " << omega << " (wavelength " << wvl << " um) with weight " << weight << std::endl;
 		rt.trace();

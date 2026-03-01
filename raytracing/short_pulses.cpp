@@ -12,8 +12,8 @@ namespace GOAT
 			this->wvlRanges = wvlRanges;
 			this->S = S;
 			this->nList = nList;
-			if (S.nLS > 0)
-				for (int i = 0; i < S.nLS; i++)
+			if (S.getNumberOfLightSources() > 0)
+				for (int i = 0; i < S.getNumberOfLightSources(); i++)
 					LSwidth.push_back(standard_pulse_width);
 		}
 
@@ -38,7 +38,7 @@ namespace GOAT
 					omega = 2.0 * M_PI * C_LIGHT_MU / (midWvl*1E-6);
 
 					// set all light sources to this wavelength and set the wavelength dependent power
-					for (int i = 0; i < S.nLS; i++)
+					for (int i = 0; i < S.getNumberOfLightSources(); i++)
 					{
 						S.LS[i]->wvl = midWvl;						
 						sigma2 = LSwidth[i] / (2.0 * sqrt(2.0 * log(2.0)));

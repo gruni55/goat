@@ -264,7 +264,7 @@ namespace GOAT
 				 * @param z complex number 
 				 */
 				tinyxml2::XMLElement* addComplex2DOM(tinyxml2::XMLDocument& doc, std::string name, std::complex<double> z);
-                const GOAT::raytracing::Scene &S; ///< the scene
+                GOAT::raytracing::Scene S; ///< the scene
         };
 	}
 }

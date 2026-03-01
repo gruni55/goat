@@ -41,13 +41,13 @@ namespace GOAT
                         stack.E=GOAT::maths::Vector<std::complex<double> >(0,0,0);
 			S.resetLS();
 			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
-			if (S.nObj > 0)
+			if (S.getNumberOfObjects() > 0)
 			{			
 				SA = std::vector<SuperArray <std::vector<gridEntry>  > >(INEL_MAX_NREFLEX);				
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
 					SA[i] = SuperArray<std::vector<gridEntry> > (S.r0, n, n, n, IN_OBJECT);					
-					for (int j = 0; j < S.nObj; j++)
+					for (int j = 0; j < S.getNumberOfObjects(); j++)
 						SA[i].addInc(S.Obj[j]);
 				}
 			}
@@ -102,7 +102,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 						
 
 						// set the right material index 
-						if (currentObj < 0) ge.matIndex = S.nObj;
+						if (currentObj < 0) ge.matIndex = S.getNumberOfObjects();
 						else ge.matIndex = currentObj;
 						
 						// put everything in the Array
@@ -130,7 +130,7 @@ std::cout << "% wvl=" << S.LS[0]->getWavelength() << std::endl;
 				stack.step.clear();
 			stepEntry se;
 			se.l = abs(PStop - PStart);
-			se.matIndex = S.nObj;  // We have to use the refractive index of the surrounding medium			
+			se.matIndex = S.getNumberOfObjects();  // We have to use the refractive index of the surrounding medium			
 			stack.step.push_back(se);
 		//	std::cout << PStart << "\t" << PStop << std::endl;
 		}

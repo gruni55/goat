@@ -20,9 +20,9 @@ namespace GOAT
             * Vector from the position vector of the lens to the center of the sphere
             */ 
             maths::Vector<double> P; 
-            double R; ///< Radius of the sphere, which describes the surface (not considered, if curvature is set to flat)
+            double R=0; ///< Radius of the sphere, which describes the surface (not considered, if curvature is set to flat)
             double shift = 0; ///< how much must the curve be shifted (with consideration of the offset)
-            Curvature curvature; ///< Curvature (convex, concave or flat)
+            Curvature curvature=convex; ///< Curvature (convex, concave or flat)
         } lensSide;
 
 
@@ -34,8 +34,8 @@ namespace GOAT
         typedef struct
         {
             lensSide left, right; ///< descriptions of the left (towards negative-z) and the right side of the lens
-            double offset; ///< distance between the surfaces 
-            double radius; ///< radius of the lens
+            double offset=0; ///< distance between the surfaces 
+            double radius=1.0; ///< radius of the lens
         } lensParms;
 
      

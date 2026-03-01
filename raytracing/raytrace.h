@@ -80,9 +80,9 @@ namespace GOAT
 			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
-			int getNumberOfLightSources() { return nLS; } ///< returns the number of light sources in the scene
-			int getNumberOfObjects() { return nObj; } ///< returns the number of objects in the scene
-			int getNumberOfDetectors() { return nDet; } ///< returns the number of detectors in the scene
+			int getNumberOfLightSources() const { return static_cast<int>(LS.size()); } ///< returns the number of light sources in the scene
+			int getNumberOfObjects() const { return static_cast<int>(Obj.size()); } ///< returns the number of objects in the scene
+			int getNumberOfDetectors() const; ///< returns the number of detectors in the scene
 			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
 			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
 			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
@@ -94,9 +94,9 @@ namespace GOAT
 #endif
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
 			std::vector< Detector*> Det; ///< List of detectors, which are storing the electric field inside a defined area
-			int nObj = 0; ///< Number of objects in the scene
+/*			int nObj = 0; ///< Number of objects in the scene
 			int nLS = 0;  ///< Number of light sources
-			int nDet = 0; ///< Number of detectors
+			int nDet = 0; ///< Number of detectors*/
 			int nReflex = 0; ///< Number of reflections
 			int nK3D = 0; ///< Number of Kirchhoff3D objects
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
@@ -176,10 +176,10 @@ namespace GOAT
 			void trace();
 			void traceLeaveObject(); ///< force calculation, when the ray leaves an object
 			void traceEnterObject(); ///< force calculation, when the ray enters an object
-			maths::Vector<double>* F; ///< list of the forces acting on the objects
-			maths::Vector<double>* L; ///< angular momenta acting on the objects
-			maths::Vector<double>** f; ///< list of the forces acting on the objects, separated for the different light sources
-			maths::Vector<double>** l;///< list of the angular momenta acting on the objects, separated for the different light sources
+			maths::Vector<double>* F=nullptr; ///< list of the forces acting on the objects
+			maths::Vector<double>* L=nullptr; ///< angular momenta acting on the objects
+			maths::Vector<double>** f=nullptr; ///< list of the forces acting on the objects, separated for the different light sources
+			maths::Vector<double>** l=nullptr;///< list of the angular momenta acting on the objects, separated for the different light sources
 		};
 
 

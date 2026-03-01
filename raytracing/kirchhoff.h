@@ -36,8 +36,8 @@ namespace GOAT
 			  void clearSources();
 			  void calc(bool clear = true);
 			  void setNumberOfThreads(int noThreads);	
-			  int numberOfThreads() { return noThreads; }
-			  int numberOfSources() { return sources.size(); }
+			  size_t numberOfThreads() { return noThreads; }
+			  size_t numberOfSources() { return sources.size(); }
 			  std::vector<DetectorPlane*> getSources() { return sources; }
 			  double getWavelength() { return wvl; } 
 			  void setWavelength(double wvl) { this->wvl = wvl; }

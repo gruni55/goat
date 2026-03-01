@@ -26,13 +26,13 @@ namespace GOAT
             int nI=4;                     ///< defines the number of spectral ranges
             int nS=200;                ///< number of subdivision per spectral range   
             int nR= INEL_MAX_NREFLEX;   ///< number of reflections considered in the raytracing part
-            double omegaStart;              ///< lowest wavelength considered in the calculation 
-            double omegaEnd;               ///< highest wavelength considered in the calculation 
-            double omega0;                 ///< main frequency (corresponds to wvl)
+            double omegaStart=0;              ///< lowest wavelength considered in the calculation 
+            double omegaEnd=0;               ///< highest wavelength considered in the calculation 
+            double omega0=0;                 ///< main frequency (corresponds to wvl)
             double wvl=1.0;                 ///< main wavelength (in µm)  
             double dt=100;                  ///< width of the pulse (in femto seconds) 
             std::vector<std::function<std::complex<double>(double) > > nList; ///< list of functions which describe the refractive index dependence on the wavelength (for each object one has to give one function) additionally one function for the surrounding medium
-            int number_of_threads=5; ///< number of threads which should be used for calculation
+            int number_of_threads=8; ///< number of threads which should be used for calculation
 			double repetitionTime = 100;    ///< repetition time of the pulse train (in femto seconds). If this value is >0, the pulse train will be considered in the calculation
 			double spatialResolution = 0.0;   ///< spatial resolution of the calculation grid (in µm). If this value is >0, the spatial resolution will be set in the calculation      
         } ;

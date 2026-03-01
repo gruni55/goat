@@ -48,12 +48,11 @@ namespace GOAT
 			}
 
 			if (!useRRTParms)
-				for (int i = 0; i < S.nLS; i++) // Schleife �ber die Lichtquellen
+				for (int i = 0; i < S.getNumberOfLightSources(); i++) // Schleife �ber die Lichtquellen
 				{
 					S.resetLS();
 					do
-					{
-//						std::cout << "%---------------------------------" << std::endl;
+					{					
 						currentLS = i;
 						Abbruch = false;
 						Reflexions = 0;
@@ -123,7 +122,7 @@ namespace GOAT
 				if ((S.raytype == LIGHTSRC_RAYTYPE_IRAY) || useRRTParms) EStop2 = ((IRay*)ray)->E2;
 				kin = ray->getk();
 				// search a hit with a detector within the last step       				
-				if (S.nDet > 0)
+				if (S.getNumberOfDetectors() > 0)
 				{
 					int i1, i2;
 					double l;					
@@ -131,7 +130,7 @@ namespace GOAT
 					std::complex<double> n;					
 					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
 					else n = S.nS;
-					for (int i = 0; i < S.nDet; i++)
+					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
                         if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{            
@@ -175,12 +174,8 @@ namespace GOAT
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 						    copyRay(tray, ray);			
-							//std::cout << "n=" << S.Obj[objIndex]->n << "\t";
-							// std::cout << ray->getk() << "\t"<< PStart << "\t" << PStop << "\t" << S.Obj[objIndex]->norm(PStop) << std::endl;
-							// std::cout << acos(abs(ray->getk() * S.Obj[objIndex]->norm(PStop))) / M_PI * 180.0 << std::endl;
 							
 							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);		
-						//	std::cout << acos(tray->getk()[2]) / M_PI *180.0 << std::endl;
 						}
 
 						kref = ray->getk();
@@ -205,9 +200,7 @@ namespace GOAT
 						if (objIndex > -1) // an object was hit
 						{							
 							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
-                              //    std::cout << "n=" << n << std::endl;
-						    // std::cout << PStop << "\t" << n << std::endl;
-			//				std::cout << "PStart=" << PStart << "\tPStop=" << PStop << "\tn=" << n << std::endl;
+                             
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
@@ -280,15 +273,15 @@ namespace GOAT
 
 		Raytrace_OT::Raytrace_OT()
 		{
-			F = 0;
-			L = 0;
+			F = nullptr;
+			L = nullptr;
 			type = RAYTRACER_TYPE_OT;
 		}
 
 		Raytrace_OT::Raytrace_OT(Scene S)
 		{
-			F = 0;
-			L = 0;
+			F = nullptr;
+			L = nullptr;
 			type = RAYTRACER_TYPE_OT;
 			S.setRaytype(LIGHTSRC_RAYTYPE_PRAY);
 			this->S = S;
@@ -304,36 +297,36 @@ namespace GOAT
 
 		void Raytrace_OT::trace()
 		{
-			if (F != 0) delete F;
-			if (L != 0) delete L;
-			F = new maths::Vector<double>[S.nObj];
-			L = new maths::Vector<double>[S.nObj];
+			if (F != nullptr) delete F;
+			if (L != nullptr) delete L;
+			F = new maths::Vector<double>[S.getNumberOfObjects()];
+			L = new maths::Vector<double>[S.getNumberOfObjects()];
 
-			f = new maths::Vector<double> *[S.nLS];
-			l = new maths::Vector<double> *[S.nLS];
-			for (int i = 0; i < S.nLS; i++)
+			f = new maths::Vector<double> *[S.getNumberOfLightSources()];
+			l = new maths::Vector<double> *[S.getNumberOfLightSources()];
+			for (int i = 0; i < S.getNumberOfLightSources(); i++)
 			{
-				f[i] = new maths::Vector<double>[S.nObj];
-				l[i] = new maths::Vector<double>[S.nObj];
+				f[i] = new maths::Vector<double>[S.getNumberOfObjects()];
+				l[i] = new maths::Vector<double>[S.getNumberOfObjects()];
 			}
 
 			Raytrace::trace();
 
 			double I = 0;
-			for (int i = 0; i < S.nLS; i++)
+			for (int i = 0; i < S.getNumberOfLightSources(); i++)
 				I += S.LS[i]->Pall;
 
-			for (int j = 0; j < S.nObj; j++)
+			for (int j = 0; j < S.getNumberOfObjects(); j++)
 			{
 				F[j] = maths::dzero;
 				L[j] = maths::dzero;
-				for (int i = 0; i < S.nLS; i++)
+				for (int i = 0; i < S.getNumberOfLightSources(); i++)
 				{
 					F[j] += f[i][j] / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
 					L[j] += l[i][j] * 1E-6 / I * S.LS[i]->P0 * real(S.nS) / C_LIGHT_MU;
 				}
 			}
-			for (int i = 0; i < S.nLS; i++)
+			for (int i = 0; i < S.getNumberOfLightSources(); i++)
 			{
 				delete[] f[i];
 				delete[] l[i];
@@ -344,7 +337,6 @@ namespace GOAT
 
 		void Raytrace_OT::traceLeaveObject()
 		{
-			// std::cout << PStart << "   " << PStop << std::endl;
 			maths::Vector<double> fe, fr, ft, fg;
 			maths::Vector<double> r;
 
@@ -359,7 +351,6 @@ namespace GOAT
 
 		void Raytrace_OT::traceEnterObject()
 		{
-			// std::cout << PStart << "   " << PStop << std::endl;
 			maths::Vector<double> fe, fr, ft, fg;
 			maths::Vector<double> r;
 
@@ -374,24 +365,22 @@ namespace GOAT
 
 		Scene::Scene()
 		{
-			nLS = 0;
-			nObj = 0;
 			nS = 1.0;			
 			LSRRT = 0;
-			nDet = 0;
 		}
 
 		void Scene::setPhaseProgress(bool suppress_phase_progress)
 		{
 			this->suppress_phase_progress = suppress_phase_progress;
-			for (int i = 0; i < nLS; i++)
+			for (int i = 0; i < getNumberOfLightSources(); i++)
 				LS[i]->suppress_phase_progress = suppress_phase_progress;
 		}
 
 
 		void Scene::addObject(ObjectShape* obj)
 		{
-			
+			int nObj = getNumberOfObjects();
+			int nLS = getNumberOfLightSources();
 			obj->r0 = r0;
 			obj->initQuad();
 			Obj.push_back(obj);
@@ -416,8 +405,11 @@ namespace GOAT
 
 		void Scene::removeAllObjects()
 		{
+			int nObj = getNumberOfObjects();
+			
 			if (nObj > 0)
 			{
+				int nLS = getNumberOfLightSources();
 				Obj.clear();
 				Obj.shrink_to_fit();
 				for (int i = 0; i < nLS; i++)  // remove objects from all light sources
@@ -428,6 +420,7 @@ namespace GOAT
 
 		void Scene::removeObject(int index)
 		{
+			int nObj = getNumberOfObjects();
 			if ((index < nObj) && (index >= 0))
 			{
 				for (int i = index; i < nObj - 1; i++)
@@ -439,7 +432,7 @@ namespace GOAT
 
 		void Scene::removeObject(ObjectShape* obj)
 		{
-			for (int i = 0; i < nLS; i++)
+			for (int i = 0; i < getNumberOfLightSources(); i++)
 				LS[i]->removeObject(obj);
 
 			for (std::vector<raytracing::ObjectShape*>::iterator it = Obj.begin(); it != Obj.end(); ++it)
@@ -449,7 +442,6 @@ namespace GOAT
 					Obj.erase(it);
 					break;
 				}
-			nObj = Obj.size();
 		}
 		
 		void Scene::removeDetector(Detector* det)
@@ -462,7 +454,6 @@ namespace GOAT
 					Det.erase(it);
 					break;
 				}
-			nDet = Det.size();
 		}
 
 		void Scene::removeLightSource(LightSrc* ls)
@@ -475,7 +466,6 @@ namespace GOAT
 					LS.erase(it);
 					break;
 				}
-			nLS = LS.size();
 		}
 
 		void Scene::addLightSource(LightSrc* ls, int raytype)
@@ -494,17 +484,19 @@ namespace GOAT
 				*/
 			
 			// LS[nLS] = ls;
-			LS[nLS]->clearObjects();
-			if (nObj > 0) LS[nLS]->ObjectList(nObj, Obj);
-			LS[nLS]->raytype = raytype;
-			LS[nLS]->setR0(r0);
-			LS[nLS]->setN0(nS);
-			LS[nLS]->suppress_phase_progress = suppress_phase_progress;		
-			nLS++;
+			int nObj = getNumberOfObjects();
+			int nLS = getNumberOfLightSources();
+			LS[nLS-1]->clearObjects();
+			if (nObj > 0) LS[nLS-1]->ObjectList(nObj, Obj);
+			LS[nLS-1]->raytype = raytype;
+			LS[nLS-1]->setR0(r0);
+			LS[nLS-1]->setN0(nS);
+			LS[nLS-1]->suppress_phase_progress = suppress_phase_progress;		
 		}
 
 		void Scene::removeLightSrc(int index)
 		{
+			int nLS = getNumberOfLightSources();
 			if ((index < nLS) && (index >= 0))
 			{
 				for (int i = index; i < nLS - 1; i++)
@@ -516,12 +508,11 @@ namespace GOAT
 
 		void Scene::removeAllLightSources()
 		{
-			if (nLS > 0)
+			if (getNumberOfLightSources() > 0)
 			{
 			   //  free(LS);
 				LS.clear();
 				LS.shrink_to_fit();
-				nLS = 0;
 			}
 		}
 
@@ -536,6 +527,7 @@ namespace GOAT
 			*/
 			LSRRT = ls;
 			LSRRT->clearObjects();
+			int nObj = getNumberOfLightSources();
 			if (nObj > 0) LSRRT->ObjectList(nObj, Obj);
 			LSRRT->raytype = LIGHTSRC_RAYTYPE_IRAY;
 			LSRRT->setR0(r0);
@@ -555,8 +547,7 @@ namespace GOAT
 
 		void Scene::addDetector(Detector* D)
 		{
-			Det.push_back(D);
-			nDet++;
+			Det.push_back(D);			
 		}
 
 		void Scene::addDetectorList(int nDet, std::vector<Detector *> D)
@@ -564,8 +555,13 @@ namespace GOAT
 			for (int i = 0; i < nDet; i++) addDetector(D[i]);
 		}
 
+		int Scene::getNumberOfDetectors() const {	
+			return (int)Det.size();
+		}
+
 		void Scene::cleanAllDetectors()
 		{
+			int nDet = getNumberOfDetectors();
 			if (nDet > 0)
 				for (int i = 0; i < nDet; i++) Det[i]->clean();
 		}
@@ -628,6 +624,7 @@ namespace GOAT
 #endif
 		void Scene::removeAllDetectors()
 		{
+			int nDet = getNumberOfDetectors();
 			if (nDet > 0)
 			{
 				/*for (int i = 0; i < nDet; i++)
@@ -640,6 +637,7 @@ namespace GOAT
 
 		void Scene::removeDetector(int index)
 		{
+			int nDet = getNumberOfDetectors();
 			if ((index < nDet) && (index >= 0))
 			{
 				for (int i = index; i < nDet - 1; i++)
@@ -651,6 +649,7 @@ namespace GOAT
 
 		void GOAT::raytracing::Scene::multAllDetectors(std::complex<double> factor)
 		{
+			int nDet = getNumberOfDetectors();
 			if (nDet > 0)
 				for (int i = 0; i < nDet; i++)
 					Det[i]->mult(factor);
@@ -659,11 +658,13 @@ namespace GOAT
 
 		void Scene::setr0(double r0)
 		{
+			int nLS = getNumberOfLightSources();
 			this->r0 = r0;
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 					LS[i]->setR0(r0);
 
+			int nObj = getNumberOfObjects();
 			if (nObj > 0)
 				for (int i = 0; i < nObj; i++)
 					Obj[i]->setr0(r0);
@@ -677,6 +678,7 @@ namespace GOAT
 
 		void Scene::setnS(std::complex<double> nS)
 		{
+			int nLS = getNumberOfLightSources();
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 				{
@@ -697,17 +699,14 @@ namespace GOAT
 		}
 
 		Scene::Scene(const Scene& S)
-		{
+		{			
 			LSRRT = S.LSRRT;
 			LS = S.LS;
-			nLS = S.nLS;
 			Obj = S.Obj;
-			nObj = S.nObj;
 			r0 = S.r0;
 			nS = S.nS;
 			raytype = S.raytype;
 			Det = S.Det;
-			nDet = S.nDet;
 			suppress_phase_progress = S.suppress_phase_progress;
 			NumCellsPerDir = S.NumCellsPerDir;
 			nReflex = S.nReflex;
@@ -719,6 +718,7 @@ namespace GOAT
 
 		void Scene::setRaytype(int raytype)
 		{
+			int nLS = getNumberOfLightSources();
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 					LS[i]->raytype = raytype;
@@ -727,6 +727,7 @@ namespace GOAT
 
 		void Scene::resetLS()
 		{
+			int nLS = getNumberOfLightSources();
 			if (nLS > 0)
 				for (int i = 0; i < nLS; i++)
 				{

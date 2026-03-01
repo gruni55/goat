@@ -54,7 +54,7 @@ namespace GOAT {
 				kin = ray->getk();
 
 				// search a hit with a detector within the last step
-		/*	if (S.nDet > 0) 
+		/*	if (S.getNumberOfDetectors() > 0) 
 				{
 					int i1, i2;
 					double l;
@@ -62,7 +62,7 @@ namespace GOAT {
 					std::complex<double> n;
 					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
 					else n = S.nS;
-					for (int i = 0; i < S.nDet; i++)
+					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
 						if (S.Det[i]->cross(PStart, kin, i1, i2, l))
 						{
@@ -286,7 +286,7 @@ namespace GOAT {
 			}
 
 			if (!useRRTParms)
-				for (int i = 0; i < S.nLS; i++) // Schleife �ber die Lichtquellen
+				for (int i = 0; i < S.getNumberOfLightSources(); i++) // Schleife �ber die Lichtquellen
 				{
 					S.resetLS();
 					do

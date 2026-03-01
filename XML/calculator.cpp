@@ -74,7 +74,7 @@ namespace GOAT
                     {
                         pc.field(time);
 
-                       /* for (int i = 0; i < S.nObj; i++)
+                       /* for (int i = 0; i < S.getNumberOfObjects(); i++)
                         {
                             if (S.Obj[i]->isActive())
                             {
