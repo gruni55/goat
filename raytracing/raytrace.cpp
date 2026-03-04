@@ -132,7 +132,7 @@ namespace GOAT
 					else n = S.nS;
 					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
-                        if (S.Det[i]->cross(PStart, kin, i1, i2, l))
+                        if (S.Det[i]->cross(PStart, kin, i1, i2, l) && (S.Det[i]->Type()!=DETECTOR_KIRCHHOFF))
 						{            
 							  //  std::cout << "l=" << l << std::endl;
 							    if (abs(PStop-PStart)>l)
@@ -566,7 +566,7 @@ namespace GOAT
 				for (int i = 0; i < nDet; i++) Det[i]->clean();
 		}
 
-		Detector *Scene::getDetector(std::string ID)
+		Detector* Scene::getDetector(std::string ID)
 		{
 			for (auto det : Det)
 			{
@@ -574,7 +574,16 @@ namespace GOAT
 			}
 			return NULL;
 		}
+
 #ifdef WITH_OPENMP
+		void Scene::cleanAllKirchhoff3D()
+		{
+			
+			if (nK3D > 0)
+				for (int i = 0; i < nK3D; i++) k3D[i]->clean();
+		}
+
+		
 		void Scene::addKirchhoff3D(Kirchhoff3D* K)
 		{
 			K->setR0(r0);

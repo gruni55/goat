@@ -9,6 +9,7 @@
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
 #include "kirchhoff.h"
+#include "detector.h"
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
@@ -1705,7 +1706,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     S.Det[i]->save(S.Det[i]->fname.c_str());
                     switch (type)
                     {
-                    case DETECTOR_PLANE:
+                    case raytracing::DETECTOR_PLANE:
                     {
                         auto det = (raytracing::DetectorPlane*)S.Det[i];
                         detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
@@ -1716,7 +1717,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
 
 #ifdef WITH_MP
-                case DETECTOR_KIRCHHOFF:
+                case raytracing::DETECTOR_KIRCHHOFF:
                 {
                     auto det = (raytracing::Kirchhoff*)S.Det[i];
                     detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 

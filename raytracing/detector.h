@@ -11,9 +11,15 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+		/*
 		#define DETECTOR_PLANE		20000
 		#define DETECTOR_KIRCHHOFF	20001	
 		#define DETECTOR_ANGLE		20002
+		*/
+
+		inline constexpr int DETECTOR_PLANE = 20000;
+		inline constexpr int DETECTOR_KIRCHHOFF = 20001;
+		inline constexpr int DETECTOR_ANGLE = 20002;
 
 		/**
 		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
