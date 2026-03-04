@@ -298,7 +298,8 @@ namespace GOAT
                     }
 
                 }
-#ifdef WITH_MP
+              
+#ifdef WITH_OPENMP
 
                 for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
                 {
@@ -329,7 +330,7 @@ namespace GOAT
                                                             cancel = det == NULL; // check, if detector with ID exists
                                                             if (!cancel)
                                                             {
-								cancel = det->Type() != DETECTOR_PLANE; // check, if detector with ID is of type plane
+								cancel = det->Type() != raytracing::DETECTOR_PLANE; // check, if detector with ID is of type plane
                                                                 if (cancel) std::cerr << "Link to detector with ID=" << linkID << " should be used for Kirchhoff, but is not a plane detector!" << std::endl;
                                                                 else
                                                                 {
@@ -1713,26 +1714,26 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         detector->SetAttribute("n", det->N1()); // we also assume that n1=n2                            
                     }
                     break;
-                    }
 
 
-#ifdef WITH_MP
-                case raytracing::DETECTOR_KIRCHHOFF:
-                {
-                    auto det = (raytracing::Kirchhoff*)S.Det[i];
-                    detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
-                    detector->SetAttribute("n", det->N1()); // we also assume that n1=n2 
-                    auto sources = det->getSources();
-                    for (auto src : sources)
+
+#ifdef WITH_OPENMP
+                    case raytracing::DETECTOR_KIRCHHOFF:
                     {
-                        auto srcEll = doc.NewElement("Link");
-                        srcEll->SetAttribute("ID", src->getID().c_str());
-                        detector->InsertEndChild(srcEll);
+                        auto det = (raytracing::Kirchhoff*)S.Det[i];
+                        detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
+                        detector->SetAttribute("n", det->N1()); // we also assume that n1=n2 
+                        auto sources = det->getSources();
+                        for (auto src : sources)
+                        {
+                            auto srcEll = doc.NewElement("Link");
+                            detector->InsertEndChild(srcEll);
+							srcEll->SetAttribute("ID", src->getID().c_str());
+                        }
                     }
-                }
-                break;
+                    break;
 #endif
-
+                    }
                 detectors->InsertEndChild(detector);
                 }
             }

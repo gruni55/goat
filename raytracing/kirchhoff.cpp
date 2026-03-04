@@ -58,6 +58,7 @@ namespace GOAT
 		void Kirchhoff::calc(DetectorPlane* det, bool clear)
 		{
 			if (clear) clean();
+			std::cout << "Calculating Kirchhoff with wavelength " << wvl << " for detector " << det->getID() << std::endl;
 			std::cout << "det->D1() = " << det->D1()	<< "   det->N1() = " << det->N1() << std::endl;
 			// Kirchhoff - Ebene
 			maths::Vector<double> P,Pc;
@@ -76,7 +77,7 @@ namespace GOAT
 		/*	const double invN1 = (n1 > 0) ? 1.0 / n1 : 0.0;
 			const double invN2 = (n2 > 0) ? 1.0 / n2 : 0.0;
 		*/
-#pragma omp parallel for collapse(2) schedule(static) default(none) shared(n1, n2, e1, e2, l1, l2, Pc, det, Dref) num_threads(noThreads)
+ #pragma omp parallel for collapse(2) schedule(static) default(none) shared(n1, n2, e1, e2, l1, l2, Pc, det, Dref) num_threads(noThreads)
 			for (int i1=0; i1<n1; i1++)
 				for (int i2 = 0; i2 < n2; i2++)
 				{
@@ -112,7 +113,7 @@ namespace GOAT
 			e2s /= abs(e2s);
 			double k = 2.0 * M_PI / wvl;
 			
-		//	std::cout << "n1=" << n1 << "\tn2=" << n2 << "\te1 = " << e1 << "\t d1 = " << d1 << "\t e2 = " << e2 << "\t d2 = " << d2 << "\tD1 = " << D1() << "\t D2 = " << D2() << std::endl;
+			// std::cout << "n1=" << n1 << "\tn2=" << n2  << std::endl;
 
 			Pc = det->position();
 			maths::Vector<std::complex<double> > E;
@@ -123,13 +124,15 @@ namespace GOAT
 			for (int i1 = 0; i1 < n1; i1++)
 				for (int i2 = 0; i2 < n2; i2++)
 				{
-					R = Pc + (i1 / (double)n1 - 0.5) * l1 * e1s + (i2 / (double)n2 - 0.5) * l2 * e2s; // Point at raytracing area
+				//	R = Pc + (i1 / (double)n1 - 0.5) * l1 * e1s + (i2 / (double)n2 - 0.5) * l2 * e2s; // Point at raytracing area
+					R = Pc + ((i1 + 0.5) / double(n1) - 0.5) * l1 * e1s + ((i2 + 0.5) / double(n2) - 0.5) * l2 * e2s;
 					rv = P - R; 
 					r = abs(rv);
 					rv /= r;
 					s = rv*(det->D[i1][i2] * rv);
 				    // E += (det->D[i1][i2] - s) * exp(-I * k * r) / (I * wvl * r);
-					 E += det->D[i1][i2]  * exp(-I * k * r) / (I * wvl * r);				
+					double cosTheta = rv * det->norm();
+					 E += cosTheta * det->D[i1][i2]  * exp(-I * k * r) / (I * wvl * r);				
 				}
 			return E;
 		}
