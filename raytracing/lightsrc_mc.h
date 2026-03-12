@@ -150,7 +150,8 @@ namespace GOAT
             int next(IRay& S);
             int next(tubedRay& S);
             int next(Ray_pow& S);
-            void setFWHM (double r); ///< set width of the gaussian distribution to r
+			void setFWHM(double r); ///< set width of the gaussian distribution to r (defined as the full width at half maximum of the intensity distribution)
+			double getFWHM(); ///< returns the full width at half maximum of the intensity distribution
             double getRmax() { return rmax;} ///< returns outer radius
             double getRmin() { return rmin;} ///< returns inner radius
             void setRmin(double rmin); ///< set the inner radius to rmin

@@ -83,7 +83,7 @@ namespace GOAT
 		const std::string sceneXMLElements[] = { "r0","ns","CellsPerDir","lightsources","objects","detectors"};
 		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays","numraysRT"};
 		const std::string LSXMLTYPES[] = {"plane","gaussian","plane_mc","gaussian_mc"};
-		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc" };
+		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc","gaussian_ring_mc"};
 	
 	   /**
 		* @brief check if the fname has a given extension

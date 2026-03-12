@@ -558,6 +558,13 @@ namespace GOAT
 		int Scene::getNumberOfDetectors() const {	
 			return (int)Det.size();
 		}
+		
+		void Scene::cleanDetector(int index)
+		{
+			int nDet = getNumberOfDetectors();
+			if ((index < nDet) && (index >= 0))
+				Det[index]->clean();
+		}
 
 		void Scene::cleanAllDetectors()
 		{

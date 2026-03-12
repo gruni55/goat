@@ -447,11 +447,13 @@ namespace  GOAT
 			e2 = maths::ey;
 
 			this->Pos = Pos;
-			this->density = 2.0 * rmax / ((double)N);
+			
 			this->type = LIGHTSRC_SRCTYPE_RING;
 			D = 2.0 * rmax;
 			D1 = 2.0 * rmax;
 			D2 = 2.0 * rmax;
+			numRaysRT = 10;
+			this->density = 2.0 * rmax / ((double)numRaysRT);
 
 			this->raytype = raytype;
 			this->Pol = Pol;
@@ -474,10 +476,18 @@ namespace  GOAT
 		void LightSrcRing::setRmax(double rmax)
 		{
 			this->rmax = rmax;
-			D = rmax / (double)N;
+			D = 2.0 * rmax / (double)N;
 			D1 = 2.0 * rmax;
 			D2 = D1;
+			std::cout << "N=" << N << std::endl;
 			density = 2.0 * rmax / ((double)N);
+		}
+
+		void LightSrcRing::reset()
+		{
+			D = 2.0 * rmax / (double)N;
+			density = 2.0 * rmax / ((double)N);
+			std::cout << "[LightSrcRing::reset] D=" << D << "\tdensity=" << density << "\tN=" << N << std::endl;
 		}
 
 		int LightSrcRing::next(RayBase* ray)
@@ -492,30 +502,45 @@ namespace  GOAT
 			}
 		}
 
-		int LightSrcRing::next(IRay& S)
+
+		
+
+		int LightSrcRing::next (IRay& S)
 		{
 
 			Plane E;
 			maths::Vector<double> P;
 			double absP;
 			bool found = false;
-			do
+		    do
 			{
-				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;
+				P = (i1 * density - D1 / 2.0) * e1 + (i2 * density - D2 / 2.0) * e2;				
 				absP = abs(P);
 				if ((absP < rmin) || (absP > rmax))
 				{
 					i1++;
 					if (i1 * density > D1) { i1 = 0; i2++; }
-					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
+					if (i2 * density >= D2) 
+					{ 
+						S = IRay(P + Pos, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+						S.suppress_phase_progress = suppress_phase_progress;
+						S.E1 = maths::czero; // nur workaround, weil ich von hier die Strahlverfolgung nicht abbrechen kann
+						S.E2 = maths::czero;
+						E.n = k;
+						return LIGHTSRC_IS_LAST_RAY; 
+					}
 				}
-				else found = true;
+				else
+				{
+					found = true;					
+				}
 			} while (!found);
-			P = Pos + P;
+				P = Pos + P;
 
 			E.e1 = e1;
 			E.e2 = e2;
 			E.n = k;
+			
 			S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.E1 = Pol / (N * N);
@@ -523,11 +548,8 @@ namespace  GOAT
 			// S.init_Efeld(E,Pol);
 			i1++;
 
-			if (i1 * density > D1) {
-				i1 = 0; i2++; std::cout << "% i2=" << i2 << std::endl;
-			}
+			if (i1 * density > D1) { i1 = 0; i2++; }
 			if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
-
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
@@ -550,7 +572,12 @@ namespace  GOAT
 					if (i1 * density > D1) { i1 = 0; i2++; }
 					if (i2 * density >= D2) { return LIGHTSRC_IS_LAST_RAY; }
 				}
-				P = Pos + P;
+				else
+				{
+					found = true;
+					P = Pos + P;
+					std::cout << "i1=" << i1 << "\ti2=" << i2 << std::endl;
+				}
 			} while (!found);
 			E.e1 = e1;
 			E.e2 = e2;
@@ -619,8 +646,11 @@ namespace  GOAT
 			Isum2 = 0;
 			switch (type)
 			{
-			case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
-			case LIGHTSRC_SRCTYPE_GAUSS_MC: ((LightSrcGauss_mc*)this)->reset(); break;
+			 case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
+			 case LIGHTSRC_SRCTYPE_GAUSS_MC: ((LightSrcGauss_mc*)this)->reset(); break;
+			 case LIGHTSRC_SRCTYPE_RING_MC:
+			 case LIGHTSRC_SRCTYPE_RING: ((LightSrcRing*)this)->reset(); break;
+
 			}
 		}
 

@@ -55,6 +55,43 @@ namespace GOAT
 			for (auto det : sources)
 				calc(det,false);			
 		}
+
+		void smoothField(std::vector<std::vector<maths::Vector<std::complex<double>>>>& E)
+		{
+			int n1 = E.size();
+			if (n1 == 0) return;
+
+			int n2 = E[0].size();
+
+			auto tmp = E;
+
+			for (int i = 1; i < n1 - 1; ++i)
+			{
+				for (int j = 1; j < n2 - 1; ++j)
+				{
+					tmp[i][j] =
+						(E[i - 1][j - 1] + 2.0 * E[i][j - 1] + E[i + 1][j - 1]
+							+ 2.0 * E[i - 1][j] + 4.0 * E[i][j] + 2.0 * E[i + 1][j]
+							+ E[i - 1][j + 1] + 2.0 * E[i][j + 1] + E[i + 1][j + 1]) / 16.0;
+				}
+			}
+
+			// Ränder unverändert übernehmen
+			for (int i = 1; i < n1 - 1; ++i)
+			{
+				tmp[i][0] = E[i][0];
+				tmp[i][n2 - 1] = E[i][n2 - 1];
+			}
+
+			for (int j = 0; j < n2; ++j)
+			{
+				tmp[0][j] = E[0][j];
+				tmp[n1 - 1][j] = E[n1 - 1][j];
+			}
+
+			E.swap(tmp);
+		}
+
 		void Kirchhoff::calc(DetectorPlane* det, bool clear)
 		{
 			if (clear) clean();
@@ -77,6 +114,8 @@ namespace GOAT
 		/*	const double invN1 = (n1 > 0) ? 1.0 / n1 : 0.0;
 			const double invN2 = (n2 > 0) ? 1.0 / n2 : 0.0;
 		*/
+
+			// smoothField(det->D);
  #pragma omp parallel for collapse(2) schedule(static) default(none) shared(n1, n2, e1, e2, l1, l2, Pc, det, Dref) num_threads(noThreads)
 			for (int i1=0; i1<n1; i1++)
 				for (int i2 = 0; i2 < n2; i2++)
@@ -95,6 +134,86 @@ namespace GOAT
 				calc(det,false);
 		}
 
+		maths::Vector<std::complex<double>> point(DetectorPlane* det, maths::Vector<double> P, double wvl)
+		{
+			using GOAT::maths::Vector;
+
+			const int n1 = det->N1();
+			const int n2 = det->N2();
+
+			const double l1 = det->D1();
+			const double l2 = det->D2();
+
+			const double dU = l1 / static_cast<double>(n1);
+			const double dV = l2 / static_cast<double>(n2);
+			const double dA = dU * dV;
+
+			Vector<double> pc = det->position();
+
+			Vector<double> e1s = det->gete1();
+			e1s /= abs(e1s);
+
+			Vector<double> e2s = det->gete2();
+			e2s /= abs(e2s);
+
+			Vector<double> n = det->norm();
+			n /= abs(n);
+
+			const double k = 2.0 * M_PI / wvl;
+
+			std::complex<double> I(0.0, 1.0);
+			Vector<std::complex<double>> E(0.0, 0.0, 0.0);
+
+			// 2x2 Subsampling innerhalb jedes Pixels
+			// relative Offsets innerhalb der Pixelzelle
+			constexpr double subOffsets[2] = { -0.25, +0.25 };
+			constexpr double subWeight = 0.25; // 4 Unterpunkte -> je 1/4
+
+			for (int i1 = 0; i1 < n1; ++i1)
+			{
+				for (int i2 = 0; i2 < n2; ++i2)
+				{
+					const Vector<std::complex<double>>& field = det->D[i1][i2];
+
+					// Pixelzentrum
+					const double uCenter = (((static_cast<double>(i1) + 0.5) / static_cast<double>(n1)) - 0.5) * l1;
+					const double vCenter = (((static_cast<double>(i2) + 0.5) / static_cast<double>(n2)) - 0.5) * l2;
+
+					for (double a : subOffsets)
+					{
+						for (double b : subOffsets)
+						{
+							const double u = uCenter + a * dU;
+							const double v = vCenter + b * dV;
+
+							Vector<double> R = pc + u * e1s + v * e2s;
+
+							Vector<double> rv = P - R;
+							const double r = abs(rv);
+							if (r < 1e-12)
+								continue;
+
+							rv /= r;
+
+							double cosTheta = rv * n;
+							if (cosTheta <= 0.0)
+								continue;
+
+							// Falls du den transversalen Anteil testen willst:
+							// Vector<std::complex<double>> s = rv * (field * rv);
+							// Vector<std::complex<double>> fieldTrans = field - s;
+
+							std::complex<double> phase = std::exp(-I * k * r);
+
+							E += field * (subWeight * dA * cosTheta) * phase / (I * wvl * r);
+						}
+					}
+				}
+			}
+
+			return E;
+		}
+		/*
 		maths::Vector<std::complex<double> > point(DetectorPlane* det, maths::Vector<double> P, double wvl)
 		{
 			maths::Vector<double> R, Pc;
@@ -136,7 +255,7 @@ namespace GOAT
 				}
 			return E;
 		}
-
+		*/
 		Kirchhoff3D::Kirchhoff3D(Box* box, INDEX_TYPE nn)
 		{		
 			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, nn, nn, nn);

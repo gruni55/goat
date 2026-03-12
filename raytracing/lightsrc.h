@@ -28,7 +28,8 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wa
 constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight line (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random distribution)
-
+constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source with gaussian distribution (random distribution)
+ 
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -147,6 +148,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			{
 				this->N = N;
 				density = D / ((double)N);
+				std::cout << "density=" << density << "\tN=" << N << "\tD=" << D << std::endl;
 				reset();
 			}
 			void setWavelength(double wvl) { this->wvl = wvl; k0 = 2.0 * M_PI / wvl; }
@@ -278,9 +280,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			void setRmin(double rmin); ///< set the inner radius of the light source
 			void setRmax(double rmax); ///< set the outer radius of the light source
 			double area() { return M_PI * (rmax * rmax - rmin * rmin); } ///< area \f$A=\pi \cdot (r_{max}^2-r_{min}^2) of the light source
+			void reset();
 		private:
 			double rmin = 0.0;
 			double rmax = 100.0;
+			
 		};
 
 		/**

@@ -493,13 +493,16 @@ namespace GOAT
                                                         {
                                                            double rmin, rmax;
                                                          double width;
+                                                         double FWHM;
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
-                                                         width=lsEll->DoubleAttribute("width",rmax);
+                                                        // width=lsEll->DoubleAttribute("width",rmax);
+                                                         FWHM = lsEll->DoubleAttribute("FWHM", rmax);
                                                            ls=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax,Pol);
-                                                         ((GOAT::raytracing::LightSrcRingGauss_mc *)ls)->setFWHM(width);
+                                                         ((GOAT::raytracing::LightSrcRingGauss_mc *)ls)->setFWHM(FWHM);
 														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"),0,0,1);
 														 ls->setk(k);
+                                                                                     
                                                          LS.push_back(ls);
                                                          break;
                                                         }
@@ -1563,6 +1566,11 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               }
               break;
 
+              case raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC:
+              {
+                  auto lsg = (raytracing::LightSrcRingGauss_mc*)S.LS[i];
+                  lightSrc->SetAttribute("FWHM", formatDouble(lsg->getFWHM()).c_str());
+              }
               case raytracing::LIGHTSRC_SRCTYPE_RING :
               case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
               {

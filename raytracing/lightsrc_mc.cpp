@@ -513,26 +513,19 @@ namespace GOAT
 
 		GOAT::maths::Vector<double> LightSrcRing_mc::genStartingPos()
 		{
-			std::random_device rd;
-			std::mt19937_64 gen(rd());
-			
-			/*std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
-			std::uniform_real_distribution<double> ur(0, 1);*/
-			std::uniform_real_distribution<double> uxy (-rmax,rmax);
-            // std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
-			// double r = rmax * std::sqrt(ur(gen));			
-			
-			double x,y,r2;
-			do 
-			{
-              x=uxy(gen);
-			  y=uxy(gen);
-			  r2=x*x+y*y;
-			} while ((r2<rmin*rmin) || (r2>rmax*rmax));
-			// x = r * cos(phi);
-			// y = r * sin(phi);
-			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
-			return P;
+			static thread_local std::mt19937_64 gen(std::random_device{}());
+			std::uniform_real_distribution<double> U(0.0, 1.0);
+
+			const double u = U(gen);
+			const double v = U(gen);
+
+			const double r = std::sqrt((1.0 - u) * rmin * rmin + u * rmax * rmax);
+			const double phi = 2.0 * M_PI * v;
+
+			const double x = r * std::cos(phi);
+			const double y = r * std::sin(phi);
+
+			return Pos + x * e1 + y * e2;
 		}
 
 		int LightSrcRing_mc::next(IRay& S)
@@ -546,7 +539,7 @@ namespace GOAT
 			S = IRay(P, Pol, k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
 			S.E1 = Pol ;
-			S.E2 = Pol2 ;
+			S.E2 = Pol2;
 			// S.init_Efeld(E,Pol);
 			rayCounter++;
 			if ((rayCounter >= N) && (N > -1)) return LIGHTSRC_IS_LAST_RAY;
@@ -599,7 +592,7 @@ namespace GOAT
 			rmax = L.rmax;
 			D1=2.0*rmax;
 			D2=D1;
-			type = LIGHTSRC_SRCTYPE_RING_MC;
+			type = LIGHTSRC_SRCTYPE_RING_GAUSS_MC;
                         rayCounter=0;
                         sigma2 = 2.0*rmax*rmax/log(2.0);
 		}
@@ -613,7 +606,7 @@ namespace GOAT
 			D2=D1;
                         rayCounter=0;
 			sigma2 = 2.0*rmax*rmax/log(2.0);
-			type = LIGHTSRC_SRCTYPE_RING_MC;
+			type = LIGHTSRC_SRCTYPE_RING_GAUSS_MC;
 		}
 
 
@@ -642,39 +635,19 @@ namespace GOAT
 
 		GOAT::maths::Vector<double> LightSrcRingGauss_mc::genStartingPos()
 		{
-			std::random_device rd;
-			std::mt19937_64 gen(rd());
-//			std::uniform_real_distribution<double> uphi(0, 2.0 * M_PI);
-//			std::uniform_real_distribution<double> ur((rmin*rmin)/(rmax*rmax), 1.0);
-
-//			double r = rmax * std::sqrt(ur(gen));			
-            std::normal_distribution<double> nd (0,sqrt(sigma2));
 			
+ 			std::random_device rd;
+			std::mt19937_64 gen(rd());	
+            std::normal_distribution<double> nd (0,sqrt(sigma2));
+			double x,y;
 
-            double x,y;
-
-        /*    do 
-            {
-               x=nd(gen);
-            } while ((x<-D1/2.0) || (x>D1/2.0));
-
-            do 
-            {
-               y=nd(gen);
-            } while ((y<-D2/2.0) || (y>D2/2.0));
-			*/
 		  double r2;
 		  do 
 		  {
 			 x=nd(gen);
 			 y=nd(gen);
              r2=x*x+y*y;
-		  } while ((r2<rmin*rmin) && (r2>rmax*rmax));
-/*
-			double phi = uphi(gen);
-			double x, y;
-			x = r * cos(phi);
-			y = r * sin(phi);*/
+		  } while ((r2<rmin*rmin) || (r2>rmax*rmax));
 			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
 			return P;
 		}
@@ -742,8 +715,14 @@ namespace GOAT
                 void LightSrcRingGauss_mc::setFWHM (double fwhm)
                 {
 				    // sigma2=fwhm*fwhm/(8*M_LN2);				  
-					sigma2=fwhm*fwhm/M_LN2;
+					sigma2=fwhm*fwhm/(4.0*M_LN2);
                 }
+
+				double LightSrcRingGauss_mc::getFWHM()
+				{
+					return 2.0*sqrt(sigma2*M_LN2);
+				}
+
 
 				LightSrcPoint_mc::LightSrcPoint_mc() : LightSrc()
 				{

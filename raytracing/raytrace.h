@@ -49,6 +49,7 @@ namespace GOAT
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
 			void removeDetector(Detector* det); 
+			void cleanDetector(int index); ///< clean detector "index", i.e. all values in the detector are set to zero, but the detector remains in the scene
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
 			void multAllDetectors(std::complex<double> factor); ///< multiplies the content of all detectors with the given factor
 			void setNumberOfCellsPerDirection(INDEX_TYPE no)  
