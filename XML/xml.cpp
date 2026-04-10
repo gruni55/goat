@@ -1557,7 +1557,11 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   }
                   break;
 
-              case raytracing::LIGHTSRC_SRCTYPE_GAUSS :
+              case raytracing::LIGHTSRC_SRCTYPE_GAUSS:
+              {
+                  raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "FocusPosition", ls->getFocuspos()));
+              }
               case raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC:
               {
                   raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
