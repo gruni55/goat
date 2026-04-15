@@ -134,10 +134,10 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class makes a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html" title="This class makes a Kirchhoff calculation This class is directly connect with a Detector....">Kirchhoff</a> calculation This class is directly connect with a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el...">Detector</a>. The calculation itself works as follows: At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral.  <a href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Kirchhoff3D" id="r_Kirchhoff3D"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html">Kirchhoff3D</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class makes a 3D <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html" title="This class makes a Kirchhoff calculation This class is directly connect with a Detector....">Kirchhoff</a> calculation This class makes a 3D <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html" title="This class makes a Kirchhoff calculation This class is directly connect with a Detector....">Kirchhoff</a> calculation especially for pulsed calculations. It needs a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_box.html" title="class which represents a box (cuboid). It is derived by class ObjectShape This class is mainly used f...">Box</a> object to define the volume, where the field is calculated.  <a href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html#details">More...</a><br /></td></tr>
-<tr class="memitem:lensa" id="r_lensa"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensa.html">lensa</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat.  <a href="struct_g_o_a_t_1_1raytracing_1_1lensa.html#details">More...</a><br /></td></tr>
-<tr class="memitem:lensParms" id="r_lensParms"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1spheric_lens.html" title="This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lat...">sphericLens</a>)  <a href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html#details">More...</a><br /></td></tr>
+<tr class="memitem:lens" id="r_lens"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens.html">lens</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat.  <a href="struct_g_o_a_t_1_1raytracing_1_1lens.html#details">More...</a><br /></td></tr>
+<tr class="memitem:lensp" id="r_lensp"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensp.html">lensp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1spheric_lens.html" title="This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lat...">sphericLens</a>)  <a href="struct_g_o_a_t_1_1raytracing_1_1lensp.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrc" id="r_LightSrc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcGauss" id="r_LightSrcGauss"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">LightSrcGauss</a></td></tr>
@@ -238,8 +238,10 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:a62741f37aa1d810868fc4c60b9a202c7" id="r_a62741f37aa1d810868fc4c60b9a202c7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62741f37aa1d810868fc4c60b9a202c7">cplx</a> = std::complex&lt;double&gt;</td></tr>
 <tr class="memitem:a8b2f76584ad23aadae31780237b45e73" id="r_a8b2f76584ad23aadae31780237b45e73"><td class="memItemLeft" align="right" valign="top">typedef long long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b2f76584ad23aadae31780237b45e73">INDEX_TYPE</a></td></tr>
-<tr class="memitem:a866edf70813cc095beb14e11abb20efe" id="r_a866edf70813cc095beb14e11abb20efe"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensa.html">GOAT::raytracing::lensa</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a866edf70813cc095beb14e11abb20efe">lensSide</a></td></tr>
-<tr class="memdesc:a866edf70813cc095beb14e11abb20efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat.  <br /></td></tr>
+<tr class="memitem:a866fe650fea7d4e4c55bb564066dbf39" id="r_a866fe650fea7d4e4c55bb564066dbf39"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensp.html">GOAT::raytracing::lensp</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">lensParms</a></td></tr>
+<tr class="memdesc:a866fe650fea7d4e4c55bb564066dbf39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1spheric_lens.html" title="This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lat...">sphericLens</a>)  <br /></td></tr>
+<tr class="memitem:a492a9891e66bfd3d2ab51cf388be11f9" id="r_a492a9891e66bfd3d2ab51cf388be11f9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens.html">GOAT::raytracing::lens</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">lensSide</a></td></tr>
+<tr class="memdesc:a492a9891e66bfd3d2ab51cf388be11f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat.  <br /></td></tr>
 <tr class="memitem:a844150dbdd173e5b32ad61f8e77a56ea" id="r_a844150dbdd173e5b32ad61f8e77a56ea"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a844150dbdd173e5b32ad61f8e77a56ea">nFnPtr</a> = <a class="el" href="#a62741f37aa1d810868fc4c60b9a202c7">cplx</a>(*)(double)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -269,19 +271,19 @@ Functions</h2></td></tr>
 <tr class="memitem:affab32fbbb2eb68778dd28cb3d0b4515" id="r_affab32fbbb2eb68778dd28cb3d0b4515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affab32fbbb2eb68778dd28cb3d0b4515">addTriangleToTriangle</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_octree.html">Octree</a>&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1triangle.html">triangle</a> &gt; *O, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1triangle.html">triangle</a> D, int rek)</td></tr>
 <tr class="memitem:a51330ebe5ad6c304bc1e95bc295463c9" id="r_a51330ebe5ad6c304bc1e95bc295463c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51330ebe5ad6c304bc1e95bc295463c9">binRead</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a> &amp;Gs, std::ifstream &amp;is)</td></tr>
 <tr class="memdesc:a51330ebe5ad6c304bc1e95bc295463c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">write the <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a> structure to a binary file  <br /></td></tr>
-<tr class="memitem:a96e56eb2683c9f0cbdd48ab46b436c4a" id="r_a96e56eb2683c9f0cbdd48ab46b436c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e56eb2683c9f0cbdd48ab46b436c4a">binRead</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a> lp, std::ifstream &amp;is)</td></tr>
-<tr class="memdesc:a96e56eb2683c9f0cbdd48ab46b436c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure from a binary file  <br /></td></tr>
-<tr class="memitem:ac2d0d78c4a130fcf795e85d094c759e1" id="r_ac2d0d78c4a130fcf795e85d094c759e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2d0d78c4a130fcf795e85d094c759e1">binRead</a> (<a class="el" href="#a866edf70813cc095beb14e11abb20efe">lensSide</a> ls, std::ifstream &amp;is)</td></tr>
-<tr class="memdesc:ac2d0d78c4a130fcf795e85d094c759e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a <a class="el" href="#a866edf70813cc095beb14e11abb20efe" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure from a binary file  <br /></td></tr>
+<tr class="memitem:a96e56eb2683c9f0cbdd48ab46b436c4a" id="r_a96e56eb2683c9f0cbdd48ab46b436c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96e56eb2683c9f0cbdd48ab46b436c4a">binRead</a> (<a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">lensParms</a> lp, std::ifstream &amp;is)</td></tr>
+<tr class="memdesc:a96e56eb2683c9f0cbdd48ab46b436c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a <a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure from a binary file  <br /></td></tr>
+<tr class="memitem:ac2d0d78c4a130fcf795e85d094c759e1" id="r_ac2d0d78c4a130fcf795e85d094c759e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2d0d78c4a130fcf795e85d094c759e1">binRead</a> (<a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">lensSide</a> ls, std::ifstream &amp;is)</td></tr>
+<tr class="memdesc:ac2d0d78c4a130fcf795e85d094c759e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">read a <a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure from a binary file  <br /></td></tr>
 <tr class="memitem:ae5f0c642c79e7f21d8c5afc9527bc4d6" id="r_ae5f0c642c79e7f21d8c5afc9527bc4d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5f0c642c79e7f21d8c5afc9527bc4d6">binReadInc</a> (std::ifstream &amp;is, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *&amp;E, bool isNew)</td></tr>
 <tr class="memitem:abc8b7a2993cb4166982341a20b046b7b" id="r_abc8b7a2993cb4166982341a20b046b7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc8b7a2993cb4166982341a20b046b7b">binReadIncList</a> (std::ifstream &amp;is, std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> * &gt; &amp;E, int anz)</td></tr>
 <tr class="memitem:a3367f7cd397470c01d0f49b6f692e6c8" id="r_a3367f7cd397470c01d0f49b6f692e6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3367f7cd397470c01d0f49b6f692e6c8">binReadLSList</a> (std::ifstream &amp;is, int nLS, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **&amp;ls)</td></tr>
 <tr class="memdesc:a3367f7cd397470c01d0f49b6f692e6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads list of light sources from a binary file and allocates the memory for the light source list.  <br /></td></tr>
 <tr class="memitem:a610ed718b81a03c50e105d8563414305" id="r_a610ed718b81a03c50e105d8563414305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a610ed718b81a03c50e105d8563414305">binWrite</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a> gs, std::ofstream &amp;os)</td></tr>
-<tr class="memitem:a3cca66f627df43622b7124fb3ed0c4c7" id="r_a3cca66f627df43622b7124fb3ed0c4c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cca66f627df43622b7124fb3ed0c4c7">binWrite</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a> lp, std::ofstream &amp;os)</td></tr>
-<tr class="memdesc:a3cca66f627df43622b7124fb3ed0c4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure in a binary file  <br /></td></tr>
-<tr class="memitem:ad6dd8a65083d84f501cc0e01eaf0b60e" id="r_ad6dd8a65083d84f501cc0e01eaf0b60e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6dd8a65083d84f501cc0e01eaf0b60e">binWrite</a> (<a class="el" href="#a866edf70813cc095beb14e11abb20efe">lensSide</a> ls, std::ofstream &amp;os)</td></tr>
-<tr class="memdesc:ad6dd8a65083d84f501cc0e01eaf0b60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a <a class="el" href="#a866edf70813cc095beb14e11abb20efe" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure in a binary file  <br /></td></tr>
+<tr class="memitem:a3cca66f627df43622b7124fb3ed0c4c7" id="r_a3cca66f627df43622b7124fb3ed0c4c7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cca66f627df43622b7124fb3ed0c4c7">binWrite</a> (<a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">lensParms</a> lp, std::ofstream &amp;os)</td></tr>
+<tr class="memdesc:a3cca66f627df43622b7124fb3ed0c4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a <a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure in a binary file  <br /></td></tr>
+<tr class="memitem:ad6dd8a65083d84f501cc0e01eaf0b60e" id="r_ad6dd8a65083d84f501cc0e01eaf0b60e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6dd8a65083d84f501cc0e01eaf0b60e">binWrite</a> (<a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">lensSide</a> ls, std::ofstream &amp;os)</td></tr>
+<tr class="memdesc:ad6dd8a65083d84f501cc0e01eaf0b60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">write a <a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure in a binary file  <br /></td></tr>
 <tr class="memitem:a8a1596d32424029b6f178efdec903d0f" id="r_a8a1596d32424029b6f178efdec903d0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a1596d32424029b6f178efdec903d0f">binWriteInc</a> (std::ofstream &amp;os, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *E)</td></tr>
 <tr class="memitem:a8d4c9d516d8ad6832adc23897eb07cf4" id="r_a8d4c9d516d8ad6832adc23897eb07cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d4c9d516d8ad6832adc23897eb07cf4">binWriteIncList</a> (std::ofstream &amp;os, std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> * &gt; E, int anz)</td></tr>
 <tr class="memitem:a28736012c7ad735f26a81e61ce0e8fc9" id="r_a28736012c7ad735f26a81e61ce0e8fc9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28736012c7ad735f26a81e61ce0e8fc9">binWriteLSList</a> (std::ofstream &amp;os, int nLS, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **ls)</td></tr>
@@ -462,6 +464,9 @@ Variables</h2></td></tr>
 <tr class="memdesc:a79d16d11be9baf6f59e4e3a730ffd11e"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in \(\mu m*s^{-1} \)  <br /></td></tr>
 <tr class="memitem:a9e09cc135264898b03c98a33e5dff300" id="r_a9e09cc135264898b03c98a33e5dff300"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e09cc135264898b03c98a33e5dff300">C_LIGHT_MU_FS</a> = 0.299792458</td></tr>
 <tr class="memdesc:a9e09cc135264898b03c98a33e5dff300"><td class="mdescLeft">&#160;</td><td class="mdescRight">speed of light in \( m*fs^{-1}\)  <br /></td></tr>
+<tr class="memitem:a7fd6f9f1bd02c90552adb8426c261933" id="r_a7fd6f9f1bd02c90552adb8426c261933"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fd6f9f1bd02c90552adb8426c261933">DETECTOR_ANGLE</a> = 20002</td></tr>
+<tr class="memitem:a603a0915899a412fcb6b849f880161f6" id="r_a603a0915899a412fcb6b849f880161f6"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a603a0915899a412fcb6b849f880161f6">DETECTOR_KIRCHHOFF</a> = 20001</td></tr>
+<tr class="memitem:a10715c7fc5ffa204c924fcf361878f66" id="r_a10715c7fc5ffa204c924fcf361878f66"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10715c7fc5ffa204c924fcf361878f66">DETECTOR_PLANE</a> = 20000</td></tr>
 <tr class="memitem:af4945197f5892d3e1a6f8337cb588f8e" id="r_af4945197f5892d3e1a6f8337cb588f8e"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
 <tr class="memitem:af4945197f5892d3e1a6f8337cb588f8e template"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4945197f5892d3e1a6f8337cb588f8e">dummy</a></td></tr>
 <tr class="memitem:a22557d1b893039a5b1fb08584523960b" id="r_a22557d1b893039a5b1fb08584523960b"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22557d1b893039a5b1fb08584523960b">eps0</a> =8.854187817E-12</td></tr>
@@ -498,6 +503,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:ab87c6a65278f61d95ab88be7032e36ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_point.html">Point</a> light source (random distribution)  <br /></td></tr>
 <tr class="memitem:a5ca856c447861e579d99cf4cbce3d2ec" id="r_a5ca856c447861e579d99cf4cbce3d2ec"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ca856c447861e579d99cf4cbce3d2ec">LIGHTSRC_SRCTYPE_RING</a> = 3</td></tr>
 <tr class="memdesc:a5ca856c447861e579d99cf4cbce3d2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring shaped wave.  <br /></td></tr>
+<tr class="memitem:a32023022c32c7a6cbb2b3b860834edea" id="r_a32023022c32c7a6cbb2b3b860834edea"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32023022c32c7a6cbb2b3b860834edea">LIGHTSRC_SRCTYPE_RING_GAUSS_MC</a> = 16</td></tr>
+<tr class="memdesc:a32023022c32c7a6cbb2b3b860834edea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring shaped light source with gaussian distribution (random distribution)  <br /></td></tr>
 <tr class="memitem:a8a1ac81c890408a9d1309dfc7932d6c8" id="r_a8a1ac81c890408a9d1309dfc7932d6c8"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a1ac81c890408a9d1309dfc7932d6c8">LIGHTSRC_SRCTYPE_RING_MC</a> = 13</td></tr>
 <tr class="memdesc:a8a1ac81c890408a9d1309dfc7932d6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring (random distribution)  <br /></td></tr>
 <tr class="memitem:a452abd4bbc2fe2d04cf476bad00dd82d" id="r_a452abd4bbc2fe2d04cf476bad00dd82d"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a452abd4bbc2fe2d04cf476bad00dd82d">LIGHTSRC_SRCTYPE_TOPHAT</a> =4</td></tr>
@@ -549,14 +556,30 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a866edf70813cc095beb14e11abb20efe" name="a866edf70813cc095beb14e11abb20efe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a866edf70813cc095beb14e11abb20efe">&#9670;&#160;</a></span>lensSide</h2>
+<a id="a866fe650fea7d4e4c55bb564066dbf39" name="a866fe650fea7d4e4c55bb564066dbf39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a866fe650fea7d4e4c55bb564066dbf39">&#9670;&#160;</a></span>lensParms</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensa.html">GOAT::raytracing::lensa</a> <a class="el" href="#a866edf70813cc095beb14e11abb20efe">GOAT::raytracing::lensSide</a></td>
+          <td class="memname">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lensp.html">GOAT::raytracing::lensp</a> <a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">GOAT::raytracing::lensParms</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1spheric_lens.html" title="This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lat...">sphericLens</a>) </p>
+
+</div>
+</div>
+<a id="a492a9891e66bfd3d2ab51cf388be11f9" name="a492a9891e66bfd3d2ab51cf388be11f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a492a9891e66bfd3d2ab51cf388be11f9">&#9670;&#160;</a></span>lensSide</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens.html">GOAT::raytracing::lens</a> <a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">GOAT::raytracing::lensSide</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -782,7 +805,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void GOAT::raytracing::binRead </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a></td>          <td class="paramname"><span class="paramname"><em>lp</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">lensParms</a></td>          <td class="paramname"><span class="paramname"><em>lp</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -792,7 +815,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>read a <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure from a binary file </p>
+<p>read a <a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure from a binary file </p>
 
 </div>
 </div>
@@ -805,7 +828,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void GOAT::raytracing::binRead </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a866edf70813cc095beb14e11abb20efe">lensSide</a></td>          <td class="paramname"><span class="paramname"><em>ls</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">lensSide</a></td>          <td class="paramname"><span class="paramname"><em>ls</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -815,7 +838,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>read a <a class="el" href="#a866edf70813cc095beb14e11abb20efe" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure from a binary file </p>
+<p>read a <a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure from a binary file </p>
 
 </div>
 </div>
@@ -937,7 +960,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void GOAT::raytracing::binWrite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html">lensParms</a></td>          <td class="paramname"><span class="paramname"><em>lp</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39">lensParms</a></td>          <td class="paramname"><span class="paramname"><em>lp</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -947,7 +970,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>write a <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1lens_parms.html" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure in a binary file </p>
+<p>write a <a class="el" href="#a866fe650fea7d4e4c55bb564066dbf39" title="Structure, which holds the full information about the spheric lens The side surfaces of the lens are ...">lensParms</a> structure in a binary file </p>
 
 </div>
 </div>
@@ -960,7 +983,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void GOAT::raytracing::binWrite </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a866edf70813cc095beb14e11abb20efe">lensSide</a></td>          <td class="paramname"><span class="paramname"><em>ls</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9">lensSide</a></td>          <td class="paramname"><span class="paramname"><em>ls</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -970,7 +993,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>write a <a class="el" href="#a866edf70813cc095beb14e11abb20efe" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure in a binary file </p>
+<p>write a <a class="el" href="#a492a9891e66bfd3d2ab51cf388be11f9" title="Structure to describe one side of an spheric lens For this type of lens one side can either be spheri...">lensSide</a> structure in a binary file </p>
 
 </div>
 </div>
@@ -4276,6 +4299,78 @@ template&lt;class T&gt; </div>
 
 </div>
 </div>
+<a id="a7fd6f9f1bd02c90552adb8426c261933" name="a7fd6f9f1bd02c90552adb8426c261933"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd6f9f1bd02c90552adb8426c261933">&#9670;&#160;</a></span>DETECTOR_ANGLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GOAT::raytracing::DETECTOR_ANGLE = 20002</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00019">19</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+
+</div>
+</div>
+<a id="a603a0915899a412fcb6b849f880161f6" name="a603a0915899a412fcb6b849f880161f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a603a0915899a412fcb6b849f880161f6">&#9670;&#160;</a></span>DETECTOR_KIRCHHOFF</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GOAT::raytracing::DETECTOR_KIRCHHOFF = 20001</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00018">18</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+
+</div>
+</div>
+<a id="a10715c7fc5ffa204c924fcf361878f66" name="a10715c7fc5ffa204c924fcf361878f66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10715c7fc5ffa204c924fcf361878f66">&#9670;&#160;</a></span>DETECTOR_PLANE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GOAT::raytracing::DETECTOR_PLANE = 20000</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="detector_8h_source.html#l00017">17</a> of file <a class="el" href="detector_8h_source.html">detector.h</a>.</p>
+
+</div>
+</div>
 <a id="af4945197f5892d3e1a6f8337cb588f8e" name="af4945197f5892d3e1a6f8337cb588f8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af4945197f5892d3e1a6f8337cb588f8e">&#9670;&#160;</a></span>dummy</h2>
 
@@ -4871,6 +4966,32 @@ template&lt;class T&gt; </div>
 <p>Light source is a ring shaped wave. </p>
 
 <p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00021">21</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+
+</div>
+</div>
+<a id="a32023022c32c7a6cbb2b3b860834edea" name="a32023022c32c7a6cbb2b3b860834edea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32023022c32c7a6cbb2b3b860834edea">&#9670;&#160;</a></span>LIGHTSRC_SRCTYPE_RING_GAUSS_MC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ring shaped light source with gaussian distribution (random distribution) </p>
+
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00031">31</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

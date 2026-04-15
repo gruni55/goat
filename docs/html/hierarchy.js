@@ -23,8 +23,8 @@ var hierarchy =
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Item", "uniontinyxml2_1_1_mem_pool_t_1_1_item.html", null ],
     [ "GOAT::storage::IWriter", "class_g_o_a_t_1_1storage_1_1_i_writer.html", null ],
     [ "GOAT::raytracing::Kirchhoff3D", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html", null ],
-    [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", null ],
-    [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
+    [ "GOAT::raytracing::lens", "struct_g_o_a_t_1_1raytracing_1_1lens.html", null ],
+    [ "GOAT::raytracing::lensp", "struct_g_o_a_t_1_1raytracing_1_1lensp.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
       [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", [
         [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]

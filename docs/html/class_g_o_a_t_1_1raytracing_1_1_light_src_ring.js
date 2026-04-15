@@ -11,6 +11,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_ring =
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a0070e2f24ddd28ec3b86fae57e605761", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a043ea13f61a5fbc446c6a0d229a743c6", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#aec7b3f8ff06646798d5d918261a8955c", null ],
+    [ "reset", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a912224d0f96723a4c52f756c6a951b46", null ],
     [ "setRmax", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#a943e70f11ece71b03a13426eedf58c1b", null ],
     [ "setRmin", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#ae3346b5ffe423093b6b0e09af0fac60b", null ],
     [ "rmax", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#acd4254b4ae928fbb1a9818a1648f5274", null ],

@@ -1,7 +1,5 @@
 var NAVTREEINDEX10 =
 {
-"class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#ac460d20b4b961116155ef76972e01cad":[4,0,0,1,73,17],
-"class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#ac460d20b4b961116155ef76972e01cad":[5,0,0,1,73,17],
 "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#ac4637e58efe55f5f37b270558c2fb779":[4,0,0,1,73,23],
 "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#ac4637e58efe55f5f37b270558c2fb779":[5,0,0,1,73,23],
 "class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#aced553cb7b76ed9117fda40f3d7dff04":[4,0,0,1,73,11],
@@ -249,5 +247,7 @@ var NAVTREEINDEX10 =
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9a893e243028abfb227fe97a8f4dbe10":[5,0,0,1,37,51],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9a893e243028abfb227fe97a8f4dbe10":[5,0,0,1,37,52],
 "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9bfbc3d84a7f2ac383463909437f77b3":[4,0,0,1,37,79],
-"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9bfbc3d84a7f2ac383463909437f77b3":[5,0,0,1,37,79]
+"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#a9bfbc3d84a7f2ac383463909437f77b3":[5,0,0,1,37,79],
+"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aa63163a1eca72c40aaa3d5ed73c2a813":[4,0,0,1,37,21],
+"class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html#aa63163a1eca72c40aaa3d5ed73c2a813":[4,0,0,1,37,22]
 };

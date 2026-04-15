@@ -13,5 +13,5 @@ var class_g_o_a_t_1_1_x_m_l_1_1xml_writer =
     [ "formatDouble", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#ae116cc47178b2555e997c3ee5ea4e6bc", null ],
     [ "prepareRequest", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#ae5cc2a41306a1cfe1833605475ad22d0", null ],
     [ "write", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#a78273399a841b3f4b35c80288abcef22", null ],
-    [ "S", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#ab26fed9871c03b7498d72b6e11c17b2a", null ]
+    [ "S", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#a82c76abb4fd82ea9fa1a211c54d77b5a", null ]
 ];

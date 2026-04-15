@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a4695da4c759fb244a23a195522309311":[4,0,0,1,44,0],
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a4695da4c759fb244a23a195522309311":[5,0,0,1,44,0],
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a65d2cd77b36173d007087ea72e451275":[4,0,0,1,44,4],
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a65d2cd77b36173d007087ea72e451275":[5,0,0,1,44,4],
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a8d24e5ad9a16f5843218fe6a6f0a14b0":[4,0,0,1,44,3],
+"class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#a8d24e5ad9a16f5843218fe6a6f0a14b0":[5,0,0,1,44,3],
 "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#ab8b8d5cef2fe716dba5dfc8b7481ab43":[4,0,0,1,44,1],
 "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#ab8b8d5cef2fe716dba5dfc8b7481ab43":[5,0,0,1,44,1],
 "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html#ade6c45d46893565559f4665df27d5bc9":[4,0,0,1,44,5],
@@ -243,11 +249,5 @@ var NAVTREEINDEX6 =
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a2ca0aa6dde66691da90140fcefec87e0":[4,0,0,1,50,45],
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a2ca0aa6dde66691da90140fcefec87e0":[5,0,0,1,50,45],
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3547287c14732434376e6928f8813056":[4,0,0,1,50,3],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3547287c14732434376e6928f8813056":[5,0,0,1,50,3],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a40061416d0172e45b183ada0ca012c36":[4,0,0,1,50,37],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a40061416d0172e45b183ada0ca012c36":[5,0,0,1,50,37],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a430348a43bbef5355f3e5ce4146f77ad":[4,0,0,1,50,1],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a430348a43bbef5355f3e5ce4146f77ad":[5,0,0,1,50,1],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a45ece8992db1c347f2f7022a0f6f80b3":[4,0,0,1,50,46],
-"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a45ece8992db1c347f2f7022a0f6f80b3":[5,0,0,1,50,46]
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___inel.html#a3547287c14732434376e6928f8813056":[5,0,0,1,50,3]
 };

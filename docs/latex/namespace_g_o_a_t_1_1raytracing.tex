@@ -42,9 +42,9 @@ class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff}}
 \begin{DoxyCompactList}\small\item\em This class makes a \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation This class is directly connect with a \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}. The calculation itself works as follows\+: At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{Kirchhoff3D}}
 \begin{DoxyCompactList}\small\item\em This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation This class makes a 3D \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff}{Kirchhoff} calculation especially for pulsed calculations. It needs a \doxylink{class_g_o_a_t_1_1raytracing_1_1_box}{Box} object to define the volume, where the field is calculated. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{lensa}}
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens}{lens}}
 \begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}
+struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensp}{lensp}}
 \begin{DoxyCompactList}\small\item\em Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class \doxylink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}) \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}}
 \begin{DoxyCompactList}\small\item\em This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces. \end{DoxyCompactList}\item 
@@ -165,7 +165,9 @@ using \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a62741f37aa1d810868fc4c60
 \item 
 typedef long long int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}}
 \item 
-typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{GOAT\+::raytracing\+::lensa}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}
+typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensp}{GOAT\+::raytracing\+::lensp}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms}}
+\begin{DoxyCompactList}\small\item\em Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class \doxylink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}) \end{DoxyCompactList}\item 
+typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens}{GOAT\+::raytracing\+::lens}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side}}
 \begin{DoxyCompactList}\small\item\em Structure to describe one side of an spheric lens For this type of lens one side can either be spherical (convex or concave) or flat. \end{DoxyCompactList}\item 
 using \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a844150dbdd173e5b32ad61f8e77a56ea}{n\+Fn\+Ptr}} = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a62741f37aa1d810868fc4c60b9a202c7}{cplx}}(\texorpdfstring{$\ast$}{*})(double)
 \end{DoxyCompactItemize}
@@ -202,10 +204,10 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_affab32fbbb2eb68778dd28cb3
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a51330ebe5ad6c304bc1e95bc295463c9}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} \&Gs, std\+::ifstream \&is)
 \begin{DoxyCompactList}\small\item\em write the \doxylink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss} structure to a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure from a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}} ls, std\+::ifstream \&is)
-\begin{DoxyCompactList}\small\item\em read a \doxylink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side} structure from a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a}{bin\+Read}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms}} lp, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em read a \doxylink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms} structure from a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}{bin\+Read}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side}} ls, std\+::ifstream \&is)
+\begin{DoxyCompactList}\small\item\em read a \doxylink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side} structure from a binary file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}{bin\+Read\+Inc}} (std\+::ifstream \&is, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}\&E, bool is\+New)
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_abc8b7a2993cb4166982341a20b046b7b}{bin\+Read\+Inc\+List}} (std\+::ifstream \&is, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ \&E, int anz)
@@ -214,10 +216,10 @@ void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3367f7cd397470c01d0f49b6f
 \begin{DoxyCompactList}\small\item\em Reads list of light sources from a binary file and allocates the memory for the light source list. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a610ed718b81a03c50e105d8563414305}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss}} gs, std\+::ofstream \&os)
 \item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{bin\+Write}} (\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}} lp, std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure in a binary file \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}} ls, std\+::ofstream \&os)
-\begin{DoxyCompactList}\small\item\em write a \doxylink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side} structure in a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7}{bin\+Write}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms}} lp, std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em write a \doxylink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms} structure in a binary file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}{bin\+Write}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side}} ls, std\+::ofstream \&os)
+\begin{DoxyCompactList}\small\item\em write a \doxylink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side} structure in a binary file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}{bin\+Write\+Inc}} (std\+::ofstream \&os, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}E)
 \item 
 void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8d4c9d516d8ad6832adc23897eb07cf4}{bin\+Write\+Inc\+List}} (std\+::ofstream \&os, std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ E, int anz)
@@ -479,6 +481,12 @@ constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9ba
 \begin{DoxyCompactList}\small\item\em speed of light in $\mu m*s^{-1} $ \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
 \begin{DoxyCompactList}\small\item\em speed of light in $ m*fs^{-1}$ \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933}{DETECTOR\+\_\+\+ANGLE}} = 20002
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a603a0915899a412fcb6b849f880161f6}{DETECTOR\+\_\+\+KIRCHHOFF}} = 20001
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10715c7fc5ffa204c924fcf361878f66}{DETECTOR\+\_\+\+PLANE}} = 20000
+\item 
 {\footnotesize template$<$class T$>$ }\\T \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}{dummy}}
 \item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a22557d1b893039a5b1fb08584523960b}{eps0}} =8.\+854187817E-\/12
@@ -529,6 +537,8 @@ constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ab87c6a65278f61d9
 \begin{DoxyCompactList}\small\item\em \doxylink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point} light source (random distribution) \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5ca856c447861e579d99cf4cbce3d2ec}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING}} = 3
 \begin{DoxyCompactList}\small\item\em Light source is a ring shaped wave. \end{DoxyCompactList}\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a32023022c32c7a6cbb2b3b860834edea}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+GAUSS\+\_\+\+MC}} = 16
+\begin{DoxyCompactList}\small\item\em Ring shaped light source with gaussian distribution (random distribution) \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+MC}} = 13
 \begin{DoxyCompactList}\small\item\em Light source is a ring (random distribution) \end{DoxyCompactList}\item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a452abd4bbc2fe2d04cf476bad00dd82d}{LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+TOPHAT}} =4
@@ -575,11 +585,21 @@ typedef long long int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f7658
 
 Definition at line \mbox{\hyperlink{superarray_8h_source_l00016}{16}} of file \mbox{\hyperlink{superarray_8h_source}{superarray.\+h}}.
 
-\Hypertarget{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}\index{GOAT::raytracing@{GOAT::raytracing}!lensSide@{lensSide}}
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}\index{GOAT::raytracing@{GOAT::raytracing}!lensParms@{lensParms}}
+\index{lensParms@{lensParms}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{lensParms}{lensParms}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39} 
+typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensp}{GOAT\+::raytracing\+::lensp}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{GOAT\+::raytracing\+::lens\+Parms}}}
+
+
+
+Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class \doxylink{class_g_o_a_t_1_1raytracing_1_1spheric_lens}{spheric\+Lens}) 
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}\index{GOAT::raytracing@{GOAT::raytracing}!lensSide@{lensSide}}
 \index{lensSide@{lensSide}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{lensSide}{lensSide}}
-{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe} 
-typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lensa}{GOAT\+::raytracing\+::lensa}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{GOAT\+::raytracing\+::lens\+Side}}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9} 
+typedef struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens}{GOAT\+::raytracing\+::lens}} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{GOAT\+::raytracing\+::lens\+Side}}}
 
 
 
@@ -713,21 +733,21 @@ write the \doxylink{struct_g_o_a_t_1_1raytracing_1_1_gauss}{Gauss} structure to 
 \index{binRead@{binRead}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binRead()}{binRead()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a96e56eb2683c9f0cbdd48ab46b436c4a} 
-void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}}]{lp}{, }\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})}
+void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms}}}]{lp}{, }\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})}
 
 
 
-read a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure from a binary file 
+read a \doxylink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms} structure from a binary file 
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1}\index{GOAT::raytracing@{GOAT::raytracing}!binRead@{binRead}}
 \index{binRead@{binRead}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binRead()}{binRead()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_ac2d0d78c4a130fcf795e85d094c759e1} 
-void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}}]{ls}{, }\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})}
+void GOAT\+::raytracing\+::bin\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side}}}]{ls}{, }\item[{std\+::ifstream \&}]{is}{}\end{DoxyParamCaption})}
 
 
 
-read a \doxylink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side} structure from a binary file 
+read a \doxylink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side} structure from a binary file 
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_ae5f0c642c79e7f21d8c5afc9527bc4d6}\index{GOAT::raytracing@{GOAT::raytracing}!binReadInc@{binReadInc}}
 \index{binReadInc@{binReadInc}!GOAT::raytracing@{GOAT::raytracing}}
@@ -770,21 +790,21 @@ void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyp
 \index{binWrite@{binWrite}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a3cca66f627df43622b7124fb3ed0c4c7} 
-void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms}}}]{lp}{, }\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})}
+void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms}}}]{lp}{, }\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})}
 
 
 
-write a \doxylink{struct_g_o_a_t_1_1raytracing_1_1lens_parms}{lens\+Parms} structure in a binary file 
+write a \doxylink{namespace_g_o_a_t_1_1raytracing_a866fe650fea7d4e4c55bb564066dbf39}{lens\+Parms} structure in a binary file 
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e}\index{GOAT::raytracing@{GOAT::raytracing}!binWrite@{binWrite}}
 \index{binWrite@{binWrite}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{binWrite()}{binWrite()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_ad6dd8a65083d84f501cc0e01eaf0b60e} 
-void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side}}}]{ls}{, }\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})}
+void GOAT\+::raytracing\+::bin\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side}}}]{ls}{, }\item[{std\+::ofstream \&}]{os}{}\end{DoxyParamCaption})}
 
 
 
-write a \doxylink{namespace_g_o_a_t_1_1raytracing_a866edf70813cc095beb14e11abb20efe}{lens\+Side} structure in a binary file 
+write a \doxylink{namespace_g_o_a_t_1_1raytracing_a492a9891e66bfd3d2ab51cf388be11f9}{lens\+Side} structure in a binary file 
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a8a1596d32424029b6f178efdec903d0f}\index{GOAT::raytracing@{GOAT::raytracing}!binWriteInc@{binWriteInc}}
 \index{binWriteInc@{binWriteInc}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1926,6 +1946,36 @@ speed of light in $ m*fs^{-1}$
 
 Definition at line \mbox{\hyperlink{constants_8h_source_l00018}{18}} of file \mbox{\hyperlink{constants_8h_source}{constants.\+h}}.
 
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_ANGLE@{DETECTOR\_ANGLE}}
+\index{DETECTOR\_ANGLE@{DETECTOR\_ANGLE}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{DETECTOR\_ANGLE}{DETECTOR\_ANGLE}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933} 
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+ANGLE = 20002\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00019}{19}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a603a0915899a412fcb6b849f880161f6}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_KIRCHHOFF@{DETECTOR\_KIRCHHOFF}}
+\index{DETECTOR\_KIRCHHOFF@{DETECTOR\_KIRCHHOFF}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{DETECTOR\_KIRCHHOFF}{DETECTOR\_KIRCHHOFF}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a603a0915899a412fcb6b849f880161f6} 
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+KIRCHHOFF = 20001\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00018}{18}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a10715c7fc5ffa204c924fcf361878f66}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_PLANE@{DETECTOR\_PLANE}}
+\index{DETECTOR\_PLANE@{DETECTOR\_PLANE}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{DETECTOR\_PLANE}{DETECTOR\_PLANE}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a10715c7fc5ffa204c924fcf361878f66} 
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+PLANE = 20000\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00017}{17}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}\index{GOAT::raytracing@{GOAT::raytracing}!dummy@{dummy}}
 \index{dummy@{dummy}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{dummy}{dummy}}
@@ -2216,6 +2266,20 @@ Light source is a ring shaped wave.
 
 
 Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00021}{21}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a32023022c32c7a6cbb2b3b860834edea}\index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC@{LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC}}
+\index{LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC@{LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC}{LIGHTSRC\_SRCTYPE\_RING\_GAUSS\_MC}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a32023022c32c7a6cbb2b3b860834edea} 
+int GOAT\+::raytracing\+::\+LIGHTSRC\+\_\+\+SRCTYPE\+\_\+\+RING\+\_\+\+GAUSS\+\_\+\+MC = 16\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Ring shaped light source with gaussian distribution (random distribution) 
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc_8h_source_l00031}{31}} of file \mbox{\hyperlink{lightsrc_8h_source}{lightsrc.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a8a1ac81c890408a9d1309dfc7932d6c8}\index{GOAT::raytracing@{GOAT::raytracing}!LIGHTSRC\_SRCTYPE\_RING\_MC@{LIGHTSRC\_SRCTYPE\_RING\_MC}}
 \index{LIGHTSRC\_SRCTYPE\_RING\_MC@{LIGHTSRC\_SRCTYPE\_RING\_MC}!GOAT::raytracing@{GOAT::raytracing}}

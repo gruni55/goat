@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lensa_0',['lensa',['../struct_g_o_a_t_1_1raytracing_1_1lensa.html',1,'GOAT::raytracing']]],
-  ['lensparms_1',['lensParms',['../struct_g_o_a_t_1_1raytracing_1_1lens_parms.html',1,'GOAT::raytracing']]],
+  ['lens_0',['lens',['../struct_g_o_a_t_1_1raytracing_1_1lens.html',1,'GOAT::raytracing']]],
+  ['lensp_1',['lensp',['../struct_g_o_a_t_1_1raytracing_1_1lensp.html',1,'GOAT::raytracing']]],
   ['lightsrc_2',['LightSrc',['../class_g_o_a_t_1_1raytracing_1_1_light_src.html',1,'GOAT::raytracing']]],
   ['lightsrcgauss_3',['LightSrcGauss',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html',1,'GOAT::raytracing']]],
   ['lightsrcgauss_5fmc_4',['LightSrcGauss_mc',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html',1,'GOAT::raytracing']]],

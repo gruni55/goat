@@ -116,13 +116,13 @@ Public Attributes</h2></td></tr>
 <tr class="memdesc:a34c47c7de67b3fbb55e071c8b8dd5abe"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of reflections considered in the raytracing part  <br /></td></tr>
 <tr class="memitem:a3404b38bd06826926c0c91d772aedb23" id="r_a3404b38bd06826926c0c91d772aedb23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3404b38bd06826926c0c91d772aedb23">nS</a> =200</td></tr>
 <tr class="memdesc:a3404b38bd06826926c0c91d772aedb23"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of subdivision per spectral range  <br /></td></tr>
-<tr class="memitem:af202f3063333b8b44c0f2bf7525d5a75" id="r_af202f3063333b8b44c0f2bf7525d5a75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af202f3063333b8b44c0f2bf7525d5a75">number_of_threads</a> =5</td></tr>
+<tr class="memitem:af202f3063333b8b44c0f2bf7525d5a75" id="r_af202f3063333b8b44c0f2bf7525d5a75"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af202f3063333b8b44c0f2bf7525d5a75">number_of_threads</a> =8</td></tr>
 <tr class="memdesc:af202f3063333b8b44c0f2bf7525d5a75"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of threads which should be used for calculation  <br /></td></tr>
-<tr class="memitem:a02d74f2155504675640aaddf0d5f96d8" id="r_a02d74f2155504675640aaddf0d5f96d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02d74f2155504675640aaddf0d5f96d8">omega0</a></td></tr>
+<tr class="memitem:a02d74f2155504675640aaddf0d5f96d8" id="r_a02d74f2155504675640aaddf0d5f96d8"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a02d74f2155504675640aaddf0d5f96d8">omega0</a> =0</td></tr>
 <tr class="memdesc:a02d74f2155504675640aaddf0d5f96d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">main frequency (corresponds to wvl)  <br /></td></tr>
-<tr class="memitem:a66f011acb28fcf35960182f8b25b7ab0" id="r_a66f011acb28fcf35960182f8b25b7ab0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f011acb28fcf35960182f8b25b7ab0">omegaEnd</a></td></tr>
+<tr class="memitem:a66f011acb28fcf35960182f8b25b7ab0" id="r_a66f011acb28fcf35960182f8b25b7ab0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a66f011acb28fcf35960182f8b25b7ab0">omegaEnd</a> =0</td></tr>
 <tr class="memdesc:a66f011acb28fcf35960182f8b25b7ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">highest wavelength considered in the calculation  <br /></td></tr>
-<tr class="memitem:ad4bab6bf1619ebca6707d8cbc32b4ce4" id="r_ad4bab6bf1619ebca6707d8cbc32b4ce4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4bab6bf1619ebca6707d8cbc32b4ce4">omegaStart</a></td></tr>
+<tr class="memitem:ad4bab6bf1619ebca6707d8cbc32b4ce4" id="r_ad4bab6bf1619ebca6707d8cbc32b4ce4"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4bab6bf1619ebca6707d8cbc32b4ce4">omegaStart</a> =0</td></tr>
 <tr class="memdesc:ad4bab6bf1619ebca6707d8cbc32b4ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">lowest wavelength considered in the calculation  <br /></td></tr>
 <tr class="memitem:a5d9ef028bc8c696b20607b7037b10804" id="r_a5d9ef028bc8c696b20607b7037b10804"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d9ef028bc8c696b20607b7037b10804">repetitionTime</a> = 100</td></tr>
 <tr class="memdesc:a5d9ef028bc8c696b20607b7037b10804"><td class="mdescLeft">&#160;</td><td class="mdescRight">repetition time of the pulse train (in femto seconds). If this value is &gt;0, the pulse train will be considered in the calculation  <br /></td></tr>
@@ -234,7 +234,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int GOAT::raytracing::TrafoParms::number_of_threads =5</td>
+          <td class="memname">int GOAT::raytracing::TrafoParms::number_of_threads =8</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -252,7 +252,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double GOAT::raytracing::TrafoParms::omega0</td>
+          <td class="memname">double GOAT::raytracing::TrafoParms::omega0 =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -270,7 +270,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double GOAT::raytracing::TrafoParms::omegaEnd</td>
+          <td class="memname">double GOAT::raytracing::TrafoParms::omegaEnd =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -288,7 +288,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double GOAT::raytracing::TrafoParms::omegaStart</td>
+          <td class="memname">double GOAT::raytracing::TrafoParms::omegaStart =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
