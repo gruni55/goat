@@ -13,9 +13,12 @@ namespace GOAT
 		{
 			switch (job.type)
 			{
-			case TOKEN_CALCULATION_PULSE: pulseCalculation(); break;
+			  case TOKEN_CALCULATION_PULSE: pulseCalculation(); break;
+              case TOKEN_CALCULATION_PURE: pureRaytraceCalculation(); break;
  			}
 		}
+
+        
 
 		void Calculator::pulseCalculation()
 		{
@@ -97,6 +100,21 @@ namespace GOAT
                 }
            
 		}
+
+        void Calculator::pureRaytraceCalculation()
+        {
+            raytracing::Raytrace_pure rt(S);
+			rt.trace();
+			for (int i = 0; i < S.getNumberOfDetectors(); i++)
+            {
+				if (S.Det[i]->Type() == raytracing::DETECTOR_KIRCHHOFF)
+                {
+					raytracing::Kirchhoff* K = (raytracing::Kirchhoff*)S.Det[i];
+					K->setNumberOfThreads(S.getNumberOfThreads());
+					K->calc();
+                }
+            }
+        }
 		
 	}
 }

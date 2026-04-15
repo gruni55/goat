@@ -116,6 +116,7 @@ namespace GOAT
 			{
 				rootElement = doc.RootElement();
 				readScene();
+				if (calculation_enabled) doCalculations();
 			}
 			else
 				std::cerr << "Could not read XML-File:" << fname << std::endl;
@@ -258,8 +259,15 @@ namespace GOAT
              }
          }
 
+         struct detectorLink
+         {
+             raytracing::Kirchhoff* det;
+             std::vector<std::string> linkIDs;
+		 };
+
         void xmlReader::readDetectors()
-		{
+        {
+			std::vector<detectorLink> pendingLinks; // to store the links for Kirchhoff detectors until all detectors are read
 			tinyxml2::XMLElement* ell;
 			ell = sceneElement->FirstChildElement("Detectors");
             std::vector<std::vector<std::string> > linkList;
@@ -295,71 +303,42 @@ namespace GOAT
                         numDet++;
                        }
                     break;
+
+                    case TOKEN_DETECTOR_KIRCHHOFF:
+                    {						
+                        double d = detEll->DoubleAttribute("d", 1);
+                        int n = detEll->IntAttribute("n", 1);
+                        std::vector<raytracing::DetectorPlane *> sources;
+                        bool cancel = false;
+                        Det.push_back(new raytracing::Kirchhoff(1.0,Pos, Dir, d, n));
+						double wvl = detEll->DoubleAttribute("wavelength", 1.0);
+                        detectorLink links;
+						links.det = (raytracing::Kirchhoff*)Det[numDet];
+                        for (tinyxml2::XMLElement* link=detEll->FirstChildElement ("Link"); link != NULL; link = link->NextSiblingElement("Link"))
+                        {
+                            std::string linkID = link->Attribute("ID");
+                            raytracing::Detector* det = S.getDetector(linkID);
+                            cancel = det == NULL; // check, if detector with ID exists
+							if (!cancel)
+                            {
+								links.linkIDs.push_back(linkID); 
+                            }
+                        }
+						pendingLinks.push_back(links);
+                        Det[numDet]->setID(ID);
+                        S.addDetector(Det[numDet]);
+                        numDet++;				
                     }
+                    break;
+                    } // switch(type)
+				} // for...
+              
+                for (auto& links : pendingLinks)
+                {
+                    for (auto linkID : links.linkIDs)
+                        links.det->addDetector((raytracing::DetectorPlane *)(S.getDetector(linkID)));
 
                 }
-              
-#ifdef WITH_OPENMP
-
-                for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
-                {
-                    maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
-                    maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
-                    std::string typeStr;
-                    typeStr = detEll->Attribute("type");
-                    std::string filename;
-                    filename = detEll->Attribute("filename");
-                    std::string ID = detEll->Attribute("ID");
-
-                    int type = mapString2DetectorToken(typeStr);
-                    switch (type)
-                    {
-                      case TOKEN_DETECTOR_KIRCHHOFF :
-                                                    {
-                                                        double d = detEll->DoubleAttribute("d", 1);
-                                                        int n = detEll->IntAttribute("n", 1);
-                                                        std::vector<raytracing::DetectorPlane *> sources;
-                                                        bool cancel = false;
-                                                        Det.push_back(new raytracing::Kirchhoff(1.0,Pos, Dir, d, n));
-                                                        double wvl = detEll->DoubleAttribute("wavelength", 1.0);
-														((raytracing::Kirchhoff*)Det[numDet])->setWavelength(wvl);
-                                                        for (auto link = detEll->FirstChildElement("Link"); (!cancel) &&  (link != NULL); link = link->NextSiblingElement("Link"))
-                                                        {
-                                                            std::string linkID = link->Attribute("ID");
-                                                            raytracing::Detector* det = S.getDetector(linkID);
-                                                            cancel = det == NULL; // check, if detector with ID exists
-                                                            if (!cancel)
-                                                            {
-								cancel = det->Type() != raytracing::DETECTOR_PLANE; // check, if detector with ID is of type plane
-                                                                if (cancel) std::cerr << "Link to detector with ID=" << linkID << " should be used for Kirchhoff, but is not a plane detector!" << std::endl;
-                                                                else
-                                                                {
-                                                                    ((raytracing::Kirchhoff*)Det[numDet])->addDetector((raytracing::Kirchhoff*)det);
-																	std::cout << "Linking Kirchhoff detector with ID=" << ID << " to plane detector with ID=" << linkID << std::endl;
-                                                                }
-                                                            }
-                                                            else
-                                                                std::cerr << "Error: Kirchhoff detector has links to non-existing detectors. Skipping this detector." << std::endl;
-                                                        
-                                                            if (!cancel) sources.push_back((raytracing::DetectorPlane *)det);
-                                                        }
-
-                                                        Det[numDet]->setID(ID);
-                                                        S.addDetector(Det[numDet]);
-                                                        numDet++;
-
-                                                        if (!cancel) 
-                                                        {
-                                                            Det.push_back(new raytracing::Kirchhoff(1.0, Pos, Dir, d, n));
-                                                            ((raytracing::Kirchhoff*)Det[numDet])->addDetectorList(sources);
-                                                        }
-                                                      }
-                                                    break;
-													
-			} // switch(type)
-
-		} // for...
-#endif
 
 	   } // if (ell != NULL)
 
@@ -752,7 +731,7 @@ namespace GOAT
                         if (inactiveStr.compare("false")==0)
 						{						
 						typeStr = objEll->Attribute("type");
-                       
+						std::cout << "Calculation type: " << typeStr << std::endl;
                         // change number of rays, if given
                         int numRays;
                         std::vector<int> numRays_old;
@@ -771,17 +750,32 @@ namespace GOAT
 
                         int numReflex;
                         numReflex = objEll->IntAttribute("numReflex", 0);
-
+						int numThreads = objEll->IntAttribute("numThreads", 1);
+                        S.setNumThreads(numThreads);
 						if (!typeStr.empty())
 						{							
-							type = mapString2CalculationToken(typeStr);
+							type = mapString2CalculationToken(typeStr);							
                             switch (type)
 							{
                             case TOKEN_CALCULATION_PURE:
                             {
+								std::cout << "do pure raytracing calculation" << std::endl;
                              GOAT::raytracing::Raytrace_pure rt(S);      
                              rt.setNumReflex(numReflex);                       
                              rt.trace();
+							 std::cout << S.getNumberOfDetectors() << " detectors in scene" << std::endl;
+                             for (auto det : S.Det)
+                             {
+								 std::cout << "Detector: " << det->getID() << " with type" << det->Type() << std::endl;
+								 int type = det->Type();
+                                 if (type == TOKEN_DETECTOR_KIRCHHOFF || type == raytracing::DETECTOR_KIRCHHOFF)
+                                 {
+                                     GOAT::raytracing::Kirchhoff* K = (GOAT::raytracing::Kirchhoff*)det;
+                                     std::cout << "Kirchhoff detector: " << K->getID() << "with " << K->numberOfSources() << " sources" << std::endl;
+									 K->setNumberOfThreads(numThreads);
+                                     K->calc();
+                                 }
+                            }
                              break;
                             }
 							case TOKEN_CALCULATION_PATH:
@@ -1437,16 +1431,17 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {
 			auto calculation = doc.NewElement("Calculation");
             calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
+            calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
+            calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
             switch (job.type)
             {
                 case TOKEN_CALCULATION_PULSE:
-					calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
+					
                     calculation->SetAttribute("numReflex", std::get<pulseJobParms>(job.parms).trafo.nR);
                     calculation->SetAttribute("numWavelengthsPerRange", std::get<pulseJobParms>(job.parms).trafo.nS);
                     calculation->SetAttribute("pulseWidth", formatDouble(std::get<pulseJobParms>(job.parms).trafo.dt).c_str());
                     calculation->SetAttribute("numSpectralRanges", std::get<pulseJobParms>(job.parms).trafo.nI);
-					calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
-                    calculation->SetAttribute("spatialResolution", formatDouble(std::get<pulseJobParms>(job.parms).trafo.spatialResolution).c_str());
+				     calculation->SetAttribute("spatialResolution", formatDouble(std::get<pulseJobParms>(job.parms).trafo.spatialResolution).c_str());
                     calculation->SetAttribute("repetitionTime", formatDouble(std::get<pulseJobParms>(job.parms).trafo.repetitionTime).c_str());
 					calculation->SetAttribute("numLoops", std::get<pulseJobParms>(job.parms).numLoops);
                     int i = 0;
@@ -1466,7 +1461,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     calculation->SetAttribute("time", std::get<pulseJobParms>(job.parms).time);
                     calculation->SetAttribute("offsetTime", std::get<pulseJobParms>(job.parms).offsetTime);
 					break;
-                break;
+
             }
             calculations->InsertEndChild(calculation);
 		}

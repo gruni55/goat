@@ -79,11 +79,13 @@ namespace GOAT
 			void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
 			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
+			void setNumThreads(int numThreads) {this->numThreads = numThreads;} ///< set the number of threads used for parallelization (if OpenMP is used)
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
 			int getNumberOfLightSources() const { return static_cast<int>(LS.size()); } ///< returns the number of light sources in the scene
 			int getNumberOfObjects() const { return static_cast<int>(Obj.size()); } ///< returns the number of objects in the scene
 			int getNumberOfDetectors() const; ///< returns the number of detectors in the scene
+			int getNumberOfThreads() const { return numThreads; } ///< returns the number of threads used for parallelization (if OpenMP is used)
 			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
 			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
 			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
@@ -107,6 +109,7 @@ namespace GOAT
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
 			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
+			int numThreads = 1; ///< number of threads used for parallelization (if OpenMP is used)
 		};
 
 

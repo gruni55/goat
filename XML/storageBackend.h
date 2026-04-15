@@ -1,4 +1,3 @@
-// goat/storage/IStorageInterfaces.hpp
 #pragma once
 
 #include <string>
