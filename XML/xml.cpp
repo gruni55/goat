@@ -116,7 +116,7 @@ namespace GOAT
 			{
 				rootElement = doc.RootElement();
 				readScene();
-				if (calculation_enabled) doCalculations();
+				// if (calculation_enabled) doCalculations();
 			}
 			else
 				std::cerr << "Could not read XML-File:" << fname << std::endl;
