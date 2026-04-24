@@ -43,7 +43,13 @@ add_executable(polarisationtest polarisationtest.cpp)
 target_include_directories (polarisationtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
 target_link_libraries (polarisationtest goat_raytracing goat_maths)	
 
-install(TARGETS fieldtest polarisationtest kirchhofftest
+add_executable(testFFT testFFT.cpp)
+target_include_directories (testFFT PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
+target_link_libraries (testFFT goat_raytracing goat_maths goat_fourier)	
+
+
+
+install(TARGETS fieldtest polarisationtest kirchhofftest testFFT
                 RUNTIME DESTINATION ${CMAKE_SOURCE_DIR}/${CMAKE_BUILD_TYPE}
                 LIBRARY DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}
                 ARCHIVE DESTINATION ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}

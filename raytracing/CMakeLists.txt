@@ -8,7 +8,7 @@ set (RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp
 		     raytrace_usp.cpp raytrace_field_usp.cpp raytrace_usp_rt.cpp plane.cpp pulsecalculation_base.cpp 
 		     pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp 
 	       	     gridentry.cpp asphericLens.cpp sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp 
-		     refractive_index_functions.cpp)
+		     refractive_index_functions.cpp propagator.cpp angularspectrum.cpp)
 			  
 
 set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 
@@ -18,11 +18,11 @@ set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field.h inel_calc.h 
 		     raytrace_usp_rt.h refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h 
 			 pulsecalculation_base.h pulsecalculation_rt.h asphericLens.h sphericLens.h lens.h constants.h cone.h 
-			 cylinder.h vortex.h)
+			 cylinder.h vortex.h propagator.h angularSpectrum.h)
 
 
-set (RAYTRACING_MP_SRCS ${RAYTRACING_SRCS} pulsecalculation_kirchhoff.cpp kirchhoff.cpp)
-set (RAYTRACING_MP_HDRS ${RAYTRACING_HDRS} pulsecalculation_kirchhoff.h kirchhoff.h)
+set (RAYTRACING_MP_SRCS ${RAYTRACING_SRCS} pulsecalculation_kirchhoff.cpp kirchhoff.cpp )
+set (RAYTRACING_MP_HDRS ${RAYTRACING_HDRS} pulsecalculation_kirchhoff.h kirchhoff.h )
 
 if (WITH_OCTREE)
 	message(STATUS "Octree calculation enabled")
@@ -41,7 +41,7 @@ if (WITH_OPENMP)
 	        target_compile_options (goat_raytracing_mp PUBLIC ${OpenMP_CXX_FLAGS})
                 target_compile_definitions (goat_raytracing_mp PUBLIC WITH_OCTREE WITH_OPENMP)
 		target_link_libraries(goat_raytracing_mp PUBLIC OpenMP::OpenMP_CXX) # <- WICHTIG!
-                target_include_directories (goat_raytracing_mp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)  
+                target_include_directories (goat_raytracing_mp PUBLIC "$ENV{FFTW3_ROOT}" ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)  
 		goat_install (TARGETS goat_raytracing_mp)				
 	else()
 		message (WARNING "OpenMP not found - Calculation without parallelization")
@@ -52,6 +52,6 @@ endif()
 message (STATUS "Write libraries to:  ${CMAKE_SOURCE_DIR}/lib/${CMAKE_BUILD_TYPE}" )
 add_library (goat_raytracing ${RAYTRACING_SRCS} ${RAYTRACING_HDRS}  )
 target_compile_definitions (goat_raytracing PUBLIC WITH_OCTREE)
-target_include_directories (goat_raytracing PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
+target_include_directories (goat_raytracing PUBLIC "$ENV{FFTW3_ROOT}" ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../ticpp)
 goat_install (TARGETS goat_raytracing)
 

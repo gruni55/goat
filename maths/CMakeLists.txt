@@ -5,3 +5,5 @@ set (MATHS_SRCS fresnel.cpp   goodies.cpp   matrix.cpp    vector.cpp )
 add_library (goat_maths ${MATHS_SRCS} ${MATHS_HDRS})
 target_include_directories (goat_maths PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 goat_install (TARGETS goat_maths)
+
+add_subdirectory (fourier)

@@ -3,6 +3,7 @@
 #include "objectshape.h"
 #include "superarray.h"
 #include "vector.h"
+#include "propagator.h"
 namespace GOAT
 {
 	namespace raytracing
@@ -16,7 +17,7 @@ namespace GOAT
 		* At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a 
 		* source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral
 		*/
-		class Kirchhoff : public DetectorPlane
+		class Kirchhoff : public Propagator
 		{
 		  public : 
 			  /**
@@ -30,36 +31,9 @@ namespace GOAT
 			  */
 			  Kirchhoff(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
 			  Kirchhoff(double wvl, maths::Vector<double>P, maths::Vector<double> n, double d, int N);
-			  void addDetector(DetectorPlane* det);
-			  void addDetectorList(std::vector<DetectorPlane*> detList);
-			  void delDetector(DetectorPlane* det);
-			  void clearSources();
-			  void calc(bool clear = true);
-			  void setNumberOfThreads(int noThreads);	
-			  size_t numberOfThreads() { return noThreads; }
-			  size_t numberOfSources() { return sources.size(); }
-			  std::vector<DetectorPlane*> getSources() { return sources; }
-			  double getWavelength() { return wvl; } 
-			  void setWavelength(double wvl) { this->wvl = wvl; }
-
-		private:
-			/**
-			 *  @brief This method make the calculation
-			 * With this method, the calculation of the Kirchhoff-integral will be performed for one detector.
-			 * \param det: a pointer to the detector, which acts as the source
-			 */
-			void calc(DetectorPlane* det, bool clear = true);
-
-			/**
-			* @brief Do the Kirchhoff calculation with more than one detector as source
-			*/
-			void calc(std::vector<DetectorPlane*> detList);
-
-			double k;
-			double wvl;
-			
-			std::vector<DetectorPlane*> sources;
-			int noThreads = 8;
+		
+		protected:
+			void calcOne(DetectorPlane* det, bool clear);
 		};
 
 		/**

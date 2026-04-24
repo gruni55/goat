@@ -9,6 +9,9 @@ set(GOAT_CFG_SUBDIR
   "$<IF:$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>,$<CONFIG:MinSizeRel>>,Release,Debug>"
 )
 
+option(WITH_FFTW "Enable FFTW support" ON)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
 function(goat_install)
   set(options)
   set(oneValueArgs)
@@ -69,7 +72,12 @@ project (goat)
 #        #endif()
 #    endif()
 #endif()
-add_subdirectory (maths) #
+
+if(WITH_FFTW)
+    include(cmake/findFftw.cmake)
+endif()
+
+add_subdirectory(maths)
 add_subdirectory (raytracing) #
 add_subdirectory (examples/ot) #
 add_subdirectory (examples/paths) #
