@@ -31,7 +31,7 @@ var searchData=
   ['norientavggamma_28',['nOrientAvgGamma',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ae9adf14cc6e3f29f4e8974f950faee92',1,'GOAT::raytracing::GlobalParms']]],
   ['normfak_29',['Normfak',['../class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#a76af486df8be7443fb6012d8392bc8bd',1,'GOAT::raytracing::LightSrcGauss']]],
   ['normv_30',['normv',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#ac4466161a2b9c3391bb043e0f33bb3ce',1,'GOAT::raytracing::Cone']]],
-  ['nothreads_31',['noThreads',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#a72b299d95f8ad16f020dc90aa5ef5f67',1,'GOAT::raytracing::Kirchhoff']]],
+  ['nothreads_31',['noThreads',['../class_g_o_a_t_1_1raytracing_1_1_propagator.html#a3069343aaae86e6ab185c8704b1d77f6',1,'GOAT::raytracing::Propagator']]],
   ['nr_32',['nR',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a34c47c7de67b3fbb55e071c8b8dd5abe',1,'GOAT::raytracing::TrafoParms']]],
   ['nreflex_33',['nReflex',['../class_g_o_a_t_1_1raytracing_1_1_scene.html#a99a08f9c738c1b399c3845d496964f46',1,'GOAT::raytracing::Scene']]],
   ['ns_34',['nS',['../struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a3404b38bd06826926c0c91d772aedb23',1,'GOAT::raytracing::TrafoParms::nS'],['../class_g_o_a_t_1_1raytracing_1_1_scene.html#af84ac0c999add3decbe1840d0005f1ea',1,'GOAT::raytracing::Scene::nS']]],

@@ -8,6 +8,8 @@ Raytracer used for ultrashort pulse calculation with raytracing only.
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}}
+\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1aspheric_lens}{aspheric\+Lens}}
 \begin{DoxyCompactList}\small\item\em Representation of aspheric lens The left and the right side is described by a formula $ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l \alpha_l r^l $ or the side can also be plano. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms}{aspheric\+Lens\+Parms}}
@@ -81,6 +83,8 @@ struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_opt_prop}{Opt\+Prop}}
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_plane}{Plane}}
 \item 
 struct \mbox{\hyperlink{struct_g_o_a_t_1_1raytracing_1_1_point}{Point}}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator}{Propagator}}
 \item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1pulse_calculation}{pulse\+Calculation}}
 \begin{DoxyCompactList}\small\item\em This class provides functionality to calculate field distributions for short pulses. \end{DoxyCompactList}\item 
@@ -481,11 +485,15 @@ constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a79d16d11be9ba
 \begin{DoxyCompactList}\small\item\em speed of light in $\mu m*s^{-1} $ \end{DoxyCompactList}\item 
 constexpr double \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a9e09cc135264898b03c98a33e5dff300}{C\+\_\+\+LIGHT\+\_\+\+MU\+\_\+\+FS}} = 0.\+299792458
 \begin{DoxyCompactList}\small\item\em speed of light in $ m*fs^{-1}$ \end{DoxyCompactList}\item 
-constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933}{DETECTOR\+\_\+\+ANGLE}} = 20002
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933}{DETECTOR\+\_\+\+ANGLE}} = 20003
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a6ca9e469c3e381fdd6d17847702f91cf}{DETECTOR\+\_\+\+ANGULAR\+\_\+\+SPECTRUM}} = 20003
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a603a0915899a412fcb6b849f880161f6}{DETECTOR\+\_\+\+KIRCHHOFF}} = 20001
 \item 
 constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a10715c7fc5ffa204c924fcf361878f66}{DETECTOR\+\_\+\+PLANE}} = 20000
+\item 
+constexpr int \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a90e3686288ffa030c3625d07464fbbbc}{DETECTOR\+\_\+\+PROPAGATOR}} = 20002
 \item 
 {\footnotesize template$<$class T$>$ }\\T \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}{dummy}}
 \item 
@@ -1950,11 +1958,21 @@ Definition at line \mbox{\hyperlink{constants_8h_source_l00018}{18}} of file \mb
 \index{DETECTOR\_ANGLE@{DETECTOR\_ANGLE}!GOAT::raytracing@{GOAT::raytracing}}
 \doxysubsubsection{\texorpdfstring{DETECTOR\_ANGLE}{DETECTOR\_ANGLE}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a7fd6f9f1bd02c90552adb8426c261933} 
-int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+ANGLE = 20002\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+ANGLE = 20003\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
 
 
 
-Definition at line \mbox{\hyperlink{detector_8h_source_l00019}{19}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+Definition at line \mbox{\hyperlink{detector_8h_source_l00021}{21}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a6ca9e469c3e381fdd6d17847702f91cf}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_ANGULAR\_SPECTRUM@{DETECTOR\_ANGULAR\_SPECTRUM}}
+\index{DETECTOR\_ANGULAR\_SPECTRUM@{DETECTOR\_ANGULAR\_SPECTRUM}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{DETECTOR\_ANGULAR\_SPECTRUM}{DETECTOR\_ANGULAR\_SPECTRUM}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a6ca9e469c3e381fdd6d17847702f91cf} 
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+ANGULAR\+\_\+\+SPECTRUM = 20003\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00020}{20}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_a603a0915899a412fcb6b849f880161f6}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_KIRCHHOFF@{DETECTOR\_KIRCHHOFF}}
 \index{DETECTOR\_KIRCHHOFF@{DETECTOR\_KIRCHHOFF}!GOAT::raytracing@{GOAT::raytracing}}
@@ -1975,6 +1993,16 @@ int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+PLANE = 20000\hspace{0.3cm}{\ttfamil
 
 
 Definition at line \mbox{\hyperlink{detector_8h_source_l00017}{17}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1raytracing_a90e3686288ffa030c3625d07464fbbbc}\index{GOAT::raytracing@{GOAT::raytracing}!DETECTOR\_PROPAGATOR@{DETECTOR\_PROPAGATOR}}
+\index{DETECTOR\_PROPAGATOR@{DETECTOR\_PROPAGATOR}!GOAT::raytracing@{GOAT::raytracing}}
+\doxysubsubsection{\texorpdfstring{DETECTOR\_PROPAGATOR}{DETECTOR\_PROPAGATOR}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1raytracing_a90e3686288ffa030c3625d07464fbbbc} 
+int GOAT\+::raytracing\+::\+DETECTOR\+\_\+\+PROPAGATOR = 20002\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00019}{19}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1raytracing_af4945197f5892d3e1a6f8337cb588f8e}\index{GOAT::raytracing@{GOAT::raytracing}!dummy@{dummy}}
 \index{dummy@{dummy}!GOAT::raytracing@{GOAT::raytracing}}

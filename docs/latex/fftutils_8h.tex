@@ -1,0 +1,45 @@
+\doxysection{maths/fourier/fftutils.h File Reference}
+\hypertarget{fftutils_8h}{}\label{fftutils_8h}\index{maths/fourier/fftutils.h@{maths/fourier/fftutils.h}}
+{\ttfamily \#include $<$complex$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$fftw3.\+h$>$}\newline
+{\ttfamily \#include "{}vector.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths}{GOAT\+::maths}}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier}{GOAT\+::maths\+::fourier}}
+\begin{DoxyCompactList}\small\item\em The \doxylink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{fft2D} class provides an interface to compute the 2D Fast Fourier Transform (FFT) and its inverse. It uses the FFTW library for efficient computation. The class manages the necessary buffers and plans for the FFT operations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{GOAT\+::maths\+::fourier\+::complexd}} = std\+::complex$<$double$>$
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{GOAT\+::maths\+::fourier\+::complex\+Vector}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{complexd}}$>$
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{GOAT\+::maths\+::fourier\+::vector\+Field2D}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{complex\+Vector}}$>$$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{GOAT\+::maths\+::fourier\+::field\+Component}} \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba6f6c8086c9cdafb6b20fe137c44a49f2}{GOAT\+::maths\+::fourier\+::\+Ex}} = 0
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba16d51e28d271902448f7b6cdc2b56839}{GOAT\+::maths\+::fourier\+::\+Ey}} = 1
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba2331a069c1ee8a4c636abf673cf59157}{GOAT\+::maths\+::fourier\+::\+Ez}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_ab32dd399f34fdf62504d79748fc05513}{GOAT\+::maths\+::fourier\+::copy}} (const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}src, std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t n)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_aace6e447dbb61248415ec98905dab82a}{GOAT\+::maths\+::fourier\+::copy}} (const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}src, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&dst, std\+::size\+\_\+t nx, std\+::size\+\_\+t ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}} component)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_a083c0025a3379cffe211a77ceac62db2}{GOAT\+::maths\+::fourier\+::copy}} (const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}src, fftw\+\_\+complex \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t n)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_af0810c1af3051c8f12aedca599106ec5}{GOAT\+::maths\+::fourier\+::copy}} (const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&src, fftw\+\_\+complex \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t nx, std\+::size\+\_\+t ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}} component)
+\end{DoxyCompactItemize}

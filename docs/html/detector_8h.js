@@ -10,6 +10,8 @@ var detector_8h =
     [ "SAVE_Y", "detector_8h.html#a962163256f7d4a46529426776695b8f4", null ],
     [ "SAVE_Z", "detector_8h.html#a30d376254460c5cbf83ee3a8ef3d32e9", null ],
     [ "GOAT::raytracing::DETECTOR_ANGLE", "namespace_g_o_a_t_1_1raytracing.html#a7fd6f9f1bd02c90552adb8426c261933", null ],
+    [ "GOAT::raytracing::DETECTOR_ANGULAR_SPECTRUM", "namespace_g_o_a_t_1_1raytracing.html#a6ca9e469c3e381fdd6d17847702f91cf", null ],
     [ "GOAT::raytracing::DETECTOR_KIRCHHOFF", "namespace_g_o_a_t_1_1raytracing.html#a603a0915899a412fcb6b849f880161f6", null ],
-    [ "GOAT::raytracing::DETECTOR_PLANE", "namespace_g_o_a_t_1_1raytracing.html#a10715c7fc5ffa204c924fcf361878f66", null ]
+    [ "GOAT::raytracing::DETECTOR_PLANE", "namespace_g_o_a_t_1_1raytracing.html#a10715c7fc5ffa204c924fcf361878f66", null ],
+    [ "GOAT::raytracing::DETECTOR_PROPAGATOR", "namespace_g_o_a_t_1_1raytracing.html#a90e3686288ffa030c3625d07464fbbbc", null ]
 ];

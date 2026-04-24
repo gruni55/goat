@@ -2,10 +2,14 @@ var annotated_dup =
 [
     [ "GOAT", "namespace_g_o_a_t.html", [
       [ "maths", "namespace_g_o_a_t_1_1maths.html", [
+        [ "fourier", "namespace_g_o_a_t_1_1maths_1_1fourier.html", [
+          [ "fft2D", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d" ]
+        ] ],
         [ "Matrix", "class_g_o_a_t_1_1maths_1_1_matrix.html", "class_g_o_a_t_1_1maths_1_1_matrix" ],
         [ "Vector", "class_g_o_a_t_1_1maths_1_1_vector.html", "class_g_o_a_t_1_1maths_1_1_vector" ]
       ] ],
       [ "raytracing", "namespace_g_o_a_t_1_1raytracing.html", [
+        [ "AngularSpectrum", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum" ],
         [ "asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens" ],
         [ "asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms" ],
         [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
@@ -43,6 +47,7 @@ var annotated_dup =
         [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
         [ "Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", "class_g_o_a_t_1_1raytracing_1_1_plane" ],
         [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
+        [ "Propagator", "class_g_o_a_t_1_1raytracing_1_1_propagator.html", "class_g_o_a_t_1_1raytracing_1_1_propagator" ],
         [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ],
         [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
         [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],

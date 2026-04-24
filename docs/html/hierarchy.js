@@ -10,10 +10,14 @@ var hierarchy =
     [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", [
-        [ "GOAT::raytracing::Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", null ]
+        [ "GOAT::raytracing::Propagator", "class_g_o_a_t_1_1raytracing_1_1_propagator.html", [
+          [ "GOAT::raytracing::AngularSpectrum", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html", null ],
+          [ "GOAT::raytracing::Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "tinyxml2::DynArray< T, INITIAL_SIZE >", "classtinyxml2_1_1_dyn_array.html", null ],
+    [ "GOAT::maths::fourier::fft2D", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html", null ],
     [ "GOAT::raytracing::Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", null ],
     [ "GOAT::raytracing::GlobalParms", "class_g_o_a_t_1_1raytracing_1_1_global_parms.html", null ],
     [ "GOAT::raytracing::grid", "class_g_o_a_t_1_1raytracing_1_1grid.html", null ],

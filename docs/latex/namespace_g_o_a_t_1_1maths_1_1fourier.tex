@@ -1,0 +1,144 @@
+\doxysection{GOAT\+::maths\+::fourier Namespace Reference}
+\hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier}{}\label{namespace_g_o_a_t_1_1maths_1_1fourier}\index{GOAT::maths::fourier@{GOAT::maths::fourier}}
+
+
+The \doxylink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{fft2D} class provides an interface to compute the 2D Fast Fourier Transform (FFT) and its inverse. It uses the FFTW library for efficient computation. The class manages the necessary buffers and plans for the FFT operations.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{fft2D}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{complexd}} = std\+::complex$<$double$>$
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{complex\+Vector}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{complexd}}$>$
+\item 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{complex\+Vector}}$>$$>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}} \{ \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba6f6c8086c9cdafb6b20fe137c44a49f2}{Ex}} = 0
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba16d51e28d271902448f7b6cdc2b56839}{Ey}} = 1
+, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba2331a069c1ee8a4c636abf673cf59157}{Ez}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_ab32dd399f34fdf62504d79748fc05513}{copy}} (const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}src, std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t n)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_aace6e447dbb61248415ec98905dab82a}{copy}} (const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}src, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&dst, std\+::size\+\_\+t nx, std\+::size\+\_\+t ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}} component)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_a083c0025a3379cffe211a77ceac62db2}{copy}} (const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}src, fftw\+\_\+complex \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t n)
+\item 
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_af0810c1af3051c8f12aedca599106ec5}{copy}} (const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&src, fftw\+\_\+complex \texorpdfstring{$\ast$}{*}dst, std\+::size\+\_\+t nx, std\+::size\+\_\+t ny, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}} component)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{fft2D} class provides an interface to compute the 2D Fast Fourier Transform (FFT) and its inverse. It uses the FFTW library for efficient computation. The class manages the necessary buffers and plans for the FFT operations. 
+
+\begin{DoxyNote}{Note}
+The class is non-\/copyable but movable. It provides methods for forward and inverse FFT, as well as scaling the inverse transform.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+\href{https://www.fftw.org/}{\texttt{https\+://www.\+fftw.\+org/}} for more information on the FFTW library. 
+\end{DoxySeeAlso}
+
+
+\label{doc-typedef-members}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_doc-typedef-members}
+\doxysubsection{Typedef Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!complexd@{complexd}}
+\index{complexd@{complexd}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{complexd}{complexd}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{GOAT\+::maths\+::fourier\+::complexd}} = std\+::complex$<$double$>$}
+
+
+
+Definition at line \mbox{\hyperlink{fftutils_8h_source_l00025}{25}} of file \mbox{\hyperlink{fftutils_8h_source}{fftutils.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!complexVector@{complexVector}}
+\index{complexVector@{complexVector}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{complexVector}{complexVector}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{GOAT\+::maths\+::fourier\+::complex\+Vector}} = \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_afce31da5f450c6b7e7d9be7080b45d04}{complexd}}$>$}
+
+
+
+Definition at line \mbox{\hyperlink{fftutils_8h_source_l00026}{26}} of file \mbox{\hyperlink{fftutils_8h_source}{fftutils.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!vectorField2D@{vectorField2D}}
+\index{vectorField2D@{vectorField2D}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{vectorField2D}{vectorField2D}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74} 
+using \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{GOAT\+::maths\+::fourier\+::vector\+Field2D}} = std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_adea694538f722f188f1c4b5e0641eea7}{complex\+Vector}}$>$$>$}
+
+
+
+Definition at line \mbox{\hyperlink{fftutils_8h_source_l00027}{27}} of file \mbox{\hyperlink{fftutils_8h_source}{fftutils.\+h}}.
+
+
+
+\label{doc-enum-members}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_doc-enum-members}
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!fieldComponent@{fieldComponent}}
+\index{fieldComponent@{fieldComponent}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{fieldComponent}{fieldComponent}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b} 
+enum class \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{GOAT\+::maths\+::fourier\+::field\+Component}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ex@{Ex}!GOAT::maths::fourier@{GOAT::maths::fourier}}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!Ex@{Ex}}}\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba6f6c8086c9cdafb6b20fe137c44a49f2}\label{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba6f6c8086c9cdafb6b20fe137c44a49f2} 
+Ex&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ey@{Ey}!GOAT::maths::fourier@{GOAT::maths::fourier}}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!Ey@{Ey}}}\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba16d51e28d271902448f7b6cdc2b56839}\label{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba16d51e28d271902448f7b6cdc2b56839} 
+Ey&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ez@{Ez}!GOAT::maths::fourier@{GOAT::maths::fourier}}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!Ez@{Ez}}}\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba2331a069c1ee8a4c636abf673cf59157}\label{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111ba2331a069c1ee8a4c636abf673cf59157} 
+Ez&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{fftutils_8h_source_l00018}{18}} of file \mbox{\hyperlink{fftutils_8h_source}{fftutils.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_ab32dd399f34fdf62504d79748fc05513}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!copy@{copy}}
+\index{copy@{copy}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_ab32dd399f34fdf62504d79748fc05513} 
+void GOAT\+::maths\+::fourier\+::copy (\begin{DoxyParamCaption}\item[{const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_aace6e447dbb61248415ec98905dab82a}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!copy@{copy}}
+\index{copy@{copy}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_aace6e447dbb61248415ec98905dab82a} 
+void GOAT\+::maths\+::fourier\+::copy (\begin{DoxyParamCaption}\item[{const fftw\+\_\+complex \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&}]{dst}{, }\item[{std\+::size\+\_\+t}]{nx}{, }\item[{std\+::size\+\_\+t}]{ny}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}}}]{component}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_a083c0025a3379cffe211a77ceac62db2}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!copy@{copy}}
+\index{copy@{copy}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_a083c0025a3379cffe211a77ceac62db2} 
+void GOAT\+::maths\+::fourier\+::copy (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{fftw\+\_\+complex \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{std\+::size\+\_\+t}]{n}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespace_g_o_a_t_1_1maths_1_1fourier_af0810c1af3051c8f12aedca599106ec5}\index{GOAT::maths::fourier@{GOAT::maths::fourier}!copy@{copy}}
+\index{copy@{copy}!GOAT::maths::fourier@{GOAT::maths::fourier}}
+\doxysubsubsection{\texorpdfstring{copy()}{copy()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1maths_1_1fourier_af0810c1af3051c8f12aedca599106ec5} 
+void GOAT\+::maths\+::fourier\+::copy (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{vector\+Field2D}} \&}]{src}{, }\item[{fftw\+\_\+complex \texorpdfstring{$\ast$}{*}}]{dst}{, }\item[{std\+::size\+\_\+t}]{nx}{, }\item[{std\+::size\+\_\+t}]{ny}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{field\+Component}}}]{component}{}\end{DoxyParamCaption})}
+

@@ -7,7 +7,7 @@ var searchData=
   ['delallchilds_4',['delAllChilds',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#a4a9f1ca379086a4c91413bdd4aabc38b',1,'GOAT::raytracing::Octree']]],
   ['delarray_5',['delarray',['../class_g_o_a_t_1_1raytracing_1_1grid.html#a6baf780fd102ef858c08d8e98975d694',1,'GOAT::raytracing::grid']]],
   ['delchild_6',['delChild',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#adac318ce163b4dcb9f03f5cf2c4164df',1,'GOAT::raytracing::Octree']]],
-  ['deldetector_7',['delDetector',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#aef7cb5702d407553c6abe453ae93bd77',1,'GOAT::raytracing::Kirchhoff']]],
+  ['deldetector_7',['delDetector',['../class_g_o_a_t_1_1raytracing_1_1_propagator.html#a5192285f5eff34d45c18b9a5da4da964',1,'GOAT::raytracing::Propagator']]],
   ['delelements_8',['delElements',['../class_g_o_a_t_1_1raytracing_1_1_octree.html#a25c0d9f239b64ffdee1083b0cc21f1e5',1,'GOAT::raytracing::Octree']]],
   ['delete_9',['Delete',['../namespace_g_o_a_t_1_1raytracing.html#af16607f3222c579004d47b7c0b6f024d',1,'GOAT::raytracing']]],
   ['deleteattribute_10',['DeleteAttribute',['../classtinyxml2_1_1_x_m_l_element.html#aebd45aa7118964c30b32fe12e944628a',1,'tinyxml2::XMLElement::DeleteAttribute(const char *name)'],['../classtinyxml2_1_1_x_m_l_element.html#af6af63c153c343cc71638375c4a2085d',1,'tinyxml2::XMLElement::DeleteAttribute(XMLAttribute *attribute)'],['../classtinyxml2_1_1_x_m_l_element.html#aebd45aa7118964c30b32fe12e944628a',1,'tinyxml2::XMLElement::DeleteAttribute(const char *name)'],['../classtinyxml2_1_1_x_m_l_element.html#af6af63c153c343cc71638375c4a2085d',1,'tinyxml2::XMLElement::DeleteAttribute(XMLAttribute *attribute)']]],

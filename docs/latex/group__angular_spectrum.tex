@@ -1,0 +1,68 @@
+\doxysection{Angular spectrum propagation }
+\hypertarget{group__angular_spectrum}{}\label{group__angular_spectrum}\index{Angular spectrum propagation@{Angular spectrum propagation}}
+
+
+Functions for forward and inverse transformations in the angular spectrum framework.  
+
+
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group__angular_spectrum_ga8e4c8e315f4f0b5ef24c807346c1e8b4}{GOAT\+::maths\+::fourier\+::fft2\+D\+::forward}} (const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}in, std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Performs forward transformation of a complex field. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group__angular_spectrum_ga055d7c8edc92caa3c2511ea8156b6546}{GOAT\+::maths\+::fourier\+::fft2\+D\+::inverse}} (const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}in, std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}out)
+\begin{DoxyCompactList}\small\item\em Performs inverse transformation of a complex field. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions for forward and inverse transformations in the angular spectrum framework. 
+
+These routines provide discrete transformations of complex-\/valued fields between spatial domain and spectral domain, as well as scaling operations.
+
+The functions operate component-\/wise on complex fields. Depending on the variant, results are either written to the output field or added to an existing field. 
+
+\label{doc-func-members}
+\Hypertarget{group__angular_spectrum_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{group__angular_spectrum_ga8e4c8e315f4f0b5ef24c807346c1e8b4}\index{Angular spectrum propagation@{Angular spectrum propagation}!forward@{forward}}
+\index{forward@{forward}!Angular spectrum propagation@{Angular spectrum propagation}}
+\doxysubsubsection{\texorpdfstring{forward()}{forward()}}
+{\footnotesize\ttfamily \label{group__angular_spectrum_ga8e4c8e315f4f0b5ef24c807346c1e8b4} 
+void GOAT\+::maths\+::fourier\+::fft2\+D\+::forward (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{in}{, }\item[{std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Performs forward transformation of a complex field. 
+
+Transforms a complex field from spatial domain to spectral domain. The output field is overwritten.
+
+This operation typically corresponds to a discrete Fourier transform.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Input field in spatial domain. \\
+\hline
+{\em out} & Output field in spectral domain. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{group__angular_spectrum_ga055d7c8edc92caa3c2511ea8156b6546}\index{Angular spectrum propagation@{Angular spectrum propagation}!inverse@{inverse}}
+\index{inverse@{inverse}!Angular spectrum propagation@{Angular spectrum propagation}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily \label{group__angular_spectrum_ga055d7c8edc92caa3c2511ea8156b6546} 
+void GOAT\+::maths\+::fourier\+::fft2\+D\+::inverse (\begin{DoxyParamCaption}\item[{const std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{in}{, }\item[{std\+::complex$<$ double $>$ \texorpdfstring{$\ast$}{*}}]{out}{}\end{DoxyParamCaption})}
+
+
+
+Performs inverse transformation of a complex field. 
+
+Transforms a complex field from spectral domain back to spatial domain. The output field is overwritten.
+
+This operation typically corresponds to an inverse discrete Fourier transform.
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Input field in spectral domain. \\
+\hline
+{\em out} & Output field in spatial domain. \\
+\hline
+\end{DoxyParams}

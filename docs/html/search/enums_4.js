@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['side_0',['Side',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#afab106b2b59df490442822442d791e52',1,'GOAT::raytracing::asphericLens']]]
+  ['nfunctype_0',['NFUNCTYPE',['../namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153',1,'GOAT::raytracing']]]
 ];

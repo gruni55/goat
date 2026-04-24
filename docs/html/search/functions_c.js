@@ -36,6 +36,8 @@ var searchData=
   ['normvol_33',['normVol',['../class_g_o_a_t_1_1raytracing_1_1tubed_ray.html#a8267e3e562cb6c0f1bf529e8ce98c181',1,'GOAT::raytracing::tubedRay']]],
   ['nosurface_34',['nosurface',['../class_g_o_a_t_1_1raytracing_1_1surface.html#a5ad87e8fcbae25bc4a6dd593eada7c24',1,'GOAT::raytracing::surface']]],
   ['null_35',['null',['../namespace_g_o_a_t_1_1maths.html#a151155d7efac75db8f4d2b0f0b4c8627',1,'GOAT::maths']]],
-  ['numberofsources_36',['numberOfSources',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#af8f6fbe65dfda80569111571343832e2',1,'GOAT::raytracing::Kirchhoff']]],
-  ['numberofthreads_37',['numberOfThreads',['../class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html#aa3cb7b9b3cd2e414b3acd51f797989b2',1,'GOAT::raytracing::Kirchhoff']]]
+  ['numberofsources_36',['numberOfSources',['../class_g_o_a_t_1_1raytracing_1_1_propagator.html#ae2c4136c05d087368dcc7cbcb9c6eadc',1,'GOAT::raytracing::Propagator']]],
+  ['numberofthreads_37',['numberOfThreads',['../class_g_o_a_t_1_1raytracing_1_1_propagator.html#ae6cca6a362d710dbf1327e433f835aea',1,'GOAT::raytracing::Propagator']]],
+  ['nx_38',['nx',['../class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html#acfebb1e43e945e5ef700d30b3b0d65e3',1,'GOAT::maths::fourier::fft2D']]],
+  ['ny_39',['ny',['../class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html#aaa79b333c6348b85aa615f48cc8620e2',1,'GOAT::maths::fourier::fft2D']]]
 ];

@@ -2,6 +2,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
 [
     [ "pulsecalc_with_template", "dir_f3b31d642f11f3bfc106bdf51eca694c.html", "dir_f3b31d642f11f3bfc106bdf51eca694c" ],
     [ "sic", "dir_5466f186b356e453581a3aa4a9b56c79.html", "dir_5466f186b356e453581a3aa4a9b56c79" ],
+    [ "angularSpectrum.h", "angular_spectrum_8h.html", "angular_spectrum_8h" ],
     [ "asphericLens.h", "aspheric_lens_8h.html", "aspheric_lens_8h" ],
     [ "box.h", "box_8h.html", "box_8h" ],
     [ "computeSettings.h", "compute_settings_8h.html", "compute_settings_8h" ],
@@ -25,6 +26,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "objectshape.h", "objectshape_8h.html", "objectshape_8h" ],
     [ "octree.h", "octree_8h.html", "octree_8h" ],
     [ "plane.h", "plane_8h.html", "plane_8h" ],
+    [ "propagator.h", "propagator_8h.html", "propagator_8h" ],
     [ "pulsecalculation.h", "pulsecalculation_8h.html", "pulsecalculation_8h" ],
     [ "pulsecalculation_base.h", "pulsecalculation__base_8h.html", "pulsecalculation__base_8h" ],
     [ "pulsecalculation_field.h", "pulsecalculation__field_8h.html", "pulsecalculation__field_8h" ],

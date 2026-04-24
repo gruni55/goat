@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nfunctype_0',['NFUNCTYPE',['../namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153',1,'GOAT::raytracing']]]
+  ['mode_0',['Mode',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54',1,'tinyxml2::StrPair::Mode'],['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54',1,'tinyxml2::StrPair::Mode']]]
 ];

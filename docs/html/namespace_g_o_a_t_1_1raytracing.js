@@ -1,5 +1,6 @@
 var namespace_g_o_a_t_1_1raytracing =
 [
+    [ "AngularSpectrum", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum" ],
     [ "asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens" ],
     [ "asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms" ],
     [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
@@ -37,6 +38,7 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
     [ "Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", "class_g_o_a_t_1_1raytracing_1_1_plane" ],
     [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
+    [ "Propagator", "class_g_o_a_t_1_1raytracing_1_1_propagator.html", "class_g_o_a_t_1_1raytracing_1_1_propagator" ],
     [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ],
     [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
     [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],
@@ -233,8 +235,10 @@ var namespace_g_o_a_t_1_1raytracing =
     [ "C_LIGHT_MU", "namespace_g_o_a_t_1_1raytracing.html#a79d16d11be9baf6f59e4e3a730ffd11e", null ],
     [ "C_LIGHT_MU_FS", "namespace_g_o_a_t_1_1raytracing.html#a9e09cc135264898b03c98a33e5dff300", null ],
     [ "DETECTOR_ANGLE", "namespace_g_o_a_t_1_1raytracing.html#a7fd6f9f1bd02c90552adb8426c261933", null ],
+    [ "DETECTOR_ANGULAR_SPECTRUM", "namespace_g_o_a_t_1_1raytracing.html#a6ca9e469c3e381fdd6d17847702f91cf", null ],
     [ "DETECTOR_KIRCHHOFF", "namespace_g_o_a_t_1_1raytracing.html#a603a0915899a412fcb6b849f880161f6", null ],
     [ "DETECTOR_PLANE", "namespace_g_o_a_t_1_1raytracing.html#a10715c7fc5ffa204c924fcf361878f66", null ],
+    [ "DETECTOR_PROPAGATOR", "namespace_g_o_a_t_1_1raytracing.html#a90e3686288ffa030c3625d07464fbbbc", null ],
     [ "dummy", "namespace_g_o_a_t_1_1raytracing.html#af4945197f5892d3e1a6f8337cb588f8e", null ],
     [ "eps0", "namespace_g_o_a_t_1_1raytracing.html#a22557d1b893039a5b1fb08584523960b", null ],
     [ "Exy", "namespace_g_o_a_t_1_1raytracing.html#a5a279a8d429521b573b92ad894ecf6a9", null ],
