@@ -1,5 +1,13 @@
 var NAVTREEINDEX3 =
 {
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aaa75c2726cb2c96d322298fa2c6c933f":[5,0,0,1,11,28],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#aaa75c2726cb2c96d322298fa2c6c933f":[6,0,0,1,11,28],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ac7cd5bd12b5957ea2e75afd6ab1eceb6":[5,0,0,1,11,2],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ac7cd5bd12b5957ea2e75afd6ab1eceb6":[6,0,0,1,11,2],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ad9041c27a65236e8427b57f355d8c125":[5,0,0,1,11,13],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ad9041c27a65236e8427b57f355d8c125":[6,0,0,1,11,13],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#adb70a3e104396d9e105341fa1672a990":[5,0,0,1,11,31],
+"class_g_o_a_t_1_1raytracing_1_1_global_parms.html#adb70a3e104396d9e105341fa1672a990":[6,0,0,1,11,31],
 "class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ae54b0e9bf219dc6a498c03db1d290024":[5,0,0,1,11,10],
 "class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ae54b0e9bf219dc6a498c03db1d290024":[6,0,0,1,11,10],
 "class_g_o_a_t_1_1raytracing_1_1_global_parms.html#ae9adf14cc6e3f29f4e8974f950faee92":[5,0,0,1,11,20],
@@ -241,13 +249,5 @@ var NAVTREEINDEX3 =
 "class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab00aa4db7ab4a578e2180b342263a522":[5,0,0,1,20,42],
 "class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab00aa4db7ab4a578e2180b342263a522":[6,0,0,1,20,42],
 "class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab23f551d19c2c526818ffc04527a627a":[5,0,0,1,20,12],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab23f551d19c2c526818ffc04527a627a":[6,0,0,1,20,12],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab61ab661cf7c228951ff86827a7eaf83":[5,0,0,1,20,51],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab61ab661cf7c228951ff86827a7eaf83":[6,0,0,1,20,51],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab67b99826922bbd4ffd53b4fa4a4aa47":[5,0,0,1,20,46],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab67b99826922bbd4ffd53b4fa4a4aa47":[6,0,0,1,20,46],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab76c582d1d1bef23522f629f2d89807c":[5,0,0,1,20,52],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab76c582d1d1bef23522f629f2d89807c":[6,0,0,1,20,52],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab7ec0f5da024d908eb44f8221e79465e":[5,0,0,1,20,68],
-"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab7ec0f5da024d908eb44f8221e79465e":[6,0,0,1,20,68]
+"class_g_o_a_t_1_1raytracing_1_1_light_src.html#ab23f551d19c2c526818ffc04527a627a":[6,0,0,1,20,12]
 };

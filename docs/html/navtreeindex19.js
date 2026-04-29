@@ -1,5 +1,13 @@
 var NAVTREEINDEX19 =
 {
+"classtinyxml2_1_1_x_m_l_node.html#a0485e51c670e741884cfd8362274d680":[6,0,1,11,111],
+"classtinyxml2_1_1_x_m_l_node.html#a04b0fade5975c66c56d653afdbcd9dcc":[5,0,1,11,114],
+"classtinyxml2_1_1_x_m_l_node.html#a04b0fade5975c66c56d653afdbcd9dcc":[6,0,1,11,114],
+"classtinyxml2_1_1_x_m_l_node.html#a0563966a4e8df58a3bf1b323eedf839a":[5,0,1,11,102],
+"classtinyxml2_1_1_x_m_l_node.html#a0563966a4e8df58a3bf1b323eedf839a":[5,0,1,11,103],
+"classtinyxml2_1_1_x_m_l_node.html#a0563966a4e8df58a3bf1b323eedf839a":[6,0,1,11,102],
+"classtinyxml2_1_1_x_m_l_node.html#a0563966a4e8df58a3bf1b323eedf839a":[6,0,1,11,103],
+"classtinyxml2_1_1_x_m_l_node.html#a05d04a9c06dc48ff8473c77774ee94eb":[5,0,1,11,48],
 "classtinyxml2_1_1_x_m_l_node.html#a05d04a9c06dc48ff8473c77774ee94eb":[5,0,1,11,49],
 "classtinyxml2_1_1_x_m_l_node.html#a05d04a9c06dc48ff8473c77774ee94eb":[6,0,1,11,48],
 "classtinyxml2_1_1_x_m_l_node.html#a05d04a9c06dc48ff8473c77774ee94eb":[6,0,1,11,49],
@@ -241,13 +249,5 @@ var NAVTREEINDEX19 =
 "classtinyxml2_1_1_x_m_l_printer.html#a03de437ca25fbcc0d7df4bc29296e7f4":[6,0,1,12,67],
 "classtinyxml2_1_1_x_m_l_printer.html#a0cfb03811df0873faa59a12de009bf33":[5,0,1,12,38],
 "classtinyxml2_1_1_x_m_l_printer.html#a0cfb03811df0873faa59a12de009bf33":[5,0,1,12,39],
-"classtinyxml2_1_1_x_m_l_printer.html#a0cfb03811df0873faa59a12de009bf33":[6,0,1,12,38],
-"classtinyxml2_1_1_x_m_l_printer.html#a0cfb03811df0873faa59a12de009bf33":[6,0,1,12,39],
-"classtinyxml2_1_1_x_m_l_printer.html#a157706836c056febc4022dc540a47982":[5,0,1,12,2],
-"classtinyxml2_1_1_x_m_l_printer.html#a157706836c056febc4022dc540a47982":[5,0,1,12,5],
-"classtinyxml2_1_1_x_m_l_printer.html#a157706836c056febc4022dc540a47982":[6,0,1,12,2],
-"classtinyxml2_1_1_x_m_l_printer.html#a157706836c056febc4022dc540a47982":[6,0,1,12,5],
-"classtinyxml2_1_1_x_m_l_printer.html#a15fc1f2b922f540917dcf52808737b29":[5,0,1,12,82],
-"classtinyxml2_1_1_x_m_l_printer.html#a15fc1f2b922f540917dcf52808737b29":[5,0,1,12,83],
-"classtinyxml2_1_1_x_m_l_printer.html#a15fc1f2b922f540917dcf52808737b29":[6,0,1,12,82]
+"classtinyxml2_1_1_x_m_l_printer.html#a0cfb03811df0873faa59a12de009bf33":[6,0,1,12,38]
 };

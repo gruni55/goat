@@ -1,5 +1,13 @@
 var NAVTREEINDEX8 =
 {
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a94e6ee2f72674b586eaece7c0657c91a":[6,0,0,1,54,0],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a94e6ee2f72674b586eaece7c0657c91a":[6,0,0,1,54,2],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a99fac549f92d37ffa14f42f3401e59e4":[5,0,0,1,54,12],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a99fac549f92d37ffa14f42f3401e59e4":[5,0,0,1,54,13],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a99fac549f92d37ffa14f42f3401e59e4":[6,0,0,1,54,12],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#a99fac549f92d37ffa14f42f3401e59e4":[6,0,0,1,54,13],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ab0de11d471fa3cb9bdcb679a365dfd0a":[5,0,0,1,54,24],
+"class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ab0de11d471fa3cb9bdcb679a365dfd0a":[6,0,0,1,54,24],
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ac513b216e00e1e0428b5514d5768d22d":[5,0,0,1,54,16],
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ac513b216e00e1e0428b5514d5768d22d":[5,0,0,1,54,17],
 "class_g_o_a_t_1_1raytracing_1_1_raytrace___path.html#ac513b216e00e1e0428b5514d5768d22d":[6,0,0,1,54,16],
@@ -241,13 +249,5 @@ var NAVTREEINDEX8 =
 "class_g_o_a_t_1_1raytracing_1_1_scene.html#ac4fbc46aa9da18b52f22504469802988":[5,0,0,1,60,76],
 "class_g_o_a_t_1_1raytracing_1_1_scene.html#ac4fbc46aa9da18b52f22504469802988":[6,0,0,1,60,76],
 "class_g_o_a_t_1_1raytracing_1_1_scene.html#adcdfc10d2861af292b4daac852bee81b":[5,0,0,1,60,27],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#adcdfc10d2861af292b4daac852bee81b":[6,0,0,1,60,27],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#addf0fd3002976670f420adb5f57b4619":[5,0,0,1,60,66],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#addf0fd3002976670f420adb5f57b4619":[6,0,0,1,60,66],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae5ed2dc22965839e3b06f18dc49fad83":[5,0,0,1,60,6],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae5ed2dc22965839e3b06f18dc49fad83":[5,0,0,1,60,7],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae5ed2dc22965839e3b06f18dc49fad83":[6,0,0,1,60,6],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae5ed2dc22965839e3b06f18dc49fad83":[6,0,0,1,60,7],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae8eb76a00dab82c48bfb832069a02f00":[5,0,0,1,60,60],
-"class_g_o_a_t_1_1raytracing_1_1_scene.html#ae8eb76a00dab82c48bfb832069a02f00":[5,0,0,1,60,61]
+"class_g_o_a_t_1_1raytracing_1_1_scene.html#adcdfc10d2861af292b4daac852bee81b":[6,0,0,1,60,27]
 };

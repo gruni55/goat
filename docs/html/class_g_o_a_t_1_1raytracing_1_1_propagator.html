@@ -99,6 +99,9 @@ $(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_propagator.html','','c
 </div><!--header-->
 <div class="contents">
 
+<p>This class is the base class for all propagators. It inherits from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html" title="This class provides a plane detector, defined by its center point and its side length....">DetectorPlane</a>, so it can be used as a detector, but it also has a list of detectors as sources.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="propagator_8h_source.html">propagator.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GOAT::raytracing::Propagator:</div>
@@ -108,7 +111,7 @@ Inheritance diagram for GOAT::raytracing::Propagator:</div>
   <map id="GOAT_3A_3Araytracing_3A_3APropagator_map" name="GOAT_3A_3Araytracing_3A_3APropagator_map">
 <area href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html" title="This class provides a plane detector, defined by its center point and its side length...." alt="GOAT::raytracing::DetectorPlane" shape="rect" coords="112,56,327,80"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_detector.html" title="The abstract Detector class provides an interface to a detector to store the information about the el..." alt="GOAT::raytracing::Detector" shape="rect" coords="112,0,327,24"/>
-<area href="class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html" alt="GOAT::raytracing::AngularSpectrum" shape="rect" coords="0,168,215,192"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html" title="This class implements the angular spectrum method for propagating optical fields." alt="GOAT::raytracing::AngularSpectrum" shape="rect" coords="0,168,215,192"/>
 <area href="class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html" title="This class makes a Kirchhoff calculation This class is directly connect with a Detector...." alt="GOAT::raytracing::Kirchhoff" shape="rect" coords="225,168,440,192"/>
   </map>
 </div></div>
@@ -123,13 +126,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9801cec4123b0d2f28d5c7430ee44ee0" id="r_a9801cec4123b0d2f28d5c7430ee44ee0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9801cec4123b0d2f28d5c7430ee44ee0">clearSources</a> ()</td></tr>
 <tr class="memitem:a5192285f5eff34d45c18b9a5da4da964" id="r_a5192285f5eff34d45c18b9a5da4da964"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5192285f5eff34d45c18b9a5da4da964">delDetector</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html">DetectorPlane</a> *det)</td></tr>
 <tr class="memitem:a0e66b2ce1592c2e1994a3c6edb3e9803" id="r_a0e66b2ce1592c2e1994a3c6edb3e9803"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html">DetectorPlane</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e66b2ce1592c2e1994a3c6edb3e9803">getSources</a> ()</td></tr>
+<tr class="memdesc:a0e66b2ce1592c2e1994a3c6edb3e9803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the list of sources, i.e. the list of detectors in the list of sources.  <br /></td></tr>
 <tr class="memitem:a45722b8f8f6fa0173df88d0b7a760c84" id="r_a45722b8f8f6fa0173df88d0b7a760c84"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45722b8f8f6fa0173df88d0b7a760c84">getWavelength</a> ()</td></tr>
+<tr class="memdesc:a45722b8f8f6fa0173df88d0b7a760c84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the wavelength of the propagator.  <br /></td></tr>
 <tr class="memitem:ae2c4136c05d087368dcc7cbcb9c6eadc" id="r_ae2c4136c05d087368dcc7cbcb9c6eadc"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2c4136c05d087368dcc7cbcb9c6eadc">numberOfSources</a> ()</td></tr>
+<tr class="memdesc:ae2c4136c05d087368dcc7cbcb9c6eadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of sources, i.e. the number of detectors in the list of sources.  <br /></td></tr>
 <tr class="memitem:ae6cca6a362d710dbf1327e433f835aea" id="r_ae6cca6a362d710dbf1327e433f835aea"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae6cca6a362d710dbf1327e433f835aea">numberOfThreads</a> ()</td></tr>
+<tr class="memdesc:ae6cca6a362d710dbf1327e433f835aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of threads used for the calculation. This is the maximal number of threads that will be used for the calculation. It can be set with <a class="el" href="#aace96a992a9ec9201b3953c70cfee9bb" title="Sets the number of threads for the calculation. If noThreads is larger than the maximum number of thr...">setNumberOfThreads()</a>.  <br /></td></tr>
 <tr class="memitem:aaa32df160345edf4d49c8a897e16d0b6" id="r_aaa32df160345edf4d49c8a897e16d0b6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa32df160345edf4d49c8a897e16d0b6">Propagator</a> (double <a class="el" href="#a0fcaeb451df462e8f205274063a0317e">wvl</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a0d42d0cffecb6424fca4dd34d4951b91">P</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a6b1044d35d59ba1f071c5c6f369ff61e">e1</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a69f64b412ca29d16aa3633ce54f4272c">e2</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a16b6bbd23d51a516645b632346736183">n1</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#add8a7e7dfcea189813df617c6b2d7b43">n2</a>)</td></tr>
 <tr class="memitem:ace5f2c7c77f703ec5caf2671d39beb03" id="r_ace5f2c7c77f703ec5caf2671d39beb03"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ace5f2c7c77f703ec5caf2671d39beb03">Propagator</a> (double <a class="el" href="#a0fcaeb451df462e8f205274063a0317e">wvl</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a0d42d0cffecb6424fca4dd34d4951b91">P</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a05ff56a1899ade06c3e858ea32e32c03">n</a>, double d, int N)</td></tr>
 <tr class="memitem:aace96a992a9ec9201b3953c70cfee9bb" id="r_aace96a992a9ec9201b3953c70cfee9bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aace96a992a9ec9201b3953c70cfee9bb">setNumberOfThreads</a> (int <a class="el" href="#a3069343aaae86e6ab185c8704b1d77f6">noThreads</a>)</td></tr>
+<tr class="memdesc:aace96a992a9ec9201b3953c70cfee9bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of threads for the calculation. If noThreads is larger than the maximum number of threads available, the maximum number of threads will be used.  <br /></td></tr>
 <tr class="memitem:a9d1c590be4acaf5704ebfcf043d70824" id="r_a9d1c590be4acaf5704ebfcf043d70824"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d1c590be4acaf5704ebfcf043d70824">setWavelength</a> (double <a class="el" href="#a0fcaeb451df462e8f205274063a0317e">wvl</a>)</td></tr>
+<tr class="memdesc:a9d1c590be4acaf5704ebfcf043d70824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the wavelength of the propagator.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_g_o_a_t_1_1raytracing_1_1_detector_plane"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_g_o_a_t_1_1raytracing_1_1_detector_plane')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html">GOAT::raytracing::DetectorPlane</a></td></tr>
 <tr class="memitem:ad4579fc5a5636fefe0eb299fb713a330 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_detector_plane" id="r_ad4579fc5a5636fefe0eb299fb713a330"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#ad4579fc5a5636fefe0eb299fb713a330">cross</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a0d42d0cffecb6424fca4dd34d4951b91">P</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; k, int &amp;i1, int &amp;i2, double &amp;l)</td></tr>
 <tr class="memdesc:ad4579fc5a5636fefe0eb299fb713a330 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_detector_plane"><td class="mdescLeft">&#160;</td><td class="mdescRight">implementation of the intersection checking function for the plane detector  <br /></td></tr>
@@ -239,8 +248,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a2f34cd660fc7aae58967c4e27f941dd1 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_detector" id="r_a2f34cd660fc7aae58967c4e27f941dd1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html#a2f34cd660fc7aae58967c4e27f941dd1">fname</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00008">8</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<div class="textblock"><p>This class is the base class for all propagators. It inherits from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector_plane.html" title="This class provides a plane detector, defined by its center point and its side length....">DetectorPlane</a>, so it can be used as a detector, but it also has a list of detectors as sources. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00013">13</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aaa32df160345edf4d49c8a897e16d0b6" name="aaa32df160345edf4d49c8a897e16d0b6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaa32df160345edf4d49c8a897e16d0b6">&#9670;&#160;</a></span>Propagator() <span class="overload">[1/2]</span></h2>
@@ -280,6 +290,17 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>constructor </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">wvl</td><td>wavelength </td></tr>
+    <tr><td class="paramname">P</td><td>position of the propagator plane (center) </td></tr>
+    <tr><td class="paramname">e1</td><td>first direction vector of the plane (length of the plane in this direction is determined by the length of e1) </td></tr>
+    <tr><td class="paramname">e2</td><td>second direction vector of the plane (length of the plane in this direction is determined by the length of e2) </td></tr>
+    <tr><td class="paramname">n1</td><td>number of points in the first direction </td></tr>
+    <tr><td class="paramname">n2</td><td>number of points in the second direction </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -316,6 +337,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>constructor for square propagator, defined by the center position P, the normal n, the width d and the number of points in one direction N (so the array is N x N) /param wvl wavelength /param P position of the propagator plane (center) /param n normal vector of the plane /param d width of the plane in both directions /param N number of points in one direction (so the array is N x N) </p>
 
 </div>
 </div>
@@ -334,6 +356,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds one detector to the list of sources. </p>
 
 </div>
 </div>
@@ -351,6 +374,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Adds a list of detectors to the list of sources. </p>
 
 </div>
 </div>
@@ -368,6 +392,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Makes a calculation. clear determines if the content of the propagator should be cleared before the calculation. If clear is false, the result of the calculation will be added to the existing content. </p>
 
 </div>
 </div>
@@ -443,6 +468,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Clears the list of sources, i.e. all detectors are removed from the list of sources. </p>
 
 </div>
 </div>
@@ -460,6 +486,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Deletes one detector from the list of sources. </p>
 
 </div>
 </div>
@@ -486,7 +513,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00021">21</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p>Returns the list of sources, i.e. the list of detectors in the list of sources. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00075">75</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -513,7 +542,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00022">22</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p>Returns the wavelength of the propagator. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00079">79</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +571,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00020">20</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p>Returns the number of sources, i.e. the number of detectors in the list of sources. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00071">71</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +600,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00019">19</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p>Returns the number of threads used for the calculation. This is the maximal number of threads that will be used for the calculation. It can be set with <a class="el" href="#aace96a992a9ec9201b3953c70cfee9bb" title="Sets the number of threads for the calculation. If noThreads is larger than the maximum number of thr...">setNumberOfThreads()</a>. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00067">67</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -585,6 +620,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the number of threads for the calculation. If noThreads is larger than the maximum number of threads available, the maximum number of threads will be used. </p>
 
 </div>
 </div>
@@ -611,7 +648,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00023">23</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p>Sets the wavelength of the propagator. </p>
+
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00083">83</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -636,7 +675,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00037">37</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00097">97</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -660,7 +699,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00041">41</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00101">101</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -684,7 +723,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00040">40</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00100">100</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>
@@ -708,7 +747,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00038">38</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="propagator_8h_source.html#l00098">98</a> of file <a class="el" href="propagator_8h_source.html">propagator.h</a>.</p>
 
 </div>
 </div>

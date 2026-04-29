@@ -2,6 +2,11 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator}{}\label{class_g_o_a_t_1_1raytracing_1_1_propagator}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 
 
+This class is the base class for all propagators. It inherits from \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}, so it can be used as a detector, but it also has a list of detectors as sources.  
+
+
+
+
 {\ttfamily \#include $<$propagator.\+h$>$}
 
 Inheritance diagram for GOAT\+::raytracing\+::Propagator\+:\begin{figure}[H]
@@ -26,21 +31,21 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a9801cec4123b0d
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a5192285f5eff34d45c18b9a5da4da964}{del\+Detector}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}det)
 \item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0e66b2ce1592c2e1994a3c6edb3e9803}{get\+Sources}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the list of sources, i.\+e. the list of detectors in the list of sources. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a45722b8f8f6fa0173df88d0b7a760c84}{get\+Wavelength}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the wavelength of the propagator. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_ae2c4136c05d087368dcc7cbcb9c6eadc}{number\+Of\+Sources}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the number of sources, i.\+e. the number of detectors in the list of sources. \end{DoxyCompactList}\item 
 size\+\_\+t \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_ae6cca6a362d710dbf1327e433f835aea}{number\+Of\+Threads}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the number of threads used for the calculation. This is the maximal number of threads that will be used for the calculation. It can be set with \doxylink{class_g_o_a_t_1_1raytracing_1_1_propagator_aace96a992a9ec9201b3953c70cfee9bb}{set\+Number\+Of\+Threads()}. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_aaa32df160345edf4d49c8a897e16d0b6}{Propagator}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}{wvl}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a6b1044d35d59ba1f071c5c6f369ff61e}{e1}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a69f64b412ca29d16aa3633ce54f4272c}{e2}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}{n2}})
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_ace5f2c7c77f703ec5caf2671d39beb03}{Propagator}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}{wvl}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double d, int N)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_aace96a992a9ec9201b3953c70cfee9bb}{set\+Number\+Of\+Threads}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a3069343aaae86e6ab185c8704b1d77f6}{no\+Threads}})
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the number of threads for the calculation. If no\+Threads is larger than the maximum number of threads available, the maximum number of threads will be used. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a9d1c590be4acaf5704ebfcf043d70824}{set\+Wavelength}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}{wvl}})
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Sets the wavelength of the propagator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{GOAT\+::raytracing\+::\+Detector\+Plane}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -178,9 +183,9 @@ std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a2f34cd6
 
 
 \doxysubsection{Detailed Description}
+This class is the base class for all propagators. It inherits from \doxylink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}, so it can be used as a detector, but it also has a list of detectors as sources. 
 
-
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00008}{8}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00013}{13}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 
 
@@ -193,13 +198,28 @@ Definition at line \mbox{\hyperlink{propagator_8h_source_l00008}{8}} of file \mb
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_aaa32df160345edf4d49c8a897e16d0b6} 
 GOAT\+::raytracing\+::\+Propagator\+::\+Propagator (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e2}{, }\item[{int}]{n1}{, }\item[{int}]{n2}{}\end{DoxyParamCaption})}
 
+constructor 
+\begin{DoxyParams}{Parameters}
+{\em wvl} & wavelength \\
+\hline
+{\em P} & position of the propagator plane (center) \\
+\hline
+{\em e1} & first direction vector of the plane (length of the plane in this direction is determined by the length of e1) \\
+\hline
+{\em e2} & second direction vector of the plane (length of the plane in this direction is determined by the length of e2) \\
+\hline
+{\em n1} & number of points in the first direction \\
+\hline
+{\em n2} & number of points in the second direction \\
+\hline
+\end{DoxyParams}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_ace5f2c7c77f703ec5caf2671d39beb03}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!Propagator@{Propagator}}
 \index{Propagator@{Propagator}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{Propagator()}{Propagator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_ace5f2c7c77f703ec5caf2671d39beb03} 
 GOAT\+::raytracing\+::\+Propagator\+::\+Propagator (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{, }\item[{double}]{d}{, }\item[{int}]{N}{}\end{DoxyParamCaption})}
 
-
+constructor for square propagator, defined by the center position P, the normal n, the width d and the number of points in one direction N (so the array is N x N) /param wvl wavelength /param P position of the propagator plane (center) /param n normal vector of the plane /param d width of the plane in both directions /param N number of points in one direction (so the array is N x N) 
 
 \label{doc-func-members}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_doc-func-members}
@@ -210,19 +230,19 @@ GOAT\+::raytracing\+::\+Propagator\+::\+Propagator (\begin{DoxyParamCaption}\ite
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a7b8d238bb6d20a383bce562b4450330b} 
 void GOAT\+::raytracing\+::\+Propagator\+::add\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{det}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a15c4a565fbf189d4079d45cb4d9d61f6}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!addDetectorList@{addDetectorList}}
+Adds one detector to the list of sources. \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a15c4a565fbf189d4079d45cb4d9d61f6}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!addDetectorList@{addDetectorList}}
 \index{addDetectorList@{addDetectorList}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{addDetectorList()}{addDetectorList()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a15c4a565fbf189d4079d45cb4d9d61f6} 
 void GOAT\+::raytracing\+::\+Propagator\+::add\+Detector\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*} $>$}]{det\+List}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a9824ef6a0cd5dc98a661919b0127c4e2}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!calc@{calc}}
+Adds a list of detectors to the list of sources. \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a9824ef6a0cd5dc98a661919b0127c4e2}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!calc@{calc}}
 \index{calc@{calc}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a9824ef6a0cd5dc98a661919b0127c4e2} 
 void GOAT\+::raytracing\+::\+Propagator\+::calc (\begin{DoxyParamCaption}\item[{bool}]{clear}{ = {\ttfamily true}}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a0c5ab68fa2aea135591f1fdd3db1727b}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!calc@{calc}}
+Makes a calculation. clear determines if the content of the propagator should be cleared before the calculation. If clear is false, the result of the calculation will be added to the existing content. \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a0c5ab68fa2aea135591f1fdd3db1727b}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!calc@{calc}}
 \index{calc@{calc}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{calc()}{calc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a0c5ab68fa2aea135591f1fdd3db1727b} 
@@ -257,13 +277,13 @@ Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a9801cec4123b0d2f28d5c7430ee44ee0} 
 void GOAT\+::raytracing\+::\+Propagator\+::clear\+Sources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a5192285f5eff34d45c18b9a5da4da964}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!delDetector@{delDetector}}
+Clears the list of sources, i.\+e. all detectors are removed from the list of sources. \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a5192285f5eff34d45c18b9a5da4da964}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!delDetector@{delDetector}}
 \index{delDetector@{delDetector}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{delDetector()}{delDetector()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a5192285f5eff34d45c18b9a5da4da964} 
 void GOAT\+::raytracing\+::\+Propagator\+::del\+Detector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{det}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a0e66b2ce1592c2e1994a3c6edb3e9803}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!getSources@{getSources}}
+Deletes one detector from the list of sources. \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a0e66b2ce1592c2e1994a3c6edb3e9803}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!getSources@{getSources}}
 \index{getSources@{getSources}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{getSources()}{getSources()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_a0e66b2ce1592c2e1994a3c6edb3e9803} 
@@ -271,7 +291,11 @@ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00021}{21}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Returns the list of sources, i.\+e. the list of detectors in the list of sources. 
+
+
+
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00075}{75}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a45722b8f8f6fa0173df88d0b7a760c84}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!getWavelength@{getWavelength}}
 \index{getWavelength@{getWavelength}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -281,7 +305,11 @@ double GOAT\+::raytracing\+::\+Propagator\+::get\+Wavelength (\begin{DoxyParamCa
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00022}{22}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Returns the wavelength of the propagator. 
+
+
+
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00079}{79}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_ae2c4136c05d087368dcc7cbcb9c6eadc}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!numberOfSources@{numberOfSources}}
 \index{numberOfSources@{numberOfSources}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -291,7 +319,11 @@ size\+\_\+t GOAT\+::raytracing\+::\+Propagator\+::number\+Of\+Sources (\begin{Do
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00020}{20}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Returns the number of sources, i.\+e. the number of detectors in the list of sources. 
+
+
+
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00071}{71}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_ae6cca6a362d710dbf1327e433f835aea}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!numberOfThreads@{numberOfThreads}}
 \index{numberOfThreads@{numberOfThreads}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -301,13 +333,21 @@ size\+\_\+t GOAT\+::raytracing\+::\+Propagator\+::number\+Of\+Threads (\begin{Do
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00019}{19}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Returns the number of threads used for the calculation. This is the maximal number of threads that will be used for the calculation. It can be set with \doxylink{class_g_o_a_t_1_1raytracing_1_1_propagator_aace96a992a9ec9201b3953c70cfee9bb}{set\+Number\+Of\+Threads()}. 
+
+
+
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00067}{67}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_aace96a992a9ec9201b3953c70cfee9bb}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!setNumberOfThreads@{setNumberOfThreads}}
 \index{setNumberOfThreads@{setNumberOfThreads}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
 \doxysubsubsection{\texorpdfstring{setNumberOfThreads()}{setNumberOfThreads()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_propagator_aace96a992a9ec9201b3953c70cfee9bb} 
 void GOAT\+::raytracing\+::\+Propagator\+::set\+Number\+Of\+Threads (\begin{DoxyParamCaption}\item[{int}]{no\+Threads}{}\end{DoxyParamCaption})}
+
+
+
+Sets the number of threads for the calculation. If no\+Threads is larger than the maximum number of threads available, the maximum number of threads will be used. 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a9d1c590be4acaf5704ebfcf043d70824}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!setWavelength@{setWavelength}}
 \index{setWavelength@{setWavelength}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -317,7 +357,11 @@ void GOAT\+::raytracing\+::\+Propagator\+::set\+Wavelength (\begin{DoxyParamCapt
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00023}{23}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Sets the wavelength of the propagator. 
+
+
+
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00083}{83}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 
 
@@ -332,7 +376,7 @@ double GOAT\+::raytracing\+::\+Propagator\+::k\hspace{0.3cm}{\ttfamily [protecte
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00037}{37}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00097}{97}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a3069343aaae86e6ab185c8704b1d77f6}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!noThreads@{noThreads}}
 \index{noThreads@{noThreads}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -342,7 +386,7 @@ int GOAT\+::raytracing\+::\+Propagator\+::no\+Threads = 8\hspace{0.3cm}{\ttfamil
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00041}{41}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00101}{101}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_abca058935644f9a5662607ff8b29b165}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!sources@{sources}}
 \index{sources@{sources}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -352,7 +396,7 @@ std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00040}{40}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00100}{100}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}\index{GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}!wvl@{wvl}}
 \index{wvl@{wvl}!GOAT::raytracing::Propagator@{GOAT::raytracing::Propagator}}
@@ -362,7 +406,7 @@ double GOAT\+::raytracing\+::\+Propagator\+::wvl\hspace{0.3cm}{\ttfamily [protec
 
 
 
-Definition at line \mbox{\hyperlink{propagator_8h_source_l00038}{38}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
+Definition at line \mbox{\hyperlink{propagator_8h_source_l00098}{98}} of file \mbox{\hyperlink{propagator_8h_source}{propagator.\+h}}.
 
 
 
