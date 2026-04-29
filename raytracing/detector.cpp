@@ -318,9 +318,12 @@ namespace GOAT
 		{
 			type = DETECTOR_PLANE;
 			init(n1, n2);
-			this->P = P;			
+			this->P = P;
+			
 			d1 = abs(e1);
 			d2 = abs(e2);
+			this->e1 = e1 / abs(e1);
+			this->e2 = e2 / abs(e2);
 		/*for (int i = 0; i<3; i++)
 			{
 			 if (e1[i]!=0)
@@ -337,9 +340,7 @@ namespace GOAT
 			if (n2 == 1) this->e2 = e2;
 			else this->e2 = e2 / (double)(n2 - 1);
 			*/
-			e1 /= abs(e1);
-			e2 /= abs(e2);
-			this->n = e1 % e2;
+			this->n = this->e1 % this->e2;
 			this->n /= abs(this->n);			
 		}
 

@@ -39,6 +39,7 @@ namespace GOAT
 
 #define TOKEN_DETECTOR_PLANE 		  150
 #define TOKEN_DETECTOR_KIRCHHOFF	  151
+#define TOKEN_DETECTOR_ANGULAR_SPECTRUM 152
 
 #define TOKEN_CALCULATION_PURE		  200
 #define TOKEN_CALCULATION_PATH		  201
@@ -59,7 +60,7 @@ namespace GOAT
 
         const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc","gaussian_ring_mc","line","line_mc","point","point_mc"};
 		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box","cylinder","vortex_plate"};
-		const std::vector<std::string> detectorToken = {"plane","kirchhoff"};
+		const std::vector<std::string> detectorToken = {"plane","kirchhoff","angular_spectrum"};
         const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic","field"};
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum","pmma" };
 

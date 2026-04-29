@@ -12,7 +12,7 @@ set(FOURIER_SRCS
 
 add_library(goat_fourier ${FOURIER_SRCS} ${FOURIER_HDRS})
 
-target_include_directories(goat_fourier PUBLIC "$ENV{FFTW3_ROOT}" ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(goat_fourier PUBLIC $ENV{FFTW3_ROOT} ${CMAKE_CURRENT_SOURCE_DIR})
 
 target_link_libraries(goat_fourier
     PUBLIC goat_maths

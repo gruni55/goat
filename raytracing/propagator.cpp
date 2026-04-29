@@ -7,9 +7,7 @@ namespace GOAT
 		Propagator::Propagator(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2)
 			: DetectorPlane(P, e1, e2, n1, n2), wvl(wvl)
 		{
-			k = 2.0 * M_PI / wvl;
-			this->e1 = e1 / abs(e1);
-			this->e2 = e2 / abs(e2);
+			k = 2.0 * M_PI / wvl;			
 			this->wvl = wvl;
 			type = DETECTOR_PROPAGATOR;
 		}

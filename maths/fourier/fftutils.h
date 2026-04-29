@@ -5,7 +5,7 @@
 #include <stdexcept>
 #include <cstddef>
 
-#include <fftw3.h>
+#include "fftw3.h"
 #include "vector.h"
 
 namespace GOAT

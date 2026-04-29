@@ -19,9 +19,9 @@ namespace GOAT
 
 		inline constexpr int DETECTOR_PLANE = 20000;
 		inline constexpr int DETECTOR_KIRCHHOFF = 20001;
-		inline constexpr int DETECTOR_PROPAGATOR = 20002;
-		inline constexpr int DETECTOR_ANGULAR_SPECTRUM = 20003;
+		inline constexpr int DETECTOR_ANGULAR_SPECTRUM = 20002;
 		inline constexpr int DETECTOR_ANGLE = 20003;
+		inline constexpr int DETECTOR_PROPAGATOR	 = 20004;
 
 		/**
 		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.

@@ -9,6 +9,7 @@
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
 #include "kirchhoff.h"
+#include "angularSpectrum.h"
 #include "detector.h"
 #include <chrono>
 #include <goodies.h>
@@ -330,6 +331,59 @@ namespace GOAT
                         numDet++;				
                     }
                     break;
+
+                    case TOKEN_DETECTOR_ANGULAR_SPECTRUM:
+                        {
+                            double d = detEll->DoubleAttribute("d", -1);
+                            double d1, d2;
+                            if (d == -1)
+                            {
+                                d1 = detEll->DoubleAttribute("d1", 1);
+                                d2 = detEll->DoubleAttribute("d2", 1);
+                            }
+                            else
+                            {
+                                d1 = d;
+                                d2 = d;
+                            }
+
+                            int n = detEll->IntAttribute("n", -1);
+                            int n1, n2;
+                            if (n == -1)
+                            {
+                                n1 = detEll->IntAttribute("n1", 1);
+                                n2 = detEll->IntAttribute("n2", 1);
+                            }
+                            else
+                            {
+                                n1 = n;
+                                n2 = n;
+                            }
+                            double wvl = detEll->DoubleAttribute("wavelength", 1.0);
+                            maths::Vector<double> e1, e2;
+                            e1 = readVector(detEll->FirstChildElement("e1"));
+                            e2 = readVector(detEll->FirstChildElement("e2"));
+							Det.push_back(new raytracing::AngularSpectrum(wvl, Pos, e1, e2, n1, n2));
+                            bool cancel = false;
+                            detectorLink links;
+                            for (tinyxml2::XMLElement* link = detEll->FirstChildElement("Link"); link != NULL; link = link->NextSiblingElement("Link"))
+                            {
+                                std::string linkID = link->Attribute("ID");
+                                raytracing::Detector* det = S.getDetector(linkID);
+                                cancel = det == NULL; // check, if detector with ID exists
+                                if (!cancel)
+                                {
+                                    links.linkIDs.push_back(linkID);
+                                }
+                            }
+                            pendingLinks.push_back(links);
+                            Det[numDet]->fname = filename;  
+                            Det[numDet]->load(filename.c_str());
+                            Det[numDet]->setID(ID);
+                            S.addDetector(Det[numDet]);
+                            numDet++;
+                        }
+                        break;
                     } // switch(type)
 				} // for...
               
@@ -1739,6 +1793,25 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         }
                     }
                     break;
+
+                    case raytracing::DETECTOR_ANGULAR_SPECTRUM:
+                        {
+                            auto det = (raytracing::AngularSpectrum*)S.Det[i];
+                            detector->SetAttribute("d1", formatDouble(det->D1()).c_str());
+                            detector->SetAttribute("d2", formatDouble(det->D2()).c_str());
+                            detector->SetAttribute("n1", det->N1());
+                            detector->SetAttribute("n2", det->N2());
+							addVectorD2DOM(doc, "e1", det->gete1());
+							addVectorD2DOM(doc, "e2", det->gete2());
+							auto sources = det->getSources();
+                            for (auto src : sources)
+                            {
+                                auto srcEll = doc.NewElement("Link");
+                                detector->InsertEndChild(srcEll);
+                                srcEll->SetAttribute("ID", src->getID().c_str());
+                            }
+                        }
+                        break;
 #endif
                     }
                 detectors->InsertEndChild(detector);

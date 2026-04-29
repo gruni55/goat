@@ -41,11 +41,12 @@ endif()
 # settings for polarisationtest
 add_executable(polarisationtest polarisationtest.cpp)
 target_include_directories (polarisationtest PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (polarisationtest goat_raytracing goat_maths)	
+target_link_libraries (polarisationtest goat_raytracing )	
 
 add_executable(testFFT testFFT.cpp)
-target_include_directories (testFFT PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing)
-target_link_libraries (testFFT goat_raytracing goat_maths goat_fourier)	
+target_compile_definitions (testFFT PUBLIC WITH_OPENMP)
+target_include_directories (testFFT PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing ${CMAKE_CURRENT_SOURCE}/XML)
+target_link_libraries (testFFT goat_raytracing_mp goat_fourier goat_xml OpenMP::OpenMP_CXX)	
 
 
 
