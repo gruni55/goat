@@ -132,7 +132,7 @@ namespace GOAT
 					else n = S.nS;
 					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
-                        if (S.Det[i]->cross(PStart, kin, i1, i2, l) && (S.Det[i]->Type()!=DETECTOR_KIRCHHOFF))
+                        if (S.Det[i]->cross(PStart, kin, i1, i2, l) && (S.Det[i]->Type()==DETECTOR_PLANE))
 						{            
 							  //  std::cout << "l=" << l << std::endl;
 							    if (abs(PStop-PStart)>l)

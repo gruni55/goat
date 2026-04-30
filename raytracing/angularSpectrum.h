@@ -62,7 +62,7 @@ namespace GOAT
 			void adaptTargetGridToSource(DetectorPlane* src);
 			bool computeRoiOffset(DetectorPlane* src, int& ix0, int& iy0) const;
 			
-			struct Impl;               
+			struct Impl;              
 			std::unique_ptr<Impl> impl;
 		
 		};

@@ -1,5 +1,6 @@
 #include "angularspectrum.h"
 #include <omp.h>
+#include <array>
 #include "fourier/fft2d.h"
 #include "fourier/fftutils.h"
 namespace GOAT
@@ -16,16 +17,67 @@ namespace GOAT
 
 		struct AngularSpectrum::Impl
 		{
-			fftw_complex* spec = nullptr;
-			GOAT::maths::fourier::fft2D fft;
+			
+			struct Workspace
+			{
+				fftw_complex* spec = nullptr;
+				std::unique_ptr<GOAT::maths::fourier::fft2D> fft;
+
+				int nx = 0;
+				int ny = 0;
+
+				~Workspace()
+				{
+					cleanup();
+				}
+
+				void cleanup()
+				{
+					if (spec)
+					{
+						fftw_free(spec);
+						spec = nullptr;
+					}
+
+					fft.reset();
+					nx = 0;
+					ny = 0;
+				}
+
+				void prepare(int newNx, int newNy)
+				{
+					if (newNx == nx && newNy == ny && spec && fft)
+						return;
+
+					cleanup();
+
+					nx = newNx;
+					ny = newNy;
+
+					std::size_t N =
+						static_cast<std::size_t>(nx) * static_cast<std::size_t>(ny);
+
+					spec = fftw_alloc_complex(N);
+					fft = std::make_unique<GOAT::maths::fourier::fft2D>(nx, ny);
+				}
+			};
+
+			std::array<Workspace, 3> ws;
+
+			
 			AngularSpectrum& self;
 
 			Impl(AngularSpectrum& self)
-				: self(self), fft(self.n1, self.n2)
+				: self(self)
 			{
-				spec = fftw_alloc_complex(self.n1 * self.n2);
-				initSpec();
 			}
+
+			void cleanup()
+			{
+				for (auto& w : ws)
+					w.cleanup(); 
+			}
+
 
 			~Impl()
 			{
@@ -112,7 +164,11 @@ namespace GOAT
 					}
 				}
 
-			
+				void prepare(int n1, int n2)
+				{
+					for (auto& w : ws)
+						w.prepare(n1, n2);
+				}
 
 			void propagateComponent(DetectorPlane* det, maths::fourier::fieldComponent component, double dz)
 			{
@@ -120,38 +176,23 @@ namespace GOAT
 				const std::size_t ny = static_cast<int>(self.n2);
 
 				maths::fourier::vectorField2D tmp;
-
+				int c = static_cast<std::size_t>(component);
+				
 				// 1. Vorwärts-FFT: Quelldetektor -> Frequenzraum
-				fft.forward(det->D, spec, component);
+				ws[c].fft->forward(det->D, ws[c].spec, component);
 
 				// 2. Transferfunktion anwenden
-				applyTransferFunction(spec, dz);
+				applyTransferFunction(ws[c].spec, dz);
 
 				// 3. Rücktransformation
-				fft.inverse(spec, tmp, component);
+				ws[c].fft->inverse(ws[c].spec, tmp, component);
 
 				// 4. Ergebnis auf Ziel addieren
 				// addField(tmp, component);
 				addRoi(tmp, det, component);
 			}
 
-			void initSpec()
-			{
-				const std::size_t nx = static_cast<int>(self.n1);
-				const std::size_t ny = static_cast<int>(self.n2);
-				spec = reinterpret_cast<fftw_complex*>(fftw_malloc(sizeof(fftw_complex) * nx * ny));
-				if (spec == nullptr)
-					throw std::runtime_error("AngularSpectrum: failed to allocate spec buffer");
-			}
-
-			void cleanup()
-			{
-				if (spec != nullptr)
-				{
-					fftw_free(spec);
-					spec = nullptr;
-				}
-			}
+			
 		};
 
 		AngularSpectrum::AngularSpectrum(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2)
@@ -183,6 +224,9 @@ namespace GOAT
 
 		void AngularSpectrum::calcOne(DetectorPlane* det, bool clear)
 		{
+			if (clear)
+				clean();
+
 			if (det == nullptr)
 				throw std::invalid_argument("AngularSpectrumPropagator::calcOne: det is null");
 
@@ -204,6 +248,7 @@ namespace GOAT
 
 			// 4. Für jede Komponente propagieren
 			maths::fourier::fieldComponent comp;
+			impl->prepare(det->N1(), det->N2());
 #pragma omp parallel for private(comp)
 			for (int c = 0; c < 3; ++c)
 			{

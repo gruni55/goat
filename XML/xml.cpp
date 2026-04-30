@@ -262,7 +262,7 @@ namespace GOAT
 
          struct detectorLink
          {
-             raytracing::Kirchhoff* det;
+             raytracing::Propagator* det;
              std::vector<std::string> linkIDs;
 		 };
 
@@ -374,6 +374,7 @@ namespace GOAT
                                 if (!cancel)
                                 {
                                     links.linkIDs.push_back(linkID);
+									links.det =(GOAT::raytracing::AngularSpectrum*) Det[numDet];
                                 }
                             }
                             pendingLinks.push_back(links);
@@ -1801,8 +1802,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                             detector->SetAttribute("d2", formatDouble(det->D2()).c_str());
                             detector->SetAttribute("n1", det->N1());
                             detector->SetAttribute("n2", det->N2());
-							addVectorD2DOM(doc, "e1", det->gete1());
-							addVectorD2DOM(doc, "e2", det->gete2());
+                            detector->InsertEndChild(addVectorD2DOM(doc, "e1", det->gete1() / abs(det->gete1()) * det->D1())); 
+                            detector->InsertEndChild(addVectorD2DOM(doc, "e2", det->gete2() / abs(det->gete2()) * det->D2()));
 							auto sources = det->getSources();
                             for (auto src : sources)
                             {

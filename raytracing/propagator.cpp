@@ -9,7 +9,7 @@ namespace GOAT
 		{
 			k = 2.0 * M_PI / wvl;			
 			this->wvl = wvl;
-			type = DETECTOR_PROPAGATOR;
+		//	type = DETECTOR_PROPAGATOR;
 		}
 
 		Propagator::Propagator(double wvl, maths::Vector<double>P, maths::Vector<double> n, double d, int N)
@@ -17,7 +17,7 @@ namespace GOAT
 		{
 			k = 2.0 * M_PI / wvl;
 			this->wvl = wvl;
-			type = DETECTOR_PROPAGATOR;
+		//	type = DETECTOR_PROPAGATOR;
 		}
 
 		void Propagator::addDetector(DetectorPlane* det)

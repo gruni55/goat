@@ -9,7 +9,7 @@ namespace GOAT
 	{
 #define numLightSourceToken 12
 #define numObjectToken	    8 
-#define numDetectorToken    2
+#define numDetectorToken    3
 #define numCalculationToken 6
 #define numRefractiveIndexToken 6
 
