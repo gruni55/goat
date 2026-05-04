@@ -46,7 +46,7 @@ target_link_libraries (polarisationtest goat_raytracing )
 add_executable(testFFT testFFT.cpp)
 target_compile_definitions (testFFT PUBLIC WITH_OPENMP)
 target_include_directories (testFFT PUBLIC ${CMAKE_CURRENT_SOURCE} ../../maths ../../raytracing ${CMAKE_CURRENT_SOURCE}/XML)
-target_link_libraries (testFFT goat_raytracing_mp goat_fourier goat_xml OpenMP::OpenMP_CXX)	
+target_link_libraries (testFFT goat_xml goat_fourier goat_raytracing_mp goat_maths OpenMP::OpenMP_CXX)	
 
 
 

@@ -37,9 +37,8 @@ if(WIN32)
     )
 endif()
 
-target_link_libraries(testFFTW PRIVATE
-    "$ENV{FFTW3_ROOT}/libfftw3-3.lib"
-)
+# target_link_libraries(testFFTW PRIVATE "$ENV{FFTW3_ROOT}/libfftw3-3.lib")
+target_link_libraries(testFFTW PRIVATE goat_fourier)
 
 target_include_directories(testFFTW PUBLIC "$ENV{FFTW3_ROOT}")
 

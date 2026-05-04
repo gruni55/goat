@@ -1,4 +1,4 @@
-#include "angularspectrum.h"
+#include "angularSpectrum.h"
 #include <omp.h>
 #include <array>
 #include "fourier/fft2d.h"

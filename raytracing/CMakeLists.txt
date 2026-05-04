@@ -8,7 +8,7 @@ set (RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp
 		     raytrace_usp.cpp raytrace_field_usp.cpp raytrace_usp_rt.cpp plane.cpp pulsecalculation_base.cpp 
 		     pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp 
 	       	     gridentry.cpp asphericLens.cpp sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp 
-		     refractive_index_functions.cpp propagator.cpp angularspectrum.cpp)
+		     refractive_index_functions.cpp propagator.cpp angularSpectrum.cpp)
 			  
 
 set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h 

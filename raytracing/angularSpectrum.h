@@ -1,5 +1,6 @@
 #pragma once
 #include "propagator.h"
+#include <memory>
 namespace GOAT
 {
 	namespace raytracing
