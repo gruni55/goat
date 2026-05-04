@@ -1,6 +1,16 @@
 cmake_minimum_required (VERSION 3.5)
+project (goat
+   VERSION 1.0.0
+    LANGUAGES CXX
+)
+
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 
 include(GNUInstallDirs)
 
@@ -11,6 +21,8 @@ set(GOAT_CFG_SUBDIR
 
 option(WITH_FFTW "Enable FFTW support" ON)
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+
 
 function(goat_install)
   set(options)
@@ -53,7 +65,6 @@ if(UNIX)
           set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Release")
       endif()
 endif()
-project (goat)
 # include (CTest)
 
 
@@ -74,10 +85,11 @@ project (goat)
 #endif()
 
 if(WITH_FFTW)
-    include(cmake/findFftw.cmake)
+    include(cmake/FindFFTW.cmake)
 endif()
 
 add_subdirectory(maths)
+add_subdirectory(maths/fourier)
 add_subdirectory (raytracing) #
 add_subdirectory (examples/ot) #
 add_subdirectory (examples/paths) #

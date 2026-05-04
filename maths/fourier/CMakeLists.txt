@@ -1,6 +1,5 @@
 # Fourier submodule
 
-include(findFftw)
 
 set(FOURIER_HDRS
     fft2d.h fftutils.h
@@ -13,17 +12,25 @@ set(FOURIER_SRCS
 add_library(goat_fourier ${FOURIER_SRCS} ${FOURIER_HDRS})
 
 target_include_directories(goat_fourier PUBLIC $ENV{FFTW3_ROOT} ${CMAKE_CURRENT_SOURCE_DIR})
-
 target_link_libraries(goat_fourier
     PUBLIC goat_maths
-    PRIVATE goat::fftw
+    FFTW::fftw3
+#    PRIVATE goat::fftw
 )
 
 target_compile_definitions(goat_fourier PRIVATE WITH_FFTW)
 
 goat_install(TARGETS goat_fourier)
 
-include(findFftw)
+
+# =========================
+# TESTPROGRAMM 
+# =========================
+
+list(APPEND CMAKE_MODULE_PATH "$ENV{GOATDir}/cmake")
+
+find_package (FFTW REQUIRED)
+
 
 add_executable(testFFTW fftwtest.cpp)
 
@@ -36,15 +43,11 @@ if(WIN32)
             $<TARGET_FILE_DIR:testFFTW>
     )
 endif()
-
-# target_link_libraries(testFFTW PRIVATE "$ENV{FFTW3_ROOT}/libfftw3-3.lib")
 target_link_libraries(testFFTW PRIVATE goat_fourier)
-
 target_include_directories(testFFTW PUBLIC "$ENV{FFTW3_ROOT}")
 
-# =========================
-# TESTPROGRAMM 
-# =========================
+
+#
 
 add_executable(test_fft2d testfft2d.cpp)
 
