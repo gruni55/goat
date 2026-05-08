@@ -54,6 +54,7 @@ namespace GOAT
 			* /param clear if true, the content of the propagator will be cleared before the calculation. If false, the result of the calculation will be added to the existing content.
 			*/
 			void calcOne(DetectorPlane* det, bool clear);
+			
 
 		private:
 			double dx = 0.0;
@@ -65,7 +66,8 @@ namespace GOAT
 			
 			struct Impl;              
 			std::unique_ptr<Impl> impl;
-		
+			std::vector<std::vector<maths::Vector<std::complex<double>>>> uD; ///< this is the field on the propagator plane before smoothing	
+			bool isSmoothed = false; ///< this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
 		};
 	}
 }

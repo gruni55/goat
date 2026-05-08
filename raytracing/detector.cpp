@@ -380,6 +380,41 @@ namespace GOAT
 			return true;
 		}
 
+		void DetectorPlane::smooth(double sigma)
+		{
+			uD = D; // unsmoothed field speichern
+			const int nx = static_cast<int>(D.size());
+			const int ny = static_cast<int>(D[0].size());
+
+			const int r = static_cast<int>(std::ceil(3.0 * sigma));
+			for (int x = 0; x < nx; ++x)
+			{
+				for (int y = 0; y < ny; ++y)
+				{
+					GOAT::maths::Vector<std::complex<double>> sum(0, 0, 0);
+					double norm = 0.0;
+
+					for (int dx = -r; dx <= r; ++dx)
+					{
+						int xx = std::clamp(x + dx, 0, nx - 1);
+
+						for (int dy = -r; dy <= r; ++dy)
+						{
+							int yy = std::clamp(y + dy, 0, ny - 1);
+
+							double w = std::exp(-(dx * dx + dy * dy) / (2.0 * sigma * sigma));
+
+							sum = sum + uD[xx][yy] * w;
+							norm += w;
+						}
+					}
+
+					D[x][y] = sum / norm;
+				}
+			}
+			isSmoothed_ = true;
+		}
+
 		std::ostream& operator << (std::ostream& os, Detector& D)
 		{
 			for (int i1 = 0; i1 < D.n1; i1++)

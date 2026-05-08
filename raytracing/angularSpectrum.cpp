@@ -1,6 +1,7 @@
 #include "angularSpectrum.h"
 #include <omp.h>
 #include <array>
+#include <algorithm>
 #include "fourier/fft2d.h"
 #include "fourier/fftutils.h"
 namespace GOAT
@@ -329,6 +330,8 @@ namespace GOAT
 		}
 
 		AngularSpectrum::~AngularSpectrum() = default;
+
+		
 
 	} // raytracing
 } // GOAT

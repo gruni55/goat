@@ -132,6 +132,14 @@ namespace GOAT
 		DetectorPlane(maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
 		void setNorm(maths::Vector<double> n); ///< set the normal on the detector
 		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector		
+		void smooth(double sigma = 1.0);
+		void unsmooth() { D = uD; isSmoothed_ = false; };
+		bool isSmoothed() { return isSmoothed_; } ///< returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
+
+	private: 
+		std::vector<std::vector<maths::Vector<std::complex<double>>>> uD; ///< this is the field on the propagator plane before smoothing	
+		bool isSmoothed_ = false; ///< this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
+
 	};
 
 	/*class DetectorBox : public Detector

@@ -86,6 +86,7 @@ namespace GOAT
 			int getNumberOfObjects() const { return static_cast<int>(Obj.size()); } ///< returns the number of objects in the scene
 			int getNumberOfDetectors() const; ///< returns the number of detectors in the scene
 			int getNumberOfThreads() const { return numThreads; } ///< returns the number of threads used for parallelization (if OpenMP is used)
+			int getNumReflex() const { return nReflex; } ///< returns the number of reflections per ray considered in the raytracing
 			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
 			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
 			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
