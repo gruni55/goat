@@ -868,14 +868,17 @@ surface operator * (const maths::Matrix<double> &M, const surface &s)
 void surface::scale (double sf)
 {
 	auto start = std::chrono::high_resolution_clock::now();
-  std::cout << "sf=" << sf << "\t this->sf=" << this->sf << std::endl;
+	std::cout << "Scaling surface with factor: " << sf << std::endl;
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
  this->sf=sf;
 initQuad();
 #ifdef WITH_OCTREE
 maths::Vector<double> por, pul;
+std::cout << "sf=" << sf << std::endl;
+		std::cout << "[vorher]pul=" << pul << "    por=" << por << std::endl;
         initBounds(pul,por);
+		std::cout << "[nachher]pul=" << pul << "    por=" << por << std::endl;
 
 	maths::Vector<double> d = por - pul;
 	maths::Vector<double> Ph = (por + pul) / 2.0;
@@ -884,6 +887,13 @@ maths::Vector<double> por, pul;
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
 		Tree.BBox = Box(Ph, d, this->n);
+		std::cout << "Octree-BoundingBox: " << Tree.BBox << std::endl;
+		Tree.delAllChilds();
+		Tree.delElements();
+		Tree.isLeaf = false;
+
+		Tree.BBox = Box(Ph, d, this->n);
+		
 		Tree.createTree(5);
 		
 		for (int i = 0; i < numTriangles; i++)

@@ -680,8 +680,9 @@ namespace  GOAT
 			for (std::vector<raytracing::ObjectShape*>::iterator it = Obj.begin(); it != Obj.end(); ++it)
 				if (*it == obj)
 				{
-					delete* it;
+					//delete* it;
 					Obj.erase(it);
+					Obj.shrink_to_fit();
 					break;
 				}
 			numObjs = Obj.size();

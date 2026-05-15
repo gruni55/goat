@@ -298,7 +298,15 @@ namespace GOAT
                         linkList.push_back(dummy);
                         double d = detEll->DoubleAttribute("d", 1);
                         int n = detEll->IntAttribute("n", 1);
-                        Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d, n));
+						int n1 = detEll->IntAttribute("n1", -1);
+                        if (n1 == -1) n1 = n;
+                        int n2 = detEll->IntAttribute("n2", -1);
+                        if (n2 == -1) n2 = n;
+						double d1 = detEll->DoubleAttribute("d1", -1);
+						if (d1 < 0) d1 = d;
+						double d2 = detEll->DoubleAttribute("d2", -1);
+						if (d2 < 0) d2 = d;
+                        Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d1, d2, n1, n2));
                         Det[numDet]->fname = filename;
                         S.addDetector(Det[numDet]);
                         Det[numDet]->load(filename.c_str());
@@ -1789,8 +1797,10 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     case raytracing::DETECTOR_PLANE:
                     {
                         auto det = (raytracing::DetectorPlane*)S.Det[i];
-                        detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
-                        detector->SetAttribute("n", det->N1()); // we also assume that n1=n2                            
+                        detector->SetAttribute("d1", formatDouble(det->D1()).c_str());  
+                        detector->SetAttribute("d2", formatDouble(det->D2()).c_str());
+                        detector->SetAttribute("n1", det->N1());  
+						detector->SetAttribute("n2", det->N2());
                     }
                     break;
 

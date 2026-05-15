@@ -294,6 +294,25 @@ namespace GOAT
 			type = DETECTOR_PLANE;
 		}
 
+		DetectorPlane::DetectorPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, int n1, int n2)
+		{
+			init(n1, n2);
+			type = DETECTOR_PLANE;
+			this->n = n / abs(n);
+			if (abs(this->n % GOAT::maths::ex) > 1E-5)
+				e1 = GOAT::maths::ex - (GOAT::maths::ex * n) * n;
+			else
+				e1 = GOAT::maths::ey - (GOAT::maths::ey * n) * n;
+			e1 = e1 / abs(e1);
+			e2 = n % e1;
+			e2 = e2 / abs(e2);
+			this->d1 = d1;
+			this->d2 = d2;
+			this->P = P;
+			this->n1 = n1;
+			this->n2 = n2;
+		}
+
 		DetectorPlane::DetectorPlane(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> n, double d, int N)
 		{			
 			init(N, N);

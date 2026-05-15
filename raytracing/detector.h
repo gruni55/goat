@@ -116,6 +116,7 @@ namespace GOAT
 	{
 	public:
 		DetectorPlane(void);
+		DetectorPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, int n1, int n2);
 		/**
 		 * Constructor which defines a square detector defined by the center Position P, the surface normal n, the width d and the number of cells in one direction N (so the array is N x N).
 		 */
