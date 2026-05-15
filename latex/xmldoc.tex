@@ -69,6 +69,9 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  \hline
  nCellsPerDir & Number of cells per direction & integer number & 1000 \\
  \hline 
+ n & refractive index & complex value & (1.0,0.0) \\
+ \hline
+ nReflex & number of reflections & integer & 1 
     \end{tabular} 
  \section{Light sources}
  All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
@@ -208,6 +211,8 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
 % \begin{tabular}{c|c|c}
  \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter name & description  & possible value & default value\\
+ \hline
+ ID & unique identifier & string & -- \\
  \hline
   Position & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
@@ -370,7 +375,10 @@ n & no. of elements per direction & int & 1 \\
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline 
- wavelength & wavelength for the calculation & double & 1.0 
+ wavelength & wavelength for the calculation & double & 1.0 \\
+ \hline
+ d & width of the quadratic detector & double & \\
+ \hline  
  \end{tabular}
  
  \chapter {Calculations}

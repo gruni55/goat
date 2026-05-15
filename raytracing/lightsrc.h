@@ -7,6 +7,7 @@
 #include "iray.h"
 #include "objectshape.h"
 #include "ray_pow.h"
+#include "goat_defines.h"
 #include <vector>
 
 namespace GOAT
@@ -143,8 +144,8 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 			*/
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
-			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
-			void setNumRays(int N) ///< sets the number of rays (per direction in space)
+			raycount_t getNumRays() { return N; } ///< returns the number of rays (per direction in space)
+			void setNumRays(raycount_t N) ///< sets the number of rays (per direction in space)
 			{
 				this->N = N;
 				density = D / ((double)N);
@@ -188,7 +189,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
-            int rayCounter=0; 
+            raycount_t rayCounter=0; 
 			void adjustDirection();
 			double getIsum1() { return Isum1; }
 			double getIsum2() { return Isum2; }

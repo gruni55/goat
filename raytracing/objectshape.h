@@ -116,6 +116,8 @@ namespace GOAT {
             void setGamma(double Gamma) { setMatrix(Ealpha, Ebeta, Gamma); }   ///< sets rotation angle around z-axis
             void setVisible(bool visible) { this->visible = visible; } ///< set visiblity (used in GOATvis)
             bool getVisible() { return visible; } ///< show the visiblity state (used in GOATvis)
+            void setID(const std::string& ID) { this->ID = ID; } ///< sets the ID string
+			std::string getID() { return ID; } ///< returns the ID string
             maths::Vector<double> P;                       ///< position of the object
             maths::Matrix<double> H, R;                     ///< matrices for the transformation in the local coordinate system (H) and back to the calculation system (R)
             std::complex<double>  n;                ///< refractive index of the object
@@ -137,6 +139,7 @@ namespace GOAT {
             bool visible=true;
             std::function <std::complex<double>(double)>  nfunc;
             NFUNCTYPE nfuncType=NFUNCTYPE::vacuum;
+			std::string ID = "Object"; ///< ID string, used for visualization (GOATvis) and for the user to identify the object
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix

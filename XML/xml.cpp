@@ -11,6 +11,7 @@
 #include "kirchhoff.h"
 #include "angularSpectrum.h"
 #include "detector.h"
+#include "goat_defines.h"
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
@@ -410,7 +411,7 @@ namespace GOAT
                GOAT::maths::Vector<std::complex<double> > Pol;                
                GOAT::maths::Vector<double> Pold;
 			   GOAT::maths::Vector<double> Pos;
-				int numRays;
+				GOAT::raycount_t numRays;
                 int numRaysRT;
 				double wavelength;
 				double size;
@@ -421,7 +422,9 @@ namespace GOAT
 			        	std::string typeStr;
 					typeStr = lsEll->Attribute("type");
 					Pos = readVector(lsEll->FirstChildElement("Position"));
-					numRays = lsEll->IntAttribute("numRays", 100);
+					 double nrays = lsEll->DoubleAttribute("numRays", 100);
+					 if (nrays < 0) nrays = 100;
+					 numRays = static_cast<GOAT::raycount_t>(std::llround(nrays));
                     numRaysRT = lsEll->IntAttribute("numRaysRT", 10);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
                   size = lsEll->DoubleAttribute("size", 10.0);
@@ -592,11 +595,14 @@ namespace GOAT
 			std::string typeStr;
 			std::string fileTypeStr;
 			std::string fileName;
+            std::string ID;
 			std::complex<double> n;
+
 			bool isActive;
 			double alpha = 0;
 			double beta = 0;
 			double gamma = 0;
+
 
 			ell = sceneElement->FirstChildElement("Objects");
 			if (ell != NULL)
@@ -612,6 +618,10 @@ namespace GOAT
 					beta = objEll->DoubleAttribute("beta", 0.0) / 180.0 * M_PI;
 					gamma = objEll->DoubleAttribute("gamma", 0.0) / 180.0 * M_PI;
 					isActive = objEll->BoolAttribute("isactive", false);
+
+                    auto text=objEll->Attribute("ID");
+                    if (text == nullptr) ID = "new_Object";
+                    else ID = text;
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					int type = mapString2ObjectToken(typeStr);
@@ -759,6 +769,9 @@ namespace GOAT
                     if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf);
                     Obj[numObj]->nfunc = GOAT::raytracing::n_Vacuum;
                     Obj[numObj]->setPos(Pos);
+
+					std::string objID = "object_" + std::to_string(numObj) ;
+					Obj[numObj]->setID(objID);
 					numObj++;
 				} // while loop
 
@@ -1592,6 +1605,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             int typeh = type < 10 ? type-1 : type - 5;
             lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
             lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
+			lightSrc->SetAttribute("numRays", std::to_string(S.LS[i]->getNumRays()).c_str());                     
             lightSrc->SetAttribute("numRaysRT", S.LS[i]->getNumRaysRT());
             lightSrc->SetAttribute("wavelength", formatDouble(S.LS[i]->getWavelength()).c_str());
 
@@ -1655,6 +1669,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             object->SetAttribute("isactive",S.Obj[i]->isActive());
             object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->n));            
             object->SetAttribute("scaling",formatDouble(S.Obj[i]->sf).c_str());
+			object->SetAttribute("ID", S.Obj[i]->getID().c_str());
 
             // --------------- special parameters ----------------
             switch (type) 
