@@ -178,9 +178,11 @@ namespace GOAT
 
 				maths::fourier::vectorField2D tmp;
 				int c = static_cast<std::size_t>(component);
+				std::vector<std::vector<GOAT::maths::Vector<std::complex<double>>>> D;
+				det->holographicField(D);
 				
 				// 1. Vorwärts-FFT: Quelldetektor -> Frequenzraum
-				ws[c].fft->forward(det->D, ws[c].spec, component);
+				ws[c].fft->forward(D, ws[c].spec, component);
 
 				// 2. Transferfunktion anwenden
 				applyTransferFunction(ws[c].spec, dz);
@@ -189,8 +191,8 @@ namespace GOAT
 				ws[c].fft->inverse(ws[c].spec, tmp, component);
 
 				// 4. Ergebnis auf Ziel addieren
-				// addField(tmp, component);
-				addRoi(tmp, det, component);
+			    addField(tmp, component);
+				// addRoi(tmp, det, component);
 			}
 
 			
@@ -250,7 +252,8 @@ namespace GOAT
 			// 4. Für jede Komponente propagieren
 			maths::fourier::fieldComponent comp;
 			impl->prepare(det->N1(), det->N2());
-#pragma omp parallel for private(comp)
+			std::cout << "OpenMP aus" << std::endl;
+// #pragma omp parallel for private(comp)
 			for (int c = 0; c < 3; ++c)
 			{
 				comp = static_cast<maths::fourier::fieldComponent>(c);

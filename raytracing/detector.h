@@ -136,11 +136,20 @@ namespace GOAT
 		void smooth(double sigma = 1.0);
 		void unsmooth() { D = uD; isSmoothed_ = false; };
 		bool isSmoothed() { return isSmoothed_; } ///< returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
-
+		void holographicField(std::vector<std::vector<GOAT::maths::Vector<std::complex<double>>>>& result) const; ///< This function calculates the field on the detector plane with a linear phase factor, which corresponds to a shift in the Fourier space. The result is stored in the result vector. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively.
+		void setHolographicShift(double fx, double fy) { this->fx = fx; this->fy = fy; isBlazed = true; } ///< This function sets the shift in the Fourier space for the holographic field. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		void setHolographicShiftX(double fx) { this->fx = fx; isBlazed = true; } ///< This function sets the shift in the Fourier space in x direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		void setHolographicShiftY(double fy) { this->fy = fy; isBlazed = true; } ///< This function sets the shift in the Fourier space in y direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		double getHolographicShiftX() { return fx; } ///< returns the shift in the Fourier space in x direction for the holographic field
+		double getHolographicShiftY() { return fy; } ///< returns the shift in the Fourier space in y direction for the holographic field
+		bool isBlazedGrating() { return isBlazed; } ///< returns true, if the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. It returns false, if the field on the detector plane is not multiplied with a linear phase factor.
+		void setBlazed(bool isBlazed) { this->isBlazed = isBlazed; } ///< This function sets whether the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. If isBlazed is set to true, the field on the detector plane will be multiplied with a linear phase factor. If isBlazed is set to false, the field on the detector plane will not be multiplied with a linear phase factor.
 	private: 
 		std::vector<std::vector<maths::Vector<std::complex<double>>>> uD; ///< this is the field on the propagator plane before smoothing	
 		bool isSmoothed_ = false; ///< this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
-
+		double fx = 0; ///< this is the shift in the Fourier space in x direction for the holographic field
+		double fy = 0; ///< this is the shift in the Fourier space in y direction for the holographic field
+		bool isBlazed = false;
 	};
 
 	/*class DetectorBox : public Detector

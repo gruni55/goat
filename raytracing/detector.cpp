@@ -3,6 +3,7 @@
 #include "constants.h"
 #include <iostream>
 #include <filesystem>
+#include <numbers>
 
 namespace GOAT
 {
@@ -375,14 +376,14 @@ namespace GOAT
 			e2 = e2 / abs(e2);						
 		}
 
-		bool DetectorPlane::cross(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> k, int& i1, int& i2, double& l)
+		/*bool DetectorPlane::cross(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> k, int& i1, int& i2, double& l)
 		{
 			/*
 			*  Ebene: n*(PE-P)=0
 			*  Strahl: P=k*l+PS
 			*  in Ebenengleichung n*PE-n*(k*l+PS)=0 => n*(PE-PS)=n*k*l => l=n*(PE-PS)/(n*k)
 			*/
-			GOAT::maths::Vector<double> dP = this->P - P;
+		/*	GOAT::maths::Vector<double> dP = this->P - P;
 			double kn = k * n;
 			if (kn == 0) return false;
 			l = (dP * n) / kn;
@@ -390,14 +391,54 @@ namespace GOAT
 			if (l<0) return false;
 
 			/* Index berechnen */
-			GOAT::maths::Vector<double> Ph = P + l * k;
+		/*	GOAT::maths::Vector<double> Ph = P + l * k;
 			dP = Ph - this->P;
 			i1 = dP * e1 * n1 / d1 + n1 / 2.0;
 			i2 = dP * e2 * n2 / d2 + n2 / 2.0;
          //  std::cout << "n1=" << n1 << "\tn2=" << n2 << "\ti1=" << i1 << "\ti2=" << i2 << std::endl;
 			if ((i1 < 0) || (i1 >= n1) || (i2 < 0) || (i2 >= n2)) return false;
 			return true;
+		}*/
+
+
+		bool DetectorPlane::cross(
+			GOAT::maths::Vector<double> P,
+			GOAT::maths::Vector<double> k,
+			int& i1,
+			int& i2,
+			double& l)
+		{
+			GOAT::maths::Vector<double> dP = this->P - P;
+
+			double kn = k * n;
+
+			constexpr double eps = 1E-12;
+			if (std::abs(kn) < eps)
+				return false;
+
+			l = (dP * n) / kn;
+
+			if (l < 0)
+				return false;
+
+			GOAT::maths::Vector<double> Ph = P + l * k;
+			dP = Ph - this->P;
+
+			double u = dP * e1;
+			double v = dP * e2;
+
+			int ii1 = static_cast<int>(std::floor((u / d1 + 0.5) * n1));
+			int ii2 = static_cast<int>(std::floor((v / d2 + 0.5) * n2));
+
+			if (ii1 < 0 || ii1 >= n1 || ii2 < 0 || ii2 >= n2)
+				return false;
+
+			i1 = ii1;
+			i2 = ii2;
+
+			return true;
 		}
+
 
 		void DetectorPlane::smooth(double sigma)
 		{
@@ -432,6 +473,29 @@ namespace GOAT
 				}
 			}
 			isSmoothed_ = true;
+		}
+
+		
+		void DetectorPlane::holographicField(std::vector<std::vector<GOAT::maths::Vector<std::complex<double>>>> &result) const
+		{
+			result = D; // Kopie des gespeicherten Feldes
+			size_t x0 = -0.5 * (n1 - 1) * d1;
+			size_t y0 = -0.5 * (n2 - 1) * d2;
+			for (size_t i2= 0; i2 < n2; ++i2)
+			{
+				for (size_t i1 = 0; i1< n1; ++i1)
+				{
+					double x = x0 + i1 * d1;
+					double y = y0 + i2 * d2;
+
+					double phi = 2.0 * std::numbers::pi * (fx * x + fy * y);
+					auto phase = std::polar(1.0, phi);
+
+					result[i1][i2][0] *= phase;
+					result[i1][i2][1] *= phase;
+					result[i1][i2][2] *= phase;
+				}
+			}
 		}
 
 		std::ostream& operator << (std::ostream& os, Detector& D)
