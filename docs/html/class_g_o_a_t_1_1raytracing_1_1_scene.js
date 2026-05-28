@@ -31,6 +31,7 @@ var class_g_o_a_t_1_1raytracing_1_1_scene =
     [ "getNumberOfLightSources", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a11efd202e99a18d77bdd6ec5bf96a790", null ],
     [ "getNumberOfObjects", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a4d94f0af92f6d5ee8a0f950954055a1f", null ],
     [ "getNumberOfThreads", "class_g_o_a_t_1_1raytracing_1_1_scene.html#ab1a95c0ba3a1c8b5700e8c330793e965", null ],
+    [ "getNumReflex", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a2ca86cdf8121e7390171d5092609ef0f", null ],
     [ "getObjects", "class_g_o_a_t_1_1raytracing_1_1_scene.html#aebd8551aa0b0effdca5c8b7481521886", null ],
     [ "multAllDetectors", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a06df9cbd30c48e3d99880fc06615ebac", null ],
     [ "removeAllDetectors", "class_g_o_a_t_1_1raytracing_1_1_scene.html#a8fe5817882813a579f2f0bfb8513f6b8", null ],

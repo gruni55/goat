@@ -72,6 +72,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a160ddee51d6f793
 \begin{DoxyCompactList}\small\item\em reads content of \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} from a binary file, represented by os \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6b1fc4fa99c70eba3ca5bd14e1464da7}{clear\+Objects}} ()
 \begin{DoxyCompactList}\small\item\em clear object list \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aa1b3fa96458b3a6ef57cfe59e6470668}{getD}} ()
+\begin{DoxyCompactList}\small\item\em returns the width of the light source \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af301e090f60697d032cf0cd8f7d7ef20}{get\+Density}} ()
 \begin{DoxyCompactList}\small\item\em returns the ray density, i.\+e. the number of rays per unit length (=D/N) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab23f551d19c2c526818ffc04527a627a}{get\+Init\+Pol}} ()
@@ -84,7 +86,7 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a69481109ac363
 \begin{DoxyCompactList}\small\item\em returns the main direction of the light source \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aa6348ba59462f3601165d028dd9b5290}{get\+Num\+Objs}} ()
 \begin{DoxyCompactList}\small\item\em returns the number of Objects (only needed, when used seperately outside scene) \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a92862ba826f9b02acde6b2c749fbd4c0}{get\+Num\+Rays}} ()
+\mbox{\hyperlink{namespace_g_o_a_t_a93b4f936eb3570680bd830de4901bce0}{raycount\+\_\+t}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a2620fe160263586ddfe967ebd4f1b51b}{get\+Num\+Rays}} ()
 \begin{DoxyCompactList}\small\item\em returns the number of rays (per direction in space) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac815d406f459751eb7f6d25cb0a6db1a}{get\+Num\+Rays\+RT}} ()
 \item 
@@ -116,7 +118,7 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ae90d9b704caf57b
 \begin{DoxyCompactList}\small\item\em With this method the direction of the lightsource will be set. The direction of the light source is defined by the direction vector k and the two orthogonal vectors e1 and e2, which are all perpendicular to each other. The rays are created in the area spanned by e1 and e2, which is centered around Pos. The direction of the rays is given by k. The polarisation of the rays is defined by the vector Pol, which is also perpendicular to k. The initial polarisation of the rays can be set using the set\+Pol function, which sets the polarisation as if the direction would be in z-\/direction. The vectors e1 and e2 will be set as follows\+: \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6970d7894efaa0a46ae33b1bbcc2f524}{set\+N0}} (std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a9ad0f4fa69efb5e7fea04588c14fa1c2}{n0}})
 \begin{DoxyCompactList}\small\item\em sets the complex valued refractive index of the intermediate medium \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acd94224a0ba044babc7cbe5e32694f78}{set\+Num\+Rays}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}})
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a5fed2be6328336a63b7783a03a9d014f}{set\+Num\+Rays}} (\mbox{\hyperlink{namespace_g_o_a_t_a93b4f936eb3570680bd830de4901bce0}{raycount\+\_\+t}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0ddab683cec1377d43e959ecfd6ee555}{N}})
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a2c6cc226d96edc6556a64429799ad46a}{set\+Num\+Rays\+RT}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acbbadf0a16d499aecd8d90e2bb43ec04}{num\+Rays\+RT}})
 \item 
@@ -196,7 +198,7 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab7ec0f5da024d908
 \begin{DoxyCompactList}\small\item\em position of the light source (center of the square area of the light source) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a146ece724e84c542c18d70b04c442dbc}{r0}} =1.\+0
 \begin{DoxyCompactList}\small\item\em radius of the calculation sphere \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a8d370a6f2af33a1ef5626f97d7529a57}{ray\+Counter}} =0
+\mbox{\hyperlink{namespace_g_o_a_t_a93b4f936eb3570680bd830de4901bce0}{raycount\+\_\+t}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af3e76c001e8d0602a72641ede2ce789f}{ray\+Counter}} =0
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6f2b403b668a8f41529e1b8d6b7b0593}{raytype}}
 \begin{DoxyCompactList}\small\item\em Strahltyp \+: ray oder ISTRAHL (=RAY oder IRAY) \end{DoxyCompactList}\item 

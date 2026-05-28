@@ -4,5 +4,6 @@ var searchData=
   ['h_1',['h',['../class_g_o_a_t_1_1raytracing_1_1_cylinder.html#a20353aba868a96a664a4ee8a3cea38b6',1,'GOAT::raytracing::Cylinder::h'],['../class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#a3f33cc4ed3820a5ee9819ced4152995d',1,'GOAT::raytracing::VortexPlate::h']]],
   ['hasbom_2',['HasBOM',['../classtinyxml2_1_1_x_m_l_document.html#a33fc5d159db873a179fa26338adb05bd',1,'tinyxml2::XMLDocument::HasBOM() const'],['../classtinyxml2_1_1_x_m_l_document.html#a33fc5d159db873a179fa26338adb05bd',1,'tinyxml2::XMLDocument::HasBOM() const']]],
   ['height_3',['height',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#adf529fc0ea872206c2de512f9d3a674e',1,'GOAT::raytracing::Cone::height'],['../class_g_o_a_t_1_1raytracing_1_1_cylinder.html#a6b37194c97f3ad465b58e2ee13549c62',1,'GOAT::raytracing::Cylinder::height()'],['../class_g_o_a_t_1_1raytracing_1_1_vortex_plate.html#ae5aa2966adb88a74de689b869fd839d3',1,'GOAT::raytracing::VortexPlate::height()']]],
-  ['hohlfaser_4',['HOHLFASER',['../objectshape_8h.html#a4db1e68ecf602f0b78d0aa88a47cf4e1',1,'objectshape.h']]]
+  ['hohlfaser_4',['HOHLFASER',['../objectshape_8h.html#a4db1e68ecf602f0b78d0aa88a47cf4e1',1,'objectshape.h']]],
+  ['holographicfield_5',['holographicField',['../class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#ab2ffbd18956312d3b3d7bc46e75dc516',1,'GOAT::raytracing::DetectorPlane']]]
 ];

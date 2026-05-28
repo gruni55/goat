@@ -1,8 +1,25 @@
 var class_g_o_a_t_1_1raytracing_1_1_detector_plane =
 [
     [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a5119ac14cbba867aadea36ff3bcfc557", null ],
+    [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a83ebe9240fe1f273a998a158b776504a", null ],
     [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a6779e23bd59ef5dd06a22cf046c4dcdf", null ],
     [ "DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a76ee0be57edd9ec29376ee6e4ff7a1d6", null ],
     [ "cross", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#ad4579fc5a5636fefe0eb299fb713a330", null ],
-    [ "setNorm", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a4b2e14bbd2a7a83d69cedb2b2ca48fcb", null ]
+    [ "getHolographicShiftX", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a89f66a95048af1523515595b5eb85cc7", null ],
+    [ "getHolographicShiftY", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a6171a7646b61f7fd997962aa30672b21", null ],
+    [ "holographicField", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#ab2ffbd18956312d3b3d7bc46e75dc516", null ],
+    [ "isBlazedGrating", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a95ec6450f6c98cf257dfeb23c9b43993", null ],
+    [ "isSmoothed", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#ada332842f80c3a1bbacc17b460ba7544", null ],
+    [ "setBlazed", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#aa774387501ab33c9c39912103162fed3", null ],
+    [ "setHolographicShift", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#af562d4c473e38811c81baa548e5b18b6", null ],
+    [ "setHolographicShiftX", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a495a769ef4ecd6e55a88a888da77d30e", null ],
+    [ "setHolographicShiftY", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#abc6d4223a11fbf43fc2e8c55ba22f3d6", null ],
+    [ "setNorm", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a4b2e14bbd2a7a83d69cedb2b2ca48fcb", null ],
+    [ "smooth", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a2b469e4f33141c9d0528079dfe3c3cac", null ],
+    [ "unsmooth", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a68f1cb39e1dba611a62a8d16bb5fabee", null ],
+    [ "fx", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a2b75e4a978f138c328ffafa6a90d2ff2", null ],
+    [ "fy", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a9fe646335089a0c6e7239fa3412782c9", null ],
+    [ "isBlazed", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a7e85e4c41337bb9cfadaaa0a3c42fd83", null ],
+    [ "isSmoothed_", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a95c5d69fff8dcdb0c3ce0b349f7026ad", null ],
+    [ "uD", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a0111f3f25ab0dfde705a15ab6c9aed0a", null ]
 ];

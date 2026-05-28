@@ -24,10 +24,34 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ad4579fc5a5
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6779e23bd59ef5dd06a22cf046c4dcdf}{Detector\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double d, int N)
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a83ebe9240fe1f273a998a158b776504a}{Detector\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a18c46be7144806786003eaef47815a6d}{d1}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61892592136249433a3c}{d2}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}{n2}})
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a5119ac14cbba867aadea36ff3bcfc557}{Detector\+Plane}} (void)
 \item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a89f66a95048af1523515595b5eb85cc7}{get\+Holographic\+ShiftX}} ()
+\begin{DoxyCompactList}\small\item\em returns the shift in the Fourier space in x direction for the holographic field \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6171a7646b61f7fd997962aa30672b21}{get\+Holographic\+ShiftY}} ()
+\begin{DoxyCompactList}\small\item\em returns the shift in the Fourier space in y direction for the holographic field \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ab2ffbd18956312d3b3d7bc46e75dc516}{holographic\+Field}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $>$ \&result) const
+\begin{DoxyCompactList}\small\item\em This function calculates the field on the detector plane with a linear phase factor, which corresponds to a shift in the Fourier space. The result is stored in the result vector. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95ec6450f6c98cf257dfeb23c9b43993}{is\+Blazed\+Grating}} ()
+\begin{DoxyCompactList}\small\item\em returns true, if the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. It returns false, if the field on the detector plane is not multiplied with a linear phase factor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ada332842f80c3a1bbacc17b460ba7544}{is\+Smoothed}} ()
+\begin{DoxyCompactList}\small\item\em returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_aa774387501ab33c9c39912103162fed3}{set\+Blazed}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a7e85e4c41337bb9cfadaaa0a3c42fd83}{is\+Blazed}})
+\begin{DoxyCompactList}\small\item\em This function sets whether the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. If is\+Blazed is set to true, the field on the detector plane will be multiplied with a linear phase factor. If is\+Blazed is set to false, the field on the detector plane will not be multiplied with a linear phase factor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_af562d4c473e38811c81baa548e5b18b6}{set\+Holographic\+Shift}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}{fx}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}{fy}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space for the holographic field. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a495a769ef4ecd6e55a88a888da77d30e}{set\+Holographic\+ShiftX}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}{fx}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space in x direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_abc6d4223a11fbf43fc2e8c55ba22f3d6}{set\+Holographic\+ShiftY}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}{fy}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space in y direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a4b2e14bbd2a7a83d69cedb2b2ca48fcb}{set\+Norm}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}})
-\begin{DoxyCompactList}\small\item\em set the normal on the detector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set the normal on the detector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b469e4f33141c9d0528079dfe3c3cac}{smooth}} (double sigma=1.\+0)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a68f1cb39e1dba611a62a8d16bb5fabee}{unsmooth}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{GOAT\+::raytracing\+::\+Detector}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -97,6 +121,19 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a9476d139164eb92ec
 \begin{DoxyCompactList}\small\item\em returns kind of detector \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a1776c78c7dd47c518328b998dfdbe604}{\texorpdfstring{$\sim$}{\string~}\+Detector}} (void)
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}{fx}} = 0
+\begin{DoxyCompactList}\small\item\em this is the shift in the Fourier space in x direction for the holographic field \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}{fy}} = 0
+\begin{DoxyCompactList}\small\item\em this is the shift in the Fourier space in y direction for the holographic field \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a7e85e4c41337bb9cfadaaa0a3c42fd83}{is\+Blazed}} = false
+\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95c5d69fff8dcdb0c3ce0b349f7026ad}{is\+Smoothed\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a0111f3f25ab0dfde705a15ab6c9aed0a}{uD}}
+\begin{DoxyCompactList}\small\item\em this is the field on the propagator plane before smoothing \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{GOAT\+::raytracing\+::\+Detector}}}
 \begin{DoxyCompactItemize}
@@ -147,19 +184,25 @@ Definition at line \mbox{\hyperlink{detector_8h_source_l00112}{112}} of file \mb
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a5119ac14cbba867aadea36ff3bcfc557}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!DetectorPlane@{DetectorPlane}}
 \index{DetectorPlane@{DetectorPlane}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
-\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a5119ac14cbba867aadea36ff3bcfc557} 
 GOAT\+::raytracing\+::\+Detector\+Plane\+::\+Detector\+Plane (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a83ebe9240fe1f273a998a158b776504a}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!DetectorPlane@{DetectorPlane}}
+\index{DetectorPlane@{DetectorPlane}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a83ebe9240fe1f273a998a158b776504a} 
+GOAT\+::raytracing\+::\+Detector\+Plane\+::\+Detector\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{, }\item[{double}]{d1}{, }\item[{double}]{d2}{, }\item[{int}]{n1}{, }\item[{int}]{n2}{}\end{DoxyParamCaption})}
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6779e23bd59ef5dd06a22cf046c4dcdf}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!DetectorPlane@{DetectorPlane}}
 \index{DetectorPlane@{DetectorPlane}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
-\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6779e23bd59ef5dd06a22cf046c4dcdf} 
 GOAT\+::raytracing\+::\+Detector\+Plane\+::\+Detector\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{, }\item[{double}]{d}{, }\item[{int}]{N}{}\end{DoxyParamCaption})}
 
 Constructor which defines a square detector defined by the center Position P, the surface normal n, the width d and the number of cells in one direction N (so the array is N x N). \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a76ee0be57edd9ec29376ee6e4ff7a1d6}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!DetectorPlane@{DetectorPlane}}
 \index{DetectorPlane@{DetectorPlane}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
-\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+\doxysubsubsection{\texorpdfstring{DetectorPlane()}{DetectorPlane()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a76ee0be57edd9ec29376ee6e4ff7a1d6} 
 GOAT\+::raytracing\+::\+Detector\+Plane\+::\+Detector\+Plane (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e2}{, }\item[{int}]{n1}{, }\item[{int}]{n2}{}\end{DoxyParamCaption})}
 
@@ -197,6 +240,128 @@ implementation of the intersection checking function for the plane detector
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a80510b07693288ca01d1688c6dd6ec75}{GOAT\+::raytracing\+::\+Detector}}.
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a89f66a95048af1523515595b5eb85cc7}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!getHolographicShiftX@{getHolographicShiftX}}
+\index{getHolographicShiftX@{getHolographicShiftX}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{getHolographicShiftX()}{getHolographicShiftX()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a89f66a95048af1523515595b5eb85cc7} 
+double GOAT\+::raytracing\+::\+Detector\+Plane\+::get\+Holographic\+ShiftX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the shift in the Fourier space in x direction for the holographic field 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00140}{140}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6171a7646b61f7fd997962aa30672b21}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!getHolographicShiftY@{getHolographicShiftY}}
+\index{getHolographicShiftY@{getHolographicShiftY}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{getHolographicShiftY()}{getHolographicShiftY()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6171a7646b61f7fd997962aa30672b21} 
+double GOAT\+::raytracing\+::\+Detector\+Plane\+::get\+Holographic\+ShiftY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the shift in the Fourier space in y direction for the holographic field 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00141}{141}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ab2ffbd18956312d3b3d7bc46e75dc516}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!holographicField@{holographicField}}
+\index{holographicField@{holographicField}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{holographicField()}{holographicField()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ab2ffbd18956312d3b3d7bc46e75dc516} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::holographic\+Field (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $>$ \&}]{result}{}\end{DoxyParamCaption}) const}
+
+
+
+This function calculates the field on the detector plane with a linear phase factor, which corresponds to a shift in the Fourier space. The result is stored in the result vector. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95ec6450f6c98cf257dfeb23c9b43993}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!isBlazedGrating@{isBlazedGrating}}
+\index{isBlazedGrating@{isBlazedGrating}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{isBlazedGrating()}{isBlazedGrating()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95ec6450f6c98cf257dfeb23c9b43993} 
+bool GOAT\+::raytracing\+::\+Detector\+Plane\+::is\+Blazed\+Grating (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns true, if the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. It returns false, if the field on the detector plane is not multiplied with a linear phase factor. 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00142}{142}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ada332842f80c3a1bbacc17b460ba7544}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!isSmoothed@{isSmoothed}}
+\index{isSmoothed@{isSmoothed}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{isSmoothed()}{isSmoothed()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ada332842f80c3a1bbacc17b460ba7544} 
+bool GOAT\+::raytracing\+::\+Detector\+Plane\+::is\+Smoothed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00135}{135}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_aa774387501ab33c9c39912103162fed3}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!setBlazed@{setBlazed}}
+\index{setBlazed@{setBlazed}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{setBlazed()}{setBlazed()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_aa774387501ab33c9c39912103162fed3} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::set\+Blazed (\begin{DoxyParamCaption}\item[{bool}]{is\+Blazed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function sets whether the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. If is\+Blazed is set to true, the field on the detector plane will be multiplied with a linear phase factor. If is\+Blazed is set to false, the field on the detector plane will not be multiplied with a linear phase factor. 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00143}{143}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_af562d4c473e38811c81baa548e5b18b6}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!setHolographicShift@{setHolographicShift}}
+\index{setHolographicShift@{setHolographicShift}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{setHolographicShift()}{setHolographicShift()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_af562d4c473e38811c81baa548e5b18b6} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::set\+Holographic\+Shift (\begin{DoxyParamCaption}\item[{double}]{fx}{, }\item[{double}]{fy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function sets the shift in the Fourier space for the holographic field. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00137}{137}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a495a769ef4ecd6e55a88a888da77d30e}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!setHolographicShiftX@{setHolographicShiftX}}
+\index{setHolographicShiftX@{setHolographicShiftX}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{setHolographicShiftX()}{setHolographicShiftX()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a495a769ef4ecd6e55a88a888da77d30e} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::set\+Holographic\+ShiftX (\begin{DoxyParamCaption}\item[{double}]{fx}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function sets the shift in the Fourier space in x direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00138}{138}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_abc6d4223a11fbf43fc2e8c55ba22f3d6}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!setHolographicShiftY@{setHolographicShiftY}}
+\index{setHolographicShiftY@{setHolographicShiftY}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{setHolographicShiftY()}{setHolographicShiftY()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_abc6d4223a11fbf43fc2e8c55ba22f3d6} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::set\+Holographic\+ShiftY (\begin{DoxyParamCaption}\item[{double}]{fy}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This function sets the shift in the Fourier space in y direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00139}{139}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a4b2e14bbd2a7a83d69cedb2b2ca48fcb}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!setNorm@{setNorm}}
 \index{setNorm@{setNorm}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
 \doxysubsubsection{\texorpdfstring{setNorm()}{setNorm()}}
@@ -206,6 +371,93 @@ void GOAT\+::raytracing\+::\+Detector\+Plane\+::set\+Norm (\begin{DoxyParamCapti
 
 
 set the normal on the detector 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b469e4f33141c9d0528079dfe3c3cac}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!smooth@{smooth}}
+\index{smooth@{smooth}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{smooth()}{smooth()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b469e4f33141c9d0528079dfe3c3cac} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::smooth (\begin{DoxyParamCaption}\item[{double}]{sigma}{ = {\ttfamily 1.0}}\end{DoxyParamCaption})}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a68f1cb39e1dba611a62a8d16bb5fabee}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!unsmooth@{unsmooth}}
+\index{unsmooth@{unsmooth}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{unsmooth()}{unsmooth()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a68f1cb39e1dba611a62a8d16bb5fabee} 
+void GOAT\+::raytracing\+::\+Detector\+Plane\+::unsmooth (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00134}{134}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!fx@{fx}}
+\index{fx@{fx}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{fx}{fx}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2} 
+double GOAT\+::raytracing\+::\+Detector\+Plane\+::fx = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is the shift in the Fourier space in x direction for the holographic field 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00147}{147}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!fy@{fy}}
+\index{fy@{fy}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{fy}{fy}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9} 
+double GOAT\+::raytracing\+::\+Detector\+Plane\+::fy = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is the shift in the Fourier space in y direction for the holographic field 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00148}{148}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a7e85e4c41337bb9cfadaaa0a3c42fd83}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!isBlazed@{isBlazed}}
+\index{isBlazed@{isBlazed}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{isBlazed}{isBlazed}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a7e85e4c41337bb9cfadaaa0a3c42fd83} 
+bool GOAT\+::raytracing\+::\+Detector\+Plane\+::is\+Blazed = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00149}{149}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95c5d69fff8dcdb0c3ce0b349f7026ad}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!isSmoothed\_@{isSmoothed\_}}
+\index{isSmoothed\_@{isSmoothed\_}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{isSmoothed\_}{isSmoothed\_}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95c5d69fff8dcdb0c3ce0b349f7026ad} 
+bool GOAT\+::raytracing\+::\+Detector\+Plane\+::is\+Smoothed\+\_\+ = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00146}{146}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a0111f3f25ab0dfde705a15ab6c9aed0a}\index{GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}!uD@{uD}}
+\index{uD@{uD}!GOAT::raytracing::DetectorPlane@{GOAT::raytracing::DetectorPlane}}
+\doxysubsubsection{\texorpdfstring{uD}{uD}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a0111f3f25ab0dfde705a15ab6c9aed0a} 
+std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$ $>$ GOAT\+::raytracing\+::\+Detector\+Plane\+::uD\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is the field on the propagator plane before smoothing 
+
+
+
+Definition at line \mbox{\hyperlink{detector_8h_source_l00145}{145}} of file \mbox{\hyperlink{detector_8h_source}{detector.\+h}}.
 
 
 

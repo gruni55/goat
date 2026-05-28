@@ -18,14 +18,22 @@ Inheritance diagram for GOAT\+::raytracing\+::Angular\+Spectrum\+:\begin{figure}
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a0f3b23f5a64eaa26a0aa30fd21d59b82}{Angular\+Spectrum}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&\&) noexcept=default
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8496be25914464474ad506923a980dfd}{Angular\+Spectrum}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&)=delete
+\begin{DoxyCompactList}\small\item\em constructor for square grid definition /param wvl wavelength /param P position of the propagator plane (center) /param n normal vector of the plane /param d width of the plane in both directions /param N number of points in one direction (so the array is N x N) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aebba48bd9da706a076c40956d3fe4000}{Angular\+Spectrum}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}{wvl}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a6b1044d35d59ba1f071c5c6f369ff61e}{e1}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a69f64b412ca29d16aa3633ce54f4272c}{e2}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}{n2}})
 \begin{DoxyCompactList}\small\item\em constructor with rectangular grid definition /param wvl wavelength /param P position of the propagator plane (center) /param e1 first direction vector of the plane (length of the plane in this direction is determined by the length of e1) /param e2 second direction vector of the plane (length of the plane in this direction is determined by the length of e2) /param n1 number of points in the first direction /param n2 number of points in the second direction \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aab6e6fafbd682fdbd88f74eb320bf37c}{Angular\+Spectrum}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_a0fcaeb451df462e8f205274063a0317e}{wvl}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double d, int N)
-\begin{DoxyCompactList}\small\item\em constructor for square grid definition /param wvl wavelength /param P position of the propagator plane (center) /param n normal vector of the plane /param d width of the plane in both directions /param N number of points in one direction (so the array is N x N) \end{DoxyCompactList}\item 
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad228c9c6ab28af4b7e20adf3263a6260}{calc}} (bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}}=true)
 \begin{DoxyCompactList}\small\item\em Makes a calculation. clear determines if the content of the propagator should be cleared before the calculation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad59f7a163af5a70f60fd4188962939a4}{calc\+One}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}det, bool \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_ae9cfe2976df8e97450b44f23e5e3cd55}{clear}})
 \begin{DoxyCompactList}\small\item\em Propagates the field from one source detector to the propagator plane. clear determines if the content of the propagator should be cleared before the calculation. /param det source detector /param clear if true, the content of the propagator will be cleared before the calculation. If false, the result of the calculation will be added to the existing content. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a24709b5db0b0fd84fb46194fdd5e0a62}{operator=}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&\&) noexcept=default
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a42f51eacc932bb737fa5f31adc499e59}{operator=}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&)=delete
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad509e87a5952030817bea2cbe870424d}{\texorpdfstring{$\sim$}{\string~}\+Angular\+Spectrum}} ()
 \begin{DoxyCompactList}\small\item\em destructor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator}{GOAT\+::raytracing\+::\+Propagator}}}
@@ -68,10 +76,34 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ad4579fc5a5
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6779e23bd59ef5dd06a22cf046c4dcdf}{Detector\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double d, int N)
 \item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a83ebe9240fe1f273a998a158b776504a}{Detector\+Plane}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a0d42d0cffecb6424fca4dd34d4951b91}{P}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a18c46be7144806786003eaef47815a6d}{d1}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa849a37f952c61892592136249433a3c}{d2}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a16b6bbd23d51a516645b632346736183}{n1}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_add8a7e7dfcea189813df617c6b2d7b43}{n2}})
+\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a5119ac14cbba867aadea36ff3bcfc557}{Detector\+Plane}} (void)
 \item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a89f66a95048af1523515595b5eb85cc7}{get\+Holographic\+ShiftX}} ()
+\begin{DoxyCompactList}\small\item\em returns the shift in the Fourier space in x direction for the holographic field \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a6171a7646b61f7fd997962aa30672b21}{get\+Holographic\+ShiftY}} ()
+\begin{DoxyCompactList}\small\item\em returns the shift in the Fourier space in y direction for the holographic field \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ab2ffbd18956312d3b3d7bc46e75dc516}{holographic\+Field}} (std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $>$ \&result) const
+\begin{DoxyCompactList}\small\item\em This function calculates the field on the detector plane with a linear phase factor, which corresponds to a shift in the Fourier space. The result is stored in the result vector. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a95ec6450f6c98cf257dfeb23c9b43993}{is\+Blazed\+Grating}} ()
+\begin{DoxyCompactList}\small\item\em returns true, if the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. It returns false, if the field on the detector plane is not multiplied with a linear phase factor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_ada332842f80c3a1bbacc17b460ba7544}{is\+Smoothed}} ()
+\begin{DoxyCompactList}\small\item\em returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_aa774387501ab33c9c39912103162fed3}{set\+Blazed}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a7e85e4c41337bb9cfadaaa0a3c42fd83}{is\+Blazed}})
+\begin{DoxyCompactList}\small\item\em This function sets whether the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. If is\+Blazed is set to true, the field on the detector plane will be multiplied with a linear phase factor. If is\+Blazed is set to false, the field on the detector plane will not be multiplied with a linear phase factor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_af562d4c473e38811c81baa548e5b18b6}{set\+Holographic\+Shift}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}{fx}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}{fy}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space for the holographic field. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a495a769ef4ecd6e55a88a888da77d30e}{set\+Holographic\+ShiftX}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b75e4a978f138c328ffafa6a90d2ff2}{fx}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space in x direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_abc6d4223a11fbf43fc2e8c55ba22f3d6}{set\+Holographic\+ShiftY}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a9fe646335089a0c6e7239fa3412782c9}{fy}})
+\begin{DoxyCompactList}\small\item\em This function sets the shift in the Fourier space in y direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a4b2e14bbd2a7a83d69cedb2b2ca48fcb}{set\+Norm}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a05ff56a1899ade06c3e858ea32e32c03}{n}})
-\begin{DoxyCompactList}\small\item\em set the normal on the detector \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em set the normal on the detector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a2b469e4f33141c9d0528079dfe3c3cac}{smooth}} (double sigma=1.\+0)
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane_a68f1cb39e1dba611a62a8d16bb5fabee}{unsmooth}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{GOAT\+::raytracing\+::\+Detector}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -146,19 +178,7 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a9476d139164eb92ec
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8329067ff897fd097d7f2a0433127221}{adapt\+Target\+Grid\+To\+Source}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}src)
 \item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a1a952870cb7d4315377f751d98372cb0}{add\+Field}} (const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{maths\+::fourier\+::vector\+Field2D}} \&field, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}} component)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a2388625f3e1ab0f1f0d41a0000a93a3c}{add\+Roi}} (const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{maths\+::fourier\+::vector\+Field2D}} \&tmp, \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}src, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}} component)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ace3a521bdb5fb54c0642df7adc6fe631}{Angular\+Spectrum\+::apply\+Transfer\+Function}} (fftw\+\_\+complex \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad524db4bc154168addb3848e4c2133c1}{spec}}, double dz)
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8f7f2609360776a1cf0a2fd58d2d980d}{cleanup}} ()
-\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaf49351d2903449b2175742d7323edce}{compute\+Roi\+Offset}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}src, int \&ix0, int \&iy0) const
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a6e1913569245f031508cefb69f9b0322}{init\+Spec}} ()
-\item 
-void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ac90f84d80d6ea1c45d64b1c2b5110de4}{propagate\+Component}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}det, \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}} component, double dz)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -167,10 +187,12 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a6d1687
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a44e6c2c0d9d62e7a95266fccbdcc0765}{dy}} = 0.\+0
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{GOAT\+::maths\+::fourier\+::fft2D}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_af390f0b24d671dd38b153ee1f5b10717}{fft}}
+std\+::unique\+\_\+ptr$<$ Impl $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaaa3c94055da796622e4eb4d9164e966}{impl}}
 \item 
-fftw\+\_\+complex \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad524db4bc154168addb3848e4c2133c1}{spec}}
-\end{DoxyCompactItemize}
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a576bcfad9cfffda4d86a7dfca0cbf276}{is\+Smoothed}} = false
+\begin{DoxyCompactList}\small\item\em this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a19cf1e71ad22c227d1248255de6ed59f}{uD}}
+\begin{DoxyCompactList}\small\item\em this is the field on the propagator plane before smoothing \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{GOAT\+::raytracing\+::\+Detector}}}
 \begin{DoxyCompactItemize}
@@ -228,7 +250,7 @@ Currently, only one source is included in the calculation. Due to the calculatio
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00013}{13}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00012}{12}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 
 
@@ -237,7 +259,7 @@ Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00013}{13}} of f
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aebba48bd9da706a076c40956d3fe4000}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum@{AngularSpectrum}}
 \index{AngularSpectrum@{AngularSpectrum}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aebba48bd9da706a076c40956d3fe4000} 
 GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e1}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{e2}{, }\item[{int}]{n1}{, }\item[{int}]{n2}{}\end{DoxyParamCaption})}
 
@@ -245,29 +267,37 @@ GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyPar
 
 constructor with rectangular grid definition /param wvl wavelength /param P position of the propagator plane (center) /param e1 first direction vector of the plane (length of the plane in this direction is determined by the length of e1) /param e2 second direction vector of the plane (length of the plane in this direction is determined by the length of e2) /param n1 number of points in the first direction /param n2 number of points in the second direction 
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aab6e6fafbd682fdbd88f74eb320bf37c}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum@{AngularSpectrum}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8496be25914464474ad506923a980dfd}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum@{AngularSpectrum}}
 \index{AngularSpectrum@{AngularSpectrum}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aab6e6fafbd682fdbd88f74eb320bf37c} 
-GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{, }\item[{double}]{d}{, }\item[{int}]{N}{}\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8496be25914464474ad506923a980dfd} 
+GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
 
 
 constructor for square grid definition /param wvl wavelength /param P position of the propagator plane (center) /param n normal vector of the plane /param d width of the plane in both directions /param N number of points in one direction (so the array is N x N) 
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a0f3b23f5a64eaa26a0aa30fd21d59b82}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum@{AngularSpectrum}}
+\index{AngularSpectrum@{AngularSpectrum}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a0f3b23f5a64eaa26a0aa30fd21d59b82} 
+GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aab6e6fafbd682fdbd88f74eb320bf37c}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum@{AngularSpectrum}}
+\index{AngularSpectrum@{AngularSpectrum}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{AngularSpectrum()}{AngularSpectrum()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aab6e6fafbd682fdbd88f74eb320bf37c} 
+GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum (\begin{DoxyParamCaption}\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{P}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{n}{, }\item[{double}]{d}{, }\item[{int}]{N}{}\end{DoxyParamCaption})}
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad509e87a5952030817bea2cbe870424d}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!````~AngularSpectrum@{\texorpdfstring{$\sim$}{\string~}AngularSpectrum}}
 \index{````~AngularSpectrum@{\texorpdfstring{$\sim$}{\string~}AngularSpectrum}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
 \doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}AngularSpectrum()}{\string~AngularSpectrum()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad509e87a5952030817bea2cbe870424d} 
-GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\texorpdfstring{$\sim$}{\string~}\+Angular\+Spectrum (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\texorpdfstring{$\sim$}{\string~}\+Angular\+Spectrum (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
 destructor 
-
-
-
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00038}{38}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 
 
@@ -279,24 +309,6 @@ Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00038}{38}} of f
 \doxysubsubsection{\texorpdfstring{adaptTargetGridToSource()}{adaptTargetGridToSource()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8329067ff897fd097d7f2a0433127221} 
 void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::adapt\+Target\+Grid\+To\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{src}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a1a952870cb7d4315377f751d98372cb0}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!addField@{addField}}
-\index{addField@{addField}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{addField()}{addField()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a1a952870cb7d4315377f751d98372cb0} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::add\+Field (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{maths\+::fourier\+::vector\+Field2D}} \&}]{field}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a2388625f3e1ab0f1f0d41a0000a93a3c}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!addRoi@{addRoi}}
-\index{addRoi@{addRoi}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{addRoi()}{addRoi()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a2388625f3e1ab0f1f0d41a0000a93a3c} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::add\+Roi (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abd356705972c795213bc89f7157ada74}{maths\+::fourier\+::vector\+Field2D}} \&}]{tmp}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}}}]{component}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ace3a521bdb5fb54c0642df7adc6fe631}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!AngularSpectrum::applyTransferFunction@{AngularSpectrum::applyTransferFunction}}
-\index{AngularSpectrum::applyTransferFunction@{AngularSpectrum::applyTransferFunction}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{AngularSpectrum::applyTransferFunction()}{AngularSpectrum::applyTransferFunction()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ace3a521bdb5fb54c0642df7adc6fe631} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::\+Angular\+Spectrum\+::apply\+Transfer\+Function (\begin{DoxyParamCaption}\item[{fftw\+\_\+complex \texorpdfstring{$\ast$}{*}}]{spec}{, }\item[{double}]{dz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad228c9c6ab28af4b7e20adf3263a6260}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!calc@{calc}}
 \index{calc@{calc}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -322,37 +334,23 @@ Propagates the field from one source detector to the propagator plane. clear det
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_propagator_af7349169892692cda4c2239e26e52985}{GOAT\+::raytracing\+::\+Propagator}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8f7f2609360776a1cf0a2fd58d2d980d}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!cleanup@{cleanup}}
-\index{cleanup@{cleanup}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{cleanup()}{cleanup()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a8f7f2609360776a1cf0a2fd58d2d980d} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::cleanup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
-
-
-
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00074}{74}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
-
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaf49351d2903449b2175742d7323edce}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!computeRoiOffset@{computeRoiOffset}}
 \index{computeRoiOffset@{computeRoiOffset}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
 \doxysubsubsection{\texorpdfstring{computeRoiOffset()}{computeRoiOffset()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaf49351d2903449b2175742d7323edce} 
 bool GOAT\+::raytracing\+::\+Angular\+Spectrum\+::compute\+Roi\+Offset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{src}{, }\item[{int \&}]{ix0}{, }\item[{int \&}]{iy0}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a6e1913569245f031508cefb69f9b0322}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!initSpec@{initSpec}}
-\index{initSpec@{initSpec}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{initSpec()}{initSpec()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a6e1913569245f031508cefb69f9b0322} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::init\+Spec (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a24709b5db0b0fd84fb46194fdd5e0a62}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!operator=@{operator=}}
+\index{operator=@{operator=}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a24709b5db0b0fd84fb46194fdd5e0a62} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \& GOAT\+::raytracing\+::\+Angular\+Spectrum\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&\&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}, {\ttfamily [noexcept]}}
 
-
-
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00066}{66}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ac90f84d80d6ea1c45d64b1c2b5110de4}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!propagateComponent@{propagateComponent}}
-\index{propagateComponent@{propagateComponent}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{propagateComponent()}{propagateComponent()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ac90f84d80d6ea1c45d64b1c2b5110de4} 
-void GOAT\+::raytracing\+::\+Angular\+Spectrum\+::propagate\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_plane}{Detector\+Plane}} \texorpdfstring{$\ast$}{*}}]{det}{, }\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1maths_1_1fourier_abef696ae7eb77cf1502968d0babd111b}{maths\+::fourier\+::field\+Component}}}]{component}{, }\item[{double}]{dz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a42f51eacc932bb737fa5f31adc499e59}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!operator=@{operator=}}
+\index{operator=@{operator=}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a42f51eacc932bb737fa5f31adc499e59} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \& GOAT\+::raytracing\+::\+Angular\+Spectrum\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum}{Angular\+Spectrum}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
 
 
 
@@ -367,7 +365,7 @@ double GOAT\+::raytracing\+::\+Angular\+Spectrum\+::dx = 0.\+0\hspace{0.3cm}{\tt
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00056}{56}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00060}{60}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a44e6c2c0d9d62e7a95266fccbdcc0765}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!dy@{dy}}
 \index{dy@{dy}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -377,27 +375,45 @@ double GOAT\+::raytracing\+::\+Angular\+Spectrum\+::dy = 0.\+0\hspace{0.3cm}{\tt
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00057}{57}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00061}{61}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_af390f0b24d671dd38b153ee1f5b10717}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!fft@{fft}}
-\index{fft@{fft}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{fft}{fft}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_af390f0b24d671dd38b153ee1f5b10717} 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d}{GOAT\+::maths\+::fourier\+::fft2D}} GOAT\+::raytracing\+::\+Angular\+Spectrum\+::fft\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00055}{55}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
-
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad524db4bc154168addb3848e4c2133c1}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!spec@{spec}}
-\index{spec@{spec}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
-\doxysubsubsection{\texorpdfstring{spec}{spec}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_ad524db4bc154168addb3848e4c2133c1} 
-fftw\+\_\+complex\texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Angular\+Spectrum\+::spec\hspace{0.3cm}{\ttfamily [private]}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaaa3c94055da796622e4eb4d9164e966}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!impl@{impl}}
+\index{impl@{impl}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{impl}{impl}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaaa3c94055da796622e4eb4d9164e966} 
+std\+::unique\+\_\+ptr$<$Impl$>$ GOAT\+::raytracing\+::\+Angular\+Spectrum\+::impl\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00065}{65}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00068}{68}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a576bcfad9cfffda4d86a7dfca0cbf276}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!isSmoothed@{isSmoothed}}
+\index{isSmoothed@{isSmoothed}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{isSmoothed}{isSmoothed}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a576bcfad9cfffda4d86a7dfca0cbf276} 
+bool GOAT\+::raytracing\+::\+Angular\+Spectrum\+::is\+Smoothed = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation). 
+
+
+
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00070}{70}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a19cf1e71ad22c227d1248255de6ed59f}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!uD@{uD}}
+\index{uD@{uD}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
+\doxysubsubsection{\texorpdfstring{uD}{uD}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a19cf1e71ad22c227d1248255de6ed59f} 
+std\+::vector$<$std\+::vector$<$\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$std\+::complex$<$double$>$ $>$ $>$ $>$ GOAT\+::raytracing\+::\+Angular\+Spectrum\+::uD\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+this is the field on the propagator plane before smoothing 
+
+
+
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00069}{69}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 
 

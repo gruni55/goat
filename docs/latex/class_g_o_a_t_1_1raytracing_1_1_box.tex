@@ -69,6 +69,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_box_ade96093d04b2967e023
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a2ef3906b07ffe07776f2e3010ba98ba2}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em returns the ID string \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af744675d71f2057bf0ef01ebc86e11dd}{getn}} ()
 \begin{DoxyCompactList}\small\item\em returns refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae0dac278872d9239bd4a81e9da7362b8}{getninel}} ()
@@ -101,6 +103,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af5781b19014f
 \begin{DoxyCompactList}\small\item\em Calculates the center of mass (CoM) and sets the object\textquotesingle{}s reference point to the CoM. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a60da2229c903fba2b43e5525aff78f6d}{set\+Gamma}} (double Gamma)
 \begin{DoxyCompactList}\small\item\em sets rotation angle around z-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a59caf512049f3a4bc977e4b106a183a7}{set\+ID}} (const std\+::string \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aeb150f65fd8a1634d0fbf3a07cf744c1}{ID}})
+\begin{DoxyCompactList}\small\item\em sets the ID string \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab5e94ad3bb17728c8a0a0cff0cfde9d4}{set\+Matrix}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}, double beta, double gamma)
 \begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, alpha, beta, gamma\+: angles (rotation around x-\/, y-\/ and z-\/axis) to calculate transformation matrix \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a119b9ab94e45933e35c4c390f4823037}{set\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}})
@@ -141,6 +145,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80352486f8
 \begin{DoxyCompactList}\small\item\em angles through which the object was rotated (around the x-\/ (Ealpha), then the y-\/ (Ebeta) and finally the z-\/axis (Egamma)) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}}
 \item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aeb150f65fd8a1634d0fbf3a07cf744c1}{ID}} = "{}Object"{}
+\begin{DoxyCompactList}\small\item\em ID string, used for visualization (GOATvis) and for the user to identify the object. \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}
 \begin{DoxyCompactList}\small\item\em refractive index of the object \end{DoxyCompactList}\item 
 std\+::function$<$ std\+::complex$<$ double $>$(double)$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6357a1ccf1d0b7b30d9b053deafc27a6}{nfunc}}

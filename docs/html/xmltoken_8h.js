@@ -11,6 +11,7 @@ var xmltoken_8h =
     [ "TOKEN_CALCULATION_PULSE", "xmltoken_8h.html#a67de9052c78b59c390cb6a5af0538451", null ],
     [ "TOKEN_CALCULATION_PULSE_FIELD", "xmltoken_8h.html#a6533ad242d100316e975bff8f08c752d", null ],
     [ "TOKEN_CALCULATION_PURE", "xmltoken_8h.html#aea07f4c4ac4c9085a3570563a5aed1a9", null ],
+    [ "TOKEN_DETECTOR_ANGULAR_SPECTRUM", "xmltoken_8h.html#ae5e8bb13f29ebe793e384555f18accd1", null ],
     [ "TOKEN_DETECTOR_KIRCHHOFF", "xmltoken_8h.html#a036b6cd1c26251b191871405b6e6293b", null ],
     [ "TOKEN_DETECTOR_PLANE", "xmltoken_8h.html#ab36f28430a3eba4ec71858001efeaea4", null ],
     [ "TOKEN_LIGHTSOURCE_GAUSSIAN", "xmltoken_8h.html#a630ff3850463d99e7f6998d7a78f96d9", null ],

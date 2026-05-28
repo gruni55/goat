@@ -13,6 +13,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "ellipsoid.h", "ellipsoid_8h.html", "ellipsoid_8h" ],
     [ "error.h", "error_8h.html", "error_8h" ],
     [ "fft.h", "fft_8h.html", "fft_8h" ],
+    [ "goat_defines.h", "goat__defines_8h.html", "goat__defines_8h" ],
     [ "grid.h", "grid_8h.html", "grid_8h" ],
     [ "gridentry.h", "gridentry_8h.html", "gridentry_8h" ],
     [ "inel_calc.h", "inel__calc_8h.html", "inel__calc_8h" ],

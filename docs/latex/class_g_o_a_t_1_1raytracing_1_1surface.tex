@@ -40,6 +40,8 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a6ebbe66f2dd6e28916f
 \begin{DoxyCompactList}\small\item\em Returns the index of the triangle that was last hit. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40}{get\+Filename}} ()
 \begin{DoxyCompactList}\small\item\em returns the current file name \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0aebdc36d51687485a72711695a3b008}{get\+Filetype}} ()
+\begin{DoxyCompactList}\small\item\em returns the current file type \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}{get\+Min\+Max}} (double \&min, double \&max)
 \begin{DoxyCompactList}\small\item\em calculates center of mass \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \& \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a10e04122f52957ea831ace36b93bab98}{get\+Triangle}} (int i)
@@ -68,6 +70,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a06fa62cb23a80ad652
 \begin{DoxyCompactList}\small\item\em Sets the Position to the center of mass (CoM) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0edf89f6e16f2f99fd572f02fdd66933}{set\+Filename}} (std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}{FName}})
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a92416da1cd7d1031ba16cfe9f4f423db}{set\+Filetype}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff}{filetype}})
+\begin{DoxyCompactList}\small\item\em sets the current file type \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}{set\+Pos}} (double x, double y, double z)
 \begin{DoxyCompactList}\small\item\em Set position of the object to a position vector represented by its components x,y and z. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}{set\+Pos}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ r)
@@ -89,6 +93,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_aa15b5460b843893f
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a2ef3906b07ffe07776f2e3010ba98ba2}{get\+ID}} ()
+\begin{DoxyCompactList}\small\item\em returns the ID string \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af744675d71f2057bf0ef01ebc86e11dd}{getn}} ()
 \begin{DoxyCompactList}\small\item\em returns refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae0dac278872d9239bd4a81e9da7362b8}{getninel}} ()
@@ -121,6 +127,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af5781b19014f
 \begin{DoxyCompactList}\small\item\em Calculates the center of mass (CoM) and sets the object\textquotesingle{}s reference point to the CoM. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a60da2229c903fba2b43e5525aff78f6d}{set\+Gamma}} (double Gamma)
 \begin{DoxyCompactList}\small\item\em sets rotation angle around z-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a59caf512049f3a4bc977e4b106a183a7}{set\+ID}} (const std\+::string \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aeb150f65fd8a1634d0fbf3a07cf744c1}{ID}})
+\begin{DoxyCompactList}\small\item\em sets the ID string \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ab5e94ad3bb17728c8a0a0cff0cfde9d4}{set\+Matrix}} (double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}}, double beta, double gamma)
 \begin{DoxyCompactList}\small\item\em sets the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system, alpha, beta, gamma\+: angles (rotation around x-\/, y-\/ and z-\/axis) to calculate transformation matrix \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a119b9ab94e45933e35c4c390f4823037}{set\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}})
@@ -167,6 +175,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a80352486f8
 \begin{DoxyCompactList}\small\item\em angles through which the object was rotated (around the x-\/ (Ealpha), then the y-\/ (Ebeta) and finally the z-\/axis (Egamma)) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a11534d77c465d2dc31b1a3c11b5d2984}{H}}
 \item 
+std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aeb150f65fd8a1634d0fbf3a07cf744c1}{ID}} = "{}Object"{}
+\begin{DoxyCompactList}\small\item\em ID string, used for visualization (GOATvis) and for the user to identify the object. \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae057ae324569a6b3173df578ba79a0d1}{n}}
 \begin{DoxyCompactList}\small\item\em refractive index of the object \end{DoxyCompactList}\item 
 std\+::function$<$ std\+::complex$<$ double $>$(double)$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6357a1ccf1d0b7b30d9b053deafc27a6}{nfunc}}
@@ -413,7 +423,7 @@ Returns the index of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00174}{174}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00175}{175}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0e83266005450b988c40dc9c4841fc40}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getFilename@{getFilename}}
 \index{getFilename@{getFilename}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -428,6 +438,20 @@ returns the current file name
 
 
 Definition at line \mbox{\hyperlink{surface_8h_source_l00141}{141}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0aebdc36d51687485a72711695a3b008}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getFiletype@{getFiletype}}
+\index{getFiletype@{getFiletype}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
+\doxysubsubsection{\texorpdfstring{getFiletype()}{getFiletype()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a0aebdc36d51687485a72711695a3b008} 
+int GOAT\+::raytracing\+::surface\+::get\+Filetype (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the current file type 
+
+
+
+Definition at line \mbox{\hyperlink{surface_8h_source_l00146}{146}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9329caf29da906f7e906193af072a269}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!getMinMax@{getMinMax}}
 \index{getMinMax@{getMinMax}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -458,7 +482,7 @@ Returns the i-\/th triangle in the internal triangle list.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00175}{175}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00176}{176}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a70e5761526c76eac07282898690afa80}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!importBinSTL@{importBinSTL}}
 \index{importBinSTL@{importBinSTL}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -610,6 +634,20 @@ void GOAT\+::raytracing\+::surface\+::set\+Filename (\begin{DoxyParamCaption}\it
 
 Definition at line \mbox{\hyperlink{surface_8h_source_l00142}{142}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a92416da1cd7d1031ba16cfe9f4f423db}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setFiletype@{setFiletype}}
+\index{setFiletype@{setFiletype}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
+\doxysubsubsection{\texorpdfstring{setFiletype()}{setFiletype()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1surface_a92416da1cd7d1031ba16cfe9f4f423db} 
+void GOAT\+::raytracing\+::surface\+::set\+Filetype (\begin{DoxyParamCaption}\item[{int}]{filetype}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the current file type 
+
+
+
+Definition at line \mbox{\hyperlink{surface_8h_source_l00147}{147}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a9b38671572bf32359cd962dc635a758c}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
 \index{setPos@{setPos}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
 \doxysubsubsection{\texorpdfstring{setPos()}{setPos()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
@@ -626,7 +664,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a85ee33
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00166}{166}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00167}{167}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a0cfcd15822fc07288f201774df3b8427}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!setPos@{setPos}}
 \index{setPos@{setPos}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -687,7 +725,7 @@ Index of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00180}{180}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00181}{181}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_ad594601b7d8badb8f8e68635195bcf43}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!currentnorm@{currentnorm}}
 \index{currentnorm@{currentnorm}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -701,7 +739,7 @@ Normal vector of the triangle that was last hit.
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00179}{179}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00180}{180}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_a724fae22c01f0a337592eb307548d4ff}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!filetype@{filetype}}
 \index{filetype@{filetype}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -715,7 +753,7 @@ type of the file connected with this surface object
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00176}{176}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00177}{177}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_aea8adbe7d5eda9eedb005aab8355eb50}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!FName@{FName}}
 \index{FName@{FName}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
@@ -729,7 +767,7 @@ File name (used to save the internal triangle list)
 
 
 
-Definition at line \mbox{\hyperlink{surface_8h_source_l00181}{181}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
+Definition at line \mbox{\hyperlink{surface_8h_source_l00182}{182}} of file \mbox{\hyperlink{surface_8h_source}{surface.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc534941b3eb11f07}\index{GOAT::raytracing::surface@{GOAT::raytracing::surface}!numTriangles@{numTriangles}}
 \index{numTriangles@{numTriangles}!GOAT::raytracing::surface@{GOAT::raytracing::surface}}
