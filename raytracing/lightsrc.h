@@ -105,6 +105,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 			void setR0(double r0); ///< sets the radius of the calculation sphere
 			double getDensity() { return density; } ///< returns the ray density, i.e. the number of rays per unit length (=D/N)
 			maths::Vector<std::complex<double>> getInitPol() { return initPol; }
+			double getD() { return D; } ///< returns the width of the light source
 			void setD(double D) ///< sets the width of the light source
 			{
 				this->density = D / ((double)N);

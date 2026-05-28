@@ -276,6 +276,21 @@ namespace GOAT
 
 
 			// ------------------ inverse methods ------------------
+
+            void fft2D::inverse(fftw_complex* in, fftw_complex* out)
+            {
+                pImpl->inverse(in, out);
+
+                const double scale =
+                    1.0 / static_cast<double>(pImpl->size());
+
+                for (std::size_t k = 0; k < pImpl->size(); ++k)
+                {
+                    out[k][0] *= scale;
+                    out[k][1] *= scale;
+                }
+            }
+
             void fft2D::inverse(const std::complex<double>* in, std::complex<double>* out)
             {
                 pImpl->inverse(in, out);
