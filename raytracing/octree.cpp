@@ -75,7 +75,7 @@ namespace GOAT
 				double d;
 				maths::Vector<double> philf;
 				bool found = false;
-				if (T.BBox.next(P, k, philf))
+				if (T.BBox.next(P-T.BBox.P, k, philf))
 				{
 					for (int i = 0; i < T.nChilds; i++)
 					{

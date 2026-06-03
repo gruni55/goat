@@ -9,14 +9,14 @@ namespace GOAT
         * The surface is described by 
         * \f$ z(r)=\frac{r^2}{R\left( 1+\sqrt{1-(1+\kappa)\frac{r^2}{R^2}}\right)}+\sum_l\alpha_lr^l\f$
         */
-        typedef struct
+        typedef struct asphericLensSide
         {
             double k; ///< conic constant
             double R; ///< Radius
             std::vector<double> A;
             double shift=0; ///< how much must the curve be shifted (with consideration of the offset)
             bool isPlano = false;///< true, if the corresponding side is plano
-        } asphericLensSide;
+        } ;
 
 
         /**

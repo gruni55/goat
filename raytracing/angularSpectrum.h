@@ -8,6 +8,7 @@ namespace GOAT
 		/**
 		* @brief This class implements the angular spectrum method for propagating optical fields.
 		* \note Currently, only one source is included in the calculation. Due to the calculation method, the resolution of the source and destination must be the same, and both must be arranged parallel to each other. The resolution and position of the destination are adjusted automatically!
+		* As sour
 		*/
 		class AngularSpectrum : public Propagator
 		{

@@ -440,7 +440,7 @@ std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
 	initBounds(pul, por);
 	maths::Vector<double> d = por - pul;
 	maths::Vector<double> mid = (pul + por) / 2.0;
-	Tree.BBox = Box(mid, d, this->n);
+	Tree.BBox = Box(mid, d * 1.01, this->n);
 	Tree.createTree();
 	/*std::cout << "SAVE FILE " << std::endl;
 	std::ofstream os("C:\\Users\\weigt\\Documents\\data\\Felix\\triangles.dat");
@@ -450,7 +450,7 @@ std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
 	for (int i = 0; i < numTriangles; ++i)
 		addTriangleToTriangle(Tree, S[i]);
 #endif
-
+	
 	std::cout << "% STL-Datei erfolgreich importiert (" << anz << " Dreiecke)" << std::endl;
 	std::cout << "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
 	auto endeOctree = std::chrono::high_resolution_clock::now();

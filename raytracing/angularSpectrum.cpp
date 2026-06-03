@@ -94,7 +94,7 @@ namespace GOAT
 						self.D[x][y][static_cast<size_t>(component)] += field[x][y][static_cast<size_t>(component)];
 			}
 
-			void applyTransferFunction(fftw_complex* spec, double dz)
+			void applyTransferFunction(fftw_complex* spec, double dz, maths::Vector<double> shift)
 			{
 				if (spec == nullptr)
 					throw std::invalid_argument("AngularSpectrum::applyTransferFunction: spec is null");
@@ -103,6 +103,8 @@ namespace GOAT
 				const std::size_t ny = self.n2;   // oder getN2()
 
 				const double k0 = 2.0 * M_PI / self.wvl;
+				const double xShift = shift * self.gete1();
+				const double yShift = shift * self.gete2();
 
 				for (std::size_t y = 0; y < ny; ++y)
 				{
@@ -128,7 +130,7 @@ namespace GOAT
 						}
 
 						const double kz = std::sqrt(kz2);
-						const double phase = kz * dz;
+						const double phase = kz * dz - xShift * kx - yShift * ky;
 
 						const double cr = std::cos(phase);
 						const double ci = std::sin(phase);
@@ -230,12 +232,12 @@ namespace GOAT
 					const int offset2 =
 						static_cast<int>(std::round((slmMin2 - asMin2) / d2));
 
-					if (offset1 < 0 || offset2 < 0 ||
+					/*if (offset1 < 0 || offset2 < 0 ||
 						offset1 + n1SLM > n1AS ||
 						offset2 + n2SLM > n2AS)
 					{
 						throw std::runtime_error("SLM field does not fit into AS field.");
-					}
+					}*/
 
 					const int c = static_cast<int>(component);
 
@@ -292,7 +294,7 @@ namespace GOAT
 					}
 				}
 
-			void propagateComponent(DetectorPlane* det, maths::fourier::fieldComponent component, double dz)
+			void propagateComponent(DetectorPlane* det, maths::fourier::fieldComponent component, double dz, maths::Vector<double> shift)
 			{
 				int c = static_cast<std::size_t>(component);
 				// 1. SLM-Feld holen
@@ -309,7 +311,7 @@ namespace GOAT
 				ws[c].fft->forward(ws[c].spatial, ws[c].spec);
 
 				// 5. Transferfunktion
-				applyTransferFunction(ws[c].spec, dz);
+				applyTransferFunction(ws[c].spec, dz, shift);
 
 				// 6. IFFT
 				ws[c].fft->inverse(ws[c].spec, ws[c].spatial);
@@ -363,12 +365,15 @@ namespace GOAT
 			// 2. Abstand bestimmen
 			maths::Vector<double> dP = P - det->position();
 			maths::Vector<double> n = this->norm();   // oder det->getNormal(), wenn parallel
+
+			if ((dP * n) < 0.0) n = -n;
+
 			double dz = dP * n;
 
 			// 3. Ebenenparallelität prüfen
 			maths::Vector<double> nSrc = det->norm();
 			maths::Vector<double> nDst = n;
-
+			maths::Vector<double> shift = dP - dz * n;
 			if ((abs(nSrc * nDst) - 1.0) > 1e-8)
 				throw std::runtime_error("AngularSpectrumPropagator::calcOne: source and target plane are not parallel");
 
@@ -382,7 +387,7 @@ namespace GOAT
 			for (int c = 0; c < 3; ++c)
 			{
 				comp = static_cast<maths::fourier::fieldComponent>(c);
-				impl->propagateComponent(det, comp, dz);
+				impl->propagateComponent(det, comp, dz, shift);
 			}
 		}
 
