@@ -568,7 +568,7 @@ maths::Vector<double> Box::norm(const maths::Vector<double>& ps)
 		
 		std::ostream& operator<< (std::ostream& os, Box B)
 		{
-			os << B.P << "  " << B.d << std::endl;
+			os << B.getPos() << "  " << B.d << std::endl;
 			return os;
 		}
 	}

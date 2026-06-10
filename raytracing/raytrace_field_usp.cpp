@@ -352,12 +352,12 @@ namespace GOAT
 
  					if (ray->isInObject()) // Is the ray inside an object ?
 					{
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getninel(), S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);
 						}
 
 						kref = ray->getk();
@@ -388,12 +388,12 @@ namespace GOAT
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());
 							}
 							else
 							{
 								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());
 								//					std::cout << "*k=" << ((tubedRay*)tray)->k[4]  <<  std::endl;
 							}
 

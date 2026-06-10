@@ -190,7 +190,7 @@ namespace GOAT
 #endif
         };
 
-        std::ostream& operator << (std::ostream& os, const surface& su);
+        std::ostream& operator << (std::ostream& os,  surface& su);
 
         /** @name operators on surface
          * @brief Operators, which act directly on the surface class

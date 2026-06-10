@@ -145,8 +145,8 @@ namespace GOAT
                 found = Obj[objIndex]->next(P, k, R);
                 if (!suppress_phase_progress)
                 {
-                    E1 = E1 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
-                    E2 = E2 * exp(I * k0 * Obj[objIndex]->n * abs(R - P));
+                    E1 = E1 * exp(I * k0 * Obj[objIndex]->getn() * abs(R - P));
+                    E2 = E2 * exp(I * k0 * Obj[objIndex]->getn() * abs(R - P));
                 }
             }
 
@@ -235,7 +235,7 @@ namespace GOAT
                     Erg.inObject = true;
                     // Erg.n=Ein[objIndex]->n;
                     Erg.n = n2;
-                    Erg.OK = Obj[objIndex]->P;
+                    Erg.OK = Obj[objIndex]->getPos();
                     Erg.objIndex = objIndex;
                     Erg.refract(n, n1, n2);
                     Erg.suppress_phase_progress = suppress_phase_progress;

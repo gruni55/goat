@@ -128,7 +128,7 @@ namespace GOAT
 					double l;					
 					stepSize = abs(PStop - PStart);
 					std::complex<double> n;					
-					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->n;
+					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->getn();
 					else n = S.nS;
 					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
@@ -169,13 +169,13 @@ namespace GOAT
 				{
 					if (ray->isInObject()) // Is the ray inside an object ?
 					{						
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 						    copyRay(tray, ray);			
 							
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);		
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);		
 						}
 
 						kref = ray->getk();
@@ -204,12 +204,12 @@ namespace GOAT
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());
 							}
 							else
 							{
 								copyRay(tray, ray);								
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);																
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());																
 							}
 
 							kref = ray->getk();
@@ -340,11 +340,11 @@ namespace GOAT
 			maths::Vector<double> fe, fr, ft, fg;
 			maths::Vector<double> r;
 
-			fe = (kin * PowIn) * real(S.nS / S.Obj[currentObj]->n);
+			fe = (kin * PowIn) * real(S.nS / S.Obj[currentObj]->getn());
 			fr = (-kref * PowRef);
 			ft = (-ktrans * PowTrans);
 			fg = ft + fe + fr;
-			r = PStop - S.Obj[currentObj]->P;
+			r = PStop - S.Obj[currentObj]->getPos();
 			f[currentLS][currentObj] += fg;
 			l[currentLS][currentObj] += r % fg;
 		}
@@ -356,9 +356,9 @@ namespace GOAT
 
 			fe = (kin * PowIn);
 			fr = (-kref * PowRef);
-			ft = (-ktrans * PowTrans) * real(S.nS / S.Obj[currentObj]->n);
+			ft = (-ktrans * PowTrans) * real(S.nS / S.Obj[currentObj]->getn());
 			fg = fe + fr + ft;
-			r = PStop - S.Obj[currentObj]->P;
+			r = PStop - S.Obj[currentObj]->getPos();
 			f[currentLS][currentObj] += fg;
 			l[currentLS][currentObj] += r % fg;
 		}
@@ -381,7 +381,7 @@ namespace GOAT
 		{
 			int nObj = getNumberOfObjects();
 			int nLS = getNumberOfLightSources();
-			obj->r0 = r0;
+			obj->setr0(r0);
 			obj->initQuad();
 			Obj.push_back(obj);
 			int intersect = -1;

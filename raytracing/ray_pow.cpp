@@ -78,7 +78,7 @@ namespace GOAT
                     Erg.inObject = true;
                     // Erg.n=Ein[objIndex]->n;
                     Erg.n = n2;
-                    Erg.OK = Obj[objIndex]->P; // ??
+                    Erg.OK = Obj[objIndex]->getPos(); // ??
                     Erg.objIndex = objIndex;
                     Erg.refract(FT, n, n1, n2);
 

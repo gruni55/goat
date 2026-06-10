@@ -294,15 +294,15 @@ namespace GOAT
         for (int i = 0; i < numObjs; i++)
         {
             Obj[i]->initQuad();
-			std::cout << "pul" << Obj[i]->pul << "\tpor=" << Obj[i]->por << "\td=" << d << std::endl;
-;            h = ceil(ediv(Obj[i]->por, d)) - floor(ediv(Obj[i]->pul, d));
-            hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+			std::cout << "pul" << Obj[i]->getBBoxMin() << "\tpor=" << Obj[i]->getBBoxMax() << "\td=" << d << std::endl;
+;            h = ceil(ediv(Obj[i]->getBBoxMax(), d)) - floor(ediv(Obj[i]->getBBoxMin(), d));
+            hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gre des 3D-Gitters in die drei Koordinatenrichtungen
             n.push_back(hn);
 			std::cout << "new  size n[" << i << "]=" << n[i][0] <<"," << n[i][1] << "," << n[i][2] << std::endl;
-            h = floor(ediv(Obj[i]->pul + maths::Vector<double>(r0, r0, r0), d));
+            h = floor(ediv(Obj[i]->getBBoxMin() + maths::Vector<double>(r0, r0, r0), d));
             Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
 
-            if (Obj[i]->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
+            if (Obj[i]->isActive())  // Ist der Einschluss überhaupt inelastisch aktiv ? 
             {
                 G[i].resize(n[i][0] + 1);
                 for (INDEX_TYPE ix = 0; ix < n[i][0] + 1; ix++)
@@ -330,7 +330,7 @@ namespace GOAT
         double b = 2.0 * r0;
         d = maths::Vector<double>(b / (double)(nges[0] - 1), b / (double)(nges[1] - 1), b / (double)(nges[2] - 1));
       //   h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
-        h = ceil(ediv(E->por-E->pul, d)) ;
+        h = ceil(ediv(E->getBBoxMin()-E->getBBoxMax(), d));
 
         hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0]+1, (INDEX_TYPE)h[1]+1, (INDEX_TYPE)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
 
@@ -355,7 +355,7 @@ namespace GOAT
       
         n.push_back(hn);
         Obj.push_back(E);
-        h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
+        h = floor(ediv(Obj[numObjs]->getBBoxMin() + maths::Vector<double>(r0, r0, r0), d));
         Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
         
         if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 

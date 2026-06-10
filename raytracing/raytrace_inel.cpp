@@ -118,9 +118,9 @@ namespace GOAT
 						for (int iy = 0; iy < SGRRT1[0].n[i][1]; iy++)
 							for (int iz = 0; iz < SGRRT1[0].n[i][2]; iz++)
 							{
-								g = gewichte(SGRRT1[0].G[i][ix][iy][iz], S.Obj[i]->alpha * SGE[0].G[i][ix][iy][iz]);
+								g = gewichte(SGRRT1[0].G[i][ix][iy][iz], S.Obj[i]->getAlpha() * SGE[0].G[i][ix][iy][iz]);
 								SGRRT1[0].G[i][ix][iy][iz] *= g;
-								g = gewichte(SGRRT2[0].G[i][ix][iy][iz], S.Obj[i]->alpha * SGE[0].G[i][ix][iy][iz]);
+								g = gewichte(SGRRT2[0].G[i][ix][iy][iz], S.Obj[i]->getAlpha() * SGE[0].G[i][ix][iy][iz]);
 								SGRRT2[0].G[i][ix][iy][iz] *= g;
 							}
 				double  anzrays2 = (double)S.LSRRT->getNumRays() * (double)S.LSRRT->getNumRays();
@@ -287,7 +287,7 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<INDEX_TYPE> cell;
 			double k0 = S.LS[currentLS]->getWavenumber();
-			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->isActive()) && (L < 2.0 * S.r0))
 			{
 				while (s < L)
 				{
@@ -295,7 +295,7 @@ namespace GOAT
 					Pnew = pnext(P, kin, SGE[iR],currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
-					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
+					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->getn());
 					cell = SGE[iR].gitterpunkt((Pnew + P) / 2.0);
 					/*if (SGE[iR].Error==SUPERGITTER)
 					{
@@ -332,14 +332,14 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<INDEX_TYPE> cell;
 			double k0 = 2.0 * M_PI / parms.wvlinel;
-			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->isActive()) && (L < 2.0 * S.r0))	
 			{
 				while (s < L)
 				{
 					Pnew = pnext(P, kin, SGRRT1[iR], currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
-					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
+					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->getn());
 					cell = SGRRT1[iR].gitterpunkt((Pnew + P) / 2.0);
 					
 					EG = SGRRT1[iR](currentObj, cell);

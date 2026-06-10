@@ -775,7 +775,7 @@ namespace GOAT
 					}
 					double sf=objEll->DoubleAttribute("scaling",1);
                     if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf);
-                    Obj[numObj]->nfunc = GOAT::raytracing::n_Vacuum;
+                    Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
                     Obj[numObj]->setPos(Pos);
 
 					std::string objID = "object_" + std::to_string(numObj) ;
@@ -1527,7 +1527,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     {
                         if ((*obj)->isActive())
                         {
-                            auto p = (*obj)->nfunc.target<raytracing::nFnPtr>();
+                            auto p = (*obj)->nFunc().target<raytracing::nFnPtr>();
                             std::string entry= GOAT::raytracing::nToKey.at(*p);
 							std::string nStr = "n" + std::to_string(i);
                             refractiveIndexList->SetAttribute(nStr.c_str(), entry.c_str());
@@ -1664,19 +1664,19 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         void xmlWriter::addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i)
         {
             auto object = doc.NewElement("Object");
-            int typeh = S.Obj[i]->type-10000;
-            int type = S.Obj[i]->type;
+            int typeh = S.Obj[i]->Type()-10000;
+            int type = S.Obj[i]->Type();
 
 
             // ---------------- global parameters ----------------
             object->SetAttribute("type",objectToken[typeh].c_str());                        
-            object->InsertEndChild(addVectorD2DOM(doc,"Position", S.Obj[i]->P));
-            object->SetAttribute("alpha",formatDouble(S.Obj[i]->Ealpha/M_PI*180.0).c_str());
-            object->SetAttribute("beta",formatDouble(S.Obj[i]->Ebeta/M_PI*180.0).c_str());
-            object->SetAttribute("gamma",formatDouble(S.Obj[i]->Egamma/M_PI*180.0).c_str());
+            object->InsertEndChild(addVectorD2DOM(doc,"Position", S.Obj[i]->pos()));
+            object->SetAttribute("alpha",formatDouble(S.Obj[i]->getAlpha()/M_PI*180.0).c_str());
+            object->SetAttribute("beta",formatDouble(S.Obj[i]->getBeta()/M_PI*180.0).c_str());
+            object->SetAttribute("gamma",formatDouble(S.Obj[i]->getGamma()/M_PI*180.0).c_str());
             object->SetAttribute("isactive",S.Obj[i]->isActive());
-            object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->n));            
-            object->SetAttribute("scaling",formatDouble(S.Obj[i]->sf).c_str());
+            object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->getn()));            
+            object->SetAttribute("scaling",formatDouble(S.Obj[i]->getScale()).c_str());
 			object->SetAttribute("ID", S.Obj[i]->getID().c_str());
 
             // --------------- special parameters ----------------

@@ -69,14 +69,16 @@ maths::Vector<double> d = por - pul;
 double h = d[0];
 if (d[1] > h) h = d[1];
 if (d[2] > h) h = d[2];
-Tree.BBox = Box(maths::dzero, d, n);
-Tree.BBox.setOctree(true);
-Tree.createTree(TREE_RECURSIONS);
+maths::Vector<double> mid = (pul + por) / 2.0;
+Tree.BBox = Box(mid, d * 1.01, this->n);
+// Tree.BBox = Box(maths::dzero, d, n);
+//Tree.BBox.setOctree();
+Tree.createTree();
 for (int i = 0; i < numTriangles; i++)
 {
   addTriangleToTriangle(Tree, S[i]);
 }
-Tree.trimOctree();
+// Tree.trimOctree();
 /*  cout << "%TREE Begins ------------------" << endl;
 cout << Tree << endl;
 cout << "%TREE END ---------------------" << endl;*/
@@ -763,10 +765,10 @@ void surface::addTriangle(triangle* list,int anz)
 
 
 
-std::ostream& operator << (std::ostream &os, const surface &su)
+std::ostream& operator << (std::ostream &os,  surface &su)
 {
-	os << "Pos=" << su.P << std::endl;
-	os << "Winkel:" << su.Ealpha << "," << su.Ebeta << "," << su.Egamma << std::endl; 
+	os << "Pos=" << su.getPos() << std::endl;
+	os << "Winkel:" << su.getAlpha() << "," << su.getBeta() << "," << su.getGamma() << std::endl; 
  os << "anzp:" << su.numTriangles << std::endl;
  if(su.numTriangles>0)
  {
@@ -1312,7 +1314,7 @@ surface generatePill (double a, double b, double h, int N, double r0, maths::Mat
  }
   
        S=surface(maths::dzero, 1.5, c, D);
-       S.r0;
+     //  S.r0;
   
 	return S;
 
@@ -1404,7 +1406,7 @@ surface generateEllipsoid (double a, double b, int N, double r0, maths::Matrix<d
  }
   
        S=surface(maths::dzero, 1.5, c, D);
-       S.r0;
+      // S.r0;
   
 	return S;
 

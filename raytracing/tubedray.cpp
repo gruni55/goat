@@ -217,7 +217,7 @@ bool tubedRay::next()
   {
    Obj[objIndex]->next(P[i],k[i],R[i]);
    if (!suppress_phase_progress)
-        E[i]=E[i]*exp(I*k0*Obj[objIndex]->n*abs(R[i]-P[i]));  
+        E[i]=E[i]*exp(I*k0*Obj[objIndex]->getn()*abs(R[i]-P[i]));  
   }
  
  }
@@ -313,9 +313,9 @@ tubedRay tubedRay::reflect(maths::Vector<double> *n, std::complex<double>  n1, s
    {
     // Einschluss wurde getroffen
     Erg=*this;
-    Erg.OK=Obj[objIndex]->P;
+    Erg.OK=Obj[objIndex]->getPos();
     Erg.inObject=true;
-    Erg.n=Obj[objIndex]->n;
+    Erg.n=Obj[objIndex]->getn();
     Erg.objIndex=objIndex;
     Erg.refract(n,n1,n2);
     Erg.getunnelt=false;
@@ -465,9 +465,9 @@ tubedRay tubedRay::reflect(maths::Vector<double> n, std::complex<double>  n1, st
    {
     // Einschluss wurde getroffen
     Erg=*this;
-    Erg.OK=Obj[objIndex]->P;
+    Erg.OK=Obj[objIndex]->getPos();
     Erg.inObject=true;
-    Erg.n=Obj[objIndex]->n;
+    Erg.n=Obj[objIndex]->getn();
     Erg.objIndex=objIndex;
     Erg.refract(n,n1,n2);
     Erg.getunnelt=false;

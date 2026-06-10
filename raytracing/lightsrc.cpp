@@ -212,7 +212,7 @@ namespace  GOAT
 			case LINSE: Ein[numObjs] = new Linse(*((Linse*)obj)); break;
 			case OBJECTSHAPE_BOX: Ein[numObjs] = new Box(*((Box*)obj)); break;
 			}*/
-			Obj[numObjs]->r0 = r0;
+			Obj[numObjs]->setr0(r0);
 			Obj[numObjs]->initQuad();
 			numObjs++;
 		}
@@ -1122,13 +1122,13 @@ namespace  GOAT
 			for (int i = 0; i < ls->numObjs; i++)
 			{
 				os << "%------------------- Objekt " << i << " -----------------" << std::endl;
-				os << "% P=" << ls->Obj[i]->P << std::endl;
-				if (ls->Obj[i]->type == OBJECTSHAPE_ELLIPSOID)
+				os << "% P=" << ls->Obj[i]->getPos() << std::endl;
+				if (ls->Obj[i]->Type() == OBJECTSHAPE_ELLIPSOID)
 				{
 					Ellipsoid* e = (Ellipsoid*)ls->Obj[i];
 					os << "% Halbachsen= " << e->r << std::endl;
 				}
-				os << "% Brechungsindex n=" << real(ls->Obj[i]->n) << "+ i*" << imag(ls->Obj[i]->n) << std::endl;
+				os << "% Brechungsindex n=" << real(ls->Obj[i]->getn()) << "+ i*" << imag(ls->Obj[i]->getn()) << std::endl;
 				os << "% -----------------  ENDE ----------------" << std::endl;
 
 			}

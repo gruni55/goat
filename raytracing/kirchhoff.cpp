@@ -172,7 +172,7 @@ namespace GOAT
 		
 		Kirchhoff3D::Kirchhoff3D(Box* box, INDEX_TYPE nn)
 		{		
-			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, nn, nn, nn);
+			field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->getr0(), nn, nn, nn);
 			box->setActive(true);
 			field3D.addInc(box);
 			fieldInitialized = true;
@@ -192,12 +192,12 @@ namespace GOAT
 
 		void Kirchhoff3D::setR0(double r0)
 		{
-			if (r0 != box->r0)
+			if (r0 != box->getr0())
 			{
-				box->r0 = r0;
+				box->setr0(r0);
 				std::cout << "[setR9]" << "\ttype=" << field3D.type << std::endl;
 
-				// field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
+				// field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->getr0(), field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
 				box->setActive(true);
 				field3D.reinit(r0, field3D.nges[0], field3D.nges[1], field3D.nges[2]);
 			}
@@ -212,7 +212,7 @@ namespace GOAT
 
 		void Kirchhoff3D::setSpatialResolution(double res)
 		{
-			INDEX_TYPE nn = (INDEX_TYPE)ceil(2.0 * box->r0 / res);
+			INDEX_TYPE nn = (INDEX_TYPE)ceil(2.0 * box->getr0() / res);
 			setNN(nn);
 		}
 
@@ -227,13 +227,13 @@ namespace GOAT
 		{
 			if (!fieldInitialized)
 			{
-				field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->r0, field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
+				field3D = raytracing::SuperArray<maths::Vector<std::complex<double>>>(box->getr0(), field3D.n[0][0], field3D.n[0][1], field3D.n[0][2]);
 				fieldInitialized = true;
 			}
 			if (clear) field3D.fill(maths::czero);
-			double d = box->r0 * 2.0 / (double)(field3D.nges[0] - 1);
+			double d = box->getr0() * 2.0 / (double)(field3D.nges[0] - 1);
 			maths::Vector<double> hd = box->d;
-			maths::Vector<double> Pc = box->P;
+			maths::Vector<double> Pc = box->getPos();
 			auto* field = &field3D;
 			for (auto det : sources)
             #pragma omp parallel for collapse(3) schedule(static) default(none) shared(field,Pc,wvl,d,hd,det) num_threads(noThreads)

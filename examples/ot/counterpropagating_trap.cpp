@@ -55,7 +55,7 @@ int main()
     /* variation loop */
     for (double z = -10; z <= 10; z += 0.05)
     {
-        obj.P[2] = z; // change object's position
+        obj.pos()[2] = z; // change object's position
         ot.trace();            // do raytracing 
 
         /* The result is stored in the array F for the force and in L for the angular momenta

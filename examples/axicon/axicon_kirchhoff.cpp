@@ -110,9 +110,10 @@ int main(int argc, char** argv)
 	c.setConeAngle(80.0 / 180.0 * M_PI);
 	// ---- Detector (faces source) ----
 	const double eps_um = 1.0;
-	maths::Vector<double> detPos(0, 0, height_um + eps_um);
-	maths::Vector<double> detNorm(0, 0, -1);
-	double detSize = 1000.0;  int detGridsize = 250;
+	// maths::Vector<double> detPos(0, 0, height_um + eps_um);
+	maths::Vector<double> detPos(0, 0, 0);
+	maths::Vector<double> detNorm(0, 0, 1);
+	double detSize = 25;  int detGridsize = 200;
 	raytracing::DetectorPlane det(detPos, detNorm, detSize, detGridsize);
 
 	// ---- Scene ----
@@ -122,7 +123,11 @@ int main(int argc, char** argv)
 	raytracing::Raytrace_pure rp(S); 
 	rp.setNumReflex(0);
 	auto start = std::chrono::high_resolution_clock::now();  // Startzeitpunkt
-	rp.trace();
+	// rp.trace();
+	auto kd = (raytracing::DetectorPlane*)&det;
+	for (auto kdx = kd->D.begin(); kdx != kd->D.end(); kdx++)
+		for (auto& k : *kdx) k = GOAT::maths::Vector<std::complex<double>>(0, 1.0, 0);
+
 	auto end = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 	std::cout << "done. (" << duration.count() << "ms)" << std::endl;
@@ -138,13 +143,13 @@ int main(int argc, char** argv)
 	//----- now the Kirchhoff stuff ----
 
 	maths::Vector<double> P;
-	int n = 250; // number of cells/direction
-	double l = 50; // edge length
-	// maths::Vector<double> Pc(0, 0, 14000);
-	 maths::Vector<double> Pc(0, 0, height_um+1000);
+	int n = 100; // number of cells/direction
+	double l = 100; // edge length
+	 maths::Vector<double> Pc(0, 0, 2000);
+	 // maths::Vector<double> Pc(0, 0, height_um+1000);
 
 	raytracing::Kirchhoff kh(wvl, Pc, maths::ex * l, maths::ey * l, n, n);
-	
+	kh.setNumberOfThreads(24);
 	det.save("C:\\tmp\\detector.dat");
 	kh.addDetector((raytracing::DetectorPlane*)&det);
 	kh.calc();

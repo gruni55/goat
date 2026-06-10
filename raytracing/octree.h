@@ -71,10 +71,11 @@ namespace GOAT
 
 		template <class T> Octree<T>::Octree(const Octree& O)
 		{
-			if (O.parent)
+			/*if (O.parent)
 				parent = O.parent;
 			else
-				parent = nullptr;
+				parent = nullptr;*/
+			parent = nullptr;
 			nChilds = O.nChilds;
 			for (const auto& ptr : O.child)
 				child.push_back(std::make_unique<Octree<T>>(*ptr));
@@ -172,9 +173,9 @@ namespace GOAT
 				case 6: sx = -1; sy = +1; sz = +1; break;
 				case 7: sx = +1; sy = +1; sz = +1; break;
 				}
-				P = BBox.P + maths::Vector<double>(sx * BBox.d[0] / 4.0, sy * BBox.d[1] / 4.0, sz * BBox.d[2] / 4.0);
+				P = BBox.getPos() + maths::Vector<double>(sx * BBox.d[0] / 4.0, sy * BBox.d[1] / 4.0, sz * BBox.d[2] / 4.0);
 				d = BBox.d / 2.0;
-				newChild->BBox = Box(P, d, BBox.n);
+				newChild->BBox = Box(P, d, BBox.getn());
 
 				child.push_back(std::move(newChild));
 

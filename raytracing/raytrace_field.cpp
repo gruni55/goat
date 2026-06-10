@@ -91,7 +91,7 @@ namespace GOAT {
 							if ( l < abs(PStart - PStop)) // is the intersection point with the box detector before the intersection with the next object?
 							{
 								std::complex <double> n;
-								if (currentObj > -1) n = S.Obj[currentObj]->n;
+								if (currentObj > -1) n = S.Obj[currentObj]->getn();
 								else n = S.nS;
 								storeData(pDet, PStop, EStart * exp(I * ray->k0 * n * l)); // Store the electric field								
 							}
@@ -108,7 +108,7 @@ namespace GOAT {
 						l = abs(PStart - pDet);
 						if ( l < abs(PStart - PStop)) // the end of the box detector is inside the object
 						{
-							if (objIndex > -1) n = S.Obj[objIndex]->n;
+							if (objIndex > -1) n = S.Obj[objIndex]->getn();
 							else n = S.nS;
 							storeData(PStart, pDet, EStart);
 							indexCurrentDetector = -1;
@@ -116,19 +116,19 @@ namespace GOAT {
 						else
 						{
 							l = abs(PStop - PStart);
-							if (currentObj > -1) n = S.Obj[currentObj]->n;
+							if (currentObj > -1) n = S.Obj[currentObj]->getn();
 							else n = S.nS;
 							storeData(PStart, PStop, EStart);
 						}
 					}
 					if (ray->isInObject()) // Is the ray inside an object ?
 					{
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->ninel, S.nS);
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getninel(), S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 							copyRay(tray, ray);
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->n, S.nS);
+							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);
 						}
 
 						kref = ray->getk();
@@ -157,12 +157,12 @@ namespace GOAT {
 							if (useRRTParms)
 							{
 								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());
 							}
 							else
 							{
 								copyRay(tray, ray);
-								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->n);
+								ray->reflectRay(tray, n, S.nS, S.Obj[objIndex]->getn());
 								//					std::cout << "*k=" << ((tubedRay*)tray)->k[4]  <<  std::endl;
 							}
 
@@ -217,7 +217,7 @@ namespace GOAT {
 			maths::Vector<double> Pnew;
 			maths::Vector<INDEX_TYPE> cell;
 			std::complex<double> n;
-			if (currentObj > -1) n = S.Obj[currentObj]->n;
+			if (currentObj > -1) n = S.Obj[currentObj]->getn();
 			else n = S.nS;
 			bool cancel = false;
 			while ((s < L) && (!cancel))
