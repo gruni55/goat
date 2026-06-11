@@ -12,6 +12,7 @@
 #include "angularSpectrum.h"
 #include "detector.h"
 #include "goat_defines.h"
+#include "roughObject.h"    
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
@@ -605,7 +606,7 @@ namespace GOAT
 			std::string fileName;
             std::string ID;
 			std::complex<double> n;
-
+            bool isRough;
 			bool isActive;
 			double alpha = 0;
 			double beta = 0;
@@ -626,35 +627,34 @@ namespace GOAT
 					beta = objEll->DoubleAttribute("beta", 0.0) / 180.0 * M_PI;
 					gamma = objEll->DoubleAttribute("gamma", 0.0) / 180.0 * M_PI;
 					isActive = objEll->BoolAttribute("isactive", false);
-
+					isRough = objEll->BoolAttribute("isrough", false);
                     auto text=objEll->Attribute("ID");
                     if (text == nullptr) ID = "new_Object";
                     else ID = text;
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					int type = mapString2ObjectToken(typeStr);
+					raytracing::ObjectShape* obj = nullptr;
 					switch (type)
 					{ 
 
 					case TOKEN_OBJECT_ELLIPSOID: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
-													Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
-													Obj[numObj]->setMatrix(alpha, beta, gamma);
-													Obj[numObj]->setActive(isActive);
-													S.addObject(Obj[numObj]);
+                                                    obj = new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n);                                                    
+													obj->setMatrix(alpha, beta, gamma);
+                                                    obj->setActive(isActive);
 												 }
 											   break;
 					case TOKEN_OBJECT_BOX: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10, 10, 10);
-													Obj.push_back(new GOAT::raytracing::Box(Pos, Dimensions, n));
-													Obj[numObj]->setMatrix(alpha, beta, gamma);
-													Obj[numObj]->setActive(isActive);
-													S.addObject(Obj[numObj]);
+													obj = new GOAT::raytracing::Box(Pos, Dimensions, n);
+													obj->setMatrix(alpha, beta, gamma);
+													obj->setActive(isActive);													
 										    }
 										 break;
 					case TOKEN_OBJECT_SURFACE: 
 										   {
-											Obj.push_back(new GOAT::raytracing::surface(Pos, n));
+											obj=new GOAT::raytracing::surface(Pos, n);
 											fileTypeStr = objEll->Attribute("filetype");
 
 											if (fileTypeStr.compare(".srf") == 0)
@@ -671,7 +671,7 @@ namespace GOAT
 
                                                 
 
-												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
+												if (!fileName.empty()) ((GOAT::raytracing::surface*)obj)->createsurface(fileName);
 											}
 
 											if (fileTypeStr.compare(".stl") == 0)
@@ -687,12 +687,11 @@ namespace GOAT
                                                     }
                                                 }
 												if (!fileName.empty())
-												((GOAT::raytracing::surface*)Obj[numObj])->importBinSTL(fileName);
+												((GOAT::raytracing::surface*)obj)->importBinSTL(fileName);
 											}
 										   }
-										   Obj[numObj]->setMatrix(alpha, beta, gamma);
-										   Obj[numObj]->setActive(isActive);
-										   S.addObject(Obj[numObj]);
+										   obj->setMatrix(alpha, beta, gamma);
+										   obj->setActive(isActive);
 										   break;
 
 					case TOKEN_OBJECT_SPHERIC_LENS:
@@ -727,10 +726,9 @@ namespace GOAT
 												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);                                                
 
 
-												Obj.push_back(new GOAT::raytracing::sphericLens(Pos,n,lensparms));
-												Obj[numObj]->setMatrix(alpha, beta, gamma);
-												Obj[numObj]->setActive(isActive);
-												S.addObject(Obj[numObj]);	
+												obj=new GOAT::raytracing::sphericLens(Pos,n,lensparms);
+												obj->setMatrix(alpha, beta, gamma);
+												obj->setActive(isActive);
                                                 break;						
 											}
                     case TOKEN_OBJECT_CONE: 
@@ -738,11 +736,10 @@ namespace GOAT
                                                 double height, radius;
                                                 height=objEll->DoubleAttribute("height",100);
                                                 radius=objEll->DoubleAttribute("radius",100);
-                                                Obj.push_back(new GOAT::raytracing::Cone(Pos,radius,height,n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-												Obj[numObj]->setActive(isActive);
-												S.addObject(Obj[numObj]);	
-                                                break;
+                                                obj=new GOAT::raytracing::Cone(Pos,radius,height,n);
+                                                obj->setMatrix(alpha, beta, gamma);
+												obj->setActive(isActive);
+												break;
                                             }
 
                     case TOKEN_OBJECT_CYLINDER:
@@ -750,12 +747,12 @@ namespace GOAT
                                                 double height, radius;
                                                 height = objEll->DoubleAttribute("height", 1);
                                                 radius = objEll->DoubleAttribute("radius", 1);                                                
-                                                Obj.push_back(new GOAT::raytracing::Cylinder(Pos, radius, height, n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-                                                Obj[numObj]->setActive(isActive);
-                                                S.addObject(Obj[numObj]);
+                                                obj=new GOAT::raytracing::Cylinder(Pos, radius, height, n);
+                                                obj->setMatrix(alpha, beta, gamma);
+                                                obj->setActive(isActive);
                                                 break;
                                             }
+
                     case TOKEN_OBJECT_VORTEX_PLATE:
                                             {                                                
                                                 double height, radius, dh;
@@ -764,23 +761,32 @@ namespace GOAT
                                                 radius = objEll->DoubleAttribute("radius", 1);
                                                 m = objEll->IntAttribute("m", 1);
                                                 dh = objEll->DoubleAttribute("dh", 1);
-                                                Obj.push_back(new GOAT::raytracing::VortexPlate(Pos, radius, height, dh, m, n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-                                                Obj[numObj]->setActive(isActive);
-                                                S.addObject(Obj[numObj]);
+                                                obj=new GOAT::raytracing::VortexPlate(Pos, radius, height, dh, m, n);
+                                                obj->setMatrix(alpha, beta, gamma);
+                                                obj->setActive(isActive);
                                                 break;
                             
                                             }
 
 					}
-					double sf=objEll->DoubleAttribute("scaling",1);
-                    if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf);
-                    Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
-                    Obj[numObj]->setPos(Pos);
+                    if (obj != nullptr)
+                    {
+                        if (isRough)
+                        {
+							double sigma = objEll->DoubleAttribute("sigma", 0.0);
+                            obj = makeRough(obj,sigma);
+                        }
+                        Obj.push_back(obj);
+                        S.addObject(obj);
+                        double sf = objEll->DoubleAttribute("scaling", 1);
+                        if ((sf != 1) && (sf > 0)) Obj[numObj]->scale(sf);
+                        Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
+                        Obj[numObj]->setPos(Pos);
 
-					std::string objID = "object_" + std::to_string(numObj) ;
-					Obj[numObj]->setID(objID);
-					numObj++;
+                        std::string objID = "object_" + std::to_string(numObj);
+                        Obj[numObj]->setID(objID);
+                        numObj++;
+                    }
 				} // while loop
 
 				  // S.addObjectList(numObj, Obj);
@@ -1680,6 +1686,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 			object->SetAttribute("ID", S.Obj[i]->getID().c_str());
 
             // --------------- special parameters ----------------
+                     
+            if (S.Obj[i]->isRough())
+            {
+                object->SetAttribute("isrough", true);
+                raytracing::roughInterface* robj =dynamic_cast<raytracing::roughInterface *>(S.Obj[i]);
+                if (robj) object->SetAttribute("sigma",formatDouble(robj->getSigma()).c_str());       
+            }
             switch (type) 
             {
                 case OBJECTSHAPE_ELLIPSOID : 

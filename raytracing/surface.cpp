@@ -50,15 +50,17 @@ surface::surface(const surface &Su):ObjectShape(Su)
   currentIndex = Su.currentIndex;
   S=new triangle[numTriangles];
   P=Su.P;
-  for (int i=0;i<numTriangles;i++)
+  for (int i=0;i<numTriangles;i++)	
   {
    S[i]=Su.S[i];
    // cout << S[i].P[0] << "   " << S[i].P[1] <<  "   " << S[i].P[2] << endl; 
   }
 
-  type=OBJECTSHAPE_SURFACE;  
+  type=OBJECTSHAPE_SURFACE;
+  FName = Su.FName;
+  filetype = Su.filetype;
 //  if (FName!=0) delete[] FName;  
-    FName="UNBEKANNT";
+    // FName="UNBEKANNT";
     
 //  cout << "weiter" << endl;
   initQuad(); 
