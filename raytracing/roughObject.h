@@ -24,6 +24,7 @@ namespace GOAT
                 {
                     setSigma(sigma);
                     this->rough = true;
+                    dist = std::uniform_real_distribution<double>(-1.0, 1.0);
                 }
 
                 roughObject(T* obj, double sigma)
@@ -45,7 +46,9 @@ namespace GOAT
 
                 maths::Vector<double> norm(const maths::Vector<double>& P) override
                 {
+                    
                     maths::Vector<double> n = T::norm(P);
+                    if (sigma == 0.0) return n;
                     maths::Vector<double> a(dist(rng), dist(rng), dist(rng));
 
                     maths::Vector<double> t = a - n * (a * n);
@@ -58,7 +61,7 @@ namespace GOAT
                 void setSigma(double s)
                 {
                     sigma = s;
-                    dist = std::uniform_real_distribution<double>(-1.0, 1.0);
+                    if (s>0)
                     thetaDist = std::normal_distribution<double>(0.0, sigma);
                 }
 

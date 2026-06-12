@@ -844,23 +844,33 @@ namespace GOAT
                             {
 								std::cout << "do pure raytracing calculation" << std::endl;
                              GOAT::raytracing::Raytrace_pure rt(S);      
-                             rt.setNumReflex(numReflex);                       
+                             rt.setNumReflex(S.getNumReflex());                       
                              rt.trace();
 							 std::cout << S.getNumberOfDetectors() << " detectors in scene" << std::endl;
                              for (auto det : S.Det)
                              {
-								 std::cout << "Detector: " << det->getID() << " with type" << det->Type() << std::endl;
-								 int type = det->Type();
+                                 std::cout << "Detector: " << det->getID() << " with type" << det->Type() << std::endl;
+                                 std::cout << "total intensity(rt): " << std::endl;
+                                 std::cout << "total intensity: " << det->getTotalIntensity() << std::endl;
+                                 int type = det->Type();
                                  if (type == TOKEN_DETECTOR_KIRCHHOFF || type == raytracing::DETECTOR_KIRCHHOFF)
                                  {
                                      GOAT::raytracing::Kirchhoff* K = (GOAT::raytracing::Kirchhoff*)det;
                                      std::cout << "Kirchhoff detector: " << K->getID() << "with " << K->numberOfSources() << " sources" << std::endl;
-									 K->setNumberOfThreads(numThreads);
+                                     K->setNumberOfThreads(numThreads);
                                      K->calc();
                                  }
-                            }
-                             break;
-                            }
+
+                                 if (type == TOKEN_DETECTOR_ANGULAR_SPECTRUM || type == raytracing::DETECTOR_ANGULAR_SPECTRUM)
+                                 {
+                                     GOAT::raytracing::AngularSpectrum* AS = (GOAT::raytracing::AngularSpectrum*)det;
+                                     std::cout << "Angular spectrum detector: " << AS->getID() << std::endl;
+                                     AS->setNumberOfThreads(numThreads);
+                                     AS->calc();
+                                 }
+                             }
+                                 break;
+                             }
 							case TOKEN_CALCULATION_PATH:
 							{
                                 std::cout << "do path calculation" << std::endl;
@@ -869,9 +879,17 @@ namespace GOAT
                                 // S.nDet=0;
 								if (!fname.empty())
 								{
-									GOAT::raytracing::Raytrace_Path rt(S);
+                                    /*
+									GOAT::raytracing::Raytrace_Inel rt(S);
+                                    GOAT::raytracing::RRTParms rrtparms;
+                                    
+                                    rt.setExcitationFieldOnly();
+                                    rt.setNumReflex(numReflex);
+                                    rt.trace(rrtparms);
+									*/
+                                    GOAT::raytracing::Raytrace_Path rt(S);
 									rt.setNumReflex(numReflex);
-									rt.trace(fname);
+									rt.trace(fname);                                    
 								}
 								else
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;

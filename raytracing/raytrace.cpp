@@ -132,15 +132,16 @@ namespace GOAT
 					else n = S.nS;
 					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
-                        if (S.Det[i]->cross(PStart, kin, i1, i2, l) && (S.Det[i]->Type()==DETECTOR_PLANE))
+						if(S.Det[i]->Type()==DETECTOR_PLANE)
+							if (S.Det[i]->cross(PStart, kin, i1, i2, l)) 
 						{            
 							  //  std::cout << "l=" << l << std::endl;
-							    if (abs(PStop-PStart)>l)
+ 							    if (abs(PStop-PStart)>l)
 								{
 							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
 								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
 								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
-							  // std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
+							 //  std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
 								}
 //								
 						}

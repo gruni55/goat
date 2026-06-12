@@ -278,6 +278,15 @@ namespace GOAT
 			os.close();
 		}
 
+
+		double Detector::getTotalIntensity()
+		{
+			double sum = 0;
+			for (int i1 = 0; i1 < n1; i1++)
+				for (int i2 = 0; i2 < n2; i2++)
+					sum += abs2(D[i1][i2]);
+			return sum;
+		}
 		/*bool Detector::cross(GOAT::maths::Vector<double> P, GOAT::maths::Vector<double> k, int& i1, int& i2, double& l)
 		{
 		  switch (type)

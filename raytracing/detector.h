@@ -93,6 +93,7 @@ namespace GOAT
 		void mult(std::complex<double> fac); 
 		maths::Vector<double> gete1() { return e1; } ///< returns the direction of the first axis of the detector
 		maths::Vector<double> gete2() { return e2; } ///< returns the direction of the second axis of the detector
+		double getTotalIntensity(); ///< returns the total intensity on the detector, i.e. the sum of the absolute value of all elements in the array
 	protected:
 		maths::Vector<double> e1; ///< unit vector in the first direction 
 		maths::Vector<double> e2; ///< unit vector in the second direction

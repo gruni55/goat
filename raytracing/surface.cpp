@@ -1006,10 +1006,17 @@ void surface::exportSRF (std::string FName)
 {
  std::ofstream os;
  os.open (FName);
- os << numTriangles << std::endl;
- for (int i=0; i<numTriangles; i++)
-  os << S[i] << std::endl;
- os.close();
+ if (os.fail())
+ {
+	 std::cout << "Failed to write file: " << FName << std::endl;
+ }
+ else
+ {
+	 os << numTriangles << std::endl;
+	 for (int i = 0; i < numTriangles; i++)
+		 os << S[i] << std::endl;
+	 os.close();
+ }
 }
 
 /*!
