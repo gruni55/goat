@@ -543,8 +543,8 @@ namespace  GOAT
 			
 			S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / (N * N);
-			S.E2 = Pol2 / (N * N);
+			S.E1 = Pol / static_cast<double>(N * N);
+			S.E2 = Pol2 / static_cast<double>(N * N);
 			// S.init_Efeld(E,Pol);
 			i1++;
 
@@ -1237,8 +1237,8 @@ namespace  GOAT
 			E.n = k;
 			S = IRay(P, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
 			S.suppress_phase_progress = suppress_phase_progress;
-			S.E1 = Pol / (N * N);
-			S.E2 = Pol2 / (N * N);
+			S.E1 = Pol / static_cast<double>(N * N);
+			S.E2 = Pol2 / static_cast<double>(N * N);
 			// S.init_Efeld(E,Pol);
 			i1++;
 
