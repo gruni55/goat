@@ -433,7 +433,7 @@ namespace GOAT
 					Pos = readVector(lsEll->FirstChildElement("Position"));
 					 double nrays = lsEll->DoubleAttribute("numRays", 100);
 					 if (nrays < 0) nrays = 100;
-					 numRays = static_cast<GOAT::raycount_t>(std::llround(nrays));
+					 numRays = static_cast<GOAT::raycount_t>(nrays);
                     numRaysRT = lsEll->IntAttribute("numRaysRT", 10);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
                   size = lsEll->DoubleAttribute("size", 10.0);
