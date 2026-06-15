@@ -4,6 +4,7 @@
 #include "ellipsoid.h"
 #include "box.h"
 #include <random>
+#include <fstream>
 namespace GOAT 
 	{
 		namespace raytracing 
@@ -25,6 +26,7 @@ namespace GOAT
                     setSigma(sigma);
                     this->rough = true;
                     dist = std::uniform_real_distribution<double>(-1.0, 1.0);
+				//	logFile.open("roughObject.log");
                 }
 
                 roughObject(T* obj, double sigma)
@@ -32,6 +34,7 @@ namespace GOAT
                 {
                     setSigma(sigma);
                     this->rough = true;
+                  //  logFile.open("roughObject.log");
                 }
 
                 roughObject(const roughObject& F)
@@ -46,16 +49,19 @@ namespace GOAT
 
                 maths::Vector<double> norm(const maths::Vector<double>& P) override
                 {
-                    
-                    maths::Vector<double> n = T::norm(P);
-                    if (sigma == 0.0) return n;
-                    maths::Vector<double> a(dist(rng), dist(rng), dist(rng));
-
-                    maths::Vector<double> t = a - n * (a * n);
-                    t /= abs(t);
-
-                    double theta = thetaDist(rng);
-                    return n * cos(theta) + t * sin(theta);
+					maths::Vector<double> n = T::norm(P);
+                    maths::Vector<double> t1 = n[2] < 0.9 ? n % maths::ez : n % maths::ex;
+					t1 /= abs(t1);
+					maths::Vector<double> t2 = n % t1;
+					double theta = thetaDist(rng);
+					double phi = dist(rng) * M_PI;
+					double cosTheta = cos(theta);
+					double sinTheta = sin(theta);
+					double cosPhi = cos(phi);
+					double sinPhi = sin(phi);
+					maths::Vector<double> newNormal = cosTheta * n + sinTheta * (cosPhi * t1 + sinPhi * t2);
+                 //   logFile << P << "\t" << n << "\t" << newNormal << "\t" << theta << "\t" << phi << std::endl;
+                    return newNormal;
                 }
 
                 void setSigma(double s)
@@ -71,6 +77,7 @@ namespace GOAT
 				}
 
             private:
+				std::ofstream logFile;
                 std::uniform_real_distribution<double> dist;
                 double sigma = 0.0;
                 std::normal_distribution<double> thetaDist;
