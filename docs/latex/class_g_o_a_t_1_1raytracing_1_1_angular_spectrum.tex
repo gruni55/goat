@@ -127,6 +127,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ad2171375ff2757
 \begin{DoxyCompactList}\small\item\em returns the direction of the second axis of the detector \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a26280c1b6639c43fc2419ed84ba9de47}{get\+ID}} ()
 \begin{DoxyCompactList}\small\item\em returns the ID \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_aa60660e600b908e289b5943e19696745}{get\+Total\+Intensity}} ()
+\begin{DoxyCompactList}\small\item\em returns the total intensity on the detector, i.\+e. the sum of the absolute value of all elements in the array \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_ae8191dfd76e1c12d3c203e35a24d771d}{load}} (const char \texorpdfstring{$\ast$}{*}fn)
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a46b317068186af4bd36c38563ca89ce4}{mult}} (std\+::complex$<$ double $>$ fac)
@@ -246,11 +248,11 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector_a784f4d5e75a807750
 This class implements the angular spectrum method for propagating optical fields. 
 
 \begin{DoxyNote}{Note}
-Currently, only one source is included in the calculation. Due to the calculation method, the resolution of the source and destination must be the same, and both must be arranged parallel to each other. The resolution and position of the destination are adjusted automatically! 
+Currently, only one source is included in the calculation. Due to the calculation method, the resolution of the source and destination must be the same, and both must be arranged parallel to each other. The resolution and position of the destination are adjusted automatically! As sour 
 \end{DoxyNote}
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00012}{12}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00013}{13}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 
 
@@ -365,7 +367,7 @@ double GOAT\+::raytracing\+::\+Angular\+Spectrum\+::dx = 0.\+0\hspace{0.3cm}{\tt
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00060}{60}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00061}{61}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a44e6c2c0d9d62e7a95266fccbdcc0765}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!dy@{dy}}
 \index{dy@{dy}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -375,7 +377,7 @@ double GOAT\+::raytracing\+::\+Angular\+Spectrum\+::dy = 0.\+0\hspace{0.3cm}{\tt
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00061}{61}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00062}{62}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_aaaa3c94055da796622e4eb4d9164e966}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!impl@{impl}}
 \index{impl@{impl}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -385,7 +387,7 @@ std\+::unique\+\_\+ptr$<$Impl$>$ GOAT\+::raytracing\+::\+Angular\+Spectrum\+::im
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00068}{68}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00069}{69}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a576bcfad9cfffda4d86a7dfca0cbf276}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!isSmoothed@{isSmoothed}}
 \index{isSmoothed@{isSmoothed}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -399,7 +401,7 @@ this is true, if the field on the propagator plane has been smoothed (with a Gau
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00070}{70}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00071}{71}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_angular_spectrum_a19cf1e71ad22c227d1248255de6ed59f}\index{GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}!uD@{uD}}
 \index{uD@{uD}!GOAT::raytracing::AngularSpectrum@{GOAT::raytracing::AngularSpectrum}}
@@ -413,7 +415,7 @@ this is the field on the propagator plane before smoothing
 
 
 
-Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00069}{69}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
+Definition at line \mbox{\hyperlink{angular_spectrum_8h_source_l00070}{70}} of file \mbox{\hyperlink{angular_spectrum_8h_source}{angular\+Spectrum.\+h}}.
 
 
 

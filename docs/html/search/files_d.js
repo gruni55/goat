@@ -10,5 +10,6 @@ var searchData=
   ['raytrace_5fusp_5frt_2eh_7',['raytrace_usp_rt.h',['../raytrace__usp__rt_8h.html',1,'']]],
   ['readme_2emd_8',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
   ['refractive_5findex_5ffunctions_2eh_9',['refractive_index_functions.h',['../refractive__index__functions_8h.html',1,'']]],
-  ['resutil_2eh_10',['resutil.h',['../resutil_8h.html',1,'']]]
+  ['resutil_2eh_10',['resutil.h',['../resutil_8h.html',1,'']]],
+  ['roughobject_2eh_11',['roughObject.h',['../rough_object_8h.html',1,'']]]
 ];

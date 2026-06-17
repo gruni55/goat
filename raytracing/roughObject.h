@@ -27,6 +27,7 @@ namespace GOAT
                     this->rough = true;
                    // dist = std::uniform_real_distribution<double>(-1.0, 1.0);
 					dist = std::uniform_real_distribution<double>(0.0, 1.0);
+                    phiDist = std::uniform_real_distribution<double>(0.0, 2.0 * M_PI);
 				//	logFile.open("roughObject.log");
                 }
 
@@ -56,21 +57,24 @@ namespace GOAT
                     maths::Vector<double> t2 = n % t1;
 
                     double m = 1.0;
-					double v = dist(rng);
+				
 					double u = dist(rng);
 
                     double cosAlphaMax = std::cos(sigma);
                     double p = 1.0 / (m + 1.0);
 
-                    double cosAlpha = std::pow(1.0 - u * (1.0 - std::pow(cosAlphaMax, m + 1.0)),p);
+/*                    double cosAlpha = std::pow(1.0 - u * (1.0 - std::pow(cosAlphaMax, m + 1.0)), p);
 
-                    double sinAlpha = std::sqrt(1.0 - cosAlpha * cosAlpha);
-                    double phi = 2.0 * M_PI * v;
+                    double sinAlpha = std::sqrt(1.0 - cosAlpha * cosAlpha);*/
+                    double theta = asin(u);
+                    double sinTheta = sin(theta);
+                    double cosTheta = cos(theta);
+                    double phi = phiDist(rng);
 
                     maths::Vector<double> nMicro =
-                        sinAlpha * std::cos(phi) * t1
-                        + sinAlpha * std::sin(phi) * t2
-                        + cosAlpha * n;
+                        sinTheta * std::cos(phi) * t1
+                        + sinTheta * std::sin(phi) * t2
+                        + cosTheta * n;
                     nMicro/=abs(nMicro);
 					return nMicro;
                 }
@@ -106,6 +110,7 @@ namespace GOAT
             private:
 				std::ofstream logFile;
                 std::uniform_real_distribution<double> dist;
+                std::uniform_real_distribution<double>  phiDist;
                 double sigma = 0.0;
                 std::normal_distribution<double> thetaDist;
 

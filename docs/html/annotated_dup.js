@@ -67,6 +67,8 @@ var annotated_dup =
         [ "Raytrace_pure", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure" ],
         [ "Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp" ],
         [ "Raytrace_usp_rt", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt" ],
+        [ "roughInterface", "class_g_o_a_t_1_1raytracing_1_1rough_interface.html", "class_g_o_a_t_1_1raytracing_1_1rough_interface" ],
+        [ "roughObject", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", "class_g_o_a_t_1_1raytracing_1_1rough_object" ],
         [ "RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms" ],
         [ "RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info" ],
         [ "Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],

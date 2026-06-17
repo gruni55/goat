@@ -60,7 +60,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src =
     [ "Isum2", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a5967a0a1a0b4714b4f3ff028bdcd3fdb", null ],
     [ "k", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f", null ],
     [ "k0", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ddd2c99fbfa7d0f75748394aba4fa1e", null ],
-    [ "N", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a0ddab683cec1377d43e959ecfd6ee555", null ],
+    [ "N", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6ffca43f29eae02e390dc396d04ff94e", null ],
     [ "n0", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a9ad0f4fa69efb5e7fea04588c14fa1c2", null ],
     [ "numObjs", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#a10fc4a380bdf92498f5a93f84ef6e8b8", null ],
     [ "numRaysRT", "class_g_o_a_t_1_1raytracing_1_1_light_src.html#acbbadf0a16d499aecd8d90e2bb43ec04", null ],

@@ -43,6 +43,7 @@ var dir_19446fe9a19298740000c181fd65b800 =
     [ "raytrace_usp_rt.h", "raytrace__usp__rt_8h.html", "raytrace__usp__rt_8h" ],
     [ "refractive_index_functions.h", "refractive__index__functions_8h.html", "refractive__index__functions_8h" ],
     [ "resutil.h", "resutil_8h.html", "resutil_8h" ],
+    [ "roughObject.h", "rough_object_8h.html", "rough_object_8h" ],
     [ "short_pulses.h", "short__pulses_8h.html", "short__pulses_8h" ],
     [ "sphericLens.h", "spheric_lens_8h.html", "spheric_lens_8h" ],
     [ "superarray.h", "superarray_8h.html", "superarray_8h" ],

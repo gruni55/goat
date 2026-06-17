@@ -19,6 +19,7 @@ var objectshape_8h =
     [ "OBJECTSHAPE_CYLINDER", "objectshape_8h.html#afb5152e8dc1cc2c43893364dda6ad541", null ],
     [ "OBJECTSHAPE_ELLIPSOID", "objectshape_8h.html#aa0386bf39d15c112367c446013050044", null ],
     [ "OBJECTSHAPE_NO_SHAPE", "objectshape_8h.html#a4354c0c4f01b7567b272235472cc11f0", null ],
+    [ "OBJECTSHAPE_ROUGH_OBJECT", "objectshape_8h.html#a4494f39a2f9b461f4d3397434ed5039d", null ],
     [ "OBJECTSHAPE_SPHERIC_LENS", "objectshape_8h.html#aa62b5f0a2d5a6c7208740372bdd41664", null ],
     [ "OBJECTSHAPE_SURFACE", "objectshape_8h.html#a632af5e410ba33b2c4496eb6e23ce0f6", null ],
     [ "OBJECTSHAPE_VORTEX_PLATE", "objectshape_8h.html#a27bb8ce63888bc7d26b7392e828fe23c", null ],

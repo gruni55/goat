@@ -1,0 +1,123 @@
+\doxysection{rough\+Object.\+h}
+\hypertarget{rough_object_8h_source}{}\label{rough_object_8h_source}\index{raytracing/roughObject.h@{raytracing/roughObject.h}}
+\mbox{\hyperlink{rough_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{objectshape_8h}{objectshape.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{surface_8h}{surface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ellipsoid_8h}{ellipsoid.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{box_8h}{box.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00008}00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00012}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{00012}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{roughInterface}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00015}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}{00015}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}{getSigma}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00016}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}{00016}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}{setSigma}}(\textcolor{keywordtype}{double}\ s)\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00020}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{00020}}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{roughObject}}\ :\ \textcolor{keyword}{public}\ T,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{roughInterface}}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00023}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{00023}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{roughObject}}(\textcolor{keyword}{const}\ T\&\ obj,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ T(obj)}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{setSigma}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rough\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ dist\ =\ std::uniform\_real\_distribution<double>(-\/1.0,\ 1.0);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}\ =\ std::uniform\_real\_distribution<double>(0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ logFile.open("{}roughObject.log"{});}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00033}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}{00033}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}{roughObject}}(T*\ obj,\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ T(*obj)}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{setSigma}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rough\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ logFile.open("{}roughObject.log"{});}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00041}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}{00041}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}{roughObject}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{roughObject}}\&\ F)}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ T(F),}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}(F.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}),}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}}(F.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}}),}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{thetaDist}}(F.\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{thetaDist}})}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>type\ =\ \mbox{\hyperlink{objectshape_8h_a4494f39a2f9b461f4d3397434ed5039d}{OBJECTSHAPE\_ROUGH\_OBJECT}};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>rough\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00051}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}{00051}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}{norm}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\&\ P)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00052}00052\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ n\ =\ T::norm(P);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ t1\ =\ n[2]\ <\ 0.9\ ?\ n\ \%\ maths::ez\ :\ n\ \%\ maths::ex;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t1\ /=\ abs(t1);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ t2\ =\ n\ \%\ t1;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ m\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ v\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}{rng}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}{rng}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cosAlphaMax\ =\ std::cos(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ p\ =\ 1.0\ /\ (m\ +\ 1.0);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cosAlpha\ =\ std::pow(1.0\ -\/\ u\ *\ (1.0\ -\/\ std::pow(cosAlphaMax,\ m\ +\ 1.0)),p);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sinAlpha\ =\ std::sqrt(1.0\ -\/\ cosAlpha\ *\ cosAlpha);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ phi\ =\ 2.0\ *\ M\_PI\ *\ v;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths::Vector<double>}}\ nMicro\ =}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sinAlpha\ *\ std::cos(phi)\ *\ t1}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ sinAlpha\ *\ std::sin(phi)\ *\ t2}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ cosAlpha\ *\ n;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nMicro/=abs(nMicro);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ nMicro;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ maths::Vector<double>\ norm(const\ maths::Vector<double>\&\ P)\ override}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00078}00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00079}00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maths::Vector<double>\ n\ =\ T::norm(P);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00080}00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maths::Vector<double>\ t1\ =\ n[2]\ <\ 0.9\ ?\ n\ \%\ maths::ez\ :\ n\ \%\ maths::ex;}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00081}00081\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t1\ /=\ abs(t1);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00082}00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maths::Vector<double>\ t2\ =\ n\ \%\ t1;}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00083}00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ theta\ =\ thetaDist(rng);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00084}00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ phi\ =\ dist(rng)\ *\ M\_PI;}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00085}00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ cosTheta\ =\ cos(theta);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00086}00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ sinTheta\ =\ sin(theta);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00087}00087\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ cosPhi\ =\ cos(phi);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00088}00088\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ double\ sinPhi\ =\ sin(phi);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00089}00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maths::Vector<double>\ newNormal\ =\ cosTheta\ *\ n\ +\ sinTheta\ *\ (cosPhi\ *\ t1\ +\ sinPhi\ *\ t2);}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00090}00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //\ \ \ logFile\ <<\ P\ <<\ "{}\(\backslash\)t"{}\ <<\ n\ <<\ "{}\(\backslash\)t"{}\ <<\ newNormal\ <<\ "{}\(\backslash\)t"{}\ <<\ theta\ <<\ "{}\(\backslash\)t"{}\ <<\ phi\ <<\ std::endl;}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00091}00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ newNormal;}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00092}00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ */}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00094}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{00094}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{setSigma}}(\textcolor{keywordtype}{double}\ s)}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}}\ =\ s;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s>0)}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{thetaDist}}\ =\ std::normal\_distribution<double>(0.0,\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}});}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00101}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}{00101}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}{getSigma}}()\textcolor{keyword}{\ const\ override}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00102}00102\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00107}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}{00107}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::ofstream\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}{logFile}};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00108}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{00108}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uniform\_real\_distribution<double>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00109}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{00109}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}}\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00110}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{00110}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::normal\_distribution<double>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{thetaDist}};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00112}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}{00112}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keyword}{thread\_local}\ std::mt19937\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}{rng}}\{\ std::random\_device\{\}()\ \};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00114}\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa7134e6a3d64d8eab95386eefa887a4c}{00114}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*\ \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa7134e6a3d64d8eab95386eefa887a4c}{makeRough}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{ObjectShape}}*\ obj,\ \textcolor{keywordtype}{double}\ sigma);}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{rough_object_8h_source_l00117}00117\ \}}
+
+\end{DoxyCode}

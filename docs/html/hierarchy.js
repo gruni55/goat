@@ -104,6 +104,9 @@ var hierarchy =
       [ "GOAT::raytracing::Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html", null ],
       [ "GOAT::raytracing::Raytrace_usp_rt", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html", null ]
     ] ],
+    [ "GOAT::raytracing::roughInterface", "class_g_o_a_t_1_1raytracing_1_1rough_interface.html", [
+      [ "GOAT::raytracing::roughObject< T >", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", null ]
+    ] ],
     [ "GOAT::raytracing::RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", null ],
     [ "GOAT::raytracing::RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", null ],
     [ "GOAT::raytracing::Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", null ],
@@ -115,6 +118,9 @@ var hierarchy =
     [ "GOAT::raytracing::SuperArray< T >", "class_g_o_a_t_1_1raytracing_1_1_super_array.html", null ],
     [ "GOAT::raytracing::SuperGrid< T >", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html", null ],
     [ "GOAT::raytracing::SysMemInfo", "struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html", null ],
+    [ "T", null, [
+      [ "GOAT::raytracing::roughObject< T >", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", null ]
+    ] ],
     [ "GOAT::raytracing::Trafo", "class_g_o_a_t_1_1raytracing_1_1_trafo.html", null ],
     [ "GOAT::raytracing::TrafoParms", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html", null ],
     [ "GOAT::raytracing::triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", null ],

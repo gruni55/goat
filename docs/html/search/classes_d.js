@@ -12,6 +12,8 @@ var searchData=
   ['raytrace_5fpure_9',['Raytrace_pure',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html',1,'GOAT::raytracing']]],
   ['raytrace_5fusp_10',['Raytrace_usp',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html',1,'GOAT::raytracing']]],
   ['raytrace_5fusp_5frt_11',['Raytrace_usp_rt',['../class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html',1,'GOAT::raytracing']]],
-  ['rrtparms_12',['RRTParms',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html',1,'GOAT::raytracing']]],
-  ['rrtparmsinfo_13',['RRTParmsInfo',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html',1,'GOAT::raytracing']]]
+  ['roughinterface_12',['roughInterface',['../class_g_o_a_t_1_1raytracing_1_1rough_interface.html',1,'GOAT::raytracing']]],
+  ['roughobject_13',['roughObject',['../class_g_o_a_t_1_1raytracing_1_1rough_object.html',1,'GOAT::raytracing']]],
+  ['rrtparms_14',['RRTParms',['../struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html',1,'GOAT::raytracing']]],
+  ['rrtparmsinfo_15',['RRTParmsInfo',['../class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html',1,'GOAT::raytracing']]]
 ];
