@@ -52,7 +52,7 @@ namespace GOAT
                 maths::Vector<double> norm(const maths::Vector<double>& P) override
                 {
                     maths::Vector<double> n = T::norm(P);
-                    maths::Vector<double> t1 = n[2] < 0.9 ? n % maths::ez : n % maths::ex;
+                    maths::Vector<double> t1 = fabs(n[2]) < 0.9 ? n % maths::ez : n % maths::ex;
                     t1 /= abs(t1);
                     maths::Vector<double> t2 = n % t1;
 
@@ -66,7 +66,8 @@ namespace GOAT
 /*                    double cosAlpha = std::pow(1.0 - u * (1.0 - std::pow(cosAlphaMax, m + 1.0)), p);
 
                     double sinAlpha = std::sqrt(1.0 - cosAlpha * cosAlpha);*/
-                    double theta = asin(u);
+                //    double theta = asin(u);
+                    double theta=thetaDist(rng);
                     double sinTheta = sin(theta);
                     double cosTheta = cos(theta);
                     double phi = phiDist(rng);
@@ -97,6 +98,8 @@ namespace GOAT
 
                 void setSigma(double s)
                 {
+		    phiDist = std::uniform_real_distribution<double>(0.0, 2.0 * M_PI);
+
                     sigma = s;
                     if (s>0)
                     thetaDist = std::normal_distribution<double>(0.0, sigma);
