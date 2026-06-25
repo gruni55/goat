@@ -4,6 +4,7 @@
 */
 #pragma once
 #include "lightsrc.h"
+#include <random>
 namespace GOAT
 {
     namespace raytracing
@@ -166,6 +167,8 @@ namespace GOAT
         }; 
 
        /** @brief This class provides a point light source
+       * The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is 
+       * counted away from the direction vector k  (default value: thetamax = 180° (pi) 
        */
        class LightSrcPoint_mc : public LightSrc
        {
@@ -176,16 +179,27 @@ namespace GOAT
            * @param Pos Position of the light source
            * @param N number of rays along straight line
            * @param size length of the light source
-           * @param direction direction of light source (not the direction of emission !)
+           * 
+           * 
            */
-           LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl);
+           LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl, maths::Vector<std::complex<double> > Pol= maths::Vector<std::complex<double> >(0.0,1.0,0.0));
            int next(RayBase* ray);
            int next(IRay& S);
            int next(Ray_pow& S);
            int next(tubedRay& S);
-           GOAT::maths::Vector<double>  genDirection();
+           void setThetamax(double thetamax); ///< sets the maximal theta angle in which rays will be emitted (given in radiants)
+           double getThetamax(); ///< returns the  maximal theta angle in which rays will be emitted (in radiants)
            void binWriteItem(std::ofstream& os) { /* to be implemented !!! */ }
-           void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }          
+           void binReadItem(std::ifstream& os) { /* to be implemented !!! */ }    
+       private:
+           maths::Vector<std::complex<double> > updatePolarisation(const maths::Vector<std::complex<double> >& P, const maths::Vector<double>& knew);
+           GOAT::maths::Vector<double>  genDirection(); ///< generates the next random emission direction 
+           std::random_device rd;
+           std::mt19937_64 gen;
+           std::uniform_real_distribution<double> ud;
+           double thetaMax = M_PI;
+           double cosThetaMax = -1.0;
+           maths::Vector<double> t1, t2;
        };
     }    
 }

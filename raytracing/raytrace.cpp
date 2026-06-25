@@ -141,7 +141,7 @@ namespace GOAT
 							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
 								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
 								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
-							 //  std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
+							//   std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
 								}
 //								
 						}

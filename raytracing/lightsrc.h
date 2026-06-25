@@ -168,7 +168,7 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 			int type;           ///< type of the light source
 			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
-			maths::Vector<double> k;   ///< main direction of the light source   
+			maths::Vector<double> k=maths::ez;   ///< main direction of the light source   
 			raycount_t N=10000;  ///< number of rays (per direction)
 			int i1; ///< first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)

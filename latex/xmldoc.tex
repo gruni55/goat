@@ -200,7 +200,14 @@ Like all light sources denoted with "mc", the rays are distributed arbitrarily. 
  </Root>
  \end{lstlisting}
  Beside these general parameters, every type of light sources have there own special parameters
-
+\subsubsection{Point source (MC)}
+type: \textbf{point\_mc} \newline
+This light source emitts rays randomly to every direction. The range can be restricted to a cone, given by a certain direction vector and an opening angle thetaMax. 
+ \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+Parameter name & description  & possible value & default value\\
+ \hline
+ thetaMax & opening angle & double (0..$\pi$) & $\pi$  
+ \end{longtable}
 \subsection{Line shaped light source}
 For some calculations a twodimensional calculation is sufficient. For this purpose a line shaped light source is introduced. Beside the position, this source is defined by its direction, which gives the direction of the rays and the orientation (lateral direction). 
 
@@ -362,7 +369,7 @@ n & no. of elements per direction & int & 1 \\
 
 
  \subsection{Kirchhoff}
- type: \textbf{kirchhoff}
+ type: \textbf{kirchhoff} \newline
  Especially in focal regions, pure raytracing may fail. Therefore, a Kirchhoff-Integral solution is introduced. 
  \begin{equation}
   \vec{E}(\vec{r})=\sum_l \int_{\text{Detector}_l} \vec{E}^i_0(\vec{r}_l) e^{i\vec{k}(\vec{r}-\vec{r}_l)} d\vec{r}_l 
@@ -380,7 +387,30 @@ n & no. of elements per direction & int & 1 \\
  d & width of the quadratic detector & double & \\
  \hline  
  \end{tabular}
+ \subsection{Angular spectrum detector}
+ type: \textbf{angular\_spectrum} \newline
+ When propagating the electric field distribution from a plane detector Kirchhoff can be used, this is accurate but often very time consuming. There a detector is introduced, which propagates the field from the source detector to the target detector. Since this get use of FFT, the underlying calculation process is very efficient. For the propagation, the wavelength has to given as a parameter.
+Like for Kirchhoff detectors, each angular spectrum detector has to be linked to a plane detector via 
+ \begin{lstlisting}
+ <Link ID="[Detector-ID]"/>
+   \end{lstlisting}
+  the size of the angular spectrum detector must be at least as large as the source detector, also the resolution must be the same, therefore only the size is given and the number of pixels is calculated from the resolution of the source. If the angular spectrum detector is larger than the source. If the detector is quadratic, one can give "d" for the edge length otherwise "d1" for the width and "d2" for the height. The parameter "d" has priority. 
+    
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+ wavelength & wavelength for the calculation & double & 1.0 \\
+ \hline
+ d & width and height, if its quadratic & double &\\ 
+ \hline
+ d1 & width of the detector & double & 1 \\
+\hline 
+ d2 & height of the detector & double & 1 \\
+ \hline  
+ \end{tabular}   
  
+  
+  
  \chapter {Calculations}
  Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "type" there are different calculations possible:
  

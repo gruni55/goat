@@ -484,6 +484,8 @@ namespace GOAT
 
                     case TOKEN_LIGHTSOURCE_POINT_MC: {
                                                         ls = new GOAT::raytracing::LightSrcPoint_mc(Pos, numRays, wavelength);
+                                                        double thetaMax = lsEll->DoubleAttribute("thetaMax", M_PI);
+                                                        ((GOAT::raytracing::LightSrcPoint_mc *)ls)->setThetamax(thetaMax);
                                                         LS.push_back(ls);
                                                      }
                                                    break;
@@ -1667,6 +1669,13 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   lightSrc->SetAttribute("w0", formatDouble(ls->w0).c_str());
               }
               break;
+
+              case raytracing::LIGHTSRC_SRCTYPE_POINT:
+              case raytracing::LIGHTSRC_SRCTYPE_POINT_MC:
+              {
+                  auto lsp = (raytracing::LightSrcPoint_mc*)S.LS[i];
+                  lightSrc->SetAttribute("thetaMax", formatDouble(lsp->getThetamax()).c_str());
+              }
 
               case raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC:
               {

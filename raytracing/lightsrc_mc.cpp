@@ -1,5 +1,4 @@
 #include "lightsrc_mc.h"
-#include <random>
 #include <iostream>
 namespace GOAT
 {
@@ -730,32 +729,78 @@ namespace GOAT
 					type = LIGHTSRC_SRCTYPE_POINT_MC;
 				}
 
-				LightSrcPoint_mc::LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl) : LightSrc()
+
+				maths::Vector < std::complex <double> > LightSrcPoint_mc::updatePolarisation(const maths::Vector<std::complex<double> >& P, const maths::Vector<double>& knew)
+				{
+					maths::Vector<double> kn = knew;
+					kn /= abs(kn);
+
+					maths::Vector<std::complex<double> > Pnew = P - (P * kn) * kn;
+
+					double len = abs(Pnew);
+					if (len < 1E-12)
+					{
+						// Fallback: irgendeinen Vektor senkrecht zu kn erzeugen
+						maths::Vector<std::complex<double> > ref =	fabs(kn[2]) < 0.9 ? maths::Vector<std::complex<double>>(0.0,0.0,1.0) : maths::Vector<std::complex<double>>(0.0, 1.0, 0.0);
+
+						Pnew = kn % ref;
+						len = abs(Pnew);
+					}
+
+					Pnew /= len;
+					return Pnew;
+				}
+
+				LightSrcPoint_mc::LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl, maths::Vector<std::complex<double> > Pol) : LightSrc()
 				{
 					type = LIGHTSRC_SRCTYPE_POINT_MC;
+					this->Pol = Pol;
 					this->Pos = Pos;
 					this->N = N;
 					this->wvl = wvl;
-				//	this->density = size / ((double)N); // to be checked !!!!!!!!!!
-					Pol = maths::Vector<std::complex<double> >(0, 1, 0); // not right!!! => must be changed !!!!!!!!!!!!!
+				//	this->density = size / ((double)N); // to be checked !!!!!!!!!!					
+					initPol = Pol;
+					gen= std::mt19937_64(rd());
+					 ud= std::uniform_real_distribution<double>(0.0, 1.0);
 				/*	this->D = size;
 					this->D1 = size;
 					this->k = k;*/
 				}
 
-				GOAT::maths::Vector<double>  LightSrcPoint_mc::genDirection()
-				{
-					std::random_device rd;
-					std::mt19937_64 gen(rd());
-					std::uniform_real_distribution<double> udphi(0, 2.0 * M_PI);
-					std::uniform_real_distribution<double> udtheta(0, M_PI);
-	
-					double phi, theta;
 
-					phi = udphi(gen);
-					theta = udtheta(gen);
-					GOAT::maths::Vector<double> k(cos(phi)*sin(theta),sin(phi)*sin(theta),cos(theta));
-					return k;
+				void LightSrcPoint_mc::setThetamax(double thetamax)
+				{
+					this->thetaMax = thetamax;
+					cosThetaMax = cos(thetamax);
+				}
+
+				double LightSrcPoint_mc::getThetamax()
+				{
+					return thetaMax;
+				}
+
+				GOAT::maths::Vector<double> LightSrcPoint_mc::genDirection()
+				{
+					maths::Vector<double> knew;
+					t1 = fabs(k[2])<0.9 ? k % maths::ez : k % maths::ex;
+					t1 /= abs(t1);
+
+					t2 = k % t1;
+					t2 /= abs(t2);
+
+
+
+					double u = ud(gen);
+					double v = ud(gen);
+
+					double phi = 2.0 * M_PI * v;
+
+					// volle Kugel: cos(theta) gleichverteilt in [-1, 1]
+					double cosTheta = cosThetaMax + u * (1.0 - cosThetaMax);
+					double sinTheta = std::sqrt( 1.0 - cosTheta * cosTheta);
+
+					knew = cos(phi) * sinTheta * t1 + sin(phi) * sinTheta * t2 + cosTheta * k;	
+					return knew/abs(knew);
 				}
 
 				int LightSrcPoint_mc::next(RayBase* ray)
@@ -774,19 +819,23 @@ namespace GOAT
 
 				int LightSrcPoint_mc::next(IRay& S)
 				{
+					
 					Plane E;
 					// maths::Vector<double> P = Pos + (i1 * density - D1 / 2.0) * direction;
-					k = genDirection();
-					// E.e1 = direction; 
-					E.n = k;
-					S = IRay(Pos, Pol * sqrt(P0), k, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
-					S.suppress_phase_progress = suppress_phase_progress;
-					S.E1 = Pol / static_cast<double>(N * N);
-					S.E2 = Pol2 / static_cast<double>(N * N);
-					// S.init_Efeld(E,Pol);
-					i1++;
+					maths::Vector<double> knew = genDirection();
+					maths::Vector < std::complex<double> >Polnew = updatePolarisation(Pol,knew);
 
-					if (i1 > N) { return LIGHTSRC_IS_LAST_RAY; }
+					// E.e1 = direction; 
+					// E.n = knew;
+					S = IRay(Pos, Polnew * sqrt(P0), knew, 1.0, r0, 2.0 * M_PI / wvl, numObjs, Obj);
+					S.suppress_phase_progress = suppress_phase_progress;
+					S.E1 = Polnew;
+					S.E2 = Polnew;
+					Isum1 += abs2(S.E1);
+					Isum2 += abs2(S.E2);
+					// S.init_Efeld(E,Pol);
+					rayCounter++;
+					if ((rayCounter >= N) && (N >= 0)) return LIGHTSRC_IS_LAST_RAY;
 					return LIGHTSRC_NOT_LAST_RAY;
 				}
 

@@ -96,6 +96,7 @@ namespace GOAT
 
 			void applyTransferFunction(fftw_complex* spec, double dz, maths::Vector<double> shift)
 			{
+				std::cout << "[applyTransferFunction] dz: " << dz << ", shift: (" << shift[0] << ", " << shift[1] << ")\n";
 				if (spec == nullptr)
 					throw std::invalid_argument("AngularSpectrum::applyTransferFunction: spec is null");
 
@@ -368,7 +369,7 @@ namespace GOAT
 
 			if ((dP * n) < 0.0) n = -n;
 
-			double dz = dP * n;
+			double dz = -dP * n;
 
 			// 3. Ebenenparallelität prüfen
 			maths::Vector<double> nSrc = det->norm();
