@@ -17,6 +17,7 @@ message(STATUS "Using GOAT FindFFTW.cmake")
 find_path(FFTW_INCLUDE_DIR
     NAMES fftw3.h
     PATHS
+        $ENV{FFTW3_ROOT}
         $ENV{FFTW3_ROOT}/include
         /usr/include
         /usr/local/include
