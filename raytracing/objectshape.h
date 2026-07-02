@@ -17,6 +17,7 @@
 #endif
 #include "matrix.h"
 #include "vector.h"
+#include "roughObjectInterface.h"
 
 #include <fstream>
 // #include <time.h>
@@ -136,7 +137,7 @@ namespace GOAT {
 			double getScale() const { return sf; } ///< returns the scaling factor
 			bool isRough() const { return rough; } ///< returns true if surface roughness is considered for the object
 			NFUNCTYPE getFuncType() const { return nfuncType; } ///< returns the type of the function for the refractive index (used for inelastic (RRT) calculation)
-
+			roughInterface* getRoughObj() const { return roughObj; } ///< returns the pointer to the rough object, if the object is rough (if nullptr, the object is not rough)
 
             // ----------- Other functions ---------
             void rotate(maths::Vector<double> A, double phi); ///< sets the matrix for the transformation between object's coordinate system and outer coordinate system, A: rotation axis, phi: angle for rotation around A
@@ -177,6 +178,7 @@ namespace GOAT {
             double sf=1;         ///< scaling factor, it is used to scale the shape of the object     
             bool Active;   ///< should the object be considered for inelastic (RRT) calculations?
 			bool rough=false; ///< is the surface of the object rough? (if true, surface roughness is considered in the calculations)
+			roughInterface* roughObj = nullptr; ///< pointer to the rough object, if the object is rough (if nullptr, the object is not rough)
             double rho;        ///< mass density in \f$ kg/m^3 \f$
             /*
             * @brief Used in the visualization part (GOATvis) => if true object will be visualized

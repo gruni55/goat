@@ -1802,8 +1802,37 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     }
                 break;
             }
+			if (S.Obj[i]->isRough()) addRoughness2DOM(doc, object, S.Obj[i]);
             objects->InsertEndChild(object);
             
+        }
+
+
+        void xmlWriter::addRoughness2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* object, raytracing::ObjectShape *obj)
+        {
+			object->SetAttribute("isrough", true);
+            raytracing::roughInterface* robj = obj->getRoughObj();
+            auto rough = doc.NewElement("Roughness");
+			switch (robj->getScatteringType())
+			{
+                case raytracing::ScatteringType::Gaussian:
+                        rough->SetAttribute("type", "gaussian");
+                        rough->SetAttribute("sigma", formatDouble(robj->getSigma()).c_str());
+                        break;
+                
+                case raytracing::ScatteringType::CosineCone:
+                        rough->SetAttribute("type", "cosine_cone");
+                        break;
+
+                case raytracing::ScatteringType::UniformCone :
+                    rough->SetAttribute("type", "uniform_cone");
+                    break;
+
+				    
+			}
+            object->InsertEndChild(rough);
+			
+			
         }
 
         void xmlWriter::addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i)

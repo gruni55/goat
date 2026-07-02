@@ -18,7 +18,7 @@ set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field.h inel_calc.h 
 		     raytrace_usp_rt.h refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h 
 			 pulsecalculation_base.h pulsecalculation_rt.h asphericLens.h sphericLens.h lens.h constants.h cone.h 
-			 cylinder.h vortex.h propagator.h angularSpectrum.h goat_defines.h roughObject.h)
+			 cylinder.h vortex.h propagator.h angularSpectrum.h goat_defines.h roughObject.h roughObjectInterface.h)
 
 
 set (RAYTRACING_MP_SRCS ${RAYTRACING_SRCS} pulsecalculation_kirchhoff.cpp kirchhoff.cpp )

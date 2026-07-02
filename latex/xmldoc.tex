@@ -335,11 +335,25 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
  dh & height of the vortex & double & 1 \\
  \end{tabular}
  
+\subsubsection{Objects with roughness} 
+ One can also create objects with roughness. In this process, the surface normal is varied randomly. You can choose between different distribution types. In addition, you can limit the angle range within which the normal is varied. To do this, set the value of thetaMax. To define an object as "rough" an additional parameter "isrough" has to be set to "true". Than, the corresponding roughness parameters can be set in an section "Roughness".
+ 
+  \vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.0cm}|m{3.5cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ type & Type of the random distribution & "gaussian",\newline"cosine\_cone",\newline"uniform\_cone" & gaussian \\
+ \hline
+ thetaMax & maximal variation angle & 0 $\le $ thetaMax $\le \nicefrac{\pi}{2}$ & $\nicefrac{\pi}{2}$ \\
+ \hline
+ sigma\footnote{for gaussian distribution only} & standard deviation (in radians) & $\ge$ 0 & 0  
+ \end{tabular}
+ 
  \section{Detectors}
  A detector is a special twodimensional object in which the electric field is stored. Like for the light sources and the objects the section is encapsulated in a tag with sectioname "Detectors". 
   
  \vspace{1em} 
-\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+\begin{tabular}{p{2cm}|m{3.5cm}|p{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline
  ID & unique identifier & string & -- \\
