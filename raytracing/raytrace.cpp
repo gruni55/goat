@@ -170,13 +170,13 @@ namespace GOAT
 				{
 					if (ray->isInObject()) // Is the ray inside an object ?
 					{						
-						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);
+						if (useRRTParms) ray->reflectRay(tray, -S.Obj[objIndex]->getNorm(PStop), S.Obj[objIndex]->getn(), S.nS);
 						else
 						{
 							ray->status = RAYBASE_STATUS_NONE;
 						    copyRay(tray, ray);			
 							
-							ray->reflectRay(tray, -S.Obj[objIndex]->norm(PStop), S.Obj[objIndex]->getn(), S.nS);		
+							ray->reflectRay(tray, -S.Obj[objIndex]->getNorm(PStop), S.Obj[objIndex]->getn(), S.nS);		
 						}
 
 						kref = ray->getk();
@@ -200,7 +200,7 @@ namespace GOAT
 					else
 						if (objIndex > -1) // an object was hit
 						{							
-							maths::Vector<double> n = S.Obj[objIndex]->norm(PStop);
+							maths::Vector<double> n = S.Obj[objIndex]->getNorm(PStop);
                              
 							if (useRRTParms)
 							{

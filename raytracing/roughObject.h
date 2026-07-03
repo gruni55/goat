@@ -90,6 +90,7 @@ namespace GOAT
                  */
                 void setThetaMax(double t)
                 {
+                    std::cout << "[setThetaMax] t=" << t << std::endl;
                     constexpr double eps = 1E-12;
 
                     if (t < eps)
@@ -235,7 +236,7 @@ namespace GOAT
             };
 
 
-            ObjectShape* makeRough(ObjectShape* obj, double sigma);
+            void  makeRough(ObjectShape* obj, double sigma);
             
 		}
 }

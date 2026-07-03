@@ -6,6 +6,8 @@
     email                : weigel@lat.ruhr-uni-bochum.de
  ***************************************************************************/
 
+#include "roughObject.h"
+#include "sphericLens.h"
 #include "objectshape.h"
 #include "misc.h"
 #include "matrix.h" 
@@ -212,6 +214,90 @@ namespace GOAT
                 case OBJECTSHAPE_SURFACE : ((surface *)this)->scale(sf); break;
                 case OBJECTSHAPE_ELLIPSOID : ((Ellipsoid *)this)->scale(sf); break;
             }
+        }
+
+        void ObjectShape::setRoughObj(roughInterface* robj) 
+        { 
+            if (robj != nullptr)
+            {
+                roughObj = robj;
+                rough = true;
+            }
+            else rough = false;
+        }
+
+        maths::Vector<double> ObjectShape::getNorm(const maths::Vector<double>& P)
+        {
+			if (rough && roughObj)
+			{
+				return roughObj->norm(P);
+			}
+			else
+			{
+				return norm(P);
+			}
+        }
+
+#define DEFAULT_SIGMA 0.1
+        void ObjectShape::makeRough()
+        {
+            switch (this->Type())
+            {
+                case OBJECTSHAPE_SURFACE:
+                {
+                    auto robj = new roughObject<surface>(static_cast<surface*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_ELLIPSOID:
+                {
+                    auto robj = new roughObject<Ellipsoid>(static_cast<Ellipsoid*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+
+                case OBJECTSHAPE_BOX:
+                {
+                    auto robj = new roughObject<Box>(static_cast<Box*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_CONE:
+                {
+                    auto robj = new roughObject<Cone>(static_cast<Cone*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_CYLINDER:
+                {
+                    auto robj = new roughObject<Cylinder>(static_cast<Cylinder*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_SPHERIC_LENS:
+                {
+                    auto robj = new roughObject<sphericLens>(static_cast<sphericLens*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_VORTEX_PLATE:
+                {
+                    auto robj = new roughObject<VortexPlate>(static_cast<VortexPlate*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+            }
+        }
+
+
+        void ObjectShape::setRough(bool rough)
+        {
+			if (rough && roughObj==nullptr)
+			{
+				makeRough();
+			}
+			
+			this->rough = rough;
         }
 
         bool intersectionTest(ObjectShape& A, ObjectShape& B)

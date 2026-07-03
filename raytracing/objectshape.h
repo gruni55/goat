@@ -114,6 +114,8 @@ namespace GOAT {
             virtual  void setr0(double r0) = 0;                                 ///< defines the radius of the calculation sphere
             virtual void setPos(maths::Vector<double> r) = 0; ///< sets reference point P 
             virtual void setPos(double x, double y, double z) = 0; ///< sets reference point P 
+            void setRoughObj(roughInterface* robj);
+			void setRough(bool rough); //< sets the flag, if the object is rough (surface roughness is considered)
 
             // ----------- Getter ---------
             bool isOutsideWorld() const; ///< Test if bounding box is (partly) outside the calculation space
@@ -138,7 +140,9 @@ namespace GOAT {
 			bool isRough() const { return rough; } ///< returns true if surface roughness is considered for the object
 			NFUNCTYPE getFuncType() const { return nfuncType; } ///< returns the type of the function for the refractive index (used for inelastic (RRT) calculation)
 			roughInterface* getRoughObj() const { return roughObj; } ///< returns the pointer to the rough object, if the object is rough (if nullptr, the object is not rough)
-
+			maths::Vector<double> getNorm(const maths::Vector<double>& P); ///< returns the surface normal at the point P (if the object is rough, the surface roughness is considered)
+            
+            
             // ----------- Other functions ---------
             void rotate(maths::Vector<double> A, double phi); ///< sets the matrix for the transformation between object's coordinate system and outer coordinate system, A: rotation axis, phi: angle for rotation around A
             virtual void initQuad() = 0;                                      ///< calculates the circumferent cuboid (needed e.g. for the inelastic scattering calculations)
@@ -164,7 +168,8 @@ namespace GOAT {
             }
 
 
-        protected: 
+        protected:
+            void makeRough();
             maths::Vector<double> P;                       ///< position of the object
             maths::Matrix<double> H, R;                     ///< matrices for the transformation in the local coordinate system (H) and back to the calculation system (R)
             std::complex<double>  n;                ///< refractive index of the object
@@ -189,10 +194,12 @@ namespace GOAT {
             std::function <std::complex<double>(double)>  nfunc;
             NFUNCTYPE nfuncType=NFUNCTYPE::vacuum;
 			std::string ID = "Object"; ///< ID string, used for visualization (GOATvis) and for the user to identify the object
+
         };
 
         maths::Matrix<double> computeInertia(ObjectShape* F); ///< calculates inertia matrix
         bool intersectionTest(ObjectShape& A, ObjectShape& B); ///< Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other) 
-    }
+        
+  }
 }
 

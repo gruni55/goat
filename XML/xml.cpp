@@ -776,7 +776,7 @@ namespace GOAT
                         if (isRough)
                         {
 							double sigma = objEll->DoubleAttribute("sigma", 0.0);
-                            obj = makeRough(obj,sigma);
+                            makeRough(obj,sigma);
                         }
                         Obj.push_back(obj);
                         S.addObject(obj);
