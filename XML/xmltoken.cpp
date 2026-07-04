@@ -30,6 +30,19 @@ namespace GOAT
 			return TOKEN_NOT_FOUND;
 		}
 
+		int mapString2RoughnessIndexToken(std::string tstr)
+		{
+			std::string str = str_tolower(tstr);
+			bool found = false;
+			int i;
+			for (i = 0; (i < numRoughnessToken) && (!found); i++)
+			{
+				found = (str.compare(roughnessToken[i]) == 0);
+				if (found) return i;
+			}
+			return TOKEN_NOT_FOUND;
+		}
+
 		int mapString2DetectorToken(std::string tstr)
 		{
 			std::string str = str_tolower(tstr);

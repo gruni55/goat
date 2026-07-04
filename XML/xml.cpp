@@ -598,6 +598,8 @@ namespace GOAT
 
 		}
 
+        
+
 		void xmlReader::readObjects()
 		{
 			tinyxml2::XMLElement* ell;
@@ -775,8 +777,17 @@ namespace GOAT
                     {
                         if (isRough)
                         {
-							double sigma = objEll->DoubleAttribute("sigma", 0.0);
-                            makeRough(obj,sigma);
+                            std::cout << "object is rough" << std::endl;
+                            tinyxml2::XMLElement* roughEll = objEll->FirstChildElement("Roughness");
+                            obj->setRough(true);
+                            double thetaMax = roughEll->DoubleAttribute("thetaMax", M_PI_2);
+							double sigma = roughEll->DoubleAttribute("sigma", 0.0);
+                            auto roughObj = obj->getRoughObj();
+                            roughObj->setThetaMax(thetaMax);
+                            roughObj->setSigma(sigma);
+                            std::string scattTypeStr = roughEll->Attribute("type");
+                                int scattType = mapString2RoughnessIndexToken(scattTypeStr);
+                                roughObj->setScatteringType(static_cast<raytracing::ScatteringType>(scattType));
                         }
                         Obj.push_back(obj);
                         S.addObject(obj);
@@ -790,6 +801,7 @@ namespace GOAT
                         numObj++;
                     }
 				} // while loop
+               
 
 				  // S.addObjectList(numObj, Obj);
 
@@ -1691,6 +1703,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                   lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
               }
             }
+            
             lightSrcs->InsertEndChild(lightSrc);
         }
 
@@ -1830,6 +1843,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
 				    
 			}
+            rough->SetAttribute("thetaMax", formatDouble(robj->getThetaMax()).c_str());
             object->InsertEndChild(rough);
 			
 			

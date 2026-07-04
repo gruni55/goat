@@ -12,6 +12,7 @@ namespace GOAT
 #define numDetectorToken    3
 #define numCalculationToken 6
 #define numRefractiveIndexToken 6
+#define numRoughnessToken 3
 
 #define TOKEN_NOT_FOUND					-1
 #define TOKEN_LIGHTSOURCE_PLANE			0
@@ -63,12 +64,14 @@ namespace GOAT
 		const std::vector<std::string> detectorToken = {"plane","kirchhoff","angular_spectrum"};
         const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic","field"};
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum","pmma" };
+		const std::vector<std::string> roughnessToken = { "gaussian","cosine_cone","uniform_cone" };
 
 		int mapString2LightSourceToken(std::string str);
 		int mapString2ObjectToken(std::string str);
 		int mapString2DetectorToken(std::string str);
 		int mapString2CalculationToken(std::string str);
 		int mapString2RefractiveIndexToken(std::string str);
+		int mapString2RoughnessIndexToken(std::string str);
 		std::string str_tolower(std::string s); ///< converts all letters in s into lower case (taken from https://en.cppreference.com/w/cpp/string/byte/tolower)
 		bool addFunction2IndexList(std::vector< std::function< std::complex< double >(double) > >& nList, int refIndexToken);
 	}
