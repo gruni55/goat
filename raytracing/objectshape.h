@@ -141,7 +141,9 @@ namespace GOAT {
 			NFUNCTYPE getFuncType() const { return nfuncType; } ///< returns the type of the function for the refractive index (used for inelastic (RRT) calculation)
 			roughInterface* getRoughObj() const { return roughObj; } ///< returns the pointer to the rough object, if the object is rough (if nullptr, the object is not rough)
 			maths::Vector<double> getNorm(const maths::Vector<double>& P); ///< returns the surface normal at the point P (if the object is rough, the surface roughness is considered)
-            
+			maths::Vector<double> getLowerCorner() { return pul; } ///< returns the lower corner of the circumferent cuboid (bounding box)
+			maths::Vector<double> getUpperCorner() { return por; } ///< returns the upper corner of the circumferent cuboid (bounding box)
+			void getCorners(maths::Vector<double>& pul, maths::Vector<double>& por) { pul = this->pul; por = this->por; } ///< returns the corners of the circumferent cuboid (bounding box)
             
             // ----------- Other functions ---------
             void rotate(maths::Vector<double> A, double phi); ///< sets the matrix for the transformation between object's coordinate system and outer coordinate system, A: rotation axis, phi: angle for rotation around A

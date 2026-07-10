@@ -330,9 +330,9 @@ namespace GOAT
         double b = 2.0 * r0;
         d = maths::Vector<double>(b / (double)(nges[0] - 1), b / (double)(nges[1] - 1), b / (double)(nges[2] - 1));
       //   h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
-        h = ceil(ediv(E->getBBoxMin()-E->getBBoxMax(), d));
+        h = ceil(ediv(E->getBBoxMax()-E->getBBoxMin(), d));
 
-        hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0]+1, (INDEX_TYPE)h[1]+1, (INDEX_TYPE)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+        hn = maths::Vector<INDEX_TYPE>(static_cast<INDEX_TYPE>(h[0])+1, static_cast<INDEX_TYPE>(h[1])+1, static_cast<INDEX_TYPE>(h[2])+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
 
         /* Berechne den tats�chlichen Bedarf */
         allocMem = sizeof(T***) + 2 * sizeof(maths::Vector<int>) + sizeof(ObjectShape*)

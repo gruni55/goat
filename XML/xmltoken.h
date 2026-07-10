@@ -64,7 +64,7 @@ namespace GOAT
 		const std::vector<std::string> detectorToken = {"plane","kirchhoff","angular_spectrum"};
         const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic","field"};
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum","pmma" };
-		const std::vector<std::string> roughnessToken = { "gaussian","cosine_cone","uniform_cone" };
+		const std::vector<std::string> roughnessToken = { "gaussian","uniform_cone","cosine_cone" };
 
 		int mapString2LightSourceToken(std::string str);
 		int mapString2ObjectToken(std::string str);
