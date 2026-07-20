@@ -387,9 +387,9 @@ namespace GOAT
 
         if (G[i].size() > 0)
         {
-            for (int ix = n[i][0]; ix >= 0; ix--)
+            for (int ix = n[i][0]-1; ix >= 0; ix--)
             {
-                for (int iy = n[i][1]; iy >= 0; iy--)
+                for (int iy = n[i][1]-1; iy >= 0; iy--)
                     G[i][ix][iy].clear();
                 G[i][ix].clear();
             } // for ix    

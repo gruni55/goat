@@ -20,6 +20,7 @@ namespace GOAT {
             double time = 100;
             int numRays = 10000;
             int numModes = 250;
+			int threads = 1;
         };
     }
 

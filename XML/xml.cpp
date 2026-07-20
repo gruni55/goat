@@ -159,9 +159,7 @@ namespace GOAT
 				}
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
-#ifdef WITH_NP
                 S.setNumberOfCellsPerDirection(iv);
-#endif
                 S.nS = readCmplx(sceneElement->FirstChildElement("nS"),1.0);
                 S.setNumReflex(sceneElement->IntAttribute("nReflex", 0));
 				/* look for the detectors */
@@ -1281,7 +1279,10 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {			
             std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
-            std::string fname = objEll->Attribute("filename");
+            char* fnameS[1000];
+           // objEll->Attribute("filename",fnameS);
+            std::string fname = "result.dat";
+           // if (fname.empty()) fname = "result.dat";
             if (!fname.empty())
             {
                 int numLoops = objEll->IntAttribute("numLoops", -1);
@@ -1552,6 +1553,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             {
                 case TOKEN_CALCULATION_PULSE:
 					
+                    calculation->SetAttribute("filname", "result.dat");
                     calculation->SetAttribute("numReflex", std::get<pulseJobParms>(job.parms).trafo.nR);
                     calculation->SetAttribute("numWavelengthsPerRange", std::get<pulseJobParms>(job.parms).trafo.nS);
                     calculation->SetAttribute("pulseWidth", formatDouble(std::get<pulseJobParms>(job.parms).trafo.dt).c_str());
