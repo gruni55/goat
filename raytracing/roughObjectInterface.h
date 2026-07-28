@@ -24,7 +24,7 @@ namespace GOAT
             virtual void setThetaMax(double t) = 0;
             virtual void setScatteringType(ScatteringType type) = 0;
             virtual ScatteringType getScatteringType() const = 0;
-			virtual maths::Vector<double> norm(const maths::Vector<double>& P) = 0;
+			virtual maths::Vector<double> modifyNorm(const maths::Vector<double>& P) = 0;
         };
     }
 }

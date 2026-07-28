@@ -228,14 +228,12 @@ namespace GOAT
 
         maths::Vector<double> ObjectShape::getNorm(const maths::Vector<double>& P)
         {
+			maths::Vector<double> n = norm(P);
 			if (rough && roughObj)
 			{
-				return roughObj->norm(P);
+				return roughObj->modifyNorm(n);
 			}
-			else
-			{
-				return norm(P);
-			}
+            return n;
         }
 
 #define DEFAULT_SIGMA 0.1

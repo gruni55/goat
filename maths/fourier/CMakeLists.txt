@@ -12,6 +12,7 @@ set(FOURIER_SRCS
 add_library(goat_fourier ${FOURIER_SRCS} ${FOURIER_HDRS})
 
 target_include_directories(goat_fourier PUBLIC $ENV{FFTW3_ROOT} ${CMAKE_CURRENT_SOURCE_DIR})
+target_link_directories(goat_fourier PUBLIC $ENV{FFTW3_ROOT})
 target_link_libraries(goat_fourier
     PUBLIC goat_maths
     FFTW::fftw3
@@ -45,6 +46,7 @@ if(WIN32)
 endif()
 target_link_libraries(testFFTW PRIVATE goat_fourier)
 target_include_directories(testFFTW PUBLIC "$ENV{FFTW3_ROOT}")
+target_link_directories(testFFTW PUBLIC $ENV{FFTW3_ROOT})
 
 
 #

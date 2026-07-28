@@ -63,16 +63,16 @@ namespace GOAT
                 * (standard deviation for a normal distribution) and thetaMax (maximum scattering angle).
 				* @param P The point on the surface of the object where the normal vector is to be calculated.
                 */
-                maths::Vector<double> norm(const maths::Vector<double>& P) override
+                maths::Vector<double> modifyNorm(const maths::Vector<double>& n) override
                 {
 					switch (scatteringType)
 					{
 					case ScatteringType::Gaussian:
-						return normGaussian(P);
+						return modifyNormGaussian(n);
 					case ScatteringType::UniformCone:
-						return normUniformCone(P);
+						return modifyNormUniformCone(n);
 					case ScatteringType::CosineCone:
-						return normCosineCone(P);
+						return modifyNormCosineCone(n);
 					
 					}
 				}
@@ -145,10 +145,8 @@ namespace GOAT
                 }
 
 
-                maths::Vector<double> normGaussian(const maths::Vector<double>& P)
+                maths::Vector<double> modifyNormGaussian(const maths::Vector<double>& n)
                 {
-                    maths::Vector<double> n = T::norm(P);
-
                     maths::Vector<double> t1 = (std::abs(n[2]) < 0.9) ? n % maths::ez : n % maths::ex;
 
                     t1 /= abs(t1);
@@ -169,14 +167,12 @@ namespace GOAT
                         theta = std::acos(std::clamp(nMicro * n, -1.0, 1.0));
                     } 
                     while (theta > thetaMax);
-
                     return nMicro;
                 }
 
 
-                maths::Vector<double> normUniformCone(const maths::Vector<double>& P)
+                maths::Vector<double> modifyNormUniformCone(const maths::Vector<double>& n)
                 {
-                    maths::Vector<double> n = T::norm(P);
 
                     if (thetaMax <= 0.0) return n;
 
@@ -195,9 +191,9 @@ namespace GOAT
                     return nMicro;
                 }
 
-                maths::Vector<double> normCosineCone(const maths::Vector<double>& P) 
+                maths::Vector<double> modifyNormCosineCone(const maths::Vector<double>& n) 
                 {
-                    maths::Vector<double> n = T::norm(P);
+                    //raus maths::Vector<double> n = T::norm(P); 
 
                     if (thetaMax <= 0.0) return n;
 
