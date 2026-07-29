@@ -122,7 +122,7 @@ namespace GOAT
          T& operator () (int i,maths::Vector<INDEX_TYPE> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
          T& operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
          T& operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
-         
+         maths::Vector<size_t> getDimensions(int i); ///< gives back a vector with the dimensions of the grid, which corresponds to the i-th object
           void makeReal ();
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
          SuperArray& operator = (const SuperArray &S); ///< Assignment operator
@@ -676,6 +676,21 @@ namespace GOAT
                 return dummy;
             }
         }
+    }
+
+    template<class T>
+    inline maths::Vector<size_t> SuperArray<T>::getDimensions(int i)
+    {
+        size_t n0, n1, n2;
+        if (!G[i].empty())
+        {
+            n0 = G[i].size();
+            n1 = G[i][0].size();
+            n2 = G[i][0][0].size();
+            return maths::Vector<size_t>(n0, n1, n2);
+        }
+
+        return maths::Vector<size_t>(0,0,0);
     }
 
 

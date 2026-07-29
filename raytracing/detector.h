@@ -101,7 +101,7 @@ namespace GOAT
 		maths::Vector<double> n;  
 		void init(int n1, int n2); ///< initialise array (for internal use only)
 		double d1=0, d2=0;
-		int n1=0, n2=0;
+		size_t  n1=0, n2=0;
 		int type=-1;
 		friend class DetectorPlane;
 		std::string ID = "Detector";
