@@ -25,7 +25,7 @@ namespace GOAT
 		{
 			double dw = omega - omega0;
 			double wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
-			std::complex<decltype(dw)> weight = exp(-dw * dw * sigma * sigma / 2.0);
+			std::complex<decltype(dw)> weight = exp(-dw * dw * sigma * sigma / 2.0) * exp(std::complex<double>(0, -omega * t));
 			rt.trace(omega, weight);
 		}
 

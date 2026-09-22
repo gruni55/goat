@@ -151,6 +151,7 @@ namespace GOAT
 				void readObjects(); ///< (used in readScene) read the objects from the file
 				void readDetectors(); ///< (used in readScene) read the detectors from the file (deprecated ?)
 				void doCalculations(); ///< (used in readScene) read and execute the commands for calculation
+				void doWaveOnly(); ///< (used in doCalculations) to wave only Calculation. Calculation of the reconstructed wave field (Kirchhoff or Angular Spectrum) from the corresponding detectors without raytracing
                 void doPulseCalculation(tinyxml2::XMLElement* objEll); ///< (used in doCalculations) to pulsed Calculation (rt + integral)
 				void doPulseCalculation_rt(tinyxml2::XMLElement* objEll); ///< do pulse Calculation with raytracing only
 				/**

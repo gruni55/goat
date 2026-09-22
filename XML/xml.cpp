@@ -807,6 +807,29 @@ namespace GOAT
 			/* End of objects */
 		}
 
+        void xmlReader::doWaveOnly()
+        {
+            for (auto det : S.Det)
+            {
+                switch (det->Type())
+                {
+                case raytracing::DETECTOR_KIRCHHOFF:
+                {                      
+                    ((raytracing::Kirchhoff*)det)->calc();
+                }
+                break;
+
+                case raytracing::DETECTOR_ANGULAR_SPECTRUM:
+                {
+                    det->clean();
+                    ((raytracing::AngularSpectrum*)det)->calc(true);
+                }
+                break;
+                }
+
+            }            
+        }
+
 		void xmlReader::doCalculations()
 		{
            int type;
@@ -852,6 +875,13 @@ namespace GOAT
 							type = mapString2CalculationToken(typeStr);							
                             switch (type)
 							{
+							case TOKEN_CALCULATION_WAVE_ONLY:
+							{
+								std::cout << "do wave only calculation" << std::endl;
+								doWaveOnly();
+								break;
+							}
+
                             case TOKEN_CALCULATION_PURE:
                             {
 								std::cout << "do pure raytracing calculation" << std::endl;

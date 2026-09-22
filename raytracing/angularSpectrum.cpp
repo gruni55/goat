@@ -9,6 +9,34 @@ namespace GOAT
 	namespace raytracing
 	{
 
+		void dumpBuffer(const char* name, fftw_complex* a, int N)
+		{
+			double norm = 0.0;
+			double sumRe = 0.0;
+			double sumIm = 0.0;
+			double maxAbs = 0.0;
+
+			for (int i = 0; i < N; ++i)
+			{
+				double re = a[i][0];
+				double im = a[i][1];
+
+				double a2 = re * re + im * im;
+
+				norm += a2;
+				sumRe += re;
+				sumIm += im;
+				maxAbs = std::max(maxAbs, std::sqrt(a2));
+			}
+
+			std::cout
+				<< name
+				<< " norm=" << norm
+				<< " sum=(" << sumRe << "," << sumIm << ")"
+				<< " max=" << maxAbs
+				<< std::endl;
+		}
+
 		int shiftedIndex(std::size_t i, std::size_t N)
 		{
 			return (i < N / 2)
@@ -62,6 +90,11 @@ namespace GOAT
 					spec = fftw_alloc_complex(N);
 					spatial = fftw_alloc_complex(N);
 					fft = std::make_unique<GOAT::maths::fourier::fft2D>(nx, ny);
+				}
+
+				void clean()
+				{
+					
 				}
 			};
 
@@ -302,11 +335,23 @@ namespace GOAT
 				maths::fourier::vectorField2D slmField;
 				det->holographicField(slmField);
 
+
+				double I = 0.0;
+
+				for (std::size_t x = 0; x < slmField.size(); ++x)
+					for (std::size_t y = 0; y < slmField[x].size(); ++y)
+						for (int c = 0; c < 3; ++c)
+							I += std::norm(slmField[x][y][c]);
+
+				std::cout << "Source field before propagation: " << I << std::endl;
+
+
 				// 2. fftwInput auf AS-Größe nullen
 				zeroFftwBuffer(ws[c].spec, self.n1 * self.n2);
 
 				// 3. SLM-Komponente mit Offset in ws[c].in kopieren
 				copySlmComponentToFftwInput(det, &self, slmField, component, ws[c].spatial);
+
 
 				// 4. FFT
 				ws[c].fft->forward(ws[c].spatial, ws[c].spec);
