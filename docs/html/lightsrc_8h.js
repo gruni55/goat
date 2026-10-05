@@ -28,6 +28,7 @@ var lightsrc_8h =
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_POINT", "namespace_g_o_a_t_1_1raytracing.html#aea813e5ba83ac2a4534d55164f00d5ee", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_POINT_MC", "namespace_g_o_a_t_1_1raytracing.html#ab87c6a65278f61d95ab88be7032e36ef", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_RING", "namespace_g_o_a_t_1_1raytracing.html#a5ca856c447861e579d99cf4cbce3d2ec", null ],
+    [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC", "namespace_g_o_a_t_1_1raytracing.html#a32023022c32c7a6cbb2b3b860834edea", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_MC", "namespace_g_o_a_t_1_1raytracing.html#a8a1ac81c890408a9d1309dfc7932d6c8", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_TOPHAT", "namespace_g_o_a_t_1_1raytracing.html#a452abd4bbc2fe2d04cf476bad00dd82d", null ]
 ];

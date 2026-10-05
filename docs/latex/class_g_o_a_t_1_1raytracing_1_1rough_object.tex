@@ -1,0 +1,201 @@
+\doxysection{GOAT\+::raytracing\+::rough\+Object\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object}{}\label{class_g_o_a_t_1_1raytracing_1_1rough_object}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+
+
+{\ttfamily \#include $<$rough\+Object.\+h$>$}
+
+Inheritance diagram for GOAT\+::raytracing\+::rough\+Object\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_o_a_t_1_1raytracing_1_1rough_object}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}{get\+Sigma}} () const override
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P) override
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}{rough\+Object}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object}} \&F)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{rough\+Object}} (const T \&obj, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}{rough\+Object}} (T \texorpdfstring{$\ast$}{*}obj, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{set\+Sigma}} (double s)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}
+\item 
+std\+::ofstream \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}{log\+File}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}} = 0.\+0
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{theta\+Dist}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static thread\+\_\+local std\+::mt19937 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}{rng}} \{ std\+::random\+\_\+device\{\}() \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class GOAT\+::raytracing\+::rough\+Object$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00020}{20}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!roughObject@{roughObject}}
+\index{roughObject@{roughObject}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{roughObject()}{roughObject()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::rough\+Object (\begin{DoxyParamCaption}\item[{const T \&}]{obj}{, }\item[{double}]{sigma}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00023}{23}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!roughObject@{roughObject}}
+\index{roughObject@{roughObject}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{roughObject()}{roughObject()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::rough\+Object (\begin{DoxyParamCaption}\item[{T \texorpdfstring{$\ast$}{*}}]{obj}{, }\item[{double}]{sigma}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00033}{33}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!roughObject@{roughObject}}
+\index{roughObject@{roughObject}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{roughObject()}{roughObject()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::rough\+Object (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object}}$<$ T $>$ \&}]{F}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00041}{41}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!getSigma@{getSigma}}
+\index{getSigma@{getSigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getSigma()}{getSigma()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::get\+Sigma (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00101}{101}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!norm@{norm}}
+\index{norm@{norm}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00051}{51}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!setSigma@{setSigma}}
+\index{setSigma@{setSigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setSigma()}{setSigma()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::set\+Sigma (\begin{DoxyParamCaption}\item[{double}]{s}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00094}{94}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!dist@{dist}}
+\index{dist@{dist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dist}{dist}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73} 
+template$<$class T$>$ \\
+std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00108}{108}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!logFile@{logFile}}
+\index{logFile@{logFile}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{logFile}{logFile}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1} 
+template$<$class T$>$ \\
+std\+::ofstream \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::log\+File\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00107}{107}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!rng@{rng}}
+\index{rng@{rng}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32} 
+template$<$class T$>$ \\
+thread\+\_\+local std\+::mt19937 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::rng \{ std\+::random\+\_\+device\{\}() \}\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00112}{112}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!sigma@{sigma}}
+\index{sigma@{sigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sigma}{sigma}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293} 
+template$<$class T$>$ \\
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::sigma = 0.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00109}{109}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!thetaDist@{thetaDist}}
+\index{thetaDist@{thetaDist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{thetaDist}{thetaDist}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb} 
+template$<$class T$>$ \\
+std\+::normal\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::theta\+Dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00110}{110}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{rough_object_8h}{rough\+Object.\+h}}\end{DoxyCompactItemize}

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['structure_0',['Library Structure',['../index.html#autotoc_md3',1,'']]],
-  ['support_1',['XML Support',['../index.html#autotoc_md6',1,'']]]
+  ['optics_20application_20tool_0',['Optics Application Tool',['../index.html',1,'GOAT – Geometrical Optics Application Tool'],['../md__r_e_a_d_m_e.html',1,'GOAT — Geometrical Optics Application Tool']]]
 ];

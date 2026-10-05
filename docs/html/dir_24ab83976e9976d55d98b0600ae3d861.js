@@ -1,5 +1,6 @@
 var dir_24ab83976e9976d55d98b0600ae3d861 =
 [
+    [ "calculator.h", "calculator_8h.html", "calculator_8h" ],
     [ "storageBackend.h", "storage_backend_8h.html", "storage_backend_8h" ],
     [ "tinyxml2.h", "_x_m_l_2tinyxml2_8h.html", "_x_m_l_2tinyxml2_8h" ],
     [ "xml.h", "xml_8h.html", "xml_8h" ],

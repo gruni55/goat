@@ -11,12 +11,25 @@ namespace GOAT
 {
 	namespace raytracing
 	{
-		#define DETECTOR_PLANE 20000
-		#define DETECTOR_ANGLE 20001
+		/*
+		#define DETECTOR_PLANE		20000
+		#define DETECTOR_KIRCHHOFF	20001	
+		#define DETECTOR_ANGLE		20002
+		*/
 
+		inline constexpr int DETECTOR_PLANE = 20000;
+		inline constexpr int DETECTOR_KIRCHHOFF = 20001;
+		inline constexpr int DETECTOR_ANGULAR_SPECTRUM = 20002;
+		inline constexpr int DETECTOR_ANGLE = 20003;
+		inline constexpr int DETECTOR_PROPAGATOR	 = 20004;
 
 		/**
 		 * @brief The abstract Detector class provides an interface to a detector to store the information about the electric field into any kind of an array.
+		 * The detector class can be used to store electric fields in a twodimensional array. Each detector is identified by a string-ID, which can be set. 
+		 * 
+		 * \note {It should therefore be unique. At the moment, uniqueness is not yet checked. 
+		 * When using a class derived from the detector class in the kirchhoff 
+		 * class, the ID has to be unique !}  
 		 */
 	class Detector
 	{
@@ -49,11 +62,11 @@ namespace GOAT
 		double D1(); ///< return the length in the first direction
 		double D2(); ///< return the length in the second direction		
 
-		void setD(double d1, double d2);
-
-		void setD1(double d1);
-
-		void setD2(double d2);
+		void setD(double d1, double d2); ///< set the length in the first direction (D1) and in the second direction (D2)
+		void setD1(double d1); ///< set the length in the first direction
+		void setD2(double d2); ///< set the length in the second direction
+		void setID(std::string ID); ///< set the ID string
+		std::string getID(); ///< returns the ID
 
 		int Type() { return type; } ///< returns kind of detector
 		/**
@@ -77,9 +90,10 @@ namespace GOAT
 		 * @brief Multiply with factor.
 		 * This functions multiplies all elements of the detector with the factor fac
 		 */
-		void mult(double fac); 
+		void mult(std::complex<double> fac); 
 		maths::Vector<double> gete1() { return e1; } ///< returns the direction of the first axis of the detector
 		maths::Vector<double> gete2() { return e2; } ///< returns the direction of the second axis of the detector
+		double getTotalIntensity(); ///< returns the total intensity on the detector, i.e. the sum of the absolute value of all elements in the array
 	protected:
 		maths::Vector<double> e1; ///< unit vector in the first direction 
 		maths::Vector<double> e2; ///< unit vector in the second direction
@@ -87,9 +101,10 @@ namespace GOAT
 		maths::Vector<double> n;  
 		void init(int n1, int n2); ///< initialise array (for internal use only)
 		double d1=0, d2=0;
-		int n1=0, n2=0;
+		size_t  n1=0, n2=0;
 		int type=-1;
 		friend class DetectorPlane;
+		std::string ID = "Detector";
 	};
 
 
@@ -102,6 +117,7 @@ namespace GOAT
 	{
 	public:
 		DetectorPlane(void);
+		DetectorPlane(maths::Vector<double> P, maths::Vector<double> n, double d1, double d2, int n1, int n2);
 		/**
 		 * Constructor which defines a square detector defined by the center Position P, the surface normal n, the width d and the number of cells in one direction N (so the array is N x N).
 		 */
@@ -118,6 +134,23 @@ namespace GOAT
 		DetectorPlane(maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
 		void setNorm(maths::Vector<double> n); ///< set the normal on the detector
 		bool cross(maths::Vector<double> P, maths::Vector<double> k, int& i1, int& i2, double& l);	///< implementation of the intersection checking function for the plane detector		
+		void smooth(double sigma = 1.0);
+		void unsmooth() { D = uD; isSmoothed_ = false; };
+		bool isSmoothed() { return isSmoothed_; } ///< returns true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It returns false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
+		void holographicField(std::vector<std::vector<GOAT::maths::Vector<std::complex<double>>>>& result) const; ///< This function calculates the field on the detector plane with a linear phase factor, which corresponds to a shift in the Fourier space. The result is stored in the result vector. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively.
+		void setHolographicShift(double fx, double fy) { this->fx = fx; this->fy = fy; isBlazed = true; } ///< This function sets the shift in the Fourier space for the holographic field. The parameters fx and fy determine the shift in the Fourier space in x and y direction, respectively. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		void setHolographicShiftX(double fx) { this->fx = fx; isBlazed = true; } ///< This function sets the shift in the Fourier space in x direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		void setHolographicShiftY(double fy) { this->fy = fy; isBlazed = true; } ///< This function sets the shift in the Fourier space in y direction for the holographic field. If this function is called, the field on the detector plane will be multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings.
+		double getHolographicShiftX() { return fx; } ///< returns the shift in the Fourier space in x direction for the holographic field
+		double getHolographicShiftY() { return fy; } ///< returns the shift in the Fourier space in y direction for the holographic field
+		bool isBlazedGrating() { return isBlazed; } ///< returns true, if the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. It returns false, if the field on the detector plane is not multiplied with a linear phase factor.
+		void setBlazed(bool isBlazed) { this->isBlazed = isBlazed; } ///< This function sets whether the field on the detector plane is multiplied with a linear phase factor, which corresponds to a shift in the Fourier space. This can be used to create blazed gratings. If isBlazed is set to true, the field on the detector plane will be multiplied with a linear phase factor. If isBlazed is set to false, the field on the detector plane will not be multiplied with a linear phase factor.
+	private: 
+		std::vector<std::vector<maths::Vector<std::complex<double>>>> uD; ///< this is the field on the propagator plane before smoothing	
+		bool isSmoothed_ = false; ///< this is true, if the field on the propagator plane has been smoothed (with a Gaussian filter) to avoid aliasing effects. It is false, if the field on the propagator plane is not smoothed (so it is the raw result of the calculation).
+		double fx = 0; ///< this is the shift in the Fourier space in x direction for the holographic field
+		double fy = 0; ///< this is the shift in the Fourier space in y direction for the holographic field
+		bool isBlazed = false;
 	};
 
 	/*class DetectorBox : public Detector

@@ -1,16 +1,23 @@
-#pragma once
+ #pragma once
 #include "detector.h"
+#include "objectshape.h"
+#include "superarray.h"
+#include "vector.h"
+#include "propagator.h"
 namespace GOAT
 {
 	namespace raytracing
 	{
+
+		maths::Vector<std::complex<double> > point(DetectorPlane* det, maths::Vector<double> P, double wvl);
+
 		/**
 		* @brief This class makes a Kirchhoff calculation
 		* This class is directly connect with a Detector. The calculation itself works as follows: 
 		* At first, a normal raytracing step is performed to calculate the electric field at a detector. This detector is used as a 
 		* source field for the next step, where the field at a given area is calculated with help of the Kirhhoff integral
 		*/
-		class Kirchhoff : public DetectorPlane
+		class Kirchhoff : public Propagator
 		{
 		  public : 
 			  /**
@@ -23,24 +30,57 @@ namespace GOAT
 			  * \param n2: number of cells in e2-direction
 			  */
 			  Kirchhoff(double wvl, maths::Vector<double> P, maths::Vector<double> e1, maths::Vector<double> e2, int n1, int n2);
+			  Kirchhoff(double wvl, maths::Vector<double>P, maths::Vector<double> n, double d, int N);
+		
+		protected:
+			void calcOne(DetectorPlane* det, bool clear);
+		};
 
+		/**
+		*  @brief This class makes a 3D Kirchhoff calculation
+		* This class makes a 3D Kirchhoff calculation especially for pulsed calculations. It needs a Box object to define the volume, where the field is calculated.
+		*/
+		class Kirchhoff3D
+		{
+		  public:
 			  /**
-			  *  @brief This method make the calculation
-			  * With this method, the calculation of the Kirchhoff-integral will be performed for one detector. 
-			  * \param det: a pointer to the detector, which acts as the source
+			  * @brief constructor
+			  * Constructs the Kirchhoff3D object with the box defining the calculation volume
+			  * \param box: Box object defining the calculation volume
+			  * \param numCellsPerDir: number of cells per direction (the world koordinate system will be divided in numCellsPerDir x numCellsPerDir x numCellsPerDir cells)
 			  */
-			  void calc(DetectorPlane* det, bool clear=true);
-
+			  explicit Kirchhoff3D(Box* box, INDEX_TYPE numCellsPerDir); ///< constructor with the box defining the calculation volume
+			  void setR0(double r0); ///< sets the radius of the calculation sphere
+			  void setNN(INDEX_TYPE nn); ///< sets the number of cells per direction (the world koordinate system will be divided in nn x nn x nn cells)
+			  void setSpatialResolution(double res); ///< sets the spatial resolution (the length of the edge of one cell)
+			  void addDetector(DetectorPlane* det); ///< adds one detector as source
+			  void addDetectorList(std::vector<DetectorPlane*> detList); ///< adds a list of detectors as sources
+			  void clean() { field3D.fill(maths::czero); }; ///< cleans the calculated field (sets all values to zero)
+			  void calc(double wvl, int noThreads = 8); ///< performs the calculation for the given wavelength wvl with noThreads threads
 			  /**
-			  * @brief Do the Kirchhoff calculation with more than one detector as source
+			  * @brief bracket operator to access the calculated field 
+			  * \param ix: index in x-direction
+			  *	\param iy: index in y-direction
+			  * \param iz: index in z-direction
 			  */
-			  void calc(std::vector<DetectorPlane*> detList);
+			  maths::Vector<std::complex<double>>& operator () (INDEX_TYPE ix, INDEX_TYPE iy, INDEX_TYPE iz) { return field3D(0, ix, iy, iz); }
+			  const SuperArray<maths::Vector<std::complex<double>>>& field() const {
+				  return field3D;
+			  }
+			  SuperArray<maths::Vector<std::complex<double>>> field3D; ///< 3D array storing the calculated field
 
-		private:
-			double k;
-			double wvl;
-			maths::Vector<std::complex<double> > point(DetectorPlane* det, maths::Vector<double> P);
-
+		  private:
+			  /**
+			 *  @brief This method make the calculation
+			 * With this method, the calculation of the Kirchhoff-integral will be performed for one detector.
+			 * \param det: a pointer to the detector, which acts as the source
+			 * \param clear: if true, the field3D array will be cleared before calculation
+			 */
+			  void calc(DetectorPlane* det, double wvl, int numThreads, bool clear = true);
+			  Box *box; ///< list of boxes defining the calculation volume
+			  std::vector<DetectorPlane*> sources; ///< list of detectors acting as sources
+			  bool fieldInitialized = false; ///< true, if the field3D array is initialized, otherwise false
+			 
 		};
 	}
 }

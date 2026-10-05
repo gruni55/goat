@@ -71,3 +71,9 @@ Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf,
 J. Opt. Soc. Am. B 39, 2061-2065 (2022).  
 [https://doi.org/10.1364/JOSAB.457951](https://opg.optica.org/josab/fulltext.cfm?uri=josab-39-8-2061&id=477834)
 
+About pulsed calculations in the ultrashort regime please refer to the following publication
+Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf,  
+*"Simulation of ultrashort pulse propagation using geometrical optics"
+J. Opt. Soc. Am. B 43, 736-741 (2026).
+https://opg.optica.org/josab/fulltext.cfm?uri=josab-43-4-736
+

@@ -104,6 +104,7 @@ $(function(){initNavTree('lightsrc_8h.html','',''); });
 <code>#include &quot;<a class="el" href="iray_8h_source.html">iray.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="objectshape_8h_source.html">objectshape.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ray__pow_8h_source.html">ray_pow.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="goat__defines_8h_source.html">goat_defines.h</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="lightsrc_8h_source.html">Go to the source code of this file.</a></p>
@@ -182,6 +183,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:ab87c6a65278f61d95ab88be7032e36ef"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_point.html">Point</a> light source (random distribution)  <br /></td></tr>
 <tr class="memitem:a5ca856c447861e579d99cf4cbce3d2ec" id="r_a5ca856c447861e579d99cf4cbce3d2ec"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5ca856c447861e579d99cf4cbce3d2ec">GOAT::raytracing::LIGHTSRC_SRCTYPE_RING</a> = 3</td></tr>
 <tr class="memdesc:a5ca856c447861e579d99cf4cbce3d2ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring shaped wave.  <br /></td></tr>
+<tr class="memitem:a32023022c32c7a6cbb2b3b860834edea" id="r_a32023022c32c7a6cbb2b3b860834edea"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a32023022c32c7a6cbb2b3b860834edea">GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC</a> = 16</td></tr>
+<tr class="memdesc:a32023022c32c7a6cbb2b3b860834edea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ring shaped light source with gaussian distribution (random distribution)  <br /></td></tr>
 <tr class="memitem:a8a1ac81c890408a9d1309dfc7932d6c8" id="r_a8a1ac81c890408a9d1309dfc7932d6c8"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8a1ac81c890408a9d1309dfc7932d6c8">GOAT::raytracing::LIGHTSRC_SRCTYPE_RING_MC</a> = 13</td></tr>
 <tr class="memdesc:a8a1ac81c890408a9d1309dfc7932d6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Light source is a ring (random distribution)  <br /></td></tr>
 <tr class="memitem:a452abd4bbc2fe2d04cf476bad00dd82d" id="r_a452abd4bbc2fe2d04cf476bad00dd82d"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a452abd4bbc2fe2d04cf476bad00dd82d">GOAT::raytracing::LIGHTSRC_SRCTYPE_TOPHAT</a> =4</td></tr>
@@ -202,7 +205,7 @@ Variables</h2></td></tr>
 
 <p>Error occurs within the ray creation. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00036">36</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00038">38</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -220,7 +223,7 @@ Variables</h2></td></tr>
 
 <p>Created ray is the last ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00035">35</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00037">37</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -238,7 +241,7 @@ Variables</h2></td></tr>
 
 <p>Created ray is not the last ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00034">34</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00036">36</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +259,7 @@ Variables</h2></td></tr>
 
 <p>Light source is user defined. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00042">42</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00044">44</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +277,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in x-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00039">39</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00041">41</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +295,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in y-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00040">40</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00042">42</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -310,7 +313,7 @@ Variables</h2></td></tr>
 
 <p>Light source is polarized in z-direction. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00041">41</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00043">43</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -328,7 +331,7 @@ Variables</h2></td></tr>
 
 <p>Ray class : IRay. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00017">17</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00018">18</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -346,7 +349,7 @@ Variables</h2></td></tr>
 
 <p>Ray class : Pow_Ray. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00018">18</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00019">19</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -364,7 +367,7 @@ Variables</h2></td></tr>
 
 <p>Ray class : tubedRay. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00016">16</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00017">17</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>
@@ -382,7 +385,7 @@ Variables</h2></td></tr>
 
 <p>Wave impedance of free space. </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00037">37</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc_8h_source.html#l00039">39</a> of file <a class="el" href="lightsrc_8h_source.html">lightsrc.h</a>.</p>
 
 </div>
 </div>

@@ -38,7 +38,7 @@ namespace GOAT
 			calcphase = INEL_CALCPHASE_EXCITATION;
 		}
 
-		Raytrace_Inel::Raytrace_Inel(const Scene& S) : Raytrace((Scene)S)
+		Raytrace_Inel::Raytrace_Inel(const Scene& S) : Raytrace(S)
 		{
 			SGRRT1 = 0;
 			SGRRT2 = 0;
@@ -48,8 +48,9 @@ namespace GOAT
 			SGE = 0;
 			iR = 0;
 			calcphase = INEL_CALCPHASE_EXCITATION;
-			active = new bool[S.nObj];
-			for (int i = 0; i < S.nObj; i++) active[i] = S.Obj[i]->isActive();
+			int nObj = S.getNumberOfObjects();
+			active = new bool[nObj];
+			for (int i = 0; i < nObj; i++) active[i] = S.Obj[i]->isActive();
 			
 			sceneChanged(S);
 			initExcitation();
@@ -117,9 +118,9 @@ namespace GOAT
 						for (int iy = 0; iy < SGRRT1[0].n[i][1]; iy++)
 							for (int iz = 0; iz < SGRRT1[0].n[i][2]; iz++)
 							{
-								g = gewichte(SGRRT1[0].G[i][ix][iy][iz], S.Obj[i]->alpha * SGE[0].G[i][ix][iy][iz]);
+								g = gewichte(SGRRT1[0].G[i][ix][iy][iz], S.Obj[i]->getAlpha() * SGE[0].G[i][ix][iy][iz]);
 								SGRRT1[0].G[i][ix][iy][iz] *= g;
-								g = gewichte(SGRRT2[0].G[i][ix][iy][iz], S.Obj[i]->alpha * SGE[0].G[i][ix][iy][iz]);
+								g = gewichte(SGRRT2[0].G[i][ix][iy][iz], S.Obj[i]->getAlpha() * SGE[0].G[i][ix][iy][iz]);
 								SGRRT2[0].G[i][ix][iy][iz] *= g;
 							}
 				double  anzrays2 = (double)S.LSRRT->getNumRays() * (double)S.LSRRT->getNumRays();
@@ -199,7 +200,7 @@ namespace GOAT
 			SGE->removeAllObjects();
 		//	int nObj = SGE->Obj.size();
 		//	for (int i = 0; i < nObj; i++) SGE->removeObject(i);
-			for (int i = 0; i < S.nObj; i++) SGE->addInc(S.Obj[i]);
+			for (int i = 0; i < S.getNumberOfObjects(); i++) SGE->addInc(S.Obj[i]);
 			Raytrace::setScene(S);
 			//sceneChanged(S);
 		}
@@ -207,7 +208,7 @@ namespace GOAT
 		void Raytrace_Inel::exportExcitation(std::string fname, int savetype)
 		{
 			std::string full_fn;
-			for (int i = 0; i < S.nObj; i++)
+			for (int i = 0; i < S.getNumberOfObjects(); i++)
 			{
 				full_fn =  fname + "_" + std::to_string(i) + ".dat";
 				switch (savetype)
@@ -230,12 +231,13 @@ namespace GOAT
 				
 			}			
 
-			if (S.nObj != SGE[0].numObjs)
+			int nObj = S.getNumberOfObjects();
+			if (nObj != SGE[0].numObjs)
 			{
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
 					SGE[i].clear();
-					for (int j = 0; j < S.nObj; j++)
+					for (int j = 0; j < nObj; j++)
 					{
 						SGE[i].addInc(S.Obj[j]);
 					}
@@ -246,7 +248,8 @@ namespace GOAT
 		void Raytrace_Inel::initRRT()
 		{ 
 			// Erst mal den Speicher (Supergitter) allozieren 
-			if (S.nObj > 0)
+			int nObj = S.getNumberOfObjects();
+			if (nObj > 0)
 			{
 				SGRRT1 = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX]; // 2 wegen der beiden Reflexionsordnungen
 				SGRRT2 = new SuperArray<maths::Vector<std::complex<double> > >[INEL_MAX_NREFLEX];
@@ -255,7 +258,7 @@ namespace GOAT
 				{
 					SGRRT1[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
 					SGRRT2[i] = SuperArray<maths::Vector<std::complex<double> > >(S.r0, n, n, n, IN_OBJECT);
-					for (int j = 0; j < S.nObj; j++)
+					for (int j = 0; j < nObj; j++)
 					{
 						SGRRT1[i].addInc(S.Obj[j]);
 						SGRRT2[i].addInc(S.Obj[j]);
@@ -284,7 +287,7 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<INDEX_TYPE> cell;
 			double k0 = S.LS[currentLS]->getWavenumber();
-			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->isActive()) && (L < 2.0 * S.r0))
 			{
 				while (s < L)
 				{
@@ -292,7 +295,7 @@ namespace GOAT
 					Pnew = pnext(P, kin, SGE[iR],currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
-					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
+					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->getn());
 					cell = SGE[iR].gitterpunkt((Pnew + P) / 2.0);
 					/*if (SGE[iR].Error==SUPERGITTER)
 					{
@@ -329,14 +332,14 @@ namespace GOAT
 			maths::Vector<std::complex<double> > EG, Eh, Ef;
 			maths::Vector<INDEX_TYPE> cell;
 			double k0 = 2.0 * M_PI / parms.wvlinel;
-			if ((S.Obj[currentObj]->Active) && (L < 2.0 * S.r0))
+			if ((S.Obj[currentObj]->isActive()) && (L < 2.0 * S.r0))	
 			{
 				while (s < L)
 				{
 					Pnew = pnext(P, kin, SGRRT1[iR], currentIndex, 1E-5);
 					l = abs(Pnew - P);
 					s += l;
-					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->n);
+					phase = exp(I * (s - l / 2.0) * k0 * S.Obj[currentObj]->getn());
 					cell = SGRRT1[iR].gitterpunkt((Pnew + P) / 2.0);
 					
 					EG = SGRRT1[iR](currentObj, cell);

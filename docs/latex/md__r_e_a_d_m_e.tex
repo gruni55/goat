@@ -1,0 +1,54 @@
+\chapter{GOAT — Geometrical Optics Application Tool }
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{GOAT — Geometrical Optics Application Tool@{GOAT — Geometrical Optics Application Tool}}
+\label{md__r_e_a_d_m_e_autotoc_md8}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md8}%
+
+
+\doxylink{namespace_g_o_a_t}{GOAT} is a modular, scene-\/based C++ library for the simulation of optical fields and intensity distributions within the framework of geometrical optics with explicit phase information.
+
+{\bfseries{Author\+:}} Thomas Weigel ~\newline
+ {\bfseries{License\+:}} BSD-\/3-\/\+Clause ~\newline
+ {\bfseries{Initial release\+:}} 2021 ~\newline
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{\texorpdfstring{Scientific Reference}{Scientific Reference}}\label{md__r_e_a_d_m_e_autotoc_md10}
+\doxylink{namespace_g_o_a_t}{GOAT} is described in the following peer-\/reviewed publication\+:
+
+\begin{quote}
+Thomas Weigel, Gustav Schweiger, and Andreas Ostendorf ~\newline
+ {\itshape \doxylink{namespace_g_o_a_t}{GOAT}\+: a multipurpose optical simulation tool} ~\newline
+ Journal of the Optical Society of America B {\bfseries{39}}, 2061–2065 (2022) ~\newline
+ \href{https://doi.org/10.1364/JOSAB.457951}{\texttt{https\+://doi.\+org/10.\+1364/\+JOSAB.\+457951}} \end{quote}
+
+
+If you use \doxylink{namespace_g_o_a_t}{GOAT} in scientific work, please cite this publication.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{Scope and Concept}{Scope and Concept}}\label{md__r_e_a_d_m_e_autotoc_md12}
+\doxylink{namespace_g_o_a_t}{GOAT} is based on a scene description consisting of optical sources, geometrical objects, and detectors. Ray tracing is performed within this scene, and complex electric field amplitudes are propagated along the rays.
+
+The library deliberately adopts {\bfseries{geometrical optics with explicit phase information}} as its underlying model. Within this framework, interference effects arising from phase differences can be described, whereas phenomena that are inherently wave-\/optical in nature, such as diffraction, lie outside the scope of the model.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysection{\texorpdfstring{Key Features}{Key Features}}\label{md__r_e_a_d_m_e_autotoc_md14}
+
+\begin{DoxyItemize}
+\item Scene-\/based and modular architecture (sources, objects, detectors)
+\item Ray tracing with propagation of complex electric field amplitudes
+\item Explicit phase tracking for the analysis of interference effects
+\item Efficient handling of complex geometries, including STL import and octree acceleration
+\item Cross-\/platform C++17 implementation (Linux and Windows)
+\item Extensive API documentation generated with Doxygen
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysection{\texorpdfstring{Installation and Build}{Installation and Build}}\label{md__r_e_a_d_m_e_autotoc_md16}
+\doxylink{namespace_g_o_a_t}{GOAT} is built using CMake and requires a C++17-\/compatible compiler.\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{Requirements}{Requirements}}\label{md__r_e_a_d_m_e_autotoc_md17}
+
+\begin{DoxyItemize}
+\item CMake
+\item C++17-\/compatible compiler (GCC, Clang, or Microsoft Visual Studio)
+\item Tiny\+XML-\/2 (included in the repository)
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{Linux}{Linux}}\label{md__r_e_a_d_m_e_autotoc_md18}
+\`{}\`{}\`{}bash cmake . make 

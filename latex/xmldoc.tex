@@ -69,6 +69,9 @@ A calculation can be carried out directly via the GOAT library. Sometimes it is 
  \hline
  nCellsPerDir & Number of cells per direction & integer number & 1000 \\
  \hline 
+ n & refractive index & complex value & (1.0,0.0) \\
+ \hline
+ nReflex & number of reflections & integer & 1 
     \end{tabular} 
  \section{Light sources}
  All light sources have some entries which are used for all types. All parameters are optional. If one parameter is missing, it will be set to its default value, which is given in a table below. \\
@@ -197,7 +200,14 @@ Like all light sources denoted with "mc", the rays are distributed arbitrarily. 
  </Root>
  \end{lstlisting}
  Beside these general parameters, every type of light sources have there own special parameters
-
+\subsubsection{Point source (MC)}
+type: \textbf{point\_mc} \newline
+This light source emitts rays randomly to every direction. The range can be restricted to a cone, given by a certain direction vector and an opening angle thetaMax. 
+ \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+Parameter name & description  & possible value & default value\\
+ \hline
+ thetaMax & opening angle & double (0..$\pi$) & $\pi$  
+ \end{longtable}
 \subsection{Line shaped light source}
 For some calculations a twodimensional calculation is sufficient. For this purpose a line shaped light source is introduced. Beside the position, this source is defined by its direction, which gives the direction of the rays and the orientation (lateral direction). 
 
@@ -208,6 +218,8 @@ For some calculations a twodimensional calculation is sufficient. For this purpo
 % \begin{tabular}{c|c|c}
  \begin{longtable}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter name & description  & possible value & default value\\
+ \hline
+ ID & unique identifier & string & -- \\
  \hline
   Position & Position of the object\footnote{Reference point for the object differ from shape to shape} & 3D Vector & (0,0,0) \\
   \hline
@@ -323,14 +335,28 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
  dh & height of the vortex & double & 1 \\
  \end{tabular}
  
+\subsubsection{Objects with roughness} 
+ One can also create objects with roughness. In this process, the surface normal is varied randomly. You can choose between different distribution types. In addition, you can limit the angle range within which the normal is varied. To do this, set the value of thetaMax. To define an object as "rough" an additional parameter "isrough" has to be set to "true". Than, the corresponding roughness parameters can be set in an section "Roughness".
+ 
+  \vspace{1em} 
+\begin{tabular}{p{2cm}|m{3.0cm}|m{3.5cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline
+ type & Type of the random distribution & "gaussian",\newline"cosine\_cone",\newline"uniform\_cone" & gaussian \\
+ \hline
+ thetaMax & maximal variation angle & 0 $\le $ thetaMax $\le \nicefrac{\pi}{2}$ & $\nicefrac{\pi}{2}$ \\
+ \hline
+ sigma\footnote{for gaussian distribution only} & standard deviation (in radians) & $\ge$ 0 & 0  
+ \end{tabular}
+ 
  \section{Detectors}
  A detector is a special twodimensional object in which the electric field is stored. Like for the light sources and the objects the section is encapsulated in a tag with sectioname "Detectors". 
   
  \vspace{1em} 
-\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+\begin{tabular}{p{2cm}|m{3.5cm}|p{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
- \hline 
- type & type of the detector & "plane" & -- \\
+ \hline
+ ID & unique identifier & string & -- \\
  \hline
  Position & Center of the detector & 3D-vector & -- \\
  \hline
@@ -348,11 +374,57 @@ A vortex phase plate as shown in Fig.\ref{fig:vortexplate} is an object to creat
 \begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
  Parameter  & description  & possible value & default value\\
  \hline 
+ type & type of the detector & "plane" & -- \\
+ \hline 
 d & width of the detector & double & 1 \\
 \hline
 n & no. of elements per direction & int & 1 \\ 
 \end{tabular}
+
+
+ \subsection{Kirchhoff}
+ type: \textbf{kirchhoff} \newline
+ Especially in focal regions, pure raytracing may fail. Therefore, a Kirchhoff-Integral solution is introduced. 
+ \begin{equation}
+  \vec{E}(\vec{r})=\sum_l \int_{\text{Detector}_l} \vec{E}^i_0(\vec{r}_l) e^{i\vec{k}(\vec{r}-\vec{r}_l)} d\vec{r}_l 
+ \end{equation}
+ Each Kirchhoff detector uses at least one plane Detector as source. So in the XML a Kirchhoff detector has additional link-entries in the following form:
+   \lstset{language=XML}
+ \begin{lstlisting}
+ <Link ID="[Detector-ID]"/>
+   \end{lstlisting}
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+ wavelength & wavelength for the calculation & double & 1.0 \\
+ \hline
+ d & width of the quadratic detector & double & \\
+ \hline  
+ \end{tabular}
+ \subsection{Angular spectrum detector}
+ type: \textbf{angular\_spectrum} \newline
+ When propagating the electric field distribution from a plane detector Kirchhoff can be used, this is accurate but often very time consuming. There a detector is introduced, which propagates the field from the source detector to the target detector. Since this get use of FFT, the underlying calculation process is very efficient. For the propagation, the wavelength has to given as a parameter.
+Like for Kirchhoff detectors, each angular spectrum detector has to be linked to a plane detector via 
+ \begin{lstlisting}
+ <Link ID="[Detector-ID]"/>
+   \end{lstlisting}
+  the size of the angular spectrum detector must be at least as large as the source detector, also the resolution must be the same, therefore only the size is given and the number of pixels is calculated from the resolution of the source. If the angular spectrum detector is larger than the source. If the detector is quadratic, one can give "d" for the edge length otherwise "d1" for the width and "d2" for the height. The parameter "d" has priority. 
+    
+\begin{tabular}{p{2cm}|m{3.5cm}|m{3.0cm}|p{1.7cm}}
+ Parameter  & description  & possible value & default value\\
+ \hline 
+ wavelength & wavelength for the calculation & double & 1.0 \\
+ \hline
+ d & width and height, if its quadratic & double &\\ 
+ \hline
+ d1 & width of the detector & double & 1 \\
+\hline 
+ d2 & height of the detector & double & 1 \\
+ \hline  
+ \end{tabular}   
  
+  
+  
  \chapter {Calculations}
  Also, calculations can be defined and started with help of the XML file. Calculations are given in the section "Calculations". Similar to the definition of the light sources, every single entry for a calculation starts with "Calculation". Depending on the attribute "type" there are different calculations possible:
  
@@ -432,6 +504,8 @@ The parameters are as follows:
   \hline 
   wavelength & Central wavelength in µm & double & $\SI{1}{\micro\metre}$ \\
   \hline
+  numWavelengthsPerRange & Number of wavelengths considered in each spectral range & integer $>$ 0 & 200  \\
+  \hline
   numReflex & Number of reflections & integer $\ge$ 0 & \tiny{INEL\_MAX\_NREFLEX (1)} \\
   \hline
   numLoops & Specifies how often the calculation should be repeated (-1: calculation is repeated infinitely often) & integer $\ge$-1 & -1 \\
@@ -455,7 +529,7 @@ The parameters are as follows:
  Material & value \\
  \hline 
  Air & air \\
- Glass & glass (allways refractive index 1.5) \\
+ Glass & glass (always refractive index 1.5) \\
  N-BK7 glass & bk7 \\
  N-LASF55 glass & lasf55 \\
  Vacuum & vacuum \\ 

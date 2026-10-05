@@ -7,6 +7,7 @@
 #include "iray.h"
 #include "objectshape.h"
 #include "ray_pow.h"
+#include "goat_defines.h"
 #include <vector>
 
 namespace GOAT
@@ -28,7 +29,8 @@ constexpr int LIGHTSRC_SRCTYPE_GAUSS_MC = 12; ///< Light source is a gaussian wa
 constexpr int LIGHTSRC_SRCTYPE_RING_MC =  13; ///< Light source is a ring (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_LINE_MC = 14; ///< Light source along a straight line (random distribution)
 constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random distribution)
-
+constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source with gaussian distribution (random distribution)
+ 
 
 
 #define LIGHTSRC_NOT_LAST_RAY 0  ///< Created ray is not the last ray 
@@ -57,6 +59,9 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 		* ray. Since the rays need information about the objects to be able to calculate the crossing points with the object surface,
 		* LightSrc provides routines to pass these informations to the rays. These routines are only needed for calculations without
 		* the raytracing process, especially without the Scene class.
+		* 
+		* The orientation of the light source is defined by the direction vector k and the two orthogonal vectors e1 and e2, which are all perpendicular to each other. The rays are created in the area spanned by e1 and e2, which is centered around Pos. The direction of the rays is given by k. The polarisation of the rays is defined by the vector Pol, which is also perpendicular to k. The initial polarisation of the rays can be set using the setPol function, which sets the polarisation as if the direction would be in z-direction. 
+		* If the direction vector is changed using setk, the direction of the polarization is changed accordingly.
 		* 
 		* Polarisation: 
 		* @image html polarisation_rotation.png width=400px; 
@@ -100,6 +105,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			void setR0(double r0); ///< sets the radius of the calculation sphere
 			double getDensity() { return density; } ///< returns the ray density, i.e. the number of rays per unit length (=D/N)
 			maths::Vector<std::complex<double>> getInitPol() { return initPol; }
+			double getD() { return D; } ///< returns the width of the light source
 			void setD(double D) ///< sets the width of the light source
 			{
 				this->density = D / ((double)N);
@@ -126,14 +132,25 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int getNumRaysRT () {return numRaysRT; }
 
 
-
+			/** 
+			* @brief With this method the direction of the lightsource will be set.
+			* The direction of the light source is defined by the direction vector k and the two orthogonal vectors e1 and e2, which are all perpendicular to each other. The rays are created in the area spanned by e1 and e2, which is centered around Pos. The direction of the rays is given by k. The polarisation of the rays is defined by the vector Pol, which is also perpendicular to k. 
+			* The initial polarisation of the rays can be set using the setPol function, which sets the polarisation as if the direction would be in z-direction. The vectors e1 and
+			* e2 will be set as follows: 
+			* \f{eqnarray*}{
+			*      \vec{e}_1 &=& \vec{k} \times \vec{e}_z \qquad \text{if} \quad |\vec{e}_1|>10^{-10} \quad \text{i.e. not parallel to } \vec{k} \text{ otherwise} \quad  \vec{e}_1 = \vec{k} \times \vec{e}_x \\
+			*      \vec{e}_2 &=& \vec{k} \times \vec{e}_1 
+			* \f}
+			* afterwards, the method adjustDirection() will be called, which adjusts the direction of the polarisation according to the new direction of the light source.
+			*/
 			void setk(const maths::Vector<double>& k); ///< sets the main direction of the light source
 			maths::Vector<double> getk() { return k; } ///< returns the main direction of the light source
-			int getNumRays() { return N; } ///< returns the number of rays (per direction in space)
-			void setNumRays(int N) ///< sets the number of rays (per direction in space)
+			raycount_t getNumRays() { return N; } ///< returns the number of rays (per direction in space)
+			void setNumRays(raycount_t N) ///< sets the number of rays (per direction in space)
 			{
 				this->N = N;
 				density = D / ((double)N);
+				std::cout << "density=" << density << "\tN=" << N << "\tD=" << D << std::endl;
 				reset();
 			}
 			void setWavelength(double wvl) { this->wvl = wvl; k0 = 2.0 * M_PI / wvl; }
@@ -151,8 +168,8 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			int type;           ///< type of the light source
 			double P0=1.0;        ///< power
 			double density;     ///< ray density, i.e. distance between two neighboring rays
-			maths::Vector<double> k;   ///< main direction of the light source   
-			int N=10000;  ///< number of rays (per direction)
+			maths::Vector<double> k=maths::ez;   ///< main direction of the light source   
+			raycount_t N=10000;  ///< number of rays (per direction)
 			int i1; ///< first index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			int	i2; ///< second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)
 			maths::Vector<std::complex<double> > Pol; ///< polarisation (default: (0.0, 1.0, 0.0)
@@ -173,7 +190,7 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			friend class LightSrcGauss;
 			friend std::ostream& operator << (std::ostream& os, LightSrc* ls);
 			bool suppress_phase_progress = false; ///< if set true, the phase won't be changed when calling a next method (needed for USP-calculations) 
-            int rayCounter=0; 
+            raycount_t rayCounter=0; 
 			void adjustDirection();
 			double getIsum1() { return Isum1; }
 			double getIsum2() { return Isum2; }
@@ -265,9 +282,11 @@ constexpr int LIGHTSRC_SRCTYPE_POINT_MC = 15; ///< Point light source (random di
 			void setRmin(double rmin); ///< set the inner radius of the light source
 			void setRmax(double rmax); ///< set the outer radius of the light source
 			double area() { return M_PI * (rmax * rmax - rmin * rmin); } ///< area \f$A=\pi \cdot (r_{max}^2-r_{min}^2) of the light source
+			void reset();
 		private:
 			double rmin = 0.0;
 			double rmax = 100.0;
+			
 		};
 
 		/**

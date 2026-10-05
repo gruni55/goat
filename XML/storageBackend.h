@@ -1,4 +1,3 @@
-// goat/storage/IStorageInterfaces.hpp
 #pragma once
 
 #include <string>
@@ -19,6 +18,9 @@ namespace GOAT {
             double repRate = 10.0;
             int spectralRanges = 1;
             double time = 100;
+            int numRays = 10000;
+            int numModes = 250;
+			int threads = 1;
         };
     }
 

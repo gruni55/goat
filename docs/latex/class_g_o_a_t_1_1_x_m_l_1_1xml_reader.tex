@@ -14,6 +14,8 @@ This class provides functionality to read a XML-\/file This function reads the \
 \item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a34c6693ab74fa1ee10c329174b5e1ce0}{is\+Calculation\+Enabled}} ()
 \item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a81559ccd16707fa2f2f9f1b50ac1cdd1}{read\+Request}} (std\+::string \&request)
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_af45e5a74060421bf1f7d3c7c8e10c55b}{read\+XML}} (std\+::string fname, bool calc\+\_\+enabled=true, std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ab545ebb8d3e97db14a847dcc23084459}{path}}="{}"{})
 \begin{DoxyCompactList}\small\item\em read the XML-\/file This methode reads the XML-\/file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a3118e666f57d04bddb8bc0ad44768f24}{set\+Enable\+Calculation}} (bool enable)
@@ -21,6 +23,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a3118e666f57d04bddb8
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+std\+::vector$<$ \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a0164434ca056d82cf913cef2bf523188}{jobs}}
+\begin{DoxyCompactList}\small\item\em calculation jobs read from the file are stored here \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{GOAT\+::raytracing\+::\+Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_acfc9bdc66d97b25827afe7d299a84719}{S}}
 \begin{DoxyCompactList}\small\item\em The scene that was read from the file is saved here. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Member Functions}
@@ -42,10 +46,14 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ad2f7513621fc9c3d650
 \begin{DoxyCompactList}\small\item\em (used in read\+XML) read and execute the commands for calculation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ac8dfd074fdae3c4d2c38b04e6d8706de}{read\+Detectors}} ()
 \begin{DoxyCompactList}\small\item\em (used in read\+Scene) read the detectors from the file (deprecated ?) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a809e3506cf9c7edb386778c779e18798}{read\+Jobs}} ()
+\begin{DoxyCompactList}\small\item\em (used in read\+Request) read the calculation jobs \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a1d6e130c594d7a59a3ef184ebecc8975}{read\+Light\+Sources}} ()
 \begin{DoxyCompactList}\small\item\em (used in read\+Scene) read the light sources from the file \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_aa26dc0150fd714a1f61cfe8eacdcc2e2}{read\+Objects}} ()
 \begin{DoxyCompactList}\small\item\em (used in read\+Scene) read the objects from the file \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a1bb4dbbcd6131ade226301e530b5fd52}{read\+Param}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}param\+Ell, \mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_param}{calculation\+Param}} \&p)
+\begin{DoxyCompactList}\small\item\em (used in read\+Jobs) read a calculation parameter \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ac00a27f4ad9ec7ce858f62ae31762e86}{read\+Scene}} ()
 \begin{DoxyCompactList}\small\item\em read the entire Scene \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ad8260757b2aa58db7313f847fe0505f9}{read\+Vector}} (\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}ell, double x=0, double y=0, double z=0)
@@ -61,6 +69,8 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a669a740ed0258e0d7ba
 \begin{DoxyCompactList}\small\item\em pointer to the calculation elemeent of the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{GOAT\+::raytracing\+::\+Detector}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a7974be9d457eb8b17cd5621102496ca7}{Det}}
 \begin{DoxyCompactList}\small\item\em vector, which carries all detectors (as pointers) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_af1903239ff484887dd86e7587041d5d5}{doc}}
+\begin{DoxyCompactList}\small\item\em tinyxml document \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a93447a83154f9feb2f989e7526be7aef}{LS}}
 \begin{DoxyCompactList}\small\item\em vector, which carries all light sources (as pointers) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ad41b6e220a499212c095422079506607}{num\+Det}} = 0
@@ -73,7 +83,7 @@ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{
 \begin{DoxyCompactList}\small\item\em vector, which carries all objects (as pointers) \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ab545ebb8d3e97db14a847dcc23084459}{path}}
 \begin{DoxyCompactList}\small\item\em path of the XML-\/\+File \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{tinyxml2\+::\+XMLNode}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a17f2374d384fee0322f17b33b870fb0b}{root\+Element}}
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a73d8d9a9de5acae7f6e8e60bc6010bf2}{root\+Element}}
 \begin{DoxyCompactList}\small\item\em pointer to root element of the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_afc2470a98546ddcb3586d43f185e66d4}{scene\+Element}}
 \begin{DoxyCompactList}\small\item\em pointer to the scene element of the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML} \end{DoxyCompactList}\end{DoxyCompactItemize}
@@ -114,7 +124,7 @@ oin\texorpdfstring{$\ast$}{*} &&&&z &double \\\cline{1-6}
 \end{longtabu}
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00085}{85}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00127}{127}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 
@@ -159,7 +169,7 @@ bool GOAT\+::\+XML\+::xml\+Reader\+::is\+Calculation\+Enabled (\begin{DoxyParamC
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00098}{98}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00141}{141}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ae560d33c7eae25b82b29822be2118fd6}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readCmplx@{readCmplx}}
 \index{readCmplx@{readCmplx}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -243,6 +253,16 @@ void GOAT\+::\+XML\+::xml\+Reader\+::read\+Detectors (\begin{DoxyParamCaption}{}
 
 (used in read\+Scene) read the detectors from the file (deprecated ?) 
 
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a809e3506cf9c7edb386778c779e18798}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readJobs@{readJobs}}
+\index{readJobs@{readJobs}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
+\doxysubsubsection{\texorpdfstring{readJobs()}{readJobs()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a809e3506cf9c7edb386778c779e18798} 
+void GOAT\+::\+XML\+::xml\+Reader\+::read\+Jobs (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+(used in read\+Request) read the calculation jobs 
+
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a1d6e130c594d7a59a3ef184ebecc8975}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readLightSources@{readLightSources}}
 \index{readLightSources@{readLightSources}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
 \doxysubsubsection{\texorpdfstring{readLightSources()}{readLightSources()}}
@@ -262,6 +282,22 @@ void GOAT\+::\+XML\+::xml\+Reader\+::read\+Objects (\begin{DoxyParamCaption}{}{}
 
 
 (used in read\+Scene) read the objects from the file 
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a1bb4dbbcd6131ade226301e530b5fd52}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readParam@{readParam}}
+\index{readParam@{readParam}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
+\doxysubsubsection{\texorpdfstring{readParam()}{readParam()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a1bb4dbbcd6131ade226301e530b5fd52} 
+bool GOAT\+::\+XML\+::xml\+Reader\+::read\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}} \texorpdfstring{$\ast$}{*}}]{param\+Ell}{, }\item[{\mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_param}{calculation\+Param}} \&}]{p}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+(used in read\+Jobs) read a calculation parameter 
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a81559ccd16707fa2f2f9f1b50ac1cdd1}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readRequest@{readRequest}}
+\index{readRequest@{readRequest}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
+\doxysubsubsection{\texorpdfstring{readRequest()}{readRequest()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a81559ccd16707fa2f2f9f1b50ac1cdd1} 
+bool GOAT\+::\+XML\+::xml\+Reader\+::read\+Request (\begin{DoxyParamCaption}\item[{std\+::string \&}]{request}{}\end{DoxyParamCaption})}
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ac00a27f4ad9ec7ce858f62ae31762e86}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!readScene@{readScene}}
 \index{readScene@{readScene}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -339,7 +375,7 @@ void GOAT\+::\+XML\+::xml\+Reader\+::set\+Enable\+Calculation (\begin{DoxyParamC
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00097}{97}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00140}{140}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 
@@ -354,7 +390,7 @@ bool GOAT\+::\+XML\+::xml\+Reader\+::calculation\+\_\+enabled =true\hspace{0.3cm
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00167}{167}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00216}{216}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_aa3312907a042a5ff96fe299b5a3ac785}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!calculationElement@{calculationElement}}
 \index{calculationElement@{calculationElement}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -368,7 +404,7 @@ pointer to the calculation elemeent of the \doxylink{namespace_g_o_a_t_1_1_x_m_l
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00159}{159}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00208}{208}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a7974be9d457eb8b17cd5621102496ca7}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!Det@{Det}}
 \index{Det@{Det}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -382,7 +418,35 @@ vector, which carries all detectors (as pointers)
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00161}{161}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00210}{210}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_af1903239ff484887dd86e7587041d5d5}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!doc@{doc}}
+\index{doc@{doc}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
+\doxysubsubsection{\texorpdfstring{doc}{doc}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_af1903239ff484887dd86e7587041d5d5} 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_document}{tinyxml2\+::\+XMLDocument}} GOAT\+::\+XML\+::xml\+Reader\+::doc\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+tinyxml document 
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00205}{205}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a0164434ca056d82cf913cef2bf523188}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!jobs@{jobs}}
+\index{jobs@{jobs}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
+\doxysubsubsection{\texorpdfstring{jobs}{jobs}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a0164434ca056d82cf913cef2bf523188} 
+std\+::vector$<$\mbox{\hyperlink{struct_g_o_a_t_1_1_x_m_l_1_1calculation_job}{calculation\+Job}}$>$ GOAT\+::\+XML\+::xml\+Reader\+::jobs}
+
+
+
+calculation jobs read from the file are stored here 
+
+
+
+Definition at line \mbox{\hyperlink{xml_8h_source_l00139}{139}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a93447a83154f9feb2f989e7526be7aef}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!LS@{LS}}
 \index{LS@{LS}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -396,7 +460,7 @@ vector, which carries all light sources (as pointers)
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00162}{162}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00211}{211}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ad41b6e220a499212c095422079506607}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!numDet@{numDet}}
 \index{numDet@{numDet}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -410,7 +474,7 @@ number of detectors
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00165}{165}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00214}{214}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ad9279aac70e1a652c78d99632fd26750}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!numLS@{numLS}}
 \index{numLS@{numLS}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -424,7 +488,7 @@ number of light sources
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00164}{164}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00213}{213}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a07a6525e94e8158d7f7ad01c40ed801e}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!numObj@{numObj}}
 \index{numObj@{numObj}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -438,7 +502,7 @@ number of objects
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00163}{163}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00212}{212}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a82af2771c5a05a22458fa97b9dc6b8bf}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!Obj@{Obj}}
 \index{Obj@{Obj}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -452,7 +516,7 @@ vector, which carries all objects (as pointers)
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00160}{160}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00209}{209}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_ab545ebb8d3e97db14a847dcc23084459}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!path@{path}}
 \index{path@{path}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -466,13 +530,13 @@ path of the XML-\/\+File
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00166}{166}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00215}{215}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a17f2374d384fee0322f17b33b870fb0b}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!rootElement@{rootElement}}
+\Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a73d8d9a9de5acae7f6e8e60bc6010bf2}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!rootElement@{rootElement}}
 \index{rootElement@{rootElement}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
 \doxysubsubsection{\texorpdfstring{rootElement}{rootElement}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a17f2374d384fee0322f17b33b870fb0b} 
-\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_node}{tinyxml2\+::\+XMLNode}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Reader\+::root\+Element\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_a73d8d9a9de5acae7f6e8e60bc6010bf2} 
+\mbox{\hyperlink{classtinyxml2_1_1_x_m_l_element}{tinyxml2\+::\+XMLElement}}\texorpdfstring{$\ast$}{*} GOAT\+::\+XML\+::xml\+Reader\+::root\+Element\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -480,7 +544,7 @@ pointer to root element of the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML}
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00157}{157}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00206}{206}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_acfc9bdc66d97b25827afe7d299a84719}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!S@{S}}
 \index{S@{S}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -494,7 +558,7 @@ The scene that was read from the file is saved here.
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00096}{96}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00138}{138}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1_x_m_l_1_1xml_reader_afc2470a98546ddcb3586d43f185e66d4}\index{GOAT::XML::xmlReader@{GOAT::XML::xmlReader}!sceneElement@{sceneElement}}
 \index{sceneElement@{sceneElement}!GOAT::XML::xmlReader@{GOAT::XML::xmlReader}}
@@ -508,7 +572,7 @@ pointer to the scene element of the \doxylink{namespace_g_o_a_t_1_1_x_m_l}{XML}
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00158}{158}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00207}{207}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 

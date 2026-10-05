@@ -17,5 +17,5 @@ var surface_8h =
     [ "GOAT::raytracing::operator+", "namespace_g_o_a_t_1_1raytracing.html#ac7c2b09523977b858ecf36c2176e216d", null ],
     [ "GOAT::raytracing::operator-", "namespace_g_o_a_t_1_1raytracing.html#af5d210bf4c939fd91910517f84e70730", null ],
     [ "GOAT::raytracing::operator-", "namespace_g_o_a_t_1_1raytracing.html#a1bb8016b176c61c48bc2313f25cfa02b", null ],
-    [ "GOAT::raytracing::operator<<", "namespace_g_o_a_t_1_1raytracing.html#a82aabe65090ebaf61aa8514aa7139a17", null ]
+    [ "GOAT::raytracing::operator<<", "namespace_g_o_a_t_1_1raytracing.html#ae28f866dfacbb8ccd2c91d2c76539fc4", null ]
 ];

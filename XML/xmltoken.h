@@ -9,9 +9,10 @@ namespace GOAT
 	{
 #define numLightSourceToken 12
 #define numObjectToken	    8 
-#define numDetectorToken    1
+#define numDetectorToken    3
 #define numCalculationToken 6
 #define numRefractiveIndexToken 6
+#define numRoughnessToken 3
 
 #define TOKEN_NOT_FOUND					-1
 #define TOKEN_LIGHTSOURCE_PLANE			0
@@ -38,6 +39,8 @@ namespace GOAT
 #define TOKEN_OBJECT_VORTEX_PLATE	  107
 
 #define TOKEN_DETECTOR_PLANE 		  150
+#define TOKEN_DETECTOR_KIRCHHOFF	  151
+#define TOKEN_DETECTOR_ANGULAR_SPECTRUM 152
 
 #define TOKEN_CALCULATION_PURE		  200
 #define TOKEN_CALCULATION_PATH		  201
@@ -45,6 +48,7 @@ namespace GOAT
 #define TOKEN_CALCULATION_PULSE_FIELD 203
 #define TOKEN_CALCULATION_INELASTIC   204
 #define TOKEN_CALCULATION_FIELD		  205
+#define TOKEN_CALCULATION_WAVE_ONLY	  206
 
 #define TOKEN_REFRACTIVE_INDEX_AIR	  300
 #define TOKEN_REFRACTIVE_INDEX_GLASS  301
@@ -58,15 +62,17 @@ namespace GOAT
 
         const std::vector<std::string> lightSourceToken = { "plane","gaussian","ring","tophat","plane_mc","gaussian_mc","ring_mc","gaussian_ring_mc","line","line_mc","point","point_mc"};
 		const std::vector<std::string> objectToken = { "ellipsoid","surface","cone","aspheric_lens","spheric_lens","box","cylinder","vortex_plate"};
-		const std::vector<std::string> detectorToken = {"plane"};
-        const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic","field"};
+		const std::vector<std::string> detectorToken = {"plane","kirchhoff","angular_spectrum"};
+        const std::vector<std::string> calculationToken = { "pure","path","pulse","pulse_field","inelastic","field","wave_only" };
 		const std::vector<std::string> refractiveIndexToken = { "air","glass","bk7","lasf55","vacuum","pmma" };
+		const std::vector<std::string> roughnessToken = { "gaussian","uniform_cone","cosine_cone" };
 
 		int mapString2LightSourceToken(std::string str);
 		int mapString2ObjectToken(std::string str);
 		int mapString2DetectorToken(std::string str);
 		int mapString2CalculationToken(std::string str);
 		int mapString2RefractiveIndexToken(std::string str);
+		int mapString2RoughnessIndexToken(std::string str);
 		std::string str_tolower(std::string s); ///< converts all letters in s into lower case (taken from https://en.cppreference.com/w/cpp/string/byte/tolower)
 		bool addFunction2IndexList(std::vector< std::function< std::complex< double >(double) > >& nList, int refIndexToken);
 	}

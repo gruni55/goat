@@ -8,11 +8,19 @@
 #include "pulsecalculation_rt.h"
 #include "pulsecalculation_field.h"
 #include "raytrace_inel.h"
+#include "kirchhoff.h"
+#include "angularSpectrum.h"
+#include "detector.h"
+#include "goat_defines.h"
+#include "roughObject.h"    
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
 #include "refractive_index_functions.h"
-
+#include <sstream>
+#include <iomanip>
+#include <locale>
+#include <cmath>
 
 #define tl(s) GOAT::maths::tl(s)	
 
@@ -20,6 +28,52 @@ namespace GOAT
 {
 	namespace XML
 	{
+        inline std::string formatDouble(double value, int precision = 17)
+        {
+            // Optional: NaN / Inf explizit behandeln
+            if (std::isnan(value)) return "nan";
+            if (std::isinf(value)) return (value > 0) ? "inf" : "-inf";
+
+            std::ostringstream oss;
+            oss.imbue(std::locale::classic());   // erzwingt '.' als Dezimaltrennzeichen
+            oss << std::setprecision(precision) << value;
+            return oss.str();
+        }
+
+        void createXMLElementWithParam(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* parent, const calculationParam& param)
+        {
+            tinyxml2::XMLElement* paramElement = doc.NewElement("Param");
+            paramElement->SetAttribute("name", param.name.c_str());
+            if (std::holds_alternative<int>(param.value))
+            {
+                paramElement->SetAttribute("type", "int");
+                paramElement->SetAttribute("value", std::get<int>(param.value));
+            }
+            else if (std::holds_alternative<long long>(param.value))
+            {
+                paramElement->SetAttribute("type", "longlong");
+		auto v = std::get<long long>(param.value);
+		paramElement->SetAttribute("value", static_cast<uint64_t>(v));
+                //paramElement->SetAttribute("value", std::get<long long>(param.value));
+            }
+            else if (std::holds_alternative<double>(param.value))
+            {
+                paramElement->SetAttribute("type", "double");
+                paramElement->SetAttribute("value", formatDouble(std::get<double>(param.value)).c_str());
+            }
+            else if (std::holds_alternative<bool>(param.value))
+            {
+                paramElement->SetAttribute("type", "bool");
+                paramElement->SetAttribute("value", std::get<bool>(param.value) ? "true" : "false");
+            }
+            else if (std::holds_alternative<std::string>(param.value))
+            {
+                paramElement->SetAttribute("type", "string");
+                paramElement->SetAttribute("value", std::get<std::string>(param.value).c_str());
+            }
+			parent->InsertEndChild(paramElement);
+        }
+
 
         bool findExtension (std::string fname, std::string extension)
         {
@@ -40,9 +94,7 @@ namespace GOAT
             os.close();
             this->path = path;
 			setlocale(LC_NUMERIC, "C");
-			tinyxml2::XMLDocument doc;
-            std::cout << "fname=" << fname << "\tpath=" << path << std::endl;
-            // check, if path is given separatly 
+		     // check, if path is given separatly 
             if (path.size() >0)
             {
                 std::string fstr = std::string(path) + "/" + std::string(fname);
@@ -57,8 +109,7 @@ namespace GOAT
                 if (p.is_absolute())
                 {
                     dir = ""; 
-                    std::cout << "path is absolute" << std::endl;
-                }
+                    }
                 path=dir.string();
                // fname=filename.string();
             }
@@ -68,13 +119,26 @@ namespace GOAT
 			{
 				rootElement = doc.RootElement();
 				readScene();
+				// if (calculation_enabled) doCalculations();
 			}
 			else
 				std::cerr << "Could not read XML-File:" << fname << std::endl;
 			
 		}
 
-		void xmlReader::readScene()
+        bool xmlReader::readRequest(std::string& request)
+        {
+         //   tinyxml2::XMLDocument doc;
+			calculation_enabled = false;
+            if (doc.Parse(request.c_str(), request.size()) != tinyxml2::XML_SUCCESS)
+                return false;
+			rootElement = doc.RootElement();
+			readScene();
+            readJobs();
+            return true;
+        }
+
+        void xmlReader::readScene()
 		{
 			sceneElement = rootElement->FirstChildElement("Scene");
 			if (sceneElement != NULL)
@@ -96,7 +160,8 @@ namespace GOAT
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
                 S.setNumberOfCellsPerDirection(iv);
-
+                S.nS = readCmplx(sceneElement->FirstChildElement("nS"),1.0);
+                S.setNumReflex(sceneElement->IntAttribute("nReflex", 0));
 				/* look for the detectors */
 				readDetectors();
 
@@ -111,44 +176,237 @@ namespace GOAT
 			}		
 		}
 
+         bool xmlReader::readParam(tinyxml2::XMLElement* paramEll, calculationParam &p)
+        {     
+            p.name=paramEll->Attribute("name");
+            std::string typeStr=paramEll->Attribute("type");
+            if (typeStr.compare("int")==0)
+            {
+                int val=paramEll->IntAttribute("value",0);
+                p.value=val;
+            }
+            else if (typeStr.compare("longlong")==0)
+            {
+                long long val=paramEll->Int64Attribute("value",0);
+                p.value=val;
+            }
+            else if (typeStr.compare("double")==0)
+            {
+                double val=paramEll->DoubleAttribute("value",0.0);
+                p.value=val;
+            }
+            else if (typeStr.compare("bool")==0)
+            {
+                bool val=paramEll->BoolAttribute("value",false);
+                p.value=val;
+            }
+            else if (typeStr.compare("string")==0)
+            {
+                std::string val=paramEll->Attribute("value");
+                p.value=val;
+            }
+            else 
+				return false;
+			return true;
+        }
+
+         void xmlReader::readJobs()
+         {
+             tinyxml2::XMLElement* ell = rootElement->FirstChildElement("Calculations");
+             if (ell != NULL)
+             {
+                 for (auto calcEll = ell->FirstChildElement("Calculation"); calcEll != NULL; calcEll = calcEll->NextSiblingElement("Calculation"))
+                 {
+                     calculationJob job;
+                     job.id = "";
+                     job.type = mapString2CalculationToken(calcEll->Attribute("type"));
+                     switch (job.type)
+                     {
+                     case TOKEN_CALCULATION_PULSE:
+                     {
+                         pulseJobParms parms;
+                         parms.trafo.wvl = calcEll->DoubleAttribute("wavelength", 1.0);
+                         parms.trafo.nR = calcEll->IntAttribute("numReflex", raytracing::INEL_MAX_NREFLEX);
+                         parms.trafo.dt = calcEll->DoubleAttribute("pulseWidth", 100.0);
+                         parms.trafo.nI = calcEll->IntAttribute("numSpectralRanges", 20);
+						 parms.trafo.nS = calcEll->IntAttribute("numWavelengthsPerRange", 10);
+                         parms.trafo.repetitionTime = calcEll->DoubleAttribute("repetitionTime", 1000.0);
+						 parms.trafo.spatialResolution = calcEll->DoubleAttribute("spatialResolution", 1.0);
+                         parms.trafo.number_of_threads = calcEll->IntAttribute("numThreads", 5);
+                         parms.time = calcEll->DoubleAttribute("time", 0.0);
+                         parms.offsetTime = calcEll->DoubleAttribute("offsetTime", 0.0);
+                         int i = 0;
+						 auto refractiveIndexListEll = calcEll->FirstChildElement("RefractiveIndexList");
+                         for (auto obj = S.Obj.begin(); obj != S.Obj.end(); ++obj)
+                         {
+                          //   if ((*obj)->isActive())
+                             {
+                                 std::string name = "n" + std::to_string(i);         
+                                 //std::string funcname = refractiveIndexListEll->Attribute("n0");
+
+								  std::string funcname = refractiveIndexListEll->Attribute(name.c_str());
+                                 raytracing::nFnPtr fp = GOAT::raytracing::keyToN.at(funcname);  // fp ist cplx(*)(double)								
+								 parms.trafo.nList.push_back(fp);
+                             }
+                             i++;
+                         }
+						 job.parms = parms;
+                         jobs.push_back(job);
+                         break;
+                     }
+
+                     
+                     }
+                 }
+             }
+         }
+
+         struct detectorLink
+         {
+             raytracing::Propagator* det;
+             std::vector<std::string> linkIDs;
+		 };
+
         void xmlReader::readDetectors()
-		{
+        {
+			std::vector<detectorLink> pendingLinks; // to store the links for Kirchhoff detectors until all detectors are read
 			tinyxml2::XMLElement* ell;
 			ell = sceneElement->FirstChildElement("Detectors");
-            
+            std::vector<std::vector<std::string> > linkList;
 			if (ell != NULL)
 			{                
 				int n1, n2;
 				
-				for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
-				{
-					maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
-					maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
-					std::string typeStr;
-					typeStr = detEll->Attribute("type");                    
-					std::string filename;
-					filename = detEll->Attribute("filename");
+                for (tinyxml2::XMLElement* detEll = ell->FirstChildElement("Detector"); detEll != NULL; detEll = detEll->NextSiblingElement("Detector"))
+                {
+                    maths::Vector<double> Pos = readVector(detEll->FirstChildElement("Position"));
+                   
+                    maths::Vector<double> Dir = readVector(detEll->FirstChildElement("Direction"));
+                    std::string typeStr;
+                    typeStr = detEll->Attribute("type");
+                    std::string filename;
+                    filename = detEll->Attribute("filename");
+                    std::string ID = detEll->Attribute("ID");
 
-					int type = mapString2DetectorToken(typeStr);
-					switch (type)
-					{
-					  case TOKEN_DETECTOR_PLANE : 
-													{
-                                                     double d = detEll->DoubleAttribute("d", 1);
-													 int n = detEll->IntAttribute("n", 1);                             
-                                                     Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d,n));
-													 Det[numDet]->fname = filename;
-													 S.addDetector(Det[numDet]);
-                                                    Det[numDet]->load(filename.c_str());
-                                                    numDet++;
-                                                    std::cout << "Detector filename=" << filename << std::endl;
-													}
-													
-					}
+                    int type = mapString2DetectorToken(typeStr);
+                    switch (type)
+                    {
+                    case TOKEN_DETECTOR_PLANE:
+                    {
+                        std::vector<std::string> dummy;
+                        linkList.push_back(dummy);
+                        double d = detEll->DoubleAttribute("d", 1);
+                        int n = detEll->IntAttribute("n", 1);
+						int n1 = detEll->IntAttribute("n1", -1);
+                        if (n1 == -1) n1 = n;
+                        int n2 = detEll->IntAttribute("n2", -1);
+                        if (n2 == -1) n2 = n;
+						double d1 = detEll->DoubleAttribute("d1", -1);
+						if (d1 < 0) d1 = d;
+						double d2 = detEll->DoubleAttribute("d2", -1);
+						if (d2 < 0) d2 = d;
+                        Det.push_back(new raytracing::DetectorPlane(Pos, Dir, d1, d2, n1, n2));
+                        Det[numDet]->fname = filename;
+                        S.addDetector(Det[numDet]);
+                        Det[numDet]->load(filename.c_str());
+                        Det[numDet]->setID(ID);
+                        numDet++;
+                       }
+                    break;
 
-				}
-			}
-		}
+                    case TOKEN_DETECTOR_KIRCHHOFF:
+                    {						
+                        double d = detEll->DoubleAttribute("d", 1);
+                        int n = detEll->IntAttribute("n", 1);
+                        std::vector<raytracing::DetectorPlane *> sources;
+                        bool cancel = false;
+                        Det.push_back(new raytracing::Kirchhoff(1.0,Pos, Dir, d, n));
+						double wvl = detEll->DoubleAttribute("wavelength", 1.0);
+                        detectorLink links;
+						links.det = (raytracing::Kirchhoff*)Det[numDet];
+                        for (tinyxml2::XMLElement* link=detEll->FirstChildElement ("Link"); link != NULL; link = link->NextSiblingElement("Link"))
+                        {
+                            std::string linkID = link->Attribute("ID");
+                            raytracing::Detector* det = S.getDetector(linkID);
+                            cancel = det == NULL; // check, if detector with ID exists
+							if (!cancel)
+                            {
+								links.linkIDs.push_back(linkID); 
+                            }
+                        }
+						pendingLinks.push_back(links);
+                        Det[numDet]->setID(ID);
+                        S.addDetector(Det[numDet]);
+                        numDet++;				
+                    }
+                    break;
+
+                    case TOKEN_DETECTOR_ANGULAR_SPECTRUM:
+                        {
+                            double d = detEll->DoubleAttribute("d", -1);
+                            double d1, d2;
+                            if (d == -1)
+                            {
+                                d1 = detEll->DoubleAttribute("d1", 1);
+                                d2 = detEll->DoubleAttribute("d2", 1);
+                            }
+                            else
+                            {
+                                d1 = d;
+                                d2 = d;
+                            }
+
+                            int n = detEll->IntAttribute("n", -1);
+                            int n1, n2;
+                            if (n == -1)
+                            {
+                                n1 = detEll->IntAttribute("n1", 1);
+                                n2 = detEll->IntAttribute("n2", 1);
+                            }
+                            else
+                            {
+                                n1 = n;
+                                n2 = n;
+                            }
+                            double wvl = detEll->DoubleAttribute("wavelength", 1.0);
+                            maths::Vector<double> e1, e2;
+                            e1 = readVector(detEll->FirstChildElement("e1"));
+                            e2 = readVector(detEll->FirstChildElement("e2"));
+							Det.push_back(new raytracing::AngularSpectrum(wvl, Pos, e1, e2, n1, n2));
+                            bool cancel = false;
+                            detectorLink links;
+                            for (tinyxml2::XMLElement* link = detEll->FirstChildElement("Link"); link != NULL; link = link->NextSiblingElement("Link"))
+                            {
+                                std::string linkID = link->Attribute("ID");
+                                raytracing::Detector* det = S.getDetector(linkID);
+                                cancel = det == NULL; // check, if detector with ID exists
+                                if (!cancel)
+                                {
+                                    links.linkIDs.push_back(linkID);
+									links.det =(GOAT::raytracing::AngularSpectrum*) Det[numDet];
+                                }
+                            }
+                            pendingLinks.push_back(links);
+                            Det[numDet]->fname = filename;  
+                            Det[numDet]->load(filename.c_str());
+                            Det[numDet]->setID(ID);
+                            S.addDetector(Det[numDet]);
+                            numDet++;
+                        }
+                        break;
+                    } // switch(type)
+				} // for...
+              
+                for (auto& links : pendingLinks)
+                {
+                    for (auto linkID : links.linkIDs)
+                        links.det->addDetector((raytracing::DetectorPlane *)(S.getDetector(linkID)));
+
+                }
+
+	   } // if (ell != NULL)
+
+	}
 
 		void xmlReader::readLightSources()
 		{
@@ -160,7 +418,7 @@ namespace GOAT
                GOAT::maths::Vector<std::complex<double> > Pol;                
                GOAT::maths::Vector<double> Pold;
 			   GOAT::maths::Vector<double> Pos;
-				int numRays;
+				GOAT::raycount_t numRays;
                 int numRaysRT;
 				double wavelength;
 				double size;
@@ -171,11 +429,12 @@ namespace GOAT
 			        	std::string typeStr;
 					typeStr = lsEll->Attribute("type");
 					Pos = readVector(lsEll->FirstChildElement("Position"));
-					numRays = lsEll->IntAttribute("numRays", 100);
+					 double nrays = lsEll->DoubleAttribute("numRays", 100);
+					 if (nrays < 0) nrays = 100;
+					 numRays = static_cast<GOAT::raycount_t>(nrays);
                     numRaysRT = lsEll->IntAttribute("numRaysRT", 10);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
-                    std::cout << "read: Wavelength:" << wavelength << std::endl;
-					size = lsEll->DoubleAttribute("size", 10.0);
+                  size = lsEll->DoubleAttribute("size", 10.0);
                  
 					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
                  
@@ -223,6 +482,8 @@ namespace GOAT
 
                     case TOKEN_LIGHTSOURCE_POINT_MC: {
                                                         ls = new GOAT::raytracing::LightSrcPoint_mc(Pos, numRays, wavelength);
+                                                        double thetaMax = lsEll->DoubleAttribute("thetaMax", M_PI);
+                                                        ((GOAT::raytracing::LightSrcPoint_mc *)ls)->setThetamax(thetaMax);
                                                         LS.push_back(ls);
                                                      }
                                                    break;
@@ -271,24 +532,24 @@ namespace GOAT
                                                           rmax=lsEll->DoubleAttribute("rmax",100.0);
                                                            ls=new GOAT::raytracing::LightSrcRing_mc(Pos, numRays, wavelength, rmin,rmax,Pol);
 														   GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"));
-                                                           std::cout << "1 Pold=" << ls->Pol << "\t" << ls->initPol << std::endl;
-														   ls->setk(k);
-                                                           std::cout << "2 Pold=" << ls->Pol << "\t" << ls->initPol << std::endl;
+                                                           ls->setk(k);
                                                            LS.push_back(ls);
 														   break;
                                                         }
                     case TOKEN_LIGHTSOURCE_GAUSSIAN_RING_MC :
                                                         {
-                                                            std::cout << "light source gaussian ring mc" << std::endl;
-                                                         double rmin, rmax;
+                                                           double rmin, rmax;
                                                          double width;
+                                                         double FWHM;
                                                          rmin=lsEll->DoubleAttribute("rmin",0.0);
                                                          rmax=lsEll->DoubleAttribute("rmax",100.0);
-                                                         width=lsEll->DoubleAttribute("width",rmax);
+                                                        // width=lsEll->DoubleAttribute("width",rmax);
+                                                         FWHM = lsEll->DoubleAttribute("FWHM", rmax);
                                                            ls=new GOAT::raytracing::LightSrcRingGauss_mc(Pos, numRays, wavelength, rmin, rmax,Pol);
-                                                         ((GOAT::raytracing::LightSrcRingGauss_mc *)ls)->setFWHM(width);
+                                                         ((GOAT::raytracing::LightSrcRingGauss_mc *)ls)->setFWHM(FWHM);
 														 GOAT::maths::Vector<double> k = readVector(lsEll->FirstChildElement("Direction"),0,0,1);
 														 ls->setk(k);
+                                                                                     
                                                          LS.push_back(ls);
                                                          break;
                                                         }
@@ -335,6 +596,8 @@ namespace GOAT
 
 		}
 
+        
+
 		void xmlReader::readObjects()
 		{
 			tinyxml2::XMLElement* ell;
@@ -343,11 +606,14 @@ namespace GOAT
 			std::string typeStr;
 			std::string fileTypeStr;
 			std::string fileName;
+            std::string ID;
 			std::complex<double> n;
+            bool isRough;
 			bool isActive;
 			double alpha = 0;
 			double beta = 0;
 			double gamma = 0;
+
 
 			ell = sceneElement->FirstChildElement("Objects");
 			if (ell != NULL)
@@ -363,56 +629,56 @@ namespace GOAT
 					beta = objEll->DoubleAttribute("beta", 0.0) / 180.0 * M_PI;
 					gamma = objEll->DoubleAttribute("gamma", 0.0) / 180.0 * M_PI;
 					isActive = objEll->BoolAttribute("isactive", false);
+					isRough = objEll->BoolAttribute("isrough", false);
+                    auto text=objEll->Attribute("ID");
+                    if (text == nullptr) ID = "new_Object";
+                    else ID = text;
 					// GOAT::raytracing::ObjectShape* obj = NULL;
 					n = readCmplx(objEll->FirstChildElement("n"), 1.0);
 					int type = mapString2ObjectToken(typeStr);
+					raytracing::ObjectShape* obj = nullptr;
 					switch (type)
 					{ 
 
 					case TOKEN_OBJECT_ELLIPSOID: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10.0, 10.0, 10.0);
-													Obj.push_back(new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n));
-													Obj[numObj]->setMatrix(alpha, beta, gamma);
-													Obj[numObj]->setActive(isActive);
-													S.addObject(Obj[numObj]);
+                                                    obj = new GOAT::raytracing::Ellipsoid(Pos, Dimensions, n);                                                    
+													obj->setMatrix(alpha, beta, gamma);
+                                                    obj->setActive(isActive);
 												 }
 											   break;
 					case TOKEN_OBJECT_BOX: {
 													GOAT::maths::Vector<double> Dimensions = readVector(objEll->FirstChildElement("Dimension"), 10, 10, 10);
-													Obj.push_back(new GOAT::raytracing::Box(Pos, Dimensions, n));
-													Obj[numObj]->setMatrix(alpha, beta, gamma);
-													Obj[numObj]->setActive(isActive);
-													S.addObject(Obj[numObj]);
+													obj = new GOAT::raytracing::Box(Pos, Dimensions, n);
+													obj->setMatrix(alpha, beta, gamma);
+													obj->setActive(isActive);													
 										    }
 										 break;
 					case TOKEN_OBJECT_SURFACE: 
 										   {
-											Obj.push_back(new GOAT::raytracing::surface(Pos, n));
+											obj=new GOAT::raytracing::surface(Pos, n);
 											fileTypeStr = objEll->Attribute("filetype");
 
 											if (fileTypeStr.compare(".srf") == 0)
 											{
 												fileName = objEll->Attribute("filename");
                                           
-                                                std::cout << "path.size()=" << path.size() << std::endl;
                                                 if (path.size()>0)
                                                 {
                                                     std::string sep = "/";
                                                     std::filesystem::path p(fileName);
                                                     if (p.is_relative())
                                                     fileName = path + sep + fileName;
-                                                    std::cout << "fileName:" << fileName << std::endl;
                                                 }
 
                                                 
 
-												if (!fileName.empty()) ((GOAT::raytracing::surface*)Obj[numObj])->createsurface(fileName);
+												if (!fileName.empty()) ((GOAT::raytracing::surface*)obj)->createsurface(fileName);
 											}
 
 											if (fileTypeStr.compare(".stl") == 0)
 											{
 												fileName = objEll->Attribute("filename");
-                                                std::cout << "path.size()=" << path.size() << std::endl;
                                                 if (path.size() > 0)
                                                 {
                                                     std::filesystem::path p(fileName);
@@ -421,15 +687,13 @@ namespace GOAT
                                                         std::string sep = "/";
                                                         fileName = path + sep + fileName;
                                                     }
-                                                    std::cout << "fileName:" << fileName << std::endl;
                                                 }
 												if (!fileName.empty())
-												((GOAT::raytracing::surface*)Obj[numObj])->importBinSTL(fileName);
+												((GOAT::raytracing::surface*)obj)->importBinSTL(fileName);
 											}
 										   }
-										   Obj[numObj]->setMatrix(alpha, beta, gamma);
-										   Obj[numObj]->setActive(isActive);
-										   S.addObject(Obj[numObj]);
+										   obj->setMatrix(alpha, beta, gamma);
+										   obj->setActive(isActive);
 										   break;
 
 					case TOKEN_OBJECT_SPHERIC_LENS:
@@ -464,10 +728,9 @@ namespace GOAT
 												lensparms.radius = objEll->DoubleAttribute("radius", 0.0);                                                
 
 
-												Obj.push_back(new GOAT::raytracing::sphericLens(Pos,n,lensparms));
-												Obj[numObj]->setMatrix(alpha, beta, gamma);
-												Obj[numObj]->setActive(isActive);
-												S.addObject(Obj[numObj]);	
+												obj=new GOAT::raytracing::sphericLens(Pos,n,lensparms);
+												obj->setMatrix(alpha, beta, gamma);
+												obj->setActive(isActive);
                                                 break;						
 											}
                     case TOKEN_OBJECT_CONE: 
@@ -475,11 +738,10 @@ namespace GOAT
                                                 double height, radius;
                                                 height=objEll->DoubleAttribute("height",100);
                                                 radius=objEll->DoubleAttribute("radius",100);
-                                                Obj.push_back(new GOAT::raytracing::Cone(Pos,radius,height,n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-												Obj[numObj]->setActive(isActive);
-												S.addObject(Obj[numObj]);	
-                                                break;
+                                                obj=new GOAT::raytracing::Cone(Pos,radius,height,n);
+                                                obj->setMatrix(alpha, beta, gamma);
+												obj->setActive(isActive);
+												break;
                                             }
 
                     case TOKEN_OBJECT_CYLINDER:
@@ -487,12 +749,12 @@ namespace GOAT
                                                 double height, radius;
                                                 height = objEll->DoubleAttribute("height", 1);
                                                 radius = objEll->DoubleAttribute("radius", 1);                                                
-                                                Obj.push_back(new GOAT::raytracing::Cylinder(Pos, radius, height, n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-                                                Obj[numObj]->setActive(isActive);
-                                                S.addObject(Obj[numObj]);
+                                                obj=new GOAT::raytracing::Cylinder(Pos, radius, height, n);
+                                                obj->setMatrix(alpha, beta, gamma);
+                                                obj->setActive(isActive);
                                                 break;
                                             }
+
                     case TOKEN_OBJECT_VORTEX_PLATE:
                                             {                                                
                                                 double height, radius, dh;
@@ -501,27 +763,72 @@ namespace GOAT
                                                 radius = objEll->DoubleAttribute("radius", 1);
                                                 m = objEll->IntAttribute("m", 1);
                                                 dh = objEll->DoubleAttribute("dh", 1);
-                                                Obj.push_back(new GOAT::raytracing::VortexPlate(Pos, radius, height, dh, m, n));
-                                                Obj[numObj]->setMatrix(alpha, beta, gamma);
-                                                Obj[numObj]->setActive(isActive);
-                                                S.addObject(Obj[numObj]);
+                                                obj=new GOAT::raytracing::VortexPlate(Pos, radius, height, dh, m, n);
+                                                obj->setMatrix(alpha, beta, gamma);
+                                                obj->setActive(isActive);
                                                 break;
                             
                                             }
 
 					}
-					double sf=objEll->DoubleAttribute("scaling",1);
-                    if ((sf!=1) && (sf>0)) Obj[numObj]->scale(sf);
-                    Obj[numObj]->nfunc = GOAT::raytracing::n_Vacuum;
-                    Obj[numObj]->setPos(Pos);
-					numObj++;
+                    if (obj != nullptr)
+                    {
+                        if (isRough)
+                        {
+                            std::cout << "object is rough" << std::endl;
+                            tinyxml2::XMLElement* roughEll = objEll->FirstChildElement("Roughness");
+                            obj->setRough(true);
+                            double thetaMax = roughEll->DoubleAttribute("thetaMax", M_PI_2);
+							double sigma = roughEll->DoubleAttribute("sigma", 0.0);
+                            auto roughObj = obj->getRoughObj();
+                            roughObj->setThetaMax(thetaMax);
+                            roughObj->setSigma(sigma);
+                            std::string scattTypeStr = roughEll->Attribute("type");
+                                int scattType = mapString2RoughnessIndexToken(scattTypeStr);
+                                roughObj->setScatteringType(static_cast<raytracing::ScatteringType>(scattType));
+                        }
+                        Obj.push_back(obj);
+                        S.addObject(obj);
+                        double sf = objEll->DoubleAttribute("scaling", 1);
+                        if ((sf != 1) && (sf > 0)) Obj[numObj]->scale(sf);
+                        Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
+                        Obj[numObj]->setPos(Pos);
+
+                        std::string objID = "object_" + std::to_string(numObj);
+                        Obj[numObj]->setID(objID);
+                        numObj++;
+                    }
 				} // while loop
+               
 
 				  // S.addObjectList(numObj, Obj);
 
 			}
 			/* End of objects */
 		}
+
+        void xmlReader::doWaveOnly()
+        {
+            for (auto det : S.Det)
+            {
+                switch (det->Type())
+                {
+                case raytracing::DETECTOR_KIRCHHOFF:
+                {                      
+                    ((raytracing::Kirchhoff*)det)->calc();
+                }
+                break;
+
+                case raytracing::DETECTOR_ANGULAR_SPECTRUM:
+                {
+                    det->clean();
+                    ((raytracing::AngularSpectrum*)det)->calc(true);
+                }
+                break;
+                }
+
+            }            
+        }
 
 		void xmlReader::doCalculations()
 		{
@@ -542,8 +849,7 @@ namespace GOAT
                         if (inactiveStr.compare("false")==0)
 						{						
 						typeStr = objEll->Attribute("type");
-                        std::cout << "typeStr=" << typeStr << std::endl;
-
+						std::cout << "Calculation type: " << typeStr << std::endl;
                         // change number of rays, if given
                         int numRays;
                         std::vector<int> numRays_old;
@@ -553,7 +859,7 @@ namespace GOAT
 									{
 										// store the old values 									 
                                         numRaysChanged=true;
-										for (int i = 0; i < S.nLS; i++)
+										for (int i = 0; i < S.getNumberOfLightSources(); i++)
 										{
 											numRays_old.push_back(S.LS[i]->getNumRays());
 											S.LS[i]->setNumRays(numRays);
@@ -562,30 +868,70 @@ namespace GOAT
 
                         int numReflex;
                         numReflex = objEll->IntAttribute("numReflex", 0);
-
+						int numThreads = objEll->IntAttribute("numThreads", 1);
+                        S.setNumThreads(numThreads);
 						if (!typeStr.empty())
 						{							
-							type = mapString2CalculationToken(typeStr);
+							type = mapString2CalculationToken(typeStr);							
                             switch (type)
 							{
+							case TOKEN_CALCULATION_WAVE_ONLY:
+							{
+								std::cout << "do wave only calculation" << std::endl;
+								doWaveOnly();
+								break;
+							}
+
                             case TOKEN_CALCULATION_PURE:
                             {
+								std::cout << "do pure raytracing calculation" << std::endl;
                              GOAT::raytracing::Raytrace_pure rt(S);      
-                             rt.setNumReflex(numReflex);                       
+                             rt.setNumReflex(S.getNumReflex());                       
                              rt.trace();
-                             break;
-                            }
+							 std::cout << S.getNumberOfDetectors() << " detectors in scene" << std::endl;
+                             for (auto det : S.Det)
+                             {
+                                 std::cout << "Detector: " << det->getID() << " with type" << det->Type() << std::endl;
+                                 std::cout << "total intensity(rt): " << std::endl;
+                                 std::cout << "total intensity: " << det->getTotalIntensity() << std::endl;
+                                 int type = det->Type();
+                                 if (type == TOKEN_DETECTOR_KIRCHHOFF || type == raytracing::DETECTOR_KIRCHHOFF)
+                                 {
+                                     GOAT::raytracing::Kirchhoff* K = (GOAT::raytracing::Kirchhoff*)det;
+                                     std::cout << "Kirchhoff detector: " << K->getID() << "with " << K->numberOfSources() << " sources" << std::endl;
+                                     K->setNumberOfThreads(numThreads);
+                                     K->calc();
+                                 }
+
+                                 if (type == TOKEN_DETECTOR_ANGULAR_SPECTRUM || type == raytracing::DETECTOR_ANGULAR_SPECTRUM)
+                                 {
+                                     GOAT::raytracing::AngularSpectrum* AS = (GOAT::raytracing::AngularSpectrum*)det;
+                                     std::cout << "Angular spectrum detector: " << AS->getID() << std::endl;
+                                     AS->setNumberOfThreads(numThreads);
+                                     AS->calc();
+                                 }
+                             }
+                                 break;
+                             }
 							case TOKEN_CALCULATION_PATH:
 							{
                                 std::cout << "do path calculation" << std::endl;
                                 std::string fname = objEll->Attribute("filename");								
-								int numDet=S.nDet;
+								int numDet=S.getNumberOfDetectors();
                                 // S.nDet=0;
 								if (!fname.empty())
 								{
-									GOAT::raytracing::Raytrace_Path rt(S);
+                                    /*
+									GOAT::raytracing::Raytrace_Inel rt(S);
+                                    GOAT::raytracing::RRTParms rrtparms;
+                                    
+                                    rt.setExcitationFieldOnly();
+                                    rt.setNumReflex(numReflex);
+                                    rt.trace(rrtparms);
+									*/
+                                    GOAT::raytracing::Raytrace_Path rt(S);
 									rt.setNumReflex(numReflex);
-									rt.trace(fname);
+									rt.trace(fname);                                    
 								}
 								else
 									std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
@@ -642,7 +988,7 @@ namespace GOAT
 
                                     std::string refStr;
                                     int refIndexToken;
-                                    for (int i=0; (i<S.nObj) && (!failed); i++)
+                                    for (int i=0; (i<S.getNumberOfObjects()) && (!failed); i++)
                                     {
                                         sprintf(cs, "n%i", i);
                                         hStr = refEll->Attribute(cs);
@@ -716,7 +1062,7 @@ namespace GOAT
                                         {
                                           pc.field(time);
 
-                                          for (int i = 0; i < S.nObj; i++)
+                                          for (int i = 0; i < S.getNumberOfObjects(); i++)
                                           {
                                             if (S.Obj[i]->isActive())
                                             {
@@ -732,7 +1078,7 @@ namespace GOAT
                                     else
                                     {
                                         pc.field(time);
-                                        for (int i = 0; i < S.nObj; i++)
+                                        for (int i = 0; i < S.getNumberOfObjects(); i++)
                                           {
                                             if (S.Obj[i]->isActive())
                                             {
@@ -754,7 +1100,7 @@ namespace GOAT
 									fname = "dummy";
 								}
 								int n = objEll->IntAttribute("n",500);
-                                S.setNumberOfCellsPerDirection(n);
+                                				S.setNumberOfCellsPerDirection(n);
 									GOAT::raytracing::Raytrace_Inel rt(S);									
 									bool fieldonly=true;
 								
@@ -771,7 +1117,7 @@ namespace GOAT
 									rt.trace(rrtparms);
 									std::string fullfname;
 									rt.exportExcitation(fname, GOAT::raytracing::INEL_EXPORT_EXCITATION_FIELD_VECTOR);
-									/*for (int i = 0; i < S.nObj; i++)
+									/*for (int i = 0; i < S.getNumberOfObjects(); i++)
 									{
 										if (S.Obj[i]->Active)
 										{
@@ -782,7 +1128,6 @@ namespace GOAT
 								
 							}
 							} // switch
-                            std::cout << "number of detectors:" << numDet << std::endl;
                             double normfac = 0;
                             double Iall = 0;
                             for (int i = 0; i < numLS; i++)
@@ -805,7 +1150,7 @@ namespace GOAT
                             if (numRaysChanged)
 									{
 										// restore the old values  
-										for (int i = 0; i < S.nLS; i++)
+										for (int i = 0; i < S.getNumberOfLightSources(); i++)
 											S.LS[i]->setNumRays(numRays_old[i]);
 									} 
 						} // is type given ?
@@ -851,7 +1196,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
                 std::string refStr;
                 int refIndexToken;
-                for (int i=0; (i<S.nObj) && (!failed); i++)
+                for (int i=0; (i<S.getNumberOfObjects()) && (!failed); i++)
                 {
                     sprintf(cs, "n%i", i);
                     hStr = refEll->Attribute(cs);
@@ -925,7 +1270,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     do
                     {
                       d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
-				      for (int i = 0; i < S.nObj; i++)
+				      for (int i = 0; i < S.getNumberOfObjects(); i++)
                       {
                         if (S.Obj[i]->isActive())
                         {
@@ -943,7 +1288,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 else
                 {                    
                     pc.field(time);
-                    for (int i = 0; i < S.nObj; i++)
+                    for (int i = 0; i < S.getNumberOfObjects(); i++)
                       {
                         if (S.Obj[i]->isActive())
                         {
@@ -964,7 +1309,10 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {			
             std::cout << "------------------ DO PULSED CALCULATION -----------------" << std::endl;
             const char* hStr;
-            std::string fname = objEll->Attribute("filename");
+            char* fnameS[1000];
+           // objEll->Attribute("filename",fnameS);
+            std::string fname = "result.dat";
+           // if (fname.empty()) fname = "result.dat";
             if (!fname.empty())
             {
                 int numLoops = objEll->IntAttribute("numLoops", -1);
@@ -973,18 +1321,17 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 //trafoparms = pc.getTrafoParms();
                 pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
                 pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
-                //pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
+                pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
                 pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
                 pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
-                //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
+			    //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
                 // pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
                 double repRate = objEll->DoubleAttribute("repetitionRate", -1);
                 if (repRate > 0) pc.setRepetitionRate(repRate);
                 double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
 				
                 pc.setSpatialResolution(objEll->DoubleAttribute("spatialResolution", dx));
-                 std::cout << "dx=" << dx << std::endl;
-                                   
+                                    
                 double D=objEll->DoubleAttribute("D",-1.0);
                 char cs[3];
                 std::vector< std::function< std::complex< double >(double) > > nList;
@@ -1000,7 +1347,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
                 std::string refStr;
                 int refIndexToken;
-                for (int i=0; (i<S.nObj) && (!failed); i++)
+                for (int i=0; (i<S.getNumberOfObjects()) && (!failed); i++)
                 {
                     sprintf(cs, "n%i", i);
                     hStr = refEll->Attribute(cs);
@@ -1051,7 +1398,6 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 {
                     double offset = objEll->DoubleAttribute("timeOffset", 0);
                     int objEstimate = objEll->IntAttribute("estimateTimeForObject", 0);                    
-//                    time = pc.findHitTime(objEstimate);                    
                     std::cout << "estimated time: " << time << std::endl << std::flush;
                     time+= offset;
                 }
@@ -1077,7 +1423,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
 						pc.field(time);
 				
-                      for (int i = 0; i < S.nObj; i++)
+                      for (int i = 0; i < S.getNumberOfObjects(); i++)
                       {
                         if (S.Obj[i]->isActive())
                         {
@@ -1087,8 +1433,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 		        	 GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
 					
 					           d=sumabs2(pc.rt.SA[0],i);
-                             std::cout << "d=" << d << std::endl;
-				        }
+                        }
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
                       loopno++;
@@ -1097,20 +1442,6 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     } while (!cancel); // while ( (d>D) || (loopno<2));
                   if (hStr != NULL) corrOS.close();
                 }
-/*
-                else
-                {                    
-                    pc.field(time);
-                    for (int i = 0; i < S.nObj; i++)
-                      {
-                        if (S.Obj[i]->isActive())
-                        {
-                            fullfname = fname + std::to_string(i) + ".dat";
-                            GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
-                        }
-                      }
-                }
-*/
             }
             else
                 std::cerr << "Path calculation: You forgot to give an appropriate file name for the output!!" << std::endl;
@@ -1208,65 +1539,156 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         /*------------------------------- XML-Writer Implementation ----------------------------------------- */
         xmlWriter::xmlWriter(const GOAT::raytracing::Scene &scene) : S(scene)
         {
-           //  this->S=S;
+            
         }
 
-        void xmlWriter::write (std::string fname)
+        void xmlWriter::write(std::string fname)
         {
+			tinyxml2::XMLDocument doc;
+            buildDOM(doc);
+            tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
+        }
+
+        std::string xmlWriter::prepareRequest(std::vector<calculationJob>& jobs)
+        {
+			tinyxml2::XMLDocument doc;
+			
+
+			buildDOM(doc);
+            auto calculations = doc.NewElement("Calculations");
+            auto results = doc.NewElement("Data");
+            auto* root = doc.RootElement();
+            root->InsertEndChild(calculations);
+            root->InsertEndChild(results);
+            for (const auto& job : jobs)
+            {
+                addCalculation2DOM(doc, calculations, job);
+                addResult2DOM(doc, results, job);
+            }
+            
+			tinyxml2::XMLPrinter printer;
+            doc.Print(&printer);
+
+            std::string request(printer.CStr(), printer.CStrSize() - 1);
+            return request;
+        }
+
+        void xmlWriter::addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* calculations, calculationJob job)
+        {
+			auto calculation = doc.NewElement("Calculation");
+            calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
+            calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
+            calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
+            switch (job.type)
+            {
+                case TOKEN_CALCULATION_PULSE:
+					
+                    calculation->SetAttribute("filname", "result.dat");
+                    calculation->SetAttribute("numReflex", std::get<pulseJobParms>(job.parms).trafo.nR);
+                    calculation->SetAttribute("numWavelengthsPerRange", std::get<pulseJobParms>(job.parms).trafo.nS);
+                    calculation->SetAttribute("pulseWidth", formatDouble(std::get<pulseJobParms>(job.parms).trafo.dt).c_str());
+                    calculation->SetAttribute("numSpectralRanges", std::get<pulseJobParms>(job.parms).trafo.nI);
+				     calculation->SetAttribute("spatialResolution", formatDouble(std::get<pulseJobParms>(job.parms).trafo.spatialResolution).c_str());
+                    calculation->SetAttribute("repetitionTime", formatDouble(std::get<pulseJobParms>(job.parms).trafo.repetitionTime).c_str());
+					calculation->SetAttribute("numLoops", std::get<pulseJobParms>(job.parms).numLoops);
+                    int i = 0;
+					auto refractiveIndexList = doc.NewElement("RefractiveIndexList");
+                    for (auto obj=S.Obj.begin(); obj!=S.Obj.end(); ++obj)
+                    {
+                        if ((*obj)->isActive())
+                        {
+                            auto p = (*obj)->nFunc().target<raytracing::nFnPtr>();
+                            std::string entry= GOAT::raytracing::nToKey.at(*p);
+							std::string nStr = "n" + std::to_string(i);
+                            refractiveIndexList->SetAttribute(nStr.c_str(), entry.c_str());
+                        }
+                        i++;
+					}
+					calculation->InsertEndChild(refractiveIndexList);
+                    calculation->SetAttribute("time", std::get<pulseJobParms>(job.parms).time);
+                    calculation->SetAttribute("offsetTime", std::get<pulseJobParms>(job.parms).offsetTime);
+					break;
+
+            }
+            calculations->InsertEndChild(calculation);
+		}
+
+        void xmlWriter::addResult2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* results, calculationJob job)
+        {
+            auto result = doc.NewElement("HDF5");
+                result->SetAttribute("filename","results.h5");
+                results->InsertEndChild(result);
+        }
+
+
+
+
+
+        void xmlWriter::buildDOM (tinyxml2::XMLDocument &doc)
+        {
+       
+            tinyxml2::XMLElement* root; ///< root XML Element
+            tinyxml2::XMLElement* scene; ///< XML Element to the Scene section
+            tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
+            tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
+            tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
+            tinyxml2::XMLElement* dataEntries;
             tinyxml2::XMLDeclaration* decl = doc.NewDeclaration(R"(xml version="1.0" encoding="utf-8")");
             doc.InsertFirstChild(decl);
-            std::cout << "write :" << fname << std::endl;
           root=doc.NewElement("Root");
           doc.InsertEndChild(root);
           scene=doc.NewElement("Scene");
           scene->SetAttribute("r0", formatDouble(S.r0).c_str());
           scene->SetAttribute("nCellsPerDir", static_cast<int64_t> (S.getNumberOfCellsPerDirection()));
+		  scene->SetAttribute("nReflex", S.getNumReflex());
+		  scene->InsertEndChild(addComplex2DOM(doc, "nS", S.nS));
           root->InsertEndChild(scene);
-          std::cout << "no. of light sources: "<< S.nLS << std::endl;
-          if (S.nLS > 0)
+          if (S.getNumberOfLightSources() > 0)
           {
-            std::cout << "write light sources" << std::endl;
               tinyxml2::XMLElement* lightSrc;
               lightSrcs = doc.NewElement("LightSources");
-               for (int i = 0; i < S.nLS; i++)
-                   writeLightSrc(i);              
+               for (int i = 0; i < S.getNumberOfLightSources(); i++)
+                   addLightSrc2DOM(doc, lightSrcs, i);              
                scene->InsertEndChild(lightSrcs);
           }
 
-          if (S.nObj > 0)
+          if (S.getNumberOfObjects() > 0)
           {
                objects=doc.NewElement("Objects");
-               for (int i=0; i<S.nObj; i++)
-                    writeObject(i);
+               for (int i=0; i<S.getNumberOfObjects(); i++)
+                    addObject2DOM(doc, objects, i);
                 scene->InsertEndChild(objects);
           }
 
-          if (S.nDet > 0)
+		  
+          if (S.getNumberOfDetectors() > 0)
           {
             detectors=doc.NewElement("Detectors");
-            for (int i=0; i<S.nDet; i++)
-                writeDetector(i);
+            for (int i = 0; i < S.getNumberOfDetectors(); i++)
+            {
+                addDetector2DOM(doc, detectors, i);
+             }
             scene->InsertEndChild(detectors);
           }
           
-          tinyxml2::XMLError e = doc.SaveFile(fname.c_str());
 
 
         }
-        void xmlWriter::writeLightSrc(int i)
+
+        void xmlWriter::addLightSrc2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* lightSrcs, int i)
         {
             
             auto lightSrc = doc.NewElement("LightSource");
             int type = S.LS[i]->type;
             int typeh = type < 10 ? type-1 : type - 5;
-            std::cout << "typeh=" << typeh << "\ttype=" << type << std::endl;
             lightSrc->SetAttribute("type", LSTYPES[typeh].c_str());
             lightSrc->SetAttribute("numRays", S.LS[i]->getNumRays());
+			lightSrc->SetAttribute("numRays", std::to_string(S.LS[i]->getNumRays()).c_str());                     
             lightSrc->SetAttribute("numRaysRT", S.LS[i]->getNumRaysRT());
             lightSrc->SetAttribute("wavelength", formatDouble(S.LS[i]->getWavelength()).c_str());
 
-            lightSrc->InsertEndChild(writeVectorD("Position", S.LS[i]->Pos));
-            lightSrc->InsertEndChild(writeVectorC("Polarisation", S.LS[i]->Pol));
+            lightSrc->InsertEndChild(addVectorD2DOM(doc, "Position", S.LS[i]->Pos));
+            lightSrc->InsertEndChild(addVectorC2DOM(doc, "Polarisation", S.LS[i]->Pol));
             
             switch (type)
             {
@@ -1274,12 +1696,16 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               case raytracing::LIGHTSRC_SRCTYPE_PLANE_MC:
                   {
                   raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
-                   lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+                   lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
                    lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());                   
                   }
                   break;
 
-              case raytracing::LIGHTSRC_SRCTYPE_GAUSS :
+              case raytracing::LIGHTSRC_SRCTYPE_GAUSS:
+              {
+                  raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "FocusPosition", ls->getFocuspos()));
+              }
               case raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC:
               {
                   raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
@@ -1288,42 +1714,63 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               }
               break;
 
+              case raytracing::LIGHTSRC_SRCTYPE_POINT:
+              case raytracing::LIGHTSRC_SRCTYPE_POINT_MC:
+              {
+                  auto lsp = (raytracing::LightSrcPoint_mc*)S.LS[i];
+                  lightSrc->SetAttribute("thetaMax", formatDouble(lsp->getThetamax()).c_str());
+              }
+
+              case raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC:
+              {
+                  auto lsg = (raytracing::LightSrcRingGauss_mc*)S.LS[i];
+                  lightSrc->SetAttribute("FWHM", formatDouble(lsg->getFWHM()).c_str());
+              }
               case raytracing::LIGHTSRC_SRCTYPE_RING :
               case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
               {
                   raytracing::LightSrcRing* ls = (raytracing::LightSrcRing*)S.LS[i];
                   lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
                   lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
-                  lightSrc->InsertEndChild(writeVectorD("Direction", ls->getk()));
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
               }
             }
+            
             lightSrcs->InsertEndChild(lightSrc);
         }
 
-        void xmlWriter::writeObject(int i)
+        void xmlWriter::addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i)
         {
             auto object = doc.NewElement("Object");
-            int typeh = S.Obj[i]->type-10000;
-            int type = S.Obj[i]->type;
+            int typeh = S.Obj[i]->Type()-10000;
+            int type = S.Obj[i]->Type();
 
 
             // ---------------- global parameters ----------------
             object->SetAttribute("type",objectToken[typeh].c_str());                        
-            object->InsertEndChild(writeVectorD("Position", S.Obj[i]->P));
-            object->SetAttribute("alpha",formatDouble(S.Obj[i]->Ealpha/M_PI*180.0).c_str());
-            object->SetAttribute("beta",formatDouble(S.Obj[i]->Ebeta/M_PI*180.0).c_str());
-            object->SetAttribute("gamma",formatDouble(S.Obj[i]->Egamma/M_PI*180.0).c_str());
+            object->InsertEndChild(addVectorD2DOM(doc,"Position", S.Obj[i]->pos()));
+            object->SetAttribute("alpha",formatDouble(S.Obj[i]->getAlpha()/M_PI*180.0).c_str());
+            object->SetAttribute("beta",formatDouble(S.Obj[i]->getBeta()/M_PI*180.0).c_str());
+            object->SetAttribute("gamma",formatDouble(S.Obj[i]->getGamma()/M_PI*180.0).c_str());
             object->SetAttribute("isactive",S.Obj[i]->isActive());
-            object->InsertEndChild(writeComplex("n",S.Obj[i]->n));            
-            object->SetAttribute("scaling",formatDouble(S.Obj[i]->sf).c_str());
+            object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->getn()));            
+            object->SetAttribute("scaling",formatDouble(S.Obj[i]->getScale()).c_str());
+			object->SetAttribute("ID", S.Obj[i]->getID().c_str());
 
             // --------------- special parameters ----------------
+                     
+            if (S.Obj[i]->isRough())
+            {
+                object->SetAttribute("isrough", true);
+                raytracing::roughInterface* robj =dynamic_cast<raytracing::roughInterface *>(S.Obj[i]);
+                if (robj) object->SetAttribute("sigma",formatDouble(robj->getSigma()).c_str());       
+            }
             switch (type) 
             {
                 case OBJECTSHAPE_ELLIPSOID : 
                     {
                     auto obj=(raytracing::Ellipsoid *) S.Obj[i];
-                        object->InsertEndChild(writeVectorD("Dimension",obj->r));
+                        object->InsertEndChild(addVectorD2DOM(doc, "Dimension",obj->r));
                     }
                     break;
                 case OBJECTSHAPE_SURFACE : 
@@ -1352,7 +1799,6 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     {
                         auto obj=(raytracing::sphericLens *) S.Obj[i];
                         raytracing::lensParms lensparms = obj->getParms();        
-                        std::cout << "-> radius=" << lensparms.radius << std::endl;                                        
                         object->SetAttribute("radius",formatDouble(lensparms.radius).c_str());
                         object->SetAttribute("offset",formatDouble(lensparms.offset).c_str());
 
@@ -1381,7 +1827,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 case OBJECTSHAPE_BOX: 
                     {
                     auto obj=(raytracing::Box *) S.Obj[i];
-                        object->InsertEndChild(writeVectorD("Dimension",obj->d));
+                        object->InsertEndChild(addVectorD2DOM(doc, "Dimension",obj->d));
                     }
                     break;
                 case OBJECTSHAPE_CYLINDER: 
@@ -1401,33 +1847,124 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     }
                 break;
             }
+			if (S.Obj[i]->isRough()) addRoughness2DOM(doc, object, S.Obj[i]);
             objects->InsertEndChild(object);
             
         }
 
-        void xmlWriter::writeDetector(int i)
+
+        void xmlWriter::addRoughness2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* object, raytracing::ObjectShape *obj)
         {
-            auto detector = doc.NewElement("Detector");
-            int type=S.Det[i]->Type();
-            int typeh=type-20000;
-            detector->SetAttribute("type",detectorToken[typeh].c_str());
-            detector->InsertEndChild(writeVectorD("Position",S.Det[i]->position()));
-            detector->InsertEndChild(writeVectorD("Direction",S.Det[i]->norm()));
-            detector->SetAttribute("filename",S.Det[i]->fname.c_str());
-            S.Det[i]->save(S.Det[i]->fname.c_str());
-            switch (type)
-            {
-                case DETECTOR_PLANE : 
-                    {
-                     auto det=(raytracing::DetectorPlane *) S.Det[i];
-                     detector->SetAttribute("d",formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
-                     detector->SetAttribute ("n", det->N1()); // we also assume that n1=n2                            
-                    }
-            }
-            detectors->InsertEndChild(detector);
+			object->SetAttribute("isrough", true);
+            raytracing::roughInterface* robj = obj->getRoughObj();
+            auto rough = doc.NewElement("Roughness");
+			switch (robj->getScatteringType())
+			{
+                case raytracing::ScatteringType::Gaussian:
+                        rough->SetAttribute("type", "gaussian");
+                        rough->SetAttribute("sigma", formatDouble(robj->getSigma()).c_str());
+                        break;
+                
+                case raytracing::ScatteringType::CosineCone:
+                        rough->SetAttribute("type", "cosine_cone");
+                        break;
+
+                case raytracing::ScatteringType::UniformCone :
+                    rough->SetAttribute("type", "uniform_cone");
+                    break;
+
+				    
+			}
+            rough->SetAttribute("thetaMax", formatDouble(robj->getThetaMax()).c_str());
+            object->InsertEndChild(rough);
+			
+			
         }
 
-        tinyxml2::XMLElement* xmlWriter::writeVectorD(std::string name, maths::Vector<double> v)
+        void xmlWriter::addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i)
+        {
+            auto detector = doc.NewElement("Detector");
+
+            auto offCaller = (ptrdiff_t)((char*)&S.Det - (char*)&S);
+            auto nGetter = S.getNumberOfDetectors();
+            auto nDirect = S.Det.size();
+
+         
+			if (i >= S.getNumberOfDetectors())
+            {
+                std::cerr << "Error in addDetector2DOM: No such detector (i=" << i << ")! Skipped writing this detector!" << std::endl;
+                return;
+            }
+            else
+            {
+                if (S.getNumberOfDetectors() > 0)
+                {
+                    int type = S.Det[i]->Type();
+                    int typeh = type - 20000;
+                    detector->SetAttribute("type", detectorToken[typeh].c_str());
+                    detector->InsertEndChild(addVectorD2DOM(doc, "Position", S.Det[i]->position()));
+                    detector->InsertEndChild(addVectorD2DOM(doc, "Direction", S.Det[i]->norm()));
+                    detector->SetAttribute("filename", S.Det[i]->fname.c_str());
+                    detector->SetAttribute("ID", S.Det[i]->getID().c_str());
+                    S.Det[i]->save(S.Det[i]->fname.c_str());
+                    switch (type)
+                    {
+                    case raytracing::DETECTOR_PLANE:
+                    {
+                        auto det = (raytracing::DetectorPlane*)S.Det[i];
+                        detector->SetAttribute("d1", formatDouble(det->D1()).c_str());  
+                        detector->SetAttribute("d2", formatDouble(det->D2()).c_str());
+                        detector->SetAttribute("n1", det->N1());  
+						detector->SetAttribute("n2", det->N2());
+                    }
+                    break;
+
+
+
+#ifdef WITH_OPENMP
+                    case raytracing::DETECTOR_KIRCHHOFF:
+                    {
+                        auto det = (raytracing::Kirchhoff*)S.Det[i];
+                        detector->SetAttribute("d", formatDouble(det->D1()).c_str()); // we assume, that d1=d2 
+                        detector->SetAttribute("n", det->N1()); // we also assume that n1=n2 
+                        auto sources = det->getSources();
+                        for (auto src : sources)
+                        {
+                            auto srcEll = doc.NewElement("Link");
+                            detector->InsertEndChild(srcEll);
+							srcEll->SetAttribute("ID", src->getID().c_str());
+                        }
+                    }
+                    break;
+
+                    case raytracing::DETECTOR_ANGULAR_SPECTRUM:
+                        {
+                            auto det = (raytracing::AngularSpectrum*)S.Det[i];
+                            detector->SetAttribute("d1", formatDouble(det->D1()).c_str());
+                            detector->SetAttribute("d2", formatDouble(det->D2()).c_str());
+                            detector->SetAttribute("n1", det->N1());
+                            detector->SetAttribute("n2", det->N2());
+                            detector->InsertEndChild(addVectorD2DOM(doc, "e1", det->gete1() / abs(det->gete1()) * det->D1())); 
+                            detector->InsertEndChild(addVectorD2DOM(doc, "e2", det->gete2() / abs(det->gete2()) * det->D2()));
+							auto sources = det->getSources();
+                            for (auto src : sources)
+                            {
+                                auto srcEll = doc.NewElement("Link");
+                                detector->InsertEndChild(srcEll);
+                                srcEll->SetAttribute("ID", src->getID().c_str());
+                            }
+                        }
+                        break;
+#endif
+                    }
+                detectors->InsertEndChild(detector);
+                }
+            }
+        }
+
+        
+
+        tinyxml2::XMLElement* xmlWriter::addVectorD2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<double> v)
         {
             auto vell = doc.NewElement(name.c_str());
             vell->SetAttribute("x", formatDouble(v[0]).c_str());
@@ -1436,16 +1973,16 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             return vell;
         }
 
-        tinyxml2::XMLElement* xmlWriter::writeVectorC(std::string name, maths::Vector<std::complex<double> > v)
+        tinyxml2::XMLElement* xmlWriter::addVectorC2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<std::complex<double> > v)
         {
             auto vell = doc.NewElement(name.c_str());
-            vell->InsertEndChild(writeComplex("x", v[0]));
-            vell->InsertEndChild(writeComplex("y", v[1]));
-            vell->InsertEndChild(writeComplex("z", v[2]));
+            vell->InsertEndChild(addComplex2DOM(doc,"x", v[0]));
+            vell->InsertEndChild(addComplex2DOM(doc, "y", v[1]));
+            vell->InsertEndChild(addComplex2DOM(doc, "z", v[2]));
 
             return vell;
         }
-        tinyxml2::XMLElement* xmlWriter::writeComplex(std::string name, std::complex<double> z)
+        tinyxml2::XMLElement* xmlWriter::addComplex2DOM(tinyxml2::XMLDocument& doc, std::string name, std::complex<double> z)
         {
             auto cell = doc.NewElement(name.c_str());
             cell->SetAttribute("real", formatDouble(real(z)).c_str());

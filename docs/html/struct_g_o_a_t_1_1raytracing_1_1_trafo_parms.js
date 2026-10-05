@@ -9,5 +9,7 @@ var struct_g_o_a_t_1_1raytracing_1_1_trafo_parms =
     [ "omega0", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a02d74f2155504675640aaddf0d5f96d8", null ],
     [ "omegaEnd", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a66f011acb28fcf35960182f8b25b7ab0", null ],
     [ "omegaStart", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#ad4bab6bf1619ebca6707d8cbc32b4ce4", null ],
+    [ "repetitionTime", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a5d9ef028bc8c696b20607b7037b10804", null ],
+    [ "spatialResolution", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a8e1b560706e55a58c71146b5b59ddce2", null ],
     [ "wvl", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html#a5bab2f801a7df2c21670c331501bb986", null ]
 ];

@@ -6,6 +6,8 @@
     email                : weigel@lat.ruhr-uni-bochum.de
  ***************************************************************************/
 
+#include "roughObject.h"
+#include "sphericLens.h"
 #include "objectshape.h"
 #include "misc.h"
 #include "matrix.h" 
@@ -174,7 +176,7 @@ namespace GOAT
 
         maths::Matrix<double> computeInertia(ObjectShape* F)
         {
-            switch (F->type)
+            switch (F->Type())
             {
             case OBJECTSHAPE_ELLIPSOID: return ((Ellipsoid*)F)->computeInertia();
             case OBJECTSHAPE_SURFACE: return ((surface*)F)->computeInertia();
@@ -196,7 +198,7 @@ namespace GOAT
             }
         }
 
-        bool ObjectShape::isOutsideWorld()
+        bool ObjectShape::isOutsideWorld() const
         {
             bool result = (pul[0] < -r0) || (por[0] > r0) ||
                           (pul[1] < -r0) || (por[1] > r0) ||
@@ -214,11 +216,98 @@ namespace GOAT
             }
         }
 
+        void ObjectShape::setRoughObj(roughInterface* robj) 
+        { 
+            if (robj != nullptr)
+            {
+                roughObj = robj;
+                rough = true;
+            }
+            else rough = false;
+        }
+
+        maths::Vector<double> ObjectShape::getNorm(const maths::Vector<double>& P)
+        {
+			maths::Vector<double> n = norm(P);
+			if (rough && roughObj)
+			{
+				return roughObj->modifyNorm(n);
+			}
+            return n;
+        }
+
+#define DEFAULT_SIGMA 0.1
+        void ObjectShape::makeRough()
+        {
+            switch (this->Type())
+            {
+                case OBJECTSHAPE_SURFACE:
+                {
+                    auto robj = new roughObject<surface>(static_cast<surface*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_ELLIPSOID:
+                {
+                    auto robj = new roughObject<Ellipsoid>(static_cast<Ellipsoid*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+
+                case OBJECTSHAPE_BOX:
+                {
+                    auto robj = new roughObject<Box>(static_cast<Box*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_CONE:
+                {
+                    auto robj = new roughObject<Cone>(static_cast<Cone*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_CYLINDER:
+                {
+                    auto robj = new roughObject<Cylinder>(static_cast<Cylinder*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_SPHERIC_LENS:
+                {
+                    auto robj = new roughObject<sphericLens>(static_cast<sphericLens*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+                case OBJECTSHAPE_VORTEX_PLATE:
+                {
+                    auto robj = new roughObject<VortexPlate>(static_cast<VortexPlate*>(this), DEFAULT_SIGMA);
+                    this->setRoughObj(robj);
+                    break;
+                }
+            }
+        }
+
+
+        void ObjectShape::setRough(bool rough)
+        {
+			if (rough && roughObj==nullptr)
+			{
+				makeRough();
+			}
+			
+			this->rough = rough;
+        }
+
         bool intersectionTest(ObjectShape& A, ObjectShape& B)
         {
-         bool result = (A.pul[0] <= B.por[0]) && (A.por[0] >= B.pul[0]) &&
-                       (A.pul[1] <= B.por[1]) && (A.por[1] >= B.pul[1]) &&
-                       (A.pul[2] <= B.por[2]) && (A.por[2] >= B.pul[2]);
+            maths::Vector<double> Apul, Apor;
+			maths::Vector<double> Bpul, Bpor;
+			A.getBBcorners(Apul, Apor);
+			B.getBBcorners(Bpul, Bpor);
+
+         bool result = (Apul[0] <= Bpor[0]) && (Apor[0] >= Bpul[0]) &&
+                       (Apul[1] <= Bpor[1]) && (Apor[1] >= Bpul[1]) &&
+                       (Apul[2] <= Bpor[2]) && (Apor[2] >= Bpul[2]);
          return result;             
         }      
         

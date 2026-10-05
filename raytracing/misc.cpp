@@ -26,7 +26,7 @@ namespace GOAT
 	{
 		void initInc(ObjectShape* E)
 		{
-			switch (E->type)
+			switch (E->Type())
 			{
 			case OBJECTSHAPE_ELLIPSOID: ((Ellipsoid*)E)->initQuad(); break;
 			case OBJECTSHAPE_SURFACE: ((surface*)E)->initQuad(); break;
@@ -35,7 +35,7 @@ namespace GOAT
 
 		void setR0(ObjectShape* E, double r0)
 		{
-			switch (E->type)
+			switch (E->Type())
 			{
 			case OBJECTSHAPE_ELLIPSOID: ((Ellipsoid*)E)->setr0(r0); break;
 			case OBJECTSHAPE_SURFACE: ((surface*)E)->setr0(r0); break;
@@ -45,7 +45,7 @@ namespace GOAT
 		void copyInc(ObjectShape*& d, ObjectShape* s)
 		{
 			// createdItems++;
-			switch (s->type)
+			switch (s->Type())
 			{
 			case OBJECTSHAPE_ELLIPSOID: d = new Ellipsoid(*((Ellipsoid*)s)); break;
 			case OBJECTSHAPE_SURFACE: d = new surface(*((surface*)s)); break;
@@ -64,7 +64,7 @@ namespace GOAT
 			{
 				for (int i = 0; i < anz; i++)
 				{
-					switch (s[i]->type)
+					switch (s[i]->Type())
 					{
 					case OBJECTSHAPE_ELLIPSOID: os = new Ellipsoid(*((Ellipsoid*)s[i])); break;
 					case OBJECTSHAPE_SURFACE: os = new surface(*((surface*)s[i])); break;
@@ -88,8 +88,9 @@ namespace GOAT
 
 		void binWriteInc(std::ofstream& os, ObjectShape* E)
 		{
-			os.write((char*)&E->type, (char)sizeof(E->type));
-			switch (E->type)
+			int type = E->Type();
+			os.write((char*)&type, (char)sizeof(type));
+			switch (type)
 			{
 			case OBJECTSHAPE_ELLIPSOID: ((Ellipsoid*)E)->binWrite(os); break;
 			case OBJECTSHAPE_SURFACE: ((surface*)E)->binWrite(os); break;

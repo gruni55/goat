@@ -120,7 +120,7 @@ template <class T>	class pulseCalculation
 					double wvl1, wvl2;
 					rt = Raytrace_field_usp(S);
 					double wvl;
-					trafo.initResult(S.r0, rt.SE.nges[0], rt.SE.nges[1], rt.SE.nges[2], S.Obj, S.nObj);
+					trafo.initResult(S.r0, rt.SE.nges[0], rt.SE.nges[1], rt.SE.nges[2], S.Obj, S.getNumberOfObjects());
 					// loop over the frequency ranges
 					for (int iOmega = 0; iOmega < trafoparms.nI; iOmega++)
 					{

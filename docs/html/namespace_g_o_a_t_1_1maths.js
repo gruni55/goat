@@ -1,5 +1,6 @@
 var namespace_g_o_a_t_1_1maths =
 [
+    [ "fourier", "namespace_g_o_a_t_1_1maths_1_1fourier.html", "namespace_g_o_a_t_1_1maths_1_1fourier" ],
     [ "Matrix", "class_g_o_a_t_1_1maths_1_1_matrix.html", "class_g_o_a_t_1_1maths_1_1_matrix" ],
     [ "Vector", "class_g_o_a_t_1_1maths_1_1_vector.html", "class_g_o_a_t_1_1maths_1_1_vector" ],
     [ "abs", "namespace_g_o_a_t_1_1maths.html#a7ecc2cf89285b9ea7ddc4f9a18238d98", null ],

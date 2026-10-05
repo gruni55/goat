@@ -37,13 +37,13 @@ namespace GOAT
 			
 			S.resetLS();
 //			currentIndex = GOAT::maths::Vector<INDEX_TYPE>(-1, -1, -1);
-			if (S.nObj > 0)
+			if (S.getNumberOfObjects() > 0)
 			{
 				SA = std::vector<SuperArray <maths::Vector<std::complex<double> > > >(INEL_MAX_NREFLEX);
 				for (int i = 0; i < INEL_MAX_NREFLEX; i++)
 				{
 					SA[i] = SuperArray <maths::Vector<std::complex<double> > > (S.r0, n, n, n, IN_OBJECT);
-					for (int j = 0; j < S.nObj; j++)
+					for (int j = 0; j < S.getNumberOfObjects(); j++)
 						SA[i].addInc(S.Obj[j]);
 				}
 			}
@@ -55,10 +55,10 @@ namespace GOAT
 			double wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;			
 			k0 = 2.0 * M_PI / wvl;
 			S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);			
-			for (int i = 0; i < S.nObj; i++)
+			for (int i = 0; i < S.getNumberOfObjects(); i++)
 				S.Obj[i]->setn(nList[i](wvl));
 
-			for (int i = 0; i < S.nLS; i++)
+			for (int i = 0; i < S.getNumberOfLightSources(); i++)
 				S.LS[i]->setWavelength(wvl);
 
 			Raytrace::trace();						

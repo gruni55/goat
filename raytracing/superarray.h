@@ -37,11 +37,10 @@ namespace GOAT
          SuperArray(const SuperArray& S)
          {
              Error = NO_ERRORS;
-             
              type = S.type;
              ywerte = S.ywerte;
              zwerte = S.zwerte;
-             numObjs = S.numObjs;
+             numObjs = S.numObjs;            
              Obj = S.Obj;
              G = S.G;
              K = S.K;
@@ -123,7 +122,7 @@ namespace GOAT
          T& operator () (int i,maths::Vector<INDEX_TYPE> Pi); ///< gives back the contents of the cell with indices stored in Pi from the i-th object (faster)
          T& operator () (maths::Vector<double> P); ///< gives back the contents of the cell at P 
          T& operator () (int i, maths::Vector<double> P); ///< gives back the contents of the cell at P from the i-th object (faster)
-         
+         maths::Vector<size_t> getDimensions(int i); ///< gives back a vector with the dimensions of the grid, which corresponds to the i-th object
           void makeReal ();
          void fill(const T &x); ///< Fill the whole SuperArray with value \p x
          SuperArray& operator = (const SuperArray &S); ///< Assignment operator
@@ -145,7 +144,7 @@ namespace GOAT
          int Error;  ///< Holds an error number 
          std::vector<ObjectShape*> Obj; ///< here are the objects
          int numObjs; ///< Number of objects
-         int type; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
+         int type=IN_OBJECT; ///< Mainly used for inelastic scattering. type=IN_HOST means the grid is stored in the whole volume, type=IN_OBJECT means grid is only used in the (active) objects
          std::vector<int> ywerte;
          std::vector<std::vector<int> > zwerte;
          std::vector <std::vector <std::vector <std::vector <T> > > > G; ///< Here, the data is stored. G[i][ix][iy][iz], whereas i: index of the object, ix,iy,iz: indices of the grid around object i
@@ -194,9 +193,7 @@ namespace GOAT
         R = maths::unity();
         Error = NO_ERRORS;
         numObjs = 0;
-        isequal = false;
-
-        type = IN_HOST;        
+        isequal = false;      
     }
 
     template <class T> SuperArray<T>::SuperArray(double r0, INDEX_TYPE nx, INDEX_TYPE ny, INDEX_TYPE nz, const int typ)
@@ -297,14 +294,15 @@ namespace GOAT
         for (int i = 0; i < numObjs; i++)
         {
             Obj[i]->initQuad();
-;            h = ceil(ediv(Obj[i]->por, d)) - floor(ediv(Obj[i]->pul, d));
-            hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+			std::cout << "pul" << Obj[i]->getBBoxMin() << "\tpor=" << Obj[i]->getBBoxMax() << "\td=" << d << std::endl;
+;            h = ceil(ediv(Obj[i]->getBBoxMax(), d)) - floor(ediv(Obj[i]->getBBoxMin(), d));
+            hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0] + 1, (INDEX_TYPE)h[1] + 1, (INDEX_TYPE)h[2] + 1); // Gre des 3D-Gitters in die drei Koordinatenrichtungen
             n.push_back(hn);
-            
-            h = floor(ediv(Obj[i]->pul + maths::Vector<double>(r0, r0, r0), d));
+			std::cout << "new  size n[" << i << "]=" << n[i][0] <<"," << n[i][1] << "," << n[i][2] << std::endl;
+            h = floor(ediv(Obj[i]->getBBoxMin() + maths::Vector<double>(r0, r0, r0), d));
             Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
 
-            if (Obj[i]->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
+            if (Obj[i]->isActive())  // Ist der Einschluss überhaupt inelastisch aktiv ? 
             {
                 G[i].resize(n[i][0] + 1);
                 for (INDEX_TYPE ix = 0; ix < n[i][0] + 1; ix++)
@@ -332,9 +330,9 @@ namespace GOAT
         double b = 2.0 * r0;
         d = maths::Vector<double>(b / (double)(nges[0] - 1), b / (double)(nges[1] - 1), b / (double)(nges[2] - 1));
       //   h = ceil(ediv(E->por, d)) - floor(ediv(E->pul, d));
-        h = ceil(ediv(E->por-E->pul, d)) ;
+        h = ceil(ediv(E->getBBoxMax()-E->getBBoxMin(), d));
 
-        hn = maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0]+1, (INDEX_TYPE)h[1]+1, (INDEX_TYPE)h[2]+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
+        hn = maths::Vector<INDEX_TYPE>(static_cast<INDEX_TYPE>(h[0])+1, static_cast<INDEX_TYPE>(h[1])+1, static_cast<INDEX_TYPE>(h[2])+1); // Gr��e des 3D-Gitters in die drei Koordinatenrichtungen
 
         /* Berechne den tats�chlichen Bedarf */
         allocMem = sizeof(T***) + 2 * sizeof(maths::Vector<int>) + sizeof(ObjectShape*)
@@ -357,7 +355,7 @@ namespace GOAT
       
         n.push_back(hn);
         Obj.push_back(E);
-        h = floor(ediv(Obj[numObjs]->pul + maths::Vector<double>(r0, r0, r0), d));
+        h = floor(ediv(Obj[numObjs]->getBBoxMin() + maths::Vector<double>(r0, r0, r0), d));
         Pul.push_back(maths::Vector<INDEX_TYPE>((INDEX_TYPE)h[0], (INDEX_TYPE)h[1], (INDEX_TYPE)h[2]));
         
         if (E->isActive())  // Ist der Einschluss �berhaupt inelastisch aktiv ? 
@@ -389,9 +387,9 @@ namespace GOAT
 
         if (G[i].size() > 0)
         {
-            for (int ix = n[i][0]; ix >= 0; ix--)
+            for (int ix = n[i][0]-1; ix >= 0; ix--)
             {
-                for (int iy = n[i][1]; iy >= 0; iy--)
+                for (int iy = n[i][1]-1; iy >= 0; iy--)
                     G[i][ix][iy].clear();
                 G[i][ix].clear();
             } // for ix    
@@ -678,6 +676,21 @@ namespace GOAT
                 return dummy;
             }
         }
+    }
+
+    template<class T>
+    inline maths::Vector<size_t> SuperArray<T>::getDimensions(int i)
+    {
+        size_t n0, n1, n2;
+        if (!G[i].empty())
+        {
+            n0 = G[i].size();
+            n1 = G[i][0].size();
+            n2 = G[i][0][0].size();
+            return maths::Vector<size_t>(n0, n1, n2);
+        }
+
+        return maths::Vector<size_t>(0,0,0);
     }
 
 

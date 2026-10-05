@@ -1,6 +1,16 @@
 cmake_minimum_required (VERSION 3.5)
-set(CMAKE_CXX_STANDARD 17)
+project (goat
+   VERSION 1.0.0
+    LANGUAGES CXX
+)
+
+
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+
 
 include(GNUInstallDirs)
 
@@ -8,6 +18,13 @@ include(GNUInstallDirs)
 set(GOAT_CFG_SUBDIR
   "$<IF:$<OR:$<CONFIG:Release>,$<CONFIG:RelWithDebInfo>,$<CONFIG:MinSizeRel>>,Release,Debug>"
 )
+
+option(WITH_FFTW "Enable FFTW support" ON)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+
+if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+  set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}" CACHE PATH "Install prefix" FORCE)
+endif()
 
 function(goat_install)
   set(options)
@@ -20,9 +37,9 @@ function(goat_install)
   endif()
 
   install(TARGETS ${GOATINST_TARGETS}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}/${GOAT_CFG_SUBDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/${GOAT_CFG_SUBDIR}
-    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}/${GOAT_CFG_SUBDIR}
+    RUNTIME DESTINATION ${GOAT_CFG_SUBDIR}
+    LIBRARY DESTINATION lib/${GOAT_CFG_SUBDIR}
+    ARCHIVE DESTINATION lib/${GOAT_CFG_SUBDIR}
   )
 endfunction()
 
@@ -50,7 +67,6 @@ if(UNIX)
           set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Release")
       endif()
 endif()
-project (goat)
 # include (CTest)
 
 
@@ -69,18 +85,25 @@ project (goat)
 #        #endif()
 #    endif()
 #endif()
-add_subdirectory (maths) #
+
+if(WITH_FFTW)
+    include(cmake/FindFFTW.cmake)
+endif()
+
+add_subdirectory(maths)
+add_subdirectory(maths/fourier)
 add_subdirectory (raytracing) #
 add_subdirectory (examples/ot) #
 add_subdirectory (examples/paths) #
 add_subdirectory (examples/layers) #
 add_subdirectory (examples/axicon) #
-add_subdirectory (examples/mctest) # 
+# add_subdirectory (examples/mctest) # 
 add_subdirectory (examples/usptest) #
 add_subdirectory (examples/sphere) #
+add_subdirectory (examples/kirchhoff3d) #
 ## add_subdirectory (examples/math)
 add_subdirectory (examplesXML) #
 add_subdirectory (examples/lenses) # 
 add_subdirectory (XML) #
-## add_subdirectory (test)
+add_subdirectory (test)
 

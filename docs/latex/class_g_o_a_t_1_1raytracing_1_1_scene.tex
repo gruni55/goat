@@ -48,8 +48,30 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f
 \begin{DoxyCompactList}\small\item\em clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9969b47aa96ac92224f33ad27c9c0c5e}{clean\+All\+Detectors}} ()
 \begin{DoxyCompactList}\small\item\em clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_af41a1f0a9557cae525b5ede85d58ccba}{clean\+Detector}} (int index)
+\begin{DoxyCompactList}\small\item\em clean detector "{}index"{}, i.\+e. all values in the detector are set to zero, but the detector remains in the scene \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a87c475dce19a61d67438c9655601d7ae}{get\+Detector}} (std\+::string ID)
+\begin{DoxyCompactList}\small\item\em returns a pointer to a detector in the scene identfied by its ID, if ID can\textquotesingle{}t be found NULL it returned \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a78ee976857e44c573c7607d91f5abf61}{get\+Detectors}} ()
+\begin{DoxyCompactList}\small\item\em returns the list of all detectors in the scene \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4897e6bb2821f25e2536d4d1dfe21631}{get\+Light\+Sources}} ()
+\begin{DoxyCompactList}\small\item\em returns the list of all light sources in the scene \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a03b69ae865739c6319eebd187b7903cd}{get\+Number\+Of\+Cells\+Per\+Direction}} () const
 \item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_adcdfc10d2861af292b4daac852bee81b}{get\+Number\+Of\+Detectors}} () const
+\begin{DoxyCompactList}\small\item\em returns the number of detectors in the scene \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a11efd202e99a18d77bdd6ec5bf96a790}{get\+Number\+Of\+Light\+Sources}} () const
+\begin{DoxyCompactList}\small\item\em returns the number of light sources in the scene \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4d94f0af92f6d5ee8a0f950954055a1f}{get\+Number\+Of\+Objects}} () const
+\begin{DoxyCompactList}\small\item\em returns the number of objects in the scene \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ab1a95c0ba3a1c8b5700e8c330793e965}{get\+Number\+Of\+Threads}} () const
+\begin{DoxyCompactList}\small\item\em returns the number of threads used for parallelization (if Open\+MP is used) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2ca86cdf8121e7390171d5092609ef0f}{get\+Num\+Reflex}} () const
+\begin{DoxyCompactList}\small\item\em returns the number of reflections per ray considered in the raytracing \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aebd8551aa0b0effdca5c8b7481521886}{get\+Objects}} ()
+\begin{DoxyCompactList}\small\item\em returns the list of all objects in the scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a06df9cbd30c48e3d99880fc06615ebac}{mult\+All\+Detectors}} (std\+::complex$<$ double $>$ factor)
+\begin{DoxyCompactList}\small\item\em multiplies the content of all detectors with the given factor \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
 \begin{DoxyCompactList}\small\item\em remove all detectors from the scene \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}{remove\+All\+Detectors}} ()
@@ -106,6 +128,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a354a634bde433c9d818
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a4b0ae03b7e225a6a4fdb1123601b68e8}{set\+Num\+Reflex}} (int num\+Reflex)
 \begin{DoxyCompactList}\small\item\em set the number of reflections per ray considered in the raytracing \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_aa4da49bf7dc0a1bb75a3c36571c133c8}{set\+Num\+Threads}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac1a8fe969bdc010f2ae3c47f668284b3}{num\+Threads}})
+\begin{DoxyCompactList}\small\item\em set the number of threads used for parallelization (if Open\+MP is used) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
 \item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}{set\+Phase\+Progress}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}{suppress\+\_\+phase\+\_\+progress}})
@@ -133,6 +157,8 @@ std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Lig
 \begin{DoxyCompactList}\small\item\em Light source for reversed ray tracing (RRT) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}{n\+Det}} = 0
 \begin{DoxyCompactList}\small\item\em Number of detectors. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a9fc27fa008e5f1954efdf11dd212caca}{n\+K3D}} = 0
+\begin{DoxyCompactList}\small\item\em Number of \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{Kirchhoff3D} objects. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}{n\+LS}} = 0
 \begin{DoxyCompactList}\small\item\em Number of light sources. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}{n\+Obj}} = 0
@@ -145,6 +171,8 @@ std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_sc
 \begin{DoxyCompactList}\small\item\em refractive index of the surrounding medium (RRT), i.\+e. the medium between the objects \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a8b2f76584ad23aadae31780237b45e73}{INDEX\+\_\+\+TYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac4fbc46aa9da18b52f22504469802988}{Num\+Cells\+Per\+Dir}} = 1
 \begin{DoxyCompactList}\small\item\em Number of cells per direction, used e.\+g. in raytrace\+\_\+\+Inel for the virtual space grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_ac1a8fe969bdc010f2ae3c47f668284b3}{num\+Threads}} = 1
+\begin{DoxyCompactList}\small\item\em number of threads used for parallelization (if Open\+MP is used) \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}{Obj}}
 \begin{DoxyCompactList}\small\item\em List of all objects within the scene. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}{r0}} =1000
@@ -158,7 +186,7 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fc
 \doxysubsection{Detailed Description}
 Class defining a scene with lightsources and objects. This is a container used to inform the Raytracer about all necessary settings. Here, all informations about light sources and objects are stored. Light sources are described by classes derived from the virtual \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} base class. All objects are described by classes derived from the virtual class \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}. 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00027}{27}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00028}{28}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 
@@ -262,7 +290,7 @@ add single lightsource to scene
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00038}{38}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00039}{39}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8ffbef02831f9cf44ab0c6c0e2c2d978}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!addLightSource@{addLightSource}}
 \index{addLightSource@{addLightSource}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -390,6 +418,54 @@ void GOAT\+::raytracing\+::\+Scene\+::clean\+All\+Detectors (\begin{DoxyParamCap
 
 clean all detectors, i.\+e. all detectors are set to zero, but the detectors remain in the scene 
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_af41a1f0a9557cae525b5ede85d58ccba}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!cleanDetector@{cleanDetector}}
+\index{cleanDetector@{cleanDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{cleanDetector()}{cleanDetector()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_af41a1f0a9557cae525b5ede85d58ccba} 
+void GOAT\+::raytracing\+::\+Scene\+::clean\+Detector (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+clean detector "{}index"{}, i.\+e. all values in the detector are set to zero, but the detector remains in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a87c475dce19a61d67438c9655601d7ae}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getDetector@{getDetector}}
+\index{getDetector@{getDetector}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getDetector()}{getDetector()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a87c475dce19a61d67438c9655601d7ae} 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} GOAT\+::raytracing\+::\+Scene\+::get\+Detector (\begin{DoxyParamCaption}\item[{std\+::string}]{ID}{}\end{DoxyParamCaption})}
+
+
+
+returns a pointer to a detector in the scene identfied by its ID, if ID can\textquotesingle{}t be found NULL it returned 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a78ee976857e44c573c7607d91f5abf61}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getDetectors@{getDetectors}}
+\index{getDetectors@{getDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getDetectors()}{getDetectors()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a78ee976857e44c573c7607d91f5abf61} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_detector}{Detector}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::get\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the list of all detectors in the scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00092}{92}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4897e6bb2821f25e2536d4d1dfe21631}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getLightSources@{getLightSources}}
+\index{getLightSources@{getLightSources}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getLightSources()}{getLightSources()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a4897e6bb2821f25e2536d4d1dfe21631} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::get\+Light\+Sources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the list of all light sources in the scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00091}{91}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a03b69ae865739c6319eebd187b7903cd}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfCellsPerDirection@{getNumberOfCellsPerDirection}}
 \index{getNumberOfCellsPerDirection@{getNumberOfCellsPerDirection}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
 \doxysubsubsection{\texorpdfstring{getNumberOfCellsPerDirection()}{getNumberOfCellsPerDirection()}}
@@ -398,7 +474,97 @@ clean all detectors, i.\+e. all detectors are set to zero, but the detectors rem
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00072}{72}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00112}{112}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_adcdfc10d2861af292b4daac852bee81b}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfDetectors@{getNumberOfDetectors}}
+\index{getNumberOfDetectors@{getNumberOfDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumberOfDetectors()}{getNumberOfDetectors()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_adcdfc10d2861af292b4daac852bee81b} 
+int GOAT\+::raytracing\+::\+Scene\+::get\+Number\+Of\+Detectors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+returns the number of detectors in the scene 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a11efd202e99a18d77bdd6ec5bf96a790}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfLightSources@{getNumberOfLightSources}}
+\index{getNumberOfLightSources@{getNumberOfLightSources}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumberOfLightSources()}{getNumberOfLightSources()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a11efd202e99a18d77bdd6ec5bf96a790} 
+int GOAT\+::raytracing\+::\+Scene\+::get\+Number\+Of\+Light\+Sources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the number of light sources in the scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00085}{85}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4d94f0af92f6d5ee8a0f950954055a1f}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfObjects@{getNumberOfObjects}}
+\index{getNumberOfObjects@{getNumberOfObjects}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumberOfObjects()}{getNumberOfObjects()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a4d94f0af92f6d5ee8a0f950954055a1f} 
+int GOAT\+::raytracing\+::\+Scene\+::get\+Number\+Of\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the number of objects in the scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00086}{86}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab1a95c0ba3a1c8b5700e8c330793e965}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumberOfThreads@{getNumberOfThreads}}
+\index{getNumberOfThreads@{getNumberOfThreads}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumberOfThreads()}{getNumberOfThreads()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ab1a95c0ba3a1c8b5700e8c330793e965} 
+int GOAT\+::raytracing\+::\+Scene\+::get\+Number\+Of\+Threads (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the number of threads used for parallelization (if Open\+MP is used) 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00088}{88}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2ca86cdf8121e7390171d5092609ef0f}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getNumReflex@{getNumReflex}}
+\index{getNumReflex@{getNumReflex}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getNumReflex()}{getNumReflex()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a2ca86cdf8121e7390171d5092609ef0f} 
+int GOAT\+::raytracing\+::\+Scene\+::get\+Num\+Reflex (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the number of reflections per ray considered in the raytracing 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00089}{89}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_aebd8551aa0b0effdca5c8b7481521886}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!getObjects@{getObjects}}
+\index{getObjects@{getObjects}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{getObjects()}{getObjects()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_aebd8551aa0b0effdca5c8b7481521886} 
+std\+::vector$<$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} $>$ GOAT\+::raytracing\+::\+Scene\+::get\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the list of all objects in the scene 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00090}{90}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a06df9cbd30c48e3d99880fc06615ebac}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!multAllDetectors@{multAllDetectors}}
+\index{multAllDetectors@{multAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{multAllDetectors()}{multAllDetectors()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a06df9cbd30c48e3d99880fc06615ebac} 
+void GOAT\+::raytracing\+::\+Scene\+::mult\+All\+Detectors (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{factor}{}\end{DoxyParamCaption})}
+
+
+
+multiplies the content of all detectors with the given factor 
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a8fe5817882813a579f2f0bfb8513f6b8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!removeAllDetectors@{removeAllDetectors}}
 \index{removeAllDetectors@{removeAllDetectors}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -620,7 +786,7 @@ void GOAT\+::raytracing\+::\+Scene\+::set\+Number\+Of\+Cells\+Per\+Direction (\b
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00073}{73}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00055}{55}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a4b0ae03b7e225a6a4fdb1123601b68e8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setNumReflex@{setNumReflex}}
 \index{setNumReflex@{setNumReflex}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -631,6 +797,20 @@ void GOAT\+::raytracing\+::\+Scene\+::set\+Num\+Reflex (\begin{DoxyParamCaption}
 
 
 set the number of reflections per ray considered in the raytracing 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_aa4da49bf7dc0a1bb75a3c36571c133c8}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setNumThreads@{setNumThreads}}
+\index{setNumThreads@{setNumThreads}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{setNumThreads()}{setNumThreads()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_aa4da49bf7dc0a1bb75a3c36571c133c8} 
+void GOAT\+::raytracing\+::\+Scene\+::set\+Num\+Threads (\begin{DoxyParamCaption}\item[{int}]{num\+Threads}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set the number of threads used for parallelization (if Open\+MP is used) 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00082}{82}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a37af39d3058c08a3318846357058ec37}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!setPhaseProgress@{setPhaseProgress}}
 \index{setPhaseProgress@{setPhaseProgress}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -721,7 +901,7 @@ List of detectors, which are storing the electric field inside a defined area.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00061}{61}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00100}{100}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3125824e5945c12b60d6e149c93afc90}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!LS@{LS}}
 \index{LS@{LS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -735,7 +915,7 @@ List of all light sources.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00059}{59}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00095}{95}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3a9a7c3283d9c00a1b825934d6dfa111}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!LSRRT@{LSRRT}}
 \index{LSRRT@{LSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -749,7 +929,7 @@ Light source for reversed ray tracing (RRT)
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00060}{60}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00099}{99}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a0b372c54b6727e7707ad6daa885d5600}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nDet@{nDet}}
 \index{nDet@{nDet}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -763,7 +943,21 @@ Number of detectors.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00064}{64}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{sic_2raytrace_8h_source_l00061}{61}} of file \mbox{\hyperlink{sic_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a9fc27fa008e5f1954efdf11dd212caca}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nK3D@{nK3D}}
+\index{nK3D@{nK3D}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{nK3D}{nK3D}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_a9fc27fa008e5f1954efdf11dd212caca} 
+int GOAT\+::raytracing\+::\+Scene\+::n\+K3D = 0}
+
+
+
+Number of \doxylink{class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d}{Kirchhoff3D} objects. 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00105}{105}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a1bd39cc04eda670a174d770a69a2d35c}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nLS@{nLS}}
 \index{nLS@{nLS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -777,7 +971,7 @@ Number of light sources.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00063}{63}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{sic_2raytrace_8h_source_l00060}{60}} of file \mbox{\hyperlink{sic_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a20216c421a3d1bca3cf89b92395c3f4e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nObj@{nObj}}
 \index{nObj@{nObj}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -791,7 +985,7 @@ Number of objects in the scene.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00062}{62}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{sic_2raytrace_8h_source_l00059}{59}} of file \mbox{\hyperlink{sic_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a99a08f9c738c1b399c3845d496964f46}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nReflex@{nReflex}}
 \index{nReflex@{nReflex}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -805,7 +999,7 @@ Number of reflections.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00065}{65}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00104}{104}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_af84ac0c999add3decbe1840d0005f1ea}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nS@{nS}}
 \index{nS@{nS}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -819,7 +1013,7 @@ refractive index of the surrounding medium, i.\+e. the medium between the object
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00066}{66}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00106}{106}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ab78418e0ff8e3f3bc4f708f1b804e05e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!nSRRT@{nSRRT}}
 \index{nSRRT@{nSRRT}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -833,7 +1027,7 @@ refractive index of the surrounding medium (RRT), i.\+e. the medium between the 
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00067}{67}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00107}{107}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac4fbc46aa9da18b52f22504469802988}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!NumCellsPerDir@{NumCellsPerDir}}
 \index{NumCellsPerDir@{NumCellsPerDir}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -847,7 +1041,21 @@ Number of cells per direction, used e.\+g. in raytrace\+\_\+\+Inel for the virtu
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00071}{71}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00111}{111}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_ac1a8fe969bdc010f2ae3c47f668284b3}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!numThreads@{numThreads}}
+\index{numThreads@{numThreads}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
+\doxysubsubsection{\texorpdfstring{numThreads}{numThreads}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_scene_ac1a8fe969bdc010f2ae3c47f668284b3} 
+int GOAT\+::raytracing\+::\+Scene\+::num\+Threads = 1}
+
+
+
+number of threads used for parallelization (if Open\+MP is used) 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00113}{113}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a5c07bc021b245e75a3a2af6f28635fc1}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!Obj@{Obj}}
 \index{Obj@{Obj}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -861,7 +1069,7 @@ List of all objects within the scene.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00058}{58}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00094}{94}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a2595e0bdfd65f6f65b88919cbd4c368e}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!r0@{r0}}
 \index{r0@{r0}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -875,7 +1083,7 @@ Radius of the calculation space. All rays are followed within this calculation s
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00068}{68}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00108}{108}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a3f5fb9596900399d56dc97e3e3fc874a}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!raytype@{raytype}}
 \index{raytype@{raytype}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -889,7 +1097,7 @@ Type of the rays created by the light source. More detailed information about th
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00069}{69}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00109}{109}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_scene_a01897cb07e176c682fcba9bc7c49ca83}\index{GOAT::raytracing::Scene@{GOAT::raytracing::Scene}!suppress\_phase\_progress@{suppress\_phase\_progress}}
 \index{suppress\_phase\_progress@{suppress\_phase\_progress}!GOAT::raytracing::Scene@{GOAT::raytracing::Scene}}
@@ -903,7 +1111,7 @@ If true, phase progress is skipped. This is needed for short pulse calculations.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00070}{70}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00110}{110}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 

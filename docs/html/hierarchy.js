@@ -3,13 +3,21 @@ var hierarchy =
     [ "GOAT::raytracing::asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", null ],
     [ "GOAT::raytracing::asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", null ],
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Block", "structtinyxml2_1_1_mem_pool_t_1_1_block.html", null ],
+    [ "GOAT::XML::calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", null ],
+    [ "GOAT::XML::calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", null ],
+    [ "GOAT::XML::Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", null ],
+    [ "GOAT::computeSettings", "struct_g_o_a_t_1_1compute_settings.html", null ],
     [ "tinyxml2::XMLDocument::DepthTracker", "classtinyxml2_1_1_x_m_l_document_1_1_depth_tracker.html", null ],
     [ "GOAT::raytracing::Detector", "class_g_o_a_t_1_1raytracing_1_1_detector.html", [
       [ "GOAT::raytracing::DetectorPlane", "class_g_o_a_t_1_1raytracing_1_1_detector_plane.html", [
-        [ "GOAT::raytracing::Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", null ]
+        [ "GOAT::raytracing::Propagator", "class_g_o_a_t_1_1raytracing_1_1_propagator.html", [
+          [ "GOAT::raytracing::AngularSpectrum", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html", null ],
+          [ "GOAT::raytracing::Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", null ]
+        ] ]
       ] ]
     ] ],
     [ "tinyxml2::DynArray< T, INITIAL_SIZE >", "classtinyxml2_1_1_dyn_array.html", null ],
+    [ "GOAT::maths::fourier::fft2D", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html", null ],
     [ "GOAT::raytracing::Gauss", "struct_g_o_a_t_1_1raytracing_1_1_gauss.html", null ],
     [ "GOAT::raytracing::GlobalParms", "class_g_o_a_t_1_1raytracing_1_1_global_parms.html", null ],
     [ "GOAT::raytracing::grid", "class_g_o_a_t_1_1raytracing_1_1grid.html", null ],
@@ -18,8 +26,9 @@ var hierarchy =
     [ "GOAT::storage::IReader", "class_g_o_a_t_1_1storage_1_1_i_reader.html", null ],
     [ "tinyxml2::MemPoolT< ITEM_SIZE >::Item", "uniontinyxml2_1_1_mem_pool_t_1_1_item.html", null ],
     [ "GOAT::storage::IWriter", "class_g_o_a_t_1_1storage_1_1_i_writer.html", null ],
-    [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", null ],
-    [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", null ],
+    [ "GOAT::raytracing::Kirchhoff3D", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html", null ],
+    [ "GOAT::raytracing::lens", "struct_g_o_a_t_1_1raytracing_1_1lens.html", null ],
+    [ "GOAT::raytracing::lensp", "struct_g_o_a_t_1_1raytracing_1_1lensp.html", null ],
     [ "GOAT::raytracing::LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", [
       [ "GOAT::raytracing::LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", [
         [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ]
@@ -68,7 +77,11 @@ var hierarchy =
       [ "GOAT::raytracing::pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", null ]
     ] ],
     [ "GOAT::raytracing::pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", null ],
-    [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ],
+    [ "GOAT::raytracing::pulseCalculationBase", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html", [
+      [ "GOAT::raytracing::pulseCalculationKirchhoff", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff.html", null ],
+      [ "GOAT::raytracing::pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", null ]
+    ] ],
+    [ "GOAT::XML::pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", null ],
     [ "GOAT::raytracing::pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", null ],
     [ "GOAT::raytracing::RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", [
       [ "GOAT::raytracing::IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", [
@@ -91,6 +104,9 @@ var hierarchy =
       [ "GOAT::raytracing::Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html", null ],
       [ "GOAT::raytracing::Raytrace_usp_rt", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html", null ]
     ] ],
+    [ "GOAT::raytracing::roughInterface", "class_g_o_a_t_1_1raytracing_1_1rough_interface.html", [
+      [ "GOAT::raytracing::roughObject< T >", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", null ]
+    ] ],
     [ "GOAT::raytracing::RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", null ],
     [ "GOAT::raytracing::RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", null ],
     [ "GOAT::raytracing::Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", null ],
@@ -102,6 +118,9 @@ var hierarchy =
     [ "GOAT::raytracing::SuperArray< T >", "class_g_o_a_t_1_1raytracing_1_1_super_array.html", null ],
     [ "GOAT::raytracing::SuperGrid< T >", "class_g_o_a_t_1_1raytracing_1_1_super_grid.html", null ],
     [ "GOAT::raytracing::SysMemInfo", "struct_g_o_a_t_1_1raytracing_1_1_sys_mem_info.html", null ],
+    [ "T", null, [
+      [ "GOAT::raytracing::roughObject< T >", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", null ]
+    ] ],
     [ "GOAT::raytracing::Trafo", "class_g_o_a_t_1_1raytracing_1_1_trafo.html", null ],
     [ "GOAT::raytracing::TrafoParms", "struct_g_o_a_t_1_1raytracing_1_1_trafo_parms.html", null ],
     [ "GOAT::raytracing::triangle", "class_g_o_a_t_1_1raytracing_1_1triangle.html", null ],

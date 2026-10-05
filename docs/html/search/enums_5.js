@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['whitespace_0',['Whitespace',['../namespacetinyxml2.html#a7f91d00f77360f850fd5da0861e27dd5',1,'tinyxml2::Whitespace'],['../namespacetinyxml2.html#a7f91d00f77360f850fd5da0861e27dd5',1,'tinyxml2::Whitespace']]]
+  ['side_0',['Side',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#afab106b2b59df490442822442d791e52',1,'GOAT::raytracing::asphericLens']]]
 ];

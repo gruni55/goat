@@ -6,6 +6,7 @@
 #include "detector.h"
 #include "raybase.h"
 #include "superarray.h"
+#include "kirchhoff.h"
 #include <vector>
 
 namespace GOAT
@@ -44,25 +45,64 @@ namespace GOAT
 			void addLightSourceList(int nls, std::vector<LightSrc*> ls); ///< add list of lightsources, nls: number of lightsources
 			void addDetector(Detector* D); ///< add single detector to scene
 			void addDetectorList(int nDet, std::vector< Detector*> D); ///< add a list of detectors to the scene, nDet: number of detectors to add
+			Detector * getDetector(std::string ID); ///< returns a pointer to a detector in the scene identfied by its ID, if ID can't be found NULL it returned
 			void removeAllDetectors(); ///< remove all detectors from the scene
 			void removeDetector(int index); ///< remove detector "index" from detector list
-			void removeDetector(Detector* det);
+			void removeDetector(Detector* det); 
+			void cleanDetector(int index); ///< clean detector "index", i.e. all values in the detector are set to zero, but the detector remains in the scene
 			void cleanAllDetectors(); ///< clean all detectors, i.e. all detectors are set to zero, but the detectors remain in the scene
+			void multAllDetectors(std::complex<double> factor); ///< multiplies the content of all detectors with the given factor
+			void setNumberOfCellsPerDirection(INDEX_TYPE no)  
+			{ 
+				NumCellsPerDir = no;
+#ifdef WITH_OPENMP
+				for (auto& k : k3D)
+				{
+					k->setNN(NumCellsPerDir);
+				}
+#endif
+			}
+
+
+#ifdef WITH_OPENMP
+						void addKirchhoff3D(Kirchhoff3D* K); ///< add one Kirchhoff3D object to the scene, which are used e.g. in pulsed calculations 
+			void addKirchhoff3DList(int nK, std::vector<Kirchhoff3D*> KList); ///< add a list of Kirchhoff3D objects to the scene, nK: number of Kirchhoff objects to add
+			void removeAllKirchhoff3D(); ///< remove all Kirchhoff3D objects from the scene
+			void removeKirchhoff3D(int index); ///< remove Kirchhoff3D object "index" from the scene
+			void removeKirchhoff3D(Kirchhoff3D* K); ///< remove Kirchhoff3D object, identified by its pointer from the scene
+			void cleanAllKirchhoff3D(); ///< clean all Kirchhoff3D objects, i.e. all values in the field3D array are set to zero, but the Kirchhoff3D objects remain in the scene
+			std::vector<Kirchhoff3D*> getKirchhoff3D() { return k3D; } ///< returns the list of all Kirchhoff3D objects in the scene
+			
+#endif		
 			void setr0(double r0); ///< set the radius of the calculation space
 			void setnS(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setnSRRT(std::complex<double> nS); ///< set the refractive index of the filling material in the scene
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
 			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
+			void setNumThreads(int numThreads) {this->numThreads = numThreads;} ///< set the number of threads used for parallelization (if OpenMP is used)
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
+			int getNumberOfLightSources() const { return static_cast<int>(LS.size()); } ///< returns the number of light sources in the scene
+			int getNumberOfObjects() const { return static_cast<int>(Obj.size()); } ///< returns the number of objects in the scene
+			int getNumberOfDetectors() const; ///< returns the number of detectors in the scene
+			int getNumberOfThreads() const { return numThreads; } ///< returns the number of threads used for parallelization (if OpenMP is used)
+			int getNumReflex() const { return nReflex; } ///< returns the number of reflections per ray considered in the raytracing
+			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
+			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
+			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
+
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
 			std::vector<LightSrc*> LS; ///< List of all light sources 
+#ifdef WITH_OPENMP
+			std::vector<Kirchhoff3D*> k3D; ///< List of all Kirchhoff objects, which are used for the inelastic scattering calculations
+#endif
 			LightSrc* LSRRT; ///< Light source for reversed ray tracing (RRT) 
 			std::vector< Detector*> Det; ///< List of detectors, which are storing the electric field inside a defined area
-			int nObj = 0; ///< Number of objects in the scene
+/*			int nObj = 0; ///< Number of objects in the scene
 			int nLS = 0;  ///< Number of light sources
-			int nDet = 0; ///< Number of detectors
+			int nDet = 0; ///< Number of detectors*/
 			int nReflex = 0; ///< Number of reflections
+			int nK3D = 0; ///< Number of Kirchhoff3D objects
 			std::complex<double> nS; ///< refractive index of the surrounding medium, i.e. the medium between the objects
 			std::complex<double> nSRRT; ///< refractive index of the surrounding medium (RRT), i.e. the medium between the objects
 			double r0=1000; ///< Radius of the calculation space. All rays are followed within this calculation sphere.
@@ -70,7 +110,7 @@ namespace GOAT
 			bool suppress_phase_progress = false; ///< If true, phase progress is skipped. This is needed for short pulse calculations
 			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
 			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
-			void setNumberOfCellsPerDirection(INDEX_TYPE no)  { NumCellsPerDir = no; }
+			int numThreads = 1; ///< number of threads used for parallelization (if OpenMP is used)
 		};
 
 
@@ -141,10 +181,10 @@ namespace GOAT
 			void trace();
 			void traceLeaveObject(); ///< force calculation, when the ray leaves an object
 			void traceEnterObject(); ///< force calculation, when the ray enters an object
-			maths::Vector<double>* F; ///< list of the forces acting on the objects
-			maths::Vector<double>* L; ///< angular momenta acting on the objects
-			maths::Vector<double>** f; ///< list of the forces acting on the objects, separated for the different light sources
-			maths::Vector<double>** l;///< list of the angular momenta acting on the objects, separated for the different light sources
+			maths::Vector<double>* F=nullptr; ///< list of the forces acting on the objects
+			maths::Vector<double>* L=nullptr; ///< angular momenta acting on the objects
+			maths::Vector<double>** f=nullptr; ///< list of the forces acting on the objects, separated for the different light sources
+			maths::Vector<double>** l=nullptr;///< list of the angular momenta acting on the objects, separated for the different light sources
 		};
 
 

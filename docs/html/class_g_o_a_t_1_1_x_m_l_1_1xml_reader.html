@@ -107,12 +107,15 @@ $(function(){initNavTree('class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html','','class_
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a34c6693ab74fa1ee10c329174b5e1ce0" id="r_a34c6693ab74fa1ee10c329174b5e1ce0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34c6693ab74fa1ee10c329174b5e1ce0">isCalculationEnabled</a> ()</td></tr>
+<tr class="memitem:a81559ccd16707fa2f2f9f1b50ac1cdd1" id="r_a81559ccd16707fa2f2f9f1b50ac1cdd1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81559ccd16707fa2f2f9f1b50ac1cdd1">readRequest</a> (std::string &amp;request)</td></tr>
 <tr class="memitem:af45e5a74060421bf1f7d3c7c8e10c55b" id="r_af45e5a74060421bf1f7d3c7c8e10c55b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af45e5a74060421bf1f7d3c7c8e10c55b">readXML</a> (std::string fname, bool calc_enabled=true, std::string <a class="el" href="#ab545ebb8d3e97db14a847dcc23084459">path</a>=&quot;&quot;)</td></tr>
 <tr class="memdesc:af45e5a74060421bf1f7d3c7c8e10c55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the XML-file This methode reads the XML-file  <br /></td></tr>
 <tr class="memitem:a3118e666f57d04bddb8bc0ad44768f24" id="r_a3118e666f57d04bddb8bc0ad44768f24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3118e666f57d04bddb8bc0ad44768f24">setEnableCalculation</a> (bool enable)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a0164434ca056d82cf913cef2bf523188" id="r_a0164434ca056d82cf913cef2bf523188"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html">calculationJob</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0164434ca056d82cf913cef2bf523188">jobs</a></td></tr>
+<tr class="memdesc:a0164434ca056d82cf913cef2bf523188"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculation jobs read from the file are stored here  <br /></td></tr>
 <tr class="memitem:acfc9bdc66d97b25827afe7d299a84719" id="r_acfc9bdc66d97b25827afe7d299a84719"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html">GOAT::raytracing::Scene</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfc9bdc66d97b25827afe7d299a84719">S</a></td></tr>
 <tr class="memdesc:acfc9bdc66d97b25827afe7d299a84719"><td class="mdescLeft">&#160;</td><td class="mdescRight">The scene that was read from the file is saved here.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -134,10 +137,14 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:ad2f7513621fc9c3d650b9adaf6bb5ebc"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readXML) read and execute the commands for calculation  <br /></td></tr>
 <tr class="memitem:ac8dfd074fdae3c4d2c38b04e6d8706de" id="r_ac8dfd074fdae3c4d2c38b04e6d8706de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8dfd074fdae3c4d2c38b04e6d8706de">readDetectors</a> ()</td></tr>
 <tr class="memdesc:ac8dfd074fdae3c4d2c38b04e6d8706de"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readScene) read the detectors from the file (deprecated ?)  <br /></td></tr>
+<tr class="memitem:a809e3506cf9c7edb386778c779e18798" id="r_a809e3506cf9c7edb386778c779e18798"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a809e3506cf9c7edb386778c779e18798">readJobs</a> ()</td></tr>
+<tr class="memdesc:a809e3506cf9c7edb386778c779e18798"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readRequest) read the calculation jobs  <br /></td></tr>
 <tr class="memitem:a1d6e130c594d7a59a3ef184ebecc8975" id="r_a1d6e130c594d7a59a3ef184ebecc8975"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d6e130c594d7a59a3ef184ebecc8975">readLightSources</a> ()</td></tr>
 <tr class="memdesc:a1d6e130c594d7a59a3ef184ebecc8975"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readScene) read the light sources from the file  <br /></td></tr>
 <tr class="memitem:aa26dc0150fd714a1f61cfe8eacdcc2e2" id="r_aa26dc0150fd714a1f61cfe8eacdcc2e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa26dc0150fd714a1f61cfe8eacdcc2e2">readObjects</a> ()</td></tr>
 <tr class="memdesc:aa26dc0150fd714a1f61cfe8eacdcc2e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readScene) read the objects from the file  <br /></td></tr>
+<tr class="memitem:a1bb4dbbcd6131ade226301e530b5fd52" id="r_a1bb4dbbcd6131ade226301e530b5fd52"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bb4dbbcd6131ade226301e530b5fd52">readParam</a> (<a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *paramEll, <a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html">calculationParam</a> &amp;p)</td></tr>
+<tr class="memdesc:a1bb4dbbcd6131ade226301e530b5fd52"><td class="mdescLeft">&#160;</td><td class="mdescRight">(used in readJobs) read a calculation parameter  <br /></td></tr>
 <tr class="memitem:ac00a27f4ad9ec7ce858f62ae31762e86" id="r_ac00a27f4ad9ec7ce858f62ae31762e86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac00a27f4ad9ec7ce858f62ae31762e86">readScene</a> ()</td></tr>
 <tr class="memdesc:ac00a27f4ad9ec7ce858f62ae31762e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the entire Scene  <br /></td></tr>
 <tr class="memitem:ad8260757b2aa58db7313f847fe0505f9" id="r_ad8260757b2aa58db7313f847fe0505f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8260757b2aa58db7313f847fe0505f9">readVector</a> (<a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *ell, double x=0, double y=0, double z=0)</td></tr>
@@ -152,6 +159,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:aa3312907a042a5ff96fe299b5a3ac785"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the calculation elemeent of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a>  <br /></td></tr>
 <tr class="memitem:a7974be9d457eb8b17cd5621102496ca7" id="r_a7974be9d457eb8b17cd5621102496ca7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_detector.html">GOAT::raytracing::Detector</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7974be9d457eb8b17cd5621102496ca7">Det</a></td></tr>
 <tr class="memdesc:a7974be9d457eb8b17cd5621102496ca7"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector, which carries all detectors (as pointers)  <br /></td></tr>
+<tr class="memitem:af1903239ff484887dd86e7587041d5d5" id="r_af1903239ff484887dd86e7587041d5d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinyxml2_1_1_x_m_l_document.html">tinyxml2::XMLDocument</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1903239ff484887dd86e7587041d5d5">doc</a></td></tr>
+<tr class="memdesc:af1903239ff484887dd86e7587041d5d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">tinyxml document  <br /></td></tr>
 <tr class="memitem:a93447a83154f9feb2f989e7526be7aef" id="r_a93447a83154f9feb2f989e7526be7aef"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a93447a83154f9feb2f989e7526be7aef">LS</a></td></tr>
 <tr class="memdesc:a93447a83154f9feb2f989e7526be7aef"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector, which carries all light sources (as pointers)  <br /></td></tr>
 <tr class="memitem:ad41b6e220a499212c095422079506607" id="r_ad41b6e220a499212c095422079506607"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad41b6e220a499212c095422079506607">numDet</a> = 0</td></tr>
@@ -164,8 +173,8 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a82af2771c5a05a22458fa97b9dc6b8bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">vector, which carries all objects (as pointers)  <br /></td></tr>
 <tr class="memitem:ab545ebb8d3e97db14a847dcc23084459" id="r_ab545ebb8d3e97db14a847dcc23084459"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab545ebb8d3e97db14a847dcc23084459">path</a></td></tr>
 <tr class="memdesc:ab545ebb8d3e97db14a847dcc23084459"><td class="mdescLeft">&#160;</td><td class="mdescRight">path of the XML-File  <br /></td></tr>
-<tr class="memitem:a17f2374d384fee0322f17b33b870fb0b" id="r_a17f2374d384fee0322f17b33b870fb0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinyxml2_1_1_x_m_l_node.html">tinyxml2::XMLNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17f2374d384fee0322f17b33b870fb0b">rootElement</a></td></tr>
-<tr class="memdesc:a17f2374d384fee0322f17b33b870fb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to root element of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a>  <br /></td></tr>
+<tr class="memitem:a73d8d9a9de5acae7f6e8e60bc6010bf2" id="r_a73d8d9a9de5acae7f6e8e60bc6010bf2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73d8d9a9de5acae7f6e8e60bc6010bf2">rootElement</a></td></tr>
+<tr class="memdesc:a73d8d9a9de5acae7f6e8e60bc6010bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to root element of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a>  <br /></td></tr>
 <tr class="memitem:afc2470a98546ddcb3586d43f185e66d4" id="r_afc2470a98546ddcb3586d43f185e66d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc2470a98546ddcb3586d43f185e66d4">sceneElement</a></td></tr>
 <tr class="memdesc:afc2470a98546ddcb3586d43f185e66d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">pointer to the scene element of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a>  <br /></td></tr>
 </table>
@@ -210,7 +219,7 @@ Private Attributes</h2></td></tr>
 <td>oin* </td><td></td><td></td><td></td><td>z </td><td>double </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00085">85</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00127">127</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a2d401c278fa6037503984ea4295965e1" name="a2d401c278fa6037503984ea4295965e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2d401c278fa6037503984ea4295965e1">&#9670;&#160;</a></span>doCalculations()</h2>
@@ -316,7 +325,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00098">98</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00141">141</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -497,6 +506,33 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a809e3506cf9c7edb386778c779e18798" name="a809e3506cf9c7edb386778c779e18798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a809e3506cf9c7edb386778c779e18798">&#9670;&#160;</a></span>readJobs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::XML::xmlReader::readJobs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>(used in readRequest) read the calculation jobs </p>
+
+</div>
+</div>
 <a id="a1d6e130c594d7a59a3ef184ebecc8975" name="a1d6e130c594d7a59a3ef184ebecc8975"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1d6e130c594d7a59a3ef184ebecc8975">&#9670;&#160;</a></span>readLightSources()</h2>
 
@@ -548,6 +584,54 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>(used in readScene) read the objects from the file </p>
+
+</div>
+</div>
+<a id="a1bb4dbbcd6131ade226301e530b5fd52" name="a1bb4dbbcd6131ade226301e530b5fd52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bb4dbbcd6131ade226301e530b5fd52">&#9670;&#160;</a></span>readParam()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GOAT::XML::xmlReader::readParam </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a> *</td>          <td class="paramname"><span class="paramname"><em>paramEll</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html">calculationParam</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>(used in readJobs) read a calculation parameter </p>
+
+</div>
+</div>
+<a id="a81559ccd16707fa2f2f9f1b50ac1cdd1" name="a81559ccd16707fa2f2f9f1b50ac1cdd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81559ccd16707fa2f2f9f1b50ac1cdd1">&#9670;&#160;</a></span>readRequest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GOAT::XML::xmlReader::readRequest </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -725,7 +809,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00097">97</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00140">140</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -750,7 +834,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00167">167</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00216">216</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -776,7 +860,7 @@ Private Attributes</h2></td></tr>
 
 <p>pointer to the calculation elemeent of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00159">159</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00208">208</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -802,7 +886,51 @@ Private Attributes</h2></td></tr>
 
 <p>vector, which carries all detectors (as pointers) </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00161">161</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00210">210</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+
+</div>
+</div>
+<a id="af1903239ff484887dd86e7587041d5d5" name="af1903239ff484887dd86e7587041d5d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1903239ff484887dd86e7587041d5d5">&#9670;&#160;</a></span>doc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtinyxml2_1_1_x_m_l_document.html">tinyxml2::XMLDocument</a> GOAT::XML::xmlReader::doc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>tinyxml document </p>
+
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00205">205</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+
+</div>
+</div>
+<a id="a0164434ca056d82cf913cef2bf523188" name="a0164434ca056d82cf913cef2bf523188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0164434ca056d82cf913cef2bf523188">&#9670;&#160;</a></span>jobs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html">calculationJob</a>&gt; GOAT::XML::xmlReader::jobs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>calculation jobs read from the file are stored here </p>
+
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00139">139</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -828,7 +956,7 @@ Private Attributes</h2></td></tr>
 
 <p>vector, which carries all light sources (as pointers) </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00162">162</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00211">211</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -854,7 +982,7 @@ Private Attributes</h2></td></tr>
 
 <p>number of detectors </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00165">165</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00214">214</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -880,7 +1008,7 @@ Private Attributes</h2></td></tr>
 
 <p>number of light sources </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00164">164</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00213">213</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -906,7 +1034,7 @@ Private Attributes</h2></td></tr>
 
 <p>number of objects </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00163">163</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00212">212</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -932,7 +1060,7 @@ Private Attributes</h2></td></tr>
 
 <p>vector, which carries all objects (as pointers) </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00160">160</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00209">209</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -958,12 +1086,12 @@ Private Attributes</h2></td></tr>
 
 <p>path of the XML-File </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00166">166</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00215">215</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
-<a id="a17f2374d384fee0322f17b33b870fb0b" name="a17f2374d384fee0322f17b33b870fb0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17f2374d384fee0322f17b33b870fb0b">&#9670;&#160;</a></span>rootElement</h2>
+<a id="a73d8d9a9de5acae7f6e8e60bc6010bf2" name="a73d8d9a9de5acae7f6e8e60bc6010bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73d8d9a9de5acae7f6e8e60bc6010bf2">&#9670;&#160;</a></span>rootElement</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -972,7 +1100,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classtinyxml2_1_1_x_m_l_node.html">tinyxml2::XMLNode</a>* GOAT::XML::xmlReader::rootElement</td>
+          <td class="memname"><a class="el" href="classtinyxml2_1_1_x_m_l_element.html">tinyxml2::XMLElement</a>* GOAT::XML::xmlReader::rootElement</td>
         </tr>
       </table>
   </td>
@@ -984,7 +1112,7 @@ Private Attributes</h2></td></tr>
 
 <p>pointer to root element of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00157">157</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00206">206</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -1002,7 +1130,7 @@ Private Attributes</h2></td></tr>
 
 <p>The scene that was read from the file is saved here. </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00096">96</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00138">138</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>
@@ -1028,7 +1156,7 @@ Private Attributes</h2></td></tr>
 
 <p>pointer to the scene element of the <a class="el" href="namespace_g_o_a_t_1_1_x_m_l.html">XML</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00158">158</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="xml_8h_source.html#l00207">207</a> of file <a class="el" href="xml_8h_source.html">xml.h</a>.</p>
 
 </div>
 </div>

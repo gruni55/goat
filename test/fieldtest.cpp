@@ -54,7 +54,7 @@ int main (int argc, char **argv)
     parms.e1=GOAT::maths::ex;
     parms.e2=GOAT::maths::ey;
 
-    GOAT::raytracing::Raytrace_Inel rt(S,500);
+    GOAT::raytracing::Raytrace_Inel rt(S);
     rt.setExcitationFieldOnly();
     rt.trace(parms);
 

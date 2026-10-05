@@ -2,10 +2,14 @@ var annotated_dup =
 [
     [ "GOAT", "namespace_g_o_a_t.html", [
       [ "maths", "namespace_g_o_a_t_1_1maths.html", [
+        [ "fourier", "namespace_g_o_a_t_1_1maths_1_1fourier.html", [
+          [ "fft2D", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d.html", "class_g_o_a_t_1_1maths_1_1fourier_1_1fft2_d" ]
+        ] ],
         [ "Matrix", "class_g_o_a_t_1_1maths_1_1_matrix.html", "class_g_o_a_t_1_1maths_1_1_matrix" ],
         [ "Vector", "class_g_o_a_t_1_1maths_1_1_vector.html", "class_g_o_a_t_1_1maths_1_1_vector" ]
       ] ],
       [ "raytracing", "namespace_g_o_a_t_1_1raytracing.html", [
+        [ "AngularSpectrum", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum.html", "class_g_o_a_t_1_1raytracing_1_1_angular_spectrum" ],
         [ "asphericLens", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html", "class_g_o_a_t_1_1raytracing_1_1aspheric_lens" ],
         [ "asphericLensParms", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_parms" ],
         [ "asphericLensSide", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side.html", "struct_g_o_a_t_1_1raytracing_1_1aspheric_lens_side" ],
@@ -22,8 +26,9 @@ var annotated_dup =
         [ "indexList", "struct_g_o_a_t_1_1raytracing_1_1index_list.html", "struct_g_o_a_t_1_1raytracing_1_1index_list" ],
         [ "IRay", "class_g_o_a_t_1_1raytracing_1_1_i_ray.html", "class_g_o_a_t_1_1raytracing_1_1_i_ray" ],
         [ "Kirchhoff", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff.html", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff" ],
-        [ "lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", "struct_g_o_a_t_1_1raytracing_1_1lensa" ],
-        [ "lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
+        [ "Kirchhoff3D", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d.html", "class_g_o_a_t_1_1raytracing_1_1_kirchhoff3_d" ],
+        [ "lens", "struct_g_o_a_t_1_1raytracing_1_1lens.html", "struct_g_o_a_t_1_1raytracing_1_1lens" ],
+        [ "lensp", "struct_g_o_a_t_1_1raytracing_1_1lensp.html", "struct_g_o_a_t_1_1raytracing_1_1lensp" ],
         [ "LightSrc", "class_g_o_a_t_1_1raytracing_1_1_light_src.html", "class_g_o_a_t_1_1raytracing_1_1_light_src" ],
         [ "LightSrcGauss", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss" ],
         [ "LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc" ],
@@ -42,10 +47,13 @@ var annotated_dup =
         [ "OptProp", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop.html", "struct_g_o_a_t_1_1raytracing_1_1_opt_prop" ],
         [ "Plane", "class_g_o_a_t_1_1raytracing_1_1_plane.html", "class_g_o_a_t_1_1raytracing_1_1_plane" ],
         [ "Point", "struct_g_o_a_t_1_1raytracing_1_1_point.html", "struct_g_o_a_t_1_1raytracing_1_1_point" ],
+        [ "Propagator", "class_g_o_a_t_1_1raytracing_1_1_propagator.html", "class_g_o_a_t_1_1raytracing_1_1_propagator" ],
         [ "pulseCalculation", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation" ],
         [ "pulseCalculation_Field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation___field" ],
         [ "pulseCalculation_field", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__field" ],
         [ "pulseCalculation_rt", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation__rt" ],
+        [ "pulseCalculationBase", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_base" ],
+        [ "pulseCalculationKirchhoff", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff.html", "class_g_o_a_t_1_1raytracing_1_1pulse_calculation_kirchhoff" ],
         [ "pulseParameters", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters" ],
         [ "Ray_pow", "class_g_o_a_t_1_1raytracing_1_1_ray__pow.html", "class_g_o_a_t_1_1raytracing_1_1_ray__pow" ],
         [ "RayBase", "class_g_o_a_t_1_1raytracing_1_1_ray_base.html", "class_g_o_a_t_1_1raytracing_1_1_ray_base" ],
@@ -59,6 +67,8 @@ var annotated_dup =
         [ "Raytrace_pure", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__pure" ],
         [ "Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp" ],
         [ "Raytrace_usp_rt", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt" ],
+        [ "roughInterface", "class_g_o_a_t_1_1raytracing_1_1rough_interface.html", "class_g_o_a_t_1_1raytracing_1_1rough_interface" ],
+        [ "roughObject", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", "class_g_o_a_t_1_1raytracing_1_1rough_object" ],
         [ "RRTParms", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html", "struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms" ],
         [ "RRTParmsInfo", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html", "class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info" ],
         [ "Scene", "class_g_o_a_t_1_1raytracing_1_1_scene.html", "class_g_o_a_t_1_1raytracing_1_1_scene" ],
@@ -84,9 +94,14 @@ var annotated_dup =
         [ "IWriter", "class_g_o_a_t_1_1storage_1_1_i_writer.html", "class_g_o_a_t_1_1storage_1_1_i_writer" ]
       ] ],
       [ "XML", "namespace_g_o_a_t_1_1_x_m_l.html", [
+        [ "calculationJob", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_job" ],
+        [ "calculationParam", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param.html", "struct_g_o_a_t_1_1_x_m_l_1_1calculation_param" ],
+        [ "Calculator", "class_g_o_a_t_1_1_x_m_l_1_1_calculator.html", "class_g_o_a_t_1_1_x_m_l_1_1_calculator" ],
+        [ "pulseJobParms", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms.html", "struct_g_o_a_t_1_1_x_m_l_1_1pulse_job_parms" ],
         [ "xmlReader", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader" ],
         [ "xmlWriter", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer" ]
-      ] ]
+      ] ],
+      [ "computeSettings", "struct_g_o_a_t_1_1compute_settings.html", "struct_g_o_a_t_1_1compute_settings" ]
     ] ],
     [ "tinyxml2", "namespacetinyxml2.html", [
       [ "DynArray", "classtinyxml2_1_1_dyn_array.html", "classtinyxml2_1_1_dyn_array" ],

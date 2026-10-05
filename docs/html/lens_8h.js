@@ -1,8 +1,9 @@
 var lens_8h =
 [
-    [ "GOAT::raytracing::lensa", "struct_g_o_a_t_1_1raytracing_1_1lensa.html", "struct_g_o_a_t_1_1raytracing_1_1lensa" ],
-    [ "GOAT::raytracing::lensParms", "struct_g_o_a_t_1_1raytracing_1_1lens_parms.html", "struct_g_o_a_t_1_1raytracing_1_1lens_parms" ],
-    [ "GOAT::raytracing::lensSide", "namespace_g_o_a_t_1_1raytracing.html#a866edf70813cc095beb14e11abb20efe", null ],
+    [ "GOAT::raytracing::lens", "struct_g_o_a_t_1_1raytracing_1_1lens.html", "struct_g_o_a_t_1_1raytracing_1_1lens" ],
+    [ "GOAT::raytracing::lensp", "struct_g_o_a_t_1_1raytracing_1_1lensp.html", "struct_g_o_a_t_1_1raytracing_1_1lensp" ],
+    [ "GOAT::raytracing::lensParms", "namespace_g_o_a_t_1_1raytracing.html#a866fe650fea7d4e4c55bb564066dbf39", null ],
+    [ "GOAT::raytracing::lensSide", "namespace_g_o_a_t_1_1raytracing.html#a492a9891e66bfd3d2ab51cf388be11f9", null ],
     [ "GOAT::raytracing::Curvature", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977", [
       [ "GOAT::raytracing::convex", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a1bcc83b56022b11348595f9d543a0dde", null ],
       [ "GOAT::raytracing::concave", "namespace_g_o_a_t_1_1raytracing.html#aa4fd198b39861231289725c0b422e977a984e097f259fc79fc8b95ff7a2ed110f", null ],

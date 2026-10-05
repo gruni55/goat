@@ -141,9 +141,10 @@ namespace GOAT
             std::string getFilename() { return FName; } ///< returns the current file name
             void setFilename(std::string FName) ///< set the current file name
             {
-                this->FName = FName;                
+                this->FName = FName;    
             }
-
+			int getFiletype() { return filetype; } ///< returns the current file type
+			void setFiletype(int filetype) { this->filetype = filetype; } ///< sets the current file type
             // Operatoren 
             surface& operator=(const surface&);
 
@@ -189,7 +190,7 @@ namespace GOAT
 #endif
         };
 
-        std::ostream& operator << (std::ostream& os, const surface& su);
+        std::ostream& operator << (std::ostream& os,  surface& su);
 
         /** @name operators on surface
          * @brief Operators, which act directly on the surface class

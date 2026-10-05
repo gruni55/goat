@@ -67,7 +67,7 @@ namespace GOAT
 		{
 			trafoparms.wvl = wvl;
 			trafoparms.omega0 = C_LIGHT_MU_FS / wvl * 2.0 * M_PI;
-                        calcTrafoParms();
+            calcTrafoParms();
 		}
 
 		void pulseCalculation::setBandwidth(double dWvl)
@@ -104,11 +104,15 @@ namespace GOAT
 			{
 				omega = trafoparms.omegaStart + i * domega - domega / 2.0;
 				wvl = 2.0 * M_PI * C_LIGHT_MU_FS / omega;
-				for (int ls = 0; ls < S.nLS; ls++)
-					S.LS[ls]->setWavelength(wvl);
-				for (int lobj = 0; lobj < S.nObj; lobj++)
-					S.Obj[lobj]->setn(trafoparms.nList[lobj](wvl));
-				S.setnS(trafoparms.nList[S.nObj](wvl));
+				for (auto ls:S.LS)
+					ls->setWavelength(wvl);
+				int lobj = 0;
+				for (auto obj : S.Obj)
+				{
+					obj->setn(trafoparms.nList[lobj](wvl));
+					lobj++;
+				}
+				S.setnS(trafoparms.nList[S.getNumberOfObjects()](wvl));
 				
 				rt.trace();				
 //				save(rt.SA[1], "test.log");
@@ -126,12 +130,14 @@ namespace GOAT
 			rt.setNumReflex(numReflex);
 
 			// now, set the new refractive indices 
-			for (int iObj = 0; iObj < S.nObj; iObj++)
+			for (int iObj = 0; iObj < S.getNumberOfObjects(); iObj++)
 				S.Obj[iObj]->setn(trafoparms.nList[iObj](wavelength));
-			S.setnS(trafoparms.nList[S.nObj](wavelength));
+
+			
+			S.setnS(trafoparms.nList[S.getNumberOfObjects()](wavelength));
 
 			// set the wavelength for all light sources
-			for (int ls = 0; ls < S.nLS; ls++)
+			for (int ls = 0; ls < S.getNumberOfLightSources(); ls++)
 				S.LS[ls]->setWavelength(wavelength);
 
 			// do the raytracing
@@ -153,9 +159,6 @@ namespace GOAT
             std::cout << "% Domega=" << Domega << std::endl;
             std::cout << "% time=" << t << "fs" << std::endl;
 
-
-//			double Domega = 8 * M_PI * C_LIGHT_MU_FS * dWvl / (4.0 * trafoparms.wvl * trafoparms.wvl - dWvl * dWvl);
-//                        double Domega = 2.0 * M_PI * C_LIGHT_MU_FS dWvl / (trafoparms.wvl * trafoparms.wvl);
 			double domega = Domega / (double)trafoparms.nI;
 			double omegaStart = omega0 - Domega/2.0;
 			double omega;
@@ -165,7 +168,7 @@ namespace GOAT
 			double wvl;
 		    if((settings==PULSECALCULATION_CLEAR_SA) || (fieldCalls==0))
 			{
-				trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.nObj);
+				trafo.initResult(S.r0,rt.SA[0].nges[0], rt.SA[0].nges[1], rt.SA[0].nges[2],S.Obj,S.getNumberOfObjects());
 				reset();
 			}
 
@@ -197,7 +200,7 @@ namespace GOAT
 	/*	void pulseCalculation::field(double t)
 		{
 			
-			if (trafoparms.nList.size() == S.nObj + 1) // process calculation only, if all necessary refractive index functions are given
+			if (trafoparms.nList.size() == S.getNumberOfObjects() + 1) // process calculation only, if all necessary refractive index functions are given
 			{
 				if (!raytracingDone)
 				{

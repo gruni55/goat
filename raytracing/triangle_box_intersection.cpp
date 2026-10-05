@@ -264,7 +264,7 @@ if (min>rad || max<-rad) return 0;
 
 			double R;
 			maths::Vector<double> E[3], N;
-			maths::Vector<double> D = T.P[0] - B.P;
+			maths::Vector<double> D = T.P[0] - B.getPos();
 			maths::Vector<double> A[3] = { maths::ex,maths::ey,maths::ez };
 
 			int i = 0;

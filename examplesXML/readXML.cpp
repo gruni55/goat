@@ -14,7 +14,7 @@ int main(int argc, char** argv)
 	GOAT::XML::xmlReader xmlr;
 	GOAT::raytracing::Scene S;
         xmlr.readXML (argv[1]);
-/*        for (int i=0; i<xmlr.S.nDet; i++)
+/*        for (int i=0; i<xmlr.S.getNumberOfDetectors(); i++)
         {
             xmlr.S.Det[i]->save(xmlr.S.Det[i]->fname.c_str());
         }*/

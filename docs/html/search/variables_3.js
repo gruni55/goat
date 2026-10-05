@@ -21,5 +21,5 @@ var searchData=
   ['currentnorm_18',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a571c3dc918ca9cbc0ff51dc52d4549a6',1,'GOAT::raytracing::sphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm']]],
   ['currentobj_19',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
   ['currnlist_20',['currNList',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a352189e9e2fed9784cc176089f58d6a8',1,'GOAT::raytracing::Trafo']]],
-  ['curvature_21',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lensa.html#a9c4dd85b4a12a6f6872534ceaa223ea4',1,'GOAT::raytracing::lensa']]]
+  ['curvature_21',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens.html#a843cf59c74f5eee05132c249ff7ebd6d',1,'GOAT::raytracing::lens']]]
 ];

@@ -50,15 +50,17 @@ surface::surface(const surface &Su):ObjectShape(Su)
   currentIndex = Su.currentIndex;
   S=new triangle[numTriangles];
   P=Su.P;
-  for (int i=0;i<numTriangles;i++)
+  for (int i=0;i<numTriangles;i++)	
   {
    S[i]=Su.S[i];
    // cout << S[i].P[0] << "   " << S[i].P[1] <<  "   " << S[i].P[2] << endl; 
   }
 
-  type=OBJECTSHAPE_SURFACE;  
+  type=OBJECTSHAPE_SURFACE;
+  FName = Su.FName;
+  filetype = Su.filetype;
 //  if (FName!=0) delete[] FName;  
-    FName="UNBEKANNT";
+    // FName="UNBEKANNT";
     
 //  cout << "weiter" << endl;
   initQuad(); 
@@ -69,14 +71,16 @@ maths::Vector<double> d = por - pul;
 double h = d[0];
 if (d[1] > h) h = d[1];
 if (d[2] > h) h = d[2];
-Tree.BBox = Box(maths::dzero, d, n);
-Tree.BBox.setOctree(true);
-Tree.createTree(TREE_RECURSIONS);
+maths::Vector<double> mid = (pul + por) / 2.0;
+Tree.BBox = Box(mid, d * 1.01, this->n);
+// Tree.BBox = Box(maths::dzero, d, n);
+//Tree.BBox.setOctree();
+Tree.createTree();
 for (int i = 0; i < numTriangles; i++)
 {
   addTriangleToTriangle(Tree, S[i]);
 }
-Tree.trimOctree();
+// Tree.trimOctree();
 /*  cout << "%TREE Begins ------------------" << endl;
 cout << Tree << endl;
 cout << "%TREE END ---------------------" << endl;*/
@@ -440,7 +444,7 @@ std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
 	initBounds(pul, por);
 	maths::Vector<double> d = por - pul;
 	maths::Vector<double> mid = (pul + por) / 2.0;
-	Tree.BBox = Box(mid, d, this->n);
+	Tree.BBox = Box(mid, d * 1.01, this->n);
 	Tree.createTree();
 	/*std::cout << "SAVE FILE " << std::endl;
 	std::ofstream os("C:\\Users\\weigt\\Documents\\data\\Felix\\triangles.dat");
@@ -450,7 +454,7 @@ std::cout << "OpenMP deaktiviert – sequentielle Ausführung" << std::endl;
 	for (int i = 0; i < numTriangles; ++i)
 		addTriangleToTriangle(Tree, S[i]);
 #endif
-
+	
 	std::cout << "% STL-Datei erfolgreich importiert (" << anz << " Dreiecke)" << std::endl;
 	std::cout << "% ------------------------------- IMPORT ENDE ---------------------------------" << std::endl;
 	auto endeOctree = std::chrono::high_resolution_clock::now();
@@ -763,10 +767,10 @@ void surface::addTriangle(triangle* list,int anz)
 
 
 
-std::ostream& operator << (std::ostream &os, const surface &su)
+std::ostream& operator << (std::ostream &os,  surface &su)
 {
-	os << "Pos=" << su.P << std::endl;
-	os << "Winkel:" << su.Ealpha << "," << su.Ebeta << "," << su.Egamma << std::endl; 
+	os << "Pos=" << su.getPos() << std::endl;
+	os << "Winkel:" << su.getAlpha() << "," << su.getBeta() << "," << su.getGamma() << std::endl; 
  os << "anzp:" << su.numTriangles << std::endl;
  if(su.numTriangles>0)
  {
@@ -868,14 +872,17 @@ surface operator * (const maths::Matrix<double> &M, const surface &s)
 void surface::scale (double sf)
 {
 	auto start = std::chrono::high_resolution_clock::now();
-  std::cout << "sf=" << sf << "\t this->sf=" << this->sf << std::endl;
+	std::cout << "Scaling surface with factor: " << sf << std::endl;
  for (int i=0; i<numTriangles; i++)
   S[i]=S[i]*sf/this->sf;
  this->sf=sf;
 initQuad();
 #ifdef WITH_OCTREE
 maths::Vector<double> por, pul;
+std::cout << "sf=" << sf << std::endl;
+		std::cout << "[vorher]pul=" << pul << "    por=" << por << std::endl;
         initBounds(pul,por);
+		std::cout << "[nachher]pul=" << pul << "    por=" << por << std::endl;
 
 	maths::Vector<double> d = por - pul;
 	maths::Vector<double> Ph = (por + pul) / 2.0;
@@ -884,6 +891,13 @@ maths::Vector<double> por, pul;
 	if (d[2] > h) h = d[2];
 		maths::Vector<double> hd(h,h,h);
 		Tree.BBox = Box(Ph, d, this->n);
+		std::cout << "Octree-BoundingBox: " << Tree.BBox << std::endl;
+		Tree.delAllChilds();
+		Tree.delElements();
+		Tree.isLeaf = false;
+
+		Tree.BBox = Box(Ph, d, this->n);
+		
 		Tree.createTree(5);
 		
 		for (int i = 0; i < numTriangles; i++)
@@ -992,10 +1006,17 @@ void surface::exportSRF (std::string FName)
 {
  std::ofstream os;
  os.open (FName);
- os << numTriangles << std::endl;
- for (int i=0; i<numTriangles; i++)
-  os << S[i] << std::endl;
- os.close();
+ if (os.fail())
+ {
+	 std::cout << "Failed to write file: " << FName << std::endl;
+ }
+ else
+ {
+	 os << numTriangles << std::endl;
+	 for (int i = 0; i < numTriangles; i++)
+		 os << S[i] << std::endl;
+	 os.close();
+ }
 }
 
 /*!
@@ -1302,7 +1323,7 @@ surface generatePill (double a, double b, double h, int N, double r0, maths::Mat
  }
   
        S=surface(maths::dzero, 1.5, c, D);
-       S.r0;
+     //  S.r0;
   
 	return S;
 
@@ -1394,7 +1415,7 @@ surface generateEllipsoid (double a, double b, int N, double r0, maths::Matrix<d
  }
   
        S=surface(maths::dzero, 1.5, c, D);
-       S.r0;
+      // S.r0;
   
 	return S;
 

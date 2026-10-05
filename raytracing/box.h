@@ -62,7 +62,7 @@ namespace GOAT
 			double volume() { return abs2(d); } ///< returns the volume of the box
 			double getSize() { return abs(bounds[1] - bounds[0]); }  ///< returns a vector with the side lengths as its components
 			void initQuad();  ///< calculates the circumferent cuboid
-			void setr0(double r0); ///< sets the radius of the calculation sphere
+			void setr0(double r0); ///< sets the radius of the calculation sphere			
 			void calcDiag() ///< calculates the longest diagonal inside the box
 			{
 				diag[0] = bounds[1] - bounds[0];

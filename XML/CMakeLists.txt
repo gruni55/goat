@@ -1,5 +1,5 @@
-set (XML_HDRS xml.h xmltoken.h tinyxml2.h storageBackend.h)
-set (XML_SRCS xml.cpp xmltoken.cpp tinyxml2.cpp storageBackend.cpp)
+set (XML_HDRS xml.h xmltoken.h tinyxml2.h storageBackend.h calculator.h)
+set (XML_SRCS xml.cpp xmltoken.cpp tinyxml2.cpp storageBackend.cpp calculator.cpp)
 
 add_library (goat_xml ${XML_SRCS} ${XML_HDRS} )
 
@@ -17,7 +17,7 @@ add_library (goat_xml ${XML_SRCS} ${XML_HDRS} )
 #    )
 #endif()
 
-target_compile_definitions (goat_xml PUBLIC WITH_OCTREE WITH_SUPERGITTER)
-target_include_directories (goat_xml PUBLIC ${CMAKE_CURRENT_SOURCE_DIR} ../maths ../tinyxml2 ../raytracing)
+target_compile_definitions (goat_xml PUBLIC WITH_OCTREE WITH_OPENMP  WITH_SUPERGITTER)
+target_include_directories (goat_xml PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}  ../maths ../tinyxml2 ../raytracing)
 
 goat_install (TARGETS goat_xml)

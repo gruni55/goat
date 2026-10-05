@@ -16,10 +16,52 @@
 #include <sstream>
 #include <locale>
 #include <iomanip>
+#include <variant>
+#include "fft.h"
 namespace GOAT
 {
 	namespace XML
 	{
+		using parameterValue = std::variant<int, long long, double, bool, std::string>; ///< Type for parameter values
+		
+		/** 
+		* @brief Structure to store a calculation parameter
+		* name is the name of the parameter, value is its value
+		*/
+		struct calculationParam 
+		{
+			std::string name;
+			parameterValue value;
+		};
+
+
+		
+
+		void createXMLElementWithParam(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* parent, const calculationParam& param);
+
+		struct pulseJobParms {
+			raytracing::TrafoParms trafo{};
+			std::vector<std::function<std::complex<double>(double)>> nFunc; 
+			int numLoops = 1;
+			double time = 0.0;
+			double offsetTime = 0.0;
+		};
+
+		/**
+		* @brief Structure to store a calculation job
+		* type is the type of calculation (e.g. "pulse", "kirchhoff"), id is an optional identifier for the job
+		* 
+		*/
+		struct calculationJob {
+			int type;   // z.B. "pulse", "kirchhoff"
+			std::string id;     // optional, z.B. "job1" (kann leer sein)
+			std::variant<pulseJobParms> parms;
+			// std::vector<calculationParam> params;
+		};
+
+		
+
+
 		#define numXMLRootElements   3
 		#define XML_NONE         -1 
 		#define	XML_SCENE_R0		   0
@@ -41,7 +83,7 @@ namespace GOAT
 		const std::string sceneXMLElements[] = { "r0","ns","CellsPerDir","lightsources","objects","detectors"};
 		const std::string LSXMLAttributes[] = { "type","size","wavelength","numrays","numraysRT"};
 		const std::string LSXMLTYPES[] = {"plane","gaussian","plane_mc","gaussian_mc"};
-		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc" };
+		const std::string LSTYPES[] = { "plane","gaussian","ring","tophat","line","point","plane_mc","gaussian_mc","ring_mc","line_mc","point_mc","gaussian_ring_mc"};
 	
 	   /**
 		* @brief check if the fname has a given extension
@@ -94,15 +136,22 @@ namespace GOAT
 			  */
 				void readXML(std::string fname, bool calc_enabled=true, std::string path = "");
 				GOAT::raytracing::Scene S; ///< The scene that was read from the file is saved here				
+				std::vector<calculationJob> jobs; ///< calculation jobs read from the file are stored here
 				void setEnableCalculation(bool enable) { calculation_enabled=enable;}
 				bool isCalculationEnabled() {return calculation_enabled;}
+				bool readRequest(std::string &request);
+
+
 			private:				
                 void readScene(); ///< read the entire Scene
+				void readJobs(); ///< (used in readRequest) read the calculation jobs 
+				bool readParam(tinyxml2::XMLElement* paramEll, calculationParam &p); ///< (used in readJobs) read a calculation parameter
 				void readLightSources(); ///< (used in readScene) read the light sources from the file
 				void readCommands(); ///< (used in readXML) read and execute the commands for calculation
 				void readObjects(); ///< (used in readScene) read the objects from the file
 				void readDetectors(); ///< (used in readScene) read the detectors from the file (deprecated ?)
 				void doCalculations(); ///< (used in readScene) read and execute the commands for calculation
+				void doWaveOnly(); ///< (used in doCalculations) to wave only Calculation. Calculation of the reconstructed wave field (Kirchhoff or Angular Spectrum) from the corresponding detectors without raytracing
                 void doPulseCalculation(tinyxml2::XMLElement* objEll); ///< (used in doCalculations) to pulsed Calculation (rt + integral)
 				void doPulseCalculation_rt(tinyxml2::XMLElement* objEll); ///< do pulse Calculation with raytracing only
 				/**
@@ -154,7 +203,8 @@ namespace GOAT
 				 */
                 std::complex<double> readCmplx(tinyxml2::XMLElement* ell, int& xmlError);
 
-				tinyxml2::XMLNode* rootElement; ///< pointer to root element of the XML
+				tinyxml2::XMLDocument doc; ///< tinyxml document
+				tinyxml2::XMLElement* rootElement; ///< pointer to root element of the XML
 				tinyxml2::XMLElement* sceneElement;	 ///< pointer to the scene element of the XML			 
 				tinyxml2::XMLElement* calculationElement; ///< pointer to the calculation elemeent of the XML
 				std::vector<GOAT::raytracing::ObjectShape*> Obj; ///< vector, which carries all objects (as pointers)
@@ -175,7 +225,9 @@ namespace GOAT
 			public:
                 xmlWriter(const GOAT::raytracing::Scene &S);
                 void write (std::string fname);
+				std::string prepareRequest(std::vector<calculationJob> &jobs);
 			private:
+				void buildDOM(tinyxml2::XMLDocument &doc); ///< build the entire XML structure
 			inline std::string formatDouble(double val, int precision = 17) 
 				{
  					   std::ostringstream oss;
@@ -183,11 +235,12 @@ namespace GOAT
     					oss << std::fixed << std::setprecision(precision) << val;
     					return oss.str();
 				}
-				void writeLightSrc(int i); ///< write the i-th light source to the file
-				void writeObject(int i); ///< write the i-th object to the file
-				void writeDetector(int i); ///< write the i-th detector to the file
-				
-
+				void addLightSrc2DOM(tinyxml2::XMLDocument &doc, tinyxml2::XMLElement*  lightSrcs, int i); ///< write the i-th light source to the file
+				void addObject2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* objects, int i); ///< write the i-th object to the file
+				void addRoughness2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* object, raytracing::ObjectShape* obj); ///< write additional roughness parameters to the file
+				void addDetector2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* detectors, int i); ///< write the i-th detector to the file
+				void addCalculation2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement *calculations, calculationJob job); ///< write a calculation job to the file
+				void addResult2DOM(tinyxml2::XMLDocument& doc, tinyxml2::XMLElement* results, calculationJob job); ///< write a data entry to the file
 				/**
 				 * @brief write double vector to file
 				 * This method writes a double 3D vector to XML-file
@@ -195,7 +248,7 @@ namespace GOAT
 				 * @param v double vector
 				 * @return pointer to the corresponding XMLElemment
 				 */
-				tinyxml2::XMLElement* writeVectorD(std::string name, maths::Vector<double> v);
+				tinyxml2::XMLElement* addVectorD2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<double> v);
 				
 				/**
 				 * @brief write complex vector to file
@@ -204,7 +257,7 @@ namespace GOAT
 				 * @param v double vector
 				 * @return pointer to the corresponding XMLElemment
 				 */
-				tinyxml2::XMLElement* writeVectorC(std::string name, maths::Vector<std::complex<double>> v);
+				tinyxml2::XMLElement* addVectorC2DOM(tinyxml2::XMLDocument& doc, std::string name, maths::Vector<std::complex<double>> v);
 
 				/**
 				 * @brief write complex number to file
@@ -212,15 +265,8 @@ namespace GOAT
 				 * @param  name Element name of the complex number
 				 * @param z complex number 
 				 */
-				tinyxml2::XMLElement* writeComplex(std::string name, std::complex<double> z);
-                const GOAT::raytracing::Scene &S; ///< the scene
-                tinyxml2::XMLDocument doc; ///< the xml document
-				tinyxml2::XMLElement* root; ///< root XML Element
-				tinyxml2::XMLElement* scene; ///< XML Element to the Scene section
-				tinyxml2::XMLElement* lightSrcs; ///< XML Element to the LightSources section
-				tinyxml2::XMLElement* objects; ///< XML Element to the Objects section
-				tinyxml2::XMLElement* detectors; ///< XML Element to the Detectors section 
-				
+				tinyxml2::XMLElement* addComplex2DOM(tinyxml2::XMLDocument& doc, std::string name, std::complex<double> z);
+                GOAT::raytracing::Scene S; ///< the scene
         };
 	}
 }

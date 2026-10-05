@@ -30,7 +30,7 @@ int main()
 	std::ofstream os("example_one_sphere.dat"); // open file for writing
 	for (double z = -10 * wvl_medium; z <= 10 * wvl_medium; z += 20 * wvl_medium / 299.0) // loop over position
 	{
-		E.P[2] = z;  // change position of the object (z-component)
+		E.pos()[2] = z;  // change position of the object (z-component)
 		rot.trace(); // start raytracing 
 		std::cout << z << "\t" << rot.F[0] << "\t" << rot.L[0] << std::endl;
 		os << z << "\t" << rot.F[0] << "\t" << rot.L[0] << std::endl; // put result (force and torque) into file 
