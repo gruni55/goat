@@ -9,11 +9,25 @@ namespace GOAT
 {
     namespace raytracing
     {
+
+        class LightSrc_mc
+        {
+        public:
+            LightSrc_mc();
+
+        protected:
+            std::mt19937_64 gen;
+            std::uniform_real_distribution<double> ud1;
+            std::uniform_real_distribution<double> ud2;
+			std::normal_distribution<double> nd1;
+			std::normal_distribution<double> nd2;
+        };
+
         /**
          * @brief This class provides a gaussian beam with arbitrary distributed rays 
          * 
         */
-        class LightSrcGauss_mc : public LightSrcGauss
+		class LightSrcGauss_mc : public LightSrcGauss, protected LightSrc_mc
         {
             public: 
                 LightSrcGauss_mc (const LightSrcGauss_mc & L);                
@@ -38,6 +52,7 @@ namespace GOAT
                 int next(tubedRay& ray);
                 void reset();             
                 void setD(double D);
+				void initRandomGenerator();
                 // int next (tubedRay &S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 double stddev;
@@ -48,7 +63,7 @@ namespace GOAT
          * This class provides a plane (square sized) wave with a given width.
          * The rays are arbitrarily but uniformly distributed inside the light source area. 
          */
-        class LightSrcPlane_mc : public LightSrcPlane
+		class LightSrcPlane_mc : public LightSrcPlane, protected LightSrc_mc
         {
             public:
                 LightSrcPlane_mc (const LightSrcPlane_mc & L);
@@ -64,21 +79,18 @@ namespace GOAT
                 LightSrcPlane_mc (maths::Vector<double> Pos, int N, double wvl, double D = 100.0, 
                                   maths::Vector<std::complex<double> > Pol = maths::Vector<std::complex<double> >(0.0, 1.0, 0.0), 
                                   int raytype = LIGHTSRC_RAYTYPE_IRAY, double r0 = 100.0);
+                void initRandomGenerator();
                 int next(IRay& S);
                 int next(tubedRay& S);
                 int next(Ray_pow& S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 void reset();
-        private:
-            std::mt19937_64 gen;
-            std::uniform_real_distribution<double> udx;
-            std::uniform_real_distribution<double> udy;
         };
 
 
         /** @brief This class provides a light source, which emitts along a straight line (random ray distribution)
         */
-        class LightSrcLine_mc : public LightSrc
+		class LightSrcLine_mc : public LightSrc, protected LightSrc_mc
         {
         public:
             LightSrcLine_mc();
@@ -90,6 +102,8 @@ namespace GOAT
             * @param direction direction of light source (not the direction of emission !)
             */
             LightSrcLine_mc(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k = maths::ez, maths::Vector<double> direction = maths::ey);
+            void initRandomGenerator();
+            void reset();
             int next(RayBase* ray);
             int next(IRay& S);
             int next(Ray_pow& S);
@@ -107,7 +121,7 @@ namespace GOAT
          * distributed rays within the light source area. 
          */
 
-        class LightSrcRing_mc : public LightSrcPlane
+		class LightSrcRing_mc : public LightSrcPlane, protected LightSrc_mc
         {
           public:
             LightSrcRing_mc(const LightSrcRing_mc& L);
@@ -126,6 +140,7 @@ namespace GOAT
             double rmax = 1.0; ///< outer radius of the ring
             GOAT::maths::Vector<double> genStartingPos();
             void reset(); ///< sets the internal ray counter to zero (intended for internal use only)
+			void initRandomGenerator();
         };       
 
 
@@ -134,7 +149,7 @@ namespace GOAT
         * This class describes a light source which cuts a ring out of a gaussian shape. Unlike in class LightSrcGauss_mc, the phase distribution
         * at the light source is constant. The default value of the full with at half maximum (FWHM) of the intensity distribution is set to 1
         */
-       class LightSrcRingGauss_mc : public LightSrcPlane
+		class LightSrcRingGauss_mc : public LightSrcPlane, protected LightSrc_mc
         {
           public:
             LightSrcRingGauss_mc(const LightSrcRingGauss_mc& L);
@@ -167,6 +182,7 @@ namespace GOAT
             double rmax = 1.0; ///< outer radius of the ring          
             GOAT::maths::Vector<double> genStartingPos(); ///< generate a position within the ring (needed by the next() method)
             void reset();
+			void initRandomGenerator();
             double sigma2=1.0/sqrt(M_LN2); ///< sigma^2, used for internal purposes (default value corresponds to a FWHM of 1um)
         }; 
 
@@ -174,7 +190,7 @@ namespace GOAT
        * The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is 
        * counted away from the direction vector k  (default value: thetamax = 180° (pi) 
        */
-       class LightSrcPoint_mc : public LightSrc
+		class LightSrcPoint_mc : public LightSrc, protected LightSrc_mc
        {
        public:
            LightSrcPoint_mc();
@@ -187,6 +203,7 @@ namespace GOAT
            * 
            */
            LightSrcPoint_mc(maths::Vector<double> Pos, int N, double wvl, maths::Vector<std::complex<double> > Pol= maths::Vector<std::complex<double> >(0.0,1.0,0.0));
+		   LightSrcPoint_mc(const LightSrcPoint_mc& L);
            int next(RayBase* ray);
            int next(IRay& S);
            int next(Ray_pow& S);
@@ -199,11 +216,11 @@ namespace GOAT
            maths::Vector<std::complex<double> > updatePolarisation(const maths::Vector<std::complex<double> >& P, const maths::Vector<double>& knew);
            GOAT::maths::Vector<double>  genDirection(); ///< generates the next random emission direction 
            std::random_device rd;
-           std::mt19937_64 gen;
-           std::uniform_real_distribution<double> ud;
            double thetaMax = M_PI;
            double cosThetaMax = -1.0;
            maths::Vector<double> t1, t2;
+		   void reset(); ///< sets the internal ray counter to zero (intended for internal use only
+           void initRandomGenerator();
        };
     }    
 }

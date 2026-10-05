@@ -4,21 +4,27 @@ namespace GOAT
 {
     namespace raytracing
     {
+		LightSrc_mc::LightSrc_mc()
+			: gen(std::random_device{}()),
+			ud1(0.0, 1.0),
+			ud2(0.0, 1.0),
+			nd1(0.0, 1.0), 
+			nd2(0.0, 1.0)	
+		{
+		}
+
         GOAT::maths::Vector<double> LightSrcGauss_mc::genStartingPos ()
         {
-            std::random_device rd;
-            std::mt19937 gen(rd());
-            std::normal_distribution<double> nd (0,stddev);
-
+            
             double x,y;
 			do
             {
-               x=nd(gen);
+               x=nd1(gen);
 	        } while ((x<-D1/2.0) || (x>D1/2.0));
 
 			do
             {
-               y=nd(gen);
+               y=nd2(gen);
             } while ((y<-D2/2.0) || (y>D2/2.0));
 		    GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
@@ -33,6 +39,7 @@ namespace GOAT
 			D1 = L.D1;
 			D2 = L.D2;
 			type = LIGHTSRC_SRCTYPE_GAUSS_MC;
+			initRandomGenerator();
         }
 
         LightSrcGauss_mc::LightSrcGauss_mc(maths::Vector<double> Pos, int N, double wvl, double w0, maths::Vector<double> focuspos, double D, maths::Vector<std::complex<double> > Pol, int raytype, double r0) 
@@ -42,7 +49,14 @@ namespace GOAT
 		  D1 = D;
 		  D2 = D;
 		  type = LIGHTSRC_SRCTYPE_GAUSS_MC;
+		  initRandomGenerator();
         }
+
+		void LightSrcGauss_mc::initRandomGenerator()
+		{
+			nd1 = std::normal_distribution<double>(0, stddev);
+			nd2 = std::normal_distribution<double>(0, stddev);
+		}
 
         int LightSrcGauss_mc::next(Ray_pow& S)
         {                    
@@ -255,6 +269,7 @@ namespace GOAT
 
         void LightSrcGauss_mc::reset() 
         {
+			initRandomGenerator();
             rayCounter=0;
         }
 
@@ -265,6 +280,7 @@ namespace GOAT
 			stddev = w * M_SQRT1_2;
 			D1 = D;
 			D2 = D;
+			initRandomGenerator();
 		}
 
 		LightSrcPlane_mc::LightSrcPlane_mc(const LightSrcPlane_mc &L) : LightSrcPlane(L)
@@ -280,17 +296,21 @@ namespace GOAT
 			D1 = D;
 			D2 = D;
 			type = LIGHTSRC_SRCTYPE_PLANE_MC;
-                        rayCounter=0;
+            rayCounter=0;
+			initRandomGenerator();
+		}
+
+		void LightSrcPlane_mc::initRandomGenerator()
+		{
+			gen.seed(std::random_device{}());
+			ud1 = std::uniform_real_distribution<double>(-D1 / 2.0, D1 / 2.0);
+			ud2 = std::uniform_real_distribution<double>(-D2 / 2.0, D2 / 2.0);
 		}
 
 		void LightSrcPlane_mc::reset()
 		{
 			rayCounter=0;
-
-			gen.seed(std::random_device{}());
-
-			udx = std::uniform_real_distribution<double>(-D1 / 2.0, D1 / 2.0);
-			udy = std::uniform_real_distribution<double>(-D2 / 2.0, D2 / 2.0);
+			initRandomGenerator();
 		}
 
 		int LightSrcPlane_mc::next (IRay &S)
@@ -359,8 +379,8 @@ namespace GOAT
 		{
             double x,y;
 
-               x=udx(gen);
-			   y=udy(gen);            
+               x=ud1(gen);
+			   y=ud2(gen);            
             GOAT::maths::Vector<double> P=Pos + x*e1 + y*e2;
             return P;
 		}
@@ -368,6 +388,7 @@ namespace GOAT
 		LightSrcLine_mc::LightSrcLine_mc() : LightSrc()
 		{
 			type = LIGHTSRC_SRCTYPE_LINE_MC;
+			initRandomGenerator();
 		}
 
 		LightSrcLine_mc::LightSrcLine_mc(maths::Vector<double> Pos, int N, double wvl, double size, maths::Vector<double> k, maths::Vector<double> direction) : LightSrc()
@@ -385,16 +406,25 @@ namespace GOAT
 			this->direction = direction / abs(direction);
 			this->k = k;
 			setPol(maths::Vector<std::complex<double> >(0, 1, 0));
+			initRandomGenerator();
+		}
+
+		void LightSrcLine_mc::initRandomGenerator()
+		{
+			ud1 = std::uniform_real_distribution<double>(-D1 / 2.0, D1 / 2.0);
+		}
+
+		void LightSrcLine_mc::reset()
+		{
+			rayCounter = 0;
+			initRandomGenerator();
 		}
 
 		GOAT::maths::Vector<double> LightSrcLine_mc::genStartingPos()
 		{
-			std::random_device rd;
-			std::mt19937_64 gen(rd());
-			std::uniform_real_distribution<double> udx(-D1 / 2.0, D1 / 2.0);
 			double x;
 			
-			x = udx(gen);
+			x = ud1(gen);
 			GOAT::maths::Vector<double> P = Pos + direction * x;
 			return P;
 		}
@@ -478,7 +508,7 @@ namespace GOAT
 			D1=2.0*rmax;
 			D2=D1;
 			type = LIGHTSRC_SRCTYPE_RING_MC;
-                        rayCounter=0;
+			reset();
 		}
 
 		LightSrcRing_mc::LightSrcRing_mc( maths::Vector<double> Pos, int N, double wvl,double rmin, double rmax,
@@ -488,16 +518,22 @@ namespace GOAT
 			this->rmax = rmax;
 			D1=2.0*rmax;
 			D2=D1;
-                        rayCounter=0;
+			reset();
 			type = LIGHTSRC_SRCTYPE_RING_MC;
+		}
+
+		void LightSrcRing_mc::initRandomGenerator()
+		{
+
 		}
               
                 void LightSrcRing_mc::setRmin(double rmin)
                 {
                  if (rmin<rmax) this->rmin=rmin;
+				
                 } 
 
-                void LightSrcRing_mc::setRmax(double rmax)
+        void LightSrcRing_mc::setRmax(double rmax)
 		{
 			this->rmax=rmax;
 			D=rmax/(double)N;
@@ -509,15 +545,13 @@ namespace GOAT
         void LightSrcRing_mc::reset()
         {
             rayCounter=0;
+			initRandomGenerator();
         }
 
 		GOAT::maths::Vector<double> LightSrcRing_mc::genStartingPos()
 		{
-			static thread_local std::mt19937_64 gen(std::random_device{}());
-			std::uniform_real_distribution<double> U(0.0, 1.0);
-
-			const double u = U(gen);
-			const double v = U(gen);
+			const double u = ud1(gen);
+			const double v = ud2(gen);
 
 			const double r = std::sqrt((1.0 - u) * rmin * rmin + u * rmax * rmax);
 			const double phi = 2.0 * M_PI * v;
@@ -586,7 +620,7 @@ namespace GOAT
 			return LIGHTSRC_NOT_LAST_RAY;
 		}
 
- LightSrcRingGauss_mc::LightSrcRingGauss_mc(const LightSrcRingGauss_mc& L) : LightSrcPlane(L)
+		LightSrcRingGauss_mc::LightSrcRingGauss_mc(const LightSrcRingGauss_mc& L) : LightSrcPlane(L)
 		{
 			rmin = L.rmin;
 			rmax = L.rmax;
@@ -626,6 +660,7 @@ namespace GOAT
         void LightSrcRingGauss_mc::reset()
         {
         	rayCounter=0;
+			initRandomGenerator();
         }
 
 		double LightSrcRingGauss_mc::area()
@@ -633,19 +668,21 @@ namespace GOAT
 			return M_PI*(rmax-rmin)*(rmax-rmin);
 		}
 
+		void LightSrcRingGauss_mc::initRandomGenerator()
+		{
+			nd1 = std::normal_distribution<double>(0, sqrt(sigma2));
+			nd2 = std::normal_distribution<double>(0, sqrt(sigma2));
+		}
+
 		GOAT::maths::Vector<double> LightSrcRingGauss_mc::genStartingPos()
 		{
-			
- 			std::random_device rd;
-			std::mt19937_64 gen(rd());	
-            std::normal_distribution<double> nd (0,sqrt(sigma2));
 			double x,y;
 
 		  double r2;
 		  do 
 		  {
-			 x=nd(gen);
-			 y=nd(gen);
+			 x=nd1(gen);
+			 y=nd2(gen);
              r2=x*x+y*y;
 		  } while ((r2<rmin*rmin) || (r2>rmax*rmax));
 			GOAT::maths::Vector<double> P = Pos + x * e1 + y * e2;
@@ -716,6 +753,7 @@ namespace GOAT
                 {
 				    // sigma2=fwhm*fwhm/(8*M_LN2);				  
 					sigma2=fwhm*fwhm/(4.0*M_LN2);
+					initRandomGenerator();
                 }
 
 				double LightSrcRingGauss_mc::getFWHM()
@@ -727,6 +765,18 @@ namespace GOAT
 				LightSrcPoint_mc::LightSrcPoint_mc() : LightSrc()
 				{
 					type = LIGHTSRC_SRCTYPE_POINT_MC;
+					initRandomGenerator();
+				}
+
+				void LightSrcPoint_mc::reset()
+				{
+					rayCounter = 0;
+					initRandomGenerator();
+				}
+
+				void LightSrcPoint_mc::initRandomGenerator()
+				{
+
 				}
 
 
@@ -748,6 +798,7 @@ namespace GOAT
 					}
 
 					Pnew /= len;
+					initRandomGenerator();
 					return Pnew;
 				}
 
@@ -760,13 +811,22 @@ namespace GOAT
 					this->wvl = wvl;
 				//	this->density = size / ((double)N); // to be checked !!!!!!!!!!					
 					initPol = Pol;
-					gen= std::mt19937_64(rd());
-					 ud= std::uniform_real_distribution<double>(0.0, 1.0);
+					reset();
 				/*	this->D = size;
 					this->D1 = size;
 					this->k = k;*/
 				}
 
+				LightSrcPoint_mc::LightSrcPoint_mc(const LightSrcPoint_mc& L) : LightSrc()
+				{
+					type = LIGHTSRC_SRCTYPE_POINT_MC;
+					this->Pol = L.Pol;
+					this->Pos = L.Pos;
+					this->N = L.N;
+					this->wvl = L.wvl;
+					initPol = L.initPol;
+					reset();
+				}
 
 				void LightSrcPoint_mc::setThetamax(double thetamax)
 				{
@@ -790,8 +850,8 @@ namespace GOAT
 
 
 
-					double u = ud(gen);
-					double v = ud(gen);
+					double u = ud1(gen);
+					double v = ud2(gen);
 
 					double phi = 2.0 * M_PI * v;
 

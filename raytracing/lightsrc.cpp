@@ -1201,7 +1201,7 @@ namespace  GOAT
 					case LIGHTSRC_SRCTYPE_GAUSS_MC: hLS = new LightSrcGauss_mc(*((LightSrcGauss_mc*)s[i])); break;
 					case LIGHTSRC_SRCTYPE_RING_MC: hLS = new LightSrcRing_mc(*((LightSrcRing_mc*)s[i])); break;
 					case LIGHTSRC_SRCTYPE_LINE_MC: hLS = new LightSrcLine_mc(*((LightSrcLine_mc*)s[i])); break;
-					// case LIGHTSRC_SRCTYPE_POINT_MC: hLS = new LightSrcPoint_mc(*((LightSrcPoint_mc*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_POINT_MC: hLS = new LightSrcPoint_mc(*((LightSrcPoint_mc*)s[i])); break;
 					case LIGHTSRC_SRCTYPE_RING_GAUSS_MC: hLS = new LightSrcRingGauss_mc(*((LightSrcRingGauss_mc*)s[i])); break;
 
 					}
