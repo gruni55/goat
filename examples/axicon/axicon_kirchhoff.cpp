@@ -74,12 +74,7 @@ void makeHole(GOAT::raytracing::DetectorPlane& P, double radius)
 	int ri2;
 	int rn2 = rn * rn;
 	int ix, iy;
-<<<<<<< HEAD
-#pragma omp for 
-// collapse(6)
-=======
  #pragma omp parallel for
->>>>>>> origin/main
 	for (int i1 = n1 / 2 - rn; i1 <= n1 / 2 + rn; i1++)
         {
 		for (int i2 = n2 / 2 - rn; i2 <= n2 / 2 + rn; i2++)
@@ -101,7 +96,8 @@ int main(int argc, char** argv)
 	maths::Vector<double> LSPos = -10000.0 * maths::ez;
 	int numRays = 10000000;
 	// numRays = 10;
-	double wvl = 1;	raytracing::LightSrcRing_mc LS(LSPos, numRays, wvl, 0, 500);
+	double wvl = 1;
+	raytracing::LightSrcRing_mc LS(LSPos, numRays, wvl, 0, 125);
 	LS.setk(maths::ez);
 	LS.setPol(maths::Vector<std::complex<double>>(1.0, 0.0, 0.0));
 	LS.setNumRays(numRays);
@@ -117,16 +113,9 @@ int main(int argc, char** argv)
         height_um=c.getHeight();
 	// ---- Detector (faces source) ----
 	const double eps_um = 1.0;
-<<<<<<< HEAD
-	// maths::Vector<double> detPos(0, 0, height_um + eps_um);
-	maths::Vector<double> detPos(0, 0, 0);
-	maths::Vector<double> detNorm(0, 0, 1);
-	double detSize = 25;  int detGridsize = 200;
-=======
 	maths::Vector<double> detPos(0, 0, height_um + eps_um);
 	maths::Vector<double> detNorm(0, 0, -1);
 	double detSize = 1000.0;  int detGridsize = 1000;
->>>>>>> origin/main
 	raytracing::DetectorPlane det(detPos, detNorm, detSize, detGridsize);
 
 	// ---- Scene ----
@@ -136,11 +125,7 @@ int main(int argc, char** argv)
 	raytracing::Raytrace_pure rp(S); 
 	rp.setNumReflex(0);
 	auto start = std::chrono::high_resolution_clock::now();  // Startzeitpunkt
-	// rp.trace();
-	auto kd = (raytracing::DetectorPlane*)&det;
-	for (auto kdx = kd->D.begin(); kdx != kd->D.end(); kdx++)
-		for (auto& k : *kdx) k = GOAT::maths::Vector<std::complex<double>>(0, 1.0, 0);
-
+	rp.trace();
 	auto end = std::chrono::high_resolution_clock::now();
 	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 	std::cout << "done. (" << duration.count() << "ms)" << std::endl;
@@ -156,18 +141,6 @@ int main(int argc, char** argv)
 	//----- now the Kirchhoff stuff ----
 
 	maths::Vector<double> P;
-<<<<<<< HEAD
-	int n = 100; // number of cells/direction
-	double l = 100; // edge length
-	 maths::Vector<double> Pc(0, 0, 2000);
-	 // maths::Vector<double> Pc(0, 0, height_um+1000);
-
-	raytracing::Kirchhoff kh(wvl, Pc, maths::ex * l, maths::ey * l, n, n);
-	kh.setNumberOfThreads(24);
-	det.save("C:\\tmp\\detector.dat");
-	kh.addDetector((raytracing::DetectorPlane*)&det);
-	kh.calc();
-=======
 	int n = 250; // number of cells/direction
 	double l = 50; // edge length
 	// maths::Vector<double> Pc(0, 0, 14000);
@@ -177,7 +150,6 @@ int main(int argc, char** argv)
 	
 	det.save("/home/weigel/data/detector.dat");
 	kh.calc((raytracing::DetectorPlane *)&det);
->>>>>>> origin/main
 	auto end2 = std::chrono::high_resolution_clock::now();
 	auto duration2 = std::chrono::duration_cast<std::chrono::milliseconds>(end2 - end);
 	std::cout << "Kirchhoff calculation took: " << duration2.count() << "ms" << std::endl;
