@@ -286,6 +286,11 @@ namespace GOAT
 		void LightSrcPlane_mc::reset()
 		{
 			rayCounter=0;
+
+			gen.seed(std::random_device{}());
+
+			udx = std::uniform_real_distribution<double>(-D1 / 2.0, D1 / 2.0);
+			udy = std::uniform_real_distribution<double>(-D2 / 2.0, D2 / 2.0);
 		}
 
 		int LightSrcPlane_mc::next (IRay &S)
@@ -352,11 +357,6 @@ namespace GOAT
 
 		GOAT::maths::Vector<double>  LightSrcPlane_mc::genStartingPos ()
 		{
-			std::random_device rd;
-            std::mt19937_64 gen(rd());
-			std::uniform_real_distribution<double> udx(-D1 / 2.0, D1 / 2.0);
-			std::uniform_real_distribution<double> udy(-D2 / 2.0, D2 / 2.0);
-
             double x,y;
 
                x=udx(gen);

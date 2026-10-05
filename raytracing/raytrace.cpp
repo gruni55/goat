@@ -48,11 +48,13 @@ namespace GOAT
 			}
 
 			if (!useRRTParms)
+			{
+				S.resetLS();
 				for (int i = 0; i < S.getNumberOfLightSources(); i++) // Schleife �ber die Lichtquellen
 				{
-					S.resetLS();
+
 					do
-					{					
+					{
 						currentLS = i;
 						Abbruch = false;
 						Reflexions = 0;
@@ -65,10 +67,11 @@ namespace GOAT
 					//	delete ray;
 						//delete tray;
 				}
+			}
 			else
 			{
 				ray = new IRay; tray = new IRay;
-
+				
 				do
 				{
 					Abbruch = false;
@@ -726,6 +729,7 @@ namespace GOAT
 			Det = S.Det;
 			suppress_phase_progress = S.suppress_phase_progress;
 			NumCellsPerDir = S.NumCellsPerDir;
+			numThreads = S.numThreads;
 			nReflex = S.nReflex;
 #ifdef WITH_OPENMP
 			k3D = S.k3D;

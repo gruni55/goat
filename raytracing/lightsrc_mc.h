@@ -69,6 +69,10 @@ namespace GOAT
                 int next(Ray_pow& S);
                 GOAT::maths::Vector<double> genStartingPos ();
                 void reset();
+        private:
+            std::mt19937_64 gen;
+            std::uniform_real_distribution<double> udx;
+            std::uniform_real_distribution<double> udy;
         };
 
 

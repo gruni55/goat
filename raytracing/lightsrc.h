@@ -416,7 +416,8 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 		 * @param s Source light source list (this list will be copied)
 		 * @param nLS Number of light sources to copy
 		 */
-		void copyLightSrcList(LightSrc**& d, LightSrc** s, int nLS);
+//		void copyLightSrcList(LightSrc**& d, LightSrc** s, int nLS);
+		void copyLightSrcList(std::vector<LightSrc*> & d, std::vector<LightSrc*> s, int nLS);
 	}
 }
 #endif

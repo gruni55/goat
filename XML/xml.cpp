@@ -162,6 +162,7 @@ namespace GOAT
                 S.setNumberOfCellsPerDirection(iv);
                 S.nS = readCmplx(sceneElement->FirstChildElement("nS"),1.0);
                 S.setNumReflex(sceneElement->IntAttribute("nReflex", 0));
+				S.setNumThreads(sceneElement->IntAttribute("nThreads", 1));
 				/* look for the detectors */
 				readDetectors();
 
@@ -1642,6 +1643,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           scene->SetAttribute("nCellsPerDir", static_cast<int64_t> (S.getNumberOfCellsPerDirection()));
 		  scene->SetAttribute("nReflex", S.getNumReflex());
 		  scene->InsertEndChild(addComplex2DOM(doc, "nS", S.nS));
+		  scene->SetAttribute("nThreads", S.getNumberOfThreads());
           root->InsertEndChild(scene);
           if (S.getNumberOfLightSources() > 0)
           {
@@ -1671,7 +1673,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             scene->InsertEndChild(detectors);
           }
           
-
+          
 
         }
 

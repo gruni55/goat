@@ -5,7 +5,7 @@ set (RAYTRACING_SRCS box.cpp detector.cpp ellipsoid.cpp iray.cpp
 		     raytrace.cpp ray_pow.cpp resutil.cpp surface.cpp triangle.cpp tubedray.cpp 
 		     triangle_box_intersection.cpp  superarray.cpp 
 		     error.cpp mem.cpp raytrace_inel.cpp raytrace_usp.cpp inel_calc.cpp raytrace_field.cpp 
-		     raytrace_usp.cpp raytrace_field_usp.cpp raytrace_usp_rt.cpp plane.cpp pulsecalculation_base.cpp 
+		     raytrace_usp.cpp raytrace_field_usp.cpp  raytrace_usp_rt.cpp plane.cpp pulsecalculation_base.cpp 
 		     pulsecalculation_field.cpp pulsecalculation.cpp pulsecalculation_rt.cpp 
 	       	     gridentry.cpp asphericLens.cpp sphericLens.cpp lens.cpp fft.cpp  cone.cpp cylinder.cpp vortex.cpp 
 		     refractive_index_functions.cpp propagator.cpp angularSpectrum.cpp roughObject.cpp)
@@ -16,7 +16,7 @@ set (RAYTRACING_HDRS box.h detector.h ellipsoid.h iray.h
 		     raybase.h raytrace.h ray_pow.h resutil.h surface.h triangle.h tubedray.h 
 		     triangle_box_intersection.h  superarray.h supergrid.h
 		     error.h mem.h raytrace_inel.h raytrace_usp.h raytrace_field.h inel_calc.h 
-		     raytrace_usp_rt.h refractive_index_functions.h plane.h  fft.h gridentry.h pulsecalculation.h 
+		     raytrace_usp_rt.h refractive_index_functions.h raytrace_parallel.h plane.h  fft.h gridentry.h pulsecalculation.h 
 			 pulsecalculation_base.h pulsecalculation_rt.h asphericLens.h sphericLens.h lens.h constants.h cone.h 
 			 cylinder.h vortex.h propagator.h angularSpectrum.h goat_defines.h roughObject.h roughObjectInterface.h)
 

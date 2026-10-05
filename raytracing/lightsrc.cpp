@@ -1177,24 +1177,39 @@ namespace  GOAT
 			
 		}
 
-		void copyLightSrcList(LightSrc**& d, LightSrc** s, int nLS)
-		{
-			if ((nLS > 0) && (s != 0))
+		void copyLightSrcList(std::vector<LightSrc*>& d, std::vector<LightSrc*> s, int nLS)
+		{			
+			LightSrc* hLS;
+			if ((nLS > 0) && (s.size() > 0))
 			{
-				d = (LightSrc**)malloc(sizeof(LightSrc*) * nLS);
+				d.clear();
 				for (int i = 0; i < nLS; i++)
 				{
 					switch (s[i]->type)
 					{
-					case LIGHTSRC_SRCTYPE_PLANE: d[i] = new LightSrcPlane(*((LightSrcPlane*)s[i])); break;
-					case LIGHTSRC_SRCTYPE_GAUSS: d[i] = new LightSrcGauss(*((LightSrcGauss*)s[i])); break;
-					case LIGHTSRC_SRCTYPE_TOPHAT: d[i] = new LightSrcGauss(*((LightSrcGauss*)s[i]));
-						d[i]->type = LIGHTSRC_SRCTYPE_TOPHAT;
+					case LIGHTSRC_SRCTYPE_PLANE: hLS = new LightSrcPlane(*((LightSrcPlane*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_GAUSS: hLS = new LightSrcGauss(*((LightSrcGauss*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_RING: hLS = new LightSrcRing(*((LightSrcRing*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_TOPHAT: hLS = new LightSrcGauss(*((LightSrcGauss*)s[i]));
+						hLS	->type = LIGHTSRC_SRCTYPE_TOPHAT;
 						break;
+					case LIGHTSRC_SRCTYPE_LINE: hLS = new LightSrcLine(*((LightSrcLine*)s[i])); break;
+					// case LIGHTSRC_SRCTYPE_POINT: hLS = new LightSrcPoint(*((LightSrcPoint*)s[i])); break;
+					
+						// --------------- Monte-Carlo Light Sources -----------------
+					case LIGHTSRC_SRCTYPE_PLANE_MC: hLS = new LightSrcPlane_mc(*((LightSrcPlane_mc*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_GAUSS_MC: hLS = new LightSrcGauss_mc(*((LightSrcGauss_mc*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_RING_MC: hLS = new LightSrcRing_mc(*((LightSrcRing_mc*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_LINE_MC: hLS = new LightSrcLine_mc(*((LightSrcLine_mc*)s[i])); break;
+					// case LIGHTSRC_SRCTYPE_POINT_MC: hLS = new LightSrcPoint_mc(*((LightSrcPoint_mc*)s[i])); break;
+					case LIGHTSRC_SRCTYPE_RING_GAUSS_MC: hLS = new LightSrcRingGauss_mc(*((LightSrcRingGauss_mc*)s[i])); break;
+
 					}
+					d.push_back(hLS);
 				}
 			}
 		}
+
 		LightSrcLine::LightSrcLine() : LightSrc()
 		{
 			type = LIGHTSRC_SRCTYPE_LINE;
