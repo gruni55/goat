@@ -21,6 +21,7 @@
 #include <iomanip>
 #include <locale>
 #include <cmath>
+#include "raytrace_parallel.h"
 
 #define tl(s) GOAT::maths::tl(s)	
 
@@ -886,9 +887,23 @@ namespace GOAT
                             case TOKEN_CALCULATION_PURE:
                             {
 								std::cout << "do pure raytracing calculation" << std::endl;
-                             GOAT::raytracing::Raytrace_pure rt(S);      
-                             rt.setNumReflex(S.getNumReflex());                       
-                             rt.trace();
+   
+                             GOAT::raytracing::Raytrace_pure rt(S); 
+                             rt.setNumReflex(S.getNumReflex());
+                             if (S.getNumberOfThreads() == 1)
+                             {
+                                 rt.trace();
+                             }
+                             else
+                             {
+                                 if (S.getNumberOfThreads() >= 1)
+                                 {
+                                     std::cout << "Performing parallel ray tracing..." << std::endl;
+                                     S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
+                                     GOAT::raytracing::RaytraceParallel<GOAT::raytracing::Raytrace_pure> rtParallel(S);
+                                     rtParallel.trace();
+                                 }
+                             }
 							 std::cout << S.getNumberOfDetectors() << " detectors in scene" << std::endl;
                              for (auto det : S.Det)
                              {
