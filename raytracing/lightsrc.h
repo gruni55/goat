@@ -150,7 +150,6 @@ constexpr int LIGHTSRC_SRCTYPE_RING_GAUSS_MC = 16; ///< Ring shaped light source
 			{
 				this->N = N;
 				density = D / ((double)N);
-				std::cout << "density=" << density << "\tN=" << N << "\tD=" << D << std::endl;
 				reset();
 			}
 			void setWavelength(double wvl) { this->wvl = wvl; k0 = 2.0 * M_PI / wvl; }

@@ -870,8 +870,8 @@ namespace GOAT
 
                         int numReflex;
                         numReflex = objEll->IntAttribute("numReflex", 0);
-						int numThreads = objEll->IntAttribute("numThreads", 1);
-                        S.setNumThreads(numThreads);
+						int numThreads = objEll->IntAttribute("numThreads", -1);
+						if (numThreads > 0) S.setNumThreads(numThreads);
 						if (!typeStr.empty())
 						{							
 							type = mapString2CalculationToken(typeStr);							
@@ -1593,8 +1593,15 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
         {
 			auto calculation = doc.NewElement("Calculation");
             calculation->SetAttribute("type", calculationToken[job.type-200].c_str());
-            calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
-            calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
+            if (std::get<pulseJobParms>(job.parms).trafo.number_of_threads > 0)
+            {
+                calculation->SetAttribute("numThreads", std::get<pulseJobParms>(job.parms).trafo.number_of_threads);
+            }
+            if (std::get<pulseJobParms>(job.parms).trafo.wvl>0)
+            {
+                calculation->SetAttribute("wavelength", formatDouble(std::get<pulseJobParms>(job.parms).trafo.wvl).c_str());
+            }
+
             switch (job.type)
             {
                 case TOKEN_CALCULATION_PULSE:

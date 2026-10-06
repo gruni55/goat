@@ -8,6 +8,22 @@ namespace GOAT
 {
 	namespace raytracing
 	{
+		/** @brief This class implements a parallel raytracing algorithm using multiple threads.
+		* This class is a template class that takes a raytracing class as a template parameter. 
+		* All rays are generated in parallel by multiple threads, each thread processes a subset of the rays. 
+		* The results are then combined to produce the final output. The class uses a barrier to synchronize the threads and ensure that all threads have completed 
+		* their work before proceeding to the next step. Here an example, how to use this class:
+		* (Suppose we already have a Scene object S)
+		* @code
+		*   S.setNumberOfThreads(4); // Set the number of threads to use for parallel raytracing
+		*	GOAT::raytracing::RaytraceParallel<GOAT::raytracing::Raytrace_pure> rtParallel(S); // Create a RaytraceParallel object with the Scene S with the template parameter Raytrace_pure
+		*   rtParallel.trace(); // Start the parallel raytracing process
+		* @endcode
+		* The result is provided in the detectors of the Scene object S. 
+		* The class can be used with any raytracing class that implements the required interface, such as Raytrace_pure, Raytrace_Inel, Raytrace_Path, etc.
+		* Up to now, the class can only be used together with MC-light sources. 
+		*/
+
 		template <class T> class RaytraceParallel
 		{
 		public: 

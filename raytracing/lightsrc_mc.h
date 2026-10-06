@@ -9,7 +9,9 @@ namespace GOAT
 {
     namespace raytracing
     {
-
+        /** @brief Base class for light sources with random ray distribution 
+		* This class provides the random number generator and the random distributions for the light sources with random ray distribution.
+        */
         class LightSrc_mc
         {
         public:
