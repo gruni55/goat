@@ -17,6 +17,8 @@
 #include <locale>
 #include <iomanip>
 #include <variant>
+#include <atomic>
+#include <memory>
 #include "fft.h"
 namespace GOAT
 {
@@ -140,7 +142,7 @@ namespace GOAT
 				void setEnableCalculation(bool enable) { calculation_enabled=enable;}
 				bool isCalculationEnabled() {return calculation_enabled;}
 				bool readRequest(std::string &request);
-
+				void setStopFlag(std::shared_ptr<std::atomic<bool>> flag); ///< set a stop flag, which can be used to stop the calculation
 
 			private:				
                 void readScene(); ///< read the entire Scene
@@ -215,6 +217,8 @@ namespace GOAT
 				int numDet = 0; ///< number of detectors
 				std::string path; ///< path of the XML-File
 				bool calculation_enabled=true; 
+				std::shared_ptr<std::atomic<bool>> stopFlag =
+					std::make_shared<std::atomic<bool>>(false); ///< pointer to a stop flag, which can be used to stop the calculation
 		};
 
 

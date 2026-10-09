@@ -85,6 +85,11 @@ namespace GOAT
             return found;
         }
 
+        void xmlReader::setStopFlag(std::shared_ptr<std::atomic<bool>> flag)
+        {
+            stopFlag = flag;
+        }
+
 		// void xmlReader::readXML(const char* fname, char* path)
         void xmlReader::readXML(std::string fname, bool calc_enabled, std::string path)
 		{
@@ -892,6 +897,7 @@ namespace GOAT
                              rt.setNumReflex(S.getNumReflex());
                              if (S.getNumberOfThreads() == 1)
                              {
+                                 rt.setStopFlag(stopFlag);
                                  rt.trace();
                              }
                              else
@@ -901,6 +907,7 @@ namespace GOAT
                                      std::cout << "Performing parallel ray tracing..." << std::endl;
                                      S.setRaytype(LIGHTSRC_RAYTYPE_IRAY);
                                      GOAT::raytracing::RaytraceParallel<GOAT::raytracing::Raytrace_pure> rtParallel(S);
+                                     rtParallel.setStopFlag(stopFlag);
                                      rtParallel.trace();
                                  }
                              }

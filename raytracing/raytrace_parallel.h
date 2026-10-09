@@ -30,13 +30,15 @@ namespace GOAT
 			RaytraceParallel(Scene &S);
 			void trace();
 			void requestStop() { stopFlag->store(true); } ///< Request to stop the raytracing process
+			void setStopFlag(std::shared_ptr<std::atomic<bool>> flag) { stopFlag = flag; } ///< Sets the stop flag for the raytracing process
 			Scene S;
-			std::shared_ptr<std::atomic<bool>> stopFlag =
-				std::make_shared<std::atomic<bool>>(false); ///< flag to stop calculation, e.g. if the user wants to stop the calculation
+			
 			private:
 				RayBase* getNextRay(int iLS);
 				
 				bool useRRTParms = false;
+				std::shared_ptr<std::atomic<bool>> stopFlag =
+				std::make_shared<std::atomic<bool>>(false); ///< flag to stop calculation, e.g. if the user wants to stop the calculation
 		};
 
 
