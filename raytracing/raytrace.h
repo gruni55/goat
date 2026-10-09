@@ -1,4 +1,6 @@
 #pragma once
+#include <atomic>
+#include <memory>
 #include "lightsrc_mc.h"
 #include "lightsrc.h"
 #include "objectshape.h"
