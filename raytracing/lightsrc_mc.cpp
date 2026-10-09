@@ -13,6 +13,8 @@ namespace GOAT
 		{
 		}
 
+
+
         GOAT::maths::Vector<double> LightSrcGauss_mc::genStartingPos ()
         {
             

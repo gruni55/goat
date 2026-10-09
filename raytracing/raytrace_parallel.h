@@ -29,7 +29,10 @@ namespace GOAT
 		public: 
 			RaytraceParallel(Scene &S);
 			void trace();
+			void requestStop() { stopFlag->store(true); } ///< Request to stop the raytracing process
 			Scene S;
+			std::shared_ptr<std::atomic<bool>> stopFlag =
+				std::make_shared<std::atomic<bool>>(false); ///< flag to stop calculation, e.g. if the user wants to stop the calculation
 			private:
 				RayBase* getNextRay(int iLS);
 				
@@ -79,7 +82,7 @@ namespace GOAT
 			std::vector<std::thread> threads;
 			
 			// Create worker threads
-			std::barrier startBarrier(S.getNumberOfThreads() + 1);
+			std::barrier<> startBarrier{ S.getNumberOfThreads() + 1 };
 
 			for (int i = 0; i < S.getNumberOfThreads(); i++)
 			{
@@ -93,7 +96,7 @@ namespace GOAT
 							Slocal.LS[l]->setNumRays(S.LS[l]->getNumRays() / S.getNumberOfThreads());
 						}
 						T rt(Slocal);
-
+						rt.setStopFlag(stopFlag);
 						startBarrier.arrive_and_wait();  // warten
 
 						rt.trace();                      // alle starten danach

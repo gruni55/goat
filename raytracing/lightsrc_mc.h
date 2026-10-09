@@ -16,13 +16,17 @@ namespace GOAT
         {
         public:
             LightSrc_mc();
-
+        void reseed()
+            {
+                gen.seed(std::random_device{}());
+            }
         protected:
             std::mt19937_64 gen;
             std::uniform_real_distribution<double> ud1;
             std::uniform_real_distribution<double> ud2;
 			std::normal_distribution<double> nd1;
 			std::normal_distribution<double> nd2;
+           
         };
 
         /**

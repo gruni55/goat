@@ -1205,6 +1205,10 @@ namespace  GOAT
 					case LIGHTSRC_SRCTYPE_RING_GAUSS_MC: hLS = new LightSrcRingGauss_mc(*((LightSrcRingGauss_mc*)s[i])); break;
 
 					}
+					if (auto* mc = dynamic_cast<LightSrc_mc*>(hLS))
+					{
+						mc->reseed();
+					}
 					d.push_back(hLS);
 				}
 			}

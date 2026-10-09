@@ -127,9 +127,11 @@ namespace GOAT
 		public:
 			Raytrace();
 			Raytrace(const Scene& S);
+			void requestStop() { stopFlag->store(true); } ///< request to stop the raytracing process
 			void setScene(const Scene& S); ///< sets Scene
 			void setNumReflex(int numReflex); ///< sets number of reflexions 
 			void trace(); ///< this is the starting point for the raytracing procedure
+			void setStopFlag(std::shared_ptr<std::atomic<bool>> stopFlag) { this->stopFlag = stopFlag; } ///< sets the stop flag for the raytracing process
 			virtual void traceEnterObject() = 0; ///< this function is called when the ray enters an object
 			virtual void traceLeaveObject() = 0; ///< this function is called when the ray leaves an object
 			virtual void traceStopObject() {}; ///< this function is called if no object was hidden
@@ -166,7 +168,9 @@ namespace GOAT
 			RayBase* ray; ///< current ray 
 			RayBase* tray; ///< transmitted ray		
 			bool Abbruch; ///< flag to stop calculation
-			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 			
+			int numReflex = RAYTRACE_MAX_REFLEXIONS;	///< current number of reflections 		
+			std::shared_ptr<std::atomic<bool>> stopFlag =
+				std::make_shared<std::atomic<bool>>(false); ///< flag to stop calculation, e.g. if the user wants to stop the calculation
 		};
 
 		/**

@@ -63,7 +63,7 @@ namespace GOAT
 						ray->status = RAYBASE_STATUS_FIRST_STEP;
 						ray->suppress_phase_progress = S.suppress_phase_progress;
 						traceOneRay(ray, Reflexions, recursions); // Verfolgung eines Teilstrahls
-					} while (statusLS != LIGHTSRC_IS_LAST_RAY);
+					} while (statusLS != LIGHTSRC_IS_LAST_RAY && !stopFlag->load(std::memory_order_relaxed));
 					//	delete ray;
 						//delete tray;
 				}
