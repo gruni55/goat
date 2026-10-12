@@ -43,6 +43,8 @@ namespace GOAT
 			* @brief destructor
 			*/
 			~AngularSpectrum();
+			void setWavelength(double wvl) { this->wvl = wvl; }
+			double getWavelength() { return wvl; }
 			
 			/**
 			* @brief Makes a calculation. clear determines if the content of the propagator should be cleared before the calculation.
