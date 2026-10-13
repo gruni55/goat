@@ -131,23 +131,18 @@ namespace GOAT
 					double l;					
 					stepSize = abs(PStop - PStart);
 					std::complex<double> n;					
-					if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->getn();
-					else n = S.nS;
+					//if (ray->isInObject() && (objIndex > -1)) n = S.Obj[objIndex]->getn();
+					//else n = S.nS;
+					n=(ray->isInObject() && (objIndex > -1)) ? S.Obj[objIndex]->getn() : S.nS;
 					for (int i = 0; i < S.getNumberOfDetectors(); i++)
 					{
-						if(S.Det[i]->Type()==DETECTOR_PLANE)
-							if (S.Det[i]->cross(PStart, kin, i1, i2, l)) 
-						{            
-							  //  std::cout << "l=" << l << std::endl;
- 							    if (abs(PStop-PStart)>l)
-								{
-							    fak=sqrt(fabs(kin*S.Det[i]->norm()));
-								// fak=sqrt(abs(kin%S.Det[i]->norm())) ;								
-								S.Det[i]->D[i1][i2] += EStart * exp(I * (ray->k0 * n * l + pjump)); 
-							//   std::cout << "i=" << i << "   i1=" << i1 << "   i2=" << i2 << "  D=" << S.Det[i]->D[i1][i2] << std::endl;
-								}
-//								
-						}
+						auto det = S.Det[i];
+						if (det->Type() != DETECTOR_PLANE) continue;
+						if (!det->cross(PStart, kin, i1, i2, l)) continue;
+						if (stepSize <= l) continue;
+						
+						det->D[i1][i2] += EStart * std::exp(I * (ray->k0 * n * l + pjump)); 
+						
 					}
 				}
 			    // do we use tubed ray and is there a phase jump to be considered? 
