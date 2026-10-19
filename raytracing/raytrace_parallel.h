@@ -31,6 +31,7 @@ namespace GOAT
 			void trace();
 			void requestStop() { stopFlag->store(true); } ///< Request to stop the raytracing process
 			void setStopFlag(std::shared_ptr<std::atomic<bool>> flag) { stopFlag = flag; } ///< Sets the stop flag for the raytracing process
+			size_t getCalculatedRays() { return rayCounter; }
 			Scene S;
 			
 			private:
@@ -39,6 +40,7 @@ namespace GOAT
 				bool useRRTParms = false;
 				std::shared_ptr<std::atomic<bool>> stopFlag =
 				std::make_shared<std::atomic<bool>>(false); ///< flag to stop calculation, e.g. if the user wants to stop the calculation
+				std::atomic<size_t> rayCounter{ 0 };
 		};
 
 

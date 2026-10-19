@@ -13,6 +13,7 @@
 #include "detector.h"
 #include "goat_defines.h"
 #include "roughObject.h"    
+#include "objectshape.h"
 #include <chrono>
 #include <goodies.h>
 #include <filesystem>
@@ -615,6 +616,7 @@ namespace GOAT
 			std::string fileName;
             std::string ID;
 			std::complex<double> n;
+            raytracing::NFUNCTYPE nfunctype;
             bool isRough;
 			bool isActive;
 			double alpha = 0;
@@ -637,6 +639,7 @@ namespace GOAT
 					gamma = objEll->DoubleAttribute("gamma", 0.0) / 180.0 * M_PI;
 					isActive = objEll->BoolAttribute("isactive", false);
 					isRough = objEll->BoolAttribute("isrough", false);
+                    nfunctype = raytracing::getEnumfromName(objEll->Attribute("nfuncname"));
                     auto text=objEll->Attribute("ID");
                     if (text == nullptr) ID = "new_Object";
                     else ID = text;
@@ -780,6 +783,7 @@ namespace GOAT
 					}
                     if (obj != nullptr)
                     {
+                        
                         if (isRough)
                         {
                             std::cout << "object is rough" << std::endl;
@@ -798,7 +802,8 @@ namespace GOAT
                         S.addObject(obj);
                         double sf = objEll->DoubleAttribute("scaling", 1);
                         if ((sf != 1) && (sf > 0)) Obj[numObj]->scale(sf);
-                        Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
+                        // Obj[numObj]->nFunc() = GOAT::raytracing::n_Vacuum;
+                        Obj[numObj]->setNfuncType(nfunctype);
                         Obj[numObj]->setPos(Pos);
 
                         std::string objID = "object_" + std::to_string(numObj);
@@ -1787,7 +1792,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             object->InsertEndChild(addComplex2DOM(doc, "n",S.Obj[i]->getn()));            
             object->SetAttribute("scaling",formatDouble(S.Obj[i]->getScale()).c_str());
 			object->SetAttribute("ID", S.Obj[i]->getID().c_str());
-
+            std::string str(raytracing::NFUNCTYPE_NAME[static_cast<int>(S.Obj[i]->getFuncType())]);
+            object->SetAttribute("nfuncname",str.c_str());
             // --------------- special parameters ----------------
                      
             if (S.Obj[i]->isRough())

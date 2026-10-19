@@ -18,8 +18,11 @@
 #include "matrix.h"
 #include "vector.h"
 #include "roughObjectInterface.h"
+#include "refractive_index_functions.h"
 
 #include <fstream>
+#include <array>
+#include <string_view>
 // #include <time.h>
 namespace GOAT {
     namespace raytracing {
@@ -52,7 +55,10 @@ namespace GOAT {
 #define BOX         3
 #define EPS 1E-10*r0
 
-        enum class NFUNCTYPE { vacuum, air, bk7, silica, lasf5, pmma };
+        enum class NFUNCTYPE { vacuum, air, bk7, silica, lasf5, pmma, none };
+         inline constexpr std::array<std::string_view,7> NFUNCTYPE_NAME = { "vacuum", "air", "bk7", "silica", "lasf5", "pmma","none"};
+
+         NFUNCTYPE getEnumfromName(std::string ftname); 
 
         /**
         * @brief Abstract base class for all volume objects
@@ -110,7 +116,8 @@ namespace GOAT {
             void setVisible(bool visible) { this->visible = visible; } ///< set visiblity (used in GOATvis)
             void setID(const std::string& ID) { this->ID = ID; } ///< sets the ID string
 			void setNfunc(std::function <std::complex<double>(double)> nfunc, NFUNCTYPE nfuncType = NFUNCTYPE::vacuum) { this->nfunc = nfunc; this->nfuncType = nfuncType; } ///< sets the function for the refractive index (used for inelastic (RRT) calculation)
-			void setNfuncType(NFUNCTYPE nfuncType) { this->nfuncType = nfuncType; } ///< sets the type of the function for the refractive index (used for inelastic (RRT) calculation)
+            void setNfuncType(NFUNCTYPE nfuncType); ///< sets the type of the function for the refractive index (used for inelastic (RRT) calculation) 
+           
             virtual  void setr0(double r0) = 0;                                 ///< defines the radius of the calculation sphere
             virtual void setPos(maths::Vector<double> r) = 0; ///< sets reference point P 
             virtual void setPos(double x, double y, double z) = 0; ///< sets reference point P 

@@ -13,11 +13,24 @@
 #include "matrix.h" 
 #ifdef WITH_OCTREE
 #include "octree.h"
+#include "refractive_index_functions.h"
 #endif
 namespace GOAT
 {
     namespace raytracing
     {
+
+        NFUNCTYPE getEnumfromName(std::string ftname)
+        {
+            for (size_t i = 0; i < NFUNCTYPE_NAME.size(); ++i)
+            {
+                if (NFUNCTYPE_NAME[i] == ftname)
+                    return static_cast<NFUNCTYPE>(i);
+            }
+
+            return NFUNCTYPE::none;
+        }
+
         ObjectShape::ObjectShape() {
             r0 = 1.0;
             H = maths::unity();
@@ -296,6 +309,21 @@ namespace GOAT
 			}
 			
 			this->rough = rough;
+        }
+
+
+        void ObjectShape::setNfuncType(NFUNCTYPE nfuncType)  
+        {
+            this->nfuncType = nfuncType;
+            switch (nfuncType)
+            {
+                case raytracing::NFUNCTYPE::vacuum: setNfunc(n_Vacuum, nfuncType); break;
+                case raytracing::NFUNCTYPE::air: setNfunc(n_Air, nfuncType); break;
+                case raytracing::NFUNCTYPE::bk7 : setNfunc(n_BK7, nfuncType); break;
+                case raytracing::NFUNCTYPE::lasf5: setNfunc(n_LASF55, nfuncType); break;
+                case raytracing::NFUNCTYPE::pmma: setNfunc(n_PMMA, nfuncType); break;
+                case raytracing::NFUNCTYPE::silica: setNfunc(n_fused_silica, nfuncType); break;
+            }
         }
 
         bool intersectionTest(ObjectShape& A, ObjectShape& B)
