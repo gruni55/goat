@@ -14,6 +14,7 @@ var class_g_o_a_t_1_1raytracing_1_1_super_array =
     [ "clear", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#aa5780955f3b63fbe7b15814869620d56", null ],
     [ "copy", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#ae4f3ae59dd254e03d84d441b80386c52", null ],
     [ "fill", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#adb4ea84d63f0d3c824f498e673a71004", null ],
+    [ "getDimensions", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#aea8bc691e8bb11c48275127a367f9af5", null ],
     [ "gitterpunkt", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1d3c8f7fd8d44873e82bafa31b0f7a4e", null ],
     [ "inObject", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a1c9876836d1e292358fd70bb162bea4e", null ],
     [ "inObject", "class_g_o_a_t_1_1raytracing_1_1_super_array.html#a077f1119bb513a7b0fcf0107055d8553", null ],

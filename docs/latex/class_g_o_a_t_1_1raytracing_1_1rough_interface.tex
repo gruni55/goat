@@ -2,7 +2,12 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface}{}\label{class_g_o_a_t_1_1raytracing_1_1rough_interface}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
 
 
-{\ttfamily \#include $<$rough\+Object.\+h$>$}
+Interface for rough surfaces. This interface class is used to allow access to the parameters of {\ttfamily \doxylink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object}} without having to cast them.  
+
+
+
+
+{\ttfamily \#include $<$rough\+Object\+Interface.\+h$>$}
 
 Inheritance diagram for GOAT\+::raytracing\+::rough\+Interface\+:\begin{figure}[H]
 \begin{center}
@@ -13,22 +18,42 @@ Inheritance diagram for GOAT\+::raytracing\+::rough\+Interface\+:\begin{figure}[
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+virtual \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_ad2591b3e987282459fc92b56cfe84d67}{get\+Scattering\+Type}} () const =0
+\item 
 virtual double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}{get\+Sigma}} () const =0
 \item 
+virtual double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a6527f95d06bbd85e7f0e04126d3652bf}{get\+Theta\+Max}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a88adf201db81c7c6d6211cb5c661128d}{modify\+Norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P)=0
+\item 
+virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a5fca9066a3dde48cf9b8ffed6aef32ce}{set\+Scattering\+Type}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} type)=0
+\item 
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}{set\+Sigma}} (double s)=0
+\item 
+virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_ae29de51c705be66cca09dc37e49437f7}{set\+Theta\+Max}} (double t)=0
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+Interface for rough surfaces. This interface class is used to allow access to the parameters of {\ttfamily \doxylink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object}} without having to cast them. 
 
-
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00012}{12}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_interface_8h_source_l00018}{18}} of file \mbox{\hyperlink{rough_object_interface_8h_source}{rough\+Object\+Interface.\+h}}.
 
 
 
 \label{doc-func-members}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_ad2591b3e987282459fc92b56cfe84d67}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!getScatteringType@{getScatteringType}}
+\index{getScatteringType@{getScatteringType}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
+\doxysubsubsection{\texorpdfstring{getScatteringType()}{getScatteringType()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_interface_ad2591b3e987282459fc92b56cfe84d67} 
+virtual \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} GOAT\+::raytracing\+::rough\+Interface\+::get\+Scattering\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_ae589a4da5ef587b122768625d6178c85}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!getSigma@{getSigma}}
 \index{getSigma@{getSigma}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
 \doxysubsubsection{\texorpdfstring{getSigma()}{getSigma()}}
@@ -38,6 +63,36 @@ virtual double GOAT\+::raytracing\+::rough\+Interface\+::get\+Sigma (\begin{Doxy
 
 
 Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_a6527f95d06bbd85e7f0e04126d3652bf}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!getThetaMax@{getThetaMax}}
+\index{getThetaMax@{getThetaMax}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
+\doxysubsubsection{\texorpdfstring{getThetaMax()}{getThetaMax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_interface_a6527f95d06bbd85e7f0e04126d3652bf} 
+virtual double GOAT\+::raytracing\+::rough\+Interface\+::get\+Theta\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_aea957f172e603e6adfe2ecff4e69cec6}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_a88adf201db81c7c6d6211cb5c661128d}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!modifyNorm@{modifyNorm}}
+\index{modifyNorm@{modifyNorm}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
+\doxysubsubsection{\texorpdfstring{modifyNorm()}{modifyNorm()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_interface_a88adf201db81c7c6d6211cb5c661128d} 
+virtual \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::rough\+Interface\+::modify\+Norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a21fae19dd2afb50a4f5ba396db7bafa9}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_a5fca9066a3dde48cf9b8ffed6aef32ce}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!setScatteringType@{setScatteringType}}
+\index{setScatteringType@{setScatteringType}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
+\doxysubsubsection{\texorpdfstring{setScatteringType()}{setScatteringType()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_interface_a5fca9066a3dde48cf9b8ffed6aef32ce} 
+virtual void GOAT\+::raytracing\+::rough\+Interface\+::set\+Scattering\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a40453c5aff0b4f29453f6892c7ea95f0}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!setSigma@{setSigma}}
 \index{setSigma@{setSigma}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
@@ -49,8 +104,18 @@ virtual void GOAT\+::raytracing\+::rough\+Interface\+::set\+Sigma (\begin{DoxyPa
 
 Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_interface_ae29de51c705be66cca09dc37e49437f7}\index{GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}!setThetaMax@{setThetaMax}}
+\index{setThetaMax@{setThetaMax}!GOAT::raytracing::roughInterface@{GOAT::raytracing::roughInterface}}
+\doxysubsubsection{\texorpdfstring{setThetaMax()}{setThetaMax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_interface_ae29de51c705be66cca09dc37e49437f7} 
+virtual void GOAT\+::raytracing\+::rough\+Interface\+::set\+Theta\+Max (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a1225a3a3133464dd777f2af2623ba13c}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-raytracing/\mbox{\hyperlink{rough_object_8h}{rough\+Object.\+h}}\end{DoxyCompactItemize}
+raytracing/\mbox{\hyperlink{rough_object_interface_8h}{rough\+Object\+Interface.\+h}}\end{DoxyCompactItemize}

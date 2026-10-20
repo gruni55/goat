@@ -43,6 +43,14 @@ var hierarchy =
       [ "GOAT::raytracing::LightSrcPoint_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html", null ],
       [ "GOAT::raytracing::LightSrcRing", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html", null ]
     ] ],
+    [ "GOAT::raytracing::LightSrc_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html", [
+      [ "GOAT::raytracing::LightSrcGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html", null ],
+      [ "GOAT::raytracing::LightSrcLine_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_line__mc.html", null ],
+      [ "GOAT::raytracing::LightSrcPlane_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html", null ],
+      [ "GOAT::raytracing::LightSrcPoint_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html", null ],
+      [ "GOAT::raytracing::LightSrcRingGauss_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring_gauss__mc.html", null ],
+      [ "GOAT::raytracing::LightSrcRing_mc", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html", null ]
+    ] ],
     [ "GOAT::maths::Matrix< T >", "class_g_o_a_t_1_1maths_1_1_matrix.html", null ],
     [ "GOAT::raytracing::MemInfo", "struct_g_o_a_t_1_1raytracing_1_1_mem_info.html", null ],
     [ "tinyxml2::MemPool", "classtinyxml2_1_1_mem_pool.html", [
@@ -104,6 +112,7 @@ var hierarchy =
       [ "GOAT::raytracing::Raytrace_usp", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html", null ],
       [ "GOAT::raytracing::Raytrace_usp_rt", "class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html", null ]
     ] ],
+    [ "GOAT::raytracing::RaytraceParallel< T >", "class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel.html", null ],
     [ "GOAT::raytracing::roughInterface", "class_g_o_a_t_1_1raytracing_1_1rough_interface.html", [
       [ "GOAT::raytracing::roughObject< T >", "class_g_o_a_t_1_1raytracing_1_1rough_object.html", null ]
     ] ],

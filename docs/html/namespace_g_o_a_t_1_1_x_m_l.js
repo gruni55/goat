@@ -15,6 +15,7 @@ var namespace_g_o_a_t_1_1_x_m_l =
     [ "mapString2LightSourceToken", "namespace_g_o_a_t_1_1_x_m_l.html#a4fe5b4ae343ca608415724f5d633b482", null ],
     [ "mapString2ObjectToken", "namespace_g_o_a_t_1_1_x_m_l.html#aec392ce16138b2113c267904c1d0393e", null ],
     [ "mapString2RefractiveIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a52af62c0e720fa5e446dc2bf471831f3", null ],
+    [ "mapString2RoughnessIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a6eabbc11b6f6c2e247226dc60a99c56a", null ],
     [ "str_tolower", "namespace_g_o_a_t_1_1_x_m_l.html#ad67861689066aedbe35bc2538e6631bb", null ],
     [ "calculationToken", "namespace_g_o_a_t_1_1_x_m_l.html#a903a892a864a08354137c1fa488f63ac", null ],
     [ "detectorToken", "namespace_g_o_a_t_1_1_x_m_l.html#a445a5c3e59594302f79224e23156e5b0", null ],
@@ -24,5 +25,6 @@ var namespace_g_o_a_t_1_1_x_m_l =
     [ "LSXMLTYPES", "namespace_g_o_a_t_1_1_x_m_l.html#ae17af7fb699941154a1007034e7524ee", null ],
     [ "objectToken", "namespace_g_o_a_t_1_1_x_m_l.html#a7562d03fb24af1a89db31d41f9b5fa66", null ],
     [ "refractiveIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a140f2a4c90db61947ac7c08d83565aec", null ],
+    [ "roughnessToken", "namespace_g_o_a_t_1_1_x_m_l.html#a861ba5d78a56a17fe880442561e01169", null ],
     [ "sceneXMLElements", "namespace_g_o_a_t_1_1_x_m_l.html#af1e262cfc476de9e58afa5bb75b1db07", null ]
 ];

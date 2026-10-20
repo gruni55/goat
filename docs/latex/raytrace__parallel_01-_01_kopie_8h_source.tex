@@ -1,0 +1,138 @@
+\doxysection{raytrace\+\_\+parallel -\/ Kopie.\+h}
+\hypertarget{raytrace__parallel_01-_01_kopie_8h_source}{}\label{raytrace__parallel_01-_01_kopie_8h_source}\index{raytracing/raytrace\_parallel -\/ Kopie.h@{raytracing/raytrace\_parallel -\/ Kopie.h}}
+\mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{raytracing_2raytrace_8h}{raytrace.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00006}00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{raytracing}}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00009}00009\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00010}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{00010}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{RaytraceParallel}}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00011}00011\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{RaytraceParallel}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}{trace}}();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00015}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{00015}}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{RayBase}}*\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{getNextRay}}(\textcolor{keywordtype}{int}\ iLS);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00019}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab}{00019}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab}{useRRTParms}}\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00020}00020\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00023}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{RaytraceParallel<T>::RaytraceParallel}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}}\&\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}})\ :\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}})}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>S\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00028}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{00028}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ \ \ \ <\textcolor{keyword}{class}\ T>\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{RayBase}}*\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{RaytraceParallel<T>::getNextRay}}(\textcolor{keywordtype}{int}\ iLS)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ statusLS;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{RayBase}}*\ ray\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab}{useRRTParms}})}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.raytype)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lightsrc_8h_a3a010aaffbbdd0d4020f4b01b95e07b4}{LIGHTSRC\_RAYTYPE\_IRAY}}:\ ray\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}};\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lightsrc_8h_ac4b6b5f07edda74abe23188b9e563478}{LIGHTSRC\_RAYTYPE\_PRAY}}:\ ray\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray__pow}{Ray\_pow}};\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{lightsrc_8h_a2646f407aa5ec41f8e913b2091abf310}{LIGHTSRC\_RAYTYPE\_RAY}}:}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:\ ray\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubedRay}};\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ statusLS\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.LS[iLS]-\/>next(ray);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (statusLS\ ==\ \mbox{\hyperlink{lightsrc_8h_af55dd6807d36e98d7dcc9e47736266b3}{LIGHTSRC\_IS\_LAST\_RAY}})}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ray;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ statusLS\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.LSRRT-\/>next(ray);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ray-\/>\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_ab912e8cad9cba442b05c10449eba59ae}{status}}\ =\ \mbox{\hyperlink{raybase_8h_a3e39fc0fbea197edc625ef924e42656e}{RAYBASE\_STATUS\_FIRST\_STEP}};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ray-\/>\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base_a8a8bbc046f2b0531f62dda7af5a684a9}{suppress\_phase\_progress}}\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.suppress\_phase\_progress;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ray;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00059}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}{00059}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}{RaytraceParallel<T>::trace}}()}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.resetLS();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::queue\ <RayBase*>\ rayQueue;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::thread>\ threads;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ std::mutex\ queueMutex;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ std::condition\_variable\ cv;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ worker\ threads}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i=0;\ i<\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.getNumberOfThreads();\ i++)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ threads.emplace\_back([\textcolor{keyword}{this},\ i,\ \&rayQueue,\ \&queueMutex,\ \&cv]()}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ rt(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true})}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{RayBase}}*\ ray;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_lock<std::mutex>\ lock(queueMutex);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv.wait(lock,\ [\&rayQueue]()\ \{\ \textcolor{keywordflow}{return}\ !rayQueue.empty();\ \});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ray\ =\ rayQueue.front();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rayQueue.pop();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ The\ lock\ is\ released\ here,\ allowing\ other\ threads\ to\ access\ the\ queue}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ray\ ==\ \textcolor{keyword}{nullptr})\ \textcolor{keywordflow}{return};\ \textcolor{comment}{//\ Exit\ the\ thread\ if\ a\ nullptr\ is\ encountered}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Reflexions\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ recursions\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rt.traceOneRay(ray,\ Reflexions,\ recursions);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ ray;\ \textcolor{comment}{//\ Clean\ up\ the\ ray\ after\ processing}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ iLS\ =\ 0;\ iLS\ <\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.getNumberOfLightSources();\ iLS++)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{RayBase}}*\ ray\ =\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{getNextRay}}(iLS);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ray\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock(queueMutex);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rayQueue.push(ray);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c++;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ >\ 100000)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Size\ of\ queue:\ "{}}\ <<\ rayQueue.size()\ <<\ std::endl;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ c\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv.notify\_one();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.getNumberOfThreads();\ i++)}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock(queueMutex);}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rayQueue.push(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cv.notify\_one();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\&\ t\ :\ threads)\ \textcolor{comment}{//\ Wait\ for\ all\ threads\ to\ finish}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ t.join();}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00131}00131\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{raytrace__parallel_01-_01_kopie_8h_source_l00132}00132\ \}}
+
+\end{DoxyCode}

@@ -18,7 +18,7 @@ var lightsrc_8h =
     [ "Z0", "lightsrc_8h.html#a49a0a00a612635d79a06bbe9fc15c094", null ],
     [ "GOAT::raytracing::binReadLSList", "namespace_g_o_a_t_1_1raytracing.html#a3367f7cd397470c01d0f49b6f692e6c8", null ],
     [ "GOAT::raytracing::binWriteLSList", "namespace_g_o_a_t_1_1raytracing.html#a28736012c7ad735f26a81e61ce0e8fc9", null ],
-    [ "GOAT::raytracing::copyLightSrcList", "namespace_g_o_a_t_1_1raytracing.html#a1c79048f923ffb412e8f256992ec9618", null ],
+    [ "GOAT::raytracing::copyLightSrcList", "namespace_g_o_a_t_1_1raytracing.html#ac11f1291ad16263ab4cd6bcb18df6984", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_GAUSS", "namespace_g_o_a_t_1_1raytracing.html#a124e6652c363828bc8a67bb99cf2988f", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC", "namespace_g_o_a_t_1_1raytracing.html#aaef90f92c59bfd736f8bd55a02fbf25c", null ],
     [ "GOAT::raytracing::LIGHTSRC_SRCTYPE_LINE", "namespace_g_o_a_t_1_1raytracing.html#aa43f6e20df010c130ac1e515fd7dd226", null ],

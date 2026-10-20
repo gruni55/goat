@@ -57,6 +57,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a89da3c001411ef5b
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a43782dd88b2b0131a4491a3030a078c4}{Raytrace}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad4d89591ffa85ad6aecd3dcef08d776d}{request\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em request to stop the raytracing process \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a277f54c1d155fc3f93b97f57e7e8866f}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}})
 \begin{DoxyCompactList}\small\item\em sets number of reflexions \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a277f54c1d155fc3f93b97f57e7e8866f}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}})
@@ -65,6 +67,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83
 \begin{DoxyCompactList}\small\item\em sets \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83d6f5d70c431f21f0}{set\+Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \begin{DoxyCompactList}\small\item\em sets \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a0d084e03c27ed815c444174621bf4a6a}{set\+Stop\+Flag}} (std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25}{stop\+Flag}})
+\begin{DoxyCompactList}\small\item\em sets the stop flag for the raytracing process \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace}} ()
 \begin{DoxyCompactList}\small\item\em this is the starting point for the raytracing procedure \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace}} ()
@@ -175,12 +179,16 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_acb9c91a6c8805e72
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}} = \mbox{\hyperlink{raytracing_2raytrace_8h_a634d573272f55167b178b564e96f2c2b}{RAYTRACE\+\_\+\+MAX\+\_\+\+REFLEXIONS}}
 \begin{DoxyCompactList}\small\item\em current number of reflections \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25}{stop\+Flag}}
+\begin{DoxyCompactList}\small\item\em flag to stop calculation, e.\+g. if the user wants to stop the calculation \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 This class provides functionality to calculate the forces for optical tweezers. It is derived by the class \doxylink{class_g_o_a_t_1_1raytracing_1_1_raytrace}{Raytrace}. 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00175}{175}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00181}{181}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 
@@ -313,7 +321,7 @@ list of the forces acting on the objects
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00184}{184}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00190}{190}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a006d4da55d64d32fb7565c800d04e8e2}\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!f@{f}}
 \index{f@{f}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
@@ -327,7 +335,7 @@ list of the forces acting on the objects, separated for the different light sour
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00186}{186}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00192}{192}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a5bf2674f84c03a6548b2a7e7f54ac65a}\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!L@{L}}
 \index{L@{L}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
@@ -341,7 +349,7 @@ angular momenta acting on the objects
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00185}{185}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00191}{191}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace___o_t_a9b801f620b0e31932a25db71566b1420}\index{GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}!l@{l}}
 \index{l@{l}!GOAT::raytracing::Raytrace\_OT@{GOAT::raytracing::Raytrace\_OT}}
@@ -355,7 +363,7 @@ list of the angular momenta acting on the objects, separated for the different l
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00187}{187}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00193}{193}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 

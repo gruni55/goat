@@ -30,6 +30,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a89da3c001411ef5b
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a43782dd88b2b0131a4491a3030a078c4}{Raytrace}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad4d89591ffa85ad6aecd3dcef08d776d}{request\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em request to stop the raytracing process \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a277f54c1d155fc3f93b97f57e7e8866f}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}})
 \begin{DoxyCompactList}\small\item\em sets number of reflexions \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a277f54c1d155fc3f93b97f57e7e8866f}{set\+Num\+Reflex}} (int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}})
@@ -38,6 +40,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83
 \begin{DoxyCompactList}\small\item\em sets \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa70bd1fbe01a9c83d6f5d70c431f21f0}{set\+Scene}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}{S}})
 \begin{DoxyCompactList}\small\item\em sets \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a0d084e03c27ed815c444174621bf4a6a}{set\+Stop\+Flag}} (std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25}{stop\+Flag}})
+\begin{DoxyCompactList}\small\item\em sets the stop flag for the raytracing process \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace}} ()
 \begin{DoxyCompactList}\small\item\em this is the starting point for the raytracing procedure \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}{trace}} ()
@@ -119,6 +123,8 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_acb9c91a6c8805e72
 \begin{DoxyCompactList}\small\item\em flag to stop calculation \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}{num\+Reflex}} = \mbox{\hyperlink{raytracing_2raytrace_8h_a634d573272f55167b178b564e96f2c2b}{RAYTRACE\+\_\+\+MAX\+\_\+\+REFLEXIONS}}
 \begin{DoxyCompactList}\small\item\em current number of reflections \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25}{stop\+Flag}}
+\begin{DoxyCompactList}\small\item\em flag to stop calculation, e.\+g. if the user wants to stop the calculation \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1209f1394d4fac2b35bd618fdfc20020}{trace\+One\+Ray}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa3e66b0e9579ec091e92043677105bf4}{ray}}, int \&Reflexions, int \&recur)
 \begin{DoxyCompactList}\small\item\em traces one ray \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_a6f33cfc22c680fad7a19923cfb151147}{reset}} ()
@@ -132,7 +138,7 @@ This class provides all functionalities for the base raytracing code. It follows
 
 The calculation space is determined by sphere with the radius r0. The \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} class is used to describe the position and types of the light sources (derived from class \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src}) and objects (derived from \doxylink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}). In the moment, objects are extended volume object only. Area objects, like mirrors or detectors are not implemented yet. Besides the starting and end points of each step, the electric field strength of the ray at the beginning and the end of the step is stored for further calculation in derived classes. Also, the direction of the incident, the reflected and the transmitted ray is given. 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00125}{125}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00127}{127}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 
@@ -200,7 +206,21 @@ void GOAT\+::raytracing\+::\+Raytrace\+::init (\begin{DoxyParamCaption}{}{}\end{
 
 this function is called if no object was hidden 
 
-Initializes all values for the beginning of the Raytracing process \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a6f33cfc22c680fad7a19923cfb151147}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!reset@{reset}}
+Initializes all values for the beginning of the Raytracing process \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad4d89591ffa85ad6aecd3dcef08d776d}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!requestStop@{requestStop}}
+\index{requestStop@{requestStop}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
+\doxysubsubsection{\texorpdfstring{requestStop()}{requestStop()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad4d89591ffa85ad6aecd3dcef08d776d} 
+void GOAT\+::raytracing\+::\+Raytrace\+::request\+Stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+request to stop the raytracing process 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00132}{132}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a6f33cfc22c680fad7a19923cfb151147}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!reset@{reset}}
 \index{reset@{reset}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
 \doxysubsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_a6f33cfc22c680fad7a19923cfb151147} 
@@ -251,6 +271,20 @@ void GOAT\+::raytracing\+::\+Raytrace\+::set\+Scene (\begin{DoxyParamCaption}\it
 
 
 sets \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a0d084e03c27ed815c444174621bf4a6a}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!setStopFlag@{setStopFlag}}
+\index{setStopFlag@{setStopFlag}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
+\doxysubsubsection{\texorpdfstring{setStopFlag()}{setStopFlag()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_a0d084e03c27ed815c444174621bf4a6a} 
+void GOAT\+::raytracing\+::\+Raytrace\+::set\+Stop\+Flag (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$}]{stop\+Flag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+sets the stop flag for the raytracing process 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00136}{136}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9c67556f87b2972eddc1d96a55ab4cca}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!trace@{trace}}
 \index{trace@{trace}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -386,7 +420,7 @@ Reimplemented in \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace___pat
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00135}{135}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00139}{139}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a9192c4ad19fe2d9caff693c182afb525}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!traceStopObject@{traceStopObject}}
 \index{traceStopObject@{traceStopObject}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -419,7 +453,7 @@ flag to stop calculation
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00168}{168}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00172}{172}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_ac99fa459a52ad1442b4a429d5f2fe331}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!currentIndex@{currentIndex}}
 \index{currentIndex@{currentIndex}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -429,7 +463,7 @@ Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00168}{168}}
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00140}{140}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00144}{144}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a360372bc79715fdb613f8647c2385531}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!currentLS@{currentLS}}
 \index{currentLS@{currentLS}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -443,7 +477,7 @@ Number of the current light source, which is currently in the calculation proces
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00139}{139}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00143}{143}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1fb8fab4389fa16a178cdba9cea6a666}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!currentObj@{currentObj}}
 \index{currentObj@{currentObj}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -457,7 +491,7 @@ Number of the last object hit (no object hit\+: -\/1)
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00138}{138}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00142}{142}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_af9bf090fa8bb9c9271fe8ebf90ee8dd4}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!EStart@{EStart}}
 \index{EStart@{EStart}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -467,7 +501,7 @@ Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00138}{138}}
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00142}{142}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00146}{146}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad099159d6936de798fb4afd6ce74560b}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!EStart2@{EStart2}}
 \index{EStart2@{EStart2}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -477,7 +511,7 @@ Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00142}{142}}
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00143}{143}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00147}{147}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1c7548c6afd6326e4c66866aa5b30972}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!EStop@{EStop}}
 \index{EStop@{EStop}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -491,7 +525,7 @@ Start and end value of the electric field.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00142}{142}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00146}{146}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a1612c06cd923578a6c5f813c050d4fcb}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!EStop2@{EStop2}}
 \index{EStop2@{EStop2}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -505,7 +539,7 @@ Start and end value of the electric field (second ray in \doxylink{class_g_o_a_t
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00143}{143}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00147}{147}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a7710ccf89753a72c0bb3fa069cffabd1}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!kin@{kin}}
 \index{kin@{kin}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -519,7 +553,7 @@ direction of the incident ray
 
 last hit with the objects surface\+: normalized direction of the incident, the reflected and the transmitted ray \texorpdfstring{$\ast$}{*}/ 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00147}{147}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00151}{151}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a7979a6ef1d962f9f7d8c6fdae91a904b}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!kref@{kref}}
 \index{kref@{kref}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -533,7 +567,7 @@ direction of the reflected ray
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00148}{148}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00152}{152}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a3ddacae29bdb8847506241ce0ab0a08c}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!ktrans@{ktrans}}
 \index{ktrans@{ktrans}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -547,7 +581,7 @@ direction of the transmitted ray
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00149}{149}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00153}{153}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa786bfc19ad940359021636be54bacf3}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!lost@{lost}}
 \index{lost@{lost}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -561,7 +595,7 @@ Rays unintentionally get lost, e.\+g. due to total internal reflection.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00137}{137}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00141}{141}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_af656751818101d88df582000a2039114}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!numReflex@{numReflex}}
 \index{numReflex@{numReflex}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -575,7 +609,7 @@ current number of reflections
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00169}{169}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00173}{173}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a34c15477de5d012d6d9682d9e70a56b9}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!PowIn@{PowIn}}
 \index{PowIn@{PowIn}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -589,7 +623,7 @@ Power of the incident ray.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00154}{154}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00158}{158}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa667c8d0015448b79ad6632655faa3cf}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!PowRef@{PowRef}}
 \index{PowRef@{PowRef}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -603,7 +637,7 @@ Powers stored when ray type is PRay.
 
 Power of the reflected ray 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00153}{153}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00157}{157}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a35661a01ce3e3f64b6e2a2f2cf4d4b1c}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!PowTrans@{PowTrans}}
 \index{PowTrans@{PowTrans}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -617,7 +651,7 @@ Power of the transmitted ray.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00155}{155}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00159}{159}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a22918f76588a61c0dd2fa1a6cbd38a3f}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!PStart@{PStart}}
 \index{PStart@{PStart}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -627,7 +661,7 @@ Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00155}{155}}
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00141}{141}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00145}{145}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_ad241d69a060b7c36a170e59627dd920c}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!PStop@{PStop}}
 \index{PStop@{PStop}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -641,7 +675,7 @@ Start and end point of the last step.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00141}{141}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00145}{145}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_aa3e66b0e9579ec091e92043677105bf4}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!ray@{ray}}
 \index{ray@{ray}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -655,7 +689,7 @@ current ray
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00166}{166}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00170}{170}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a58d87a013aaec2543b6214869952c4e1}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!S@{S}}
 \index{S@{S}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -669,7 +703,27 @@ Description of the scene.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00156}{156}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00160}{160}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!stopFlag@{stopFlag}}
+\index{stopFlag@{stopFlag}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
+\doxysubsubsection{\texorpdfstring{stopFlag}{stopFlag}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_a62a2d860e7eb31db274892354bf29d25} 
+std\+::shared\+\_\+ptr$<$std\+::atomic$<$bool$>$ $>$ GOAT\+::raytracing\+::\+Raytrace\+::stop\+Flag}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_shared<std::atomic<bool>>(\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+
+
+flag to stop calculation, e.\+g. if the user wants to stop the calculation 
+
+
+
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00174}{174}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a303f7b3680230b17bbe4d14425e5beaf}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!tray@{tray}}
 \index{tray@{tray}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -683,7 +737,7 @@ transmitted ray
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00167}{167}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00171}{171}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_ae229986048e795b432db50cb0ce5c857}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!type@{type}}
 \index{type@{type}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -697,7 +751,7 @@ Flag which shows which type of raytracer is selected.
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00158}{158}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00162}{162}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_a0b42537e1a3e485f3613f9414d70784f}\index{GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}!useRRTParms@{useRRTParms}}
 \index{useRRTParms@{useRRTParms}!GOAT::raytracing::Raytrace@{GOAT::raytracing::Raytrace}}
@@ -711,7 +765,7 @@ Flag which tells the raytracing procedure if the RRT parameters of scene or the 
 
 
 
-Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00157}{157}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
+Definition at line \mbox{\hyperlink{raytracing_2raytrace_8h_source_l00161}{161}} of file \mbox{\hyperlink{raytracing_2raytrace_8h_source}{raytrace.\+h}}.
 
 
 

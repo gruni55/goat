@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['vacuum_0',['vacuum',['../namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a797df040de7f564b32b4f0896e04c2bc',1,'GOAT::raytracing']]]
+  ['text_5felement_0',['TEXT_ELEMENT',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54aa98a13b95f9c71588b4d0c487a8b4629',1,'tinyxml2::StrPair']]],
+  ['text_5felement_5fleave_5fentities_1',['TEXT_ELEMENT_LEAVE_ENTITIES',['../classtinyxml2_1_1_str_pair.html#ac1a95416b9fef0fa61e08a329d05bd54a3be6b7b8312f483629ddf56dcb2e1445',1,'tinyxml2::StrPair']]]
 ];

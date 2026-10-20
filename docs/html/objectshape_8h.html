@@ -100,7 +100,11 @@ $(function(){initNavTree('objectshape_8h.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="matrix_8h_source.html">matrix.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="vector_8h_source.html">vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="rough_object_interface_8h_source.html">roughObjectInterface.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="refractive__index__functions_8h_source.html">refractive_index_functions.h</a>&quot;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 </div>
 <p><a href="objectshape_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -166,6 +170,7 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f">GOAT::raytracing::lasf5</a>
 , <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2">GOAT::raytracing::pmma</a>
+, <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a334c4a4c42fdb79d7ebc3e73b517e6f8">GOAT::raytracing::none</a>
 <br />
  }</td></tr>
 </table><table class="memberdecls">
@@ -173,8 +178,13 @@ Enumerations</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:ad67b352e4ab64229e6e4a847e8e332aa" id="r_ad67b352e4ab64229e6e4a847e8e332aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_matrix.html">maths::Matrix</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#ad67b352e4ab64229e6e4a847e8e332aa">GOAT::raytracing::computeInertia</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *F)</td></tr>
 <tr class="memdesc:ad67b352e4ab64229e6e4a847e8e332aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">calculates inertia matrix  <br /></td></tr>
+<tr class="memitem:a471fda5fbc5f49f74d1239e9dd1f767a" id="r_a471fda5fbc5f49f74d1239e9dd1f767a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153">NFUNCTYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a471fda5fbc5f49f74d1239e9dd1f767a">GOAT::raytracing::getEnumfromName</a> (std::string ftname)</td></tr>
 <tr class="memitem:a8b8cd1de490988811ee3a543696e90b7" id="r_a8b8cd1de490988811ee3a543696e90b7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a8b8cd1de490988811ee3a543696e90b7">GOAT::raytracing::intersectionTest</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> &amp;A, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> &amp;B)</td></tr>
 <tr class="memdesc:a8b8cd1de490988811ee3a543696e90b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other)  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:adfca5150af4491389da1de7d855c91c1" id="r_adfca5150af4491389da1de7d855c91c1"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; std::string_view, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#adfca5150af4491389da1de7d855c91c1">GOAT::raytracing::NFUNCTYPE_NAME</a> = { &quot;vacuum&quot;, &quot;air&quot;, &quot;bk7&quot;, &quot;silica&quot;, &quot;lasf5&quot;, &quot;pmma&quot;,&quot;none&quot;}</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a23a390cc01279924f6190334c5fa97a0" name="a23a390cc01279924f6190334c5fa97a0"></a>
@@ -189,7 +199,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00051">51</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00055">55</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -205,7 +215,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00042">42</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00046">46</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +231,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00052">52</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00056">56</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -237,7 +247,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00045">45</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00049">49</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -253,7 +263,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00036">36</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00040">40</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -269,7 +279,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00047">47</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00051">51</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -301,7 +311,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00041">41</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00045">45</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +327,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00046">46</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00050">50</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +343,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00040">40</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00044">44</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +359,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00049">49</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00053">53</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -365,7 +375,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00048">48</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00052">52</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -383,7 +393,7 @@ Functions</h2></td></tr>
 
 <p>Shape is an aspheric lens. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00029">29</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00033">33</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -401,7 +411,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a box. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00031">31</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00035">35</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +429,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a cone. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00028">28</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00032">32</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -437,7 +447,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a cylinder. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00032">32</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00036">36</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -455,7 +465,7 @@ Functions</h2></td></tr>
 
 <p>Shape is an ellipsoid. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00026">26</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00030">30</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -471,7 +481,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00025">25</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00029">29</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +499,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a rough object (surface roughness is considered) </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00034">34</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00038">38</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -507,7 +517,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a spheric lens. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00030">30</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00034">34</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -525,7 +535,7 @@ Functions</h2></td></tr>
 
 <p>Shape is triangulated surface. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00027">27</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00031">31</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -543,7 +553,7 @@ Functions</h2></td></tr>
 
 <p>Shape is a vortex plate. </p>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00033">33</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00037">37</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -559,7 +569,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00043">43</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00047">47</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -575,7 +585,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00038">38</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00042">42</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -591,7 +601,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00037">37</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00041">41</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -607,7 +617,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00044">44</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00048">48</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -623,7 +633,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00039">39</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00043">43</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>
@@ -639,7 +649,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00050">50</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00054">54</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>

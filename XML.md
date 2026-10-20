@@ -1,0 +1,2 @@
+# XML Documentation
+The entire scene setup can be controlled via an XML file. Calculations can also be initiated through it. A detailed description of the structure can be found in the [xmldoc.pdf](../../latex/xmldoc.pdf) file.

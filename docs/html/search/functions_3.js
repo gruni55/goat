@@ -25,12 +25,13 @@ var searchData=
   ['doubleattribute_22',['DoubleAttribute',['../classtinyxml2_1_1_x_m_l_element.html#a10a90c505aea716bf073eea1c97f33b5',1,'tinyxml2::XMLElement::DoubleAttribute(const char *name, double defaultValue=0) const'],['../classtinyxml2_1_1_x_m_l_element.html#a10a90c505aea716bf073eea1c97f33b5',1,'tinyxml2::XMLElement::DoubleAttribute(const char *name, double defaultValue=0) const']]],
   ['doubletext_23',['DoubleText',['../classtinyxml2_1_1_x_m_l_element.html#a81b1ff0cf2f2cd09be8badc08b39a2b7',1,'tinyxml2::XMLElement::DoubleText(double defaultValue=0) const'],['../classtinyxml2_1_1_x_m_l_element.html#a81b1ff0cf2f2cd09be8badc08b39a2b7',1,'tinyxml2::XMLElement::DoubleText(double defaultValue=0) const']]],
   ['doublevalue_24',['DoubleValue',['../classtinyxml2_1_1_x_m_l_attribute.html#a4aa73513f54ff0087d3e804f0f54e30f',1,'tinyxml2::XMLAttribute::DoubleValue() const'],['../classtinyxml2_1_1_x_m_l_attribute.html#a4aa73513f54ff0087d3e804f0f54e30f',1,'tinyxml2::XMLAttribute::DoubleValue() const']]],
-  ['drehphivektor_25',['drehphivektor',['../namespace_g_o_a_t_1_1raytracing.html#aec0a6f2fbfd541c66caa3d287643e66f',1,'GOAT::raytracing']]],
-  ['drehvektor_26',['drehvektor',['../namespace_g_o_a_t_1_1raytracing.html#aa2c10abf3567b9c6d1278d0cb230a91b',1,'GOAT::raytracing']]],
-  ['dx_27',['Dx',['../namespace_g_o_a_t_1_1maths.html#a8ff3b630bf57b0490b8b232ad6a0ff7e',1,'GOAT::maths']]],
-  ['dy_28',['Dy',['../namespace_g_o_a_t_1_1maths.html#a9b65ccebd66b8e79b2e3c0d2240fbb05',1,'GOAT::maths']]],
-  ['dynarray_29',['DynArray',['../classtinyxml2_1_1_dyn_array.html#aaad72f384e761c70a4519183eb8fea17',1,'tinyxml2::DynArray::DynArray()'],['../classtinyxml2_1_1_dyn_array.html#a8e2251588f079f2e7a4080b2c53dabea',1,'tinyxml2::DynArray::DynArray(const DynArray &amp;)'],['../classtinyxml2_1_1_dyn_array.html#aaad72f384e761c70a4519183eb8fea17',1,'tinyxml2::DynArray::DynArray()'],['../classtinyxml2_1_1_dyn_array.html#a8e2251588f079f2e7a4080b2c53dabea',1,'tinyxml2::DynArray::DynArray(const DynArray &amp;)']]],
-  ['dz_30',['Dz',['../namespace_g_o_a_t_1_1maths.html#aca592fee1949e8f3edc9cf9bb1dcc6c1',1,'GOAT::maths']]],
-  ['dzdrleft_31',['dzdrleft',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#aae3405aa98244f39d983d73682f7765d',1,'GOAT::raytracing::asphericLens']]],
-  ['dzdrright_32',['dzdrright',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#af2667abc0243f54eb8263d349dae39c8',1,'GOAT::raytracing::asphericLens']]]
+  ['dowaveonly_25',['doWaveOnly',['../class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#abc46f20660a0cb6b61728a4c65536f2e',1,'GOAT::XML::xmlReader']]],
+  ['drehphivektor_26',['drehphivektor',['../namespace_g_o_a_t_1_1raytracing.html#aec0a6f2fbfd541c66caa3d287643e66f',1,'GOAT::raytracing']]],
+  ['drehvektor_27',['drehvektor',['../namespace_g_o_a_t_1_1raytracing.html#aa2c10abf3567b9c6d1278d0cb230a91b',1,'GOAT::raytracing']]],
+  ['dx_28',['Dx',['../namespace_g_o_a_t_1_1maths.html#a8ff3b630bf57b0490b8b232ad6a0ff7e',1,'GOAT::maths']]],
+  ['dy_29',['Dy',['../namespace_g_o_a_t_1_1maths.html#a9b65ccebd66b8e79b2e3c0d2240fbb05',1,'GOAT::maths']]],
+  ['dynarray_30',['DynArray',['../classtinyxml2_1_1_dyn_array.html#aaad72f384e761c70a4519183eb8fea17',1,'tinyxml2::DynArray::DynArray()'],['../classtinyxml2_1_1_dyn_array.html#a8e2251588f079f2e7a4080b2c53dabea',1,'tinyxml2::DynArray::DynArray(const DynArray &amp;)'],['../classtinyxml2_1_1_dyn_array.html#aaad72f384e761c70a4519183eb8fea17',1,'tinyxml2::DynArray::DynArray()'],['../classtinyxml2_1_1_dyn_array.html#a8e2251588f079f2e7a4080b2c53dabea',1,'tinyxml2::DynArray::DynArray(const DynArray &amp;)']]],
+  ['dz_31',['Dz',['../namespace_g_o_a_t_1_1maths.html#aca592fee1949e8f3edc9cf9bb1dcc6c1',1,'GOAT::maths']]],
+  ['dzdrleft_32',['dzdrleft',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#aae3405aa98244f39d983d73682f7765d',1,'GOAT::raytracing::asphericLens']]],
+  ['dzdrright_33',['dzdrright',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#af2667abc0243f54eb8263d349dae39c8',1,'GOAT::raytracing::asphericLens']]]
 ];

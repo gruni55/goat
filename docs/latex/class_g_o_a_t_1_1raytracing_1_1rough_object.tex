@@ -2,6 +2,11 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object}{}\label{class_g_o_a_t_1_1raytracing_1_1rough_object}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
 
 
+\doxylink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object} is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available\+: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta\+\_\+max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians.  
+
+
+
+
 {\ttfamily \#include $<$rough\+Object.\+h$>$}
 
 Inheritance diagram for GOAT\+::raytracing\+::rough\+Object\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
@@ -13,28 +18,53 @@ Inheritance diagram for GOAT\+::raytracing\+::rough\+Object\texorpdfstring{$<$}{
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_ae589a4da5ef587b122768625d6178c85}{get\+Scattering\+Type}} () const
+\begin{DoxyCompactList}\small\item\em Returns the scattering type. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}{get\+Sigma}} () const override
-\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}{norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&P) override
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the standard deviation for the normal distribution. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_aea957f172e603e6adfe2ecff4e69cec6}{get\+Theta\+Max}} () const
+\begin{DoxyCompactList}\small\item\em Returns the maximum scattering angle. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a21fae19dd2afb50a4f5ba396db7bafa9}{modify\+Norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&n) override
+\begin{DoxyCompactList}\small\item\em gives the normal vector of the rough object at a given point P. The surface normal is determined randomly, depending on the parameters sigma (standard deviation for a normal distribution) and theta\+Max (maximum scattering angle). \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}{rough\+Object}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object}} \&F)
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a39f0a7526236ad7b8d8516676684c898}{rough\+Object}} (const T \&obj, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}{rough\+Object}} (T \texorpdfstring{$\ast$}{*}obj, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}})
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a40453c5aff0b4f29453f6892c7ea95f0}{set\+Scattering\+Type}} (\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} type)
+\begin{DoxyCompactList}\small\item\em Sets the scattering type. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}{set\+Sigma}} (double s)
+\begin{DoxyCompactList}\small\item\em Sets the standard deviation for the normal distribution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a1225a3a3133464dd777f2af2623ba13c}{set\+Theta\+Max}} (double t)
+\begin{DoxyCompactList}\small\item\em Sets the maximum scattering angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a98fcce400f35efc0f22e3058362df551}{init}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a00040ef5816af61c02aae5b76f792f25}{modify\+Norm\+Cosine\+Cone}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&n)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a157532515fc6549a075f5c50bb4ca007}{modify\+Norm\+Gaussian}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&n)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_aa47e425cdb2b04b9d73e00fad714aa65}{modify\+Norm\+Uniform\+Cone}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&n)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}{dist}}
-\item 
 std\+::ofstream \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}{log\+File}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b7855c9d79aa8091eebd2a5261999bc}{normal\+Dist}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_ae0fb5b29a3c59ba38229c37a4ad82515}{phi\+Dist}}
+\item 
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a5db40c5b1f01817b14d23bdbb47f953b}{scattering\+Type}} = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4}{Scattering\+Type\+::\+Gaussian}}
 \item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}{sigma}} = 0.\+0
 \item 
-std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}{theta\+Dist}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a582a77b496c5b1633d3397f9cbd6da9e}{theta\+Max}} = M\+\_\+\+PI / 2.\+0
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object_a36a0eb2f802fff230a8d72a2dd825497}{uniform\+Dist}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Static Private Attributes}
 \begin{DoxyCompactItemize}
@@ -46,9 +76,9 @@ static thread\+\_\+local std\+::mt19937 \mbox{\hyperlink{class_g_o_a_t_1_1raytra
 \doxysubsection{Detailed Description}
 \subsubsection*{template$<$class T$>$\newline
 class GOAT\+::raytracing\+::rough\+Object$<$ T $>$}
+\doxylink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object} is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available\+: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta\+\_\+max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians. 
 
-
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00020}{20}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00029}{29}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 
 
@@ -64,7 +94,7 @@ template$<$class T$>$ \\
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00023}{23}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00032}{32}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a007ac962fd71d9029b1fbe5a1a728fda}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!roughObject@{roughObject}}
 \index{roughObject@{roughObject}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
@@ -75,7 +105,7 @@ template$<$class T$>$ \\
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00033}{33}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00040}{40}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a5c1ce0438b565ee973b9ffe13d24856a}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!roughObject@{roughObject}}
 \index{roughObject@{roughObject}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
@@ -86,13 +116,35 @@ template$<$class T$>$ \\
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00041}{41}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00048}{48}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 
 
 \label{doc-func-members}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_ae589a4da5ef587b122768625d6178c85}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!getScatteringType@{getScatteringType}}
+\index{getScatteringType@{getScatteringType}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getScatteringType()}{getScatteringType()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_ae589a4da5ef587b122768625d6178c85} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::get\+Scattering\+Type (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Returns the scattering type. 
+
+\begin{DoxyReturn}{Returns}
+The scattering type. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_ad2591b3e987282459fc92b56cfe84d67}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00132}{132}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a2749a625e57a37999e5fe9b1d0a38907}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!getSigma@{getSigma}}
 \index{getSigma@{getSigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{getSigma()}{getSigma()}}
@@ -102,22 +154,132 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::ray
 
 
 
+Returns the standard deviation for the normal distribution. 
+
+\begin{DoxyReturn}{Returns}
+The standard deviation in radians. 
+\end{DoxyReturn}
+
+
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a14b4f69aa7bea4e5604a00476fa36583}{GOAT\+::raytracing\+::rough\+Interface}}.
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00101}{101}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00108}{108}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!norm@{norm}}
-\index{norm@{norm}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{norm()}{norm()}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_abf9077cf944c6e37d55fe1a61233b969} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_aea957f172e603e6adfe2ecff4e69cec6}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!getThetaMax@{getThetaMax}}
+\index{getThetaMax@{getThetaMax}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getThetaMax()}{getThetaMax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_aea957f172e603e6adfe2ecff4e69cec6} 
 template$<$class T$>$ \\
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{P}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::get\+Theta\+Max (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00051}{51}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Returns the maximum scattering angle. 
+
+\begin{DoxyReturn}{Returns}
+The maximum scattering angle in radians. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a6527f95d06bbd85e7f0e04126d3652bf}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00116}{116}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a98fcce400f35efc0f22e3058362df551}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!init@{init}}
+\index{init@{init}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a98fcce400f35efc0f22e3058362df551} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00140}{140}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a21fae19dd2afb50a4f5ba396db7bafa9}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!modifyNorm@{modifyNorm}}
+\index{modifyNorm@{modifyNorm}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{modifyNorm()}{modifyNorm()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a21fae19dd2afb50a4f5ba396db7bafa9} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::modify\+Norm (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+gives the normal vector of the rough object at a given point P. The surface normal is determined randomly, depending on the parameters sigma (standard deviation for a normal distribution) and theta\+Max (maximum scattering angle). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em P} & The point on the surface of the object where the normal vector is to be calculated. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a88adf201db81c7c6d6211cb5c661128d}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00066}{66}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a00040ef5816af61c02aae5b76f792f25}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!modifyNormCosineCone@{modifyNormCosineCone}}
+\index{modifyNormCosineCone@{modifyNormCosineCone}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{modifyNormCosineCone()}{modifyNormCosineCone()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a00040ef5816af61c02aae5b76f792f25} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::modify\+Norm\+Cosine\+Cone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00194}{194}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a157532515fc6549a075f5c50bb4ca007}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!modifyNormGaussian@{modifyNormGaussian}}
+\index{modifyNormGaussian@{modifyNormGaussian}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{modifyNormGaussian()}{modifyNormGaussian()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a157532515fc6549a075f5c50bb4ca007} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::modify\+Norm\+Gaussian (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00148}{148}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_aa47e425cdb2b04b9d73e00fad714aa65}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!modifyNormUniformCone@{modifyNormUniformCone}}
+\index{modifyNormUniformCone@{modifyNormUniformCone}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{modifyNormUniformCone()}{modifyNormUniformCone()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_aa47e425cdb2b04b9d73e00fad714aa65} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::modify\+Norm\+Uniform\+Cone (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{n}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00174}{174}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a40453c5aff0b4f29453f6892c7ea95f0}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!setScatteringType@{setScatteringType}}
+\index{setScatteringType@{setScatteringType}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setScatteringType()}{setScatteringType()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a40453c5aff0b4f29453f6892c7ea95f0} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::set\+Scattering\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}}}]{type}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets the scattering type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The scattering type. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a5fca9066a3dde48cf9b8ffed6aef32ce}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00124}{124}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a3d55f4a19525801ca93f0b22e3f7b903}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!setSigma@{setSigma}}
 \index{setSigma@{setSigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
@@ -128,28 +290,50 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytr
 
 
 
+Sets the standard deviation for the normal distribution. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & The standard deviation in radians. \\
+\hline
+\end{DoxyParams}
+
+
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_a55692fd1c1cfcf593795111d5fca5d28}{GOAT\+::raytracing\+::rough\+Interface}}.
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00094}{94}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00083}{83}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a1225a3a3133464dd777f2af2623ba13c}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!setThetaMax@{setThetaMax}}
+\index{setThetaMax@{setThetaMax}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setThetaMax()}{setThetaMax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a1225a3a3133464dd777f2af2623ba13c} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::set\+Theta\+Max (\begin{DoxyParamCaption}\item[{double}]{t}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets the maximum scattering angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & The maximum scattering angle in radians. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface_ae29de51c705be66cca09dc37e49437f7}{GOAT\+::raytracing\+::rough\+Interface}}.
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00091}{91}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 
 
 \label{doc-variable-members}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_doc-variable-members}
 \doxysubsection{Member Data Documentation}
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!dist@{dist}}
-\index{dist@{dist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{dist}{dist}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a76d19b0f3cce3272ec237a409e263e73} 
-template$<$class T$>$ \\
-std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::dist\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00108}{108}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
-
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a59b066351d842c2cdf56ab85eca965e1}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!logFile@{logFile}}
 \index{logFile@{logFile}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{logFile}{logFile}}
@@ -159,7 +343,29 @@ std\+::ofstream \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GO
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00107}{107}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00223}{223}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b7855c9d79aa8091eebd2a5261999bc}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!normalDist@{normalDist}}
+\index{normalDist@{normalDist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{normalDist}{normalDist}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b7855c9d79aa8091eebd2a5261999bc} 
+template$<$class T$>$ \\
+std\+::normal\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::normal\+Dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00225}{225}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_ae0fb5b29a3c59ba38229c37a4ad82515}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!phiDist@{phiDist}}
+\index{phiDist@{phiDist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{phiDist}{phiDist}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_ae0fb5b29a3c59ba38229c37a4ad82515} 
+template$<$class T$>$ \\
+std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::phi\+Dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00227}{227}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a522118a5cf029ddfde0a4878ce961c32}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!rng@{rng}}
 \index{rng@{rng}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
@@ -170,7 +376,18 @@ thread\+\_\+local std\+::mt19937 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00112}{112}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00230}{230}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a5db40c5b1f01817b14d23bdbb47f953b}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!scatteringType@{scatteringType}}
+\index{scatteringType@{scatteringType}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{scatteringType}{scatteringType}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a5db40c5b1f01817b14d23bdbb47f953b} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235}{Scattering\+Type}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::scattering\+Type = \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4}{Scattering\+Type\+::\+Gaussian}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00231}{231}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a4b48a5c4274b23bdc94935a667530293}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!sigma@{sigma}}
 \index{sigma@{sigma}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
@@ -181,18 +398,29 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::ray
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00109}{109}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00228}{228}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!thetaDist@{thetaDist}}
-\index{thetaDist@{thetaDist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
-\doxysubsubsection{\texorpdfstring{thetaDist}{thetaDist}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a63760316d0ab9962e1ccae9d81a153eb} 
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a582a77b496c5b1633d3397f9cbd6da9e}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!thetaMax@{thetaMax}}
+\index{thetaMax@{thetaMax}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{thetaMax}{thetaMax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a582a77b496c5b1633d3397f9cbd6da9e} 
 template$<$class T$>$ \\
-std\+::normal\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::theta\+Dist\hspace{0.3cm}{\ttfamily [private]}}
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::theta\+Max = M\+\_\+\+PI / 2.\+0\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
-Definition at line \mbox{\hyperlink{rough_object_8h_source_l00110}{110}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00229}{229}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1rough_object_a36a0eb2f802fff230a8d72a2dd825497}\index{GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}!uniformDist@{uniformDist}}
+\index{uniformDist@{uniformDist}!GOAT::raytracing::roughObject$<$ T $>$@{GOAT::raytracing::roughObject$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{uniformDist}{uniformDist}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1rough_object_a36a0eb2f802fff230a8d72a2dd825497} 
+template$<$class T$>$ \\
+std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object}}$<$ T $>$\+::uniform\+Dist\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{rough_object_8h_source_l00224}{224}} of file \mbox{\hyperlink{rough_object_8h_source}{rough\+Object.\+h}}.
 
 
 

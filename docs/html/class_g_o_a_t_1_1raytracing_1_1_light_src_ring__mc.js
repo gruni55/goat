@@ -5,6 +5,7 @@ var class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc =
     [ "genStartingPos", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ac0ec44ac8b992b25d42dbaab942f5b58", null ],
     [ "getRmax", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a9c6683c79c9f1d42ec466e453d38b3d8", null ],
     [ "getRmin", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a7b3489ef6cfb83c073d9ad2656863c7f", null ],
+    [ "initRandomGenerator", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#aa417174efcfc44b3f340729a1edd8c71", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#ae8a30e8a679ee303717cf295097fd81f", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#af12a3af99f30bcf3ccfcf94662869d06", null ],
     [ "next", "class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html#a1e3de68dd4f2a510e597f3e58a11d7ca", null ],

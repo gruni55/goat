@@ -5,12 +5,14 @@ var xmltoken_8h =
     [ "numLightSourceToken", "xmltoken_8h.html#a4ec71fa8aaaf51a14f1bcb4224bb90de", null ],
     [ "numObjectToken", "xmltoken_8h.html#a0b27f62752a0045622bfd5979c21a70e", null ],
     [ "numRefractiveIndexToken", "xmltoken_8h.html#abd0e0e0e48a4abdd1b31e138345336de", null ],
+    [ "numRoughnessToken", "xmltoken_8h.html#ac67654b3a07ba537676d4bd921b8ab41", null ],
     [ "TOKEN_CALCULATION_FIELD", "xmltoken_8h.html#a1e5b89056bb8b19b449408ea903d649b", null ],
     [ "TOKEN_CALCULATION_INELASTIC", "xmltoken_8h.html#a0f981569c43651fe0d9367a29623cdbb", null ],
     [ "TOKEN_CALCULATION_PATH", "xmltoken_8h.html#afcb3dd1e6e76906701c2e30b76032032", null ],
     [ "TOKEN_CALCULATION_PULSE", "xmltoken_8h.html#a67de9052c78b59c390cb6a5af0538451", null ],
     [ "TOKEN_CALCULATION_PULSE_FIELD", "xmltoken_8h.html#a6533ad242d100316e975bff8f08c752d", null ],
     [ "TOKEN_CALCULATION_PURE", "xmltoken_8h.html#aea07f4c4ac4c9085a3570563a5aed1a9", null ],
+    [ "TOKEN_CALCULATION_WAVE_ONLY", "xmltoken_8h.html#aaa03afad394efb79fc96a8277c792bd5", null ],
     [ "TOKEN_DETECTOR_ANGULAR_SPECTRUM", "xmltoken_8h.html#ae5e8bb13f29ebe793e384555f18accd1", null ],
     [ "TOKEN_DETECTOR_KIRCHHOFF", "xmltoken_8h.html#a036b6cd1c26251b191871405b6e6293b", null ],
     [ "TOKEN_DETECTOR_PLANE", "xmltoken_8h.html#ab36f28430a3eba4ec71858001efeaea4", null ],
@@ -47,10 +49,12 @@ var xmltoken_8h =
     [ "GOAT::XML::mapString2LightSourceToken", "namespace_g_o_a_t_1_1_x_m_l.html#a4fe5b4ae343ca608415724f5d633b482", null ],
     [ "GOAT::XML::mapString2ObjectToken", "namespace_g_o_a_t_1_1_x_m_l.html#aec392ce16138b2113c267904c1d0393e", null ],
     [ "GOAT::XML::mapString2RefractiveIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a52af62c0e720fa5e446dc2bf471831f3", null ],
+    [ "GOAT::XML::mapString2RoughnessIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a6eabbc11b6f6c2e247226dc60a99c56a", null ],
     [ "GOAT::XML::str_tolower", "namespace_g_o_a_t_1_1_x_m_l.html#ad67861689066aedbe35bc2538e6631bb", null ],
     [ "GOAT::XML::calculationToken", "namespace_g_o_a_t_1_1_x_m_l.html#a903a892a864a08354137c1fa488f63ac", null ],
     [ "GOAT::XML::detectorToken", "namespace_g_o_a_t_1_1_x_m_l.html#a445a5c3e59594302f79224e23156e5b0", null ],
     [ "GOAT::XML::lightSourceToken", "namespace_g_o_a_t_1_1_x_m_l.html#a32593972f7706fe5391997b5da6e9cd5", null ],
     [ "GOAT::XML::objectToken", "namespace_g_o_a_t_1_1_x_m_l.html#a7562d03fb24af1a89db31d41f9b5fa66", null ],
-    [ "GOAT::XML::refractiveIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a140f2a4c90db61947ac7c08d83565aec", null ]
+    [ "GOAT::XML::refractiveIndexToken", "namespace_g_o_a_t_1_1_x_m_l.html#a140f2a4c90db61947ac7c08d83565aec", null ],
+    [ "GOAT::XML::roughnessToken", "namespace_g_o_a_t_1_1_x_m_l.html#a861ba5d78a56a17fe880442561e01169", null ]
 ];

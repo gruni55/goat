@@ -7,6 +7,7 @@ var struct_g_o_a_t_1_1raytracing_1_1pulse_parameters =
     [ "repRate", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a03653109fcb2da3489d6f40a917c92e0", null ],
     [ "spatialResolution", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a85ed7abcb4b2de99736833f6713de646", null ],
     [ "spectralRanges", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a090eb4c5636f3db1f9dd3a1fb2cc6018", null ],
+    [ "threads", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a57e92614067f702b207cc4c573441ee5", null ],
     [ "time", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a15e6d03126d9c50979ed7bee6cf59e27", null ],
     [ "wvl", "struct_g_o_a_t_1_1raytracing_1_1pulse_parameters.html#a3d0cd53c2c182f675a58f573a5d5b4df", null ]
 ];

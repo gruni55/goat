@@ -7,6 +7,7 @@ var class_g_o_a_t_1_1_x_m_l_1_1xml_writer =
     [ "addLightSrc2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#a8b98aa1da8ff0887b96918f5af7bb96a", null ],
     [ "addObject2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#a7eb300f7d14545897de77140675508ce", null ],
     [ "addResult2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#aaf944037c5a9ef35048542f9d5b15323", null ],
+    [ "addRoughness2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#abb3cdce8e15d582a30bd7744c26ce561", null ],
     [ "addVectorC2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#a585a9cfce80962aafa27084784409671", null ],
     [ "addVectorD2DOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#ac1296cdd1f0ddac69bfdee73a23ffa74", null ],
     [ "buildDOM", "class_g_o_a_t_1_1_x_m_l_1_1xml_writer.html#ab71db6d08cf1158031ee844a09fabd8b", null ],

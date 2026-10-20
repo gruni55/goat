@@ -1,0 +1,237 @@
+\doxysection{GOAT\+::raytracing\+::Raytrace\+Parallel\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{}\label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+
+
+This class implements a parallel raytracing algorithm using multiple threads. This class is a template class that takes a raytracing class as a template parameter. All rays are generated in parallel by multiple threads, each thread processes a subset of the rays. The results are then combined to produce the final output. The class uses a barrier to synchronize the threads and ensure that all threads have completed their work before proceeding to the next step. Here an example, how to use this class\+: (Suppose we already have a \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} object S)  
+
+
+
+
+{\ttfamily \#include $<$raytrace\+\_\+parallel -\/ Kopie.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aa86cb1dfb58f706bc4947be7de82ec2d}{get\+Calculated\+Rays}} ()
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{Raytrace\+Parallel}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}})
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}{Raytrace\+Parallel}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a457122494d7a5b347b24f1f5708ca276}{request\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Request to stop the raytracing process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ae762d39c09a97e8018e5b22064e8f802}{set\+Stop\+Flag}} (std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ flag)
+\begin{DoxyCompactList}\small\item\em Sets the stop flag for the raytracing process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}{trace}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}{trace}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{get\+Next\+Ray}} (int i\+LS)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}{get\+Next\+Ray}} (int i\+LS)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::atomic$<$ size\+\_\+t $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af65f0cd351ee4e9f0bc2fc5cf36daadd}{ray\+Counter}} \{ 0 \}
+\item 
+std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aaeafbfec5d9fba59d94c98627a49555c}{stop\+Flag}}
+\begin{DoxyCompactList}\small\item\em flag to stop calculation, e.\+g. if the user wants to stop the calculation \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab}{use\+RRTParms}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class GOAT\+::raytracing\+::\+Raytrace\+Parallel$<$ T $>$}
+This class implements a parallel raytracing algorithm using multiple threads. This class is a template class that takes a raytracing class as a template parameter. All rays are generated in parallel by multiple threads, each thread processes a subset of the rays. The results are then combined to produce the final output. The class uses a barrier to synchronize the threads and ensure that all threads have completed their work before proceeding to the next step. Here an example, how to use this class\+: (Suppose we already have a \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} object S) 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}}.setNumberOfThreads(4);\ \textcolor{comment}{//\ Set\ the\ number\ of\ threads\ to\ use\ for\ parallel\ raytracing}}
+\DoxyCodeLine{GOAT::raytracing::RaytraceParallel<GOAT::raytracing::Raytrace\_pure>\ rtParallel(\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}{S}});\ \textcolor{comment}{//\ Create\ a\ RaytraceParallel\ object\ with\ the\ Scene\ S\ with\ the\ template\ parameter\ Raytrace\_pure}}
+\DoxyCodeLine{rtParallel.trace();\ \textcolor{comment}{//\ Start\ the\ parallel\ raytracing\ process}}
+
+\end{DoxyCode}
+ The result is provided in the detectors of the \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} object S. The class can be used with any raytracing class that implements the required interface, such as \doxylink{class_g_o_a_t_1_1raytracing_1_1_raytrace__pure}{Raytrace\+\_\+pure}, \doxylink{class_g_o_a_t_1_1raytracing_1_1_raytrace___inel}{Raytrace\+\_\+\+Inel}, \doxylink{class_g_o_a_t_1_1raytracing_1_1_raytrace___path}{Raytrace\+\_\+\+Path}, etc. Up to now, the class can only be used together with MC-\/light sources. 
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00010}{10}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!RaytraceParallel@{RaytraceParallel}}
+\index{RaytraceParallel@{RaytraceParallel}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RaytraceParallel()}{RaytraceParallel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::\+Raytrace\+Parallel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00023}{23}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!RaytraceParallel@{RaytraceParallel}}
+\index{RaytraceParallel@{RaytraceParallel}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RaytraceParallel()}{RaytraceParallel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a3173067a04eb8491fe8a5c0d22844871} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::\+Raytrace\+Parallel (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \&}]{S}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aa86cb1dfb58f706bc4947be7de82ec2d}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!getCalculatedRays@{getCalculatedRays}}
+\index{getCalculatedRays@{getCalculatedRays}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getCalculatedRays()}{getCalculatedRays()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aa86cb1dfb58f706bc4947be7de82ec2d} 
+template$<$class T$>$ \\
+size\+\_\+t \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::get\+Calculated\+Rays (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_8h_source_l00034}{34}} of file \mbox{\hyperlink{raytrace__parallel_8h_source}{raytrace\+\_\+parallel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!getNextRay@{getNextRay}}
+\index{getNextRay@{getNextRay}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNextRay()}{getNextRay()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::get\+Next\+Ray (\begin{DoxyParamCaption}\item[{int}]{i\+LS}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00028}{28}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!getNextRay@{getNextRay}}
+\index{getNextRay@{getNextRay}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNextRay()}{getNextRay()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af58dc4891ebedbdb682d9b77c1266f35} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::get\+Next\+Ray (\begin{DoxyParamCaption}\item[{int}]{i\+LS}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a457122494d7a5b347b24f1f5708ca276}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!requestStop@{requestStop}}
+\index{requestStop@{requestStop}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{requestStop()}{requestStop()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a457122494d7a5b347b24f1f5708ca276} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::request\+Stop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Request to stop the raytracing process. 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_8h_source_l00032}{32}} of file \mbox{\hyperlink{raytrace__parallel_8h_source}{raytrace\+\_\+parallel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ae762d39c09a97e8018e5b22064e8f802}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!setStopFlag@{setStopFlag}}
+\index{setStopFlag@{setStopFlag}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setStopFlag()}{setStopFlag()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ae762d39c09a97e8018e5b22064e8f802} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::set\+Stop\+Flag (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ std\+::atomic$<$ bool $>$ $>$}]{flag}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the stop flag for the raytracing process. 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_8h_source_l00033}{33}} of file \mbox{\hyperlink{raytrace__parallel_8h_source}{raytrace\+\_\+parallel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!trace@{trace}}
+\index{trace@{trace}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::trace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00059}{59}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!trace@{trace}}
+\index{trace@{trace}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{trace()}{trace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_ab34422d72681226476645025725c0669} 
+template$<$class T$>$ \\
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::trace (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af65f0cd351ee4e9f0bc2fc5cf36daadd}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!rayCounter@{rayCounter}}
+\index{rayCounter@{rayCounter}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{rayCounter}{rayCounter}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_af65f0cd351ee4e9f0bc2fc5cf36daadd} 
+template$<$class T$>$ \\
+std\+::atomic$<$size\+\_\+t$>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::ray\+Counter \{ 0 \}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_8h_source_l00043}{43}} of file \mbox{\hyperlink{raytrace__parallel_8h_source}{raytrace\+\_\+parallel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!S@{S}}
+\index{S@{S}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{S}{S}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a21c5b341dc024ed24dd4f07cdc635e1f} 
+template$<$class T$>$ \\
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::S}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00015}{15}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aaeafbfec5d9fba59d94c98627a49555c}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!stopFlag@{stopFlag}}
+\index{stopFlag@{stopFlag}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{stopFlag}{stopFlag}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_aaeafbfec5d9fba59d94c98627a49555c} 
+template$<$class T$>$ \\
+std\+::shared\+\_\+ptr$<$std\+::atomic$<$bool$>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::stop\+Flag\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_shared<std::atomic<bool>>(\textcolor{keyword}{false})}
+
+\end{DoxyCode}
+
+
+flag to stop calculation, e.\+g. if the user wants to stop the calculation 
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_8h_source_l00041}{41}} of file \mbox{\hyperlink{raytrace__parallel_8h_source}{raytrace\+\_\+parallel.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab}\index{GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}!useRRTParms@{useRRTParms}}
+\index{useRRTParms@{useRRTParms}!GOAT::raytracing::RaytraceParallel$<$ T $>$@{GOAT::raytracing::RaytraceParallel$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{useRRTParms}{useRRTParms}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel_a412a44bb271daf4d123f8af08720a7ab} 
+template$<$class T$>$ \\
+bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel}}$<$ T $>$\+::use\+RRTParms = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source_l00019}{19}} of file \mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h_source}{raytrace\+\_\+parallel -\/ Kopie.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+raytracing/\mbox{\hyperlink{raytrace__parallel_01-_01_kopie_8h}{raytrace\+\_\+parallel -\/ Kopie.\+h}}\item 
+raytracing/\mbox{\hyperlink{raytrace__parallel_8h}{raytrace\+\_\+parallel.\+h}}\end{DoxyCompactItemize}

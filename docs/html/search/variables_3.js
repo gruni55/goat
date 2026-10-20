@@ -15,11 +15,12 @@ var searchData=
   ['colmin_12',['ColMin',['../class_g_o_a_t_1_1raytracing_1_1_global_parms.html#a57433777782ca236377f225d820ccc35',1,'GOAT::raytracing::GlobalParms']]],
   ['coneangle_13',['coneAngle',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#aeb2247b3aeda21bb652baf53c4fc93bd',1,'GOAT::raytracing::Cone']]],
   ['cosca_14',['cosCA',['../class_g_o_a_t_1_1raytracing_1_1_cone.html#a37a6b6fb6467e839c09543fc6d94e762',1,'GOAT::raytracing::Cone']]],
-  ['cunity_15',['CUNITY',['../namespace_g_o_a_t_1_1maths.html#af316adec18961903cfe77123f8ebe110',1,'GOAT::maths']]],
-  ['currentindex_16',['currentIndex',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ac99fa459a52ad1442b4a429d5f2fe331',1,'GOAT::raytracing::Raytrace::currentIndex'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface::currentIndex']]],
-  ['currentls_17',['currentLS',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a360372bc79715fdb613f8647c2385531',1,'GOAT::raytracing::Raytrace']]],
-  ['currentnorm_18',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a571c3dc918ca9cbc0ff51dc52d4549a6',1,'GOAT::raytracing::sphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm']]],
-  ['currentobj_19',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
-  ['currnlist_20',['currNList',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a352189e9e2fed9784cc176089f58d6a8',1,'GOAT::raytracing::Trafo']]],
-  ['curvature_21',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens.html#a843cf59c74f5eee05132c249ff7ebd6d',1,'GOAT::raytracing::lens']]]
+  ['costhetamax_15',['cosThetaMax',['../class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html#a5182a566d26246daa34d9adf77c64770',1,'GOAT::raytracing::LightSrcPoint_mc']]],
+  ['cunity_16',['CUNITY',['../namespace_g_o_a_t_1_1maths.html#af316adec18961903cfe77123f8ebe110',1,'GOAT::maths']]],
+  ['currentindex_17',['currentIndex',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#ac99fa459a52ad1442b4a429d5f2fe331',1,'GOAT::raytracing::Raytrace::currentIndex'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#a8208a14eaba0fa56ec299a9144cf2d79',1,'GOAT::raytracing::surface::currentIndex']]],
+  ['currentls_18',['currentLS',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a360372bc79715fdb613f8647c2385531',1,'GOAT::raytracing::Raytrace']]],
+  ['currentnorm_19',['currentnorm',['../class_g_o_a_t_1_1raytracing_1_1aspheric_lens.html#a4e01fbec07af993314e4cd14e71ceda2',1,'GOAT::raytracing::asphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1spheric_lens.html#a571c3dc918ca9cbc0ff51dc52d4549a6',1,'GOAT::raytracing::sphericLens::currentnorm'],['../class_g_o_a_t_1_1raytracing_1_1surface.html#ad594601b7d8badb8f8e68635195bcf43',1,'GOAT::raytracing::surface::currentnorm']]],
+  ['currentobj_20',['currentObj',['../class_g_o_a_t_1_1raytracing_1_1_raytrace.html#a1fb8fab4389fa16a178cdba9cea6a666',1,'GOAT::raytracing::Raytrace']]],
+  ['currnlist_21',['currNList',['../class_g_o_a_t_1_1raytracing_1_1_trafo.html#a352189e9e2fed9784cc176089f58d6a8',1,'GOAT::raytracing::Trafo']]],
+  ['curvature_22',['curvature',['../struct_g_o_a_t_1_1raytracing_1_1lens.html#a843cf59c74f5eee05132c249ff7ebd6d',1,'GOAT::raytracing::lens']]]
 ];

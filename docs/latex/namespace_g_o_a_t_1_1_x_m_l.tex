@@ -39,12 +39,14 @@ int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_aec392ce16138b2113c267904c1d039
 \item 
 int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3}{map\+String2\+Refractive\+Index\+Token}} (std\+::string str)
 \item 
+int \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a6eabbc11b6f6c2e247226dc60a99c56a}{map\+String2\+Roughness\+Index\+Token}} (std\+::string str)
+\item 
 std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}{str\+\_\+tolower}} (std\+::string s)
 \begin{DoxyCompactList}\small\item\em converts all letters in s into lower case (taken from \href{https://en.cppreference.com/w/cpp/string/byte/tolower}{\texttt{https\+://en.\+cppreference.\+com/w/cpp/string/byte/tolower}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculation\+Token}} = \{ "{}pure"{},"{}path"{},"{}pulse"{},"{}pulse\+\_\+field"{},"{}inelastic"{},"{}field"{}\}
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac}{calculation\+Token}} = \{ "{}pure"{},"{}path"{},"{}pulse"{},"{}pulse\+\_\+field"{},"{}inelastic"{},"{}field"{},"{}wave\+\_\+only"{} \}
 \item 
 const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}{detector\+Token}} = \{"{}plane"{},"{}kirchhoff"{},"{}angular\+\_\+spectrum"{}\}
 \item 
@@ -59,6 +61,8 @@ const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941
 const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}{object\+Token}} = \{ "{}ellipsoid"{},"{}surface"{},"{}cone"{},"{}aspheric\+\_\+lens"{},"{}spheric\+\_\+lens"{},"{}box"{},"{}cylinder"{},"{}vortex\+\_\+plate"{}\}
 \item 
 const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}{refractive\+Index\+Token}} = \{ "{}air"{},"{}glass"{},"{}bk7"{},"{}lasf55"{},"{}vacuum"{},"{}pmma"{} \}
+\item 
+const std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_a861ba5d78a56a17fe880442561e01169}{roughness\+Token}} = \{ "{}gaussian"{},"{}uniform\+\_\+cone"{},"{}cosine\+\_\+cone"{} \}
 \item 
 const std\+::string \mbox{\hyperlink{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}{scene\+XMLElements}} \mbox{[}$\,$\mbox{]} = \{ "{}r0"{},"{}ns"{},"{}Cells\+Per\+Dir"{},"{}lightsources"{},"{}objects"{},"{}detectors"{}\}
 \end{DoxyCompactItemize}
@@ -79,7 +83,7 @@ Type for parameter values.
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00025}{25}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00027}{27}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 
 
@@ -148,6 +152,12 @@ int GOAT\+::\+XML\+::map\+String2\+Object\+Token (\begin{DoxyParamCaption}\item[
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a52af62c0e720fa5e446dc2bf471831f3} 
 int GOAT\+::\+XML\+::map\+String2\+Refractive\+Index\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str}{}\end{DoxyParamCaption})}
 
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a6eabbc11b6f6c2e247226dc60a99c56a}\index{GOAT::XML@{GOAT::XML}!mapString2RoughnessIndexToken@{mapString2RoughnessIndexToken}}
+\index{mapString2RoughnessIndexToken@{mapString2RoughnessIndexToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{mapString2RoughnessIndexToken()}{mapString2RoughnessIndexToken()}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a6eabbc11b6f6c2e247226dc60a99c56a} 
+int GOAT\+::\+XML\+::map\+String2\+Roughness\+Index\+Token (\begin{DoxyParamCaption}\item[{std\+::string}]{str}{}\end{DoxyParamCaption})}
+
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ad67861689066aedbe35bc2538e6631bb}\index{GOAT::XML@{GOAT::XML}!str\_tolower@{str\_tolower}}
 \index{str\_tolower@{str\_tolower}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{str\_tolower()}{str\_tolower()}}
@@ -167,11 +177,11 @@ converts all letters in s into lower case (taken from \href{https://en.cpprefere
 \index{calculationToken@{calculationToken}!GOAT::XML@{GOAT::XML}}
 \doxysubsubsection{\texorpdfstring{calculationToken}{calculationToken}}
 {\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a903a892a864a08354137c1fa488f63ac} 
-const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::calculation\+Token = \{ "{}pure"{},"{}path"{},"{}pulse"{},"{}pulse\+\_\+field"{},"{}inelastic"{},"{}field"{}\}}
+const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::calculation\+Token = \{ "{}pure"{},"{}path"{},"{}pulse"{},"{}pulse\+\_\+field"{},"{}inelastic"{},"{}field"{},"{}wave\+\_\+only"{} \}}
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00064}{64}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00066}{66}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a445a5c3e59594302f79224e23156e5b0}\index{GOAT::XML@{GOAT::XML}!detectorToken@{detectorToken}}
 \index{detectorToken@{detectorToken}!GOAT::XML@{GOAT::XML}}
@@ -181,7 +191,7 @@ const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::detector\+Token = \{"{}p
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00063}{63}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00065}{65}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a32593972f7706fe5391997b5da6e9cd5}\index{GOAT::XML@{GOAT::XML}!lightSourceToken@{lightSourceToken}}
 \index{lightSourceToken@{lightSourceToken}!GOAT::XML@{GOAT::XML}}
@@ -191,7 +201,7 @@ const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::light\+Source\+Token = \
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00061}{61}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00063}{63}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a2e2e6f4b5dc4d6302a3c4f9d2abff8ac}\index{GOAT::XML@{GOAT::XML}!LSTYPES@{LSTYPES}}
 \index{LSTYPES@{LSTYPES}!GOAT::XML@{GOAT::XML}}
@@ -201,7 +211,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSTYPES\mbox{[}$\,$\mbox{]} = \{ "{}plane
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00086}{86}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00088}{88}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_aaf98f6e18eab176629a4332dd4bd1c6a}\index{GOAT::XML@{GOAT::XML}!LSXMLAttributes@{LSXMLAttributes}}
 \index{LSXMLAttributes@{LSXMLAttributes}!GOAT::XML@{GOAT::XML}}
@@ -211,7 +221,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSXMLAttributes\mbox{[}$\,$\mbox{]} = \{ 
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00084}{84}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00086}{86}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_ae17af7fb699941154a1007034e7524ee}\index{GOAT::XML@{GOAT::XML}!LSXMLTYPES@{LSXMLTYPES}}
 \index{LSXMLTYPES@{LSXMLTYPES}!GOAT::XML@{GOAT::XML}}
@@ -221,7 +231,7 @@ const std\+::string GOAT\+::\+XML\+::\+LSXMLTYPES\mbox{[}$\,$\mbox{]} = \{"{}pla
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00085}{85}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00087}{87}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a7562d03fb24af1a89db31d41f9b5fa66}\index{GOAT::XML@{GOAT::XML}!objectToken@{objectToken}}
 \index{objectToken@{objectToken}!GOAT::XML@{GOAT::XML}}
@@ -231,7 +241,7 @@ const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::object\+Token = \{ "{}el
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00062}{62}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00064}{64}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a140f2a4c90db61947ac7c08d83565aec}\index{GOAT::XML@{GOAT::XML}!refractiveIndexToken@{refractiveIndexToken}}
 \index{refractiveIndexToken@{refractiveIndexToken}!GOAT::XML@{GOAT::XML}}
@@ -241,7 +251,17 @@ const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::refractive\+Index\+Token
 
 
 
-Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00065}{65}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00067}{67}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
+
+\Hypertarget{namespace_g_o_a_t_1_1_x_m_l_a861ba5d78a56a17fe880442561e01169}\index{GOAT::XML@{GOAT::XML}!roughnessToken@{roughnessToken}}
+\index{roughnessToken@{roughnessToken}!GOAT::XML@{GOAT::XML}}
+\doxysubsubsection{\texorpdfstring{roughnessToken}{roughnessToken}}
+{\footnotesize\ttfamily \label{namespace_g_o_a_t_1_1_x_m_l_a861ba5d78a56a17fe880442561e01169} 
+const std\+::vector$<$std\+::string$>$ GOAT\+::\+XML\+::roughness\+Token = \{ "{}gaussian"{},"{}uniform\+\_\+cone"{},"{}cosine\+\_\+cone"{} \}}
+
+
+
+Definition at line \mbox{\hyperlink{xmltoken_8h_source_l00068}{68}} of file \mbox{\hyperlink{xmltoken_8h_source}{xmltoken.\+h}}.
 
 \Hypertarget{namespace_g_o_a_t_1_1_x_m_l_af1e262cfc476de9e58afa5bb75b1db07}\index{GOAT::XML@{GOAT::XML}!sceneXMLElements@{sceneXMLElements}}
 \index{sceneXMLElements@{sceneXMLElements}!GOAT::XML@{GOAT::XML}}
@@ -251,5 +271,5 @@ const std\+::string GOAT\+::\+XML\+::scene\+XMLElements\mbox{[}$\,$\mbox{]} = \{
 
 
 
-Definition at line \mbox{\hyperlink{xml_8h_source_l00083}{83}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
+Definition at line \mbox{\hyperlink{xml_8h_source_l00085}{85}} of file \mbox{\hyperlink{xml_8h_source}{xml.\+h}}.
 

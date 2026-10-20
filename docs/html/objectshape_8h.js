@@ -35,8 +35,11 @@ var objectshape_8h =
       [ "GOAT::raytracing::NFUNCTYPE::bk7", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153af2ad2910466d88aa810672c9813b9dc4", null ],
       [ "GOAT::raytracing::NFUNCTYPE::silica", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710", null ],
       [ "GOAT::raytracing::NFUNCTYPE::lasf5", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f", null ],
-      [ "GOAT::raytracing::NFUNCTYPE::pmma", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2", null ]
+      [ "GOAT::raytracing::NFUNCTYPE::pmma", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2", null ],
+      [ "GOAT::raytracing::NFUNCTYPE::none", "namespace_g_o_a_t_1_1raytracing.html#a908c9806482f099109a7c1b45769c153a334c4a4c42fdb79d7ebc3e73b517e6f8", null ]
     ] ],
     [ "GOAT::raytracing::computeInertia", "namespace_g_o_a_t_1_1raytracing.html#ad67b352e4ab64229e6e4a847e8e332aa", null ],
-    [ "GOAT::raytracing::intersectionTest", "namespace_g_o_a_t_1_1raytracing.html#a8b8cd1de490988811ee3a543696e90b7", null ]
+    [ "GOAT::raytracing::getEnumfromName", "namespace_g_o_a_t_1_1raytracing.html#a471fda5fbc5f49f74d1239e9dd1f767a", null ],
+    [ "GOAT::raytracing::intersectionTest", "namespace_g_o_a_t_1_1raytracing.html#a8b8cd1de490988811ee3a543696e90b7", null ],
+    [ "GOAT::raytracing::NFUNCTYPE_NAME", "namespace_g_o_a_t_1_1raytracing.html#adfca5150af4491389da1de7d855c91c1", null ]
 ];

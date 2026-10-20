@@ -1,0 +1,17 @@
+\doxysection{raytracing/raytrace\+\_\+parallel -\/ Kopie.\+h File Reference}
+\hypertarget{raytrace__parallel_01-_01_kopie_8h}{}\label{raytrace__parallel_01-_01_kopie_8h}\index{raytracing/raytrace\_parallel -\/ Kopie.h@{raytracing/raytrace\_parallel -\/ Kopie.h}}
+{\ttfamily \#include "{}raytrace.\+h"{}}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel}{GOAT\+::raytracing\+::\+Raytrace\+Parallel$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em This class implements a parallel raytracing algorithm using multiple threads. This class is a template class that takes a raytracing class as a template parameter. All rays are generated in parallel by multiple threads, each thread processes a subset of the rays. The results are then combined to produce the final output. The class uses a barrier to synchronize the threads and ensure that all threads have completed their work before proceeding to the next step. Here an example, how to use this class\+: (Suppose we already have a \doxylink{class_g_o_a_t_1_1raytracing_1_1_scene}{Scene} object S) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t}{GOAT}}
+\begin{DoxyCompactList}\small\item\em This class is used for the iray class. This class is intended for internal use only. It defines a plane, defined by a central position and two directional vectors. \end{DoxyCompactList}\item 
+namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
+\begin{DoxyCompactList}\small\item\em Raytracer used for ultrashort pulse calculation with raytracing only. \end{DoxyCompactList}\end{DoxyCompactItemize}

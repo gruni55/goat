@@ -2,7 +2,7 @@
 \hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc}{}\label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
 
 
-This class provides a point light source.  
+This class provides a point light source The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is counted away from the direction vector k (default value\+: thetamax = 180° (pi)  
 
 
 
@@ -22,11 +22,13 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a59db5
 \begin{DoxyCompactList}\small\item\em reads content of \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} from a binary file, represented by os (has to be specified by the derived classes) \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a269b9ebac4d29bd09e185d7c97e7cd75}{bin\+Write\+Item}} (std\+::ofstream \&os)
 \begin{DoxyCompactList}\small\item\em writes content of \doxylink{class_g_o_a_t_1_1raytracing_1_1_light_src}{Light\+Src} in a binary file, represented by is (has to be specified by the derived classes)focuspos \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a654ac38ac48c899c8c0eab4ddf999f0e}{gen\+Direction}} ()
-\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6faeae5ccf381c3140dfe1efa3bae281}{get\+Thetamax}} ()
+\begin{DoxyCompactList}\small\item\em returns the maximal theta angle in which rays will be emitted (in radiants) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_adfa33f90fc6bad917204873a49ddfda1}{Light\+Src\+Point\+\_\+mc}} ()
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a25836719097c0e436161d3bfd2bf8407}{Light\+Src\+Point\+\_\+mc}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}{Pos}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6ffca43f29eae02e390dc396d04ff94e}{N}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}})
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ab102e1fc49f262b7f65b6a92108347b7}{Light\+Src\+Point\+\_\+mc}} (const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc}{Light\+Src\+Point\+\_\+mc}} \&L)
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a3900e15962fbf08542b6bac1233e1266}{Light\+Src\+Point\+\_\+mc}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a22341548b53dab68f10d0fd6a55c29d4}{Pos}}, int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6ffca43f29eae02e390dc396d04ff94e}{N}}, double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ad09806ad6481130cacff6dad6d92653b}{Pol}}=\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$(0.\+0, 1.\+0, 0.\+0))
 \begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_afabb040e543386e343f9ed274fe4fe27}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_i_ray}{IRay}} \&S)
 \item 
@@ -35,7 +37,9 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_af863e8
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ad140f4d7b492a1ea36fca5b90e7a663d}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_ray_base}{Ray\+Base}} \texorpdfstring{$\ast$}{*}ray)
 \item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ae3e3cd40343aa5aa73ee77048120a9cb}{next}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1tubed_ray}{tubed\+Ray}} \&S)
-\end{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6c3fbc8c1b3d32863687c930550e57b2}{set\+Thetamax}} (double thetamax)
+\begin{DoxyCompactList}\small\item\em sets the maximal theta angle in which rays will be emitted (given in radiants) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -117,6 +121,30 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab00aa4db7ab4a57
 \item 
 virtual double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af5365bfa702b37dcd8f17f335337bfce}{area}} ()
 \end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a654ac38ac48c899c8c0eab4ddf999f0e}{gen\+Direction}} ()
+\begin{DoxyCompactList}\small\item\em generates the next random emission direction \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a8bed3d46103305642f3376695ea34152}{init\+Random\+Generator}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a56e15809a4a3eab233fbc686c01473e2}{reset}} ()
+\begin{DoxyCompactList}\small\item\em sets the internal ray counter to zero (intended for internal use only \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ad4dd67969b6dc21e4a31e72cacdca349}{update\+Polarisation}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&P, const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&knew)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a5182a566d26246daa34d9adf77c64770}{cos\+Theta\+Max}} = -\/1.\+0
+\item 
+std\+::random\+\_\+device \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6ac7cd77ef17777809b74e104f7c39eb}{rd}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a0a36911826571860c48e0ae05548b0d7}{t1}}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a89217b20ca29a10d0c77c9357b13fa7b}{t2}}
+\item 
+double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a2cf82671af6f409480e1098f44e50d52}{theta\+Max}} = M\+\_\+\+PI
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
 \doxysubsection*{Public Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
@@ -139,7 +167,7 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af70acad0851bf17a
 \begin{DoxyCompactList}\small\item\em second index of the ray inside the starting area (for internal use, -\/1 if the calculation has not yet been started) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0a82a65ad7958761d9512ed7245c0309}{init\+Pol}}
 \begin{DoxyCompactList}\small\item\em Polarisation, if the k-\/\+Vector points in z-\/direction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}} =maths\+::ez
 \begin{DoxyCompactList}\small\item\em main direction of the light source \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_a93b4f936eb3570680bd830de4901bce0}{raycount\+\_\+t}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6ffca43f29eae02e390dc396d04ff94e}{N}} =10000
 \begin{DoxyCompactList}\small\item\em number of rays (per direction) \end{DoxyCompactList}\item 
@@ -171,6 +199,13 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aac7923883a2dd34
 \begin{DoxyCompactList}\small\item\em if set true, the phase won\textquotesingle{}t be changed when calling a next method (needed for USP-\/calculations) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1cd3872eaece0be45}{type}}
 \begin{DoxyCompactList}\small\item\em type of the light source \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc}{GOAT\+::raytracing\+::\+Light\+Src\+\_\+mc}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_aa0aa23e55dd0295035c11fef7fad9a46}{Light\+Src\+\_\+mc}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_acac709911a92e966323273dbef5cd8d4}{reseed}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -186,12 +221,25 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acbbadf0a16d499ae
 \begin{DoxyCompactList}\small\item\em Vector which holds the spherical coordinates $r$, $\vartheta$ and $\varphi$ of the direction vector k. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}} =1
 \begin{DoxyCompactList}\small\item\em wavelength \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc}{GOAT\+::raytracing\+::\+Light\+Src\+\_\+mc}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937\+\_\+64 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_aa45409076907b51f409cc87f617c1597}{gen}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a3bb40b723e8c990a2d874bee6a1a3795}{nd1}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a67b52c08096099c0b4c18bf75774be7c}{nd2}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a343751c379fa7229ea734bfdeacb52d9}{ud1}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a15e14855eb8ea2238cab5385a4715c52}{ud2}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This class provides a point light source. 
+This class provides a point light source The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is counted away from the direction vector k (default value\+: thetamax = 180° (pi) 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00170}{170}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00199}{199}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 
@@ -200,15 +248,15 @@ Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00170}{170}} of file
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_adfa33f90fc6bad917204873a49ddfda1}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!LightSrcPoint\_mc@{LightSrcPoint\_mc}}
 \index{LightSrcPoint\_mc@{LightSrcPoint\_mc}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
-\doxysubsubsection{\texorpdfstring{LightSrcPoint\_mc()}{LightSrcPoint\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{LightSrcPoint\_mc()}{LightSrcPoint\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_adfa33f90fc6bad917204873a49ddfda1} 
 GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::\+Light\+Src\+Point\+\_\+mc (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
-\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a25836719097c0e436161d3bfd2bf8407}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!LightSrcPoint\_mc@{LightSrcPoint\_mc}}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a3900e15962fbf08542b6bac1233e1266}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!LightSrcPoint\_mc@{LightSrcPoint\_mc}}
 \index{LightSrcPoint\_mc@{LightSrcPoint\_mc}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
-\doxysubsubsection{\texorpdfstring{LightSrcPoint\_mc()}{LightSrcPoint\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a25836719097c0e436161d3bfd2bf8407} 
-GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::\+Light\+Src\+Point\+\_\+mc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Pos}{, }\item[{int}]{N}{, }\item[{double}]{wvl}{}\end{DoxyParamCaption})}
+\doxysubsubsection{\texorpdfstring{LightSrcPoint\_mc()}{LightSrcPoint\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a3900e15962fbf08542b6bac1233e1266} 
+GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::\+Light\+Src\+Point\+\_\+mc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$}]{Pos}{, }\item[{int}]{N}{, }\item[{double}]{wvl}{, }\item[{\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$}]{Pol}{ = {\ttfamily \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$~std\+:\+:complex$<$~double~$>$~$>$(0.0,~1.0,~0.0)}}\end{DoxyParamCaption})}
 
 
 
@@ -222,9 +270,13 @@ constructor
 \hline
 {\em size} & length of the light source \\
 \hline
-{\em direction} & direction of light source (not the direction of emission !) \\
-\hline
 \end{DoxyParams}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ab102e1fc49f262b7f65b6a92108347b7}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!LightSrcPoint\_mc@{LightSrcPoint\_mc}}
+\index{LightSrcPoint\_mc@{LightSrcPoint\_mc}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{LightSrcPoint\_mc()}{LightSrcPoint\_mc()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ab102e1fc49f262b7f65b6a92108347b7} 
+GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::\+Light\+Src\+Point\+\_\+mc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc}{Light\+Src\+Point\+\_\+mc}} \&}]{L}{}\end{DoxyParamCaption})}
+
 
 
 \label{doc-func-members}
@@ -246,7 +298,7 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a04bf6f811
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00188}{188}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00220}{220}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a269b9ebac4d29bd09e185d7c97e7cd75}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!binWriteItem@{binWriteItem}}
 \index{binWriteItem@{binWriteItem}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
@@ -264,13 +316,33 @@ Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a23997c8de
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00187}{187}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00219}{219}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a654ac38ac48c899c8c0eab4ddf999f0e}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!genDirection@{genDirection}}
 \index{genDirection@{genDirection}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
 \doxysubsubsection{\texorpdfstring{genDirection()}{genDirection()}}
 {\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a654ac38ac48c899c8c0eab4ddf999f0e} 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::gen\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::gen\+Direction (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+generates the next random emission direction 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6faeae5ccf381c3140dfe1efa3bae281}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!getThetamax@{getThetamax}}
+\index{getThetamax@{getThetamax}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{getThetamax()}{getThetamax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6faeae5ccf381c3140dfe1efa3bae281} 
+double GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::get\+Thetamax (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+returns the maximal theta angle in which rays will be emitted (in radiants) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a8bed3d46103305642f3376695ea34152}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!initRandomGenerator@{initRandomGenerator}}
+\index{initRandomGenerator@{initRandomGenerator}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{initRandomGenerator()}{initRandomGenerator()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a8bed3d46103305642f3376695ea34152} 
+void GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::init\+Random\+Generator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_afabb040e543386e343f9ed274fe4fe27}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!next@{next}}
 \index{next@{next}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
@@ -321,6 +393,87 @@ int GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::next (\begin{DoxyParamC
 
 
 Implements \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aeb4acde5ce380120ba8535c7da03ad8a}{GOAT\+::raytracing\+::\+Light\+Src}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a56e15809a4a3eab233fbc686c01473e2}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!reset@{reset}}
+\index{reset@{reset}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a56e15809a4a3eab233fbc686c01473e2} 
+void GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+sets the internal ray counter to zero (intended for internal use only 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6c3fbc8c1b3d32863687c930550e57b2}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!setThetamax@{setThetamax}}
+\index{setThetamax@{setThetamax}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{setThetamax()}{setThetamax()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6c3fbc8c1b3d32863687c930550e57b2} 
+void GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::set\+Thetamax (\begin{DoxyParamCaption}\item[{double}]{thetamax}{}\end{DoxyParamCaption})}
+
+
+
+sets the maximal theta angle in which rays will be emitted (given in radiants) 
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ad4dd67969b6dc21e4a31e72cacdca349}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!updatePolarisation@{updatePolarisation}}
+\index{updatePolarisation@{updatePolarisation}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{updatePolarisation()}{updatePolarisation()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_ad4dd67969b6dc21e4a31e72cacdca349} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::update\+Polarisation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \&}]{P}{, }\item[{const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&}]{knew}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\label{doc-variable-members}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a5182a566d26246daa34d9adf77c64770}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!cosThetaMax@{cosThetaMax}}
+\index{cosThetaMax@{cosThetaMax}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{cosThetaMax}{cosThetaMax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a5182a566d26246daa34d9adf77c64770} 
+double GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::cos\+Theta\+Max = -\/1.\+0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00226}{226}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6ac7cd77ef17777809b74e104f7c39eb}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!rd@{rd}}
+\index{rd@{rd}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{rd}{rd}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a6ac7cd77ef17777809b74e104f7c39eb} 
+std\+::random\+\_\+device GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::rd\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00224}{224}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a0a36911826571860c48e0ae05548b0d7}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!t1@{t1}}
+\index{t1@{t1}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{t1}{t1}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a0a36911826571860c48e0ae05548b0d7} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::t1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00227}{227}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a89217b20ca29a10d0c77c9357b13fa7b}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!t2@{t2}}
+\index{t2@{t2}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{t2}{t2}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a89217b20ca29a10d0c77c9357b13fa7b} 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$double$>$ GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::t2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00227}{227}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a2cf82671af6f409480e1098f44e50d52}\index{GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}!thetaMax@{thetaMax}}
+\index{thetaMax@{thetaMax}!GOAT::raytracing::LightSrcPoint\_mc@{GOAT::raytracing::LightSrcPoint\_mc}}
+\doxysubsubsection{\texorpdfstring{thetaMax}{thetaMax}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc_a2cf82671af6f409480e1098f44e50d52} 
+double GOAT\+::raytracing\+::\+Light\+Src\+Point\+\_\+mc\+::theta\+Max = M\+\_\+\+PI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00225}{225}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 

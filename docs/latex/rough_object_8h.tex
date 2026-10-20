@@ -6,13 +6,12 @@
 {\ttfamily \#include "{}box.\+h"{}}\newline
 {\ttfamily \#include $<$random$>$}\newline
 {\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include "{}rough\+Object\+Interface.\+h"{}}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{GOAT\+::raytracing\+::rough\+Interface}}
-\item 
 class \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_object}{GOAT\+::raytracing\+::rough\+Object$<$ T $>$}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_g_o_a_t_1_1raytracing_1_1rough_object}{rough\+Object} is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available\+: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta\+\_\+max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -23,5 +22,5 @@ namespace \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing}{GOAT\+::raytracing}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_aa7134e6a3d64d8eab95386eefa887a4c}{GOAT\+::raytracing\+::make\+Rough}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}obj, double sigma)
+void \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a7aefdaf5f8f194ca85a6c2b47bc949f8}{GOAT\+::raytracing\+::make\+Rough}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{Object\+Shape}} \texorpdfstring{$\ast$}{*}obj, double sigma)
 \end{DoxyCompactItemize}

@@ -99,26 +99,62 @@ $(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1rough_interface.html','
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="rough_object_8h_source.html">roughObject.h</a>&gt;</code></p>
+<p>Interface for rough surfaces. This interface class is used to allow access to the parameters of <span class="tt"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a></span> without having to cast them.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="rough_object_interface_8h_source.html">roughObjectInterface.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GOAT::raytracing::roughInterface:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_g_o_a_t_1_1raytracing_1_1rough_interface.png" usemap="#GOAT_3A_3Araytracing_3A_3AroughInterface_map" alt=""/>
   <map id="GOAT_3A_3Araytracing_3A_3AroughInterface_map" name="GOAT_3A_3Araytracing_3A_3AroughInterface_map">
-<area href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" alt="GOAT::raytracing::roughObject&lt; T &gt;" shape="rect" coords="0,56,218,80"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ..." alt="GOAT::raytracing::roughObject&lt; T &gt;" shape="rect" coords="0,56,218,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad2591b3e987282459fc92b56cfe84d67" id="r_ad2591b3e987282459fc92b56cfe84d67"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2591b3e987282459fc92b56cfe84d67">getScatteringType</a> () const =0</td></tr>
 <tr class="memitem:a14b4f69aa7bea4e5604a00476fa36583" id="r_a14b4f69aa7bea4e5604a00476fa36583"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a14b4f69aa7bea4e5604a00476fa36583">getSigma</a> () const =0</td></tr>
+<tr class="memitem:a6527f95d06bbd85e7f0e04126d3652bf" id="r_a6527f95d06bbd85e7f0e04126d3652bf"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6527f95d06bbd85e7f0e04126d3652bf">getThetaMax</a> () const =0</td></tr>
+<tr class="memitem:a88adf201db81c7c6d6211cb5c661128d" id="r_a88adf201db81c7c6d6211cb5c661128d"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88adf201db81c7c6d6211cb5c661128d">modifyNorm</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;P)=0</td></tr>
+<tr class="memitem:a5fca9066a3dde48cf9b8ffed6aef32ce" id="r_a5fca9066a3dde48cf9b8ffed6aef32ce"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fca9066a3dde48cf9b8ffed6aef32ce">setScatteringType</a> (<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> type)=0</td></tr>
 <tr class="memitem:a55692fd1c1cfcf593795111d5fca5d28" id="r_a55692fd1c1cfcf593795111d5fca5d28"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55692fd1c1cfcf593795111d5fca5d28">setSigma</a> (double s)=0</td></tr>
+<tr class="memitem:ae29de51c705be66cca09dc37e49437f7" id="r_ae29de51c705be66cca09dc37e49437f7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae29de51c705be66cca09dc37e49437f7">setThetaMax</a> (double t)=0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00012">12</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<div class="textblock"><p>Interface for rough surfaces. This interface class is used to allow access to the parameters of <span class="tt"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a></span> without having to cast them. </p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_interface_8h_source.html#l00018">18</a> of file <a class="el" href="rough_object_interface_8h_source.html">roughObjectInterface.h</a>.</p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ad2591b3e987282459fc92b56cfe84d67" name="ad2591b3e987282459fc92b56cfe84d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2591b3e987282459fc92b56cfe84d67">&#9670;&#160;</a></span>getScatteringType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> GOAT::raytracing::roughInterface::getScatteringType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#ae589a4da5ef587b122768625d6178c85">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
+
+</div>
+</div>
 <a id="a14b4f69aa7bea4e5604a00476fa36583" name="a14b4f69aa7bea4e5604a00476fa36583"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a14b4f69aa7bea4e5604a00476fa36583">&#9670;&#160;</a></span>getSigma()</h2>
 
@@ -143,6 +179,87 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#a2749a625e57a37999e5fe9b1d0a38907">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a6527f95d06bbd85e7f0e04126d3652bf" name="a6527f95d06bbd85e7f0e04126d3652bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6527f95d06bbd85e7f0e04126d3652bf">&#9670;&#160;</a></span>getThetaMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double GOAT::raytracing::roughInterface::getThetaMax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#aea957f172e603e6adfe2ecff4e69cec6">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a88adf201db81c7c6d6211cb5c661128d" name="a88adf201db81c7c6d6211cb5c661128d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88adf201db81c7c6d6211cb5c661128d">&#9670;&#160;</a></span>modifyNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; GOAT::raytracing::roughInterface::modifyNorm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>P</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#a21fae19dd2afb50a4f5ba396db7bafa9">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a5fca9066a3dde48cf9b8ffed6aef32ce" name="a5fca9066a3dde48cf9b8ffed6aef32ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fca9066a3dde48cf9b8ffed6aef32ce">&#9670;&#160;</a></span>setScatteringType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GOAT::raytracing::roughInterface::setScatteringType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#a40453c5aff0b4f29453f6892c7ea95f0">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
 
 </div>
 </div>
@@ -173,8 +290,35 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ae29de51c705be66cca09dc37e49437f7" name="ae29de51c705be66cca09dc37e49437f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae29de51c705be66cca09dc37e49437f7">&#9670;&#160;</a></span>setThetaMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void GOAT::raytracing::roughInterface::setThetaMax </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#a1225a3a3133464dd777f2af2623ba13c">GOAT::raytracing::roughObject&lt; T &gt;</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>raytracing/<a class="el" href="rough_object_8h_source.html">roughObject.h</a></li>
+<li>raytracing/<a class="el" href="rough_object_interface_8h_source.html">roughObjectInterface.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

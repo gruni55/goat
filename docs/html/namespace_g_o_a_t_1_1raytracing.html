@@ -142,6 +142,8 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure, which holds the full information about the spheric lens The side surfaces of the lens are described by left and right. The thickness of the lens is described by offset and the height/radius of the lens by radius (for details, see also the documentation of the class <a class="el" href="class_g_o_a_t_1_1raytracing_1_1spheric_lens.html" title="This class provides a lens with spherical surfaces The lens consists of two side surfaces and one lat...">sphericLens</a>)  <a href="struct_g_o_a_t_1_1raytracing_1_1lensp.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrc" id="r_LightSrc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This abstract class is the basic class for all light sources used in this raytracing library. It provides all necessary interfaces.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#details">More...</a><br /></td></tr>
+<tr class="memitem:LightSrc_5Fmc" id="r_LightSrc_5Fmc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html">LightSrc_mc</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for light sources with random ray distribution This class provides the random number generator and the random distributions for the light sources with random ray distribution.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcGauss" id="r_LightSrcGauss"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html">LightSrcGauss</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a focused gaussian beam.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcGauss_5Fmc" id="r_LightSrcGauss_5Fmc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_gauss__mc.html">LightSrcGauss_mc</a></td></tr>
@@ -155,7 +157,7 @@ Classes</h2></td></tr>
 <tr class="memitem:LightSrcPlane_5Fmc" id="r_LightSrcPlane_5Fmc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html">LightSrcPlane_mc</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_plane.html">Plane</a> wave with random ray distribution. This class provides a plane (square sized) wave with a given width. The rays are arbitrarily but uniformly distributed inside the light source area.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_plane__mc.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcPoint_5Fmc" id="r_LightSrcPoint_5Fmc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html">LightSrcPoint_mc</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a point light source.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class provides a point light source The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is counted away from the direction vector k (default value: thetamax = 180° (pi)  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcRing" id="r_LightSrcRing"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html">LightSrcRing</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class describes a ring shaped This class represents a ring shaped light source, defined by the inner radius rmin and the outer radius rmax.  <a href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LightSrcRing_5Fmc" id="r_LightSrcRing_5Fmc"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc.html">LightSrcRing_mc</a></td></tr>
@@ -206,8 +208,12 @@ Classes</h2></td></tr>
 <tr class="memitem:Raytrace_5Fusp" id="r_Raytrace_5Fusp"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html">Raytrace_usp</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class performs ray tracing in preparation for a later calculation of short pulses This class performs ray tracing and stores the length and the refractive index as an index of each step into a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_super_array.html" title="Template class to store arbitrary information in a 3D-grid This template class provides a virtual 3D-...">SuperArray</a> class named SA. This information is necessary for the calculation of the short pulses.  <a href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Raytrace_5Fusp_5Frt" id="r_Raytrace_5Fusp_5Frt"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace__usp__rt.html">Raytrace_usp_rt</a></td></tr>
+<tr class="memitem:RaytraceParallel" id="r_RaytraceParallel"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel.html">RaytraceParallel</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This class implements a parallel raytracing algorithm using multiple threads. This class is a template class that takes a raytracing class as a template parameter. All rays are generated in parallel by multiple threads, each thread processes a subset of the rays. The results are then combined to produce the final output. The class uses a barrier to synchronize the threads and ensure that all threads have completed their work before proceeding to the next step. Here an example, how to use this class: (Suppose we already have a <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_scene.html" title="Class defining a scene with lightsources and objects. This is a container used to inform the Raytrace...">Scene</a> object S)  <a href="class_g_o_a_t_1_1raytracing_1_1_raytrace_parallel.html#details">More...</a><br /></td></tr>
 <tr class="memitem:roughInterface" id="r_roughInterface"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html">roughInterface</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for rough surfaces. This interface class is used to allow access to the parameters of <span class="tt"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a></span> without having to cast them.  <a href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#details">More...</a><br /></td></tr>
 <tr class="memitem:roughObject" id="r_roughObject"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">roughObject</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a> is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta_max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians.  <a href="class_g_o_a_t_1_1raytracing_1_1rough_object.html#details">More...</a><br /></td></tr>
 <tr class="memitem:RRTParms" id="r_RRTParms"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_r_r_t_parms.html">RRTParms</a></td></tr>
 <tr class="memitem:RRTParmsInfo" id="r_RRTParmsInfo"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html">RRTParmsInfo</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class used to set the parameters for inelastic scattering (may replaced later)  <a href="class_g_o_a_t_1_1raytracing_1_1_r_r_t_parms_info.html#details">More...</a><br /></td></tr>
@@ -264,7 +270,13 @@ Enumerations</h2></td></tr>
 , <br />
 &#160;&#160;<a class="el" href="#a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f">lasf5</a>
 , <a class="el" href="#a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2">pmma</a>
+, <a class="el" href="#a908c9806482f099109a7c1b45769c153a334c4a4c42fdb79d7ebc3e73b517e6f8">none</a>
 <br />
+ }</td></tr>
+<tr class="memitem:a5b886e86ff38b68e3835d58aef73e235" id="r_a5b886e86ff38b68e3835d58aef73e235"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> { <a class="el" href="#a5b886e86ff38b68e3835d58aef73e235a9bc14546877c58cfa5e422552d1f479e">None</a> = -1
+, <a class="el" href="#a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4">Gaussian</a> = 0
+, <a class="el" href="#a5b886e86ff38b68e3835d58aef73e235af1899145943b849fe87a06f14aca64cf">UniformCone</a> = 1
+, <a class="el" href="#a5b886e86ff38b68e3835d58aef73e235aa04d60fff67910729aeef55e992b220a">CosineCone</a> = 2
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -306,8 +318,8 @@ Functions</h2></td></tr>
 <tr class="memitem:aa129f530c425cdeddfbcfd9f975bc0c4" id="r_aa129f530c425cdeddfbcfd9f975bc0c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa129f530c425cdeddfbcfd9f975bc0c4">copy</a> (<a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html">StrahlInfo</a> &amp;dest, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_info.html">StrahlInfo</a> src)</td></tr>
 <tr class="memitem:a4707dec5043c1f01f53eb5cba77d649a" id="r_a4707dec5043c1f01f53eb5cba77d649a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4707dec5043c1f01f53eb5cba77d649a">copyFormList</a> (std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> * &gt; &amp;d, std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> * &gt; s, int anz)</td></tr>
 <tr class="memitem:a58fa5326b697b71fc6bb611547782000" id="r_a58fa5326b697b71fc6bb611547782000"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58fa5326b697b71fc6bb611547782000">copyInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *&amp;d, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *s)</td></tr>
-<tr class="memitem:a1c79048f923ffb412e8f256992ec9618" id="r_a1c79048f923ffb412e8f256992ec9618"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c79048f923ffb412e8f256992ec9618">copyLightSrcList</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **&amp;d, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **s, int nLS)</td></tr>
-<tr class="memdesc:a1c79048f923ffb412e8f256992ec9618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the given light source list.  <br /></td></tr>
+<tr class="memitem:ac11f1291ad16263ab4cd6bcb18df6984" id="r_ac11f1291ad16263ab4cd6bcb18df6984"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac11f1291ad16263ab4cd6bcb18df6984">copyLightSrcList</a> (std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> * &gt; &amp;d, std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> * &gt; s, int nLS)</td></tr>
+<tr class="memdesc:ac11f1291ad16263ab4cd6bcb18df6984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy the given light source list.  <br /></td></tr>
 <tr class="memitem:af16607f3222c579004d47b7c0b6f024d" id="r_af16607f3222c579004d47b7c0b6f024d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af16607f3222c579004d47b7c0b6f024d">Delete</a> (int n, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; **Gitter)</td></tr>
 <tr class="memitem:af784b943e18085be4e90bd83d2b7a499" id="r_af784b943e18085be4e90bd83d2b7a499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af784b943e18085be4e90bd83d2b7a499">deleteInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *E)</td></tr>
 <tr class="memitem:aec0a6f2fbfd541c66caa3d287643e66f" id="r_aec0a6f2fbfd541c66caa3d287643e66f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec0a6f2fbfd541c66caa3d287643e66f">drehphivektor</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; vein, double phi)</td></tr>
@@ -317,6 +329,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a4adc45593fda60dbbf7d24415efb027f" id="r_a4adc45593fda60dbbf7d24415efb027f"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4adc45593fda60dbbf7d24415efb027f">gaussphase</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; F, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; k, double w0, double k0)</td></tr>
 <tr class="memitem:a7874817c58cb0f9a946cca676453a292" id="r_a7874817c58cb0f9a946cca676453a292"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7874817c58cb0f9a946cca676453a292">gaussw</a> (double z, double wvl, double w0)</td></tr>
 <tr class="memitem:acec6e0e2684386f9219f5ccf8ad4b0ae" id="r_acec6e0e2684386f9219f5ccf8ad4b0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_point.html">Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acec6e0e2684386f9219f5ccf8ad4b0ae">get_grid_point</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html">GlobalParms</a> &amp;parms, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; P)</td></tr>
+<tr class="memitem:a471fda5fbc5f49f74d1239e9dd1f767a" id="r_a471fda5fbc5f49f74d1239e9dd1f767a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a908c9806482f099109a7c1b45769c153">NFUNCTYPE</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a471fda5fbc5f49f74d1239e9dd1f767a">getEnumfromName</a> (std::string ftname)</td></tr>
 <tr class="memitem:a54ee734329c2a8639780687e741747b9" id="r_a54ee734329c2a8639780687e741747b9"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54ee734329c2a8639780687e741747b9">grad</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html">GlobalParms</a> &amp;parms, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; **Gitter, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;P)</td></tr>
 <tr class="memitem:a2ee5e0f76a9316b09130874d09c4cbe1" id="r_a2ee5e0f76a9316b09130874d09c4cbe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ee5e0f76a9316b09130874d09c4cbe1">init_Strahl</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html">GlobalParms</a> Parms, <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_strahl_array.html">StrahlArray</a> *Strahl)</td></tr>
 <tr class="memitem:a1e2a56a7879491478cf4ba42dab27048" id="r_a1e2a56a7879491478cf4ba42dab27048"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e2a56a7879491478cf4ba42dab27048">initInc</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *E)</td></tr>
@@ -326,7 +339,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8b8cd1de490988811ee3a543696e90b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if object A and object B may intersect each other (i.e. the bounding boxes around the objects intersect each other)  <br /></td></tr>
 <tr class="memitem:a3394abb19bc4fe023c6aae72f792e55a" id="r_a3394abb19bc4fe023c6aae72f792e55a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3394abb19bc4fe023c6aae72f792e55a">kart2sph</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; v)</td></tr>
 <tr class="memitem:a22339c4982fab6b882036206f322b1eb" id="r_a22339c4982fab6b882036206f322b1eb"><td class="memItemLeft" align="right" valign="top">std::istream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22339c4982fab6b882036206f322b1eb">loadbinGlobalParms</a> (std::istream &amp;os, <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_global_parms.html">GlobalParms</a> &amp;parms)</td></tr>
-<tr class="memitem:aa7134e6a3d64d8eab95386eefa887a4c" id="r_aa7134e6a3d64d8eab95386eefa887a4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7134e6a3d64d8eab95386eefa887a4c">makeRough</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *obj, double sigma)</td></tr>
+<tr class="memitem:a7aefdaf5f8f194ca85a6c2b47bc949f8" id="r_a7aefdaf5f8f194ca85a6c2b47bc949f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7aefdaf5f8f194ca85a6c2b47bc949f8">makeRough</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *obj, double sigma)</td></tr>
 <tr class="memitem:a33366a151f0db1345e0a9e68e3d85482" id="r_a33366a151f0db1345e0a9e68e3d85482"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a33366a151f0db1345e0a9e68e3d85482">max3</a> (double x, double y, double z)</td></tr>
 <tr class="memitem:a7c73bcb2fb33bed3da19556841bbf64d" id="r_a7c73bcb2fb33bed3da19556841bbf64d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_mem_info.html">MemInfo</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c73bcb2fb33bed3da19556841bbf64d">memstat</a> ()</td></tr>
 <tr class="memitem:abfc811755668dfce2bde8cdb2afc5f94" id="r_abfc811755668dfce2bde8cdb2afc5f94"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfc811755668dfce2bde8cdb2afc5f94">min3</a> (double x, double y, double z)</td></tr>
@@ -346,7 +359,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a97fa6cb0dca018d31ed37abd45b1d572"><td class="mdescLeft">&#160;</td><td class="mdescRight">refractive index of LASF55-glass from Schott (coefficients according taken from www.schott.com)  <br /></td></tr>
 <tr class="memitem:a00df40202a4b7c5b4e2ffd124c15ddd2" id="r_a00df40202a4b7c5b4e2ffd124c15ddd2"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00df40202a4b7c5b4e2ffd124c15ddd2">n_lin</a> (double wvl)</td></tr>
 <tr class="memitem:af72b6af2de3aceb13bd5e645084f2ce8" id="r_af72b6af2de3aceb13bd5e645084f2ce8"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af72b6af2de3aceb13bd5e645084f2ce8">n_PMMA</a> (double wvl)</td></tr>
-<tr class="memdesc:af72b6af2de3aceb13bd5e645084f2ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">refractive index function of Poly(methyl mathacrylate), PMMA refractive index function for PMMA taken from refractiveindex.info (Sultanova et al., Acta Physica Polonica A 116, 585-587 (2009))  <br /></td></tr>
+<tr class="memdesc:af72b6af2de3aceb13bd5e645084f2ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">refractive index function of Poly(methyl methacrylate), PMMA refractive index function for PMMA taken from refractiveindex.info (Sultanova et al., Acta Physica Polonica A 116, 585-587 (2009))  <br /></td></tr>
 <tr class="memitem:ae313fd777c998559699ee26ddb6c6cf7" id="r_ae313fd777c998559699ee26ddb6c6cf7"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae313fd777c998559699ee26ddb6c6cf7">n_Sellmeier</a> (double lambda, double C[3], double B[3])</td></tr>
 <tr class="memdesc:ae313fd777c998559699ee26ddb6c6cf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">refractive index formula used for glasses from Schott  <br /></td></tr>
 <tr class="memitem:a67e28a9983d77327527a70f0c03dee46" id="r_a67e28a9983d77327527a70f0c03dee46"><td class="memItemLeft" align="right" valign="top">std::complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67e28a9983d77327527a70f0c03dee46">n_test</a> (double wvl)</td></tr>
@@ -523,6 +536,7 @@ Variables</h2></td></tr>
 <tr class="memitem:ae5cf3649626c533161d7bd69c19f1ac9" id="r_ae5cf3649626c533161d7bd69c19f1ac9"><td class="memItemLeft" align="right" valign="top">constexpr double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae5cf3649626c533161d7bd69c19f1ac9">mu0</a> =1.25663706127E-6</td></tr>
 <tr class="memdesc:ae5cf3649626c533161d7bd69c19f1ac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">vacuum permeability in \(F\cdot A^{-2}\)  <br /></td></tr>
 <tr class="memitem:ad1ac13235d32c99143397594e8400215" id="r_ad1ac13235d32c99143397594e8400215"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1ac13235d32c99143397594e8400215">N_INTEGRAL</a> = 500</td></tr>
+<tr class="memitem:adfca5150af4491389da1de7d855c91c1" id="r_adfca5150af4491389da1de7d855c91c1"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; std::string_view, 7 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfca5150af4491389da1de7d855c91c1">NFUNCTYPE_NAME</a> = { &quot;vacuum&quot;, &quot;air&quot;, &quot;bk7&quot;, &quot;silica&quot;, &quot;lasf5&quot;, &quot;pmma&quot;,&quot;none&quot;}</td></tr>
 <tr class="memitem:a7123161c2477beec6bb0171e7833655b" id="r_a7123161c2477beec6bb0171e7833655b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="struct_g_o_a_t_1_1raytracing_1_1_gauss.html">Gauss</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7123161c2477beec6bb0171e7833655b">ohne_gauss</a> = { 0,<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt;(0,0,0),<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt;(0,0,0),false }</td></tr>
 <tr class="memitem:a35b77cfead80a1270e41c3a7480eedd3" id="r_a35b77cfead80a1270e41c3a7480eedd3"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35b77cfead80a1270e41c3a7480eedd3">PULSECALCULATION_NOT_CLEAR_RESULT</a> = 2</td></tr>
 <tr class="memdesc:a35b77cfead80a1270e41c3a7480eedd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag, set when the results should not be cleared when calling field () in <a class="el" href="class_g_o_a_t_1_1raytracing_1_1pulse_calculation.html" title="This class provides functionality to calculate field distributions for short pulses.">pulseCalculation</a>.  <br /></td></tr>
@@ -661,9 +675,32 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710" name="a908c9806482f099109a7c1b45769c153a02ae9ddb0ec97973ea976a6e0ab40710"></a>silica&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f" name="a908c9806482f099109a7c1b45769c153a6263158aaf27135f7e8841e668f0bb6f"></a>lasf5&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2" name="a908c9806482f099109a7c1b45769c153a112731179f172884d1fb08a83c3604b2"></a>pmma&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a908c9806482f099109a7c1b45769c153a334c4a4c42fdb79d7ebc3e73b517e6f8" name="a908c9806482f099109a7c1b45769c153a334c4a4c42fdb79d7ebc3e73b517e6f8"></a>none&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00054">54</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00058">58</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
+
+</div>
+</div>
+<a id="a5b886e86ff38b68e3835d58aef73e235" name="a5b886e86ff38b68e3835d58aef73e235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b886e86ff38b68e3835d58aef73e235">&#9670;&#160;</a></span>ScatteringType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a5b886e86ff38b68e3835d58aef73e235">GOAT::raytracing::ScatteringType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5b886e86ff38b68e3835d58aef73e235a9bc14546877c58cfa5e422552d1f479e" name="a5b886e86ff38b68e3835d58aef73e235a9bc14546877c58cfa5e422552d1f479e"></a>None&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4" name="a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4"></a>Gaussian&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5b886e86ff38b68e3835d58aef73e235af1899145943b849fe87a06f14aca64cf" name="a5b886e86ff38b68e3835d58aef73e235af1899145943b849fe87a06f14aca64cf"></a>UniformCone&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5b886e86ff38b68e3835d58aef73e235aa04d60fff67910729aeef55e992b220a" name="a5b886e86ff38b68e3835d58aef73e235aa04d60fff67910729aeef55e992b220a"></a>CosineCone&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_interface_8h_source.html#l00007">7</a> of file <a class="el" href="rough_object_interface_8h_source.html">roughObjectInterface.h</a>.</p>
 
 </div>
 </div>
@@ -1394,8 +1431,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a1c79048f923ffb412e8f256992ec9618" name="a1c79048f923ffb412e8f256992ec9618"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c79048f923ffb412e8f256992ec9618">&#9670;&#160;</a></span>copyLightSrcList()</h2>
+<a id="ac11f1291ad16263ab4cd6bcb18df6984" name="ac11f1291ad16263ab4cd6bcb18df6984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac11f1291ad16263ab4cd6bcb18df6984">&#9670;&#160;</a></span>copyLightSrcList()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1403,12 +1440,12 @@ Variables</h2></td></tr>
         <tr>
           <td class="memname">void GOAT::raytracing::copyLightSrcList </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **&amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> * &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> **</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">LightSrc</a> * &gt;</td>          <td class="paramname"><span class="paramname"><em>s</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1906,6 +1943,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a471fda5fbc5f49f74d1239e9dd1f767a" name="a471fda5fbc5f49f74d1239e9dd1f767a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471fda5fbc5f49f74d1239e9dd1f767a">&#9670;&#160;</a></span>getEnumfromName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a908c9806482f099109a7c1b45769c153">NFUNCTYPE</a> GOAT::raytracing::getEnumfromName </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>ftname</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a67369b8075430397fb11cffe146fc689" name="a67369b8075430397fb11cffe146fc689"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67369b8075430397fb11cffe146fc689">&#9670;&#160;</a></span>getMinMax()</h2>
 
@@ -2093,14 +2147,14 @@ max longest side length </dd></dl>
 
 </div>
 </div>
-<a id="aa7134e6a3d64d8eab95386eefa887a4c" name="aa7134e6a3d64d8eab95386eefa887a4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7134e6a3d64d8eab95386eefa887a4c">&#9670;&#160;</a></span>makeRough()</h2>
+<a id="a7aefdaf5f8f194ca85a6c2b47bc949f8" name="a7aefdaf5f8f194ca85a6c2b47bc949f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7aefdaf5f8f194ca85a6c2b47bc949f8">&#9670;&#160;</a></span>makeRough()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> * GOAT::raytracing::makeRough </td>
+          <td class="memname">void GOAT::raytracing::makeRough </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *</td>          <td class="paramname"><span class="paramname"><em>obj</em></span>, </td>
         </tr>
@@ -2429,7 +2483,7 @@ max longest side length </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>refractive index function of Poly(methyl mathacrylate), PMMA refractive index function for PMMA taken from refractiveindex.info (Sultanova et al., Acta Physica Polonica A 116, 585-587 (2009)) </p>
+<p>refractive index function of Poly(methyl methacrylate), PMMA refractive index function for PMMA taken from refractiveindex.info (Sultanova et al., Acta Physica Polonica A 116, 585-587 (2009)) </p>
 
 </div>
 </div>
@@ -3001,7 +3055,7 @@ template&lt;class T&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00942">942</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="superarray_8h_source.html#l00957">957</a> of file <a class="el" href="superarray_8h_source.html">superarray.h</a>.</p>
 
 </div>
 </div>
@@ -5198,6 +5252,30 @@ template&lt;class T&gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="fft_8h_source.html#l00015">15</a> of file <a class="el" href="fft_8h_source.html">fft.h</a>.</p>
+
+</div>
+</div>
+<a id="adfca5150af4491389da1de7d855c91c1" name="adfca5150af4491389da1de7d855c91c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfca5150af4491389da1de7d855c91c1">&#9670;&#160;</a></span>NFUNCTYPE_NAME</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;std::string_view,7&gt; GOAT::raytracing::NFUNCTYPE_NAME = { &quot;vacuum&quot;, &quot;air&quot;, &quot;bk7&quot;, &quot;silica&quot;, &quot;lasf5&quot;, &quot;pmma&quot;,&quot;none&quot;}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="objectshape_8h_source.html#l00059">59</a> of file <a class="el" href="objectshape_8h_source.html">objectshape.h</a>.</p>
 
 </div>
 </div>

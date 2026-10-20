@@ -3,6 +3,7 @@ var class_g_o_a_t_1_1_x_m_l_1_1xml_reader =
     [ "doCalculations", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a2d401c278fa6037503984ea4295965e1", null ],
     [ "doPulseCalculation", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a9f229aca5dbe5be41224d8686e03b597", null ],
     [ "doPulseCalculation_rt", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#aff64b5565231e69daac2c07a190039b0", null ],
+    [ "doWaveOnly", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#abc46f20660a0cb6b61728a4c65536f2e", null ],
     [ "isCalculationEnabled", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a34c6693ab74fa1ee10c329174b5e1ce0", null ],
     [ "readCmplx", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#ae560d33c7eae25b82b29822be2118fd6", null ],
     [ "readCmplx", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a3e393cc8efaab0728730f6b376f7a7a0", null ],
@@ -19,6 +20,7 @@ var class_g_o_a_t_1_1_x_m_l_1_1xml_reader =
     [ "readVector", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#afc8291db293d7fbb3fd5ab2a03a3d072", null ],
     [ "readXML", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#af45e5a74060421bf1f7d3c7c8e10c55b", null ],
     [ "setEnableCalculation", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a3118e666f57d04bddb8bc0ad44768f24", null ],
+    [ "setStopFlag", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a9ba436b64a1e9c0ae5c72332f1f28ff2", null ],
     [ "calculation_enabled", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a669a740ed0258e0d7bab3cc1943b0feb", null ],
     [ "calculationElement", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#aa3312907a042a5ff96fe299b5a3ac785", null ],
     [ "Det", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a7974be9d457eb8b17cd5621102496ca7", null ],
@@ -32,5 +34,6 @@ var class_g_o_a_t_1_1_x_m_l_1_1xml_reader =
     [ "path", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#ab545ebb8d3e97db14a847dcc23084459", null ],
     [ "rootElement", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a73d8d9a9de5acae7f6e8e60bc6010bf2", null ],
     [ "S", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#acfc9bdc66d97b25827afe7d299a84719", null ],
-    [ "sceneElement", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#afc2470a98546ddcb3586d43f185e66d4", null ]
+    [ "sceneElement", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#afc2470a98546ddcb3586d43f185e66d4", null ],
+    [ "stopFlag", "class_g_o_a_t_1_1_x_m_l_1_1xml_reader.html#a89da92bfed1e5863ecf9a5099562c978", null ]
 ];

@@ -99,6 +99,9 @@ $(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1rough_object.html','','
 </div><!--header-->
 <div class="contents">
 
+<p><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a> is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta_max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="rough_object_8h_source.html">roughObject.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GOAT::raytracing::roughObject&lt; T &gt;:</div>
@@ -106,25 +109,46 @@ Inheritance diagram for GOAT::raytracing::roughObject&lt; T &gt;:</div>
  <div class="center">
   <img src="class_g_o_a_t_1_1raytracing_1_1rough_object.png" usemap="#GOAT_3A_3Araytracing_3A_3AroughObject_3C_20T_20_3E_map" alt=""/>
   <map id="GOAT_3A_3Araytracing_3A_3AroughObject_3C_20T_20_3E_map" name="GOAT_3A_3Araytracing_3A_3AroughObject_3C_20T_20_3E_map">
-<area href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html" alt="GOAT::raytracing::roughInterface" shape="rect" coords="228,0,446,24"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html" title="Interface for rough surfaces. This interface class is used to allow access to the parameters of rough..." alt="GOAT::raytracing::roughInterface" shape="rect" coords="228,0,446,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ae589a4da5ef587b122768625d6178c85" id="r_ae589a4da5ef587b122768625d6178c85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae589a4da5ef587b122768625d6178c85">getScatteringType</a> () const</td></tr>
+<tr class="memdesc:ae589a4da5ef587b122768625d6178c85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the scattering type.  <br /></td></tr>
 <tr class="memitem:a2749a625e57a37999e5fe9b1d0a38907" id="r_a2749a625e57a37999e5fe9b1d0a38907"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2749a625e57a37999e5fe9b1d0a38907">getSigma</a> () const override</td></tr>
-<tr class="memitem:abf9077cf944c6e37d55fe1a61233b969" id="r_abf9077cf944c6e37d55fe1a61233b969"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf9077cf944c6e37d55fe1a61233b969">norm</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;P) override</td></tr>
+<tr class="memdesc:a2749a625e57a37999e5fe9b1d0a38907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the standard deviation for the normal distribution.  <br /></td></tr>
+<tr class="memitem:aea957f172e603e6adfe2ecff4e69cec6" id="r_aea957f172e603e6adfe2ecff4e69cec6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea957f172e603e6adfe2ecff4e69cec6">getThetaMax</a> () const</td></tr>
+<tr class="memdesc:aea957f172e603e6adfe2ecff4e69cec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum scattering angle.  <br /></td></tr>
+<tr class="memitem:a21fae19dd2afb50a4f5ba396db7bafa9" id="r_a21fae19dd2afb50a4f5ba396db7bafa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21fae19dd2afb50a4f5ba396db7bafa9">modifyNorm</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;n) override</td></tr>
+<tr class="memdesc:a21fae19dd2afb50a4f5ba396db7bafa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">gives the normal vector of the rough object at a given point P. The surface normal is determined randomly, depending on the parameters sigma (standard deviation for a normal distribution) and thetaMax (maximum scattering angle).  <br /></td></tr>
 <tr class="memitem:a5c1ce0438b565ee973b9ffe13d24856a" id="r_a5c1ce0438b565ee973b9ffe13d24856a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c1ce0438b565ee973b9ffe13d24856a">roughObject</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">roughObject</a> &amp;F)</td></tr>
 <tr class="memitem:a39f0a7526236ad7b8d8516676684c898" id="r_a39f0a7526236ad7b8d8516676684c898"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39f0a7526236ad7b8d8516676684c898">roughObject</a> (const T &amp;obj, double <a class="el" href="#a4b48a5c4274b23bdc94935a667530293">sigma</a>)</td></tr>
 <tr class="memitem:a007ac962fd71d9029b1fbe5a1a728fda" id="r_a007ac962fd71d9029b1fbe5a1a728fda"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a007ac962fd71d9029b1fbe5a1a728fda">roughObject</a> (T *obj, double <a class="el" href="#a4b48a5c4274b23bdc94935a667530293">sigma</a>)</td></tr>
+<tr class="memitem:a40453c5aff0b4f29453f6892c7ea95f0" id="r_a40453c5aff0b4f29453f6892c7ea95f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40453c5aff0b4f29453f6892c7ea95f0">setScatteringType</a> (<a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> type)</td></tr>
+<tr class="memdesc:a40453c5aff0b4f29453f6892c7ea95f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the scattering type.  <br /></td></tr>
 <tr class="memitem:a3d55f4a19525801ca93f0b22e3f7b903" id="r_a3d55f4a19525801ca93f0b22e3f7b903"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d55f4a19525801ca93f0b22e3f7b903">setSigma</a> (double s)</td></tr>
+<tr class="memdesc:a3d55f4a19525801ca93f0b22e3f7b903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the standard deviation for the normal distribution.  <br /></td></tr>
+<tr class="memitem:a1225a3a3133464dd777f2af2623ba13c" id="r_a1225a3a3133464dd777f2af2623ba13c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1225a3a3133464dd777f2af2623ba13c">setThetaMax</a> (double t)</td></tr>
+<tr class="memdesc:a1225a3a3133464dd777f2af2623ba13c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the maximum scattering angle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a98fcce400f35efc0f22e3058362df551" id="r_a98fcce400f35efc0f22e3058362df551"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98fcce400f35efc0f22e3058362df551">init</a> ()</td></tr>
+<tr class="memitem:a00040ef5816af61c02aae5b76f792f25" id="r_a00040ef5816af61c02aae5b76f792f25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00040ef5816af61c02aae5b76f792f25">modifyNormCosineCone</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;n)</td></tr>
+<tr class="memitem:a157532515fc6549a075f5c50bb4ca007" id="r_a157532515fc6549a075f5c50bb4ca007"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a157532515fc6549a075f5c50bb4ca007">modifyNormGaussian</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;n)</td></tr>
+<tr class="memitem:aa47e425cdb2b04b9d73e00fad714aa65" id="r_aa47e425cdb2b04b9d73e00fad714aa65"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa47e425cdb2b04b9d73e00fad714aa65">modifyNormUniformCone</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;n)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a76d19b0f3cce3272ec237a409e263e73" id="r_a76d19b0f3cce3272ec237a409e263e73"><td class="memItemLeft" align="right" valign="top">std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76d19b0f3cce3272ec237a409e263e73">dist</a></td></tr>
 <tr class="memitem:a59b066351d842c2cdf56ab85eca965e1" id="r_a59b066351d842c2cdf56ab85eca965e1"><td class="memItemLeft" align="right" valign="top">std::ofstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59b066351d842c2cdf56ab85eca965e1">logFile</a></td></tr>
+<tr class="memitem:a4b7855c9d79aa8091eebd2a5261999bc" id="r_a4b7855c9d79aa8091eebd2a5261999bc"><td class="memItemLeft" align="right" valign="top">std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b7855c9d79aa8091eebd2a5261999bc">normalDist</a></td></tr>
+<tr class="memitem:ae0fb5b29a3c59ba38229c37a4ad82515" id="r_ae0fb5b29a3c59ba38229c37a4ad82515"><td class="memItemLeft" align="right" valign="top">std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0fb5b29a3c59ba38229c37a4ad82515">phiDist</a></td></tr>
+<tr class="memitem:a5db40c5b1f01817b14d23bdbb47f953b" id="r_a5db40c5b1f01817b14d23bdbb47f953b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5db40c5b1f01817b14d23bdbb47f953b">scatteringType</a> = <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4">ScatteringType::Gaussian</a></td></tr>
 <tr class="memitem:a4b48a5c4274b23bdc94935a667530293" id="r_a4b48a5c4274b23bdc94935a667530293"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b48a5c4274b23bdc94935a667530293">sigma</a> = 0.0</td></tr>
-<tr class="memitem:a63760316d0ab9962e1ccae9d81a153eb" id="r_a63760316d0ab9962e1ccae9d81a153eb"><td class="memItemLeft" align="right" valign="top">std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63760316d0ab9962e1ccae9d81a153eb">thetaDist</a></td></tr>
+<tr class="memitem:a582a77b496c5b1633d3397f9cbd6da9e" id="r_a582a77b496c5b1633d3397f9cbd6da9e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a582a77b496c5b1633d3397f9cbd6da9e">thetaMax</a> = M_PI / 2.0</td></tr>
+<tr class="memitem:a36a0eb2f802fff230a8d72a2dd825497" id="r_a36a0eb2f802fff230a8d72a2dd825497"><td class="memItemLeft" align="right" valign="top">std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36a0eb2f802fff230a8d72a2dd825497">uniformDist</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -132,8 +156,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
-class GOAT::raytracing::roughObject&lt; T &gt;</div>
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00020">20</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+class GOAT::raytracing::roughObject&lt; T &gt;</div><p><a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html" title="roughObject is a template class that adds roughness to an object shape. This class applies different ...">roughObject</a> is a template class that adds roughness to an object shape. This class applies different types of roughness to object shapes. The following distributions are available: Gaussian, normal, and cosine. In each case, the surface normal is varied according to the selected distribution, which results in a variation in the direction of reflection or transmission. The angle range can be limited by specifying theta_max (values between 0 and pi/2). For the normal distribution, the standard deviation sigma is also specified in radians. </p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00029">29</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a39f0a7526236ad7b8d8516676684c898" name="a39f0a7526236ad7b8d8516676684c898"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a39f0a7526236ad7b8d8516676684c898">&#9670;&#160;</a></span>roughObject() <span class="overload">[1/3]</span></h2>
@@ -164,7 +189,7 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00023">23</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00032">32</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
@@ -197,7 +222,7 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00033">33</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00040">40</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
@@ -226,11 +251,45 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00041">41</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00048">48</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ae589a4da5ef587b122768625d6178c85" name="ae589a4da5ef587b122768625d6178c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae589a4da5ef587b122768625d6178c85">&#9670;&#160;</a></span>getScatteringType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::getScatteringType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the scattering type. </p>
+<dl class="section return"><dt>Returns</dt><dd>The scattering type. </dd></dl>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#ad2591b3e987282459fc92b56cfe84d67">GOAT::raytracing::roughInterface</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00132">132</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
 <a id="a2749a625e57a37999e5fe9b1d0a38907" name="a2749a625e57a37999e5fe9b1d0a38907"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2749a625e57a37999e5fe9b1d0a38907">&#9670;&#160;</a></span>getSigma()</h2>
 
@@ -256,14 +315,17 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the standard deviation for the normal distribution. </p>
+<dl class="section return"><dt>Returns</dt><dd>The standard deviation in radians. </dd></dl>
+
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#a14b4f69aa7bea4e5604a00476fa36583">GOAT::raytracing::roughInterface</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00101">101</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00108">108</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
-<a id="abf9077cf944c6e37d55fe1a61233b969" name="abf9077cf944c6e37d55fe1a61233b969"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf9077cf944c6e37d55fe1a61233b969">&#9670;&#160;</a></span>norm()</h2>
+<a id="aea957f172e603e6adfe2ecff4e69cec6" name="aea957f172e603e6adfe2ecff4e69cec6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea957f172e603e6adfe2ecff4e69cec6">&#9670;&#160;</a></span>getThetaMax()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -274,20 +336,219 @@ template&lt;class T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::norm </td>
+          <td class="memname">double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::getThetaMax </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>P</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the maximum scattering angle. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum scattering angle in radians. </dd></dl>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#a6527f95d06bbd85e7f0e04126d3652bf">GOAT::raytracing::roughInterface</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00116">116</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a98fcce400f35efc0f22e3058362df551" name="a98fcce400f35efc0f22e3058362df551"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98fcce400f35efc0f22e3058362df551">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00051">51</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00140">140</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a21fae19dd2afb50a4f5ba396db7bafa9" name="a21fae19dd2afb50a4f5ba396db7bafa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21fae19dd2afb50a4f5ba396db7bafa9">&#9670;&#160;</a></span>modifyNorm()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::modifyNorm </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>gives the normal vector of the rough object at a given point P. The surface normal is determined randomly, depending on the parameters sigma (standard deviation for a normal distribution) and thetaMax (maximum scattering angle). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">P</td><td>The point on the surface of the object where the normal vector is to be calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#a88adf201db81c7c6d6211cb5c661128d">GOAT::raytracing::roughInterface</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00066">66</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a00040ef5816af61c02aae5b76f792f25" name="a00040ef5816af61c02aae5b76f792f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00040ef5816af61c02aae5b76f792f25">&#9670;&#160;</a></span>modifyNormCosineCone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::modifyNormCosineCone </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00194">194</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a157532515fc6549a075f5c50bb4ca007" name="a157532515fc6549a075f5c50bb4ca007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a157532515fc6549a075f5c50bb4ca007">&#9670;&#160;</a></span>modifyNormGaussian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::modifyNormGaussian </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00148">148</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="aa47e425cdb2b04b9d73e00fad714aa65" name="aa47e425cdb2b04b9d73e00fad714aa65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa47e425cdb2b04b9d73e00fad714aa65">&#9670;&#160;</a></span>modifyNormUniformCone()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::modifyNormUniformCone </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>n</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00174">174</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a40453c5aff0b4f29453f6892c7ea95f0" name="a40453c5aff0b4f29453f6892c7ea95f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40453c5aff0b4f29453f6892c7ea95f0">&#9670;&#160;</a></span>setScatteringType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::setScatteringType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the scattering type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The scattering type. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#a5fca9066a3dde48cf9b8ffed6aef32ce">GOAT::raytracing::roughInterface</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00124">124</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
@@ -316,15 +577,22 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Sets the standard deviation for the normal distribution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>The standard deviation in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#a55692fd1c1cfcf593795111d5fca5d28">GOAT::raytracing::roughInterface</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00094">94</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00083">83</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a76d19b0f3cce3272ec237a409e263e73" name="a76d19b0f3cce3272ec237a409e263e73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76d19b0f3cce3272ec237a409e263e73">&#9670;&#160;</a></span>dist</h2>
+<a id="a1225a3a3133464dd777f2af2623ba13c" name="a1225a3a3133464dd777f2af2623ba13c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1225a3a3133464dd777f2af2623ba13c">&#9670;&#160;</a></span>setThetaMax()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,20 +603,34 @@ template&lt;class T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::uniform_real_distribution&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::dist</td>
+          <td class="memname">void <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::setThetaMax </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00108">108</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p>Sets the maximum scattering angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>The maximum scattering angle in radians. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_interface.html#ae29de51c705be66cca09dc37e49437f7">GOAT::raytracing::roughInterface</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00091">91</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a59b066351d842c2cdf56ab85eca965e1" name="a59b066351d842c2cdf56ab85eca965e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a59b066351d842c2cdf56ab85eca965e1">&#9670;&#160;</a></span>logFile</h2>
 
@@ -371,7 +653,59 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00107">107</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00223">223</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a4b7855c9d79aa8091eebd2a5261999bc" name="a4b7855c9d79aa8091eebd2a5261999bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b7855c9d79aa8091eebd2a5261999bc">&#9670;&#160;</a></span>normalDist</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::normal_distribution&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::normalDist</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00225">225</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="ae0fb5b29a3c59ba38229c37a4ad82515" name="ae0fb5b29a3c59ba38229c37a4ad82515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0fb5b29a3c59ba38229c37a4ad82515">&#9670;&#160;</a></span>phiDist</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uniform_real_distribution&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::phiDist</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00227">227</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
@@ -397,7 +731,33 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00112">112</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00230">230</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a5db40c5b1f01817b14d23bdbb47f953b" name="a5db40c5b1f01817b14d23bdbb47f953b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db40c5b1f01817b14d23bdbb47f953b">&#9670;&#160;</a></span>scatteringType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235">ScatteringType</a> <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::scatteringType = <a class="el" href="namespace_g_o_a_t_1_1raytracing.html#a5b886e86ff38b68e3835d58aef73e235a7ad756784a4a98b340264a60fccf4ff4">ScatteringType::Gaussian</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00231">231</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
@@ -423,12 +783,12 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00109">109</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00228">228</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>
-<a id="a63760316d0ab9962e1ccae9d81a153eb" name="a63760316d0ab9962e1ccae9d81a153eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63760316d0ab9962e1ccae9d81a153eb">&#9670;&#160;</a></span>thetaDist</h2>
+<a id="a582a77b496c5b1633d3397f9cbd6da9e" name="a582a77b496c5b1633d3397f9cbd6da9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582a77b496c5b1633d3397f9cbd6da9e">&#9670;&#160;</a></span>thetaMax</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,7 +799,7 @@ template&lt;class T&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::normal_distribution&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::thetaDist</td>
+          <td class="memname">double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::thetaMax = M_PI / 2.0</td>
         </tr>
       </table>
   </td>
@@ -449,7 +809,33 @@ template&lt;class T&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00110">110</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00229">229</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
+
+</div>
+</div>
+<a id="a36a0eb2f802fff230a8d72a2dd825497" name="a36a0eb2f802fff230a8d72a2dd825497"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36a0eb2f802fff230a8d72a2dd825497">&#9670;&#160;</a></span>uniformDist</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::uniform_real_distribution&lt;double&gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1rough_object.html">GOAT::raytracing::roughObject</a>&lt; T &gt;::uniformDist</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="rough_object_8h_source.html#l00224">224</a> of file <a class="el" href="rough_object_8h_source.html">roughObject.h</a>.</p>
 
 </div>
 </div>

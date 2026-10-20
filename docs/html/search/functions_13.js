@@ -11,5 +11,6 @@ var searchData=
   ['unsignedvalue_8',['UnsignedValue',['../classtinyxml2_1_1_x_m_l_attribute.html#a0be5343b08a957c42c02c5d32c35d338',1,'tinyxml2::XMLAttribute::UnsignedValue() const'],['../classtinyxml2_1_1_x_m_l_attribute.html#a0be5343b08a957c42c02c5d32c35d338',1,'tinyxml2::XMLAttribute::UnsignedValue() const']]],
   ['unsmooth_9',['unsmooth',['../class_g_o_a_t_1_1raytracing_1_1_detector_plane.html#a68f1cb39e1dba611a62a8d16bb5fabee',1,'GOAT::raytracing::DetectorPlane']]],
   ['untracked_10',['Untracked',['../classtinyxml2_1_1_mem_pool_t.html#a3bcdc302ae15d2810e11192321a8f5f1',1,'tinyxml2::MemPoolT::Untracked() const'],['../classtinyxml2_1_1_mem_pool_t.html#a3bcdc302ae15d2810e11192321a8f5f1',1,'tinyxml2::MemPoolT::Untracked() const']]],
-  ['ursprungrot_11',['ursprungrot',['../namespace_g_o_a_t_1_1raytracing.html#a707151b319c4d4f021367442ed773518',1,'GOAT::raytracing']]]
+  ['updatepolarisation_11',['updatePolarisation',['../class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html#ad4dd67969b6dc21e4a31e72cacdca349',1,'GOAT::raytracing::LightSrcPoint_mc']]],
+  ['ursprungrot_12',['ursprungrot',['../namespace_g_o_a_t_1_1raytracing.html#a707151b319c4d4f021367442ed773518',1,'GOAT::raytracing']]]
 ];

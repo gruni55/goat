@@ -137,6 +137,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ab00aa4db7ab4a57
 \item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{GOAT\+::maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_ac0ec44ac8b992b25d42dbaab942f5b58}{gen\+Starting\+Pos}} ()
 \item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_aa417174efcfc44b3f340729a1edd8c71}{init\+Random\+Generator}} ()
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_ae42a7936b23e5a44306f25efd2fed8fb}{reset}} ()
 \begin{DoxyCompactList}\small\item\em sets the internal ray counter to zero (intended for internal use only) \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
@@ -168,7 +170,7 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af70acad0851bf17a
 \begin{DoxyCompactList}\small\item\em second index of the ray inside the starting area (for internal use, -\/1 if the calculation has not yet been started) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ std\+::complex$<$ double $>$ $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a0a82a65ad7958761d9512ed7245c0309}{init\+Pol}}
 \begin{DoxyCompactList}\small\item\em Polarisation, if the k-\/\+Vector points in z-\/direction. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}}
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a143853da9af2c94577e4f1d9d38b1d1f}{k}} =maths\+::ez
 \begin{DoxyCompactList}\small\item\em main direction of the light source \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_a93b4f936eb3570680bd830de4901bce0}{raycount\+\_\+t}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_a6ffca43f29eae02e390dc396d04ff94e}{N}} =10000
 \begin{DoxyCompactList}\small\item\em number of rays (per direction) \end{DoxyCompactList}\item 
@@ -200,6 +202,13 @@ bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_aac7923883a2dd34
 \begin{DoxyCompactList}\small\item\em if set true, the phase won\textquotesingle{}t be changed when calling a next method (needed for USP-\/calculations) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_af1101fa18b0d24b1cd3872eaece0be45}{type}}
 \begin{DoxyCompactList}\small\item\em type of the light source \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc}{GOAT\+::raytracing\+::\+Light\+Src\+\_\+mc}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_aa0aa23e55dd0295035c11fef7fad9a46}{Light\+Src\+\_\+mc}} ()
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_acac709911a92e966323273dbef5cd8d4}{reseed}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src}{GOAT\+::raytracing\+::\+Light\+Src}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -215,12 +224,25 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_acbbadf0a16d499ae
 \begin{DoxyCompactList}\small\item\em Vector which holds the spherical coordinates $r$, $\vartheta$ and $\varphi$ of the direction vector k. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src_ac336842a26e1722f9959dce29baf7117}{wvl}} =1
 \begin{DoxyCompactList}\small\item\em wavelength \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc}{GOAT\+::raytracing\+::\+Light\+Src\+\_\+mc}}}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937\+\_\+64 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_aa45409076907b51f409cc87f617c1597}{gen}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a3bb40b723e8c990a2d874bee6a1a3795}{nd1}}
+\item 
+std\+::normal\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a67b52c08096099c0b4c18bf75774be7c}{nd2}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a343751c379fa7229ea734bfdeacb52d9}{ud1}}
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_light_src__mc_a15e14855eb8ea2238cab5385a4715c52}{ud2}}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
 Ring shaped light source. This class provides a ring shaped light source with arbitrary, uniform distributed rays within the light source area. 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00105}{105}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00130}{130}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 
@@ -258,7 +280,7 @@ double GOAT\+::raytracing\+::\+Light\+Src\+Ring\+\_\+mc\+::get\+Rmax (\begin{Dox
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00116}{116}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00141}{141}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_a7b3489ef6cfb83c073d9ad2656863c7f}\index{GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}!getRmin@{getRmin}}
 \index{getRmin@{getRmin}!GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}}
@@ -268,7 +290,13 @@ double GOAT\+::raytracing\+::\+Light\+Src\+Ring\+\_\+mc\+::get\+Rmin (\begin{Dox
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00115}{115}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00140}{140}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+
+\Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_aa417174efcfc44b3f340729a1edd8c71}\index{GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}!initRandomGenerator@{initRandomGenerator}}
+\index{initRandomGenerator@{initRandomGenerator}!GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}}
+\doxysubsubsection{\texorpdfstring{initRandomGenerator()}{initRandomGenerator()}}
+{\footnotesize\ttfamily \label{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_aa417174efcfc44b3f340729a1edd8c71} 
+void GOAT\+::raytracing\+::\+Light\+Src\+Ring\+\_\+mc\+::init\+Random\+Generator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_ae8a30e8a679ee303717cf295097fd81f}\index{GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}!next@{next}}
 \index{next@{next}!GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}}
@@ -351,7 +379,7 @@ outer radius of the ring
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00121}{121}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00146}{146}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 \Hypertarget{class_g_o_a_t_1_1raytracing_1_1_light_src_ring__mc_a616dcb2e5944f46523fe1f676b6cd256}\index{GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}!rmin@{rmin}}
 \index{rmin@{rmin}!GOAT::raytracing::LightSrcRing\_mc@{GOAT::raytracing::LightSrcRing\_mc}}
@@ -365,7 +393,7 @@ inner radius of the ring
 
 
 
-Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00120}{120}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
+Definition at line \mbox{\hyperlink{lightsrc__mc_8h_source_l00145}{145}} of file \mbox{\hyperlink{lightsrc__mc_8h_source}{lightsrc\+\_\+mc.\+h}}.
 
 
 

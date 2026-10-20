@@ -103,6 +103,8 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6eab77784b27
 \begin{DoxyCompactList}\small\item\em returns the corner of the circumferent cuboid with the lowest x,y and z coordinates \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a6ea569d85cc23aae87830c1a70f7f6ff}{get\+Beta}} () const
 \begin{DoxyCompactList}\small\item\em returns the rotation angle around y-\/axis \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a22dcd32bfbbe098daf2257c62e70fd1b}{get\+Corners}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a7563e04424687ffa01dc559f1c487134}{pul}}, \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a372963153380dd68772fd0d213da1a3e}{por}})
+\begin{DoxyCompactList}\small\item\em returns the corners of the circumferent cuboid (bounding box) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{namespace_g_o_a_t_1_1raytracing_a908c9806482f099109a7c1b45769c153}{NFUNCTYPE}} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_abce7380c769e6fa61b31aae918d0965d}{get\+Func\+Type}} () const
 \begin{DoxyCompactList}\small\item\em returns the type of the function for the refractive index (used for inelastic (RRT) calculation) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a59343826b1685e4f236d30ef9cafe336}{get\+Gamma}} () const
@@ -111,18 +113,26 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a59343826b1
 \begin{DoxyCompactList}\small\item\em returns the matrix for the transformation between object\textquotesingle{}s coordinate system and outer coordinate system \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a706cce057de2e753cbbb6b402467bb29}{get\+ID}} () const
 \begin{DoxyCompactList}\small\item\em returns the ID string \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a1637a549ee4ce15d11856a4aaa0c778c}{get\+Lower\+Corner}} ()
+\begin{DoxyCompactList}\small\item\em returns the lower corner of the circumferent cuboid (bounding box) \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a2e7bfdfde1bad84aef9f722f4195b78e}{getn}} () const
 \begin{DoxyCompactList}\small\item\em returns refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 std\+::complex$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adcc1d1e3a2fbe0bfb38c12644cc4a501}{getninel}} () const
 \begin{DoxyCompactList}\small\item\em returns refractive index \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ad58583645ea1c9b31aa36c5b500634e3}{get\+Norm}} (const \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \&\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a770b3c392c4794e74d0f5823d4aa56e6}{P}})
+\begin{DoxyCompactList}\small\item\em returns the surface normal at the point P (if the object is rough, the surface roughness is considered) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8c15a438125ee3ed0657364041828bc4}{get\+Pos}} () const
 \begin{DoxyCompactList}\small\item\em returns the position of the object \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a773376805195cdce2ebd3254ab56dbaf}{getR}} () const
 \begin{DoxyCompactList}\small\item\em returns the matrix for the transformation back to the calculation system \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8db6d6eefe21b5a0e4d05cf012dc7b6e}{getr0}} () const
 \begin{DoxyCompactList}\small\item\em returns the radius of the calculation space stored in the object (only for internal use, it is set when the object is added to the scene) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{rough\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a4970210b7bf00a6cf25a4dafea89a1c1}{get\+Rough\+Obj}} () const
+\begin{DoxyCompactList}\small\item\em returns the pointer to the rough object, if the object is rough (if nullptr, the object is not rough) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a414d5abf93ae74ab523d9399cd68a180}{get\+Scale}} () const
 \begin{DoxyCompactList}\small\item\em returns the scaling factor \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_vector}{maths\+::\+Vector}}$<$ double $>$ \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afb636cd00d760392090b1e9ab7e8dfbe}{get\+Upper\+Corner}} ()
+\begin{DoxyCompactList}\small\item\em returns the upper corner of the circumferent cuboid (bounding box) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a995fa7d9550ed64d563cb5314b00751d}{get\+Visible}} () const
 \begin{DoxyCompactList}\small\item\em show the visiblity state (used in GOATvis) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a276cd11f6276a606242b680d108c50de}{is\+Active}} () const
@@ -179,6 +189,10 @@ void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_adb988c87e41e
 \begin{DoxyCompactList}\small\item\em sets refractive index for inelastic (RRT) calculation \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a87735677f226d2b3ac62f5eb1e2bf878}{set\+Pol\+Matrix}} (\mbox{\hyperlink{class_g_o_a_t_1_1maths_1_1_matrix}{maths\+::\+Matrix}}$<$ std\+::complex$<$ double $>$ $>$\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a68d5b537a0ef9ccd2a347f2383938eb6}{alpha}})
 \begin{DoxyCompactList}\small\item\em sets polarisability matrix \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ac23d8e86bb3d397e248abb6cbb3fa4d3}{set\+Rough}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a87baac063b99f5f746fc35c36b8983b0}{rough}})
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_af59ff08b50742fcc8790a023f52baeea}{set\+Rough\+Obj}} (\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{rough\+Interface}} \texorpdfstring{$\ast$}{*}robj)
+\item 
 void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a661edeaddb24518110c9752efc1bddb6}{set\+Visible}} (bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a8badcbb3c00b1343d9819b7c174de56e}{visible}})
 \begin{DoxyCompactList}\small\item\em set visiblity (used in GOATvis) \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_aa0f96478d5886a8aa75ba9b62d4173ad}{Type}} () const
@@ -199,6 +213,11 @@ int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_acbe12314ce4648efc53
 \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1triangle}{triangle}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1surface_a85f2e795c6d610db9b3aa478542ef531}{S}}
 \begin{DoxyCompactList}\small\item\em list of all triangles \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_afabad3b8cffe570a554725b130391709}{make\+Rough}} ()
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape}{GOAT\+::raytracing\+::\+Object\+Shape}}}
 \begin{DoxyCompactItemize}
 \item 
@@ -240,6 +259,8 @@ double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a5ff765220b
 \begin{DoxyCompactList}\small\item\em mass density in $ kg/m^3 $ \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a87baac063b99f5f746fc35c36b8983b0}{rough}} =false
 \begin{DoxyCompactList}\small\item\em is the surface of the object rough? (if true, surface roughness is considered in the calculations) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1rough_interface}{rough\+Interface}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_ae5ab71041eb9018755587c39185c0c41}{rough\+Obj}} = nullptr
+\begin{DoxyCompactList}\small\item\em pointer to the rough object, if the object is rough (if nullptr, the object is not rough) \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a246052e0d543ff741d7e71e4d12c76b8}{sf}} =1
 \begin{DoxyCompactList}\small\item\em scaling factor, it is used to scale the shape of the object \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_g_o_a_t_1_1raytracing_1_1_object_shape_a3a94d86ef25c4b89069e46f7fa1f224d}{type}}

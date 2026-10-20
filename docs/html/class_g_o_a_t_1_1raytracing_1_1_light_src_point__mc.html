@@ -99,7 +99,7 @@ $(function(){initNavTree('class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.ht
 </div><!--header-->
 <div class="contents">
 
-<p>This class provides a point light source.  
+<p>This class provides a point light source The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is counted away from the direction vector k (default value: thetamax = 180° (pi)  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>&gt;</code></p>
@@ -110,6 +110,7 @@ Inheritance diagram for GOAT::raytracing::LightSrcPoint_mc:</div>
   <img src="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.png" usemap="#GOAT_3A_3Araytracing_3A_3ALightSrcPoint_5Fmc_map" alt=""/>
   <map id="GOAT_3A_3Araytracing_3A_3ALightSrcPoint_5Fmc_map" name="GOAT_3A_3Araytracing_3A_3ALightSrcPoint_5Fmc_map">
 <area href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library...." alt="GOAT::raytracing::LightSrc" shape="rect" coords="0,0,215,24"/>
+<area href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html" title="Base class for light sources with random ray distribution This class provides the random number gener..." alt="GOAT::raytracing::LightSrc_mc" shape="rect" coords="225,0,440,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -119,14 +120,18 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a59db593bf37fb62ab4f3483ced33f894"><td class="mdescLeft">&#160;</td><td class="mdescRight">reads content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> from a binary file, represented by os (has to be specified by the derived classes)  <br /></td></tr>
 <tr class="memitem:a269b9ebac4d29bd09e185d7c97e7cd75" id="r_a269b9ebac4d29bd09e185d7c97e7cd75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a269b9ebac4d29bd09e185d7c97e7cd75">binWriteItem</a> (std::ofstream &amp;os)</td></tr>
 <tr class="memdesc:a269b9ebac4d29bd09e185d7c97e7cd75"><td class="mdescLeft">&#160;</td><td class="mdescRight">writes content of <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html" title="This abstract class is the basic class for all light sources used in this raytracing library....">LightSrc</a> in a binary file, represented by is (has to be specified by the derived classes)focuspos  <br /></td></tr>
-<tr class="memitem:a654ac38ac48c899c8c0eab4ddf999f0e" id="r_a654ac38ac48c899c8c0eab4ddf999f0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a654ac38ac48c899c8c0eab4ddf999f0e">genDirection</a> ()</td></tr>
+<tr class="memitem:a6faeae5ccf381c3140dfe1efa3bae281" id="r_a6faeae5ccf381c3140dfe1efa3bae281"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6faeae5ccf381c3140dfe1efa3bae281">getThetamax</a> ()</td></tr>
+<tr class="memdesc:a6faeae5ccf381c3140dfe1efa3bae281"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the maximal theta angle in which rays will be emitted (in radiants)  <br /></td></tr>
 <tr class="memitem:adfa33f90fc6bad917204873a49ddfda1" id="r_adfa33f90fc6bad917204873a49ddfda1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfa33f90fc6bad917204873a49ddfda1">LightSrcPoint_mc</a> ()</td></tr>
-<tr class="memitem:a25836719097c0e436161d3bfd2bf8407" id="r_a25836719097c0e436161d3bfd2bf8407"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25836719097c0e436161d3bfd2bf8407">LightSrcPoint_mc</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a22341548b53dab68f10d0fd6a55c29d4">Pos</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6ffca43f29eae02e390dc396d04ff94e">N</a>, double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">wvl</a>)</td></tr>
-<tr class="memdesc:a25836719097c0e436161d3bfd2bf8407"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
+<tr class="memitem:ab102e1fc49f262b7f65b6a92108347b7" id="r_ab102e1fc49f262b7f65b6a92108347b7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab102e1fc49f262b7f65b6a92108347b7">LightSrcPoint_mc</a> (const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html">LightSrcPoint_mc</a> &amp;L)</td></tr>
+<tr class="memitem:a3900e15962fbf08542b6bac1233e1266" id="r_a3900e15962fbf08542b6bac1233e1266"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3900e15962fbf08542b6bac1233e1266">LightSrcPoint_mc</a> (<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a22341548b53dab68f10d0fd6a55c29d4">Pos</a>, int <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6ffca43f29eae02e390dc396d04ff94e">N</a>, double <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">wvl</a>, <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ad09806ad6481130cacff6dad6d92653b">Pol</a>=<a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;(0.0, 1.0, 0.0))</td></tr>
+<tr class="memdesc:a3900e15962fbf08542b6bac1233e1266"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor  <br /></td></tr>
 <tr class="memitem:afabb040e543386e343f9ed274fe4fe27" id="r_afabb040e543386e343f9ed274fe4fe27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afabb040e543386e343f9ed274fe4fe27">next</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_i_ray.html">IRay</a> &amp;S)</td></tr>
 <tr class="memitem:af863e8cc3ff34ee4e81c51a47f895616" id="r_af863e8cc3ff34ee4e81c51a47f895616"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af863e8cc3ff34ee4e81c51a47f895616">next</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray__pow.html">Ray_pow</a> &amp;S)</td></tr>
 <tr class="memitem:ad140f4d7b492a1ea36fca5b90e7a663d" id="r_ad140f4d7b492a1ea36fca5b90e7a663d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad140f4d7b492a1ea36fca5b90e7a663d">next</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_ray_base.html">RayBase</a> *ray)</td></tr>
 <tr class="memitem:ae3e3cd40343aa5aa73ee77048120a9cb" id="r_ae3e3cd40343aa5aa73ee77048120a9cb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3e3cd40343aa5aa73ee77048120a9cb">next</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1tubed_ray.html">tubedRay</a> &amp;S)</td></tr>
+<tr class="memitem:a6c3fbc8c1b3d32863687c930550e57b2" id="r_a6c3fbc8c1b3d32863687c930550e57b2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c3fbc8c1b3d32863687c930550e57b2">setThetamax</a> (double thetamax)</td></tr>
+<tr class="memdesc:a6c3fbc8c1b3d32863687c930550e57b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the maximal theta angle in which rays will be emitted (given in radiants)  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a></td></tr>
 <tr class="memitem:a1aebd3dbd4db7dbe33a3a2822afd7299 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a1aebd3dbd4db7dbe33a3a2822afd7299"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a1aebd3dbd4db7dbe33a3a2822afd7299">addObject</a> (<a class="el" href="class_g_o_a_t_1_1raytracing_1_1_object_shape.html">ObjectShape</a> *obj)</td></tr>
 <tr class="memdesc:a1aebd3dbd4db7dbe33a3a2822afd7299 inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">add single object to the object list  <br /></td></tr>
@@ -189,6 +194,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1265e79b083e53f2ca0153fa640b680e inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a1265e79b083e53f2ca0153fa640b680e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a1265e79b083e53f2ca0153fa640b680e">~LightSrc</a> (void)</td></tr>
 <tr class="memitem:af5365bfa702b37dcd8f17f335337bfce inherit pub_methods_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_af5365bfa702b37dcd8f17f335337bfce"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#af5365bfa702b37dcd8f17f335337bfce">area</a> ()</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a654ac38ac48c899c8c0eab4ddf999f0e" id="r_a654ac38ac48c899c8c0eab4ddf999f0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a654ac38ac48c899c8c0eab4ddf999f0e">genDirection</a> ()</td></tr>
+<tr class="memdesc:a654ac38ac48c899c8c0eab4ddf999f0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">generates the next random emission direction  <br /></td></tr>
+<tr class="memitem:a8bed3d46103305642f3376695ea34152" id="r_a8bed3d46103305642f3376695ea34152"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bed3d46103305642f3376695ea34152">initRandomGenerator</a> ()</td></tr>
+<tr class="memitem:a56e15809a4a3eab233fbc686c01473e2" id="r_a56e15809a4a3eab233fbc686c01473e2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a56e15809a4a3eab233fbc686c01473e2">reset</a> ()</td></tr>
+<tr class="memdesc:a56e15809a4a3eab233fbc686c01473e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the internal ray counter to zero (intended for internal use only  <br /></td></tr>
+<tr class="memitem:ad4dd67969b6dc21e4a31e72cacdca349" id="r_ad4dd67969b6dc21e4a31e72cacdca349"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4dd67969b6dc21e4a31e72cacdca349">updatePolarisation</a> (const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;P, const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;knew)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-attribs" class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5182a566d26246daa34d9adf77c64770" id="r_a5182a566d26246daa34d9adf77c64770"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5182a566d26246daa34d9adf77c64770">cosThetaMax</a> = -1.0</td></tr>
+<tr class="memitem:a6ac7cd77ef17777809b74e104f7c39eb" id="r_a6ac7cd77ef17777809b74e104f7c39eb"><td class="memItemLeft" align="right" valign="top">std::random_device&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ac7cd77ef17777809b74e104f7c39eb">rd</a></td></tr>
+<tr class="memitem:a0a36911826571860c48e0ae05548b0d7" id="r_a0a36911826571860c48e0ae05548b0d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a36911826571860c48e0ae05548b0d7">t1</a></td></tr>
+<tr class="memitem:a89217b20ca29a10d0c77c9357b13fa7b" id="r_a89217b20ca29a10d0c77c9357b13fa7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89217b20ca29a10d0c77c9357b13fa7b">t2</a></td></tr>
+<tr class="memitem:a2cf82671af6f409480e1098f44e50d52" id="r_a2cf82671af6f409480e1098f44e50d52"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2cf82671af6f409480e1098f44e50d52">thetaMax</a> = M_PI</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a></td></tr>
@@ -208,7 +230,7 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:af70acad0851bf17a9fa0222c8612fc1e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">second index of the ray inside the starting area (for internal use, -1 if the calculation has not yet been started)  <br /></td></tr>
 <tr class="memitem:a0a82a65ad7958761d9512ed7245c0309 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a0a82a65ad7958761d9512ed7245c0309"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a0a82a65ad7958761d9512ed7245c0309">initPol</a></td></tr>
 <tr class="memdesc:a0a82a65ad7958761d9512ed7245c0309 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">Polarisation, if the k-Vector points in z-direction.  <br /></td></tr>
-<tr class="memitem:a143853da9af2c94577e4f1d9d38b1d1f inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a143853da9af2c94577e4f1d9d38b1d1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f">k</a></td></tr>
+<tr class="memitem:a143853da9af2c94577e4f1d9d38b1d1f inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a143853da9af2c94577e4f1d9d38b1d1f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a143853da9af2c94577e4f1d9d38b1d1f">k</a> =maths::ez</td></tr>
 <tr class="memdesc:a143853da9af2c94577e4f1d9d38b1d1f inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">main direction of the light source  <br /></td></tr>
 <tr class="memitem:a6ffca43f29eae02e390dc396d04ff94e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a6ffca43f29eae02e390dc396d04ff94e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_g_o_a_t.html#a93b4f936eb3570680bd830de4901bce0">raycount_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a6ffca43f29eae02e390dc396d04ff94e">N</a> =10000</td></tr>
 <tr class="memdesc:a6ffca43f29eae02e390dc396d04ff94e inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of rays (per direction)  <br /></td></tr>
@@ -239,6 +261,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:aac7923883a2dd3476641264aec1dfe06 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">if set true, the phase won't be changed when calling a next method (needed for USP-calculations)  <br /></td></tr>
 <tr class="memitem:af1101fa18b0d24b1cd3872eaece0be45 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_af1101fa18b0d24b1cd3872eaece0be45"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#af1101fa18b0d24b1cd3872eaece0be45">type</a></td></tr>
 <tr class="memdesc:af1101fa18b0d24b1cd3872eaece0be45 inherit pub_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">type of the light source  <br /></td></tr>
+<tr class="inherit_header pro_methods_class_g_o_a_t_1_1raytracing_1_1_light_src__mc"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_g_o_a_t_1_1raytracing_1_1_light_src__mc')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html">GOAT::raytracing::LightSrc_mc</a></td></tr>
+<tr class="memitem:aa0aa23e55dd0295035c11fef7fad9a46 inherit pro_methods_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_aa0aa23e55dd0295035c11fef7fad9a46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#aa0aa23e55dd0295035c11fef7fad9a46">LightSrc_mc</a> ()</td></tr>
+<tr class="memitem:acac709911a92e966323273dbef5cd8d4 inherit pro_methods_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_acac709911a92e966323273dbef5cd8d4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#acac709911a92e966323273dbef5cd8d4">reseed</a> ()</td></tr>
 <tr class="inherit_header pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html">GOAT::raytracing::LightSrc</a></td></tr>
 <tr class="memitem:a55104fca137a361734d8b7c196910f20 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a55104fca137a361734d8b7c196910f20"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a55104fca137a361734d8b7c196910f20">Isum1</a></td></tr>
 <tr class="memitem:a5967a0a1a0b4714b4f3ff028bdcd3fdb inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_a5967a0a1a0b4714b4f3ff028bdcd3fdb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a5967a0a1a0b4714b4f3ff028bdcd3fdb">Isum2</a></td></tr>
@@ -250,14 +275,20 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memdesc:adb040a92725326180358b7fa2f568d19 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector which holds the spherical coordinates \(r\), \(\vartheta\) and \(\varphi\) of the direction vector k.  <br /></td></tr>
 <tr class="memitem:ac336842a26e1722f9959dce29baf7117 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src" id="r_ac336842a26e1722f9959dce29baf7117"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#ac336842a26e1722f9959dce29baf7117">wvl</a> =1</td></tr>
 <tr class="memdesc:ac336842a26e1722f9959dce29baf7117 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src"><td class="mdescLeft">&#160;</td><td class="mdescRight">wavelength  <br /></td></tr>
+<tr class="inherit_header pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html">GOAT::raytracing::LightSrc_mc</a></td></tr>
+<tr class="memitem:aa45409076907b51f409cc87f617c1597 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_aa45409076907b51f409cc87f617c1597"><td class="memItemLeft" align="right" valign="top">std::mt19937_64&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#aa45409076907b51f409cc87f617c1597">gen</a></td></tr>
+<tr class="memitem:a3bb40b723e8c990a2d874bee6a1a3795 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_a3bb40b723e8c990a2d874bee6a1a3795"><td class="memItemLeft" align="right" valign="top">std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#a3bb40b723e8c990a2d874bee6a1a3795">nd1</a></td></tr>
+<tr class="memitem:a67b52c08096099c0b4c18bf75774be7c inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_a67b52c08096099c0b4c18bf75774be7c"><td class="memItemLeft" align="right" valign="top">std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#a67b52c08096099c0b4c18bf75774be7c">nd2</a></td></tr>
+<tr class="memitem:a343751c379fa7229ea734bfdeacb52d9 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_a343751c379fa7229ea734bfdeacb52d9"><td class="memItemLeft" align="right" valign="top">std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#a343751c379fa7229ea734bfdeacb52d9">ud1</a></td></tr>
+<tr class="memitem:a15e14855eb8ea2238cab5385a4715c52 inherit pro_attribs_class_g_o_a_t_1_1raytracing_1_1_light_src__mc" id="r_a15e14855eb8ea2238cab5385a4715c52"><td class="memItemLeft" align="right" valign="top">std::uniform_real_distribution&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src__mc.html#a15e14855eb8ea2238cab5385a4715c52">ud2</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides a point light source. </p>
+<div class="textblock"><p>This class provides a point light source The point source is described by its position. The emission can be restricted into an angle range theta=0°...thetamax. theta is counted away from the direction vector k (default value: thetamax = 180° (pi) </p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00170">170</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00199">199</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="adfa33f90fc6bad917204873a49ddfda1" name="adfa33f90fc6bad917204873a49ddfda1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfa33f90fc6bad917204873a49ddfda1">&#9670;&#160;</a></span>LightSrcPoint_mc() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adfa33f90fc6bad917204873a49ddfda1">&#9670;&#160;</a></span>LightSrcPoint_mc() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,8 +304,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a25836719097c0e436161d3bfd2bf8407" name="a25836719097c0e436161d3bfd2bf8407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25836719097c0e436161d3bfd2bf8407">&#9670;&#160;</a></span>LightSrcPoint_mc() <span class="overload">[2/2]</span></h2>
+<a id="a3900e15962fbf08542b6bac1233e1266" name="a3900e15962fbf08542b6bac1233e1266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3900e15962fbf08542b6bac1233e1266">&#9670;&#160;</a></span>LightSrcPoint_mc() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,7 +323,12 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>wvl</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>wvl</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>Pol</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;&#160;std::complex&lt;&#160;double&#160;&gt;&#160;&gt;(0.0,&#160;1.0,&#160;0.0)</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -303,10 +339,26 @@ Additional Inherited Members</h2></td></tr>
     <tr><td class="paramname">Pos</td><td>Position of the light source </td></tr>
     <tr><td class="paramname">N</td><td>number of rays along straight line </td></tr>
     <tr><td class="paramname">size</td><td>length of the light source </td></tr>
-    <tr><td class="paramname">direction</td><td>direction of light source (not the direction of emission !) </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab102e1fc49f262b7f65b6a92108347b7" name="ab102e1fc49f262b7f65b6a92108347b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab102e1fc49f262b7f65b6a92108347b7">&#9670;&#160;</a></span>LightSrcPoint_mc() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GOAT::raytracing::LightSrcPoint_mc::LightSrcPoint_mc </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src_point__mc.html">LightSrcPoint_mc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>L</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -338,7 +390,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a04bf6f811caff6b8f6da34f8d3071978">GOAT::raytracing::LightSrc</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00188">188</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00220">220</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 
 </div>
 </div>
@@ -369,7 +421,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#a23997c8de832d67e015e4cb594cbb929">GOAT::raytracing::LightSrc</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00187">187</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00219">219</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 
 </div>
 </div>
@@ -378,6 +430,9 @@ Additional Inherited Members</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">GOAT::maths::Vector</a>&lt; double &gt; GOAT::raytracing::LightSrcPoint_mc::genDirection </td>
@@ -386,6 +441,57 @@ Additional Inherited Members</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>generates the next random emission direction </p>
+
+</div>
+</div>
+<a id="a6faeae5ccf381c3140dfe1efa3bae281" name="a6faeae5ccf381c3140dfe1efa3bae281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6faeae5ccf381c3140dfe1efa3bae281">&#9670;&#160;</a></span>getThetamax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrcPoint_mc::getThetamax </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>returns the maximal theta angle in which rays will be emitted (in radiants) </p>
+
+</div>
+</div>
+<a id="a8bed3d46103305642f3376695ea34152" name="a8bed3d46103305642f3376695ea34152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bed3d46103305642f3376695ea34152">&#9670;&#160;</a></span>initRandomGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::LightSrcPoint_mc::initRandomGenerator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -507,6 +613,202 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implements <a class="el" href="class_g_o_a_t_1_1raytracing_1_1_light_src.html#aeb4acde5ce380120ba8535c7da03ad8a">GOAT::raytracing::LightSrc</a>.</p>
+
+</div>
+</div>
+<a id="a56e15809a4a3eab233fbc686c01473e2" name="a56e15809a4a3eab233fbc686c01473e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e15809a4a3eab233fbc686c01473e2">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::LightSrcPoint_mc::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sets the internal ray counter to zero (intended for internal use only </p>
+
+</div>
+</div>
+<a id="a6c3fbc8c1b3d32863687c930550e57b2" name="a6c3fbc8c1b3d32863687c930550e57b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c3fbc8c1b3d32863687c930550e57b2">&#9670;&#160;</a></span>setThetamax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GOAT::raytracing::LightSrcPoint_mc::setThetamax </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>thetamax</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>sets the maximal theta angle in which rays will be emitted (given in radiants) </p>
+
+</div>
+</div>
+<a id="ad4dd67969b6dc21e4a31e72cacdca349" name="ad4dd67969b6dc21e4a31e72cacdca349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4dd67969b6dc21e4a31e72cacdca349">&#9670;&#160;</a></span>updatePolarisation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; GOAT::raytracing::LightSrcPoint_mc::updatePolarisation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; std::complex&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>P</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knew</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a5182a566d26246daa34d9adf77c64770" name="a5182a566d26246daa34d9adf77c64770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5182a566d26246daa34d9adf77c64770">&#9670;&#160;</a></span>cosThetaMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrcPoint_mc::cosThetaMax = -1.0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00226">226</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+
+</div>
+</div>
+<a id="a6ac7cd77ef17777809b74e104f7c39eb" name="a6ac7cd77ef17777809b74e104f7c39eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ac7cd77ef17777809b74e104f7c39eb">&#9670;&#160;</a></span>rd</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::random_device GOAT::raytracing::LightSrcPoint_mc::rd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00224">224</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+
+</div>
+</div>
+<a id="a0a36911826571860c48e0ae05548b0d7" name="a0a36911826571860c48e0ae05548b0d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a36911826571860c48e0ae05548b0d7">&#9670;&#160;</a></span>t1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt; GOAT::raytracing::LightSrcPoint_mc::t1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00227">227</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+
+</div>
+</div>
+<a id="a89217b20ca29a10d0c77c9357b13fa7b" name="a89217b20ca29a10d0c77c9357b13fa7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89217b20ca29a10d0c77c9357b13fa7b">&#9670;&#160;</a></span>t2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_g_o_a_t_1_1maths_1_1_vector.html">maths::Vector</a>&lt;double&gt; GOAT::raytracing::LightSrcPoint_mc::t2</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00227">227</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
+
+</div>
+</div>
+<a id="a2cf82671af6f409480e1098f44e50d52" name="a2cf82671af6f409480e1098f44e50d52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cf82671af6f409480e1098f44e50d52">&#9670;&#160;</a></span>thetaMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double GOAT::raytracing::LightSrcPoint_mc::thetaMax = M_PI</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="lightsrc__mc_8h_source.html#l00225">225</a> of file <a class="el" href="lightsrc__mc_8h_source.html">lightsrc_mc.h</a>.</p>
 
 </div>
 </div>
