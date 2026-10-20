@@ -10,6 +10,7 @@
 #include "superarray.h"
 #include "kirchhoff.h"
 #include <vector>
+#include <functional>
 
 namespace GOAT
 {
@@ -82,6 +83,10 @@ namespace GOAT
 			void setRaytype(int raytype); ///< set the ray type for all light sources 
 			void setNumReflex(int numReflex); ///< set the number of reflections per ray considered in the raytracing 
 			void setNumThreads(int numThreads) {this->numThreads = numThreads;} ///< set the number of threads used for parallelization (if OpenMP is used)
+			void setNFunc(std::function<std::complex<double>(double)> nSfunc) { this->nSfunc = nSfunc; }
+			void setNFunc(NFUNCTYPE nfunctype); 
+			std::function<std::complex<double>(double)> getNFunc() { return nSfunc; }
+			
 			void resetLS(); ///< reset all light sources. That means the counters for the rays within of the light sources are set to the first ray
 			int testLS(); ///< tests, if all lightsources are outside all objects (return value: -1, if every lightsource is outside, >=0: number of the first lightsource which is inside)
 			int getNumberOfLightSources() const { return static_cast<int>(LS.size()); } ///< returns the number of light sources in the scene
@@ -89,10 +94,11 @@ namespace GOAT
 			int getNumberOfDetectors() const; ///< returns the number of detectors in the scene
 			int getNumberOfThreads() const { return numThreads; } ///< returns the number of threads used for parallelization (if OpenMP is used)
 			int getNumReflex() const { return nReflex; } ///< returns the number of reflections per ray considered in the raytracing
+			NFUNCTYPE getnFuncType() { return nStype; }
 			std::vector<ObjectShape*> getObjects() { return Obj; } ///< returns the list of all objects in the scene
 			std::vector<LightSrc*> getLightSources() { return LS; } ///< returns the list of all light sources in the scene
 			std::vector< Detector*> getDetectors() { return Det; } ///< returns the list of all detectors in the scene
-
+			std::complex<double> n() { return this->nS; }
 			std::vector<ObjectShape*> Obj; ///< List of all objects within the scene
 			std::vector<LightSrc*> LS; ///< List of all light sources 
 #ifdef WITH_OPENMP
@@ -113,6 +119,8 @@ namespace GOAT
 			INDEX_TYPE NumCellsPerDir = 1; ///< Number of cells per direction, used e.g. in raytrace_Inel for the virtual space grid
 			INDEX_TYPE getNumberOfCellsPerDirection() const { return NumCellsPerDir; }
 			int numThreads = 1; ///< number of threads used for parallelization (if OpenMP is used)
+			std::function<std::complex<double>(double)> nSfunc; 
+			NFUNCTYPE nStype = NFUNCTYPE::constant;
 		};
 
 

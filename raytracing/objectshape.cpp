@@ -31,6 +31,20 @@ namespace GOAT
             return NFUNCTYPE::none;
         }
 
+        std::function <std::complex<double>(double)>  getNFuncfromEnum(NFUNCTYPE ntype)
+        {
+            switch (ntype)
+            {
+            case raytracing::NFUNCTYPE::air: return n_Air;
+            case raytracing::NFUNCTYPE::bk7: return n_BK7;
+            case raytracing::NFUNCTYPE::lasf5: return n_LASF55;
+            case raytracing::NFUNCTYPE::pmma: return n_PMMA; 
+            case raytracing::NFUNCTYPE::silica: return n_fused_silica;
+            case raytracing::NFUNCTYPE::vacuum: 
+            default: return n_Vacuum;
+            }
+        }
+
         ObjectShape::ObjectShape() {
             r0 = 1.0;
             H = maths::unity();
@@ -315,15 +329,7 @@ namespace GOAT
         void ObjectShape::setNfuncType(NFUNCTYPE nfuncType)  
         {
             this->nfuncType = nfuncType;
-            switch (nfuncType)
-            {
-                case raytracing::NFUNCTYPE::vacuum: setNfunc(n_Vacuum, nfuncType); break;
-                case raytracing::NFUNCTYPE::air: setNfunc(n_Air, nfuncType); break;
-                case raytracing::NFUNCTYPE::bk7 : setNfunc(n_BK7, nfuncType); break;
-                case raytracing::NFUNCTYPE::lasf5: setNfunc(n_LASF55, nfuncType); break;
-                case raytracing::NFUNCTYPE::pmma: setNfunc(n_PMMA, nfuncType); break;
-                case raytracing::NFUNCTYPE::silica: setNfunc(n_fused_silica, nfuncType); break;
-            }
+            setNfunc(getNFuncfromEnum(nfuncType), nfuncType);
         }
 
         bool intersectionTest(ObjectShape& A, ObjectShape& B)

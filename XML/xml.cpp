@@ -23,6 +23,7 @@
 #include <locale>
 #include <cmath>
 #include "raytrace_parallel.h"
+#include "objectshape.h"
 
 #define tl(s) GOAT::maths::tl(s)	
 
@@ -164,6 +165,17 @@ namespace GOAT
 					double im = ell->DoubleAttribute("imag", 0.0);
 					S.setnS(std::complex<double>(re, im));
 				}
+
+                auto nSfuncStr = sceneElement->Attribute("nSfunc");
+                raytracing::NFUNCTYPE nSfuncType;
+                if (nSfuncStr == nullptr) nSfuncType = raytracing::NFUNCTYPE::constant;
+                else nSfuncType = raytracing::getEnumfromName(nSfuncStr);
+                if (nSfuncType == raytracing::NFUNCTYPE::constant)
+                {
+                    S.setNFunc(raytracing::n_Constant(S.n()));
+                }
+                else
+                    S.setNFunc(getNFuncfromEnum(nSfuncType));
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
                 S.setNumberOfCellsPerDirection(iv);
@@ -640,6 +652,7 @@ namespace GOAT
 					isActive = objEll->BoolAttribute("isactive", false);
 					isRough = objEll->BoolAttribute("isrough", false);
                     nfunctype = raytracing::getEnumfromName(objEll->Attribute("nfuncname"));
+
                     auto text=objEll->Attribute("ID");
                     if (text == nullptr) ID = "new_Object";
                     else ID = text;
@@ -1365,14 +1378,15 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 std::vector< std::function< std::complex< double >(double) > > nList;
                 std::string refFuncName;
                 bool failed = false;
-
-                tinyxml2::XMLElement* refEll = objEll->FirstChildElement("RefractiveIndexList");
-                if (refEll == NULL)
+                
+                
+                    // = objEll->FirstChildElement("RefractiveIndexList");
+                /*if (refEll == NULL)
                 {
                     std::cerr << "Pulse calculation: Refractive index function list is missing! Stopped calculation" << std::endl;
                     return;
                 }
-
+                
                 std::string refStr;
                 int refIndexToken;
                 for (int i=0; (i<S.getNumberOfObjects()) && (!failed); i++)
@@ -1397,16 +1411,20 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                         addFunction2IndexList(nList, refIndexToken);
                     }
                 }
+                */
 
+                
                 if (failed) return;
 
+                
+                auto nStr = objEll->Attribute("nS","vacuum");
 
-                hStr = refEll->Attribute("nS");
-                if (hStr == NULL)
+               /* if (hStr = = NULL)
                 {
                     std::cerr << "Pulse calculation: Refractive index function for surrounding medium is missing! Stopped calculation" << std::endl;
                     failed = true;
                 }
+                
                 if (failed) return;
                 refStr = hStr;
                 refIndexToken = mapString2RefractiveIndexToken(refStr);
@@ -1417,7 +1435,16 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 }
 
                 if (failed) return;
-                addFunction2IndexList(nList, refIndexToken);
+
+
+                addFunction2IndexList(nList, refIndexToken);*/
+
+                for (int i = 0; i < S.getNumberOfObjects(); i++)
+                {
+                    nList.push_back(S.Obj[i]->nFunc());
+                }
+
+                nList.push_back(S.getNFunc());
                 pc.setRefractiveIndexFunctions(nList);
 
                 double time = objEll->DoubleAttribute("time", -1);
@@ -1677,6 +1704,8 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           scene->SetAttribute("nCellsPerDir", static_cast<int64_t> (S.getNumberOfCellsPerDirection()));
 		  scene->SetAttribute("nReflex", S.getNumReflex());
 		  scene->InsertEndChild(addComplex2DOM(doc, "nS", S.nS));
+          std::string str(raytracing::NFUNCTYPE_NAME[static_cast<int>(S.getnFuncType())]);
+          scene->SetAttribute("nSfunc", str.c_str());
 		  scene->SetAttribute("nThreads", S.getNumberOfThreads());
           root->InsertEndChild(scene);
           if (S.getNumberOfLightSources() > 0)
@@ -1729,9 +1758,15 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             switch (type)
             {
               case raytracing::LIGHTSRC_SRCTYPE_PLANE:
+              {
+                  raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
+                  lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());
+                  break;
+              }
               case raytracing::LIGHTSRC_SRCTYPE_PLANE_MC:
                   {
-                  raytracing::LightSrcPlane* ls = (raytracing::LightSrcPlane*)S.LS[i];
+                  auto ls = (raytracing::LightSrcPlane_mc*)S.LS[i];
                    lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
                    lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());                   
                   }
@@ -1739,12 +1774,16 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
 
               case raytracing::LIGHTSRC_SRCTYPE_GAUSS:
               {
-                  raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
+                  auto ls = (raytracing::LightSrcGauss*)S.LS[i];
                   lightSrc->InsertEndChild(addVectorD2DOM(doc, "FocusPosition", ls->getFocuspos()));
+                  lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());
+                  lightSrc->SetAttribute("w0", formatDouble(ls->w0).c_str());
+                  break;
               }
               case raytracing::LIGHTSRC_SRCTYPE_GAUSS_MC:
               {
-                  raytracing::LightSrcGauss* ls = (raytracing::LightSrcGauss*)S.LS[i];
+                  auto ls = (raytracing::LightSrcGauss_mc*)S.LS[i];
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "FocusPosition", ls->getFocuspos()));
                   lightSrc->SetAttribute("size", formatDouble(ls->D).c_str());
                   lightSrc->SetAttribute("w0", formatDouble(ls->w0).c_str());
               }
@@ -1755,20 +1794,33 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
               {
                   auto lsp = (raytracing::LightSrcPoint_mc*)S.LS[i];
                   lightSrc->SetAttribute("thetaMax", formatDouble(lsp->getThetamax()).c_str());
+                  break;
               }
 
               case raytracing::LIGHTSRC_SRCTYPE_RING_GAUSS_MC:
               {
-                  auto lsg = (raytracing::LightSrcRingGauss_mc*)S.LS[i];
-                  lightSrc->SetAttribute("FWHM", formatDouble(lsg->getFWHM()).c_str());
-              }
-              case raytracing::LIGHTSRC_SRCTYPE_RING :
-              case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
-              {
-                  raytracing::LightSrcRing* ls = (raytracing::LightSrcRing*)S.LS[i];
+                  auto ls = (raytracing::LightSrcRingGauss_mc*)S.LS[i];
+                  lightSrc->SetAttribute("FWHM", formatDouble(ls->getFWHM()).c_str());
                   lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
                   lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
                   lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
+                  break;
+              }
+              case raytracing::LIGHTSRC_SRCTYPE_RING:
+              {
+                  auto ls = (raytracing::LightSrcRing*)S.LS[i];
+                  lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
+                  lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
+                  break;
+              }
+              case raytracing::LIGHTSRC_SRCTYPE_RING_MC:
+              {
+                  auto ls = (raytracing::LightSrcRing_mc*)S.LS[i];
+                  lightSrc->SetAttribute("rmin", formatDouble(ls->getRmin()).c_str());
+                  lightSrc->SetAttribute("rmax", formatDouble(ls->getRmax()).c_str());
+                  lightSrc->InsertEndChild(addVectorD2DOM(doc, "Direction", ls->getk()));
+                  break;
               }
             }
             

@@ -741,6 +741,12 @@ namespace GOAT
 			this->raytype = raytype;
 		}
 
+		void Scene::setNFunc(NFUNCTYPE nfunctype)
+		{
+			if (nfunctype == NFUNCTYPE::constant) setNFunc(n_Constant(nS));
+			else setNFunc(getNFuncfromEnum(nfunctype));
+		}
+
 		void Scene::resetLS()
 		{
 			int nLS = getNumberOfLightSources();

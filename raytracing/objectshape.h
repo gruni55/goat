@@ -23,6 +23,7 @@
 #include <fstream>
 #include <array>
 #include <string_view>
+#include <functional>
 // #include <time.h>
 namespace GOAT {
     namespace raytracing {
@@ -55,12 +56,13 @@ namespace GOAT {
 #define BOX         3
 #define EPS 1E-10*r0
 
-        enum class NFUNCTYPE { vacuum, air, bk7, silica, lasf5, pmma, none };
-         inline constexpr std::array<std::string_view,7> NFUNCTYPE_NAME = { "vacuum", "air", "bk7", "silica", "lasf5", "pmma","none"};
+        enum class NFUNCTYPE { vacuum, air, bk7, silica, lasf5, pmma, none, constant };
+         inline constexpr std::array<std::string_view,9> NFUNCTYPE_NAME = { "vacuum", "air", "bk7", "silica", "lasf5", "pmma","none","constant"};
 
          NFUNCTYPE getEnumfromName(std::string ftname); 
-
-        /**
+         std::function <std::complex<double>(double)>  getNFuncfromEnum(NFUNCTYPE ntype);
+         
+         /**
         * @brief Abstract base class for all volume objects
         * This abstract class provides a template for all volume objects. The refractive index is complex to be able to consider absorption.
         */

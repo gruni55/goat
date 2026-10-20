@@ -1,5 +1,6 @@
 #pragma once
 #include <complex>
+#include <functional>
 namespace GOAT
 {
 	namespace raytracing
@@ -73,6 +74,12 @@ namespace GOAT
 			if (fabs(wvl-1.0)<0.001) return 1.5;
 			return 1.4;      
 		}
+
+		std::function<std::complex<double>(double)>
+			n_Constant(std::complex<double> n)
+		{
+			return [n](double) { return n; };
+		} 
 
 	}
 }

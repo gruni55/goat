@@ -1,6 +1,7 @@
 #pragma once
 #include <complex>
 #include  <unordered_map>
+#include <functional>
 namespace GOAT
 {
 	namespace raytracing
@@ -61,6 +62,13 @@ namespace GOAT
 		*/
 
 		std::complex<double> n_ABS(double wvl);
+
+
+		/*
+		* @brief refractive index function with lambda function for constant refractive index
+		*/
+		std::function<std::complex<double>(double)>
+			n_Constant(std::complex<double> n);
 
 		std::complex<double> n_test (double wvl);
 

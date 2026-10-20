@@ -529,11 +529,11 @@ namespace GOAT
 
 		}
               
-                void LightSrcRing_mc::setRmin(double rmin)
-                {
-                 if (rmin<rmax) this->rmin=rmin;
-				
-                } 
+        void LightSrcRing_mc::setRmin(double rmin)
+        {
+			if (rmin < rmax) this->rmin = rmin;
+			else rmin = rmax;
+		} 
 
         void LightSrcRing_mc::setRmax(double rmax)
 		{
