@@ -141,11 +141,11 @@ namespace GOAT
             double getRmax () { return rmax; }
             void setRmin(double rmin);
             void setRmax(double rmax); 
+            void reset(); ///< sets the internal ray counter to zero (intended for internal use only)
          private:
             double rmin = 0.0; ///< inner radius of the ring
             double rmax = 1.0; ///< outer radius of the ring
-            GOAT::maths::Vector<double> genStartingPos();
-            void reset(); ///< sets the internal ray counter to zero (intended for internal use only)
+            GOAT::maths::Vector<double> genStartingPos();            
 			void initRandomGenerator();
         };       
 

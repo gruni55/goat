@@ -488,6 +488,7 @@ namespace  GOAT
 			D = 2.0 * rmax / (double)N;
 			density = 2.0 * rmax / ((double)N);
 			std::cout << "[LightSrcRing::reset] D=" << D << "\tdensity=" << density << "\tN=" << N << std::endl;
+			std::cout << "rmax=" << rmax << "\trmin=" << rmin << std::endl;
 		}
 
 		int LightSrcRing::next(RayBase* ray)
@@ -648,7 +649,7 @@ namespace  GOAT
 			{
 			 case LIGHTSRC_SRCTYPE_PLANE_MC: ((LightSrcPlane_mc*)this)->reset(); break;
 			 case LIGHTSRC_SRCTYPE_GAUSS_MC: ((LightSrcGauss_mc*)this)->reset(); break;
-			 case LIGHTSRC_SRCTYPE_RING_MC:
+			 case LIGHTSRC_SRCTYPE_RING_MC: ((LightSrcRing_mc*)this)->reset(); break;
 			 case LIGHTSRC_SRCTYPE_RING: ((LightSrcRing*)this)->reset(); break;
 
 			}

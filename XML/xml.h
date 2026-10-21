@@ -20,6 +20,7 @@
 #include <atomic>
 #include <memory>
 #include "fft.h"
+#include "pulsecalculation_rt.h"
 namespace GOAT
 {
 	namespace XML
@@ -143,6 +144,7 @@ namespace GOAT
 				bool isCalculationEnabled() {return calculation_enabled;}
 				bool readRequest(std::string &request);
 				void setStopFlag(std::shared_ptr<std::atomic<bool>> flag); ///< set a stop flag, which can be used to stop the calculation
+				GOAT::raytracing::pulseCalculation_rt* getPulsedResult() { return pc; }
 
 			private:				
                 void readScene(); ///< read the entire Scene
@@ -156,6 +158,7 @@ namespace GOAT
 				void doWaveOnly(); ///< (used in doCalculations) to wave only Calculation. Calculation of the reconstructed wave field (Kirchhoff or Angular Spectrum) from the corresponding detectors without raytracing
                 void doPulseCalculation(tinyxml2::XMLElement* objEll); ///< (used in doCalculations) to pulsed Calculation (rt + integral)
 				void doPulseCalculation_rt(tinyxml2::XMLElement* objEll); ///< do pulse Calculation with raytracing only
+			
 				/**
 				 * @brief read double vector from file
 				 * This method reads a 3D-Vector from the XML-file represented by the corresponding XMLElement 
@@ -219,6 +222,7 @@ namespace GOAT
 				bool calculation_enabled=true; 
 				std::shared_ptr<std::atomic<bool>> stopFlag =
 					std::make_shared<std::atomic<bool>>(false); ///< pointer to a stop flag, which can be used to stop the calculation
+				GOAT::raytracing::pulseCalculation_rt* pc = nullptr;
 		};
 
 

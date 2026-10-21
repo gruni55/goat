@@ -171,11 +171,11 @@ namespace GOAT
                 if (nSfuncStr == nullptr) nSfuncType = raytracing::NFUNCTYPE::constant;
                 else nSfuncType = raytracing::getEnumfromName(nSfuncStr);
                 if (nSfuncType == raytracing::NFUNCTYPE::constant)
-                {
-                    S.setNFunc(raytracing::n_Constant(S.n()));
-                }
-                else
-                    S.setNFunc(getNFuncfromEnum(nSfuncType));
+                    {
+                         S.setNFunc(raytracing::n_Constant(S.n()));
+                    }
+                    else
+                        S.setNFunc(getNFuncfromEnum(nSfuncType));
 
                 iv = sceneElement->IntAttribute("nCellsPerDir", 1000);
                 S.setNumberOfCellsPerDirection(iv);
@@ -1357,21 +1357,26 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
             if (!fname.empty())
             {
                 int numLoops = objEll->IntAttribute("numLoops", -1);
-                GOAT::raytracing::pulseCalculation_rt pc(S);
+                // GOAT::raytracing::pulseCalculation_rt pc(S);
+                if (pc != nullptr) delete pc;
+                pc=new GOAT::raytracing::pulseCalculation_rt (S);
                 GOAT::raytracing::TrafoParms trafoparms;
                 //trafoparms = pc.getTrafoParms();
-                pc.setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
-                pc.setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
-                pc.setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
-                pc.setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
-                pc.setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
+                pc->setCenterWavelength(objEll->DoubleAttribute("wavelength", trafoparms.wvl));
+                pc->setNumReflex(objEll->IntAttribute("numReflex", trafoparms.nR));
+                pc->setNumWavelengthsPerRange(objEll->IntAttribute("numWavelengthsPerRange", trafoparms.nS));
+                pc->setPulseWidth(objEll->DoubleAttribute("pulseWidth",trafoparms.dt));
+                pc->setSpectralRanges(objEll->IntAttribute("numSpectralRanges", trafoparms.nI));
+
 			    //pc.setReferenceTime(objEll->IntAttribute("Reference_time", pc.getReferenceTime()));
                 // pc.setNumberOfThreads(objEll->IntAttribute("NumberOfThreads",pc.getNumberOfThreads()));
+                
                 double repRate = objEll->DoubleAttribute("repetitionRate", -1);
-                if (repRate > 0) pc.setRepetitionRate(repRate);
-                double dx = 2.0 * S.r0 / (double)pc.getNumCellsPerDirection();
-				
-                pc.setSpatialResolution(objEll->DoubleAttribute("spatialResolution", dx));
+                if (repRate > 0) pc->setRepetitionRate(repRate);
+                double dx = 2.0 * S.r0 / (double)S.getNumberOfCellsPerDirection();
+                double sdx = objEll->DoubleAttribute("spatialResolution", dx);
+                if (sdx <= 0) sdx = dx;
+                pc->setSpatialResolution(sdx);
                                     
                 double D=objEll->DoubleAttribute("D",-1.0);
                 char cs[3];
@@ -1445,7 +1450,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                 }
 
                 nList.push_back(S.getNFunc());
-                pc.setRefractiveIndexFunctions(nList);
+                pc->setRefractiveIndexFunctions(nList);
 
                 double time = objEll->DoubleAttribute("time", -1);
 				std::cout << "time:" << time << std::endl;
@@ -1476,7 +1481,7 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                     do
                     {
                 //      d=pc.field(time,GOAT::raytracing::PULSECALCULATION_NOT_CLEAR_RESULT);								      
-						pc.field(time);
+						pc->field(time);
 				
                       for (int i = 0; i < S.getNumberOfObjects(); i++)
                       {
@@ -1485,9 +1490,9 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
                             fullfname = fname + std::to_string(i) + ".dat";
                        //     GOAT::raytracing::saveFullE(pc.trafo.SAres, fullfname, i);
 							
-		        	 GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
+		        	 /*GOAT::raytracing::saveFullE(pc.rt.SA[0], fullfname, i);
 					
-					           d=sumabs2(pc.rt.SA[0],i);
+					           d=sumabs2(pc.rt.SA[0],i);*/
                         }
                       }
                       if (hStr != NULL) corrOS << d << std::endl;
