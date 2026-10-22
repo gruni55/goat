@@ -70,3 +70,11 @@ namespace GOAT {
 
     } // namespace storage
 } // namespace GOAT
+
+std::ostream& GOAT::raytracing::operator<<(std::ostream& os, pulseParameters &pp)
+{
+    os << "pulseParameters: pulseWidth=" << pp.pulseWidth << "\tspatialResolution=" << pp.spatialResolution << "\twavelength=" << pp.wvl << std::endl;
+    os << "numReflex=" << pp.numReflex << "\tnumRays=" << pp.numRays << "\tnumModes=" << pp.numModes << std::endl;
+    os << "pulseWidth=" << pp.pulseWidth << "\trepRate=" << pp.repRate << "\tspectralRanges=" << pp.spectralRanges << std::endl;
+    return os;
+ }

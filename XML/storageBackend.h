@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include "superarray.h"
+#include <iostream>
 
 
 namespace GOAT {
@@ -22,6 +23,8 @@ namespace GOAT {
             int numModes = 250;
 			int threads = 1;
         };
+
+        std::ostream& operator << (std::ostream&, pulseParameters &pp);
     }
 
     
