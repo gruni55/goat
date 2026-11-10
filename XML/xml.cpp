@@ -455,13 +455,14 @@ namespace GOAT
                     numRaysRT = lsEll->IntAttribute("numRaysRT", 10);
 					wavelength = lsEll->DoubleAttribute("wavelength", 1.0);
                   size = lsEll->DoubleAttribute("size", 10.0);
-                 
-					Pold=readVector(lsEll->FirstChildElement("Polarisation"),1,0,0);
-                 
+				  auto polEll = lsEll->FirstChildElement("Polarisation");
+                  int xmlError;
+					Pol=readCmplxVector(polEll,xmlError);
+                    
                     power = lsEll->DoubleAttribute("power", 1.0);
-                    Pol[0]=Pold[0];
+                    /*Pol[0] = Pold[0];
                     Pol[1]=Pold[1];
-                    Pol[2]=Pold[2];
+                    Pol[2]=Pold[2];*/
 					int type = mapString2LightSourceToken(typeStr);
                     
 
@@ -1588,9 +1589,12 @@ void xmlReader::doPulseCalculation(tinyxml2::XMLElement* objEll)
           int errorX, errorY, errorZ;
           if (ell != NULL)
           {
-              x=readCmplx(ell,errorX);
-              y=readCmplx(ell,errorY);
-              z=readCmplx(ell,errorZ);
+			  auto xEll = ell->FirstChildElement("x");
+              x=readCmplx(xEll,errorX);
+              auto yEll = ell->FirstChildElement("y");
+              y=readCmplx(yEll,errorY);
+              auto zEll = ell->FirstChildElement("z");
+              z=readCmplx(zEll ,errorZ);
               xmlError = errorX | errorY | errorZ;
           }
           return GOAT::maths::Vector<std::complex<double> > (x,y,z);
